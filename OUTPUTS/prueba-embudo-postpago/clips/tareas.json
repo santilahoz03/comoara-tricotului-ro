@@ -1,0 +1,8 @@
+{
+  "OUTPUTS/prueba-embudo-postpago/prueba-10s.mp3": {
+    "ok": true,
+    "segundos_proceso": 157,
+    "url": "https://dreamapi-rs-aigc.newportai.com/dreamapi/o/2026-10-03/5830dffa2d094b2e841d75db03946cf5.mp4",
+    "error": null
+  }
+}

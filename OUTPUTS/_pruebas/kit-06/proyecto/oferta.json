@@ -1,0 +1,86 @@
+{
+  "producto": "Oferta de Prueba",
+  "slug": "oferta-de-prueba",
+  "titulo_completo": "Oferta de Prueba: Guía y Calculadora",
+  "idioma": "es",
+  "registro": "neutro",
+  "mercado": "",
+  "precio": "",
+  "precio_tachado": "",
+  "ahorro": "",
+  "tienda": "ImpulTienda",
+  "subdominio": "",
+  "subdominio_estado": "pendiente",
+  "landing_publicada": "",
+  "dominio_entregables": "",
+  "paleta": {
+    "bg": "#fdf8f4",
+    "paper": "#ffffff",
+    "ink": "#222222",
+    "ink_soft": "#efddd1",
+    "accent": "#1f7a4d",
+    "accent_dark": "#165737",
+    "line": "#ffffff"
+  },
+  "fuentes": {
+    "titulo": "Playfair Display",
+    "texto": "Inter"
+  },
+  "hub": {
+    "carpeta": "acceso",
+    "random": "nozprsogou",
+    "titulo": "Oferta de Prueba",
+    "subtitulo": "Tus materiales de prueba",
+    "stats": [
+      "1 guía",
+      "1 herramienta",
+      "1 extra"
+    ],
+    "pasos": [
+      "Descargá la guía",
+      "Probá la calculadora",
+      "Aplicalo hoy"
+    ]
+  },
+  "entregables": [
+    {
+      "id": "bono-guia-de-prueba",
+      "tipo": "bono",
+      "nombre": "Guía de Prueba",
+      "descripcion": "Entregable de prueba",
+      "carpeta": "guia-de-prueba",
+      "random": "87zvshrrw5",
+      "en_hub": true,
+      "pdf": "guia-de-prueba.pdf",
+      "fuente": "pdf-sources/guia-de-prueba.html",
+      "paginas": 5,
+      "orden": "1/1"
+    },
+    {
+      "id": "app-calculadora-de-prueba",
+      "tipo": "app",
+      "nombre": "Calculadora de Prueba",
+      "descripcion": "Entregable de prueba",
+      "carpeta": "calculadora-de-prueba",
+      "random": "ad6iglzcza",
+      "en_hub": true
+    },
+    {
+      "id": "oto-extra-de-prueba",
+      "tipo": "oto",
+      "nombre": "Extra de Prueba",
+      "descripcion": "Entregable de prueba",
+      "carpeta": "extra-de-prueba",
+      "random": "5mp2ai56ye",
+      "en_hub": false,
+      "pdf": "extra-de-prueba.pdf",
+      "fuente": "pdf-sources/extra-de-prueba.html",
+      "paginas": 4
+    }
+  ],
+  "promesas": [],
+  "imagenes": [],
+  "ads_dir": "",
+  "lanzamiento": "pendiente",
+  "checklist": []
+}

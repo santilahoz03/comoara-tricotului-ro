@@ -1,0 +1,2 @@
+id,fecha_pauta,conjunto,numero,concepto,origen,nivel_conciencia,formato,idioma,parent,batch,archivo_mp4,audio,guion,link_original,costo_usd,estado,notas
+EJEMPLO-01,2026-10-01,Tanda 1,1,Ingreso extra en ferias,[replicado],2,replica,es,,2026-10-01-tanda1,ADS/PRODUCTO/2026-10-01/1.mp4,work/slug/voz_final.wav,work/slug/guion.txt,https://www.facebook.com/ads/library/?id=ID,0.10,activo,borrar esta fila de ejemplo

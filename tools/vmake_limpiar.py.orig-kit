@@ -1,0 +1,101 @@
+#!/usr/bin/env python3
+"""Limpia un video ajeno con Vmake (tarea `videoscreenclear`): devuelve el video sin subtítulos,
+popups, cartel final ni marcas de agua, con el fondo reconstruido. ~2 min por cada 50 s de video.
+
+Requisitos:
+  1. SDK oficial de Python de Vmake descomprimido en tools/vmake/ (tiene que existir tools/vmake/sdk/).
+     Se descarga desde el panel de desarrolladores de Vmake (vmake.ai/developers).
+  2. En .env: VMAKE_AK=... y VMAKE_SK=... (el par Access Key / Secret Key del panel).
+
+Uso:
+  python3 tools/vmake_limpiar.py work/<slug>/original.mp4 work/<slug>/clean.mp4
+  python3 tools/vmake_limpiar.py --probar      (solo verifica claves y SDK, no gasta)
+
+GUARDÁ SIEMPRE el clean.mp4: es tu biblioteca de B-roll para iterar sin volver a pagar.
+Antes de lotes de más de 5 videos, mirá el saldo en el panel de Vmake.
+
+REGLA DURA: este script usa SOLO la tarea `videoscreenclear` (en el export de órdenes del panel figura como
+Permission Type "Remover"). No se cambia por otra tarea de Vmake (enhancer `hdvideoallinone`, upscale, etc.:
+esas SÍ consumen créditos) ni se reemplaza por la web de Vmake. Si falla, se para y se muestra el error textual.
+"""
+import json
+import os
+import sys
+import urllib.request
+from pathlib import Path
+
+from cargar_env import clave
+
+AQUI = Path(__file__).resolve().parent
+
+
+def carpeta_sdk():
+    """tools/vmake/sdk/ es lo esperado. En Windows «Extraer todo» suele crear una subcarpeta con el nombre del
+    .zip (tools/vmake/<zip>/sdk/ o hasta tools/vmake/<zip>/<zip>/sdk/): también la aceptamos."""
+    base = AQUI / "vmake"
+    if (base / "sdk").is_dir():
+        return base
+    for patron in ("*/sdk", "*/*/sdk"):
+        for sdk in sorted(base.glob(patron)):
+            if sdk.is_dir():
+                return sdk.parent
+    return None
+
+
+def cliente():
+    os.environ["MT_AK"] = clave("VMAKE_AK")
+    os.environ["MT_SK"] = clave("VMAKE_SK")
+    raiz = carpeta_sdk()
+    if raiz is None:
+        sys.exit("No encuentro el SDK de Vmake en tools/vmake/sdk/. Descargalo del panel de desarrolladores "
+                 "de Vmake y descomprimilo en tools/vmake/ (Windows: clic derecho en el .zip -> Extraer todo -> "
+                 "elegí la carpeta tools\\vmake). Tiene que existir tools/vmake/sdk/.")
+    sys.path.insert(0, str(raiz))
+    try:
+        from sdk import SkillClient
+    except ImportError as e:
+        sys.exit(f"El SDK de Vmake está, pero a Python le falta una librería ({e}). "
+                 "Corré: python3 -m pip install -r tools/requirements.txt (Windows: python -m pip install -r tools/requirements.txt)")
+    try:
+        return SkillClient()          # se conecta a Vmake y valida las claves (no ejecuta ninguna tarea)
+    except Exception as e:
+        sys.exit(f"Vmake no aceptó la conexión (claves VMAKE_AK/VMAKE_SK o red). Error textual: {e}")
+
+
+def urls(obj, solo_mp4=True):
+    """Busca URLs en cualquier parte de la respuesta."""
+    if isinstance(obj, str):
+        ok = obj.startswith("http") and (not solo_mp4 or ".mp4" in obj.lower())
+        return [obj] if ok else []
+    if isinstance(obj, dict):
+        return [u for v in obj.values() for u in urls(v, solo_mp4)]
+    if isinstance(obj, list):
+        return [u for v in obj for u in urls(v, solo_mp4)]
+    return []
+
+
+def main():
+    if len(sys.argv) == 2 and sys.argv[1] == "--probar":
+        c = cliente()
+        print("SDK y claves OK: Vmake aceptó la conexión (no se ejecutó ninguna tarea).")
+        return
+    if len(sys.argv) < 3:
+        sys.exit(__doc__)
+    entrada, salida = sys.argv[1], sys.argv[2]
+    c = cliente()
+    print("Subiendo a Vmake y esperando el resultado (puede tardar unos minutos)...")
+    try:
+        res = c.run_task(task_name="videoscreenclear", image_path=entrada, params={})   # NO cambiar la tarea
+    except Exception as e:
+        sys.exit(f"Vmake falló: {e}\nNo pruebes otra tarea de Vmake ni la web: pasale este error tal cual al mentor.")
+    encontradas = urls(res.get("output_urls"), solo_mp4=False) or urls(res)
+    if not encontradas:
+        print(json.dumps(res, indent=2, ensure_ascii=False)[:2000])
+        sys.exit("Vmake no devolvió un video. Mirá la respuesta de arriba (cuota, formato o error).")
+    Path(salida).parent.mkdir(parents=True, exist_ok=True)
+    urllib.request.urlretrieve(encontradas[0], salida)
+    print(f"Listo: {salida} ({Path(salida).stat().st_size // 1024} KB)")
+
+
+if __name__ == "__main__":
+    main()

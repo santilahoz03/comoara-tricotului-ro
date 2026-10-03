@@ -1,0 +1,4 @@
+.env
+*.env
+ai-ebook/paginas/
+__pycache__/
