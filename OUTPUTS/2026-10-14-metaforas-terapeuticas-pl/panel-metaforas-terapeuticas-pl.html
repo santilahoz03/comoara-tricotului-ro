@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Panel · Metafory Terapeutyczne PL</title>
+<style>
+  :root {
+    --bg: #0f0f13;
+    --card: #1a1a24;
+    --border: #2d2d40;
+    --accent: #8B5CF6;
+    --accent2: #C9A84C;
+    --text: #e8e8f0;
+    --muted: #888;
+    --ok: #22c55e;
+    --warn: #f59e0b;
+    --err: #ef4444;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 14px; line-height: 1.6; padding: 24px 16px; }
+  h1 { font-size: 1.5rem; font-weight: 700; margin-bottom: 4px; }
+  .meta { color: var(--muted); font-size: 0.85rem; margin-bottom: 32px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 16px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; }
+  .card-title { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: .08em; color: var(--accent); margin-bottom: 14px; }
+  table { width: 100%; border-collapse: collapse; }
+  td { padding: 6px 4px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  td:first-child { color: var(--muted); white-space: nowrap; padding-right: 12px; font-size: 0.82rem; }
+  td:last-child { font-weight: 500; word-break: break-all; }
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; }
+  .badge-ok { background: rgba(34,197,94,.15); color: var(--ok); }
+  .badge-warn { background: rgba(245,158,11,.15); color: var(--warn); }
+  .badge-pending { background: rgba(139,92,246,.15); color: var(--accent); }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .url-block { background: #0a0a12; border: 1px solid var(--border); border-radius: 6px; padding: 8px 12px; font-size: 0.8rem; font-family: monospace; word-break: break-all; color: #a5b4fc; margin: 4px 0; }
+  .swatch { display: inline-block; width: 14px; height: 14px; border-radius: 3px; vertical-align: middle; margin-right: 6px; }
+  .section-title { font-size: 1rem; font-weight: 600; margin: 28px 0 12px; padding-left: 4px; border-left: 3px solid var(--accent); padding-left: 10px; }
+  .img-preview { width: 100%; border-radius: 8px; border: 1px solid var(--border); margin-top: 10px; }
+  .paso { background: rgba(139,92,246,.08); border: 1px solid rgba(139,92,246,.25); border-radius: 8px; padding: 14px 16px; margin: 8px 0; }
+  .paso-num { font-weight: 700; color: var(--accent); margin-right: 6px; }
+  pre { background: #0a0a12; border-radius: 6px; padding: 10px; font-size: 0.78rem; overflow-x: auto; color: #a5b4fc; border: 1px solid var(--border); }
+  .nota { background: rgba(201,168,76,.08); border: 1px solid rgba(201,168,76,.2); border-radius: 8px; padding: 10px 14px; color: #d4b96e; font-size: 0.85rem; margin: 8px 0; }
+</style>
+</head>
+<body>
+
+<h1>🟣 Panel · Metafory Terapeutyczne PL</h1>
+<p class="meta">Generado 2026-10-14 · Mercado: Polonia · EUR · Modo: Manual (configurar en ImpulTienda)</p>
+
+<div class="section-title">Estado de la oferta</div>
+<div class="grid">
+  <div class="card">
+    <div class="card-title">Estado por fase</div>
+    <table>
+      <tr><td>Landing</td><td><span class="badge badge-ok">✅ Lista</span></td></tr>
+      <tr><td>Imágenes editadas</td><td><span class="badge badge-ok">✅ 5 imágenes PL en catbox</span></td></tr>
+      <tr><td>Mockup hero 3:2</td><td><span class="badge badge-ok">✅ Listo en catbox</span></td></tr>
+      <tr><td>Mockup caja 1:1</td><td><span class="badge badge-ok">✅ Listo en catbox</span></td></tr>
+      <tr><td>Fragmento HTML</td><td><span class="badge badge-ok">✅ 81 KB listo</span></td></tr>
+      <tr><td>Tienda ImpulTienda</td><td><span class="badge badge-pending">⏳ Pendiente (manual)</span></td></tr>
+      <tr><td>Entrega GitHub Pages</td><td><span class="badge badge-pending">⏳ Pendiente</span></td></tr>
+      <tr><td>Ads</td><td><span class="badge badge-pending">⏳ Pendiente (Fase 9)</span></td></tr>
+      <tr><td>Entregables PDFs</td><td><span class="badge badge-pending">⏳ Pendiente (Fase 11)</span></td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Datos de la oferta</div>
+    <table>
+      <tr><td>Producto</td><td>1500 Ilustrowanych Metafor Terapeutycznych</td></tr>
+      <tr><td>Título corto (tienda)</td><td><strong>Metafory Terapeutyczne</strong></td></tr>
+      <tr><td>Precio</td><td><strong>EUR 17,99</strong></td></tr>
+      <tr><td>Precio tachado</td><td>EUR 89,00</td></tr>
+      <tr><td>Ahorro</td><td>EUR 71,01</td></tr>
+      <tr><td>Garantía</td><td>7 días</td></tr>
+      <tr><td>Autora ficticia</td><td>Dr. Marta Kowalska</td></tr>
+      <tr><td>Procesador</td><td>Whop (EUR)</td></tr>
+      <tr><td>Métodos locales</td><td>Klarna, Przelewy24, BLIK — ON</td></tr>
+      <tr><td>Botón checkout</td><td>ZAPEWNIJ SOBIE DOSTĘP TERAZ</td></tr>
+    </table>
+  </div>
+</div>
+
+<div class="section-title">Paleta de colores</div>
+<div class="card">
+  <div class="card-title">Colores del checkout ImpulTienda</div>
+  <table>
+    <tr>
+      <td>Botón principal</td>
+      <td><span class="swatch" style="background:#8B5CF6"></span><strong>#8B5CF6</strong> (violeta)</td>
+    </tr>
+    <tr>
+      <td>Cuenta regresiva</td>
+      <td><span class="swatch" style="background:#6B3FA0"></span><strong>#6B3FA0</strong> (púrpura oscuro)</td>
+    </tr>
+    <tr>
+      <td>Badge urgencia</td>
+      <td><span class="swatch" style="background:#8B5CF6"></span><strong>#8B5CF6</strong></td>
+    </tr>
+    <tr>
+      <td>Fondo página</td>
+      <td><span class="swatch" style="background:#FFFFFF; border:1px solid #ddd"></span><strong>#FFFFFF</strong></td>
+    </tr>
+    <tr>
+      <td>Fondo alterno</td>
+      <td><span class="swatch" style="background:#F5F0FF"></span><strong>#F5F0FF</strong></td>
+    </tr>
+    <tr>
+      <td>Texto principal</td>
+      <td><span class="swatch" style="background:#2D2D2D"></span><strong>#2D2D2D</strong></td>
+    </tr>
+    <tr>
+      <td>Acento dorado</td>
+      <td><span class="swatch" style="background:#C9A84C"></span><strong>#C9A84C</strong></td>
+    </tr>
+  </table>
+</div>
+
+<div class="section-title">Imágenes en catbox.moe (permanentes)</div>
+<div class="grid">
+  <div class="card">
+    <div class="card-title">Hero 3:2 — imagen del producto en checkout</div>
+    <div class="url-block">https://files.catbox.moe/0us7oc.png</div>
+    <img src="https://files.catbox.moe/0us7oc.png" class="img-preview" alt="Hero 3:2"/>
+  </div>
+  <div class="card">
+    <div class="card-title">Caja 1:1 — referencia visual (NO va en checkout)</div>
+    <div class="url-block">https://files.catbox.moe/st80x3.png</div>
+    <img src="https://files.catbox.moe/st80x3.png" class="img-preview" alt="Caja 1:1"/>
+  </div>
+  <div class="card">
+    <div class="card-title">Mockup principal landing (editado PL)</div>
+    <div class="url-block">https://files.catbox.moe/r18yxg.png</div>
+  </div>
+  <div class="card">
+    <div class="card-title">Badge Garantía 7 DNI</div>
+    <div class="url-block">https://files.catbox.moe/z61x4o.png</div>
+    <img src="https://files.catbox.moe/z61x4o.png" class="img-preview" style="max-width:120px" alt="7 DNI"/>
+  </div>
+</div>
+
+<div class="section-title">Archivos locales</div>
+<div class="card">
+  <div class="card-title">Rutas en OUTPUTS/</div>
+  <table>
+    <tr><td>Landing completa</td><td><code>OUTPUTS/2026-10-14-metaforas-terapeuticas-pl/landing-metaforas-terapeuticas-pl.html</code></td></tr>
+    <tr><td>Fragmento ImpulTienda</td><td><code>OUTPUTS/2026-10-14-metaforas-terapeuticas-pl/landing-metaforas-terapeuticas-pl-fragmento.html</code></td></tr>
+    <tr><td>Ficha de oferta</td><td><code>OUTPUTS/2026-10-14-metaforas-terapeuticas-pl/ficha-oferta.md</code></td></tr>
+    <tr><td>Hero 3:2</td><td><code>OUTPUTS/2026-10-14-metaforas-terapeuticas-pl/mockups/1-hero-metaforas-terapeuticas-pl.png</code></td></tr>
+    <tr><td>Caja 1:1</td><td><code>OUTPUTS/2026-10-14-metaforas-terapeuticas-pl/mockups/2-caja-metaforas-terapeuticas-pl.png</code></td></tr>
+  </table>
+</div>
+
+<div class="section-title">Pasos para configurar la tienda (manual)</div>
+<div class="paso"><span class="paso-num">1.</span> <strong>Crear nueva tienda</strong> en ImpulTienda → nombre: <code>Metafory Terapeutyczne</code> · idioma: Español (Argentina) · moneda: EUR</div>
+<div class="paso"><span class="paso-num">2.</span> <strong>Crear producto</strong> → título largo: <code>1500 Ilustrowanych Metafor Terapeutycznych · Odblokuj Emocje Pacjentów + 3 Bonusy Gratis</code> · precio: <code>17.99</code> EUR · precio tachado: <code>89.00</code> EUR</div>
+<div class="paso"><span class="paso-num">3.</span> <strong>Pegar fragmento HTML</strong> → abrir <code>landing-metaforas-terapeuticas-pl-fragmento.html</code>, copiar todo y pegarlo en el editor HTML de la landing de la tienda</div>
+<div class="paso"><span class="paso-num">4.</span> <strong>Imagen del producto</strong> → subir o pegar URL del hero 3:2: <code>https://files.catbox.moe/0us7oc.png</code></div>
+<div class="paso"><span class="paso-num">5.</span> <strong>Checkout</strong>:
+  <ul style="margin: 8px 0 0 20px; line-height: 2">
+    <li>Cuenta regresiva: 10 min · color: <code>#6B3FA0</code></li>
+    <li>Botón: <code>ZAPEWNIJ SOBIE DOSTĘP TERAZ</code> · color: <code>#8B5CF6</code></li>
+    <li>Campos: solo Email + Teléfono</li>
+    <li>Métodos locales: Klarna, Przelewy24, BLIK → ON</li>
+    <li>Garantía visible: 7 días</li>
+    <li>Imagen bloque checkout: hero 3:2</li>
+  </ul>
+</div>
+<div class="paso"><span class="paso-num">6.</span> <strong>Página de entrega provisoria</strong> → publicar en GitHub Pages con URL definitiva y cargarla en el producto (se reemplaza el contenido en Fase 12, no la URL)</div>
+<div class="paso"><span class="paso-num">7.</span> <strong>Subdominio</strong> → una sola palabra sin guiones (ej. <code>metafory</code>) apuntando a ImpulTienda</div>
+<div class="paso"><span class="paso-num">8.</span> <strong>Tracking (píxel + API Conversiones + Utmify)</strong> → configurar en Fase 10, cuando elijas la cuenta publicitaria. NO configurar ahora.</div>
+
+<div class="nota">💡 Contacto de soporte de la tienda: <strong>customersupport.santi@gmail.com</strong> (nunca el personal)</div>
+
+<div class="section-title">Costo de producción</div>
+<div class="card">
+  <div class="card-title">Resumen de gasto IA</div>
+  <table>
+    <tr><td>Imágenes editadas (5 × 6 créditos kie.ai)</td><td>30 créditos ≈ USD 0,30</td></tr>
+    <tr><td>Mockups de checkout (2 × 6 créditos kie.ai)</td><td>12 créditos ≈ USD 0,12</td></tr>
+    <tr><td><strong>Total estimado</strong></td><td><strong>≈ USD 0,42</strong></td></tr>
+  </table>
+</div>
+
+</body>
+</html>

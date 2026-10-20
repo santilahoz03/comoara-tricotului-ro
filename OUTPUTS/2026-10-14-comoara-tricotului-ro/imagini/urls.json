@@ -1,0 +1,102 @@
+{
+  "hero": {
+    "local": "/Users/santilahoz/Desktop/Segundo Cerebro/OUTPUTS/2026-10-14-comoara-tricotului-ro/imagini/hero.webp",
+    "catbox": "https://files.catbox.moe/683cm8.webp",
+    "original": "https://aekpgsbqjzqntlbucbts.supabase.co/storage/v1/object/public/store-resources/7c69ad8e-973f-41fa-a2f4-a61b11783186/1791580902799_landing-v15-hero-access-more-than-d9d84c31.webp"
+  },
+  "para-vos": {
+    "local": "/Users/santilahoz/Desktop/Segundo Cerebro/OUTPUTS/2026-10-14-comoara-tricotului-ro/imagini/para-vos.webp",
+    "catbox": "https://files.catbox.moe/8abg5q.webp",
+    "original": "https://aekpgsbqjzqntlbucbts.supabase.co/storage/v1/object/public/store-resources/7c69ad8e-973f-41fa-a2f4-a61b11783186/1791581044030_landing-v16-para-vos-8ebc3436.webp"
+  },
+  "cat-sweaters": {
+    "local": "/Users/santilahoz/Desktop/Segundo Cerebro/OUTPUTS/2026-10-14-comoara-tricotului-ro/imagini/cat-sweaters.webp",
+    "catbox": "https://files.catbox.moe/v87ofw.webp",
+    "original": "https://aekpgsbqjzqntlbucbts.supabase.co/storage/v1/object/public/store-resources/7c69ad8e-973f-41fa-a2f4-a61b11783186/1791546232536_landing-v3-3-categorias-36c9bf04.webp"
+  },
+  "cat-kids": {
+    "local": "/Users/santilahoz/Desktop/Segundo Cerebro/OUTPUTS/2026-10-14-comoara-tricotului-ro/imagini/cat-kids.webp",
+    "catbox": "https://files.catbox.moe/ep8qgg.webp",
+    "original": "https://aekpgsbqjzqntlbucbts.supabase.co/storage/v1/object/public/store-resources/7c69ad8e-973f-41fa-a2f4-a61b11783186/1791546237635_landing-v3-4-ninos-0aa65171.webp"
+  },
+  "cat-home": {
+    "local": "/Users/santilahoz/Desktop/Segundo Cerebro/OUTPUTS/2026-10-14-comoara-tricotului-ro/imagini/cat-home.webp",
+    "catbox": "https://files.catbox.moe/b9j3pk.webp",
+    "original": "https://aekpgsbqjzqntlbucbts.supabase.co/storage/v1/object/public/store-resources/7c69ad8e-973f-41fa-a2f4-a61b11783186/1791546243353_landing-v3-5-hogar-56ab0ae5.webp"
+  },
+  "stitch-library": {
+    "local": "/Users/santilahoz/Desktop/Segundo Cerebro/OUTPUTS/2026-10-14-comoara-tricotului-ro/imagini/stitch-library.webp",
+    "catbox": "https://files.catbox.moe/cii3bh.webp",
+    "original": "https://aekpgsbqjzqntlbucbts.supabase.co/storage/v1/object/public/store-resources/7c69ad8e-973f-41fa-a2f4-a61b11783186/1791547554023_landing-v4-10-puntos-e0050ac0.webp"
+  },
+  "organized": {
+    "local": "/Users/santilahoz/Desktop/Segundo Cerebro/OUTPUTS/2026-10-14-comoara-tricotului-ro/imagini/organized.webp",
+    "catbox": "https://files.catbox.moe/flhe0k.webp",
+    "original": "https://aekpgsbqjzqntlbucbts.supabase.co/storage/v1/object/public/store-resources/7c69ad8e-973f-41fa-a2f4-a61b11783186/1791549101987_landing-v6-16-organizada-4accdbe9.webp"
+  },
+  "product": {
+    "local": "/Users/santilahoz/Desktop/Segundo Cerebro/OUTPUTS/2026-10-14-comoara-tricotului-ro/imagini/product.webp",
+    "catbox": "https://files.catbox.moe/6fsxbz.webp",
+    "original": "https://aekpgsbqjzqntlbucbts.supabase.co/storage/v1/object/public/store-resources/7c69ad8e-973f-41fa-a2f4-a61b11783186/1791549212332_landing-v7-17-producto-fcdfadd8.webp"
+  },
+  "bonus-cover": {
+    "local": "/Users/santilahoz/Desktop/Segundo Cerebro/OUTPUTS/2026-10-14-comoara-tricotului-ro/imagini/bonus-cover.webp",
+    "catbox": "https://files.catbox.moe/jjzqwc.webp",
+    "original": "https://aekpgsbqjzqntlbucbts.supabase.co/storage/v1/object/public/store-resources/7c69ad8e-973f-41fa-a2f4-a61b11783186/1791553806669_landing-en-v9-bonos-portada-48c753aa.webp"
+  },
+  "bono1": {
+    "local": "/Users/santilahoz/Desktop/Segundo Cerebro/OUTPUTS/2026-10-14-comoara-tricotului-ro/imagini/bono1.webp",
+    "catbox": "https://files.catbox.moe/esx64w.webp",
+    "original": "https://aekpgsbqjzqntlbucbts.supabase.co/storage/v1/object/public/store-resources/7c69ad8e-973f-41fa-a2f4-a61b11783186/1791557373014_landing-v9-bono1-1bd395e6.webp"
+  },
+  "bono2": {
+    "local": "/Users/santilahoz/Desktop/Segundo Cerebro/OUTPUTS/2026-10-14-comoara-tricotului-ro/imagini/bono2.webp",
+    "catbox": "https://files.catbox.moe/iewder.webp",
+    "original": "https://aekpgsbqjzqntlbucbts.supabase.co/storage/v1/object/public/store-resources/7c69ad8e-973f-41fa-a2f4-a61b11783186/1791582280570_landing-v17-bono2-4fb4e7b2.webp"
+  },
+  "bono3": {
+    "local": "/Users/santilahoz/Desktop/Segundo Cerebro/OUTPUTS/2026-10-14-comoara-tricotului-ro/imagini/bono3.webp",
+    "catbox": "https://files.catbox.moe/aac3om.webp",
+    "original": "https://aekpgsbqjzqntlbucbts.supabase.co/storage/v1/object/public/store-resources/7c69ad8e-973f-41fa-a2f4-a61b11783186/1791557384426_landing-v9-bono3-c03a7843.webp"
+  },
+  "bono4": {
+    "local": "/Users/santilahoz/Desktop/Segundo Cerebro/OUTPUTS/2026-10-14-comoara-tricotului-ro/imagini/bono4.webp",
+    "catbox": "https://files.catbox.moe/xnjnza.webp",
+    "original": "https://aekpgsbqjzqntlbucbts.supabase.co/storage/v1/object/public/store-resources/7c69ad8e-973f-41fa-a2f4-a61b11783186/1791582286342_landing-v17-bono4-c0b5de37.webp"
+  },
+  "bono5": {
+    "local": "/Users/santilahoz/Desktop/Segundo Cerebro/OUTPUTS/2026-10-14-comoara-tricotului-ro/imagini/bono5.webp",
+    "catbox": "https://files.catbox.moe/3tzvyl.webp",
+    "original": "https://aekpgsbqjzqntlbucbts.supabase.co/storage/v1/object/public/store-resources/7c69ad8e-973f-41fa-a2f4-a61b11783186/1791557395524_landing-v9-bono5-a3736874.webp"
+  },
+  "bono6": {
+    "local": "/Users/santilahoz/Desktop/Segundo Cerebro/OUTPUTS/2026-10-14-comoara-tricotului-ro/imagini/bono6.webp",
+    "catbox": "https://files.catbox.moe/w2dny3.webp",
+    "original": "https://aekpgsbqjzqntlbucbts.supabase.co/storage/v1/object/public/store-resources/7c69ad8e-973f-41fa-a2f4-a61b11783186/1791582291522_landing-v17-bono6-da587408.webp"
+  },
+  "bono7": {
+    "local": "/Users/santilahoz/Desktop/Segundo Cerebro/OUTPUTS/2026-10-14-comoara-tricotului-ro/imagini/bono7.webp",
+    "catbox": "https://files.catbox.moe/919eyo.webp",
+    "original": "https://aekpgsbqjzqntlbucbts.supabase.co/storage/v1/object/public/store-resources/7c69ad8e-973f-41fa-a2f4-a61b11783186/1791557407538_landing-v9-bono7-fe501a56.webp"
+  },
+  "bonus-total": {
+    "local": "/Users/santilahoz/Desktop/Segundo Cerebro/OUTPUTS/2026-10-14-comoara-tricotului-ro/imagini/bonus-total.webp",
+    "catbox": "https://files.catbox.moe/au7ff3.webp",
+    "original": "https://aekpgsbqjzqntlbucbts.supabase.co/storage/v1/object/public/store-resources/7c69ad8e-973f-41fa-a2f4-a61b11783186/1791555346548_landing-en-v11-bonos-total-verde-44f5a592.webp"
+  },
+  "regalo1": {
+    "local": "/Users/santilahoz/Desktop/Segundo Cerebro/OUTPUTS/2026-10-14-comoara-tricotului-ro/imagini/regalo1.webp",
+    "catbox": "https://files.catbox.moe/n627cl.webp",
+    "original": "https://aekpgsbqjzqntlbucbts.supabase.co/storage/v1/object/public/store-resources/7c69ad8e-973f-41fa-a2f4-a61b11783186/1791557413130_landing-v9-regalo1-61d5309c.webp"
+  },
+  "regalo2": {
+    "local": "/Users/santilahoz/Desktop/Segundo Cerebro/OUTPUTS/2026-10-14-comoara-tricotului-ro/imagini/regalo2.webp",
+    "catbox": "https://files.catbox.moe/alyzna.webp",
+    "original": "https://aekpgsbqjzqntlbucbts.supabase.co/storage/v1/object/public/store-resources/7c69ad8e-973f-41fa-a2f4-a61b11783186/1791557419468_landing-v9-regalo2-df20930f.webp"
+  },
+  "regalo3": {
+    "local": "/Users/santilahoz/Desktop/Segundo Cerebro/OUTPUTS/2026-10-14-comoara-tricotului-ro/imagini/regalo3.webp",
+    "catbox": "https://files.catbox.moe/rzftgq.webp",
+    "original": "https://aekpgsbqjzqntlbucbts.supabase.co/storage/v1/object/public/store-resources/7c69ad8e-973f-41fa-a2f4-a61b11783186/1791557425490_landing-v9-regalo3-0c51681c.webp"
+  }
+}

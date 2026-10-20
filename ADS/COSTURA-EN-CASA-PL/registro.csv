@@ -1,0 +1,7 @@
+id,concepto,origen,parent,batch,archivo,audio,costo_usd,estado
+1,caos-informacion,1096299242747385,none,2026-10-09,1.mp4,ElevenLabs-Sarah-1.2x,0.30,aprobado
+2,ahorro-modista,2876233859413436,none,2026-10-09,2.mp4,ElevenLabs-Sarah-1.2x,0.30,listo
+3,testimonial-patron,page-1176595015546384,none,2026-10-09,3.mp4,ElevenLabs-Sarah-1.2x,0.30,listo
+4,directo-practico,1781349839982030,none,2026-10-09,4.mp4,ElevenLabs-Sarah-1.2x,0.30,listo
+5,precio-vestido,1711797436547017,none,2026-10-09,5.mp4,ElevenLabs-Sarah-1.2x,0.30,listo
+6,modificar-patron,1124906523652084,none,2026-10-09,6.mp4,ElevenLabs-Sarah-1.2x,0.30,listo

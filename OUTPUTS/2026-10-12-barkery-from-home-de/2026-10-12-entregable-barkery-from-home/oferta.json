@@ -1,0 +1,248 @@
+{
+  "producto": "Barkery von Zuhause",
+  "slug": "barkery-from-home",
+  "titulo_completo": "Die Barkery von Zuhause Methode · 100+ Bewährte Hundeleckerli-Rezepte zum Backen, Kalkulieren und Verkaufen + 8 Gratis-Boni",
+  "idioma": "de",
+  "registro": "du",
+  "mercado": "DE",
+  "precio": "17,99",
+  "precio_tachado": "89",
+  "ahorro": "80%",
+  "tienda": "ImpulTienda",
+  "subdominio": "barkeryvonzuhause",
+  "subdominio_estado": "activo",
+  "landing_publicada": "https://barkeryvonzuhause.impultienda.ar/",
+  "dominio_entregables": "https://santilahoz03.github.io/barkery-from-home-de",
+  "textos_ui": {
+    "abrir": "Öffnen",
+    "descargar": "PDF herunterladen",
+    "nueva": "In neuem Tab öffnen",
+    "paginas": "Seiten",
+    "acceso": "Lebenslanger Zugang",
+    "empezar": "Wo du anfangen solltest",
+    "bonos": "Deine Boni",
+    "principal": "Hauptprodukt",
+    "bienvenida": "Willkommen bei",
+    "herramienta": "Tool",
+    "bono": "Bonus",
+    "de": "von",
+    "no_pdf": "Dein Browser kann das PDF hier nicht anzeigen.",
+    "descargalo": "Lade es über diesen Button herunter",
+    "uso": "Nur für den persönlichen Gebrauch. Weiterverkauf und Weitergabe verboten."
+  },
+  "paleta": {
+    "bg": "#f9f7f1",
+    "paper": "#ffffff",
+    "ink": "#1e2d22",
+    "ink_soft": "#546158",
+    "accent": "#c8643b",
+    "accent_dark": "#2e4535",
+    "sage": "#3d5a47",
+    "line": "#e5ddd0"
+  },
+  "fuentes": {
+    "titulo": "Fraunces",
+    "texto": "Inter"
+  },
+  "hub": {
+    "carpeta": "acceso",
+    "random": "uuv6v9gs9d",
+    "titulo": "Die Barkery von Zuhause Methode",
+    "subtitulo": "Dein komplettes Backen-Kalkulieren-Verkaufen Starterkit",
+    "stats": [
+      "100+ Rezepte",
+      "8 Bonus-Ratgeber",
+      "Sofortzugang"
+    ],
+    "pasos": [
+      "Wähle ein Rezept — Blättere durch die Kategorien und such dir ein Anfängerrezept aus, das dich anspricht.",
+      "Backe deine erste Charge — Normale Zutaten, normaler Backofen. In zwei Stunden hast du deine ersten Leckerlis fertig.",
+      "Kalkuliere deinen Preis — Öffne den TruePrice™ Rechner, gib deine Kosten ein und erhalte einen fairen Verkaufspreis.",
+      "Poste und verkaufe — Nutze die fertigen Vorlagen und den Showcase-Guide, um deine erste Bestellung zu bekommen."
+    ]
+  },
+  "entregables": [
+    {
+      "id": "core",
+      "tipo": "core",
+      "nombre": "Die Barkery von Zuhause Methode",
+      "descripcion": "100+ bewährte Hundeleckerli-Rezepte für jeden Anlass — klassische Kekse, Pupcakes, Geburtstagstorten, gefrorene Snacks und mehr.",
+      "carpeta": "die-barkery-from-home-methode",
+      "random": "irgov3jyf8",
+      "en_hub": true,
+      "pdf": "die-barkery-from-home-methode.pdf",
+      "fuente": "pdf-sources/die-barkery-from-home-methode.html",
+      "paginas": 63
+    },
+    {
+      "id": "bono-dein-erster-500-euro-leitfaden",
+      "tipo": "bono",
+      "nombre": "Dein Erster 500-Euro Leitfaden",
+      "descripcion": "Der genaue Fahrplan von der ersten Charge zu deinen ersten lokalen Bestellungen.",
+      "carpeta": "dein-erster-500-euro-leitfaden",
+      "random": "ostc6x7r0d",
+      "en_hub": true,
+      "pdf": "dein-erster-500-euro-leitfaden.pdf",
+      "fuente": "pdf-sources/dein-erster-500-euro-leitfaden.html",
+      "paginas": 15,
+      "orden": "1/7"
+    },
+    {
+      "id": "bono-das-barkery-showcase-kit",
+      "tipo": "bono",
+      "nombre": "Das Barkery Showcase Kit",
+      "descripcion": "Verpackungsideen, Etikettenvorlagen und Handyfoto-Tipps, die Fremde zu Kunden machen.",
+      "carpeta": "das-barkery-showcase-kit",
+      "random": "b9b68tzwo8",
+      "en_hub": true,
+      "pdf": "das-barkery-showcase-kit.pdf",
+      "fuente": "pdf-sources/das-barkery-showcase-kit.html",
+      "paginas": 14,
+      "orden": "2/7"
+    },
+    {
+      "id": "bono-hunde-geburtstagsbox-starterplan",
+      "tipo": "bono",
+      "nombre": "Hunde-Geburtstagsbox-Starterplan",
+      "descripcion": "Alles für den Einstieg in Geburtstags- und Gotcha-Day-Boxen — Zusammenstellung, Preise, Timing.",
+      "carpeta": "hunde-geburtstagsbox-starterplan",
+      "random": "2fh2d2wzwp",
+      "en_hub": true,
+      "pdf": "hunde-geburtstagsbox-starterplan.pdf",
+      "fuente": "pdf-sources/hunde-geburtstagsbox-starterplan.html",
+      "paginas": 15,
+      "orden": "3/7"
+    },
+    {
+      "id": "bono-saisonaler-verkaufskalender",
+      "tipo": "bono",
+      "nombre": "Saisonaler Verkaufskalender",
+      "descripcion": "12 Monate mit saisonalen Leckerli-Ideen, Anlässen und Verkaufsstrategien.",
+      "carpeta": "saisonaler-verkaufskalender",
+      "random": "aksz8e2l57",
+      "en_hub": true,
+      "pdf": "saisonaler-verkaufskalender.pdf",
+      "fuente": "pdf-sources/saisonaler-verkaufskalender.html",
+      "paginas": 11,
+      "orden": "4/7"
+    },
+    {
+      "id": "bono-zutaten-sicherheits-checkliste",
+      "tipo": "bono",
+      "nombre": "Zutaten-Sicherheits-Checkliste",
+      "descripcion": "Was rein darf, was nicht — eine praktische Referenz für jede Zutat.",
+      "carpeta": "zutaten-sicherheits-checkliste",
+      "random": "24ymlk7kgt",
+      "en_hub": true,
+      "pdf": "zutaten-sicherheits-checkliste.pdf",
+      "fuente": "pdf-sources/zutaten-sicherheits-checkliste.html",
+      "paginas": 17,
+      "orden": "5/7"
+    },
+    {
+      "id": "bono-lokale-verkaufspost-vorlagen",
+      "tipo": "bono",
+      "nombre": "Lokale Verkaufspost-Vorlagen",
+      "descripcion": "Fertige Textvorlagen zum Kopieren für lokale Facebook-Gruppen, Instagram und Nachbarschafts-Apps.",
+      "carpeta": "lokale-verkaufspost-vorlagen",
+      "random": "7ou4bhpo5u",
+      "en_hub": true,
+      "pdf": "lokale-verkaufspost-vorlagen.pdf",
+      "fuente": "pdf-sources/lokale-verkaufspost-vorlagen.html",
+      "paginas": 19,
+      "orden": "6/7"
+    },
+    {
+      "id": "bono-bestelltracker",
+      "tipo": "bono",
+      "nombre": "Bestelltracker",
+      "descripcion": "Einfache Tabelle zum Ausdrucken — Bestellungen, Kosten und Einnahmen auf einen Blick.",
+      "carpeta": "bestelltracker",
+      "random": "s16nko01v7",
+      "en_hub": true,
+      "pdf": "bestelltracker.pdf",
+      "fuente": "pdf-sources/bestelltracker.html",
+      "paginas": 17,
+      "orden": "7/7"
+    },
+    {
+      "id": "app-trueprice-gewinnrechner",
+      "tipo": "app",
+      "nombre": "TruePrice Gewinnrechner",
+      "descripcion": "Kalkuliert deinen Verkaufspreis in drei Klicks — Zutaten, Verpackung, faire Marge.",
+      "carpeta": "trueprice-gewinnrechner",
+      "random": "2jh243hbtk",
+      "en_hub": true
+    }
+  ],
+  "promesas": [
+    {
+      "promesa": "100+ recetas de leckerlis",
+      "entrega": "Core PDF, 105 recetas en 10 categorías, 63 págs",
+      "ok": true
+    },
+    {
+      "promesa": "TruePrice Calculator",
+      "entrega": "App interactiva en /trueprice-gewinnrechner/2jh243hbtk/",
+      "ok": true
+    },
+    {
+      "promesa": "Your First £500 Playbook",
+      "entrega": "Bono 1 PDF, 15 págs",
+      "ok": true
+    },
+    {
+      "promesa": "Barkery Showcase Kit",
+      "entrega": "Bono 2 PDF, 14 págs",
+      "ok": true
+    },
+    {
+      "promesa": "Dog Birthday-Box Starter Plan",
+      "entrega": "Bono 3 PDF, 15 págs",
+      "ok": true
+    },
+    {
+      "promesa": "Seasonal Sales Calendar",
+      "entrega": "Bono 4 PDF, 11 págs",
+      "ok": true
+    },
+    {
+      "promesa": "Ingredient-Safety Checklist",
+      "entrega": "Bono 5 PDF, 17 págs",
+      "ok": true
+    },
+    {
+      "promesa": "Local Selling Post Scripts",
+      "entrega": "Bono 6 PDF, 19 págs",
+      "ok": true
+    },
+    {
+      "promesa": "Order Tracker",
+      "entrega": "Bono 7 PDF, 17 págs",
+      "ok": true
+    }
+  ],
+  "imagenes": [
+    {
+      "nombre": "Hero mockup",
+      "url": "https://files.catbox.moe/ngu4a0.png",
+      "local": "OUTPUTS/2026-10-12-barkery-from-home-de/mockups/1-hero-barkery-from-home-de.png"
+    }
+  ],
+  "ads_dir": "ADS/BARKERY-FROM-HOME-DE/2026-10-12",
+  "lanzamiento": "campaña programada para 2026-10-14",
+  "checklist": [
+    "✅ Landing modelada y QC pasado",
+    "✅ Mockups hero + caja generados",
+    "✅ 6 ads réplica aprobados",
+    "✅ Entregables producidos (USD 0): 8 PDFs (171 págs) + 1 app",
+    "✅ Hub publicado en GitHub Pages (18 URLs, todas 200)",
+    "✅ Set Definitivo para Ads escrito",
+    "✅ Paquete ImpulTienda manual entregado",
+    "✅ Tienda configurada: https://barkeryvonzuhause.impultienda.ar/",
+    "✅ ImpulPay EUR + métodos locales conectados",
+    "✅ Tracking conectado (píxel + API de Conversiones)",
+    "✅ Compra de prueba verificada",
+    "✅ Campaña programada para 2026-10-14"
+  ]
+}

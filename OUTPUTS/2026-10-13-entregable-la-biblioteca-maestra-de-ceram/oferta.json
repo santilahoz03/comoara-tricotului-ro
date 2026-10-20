@@ -1,0 +1,130 @@
+{
+  "producto": "La Biblioteca Maestra de Cerámica",
+  "slug": "la-biblioteca-maestra-de-ceram",
+  "titulo_completo": "La Biblioteca Maestra de Cerámica · 150+ Plantillas Profesionales Listas Para Imprimir + 3 Guías Bonus Incluidas",
+  "idioma": "es",
+  "registro": "neutro",
+  "mercado": "MX / LATAM",
+  "precio": "MXN 219",
+  "precio_tachado": "MXN 999",
+  "ahorro": "MXN 780 (78%)",
+  "tienda": "ImpulTienda",
+  "subdominio": "(configurado por el usuario)",
+  "subdominio_estado": "activo",
+  "landing_publicada": "",
+  "dominio_entregables": "https://santilahoz03.github.io/entregas",
+  "paleta": {
+    "bg": "#ffffff",
+    "paper": "#fdf8f2",
+    "ink": "#121212",
+    "ink_soft": "#555555",
+    "accent": "#c8722a",
+    "accent_dark": "#1a0f08",
+    "line": "#e7e1da"
+  },
+  "fuentes": {
+    "titulo": "Inter",
+    "texto": "Inter"
+  },
+  "hub": {
+    "carpeta": "acceso",
+    "random": "vhi10b8wx4",
+    "titulo": "La Biblioteca Maestra de Cerámica",
+    "subtitulo": "Tu acceso completo a 150+ plantillas profesionales de cerámica",
+    "stats": [
+      "150+ plantillas",
+      "210+ páginas",
+      "5 categorías"
+    ],
+    "pasos": [
+      "Descarga la Biblioteca — Abre el PDF principal y explora las 5 categorías de plantillas.",
+      "Elige tu proyecto — Encuentra el diseño que quieras hacer y revisa las medidas.",
+      "Imprime al 100% — Imprime la plantilla a tamaño real y verifica con la referencia de escala.",
+      "Construye tu pieza — Traza, corta y da forma a tu arcilla siguiendo la plantilla."
+    ]
+  },
+  "entregables": [
+    {
+      "id": "core",
+      "tipo": "core",
+      "nombre": "Biblioteca Maestra de Plantillas de Cerámica",
+      "descripcion": "150+ plantillas imprimibles con dibujos técnicos, medidas en mm y pulgadas, y contracción incorporada.",
+      "carpeta": "biblioteca-maestra-de-plantillas-de-cera",
+      "random": "bxuzv6jaeh",
+      "en_hub": true,
+      "pdf": "biblioteca-maestra-de-plantillas-de-cera.pdf",
+      "fuente": "pdf-sources/core-plantillas.html",
+      "paginas": 163
+    },
+    {
+      "id": "bono-manual-de-construccion-a-mano",
+      "tipo": "bono",
+      "nombre": "Manual de Construcción a Mano",
+      "descripcion": "Guía práctica de técnicas de losa, rollo y pellizco con instrucciones de secado, horneado y esmaltado.",
+      "carpeta": "manual-de-construccion-a-mano",
+      "random": "2r9bvqhh6o",
+      "en_hub": true,
+      "pdf": "manual-de-construccion-a-mano.pdf",
+      "fuente": "pdf-sources/manual-de-construccion-a-mano.html",
+      "paginas": 16,
+      "orden": "1/4"
+    },
+    {
+      "id": "bono-planificador-de-proyectos-del-ceramista",
+      "tipo": "bono",
+      "nombre": "Planificador de Proyectos del Ceramista",
+      "descripcion": "Páginas de planificación, boceto y registro para organizar cada proyecto de cerámica.",
+      "carpeta": "planificador-de-proyectos-del-ceramista",
+      "random": "vylj5vt65j",
+      "en_hub": true,
+      "pdf": "planificador-de-proyectos-del-ceramista.pdf",
+      "fuente": "pdf-sources/planificador-de-proyectos-del-ceramista.html",
+      "paginas": 14,
+      "orden": "2/4"
+    },
+    {
+      "id": "bono-registro-de-horneado-y-seguimiento-del-h",
+      "tipo": "bono",
+      "nombre": "Registro de Horneado y Seguimiento del Horno",
+      "descripcion": "Registro detallado de horno, arcilla, esmalte, temperatura y resultados para cada horneado.",
+      "carpeta": "registro-de-horneado-y-seguimiento-del-h",
+      "random": "1kuaexm3u1",
+      "en_hub": true,
+      "pdf": "registro-de-horneado-y-seguimiento-del-h.pdf",
+      "fuente": "pdf-sources/registro-de-horneado-y-seguimiento-del-h.html",
+      "paginas": 10,
+      "orden": "3/4"
+    },
+    {
+      "id": "bono-licencia-comercial-para-artesanos",
+      "tipo": "bono",
+      "nombre": "Licencia Comercial para Artesanos",
+      "descripcion": "Permiso para crear y vender piezas de cerámica hechas con las plantillas incluidas.",
+      "carpeta": "licencia-comercial-para-artesanos",
+      "random": "1f77j7mt6e",
+      "en_hub": true,
+      "pdf": "licencia-comercial-para-artesanos.pdf",
+      "fuente": "pdf-sources/licencia-comercial-para-artesanos.html",
+      "paginas": 8,
+      "orden": "4/4"
+    }
+  ],
+  "promesas": [
+    {"promesa": "150+ Plantillas de Cerámica", "entrega": "155 plantillas SVG en core PDF", "ok": true},
+    {"promesa": "210+ Páginas (corregido de 900+)", "entrega": "211 páginas totales (163+16+14+10+8)", "ok": true},
+    {"promesa": "Losa (68), Rollo (44), Pellizco (43)", "entrega": "Losa 68, Rollo 44, Pellizco 43", "ok": true},
+    {"promesa": "5 Colecciones (Cocina, Hogar, Jarrones, Macetas, Iluminación)", "entrega": "70+30+25+15+15 = 155", "ok": true},
+    {"promesa": "Formas a Tamaño Real 1:1 con contracción", "entrega": "SVG con escala y nota de contracción ~12%", "ok": true},
+    {"promesa": "Medidas en mm y pulgadas", "entrega": "Ambas unidades en cada plantilla", "ok": true},
+    {"promesa": "BONUS #1: Manual de Construcción a Mano", "entrega": "16 págs PDF, 8 secciones", "ok": true},
+    {"promesa": "BONUS #2: Planificador de Proyectos del Ceramista", "entrega": "14 págs PDF, fichas imprimibles", "ok": true},
+    {"promesa": "BONUS #3: Registro de Horneado y Seguimiento del Horno", "entrega": "10 págs PDF, hojas de registro + ref rápida", "ok": true},
+    {"promesa": "Licencia Comercial para Artesanos (FAQ)", "entrega": "8 págs PDF, términos + certificado rellenable", "ok": true},
+    {"promesa": "Acceso instantáneo / descarga inmediata", "entrega": "Hub con links directos a cada PDF", "ok": true},
+    {"promesa": "Garantía 7 Días", "entrega": "Configuración de tienda (manual)", "ok": true}
+  ],
+  "imagenes": [],
+  "ads_dir": "ADS/CLAY-BLUEPRINTS-MX/2026-10-13",
+  "lanzamiento": "usuario crea campaña 2026-10-14 noche, inicio 2026-10-15",
+  "checklist": []
+}

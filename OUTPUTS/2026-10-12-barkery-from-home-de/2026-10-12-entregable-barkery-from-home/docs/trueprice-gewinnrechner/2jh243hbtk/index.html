@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>TruePrice™ Gewinnrechner · Barkery von Zuhause</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f9f7f1;--paper:#ffffff;--ink:#1e2d22;--ink-soft:#546158;--accent:#c8643b;--accent-dark:#2e4535;--sage:#3d5a47;--line:#e5ddd0}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--bg);color:var(--ink)}
+body{font-family:'Inter',-apple-system,Arial,sans-serif;line-height:1.5;-webkit-font-smoothing:antialiased}
+h1,h2{font-family:'Fraunces',Georgia,serif;line-height:1.15}
+.top{background:var(--accent-dark);color:var(--paper);text-align:center;padding:11px 16px;font-weight:700;font-size:14px}
+.wrap{max-width:560px;margin:0 auto;padding:24px 16px 48px}
+h1{font-size:clamp(26px,6vw,34px);margin-bottom:6px}
+.intro{color:var(--ink-soft);margin-bottom:18px;font-size:15px}
+form{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:18px;display:grid;gap:14px}
+label{display:grid;gap:6px;font-weight:700;font-size:15px}
+label small{font-weight:400;color:var(--ink-soft)}
+.campo{display:flex;align-items:center;border:2px solid var(--line);border-radius:12px;background:var(--bg);overflow:hidden}
+.campo:focus-within{border-color:var(--accent)}
+.campo span{padding:0 12px;color:var(--ink-soft);font-weight:700}
+input[type="number"]{flex:1;min-width:0;border:0;background:transparent;font:inherit;font-size:18px;padding:13px 12px;color:var(--ink);outline:none}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}
+input[type="number"]{-moz-appearance:textfield}
+.slider-wrap{display:grid;gap:4px}
+.slider-row{display:flex;align-items:center;gap:12px}
+.slider-row input[type="range"]{flex:1;accent-color:var(--accent);height:6px}
+.slider-val{font-family:'Fraunces',Georgia,serif;font-size:22px;font-weight:700;color:var(--accent);min-width:52px;text-align:right}
+button{font:inherit;cursor:pointer}
+.calc{min-height:52px;border:0;border-radius:12px;background:var(--accent);color:var(--paper);font-weight:800;font-size:18px;box-shadow:0 4px 0 var(--accent-dark);transition:transform .1s}
+.calc:active{transform:translateY(2px);box-shadow:0 2px 0 var(--accent-dark)}
+.res{margin-top:20px;display:none}
+.res.on{display:block}
+.cards{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:16px}
+@media(max-width:500px){.cards{grid-template-columns:1fr}}
+.price-card{border-radius:14px;padding:16px;text-align:center;display:flex;flex-direction:column;gap:6px}
+.price-card .label{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em}
+.price-card .price{font-family:'Fraunces',Georgia,serif;font-size:28px;font-weight:800;line-height:1.1}
+.price-card .note{font-size:11px;opacity:.75}
+.price-card.outline{border:2px solid var(--line);background:var(--paper);color:var(--ink)}
+.price-card.outline .price{color:var(--ink)}
+.price-card.highlight{background:var(--accent);color:var(--paper);box-shadow:0 6px 20px rgba(200,100,59,.3)}
+.price-card.highlight .price{color:var(--paper);font-size:34px}
+.price-card.sage{background:var(--sage);color:var(--paper)}
+.price-card.sage .price{color:var(--paper)}
+.stats{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:16px;margin-bottom:14px}
+.stat-row{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px dashed var(--line)}
+.stat-row:last-child{border-bottom:0}
+.stat-row .stat-label{color:var(--ink-soft);font-size:14px}
+.stat-row .stat-val{font-family:'Fraunces',Georgia,serif;font-weight:700;font-size:18px;color:var(--accent-dark)}
+details{background:var(--paper);border:1px solid var(--line);border-radius:14px;margin-bottom:14px}
+details summary{padding:14px 16px;font-weight:700;cursor:pointer;font-size:14px;color:var(--accent-dark);list-style:none}
+details summary::before{content:"+ ";font-weight:800;color:var(--accent)}
+details[open] summary::before{content:"- "}
+details .inner{padding:0 16px 14px;font-size:13px;color:var(--ink-soft);line-height:1.6}
+details .inner code{background:var(--bg);padding:2px 6px;border-radius:4px;font-size:12px}
+.acc{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.acc button{min-height:46px;border-radius:12px;border:2px solid var(--line);background:var(--bg);color:var(--accent-dark);font-weight:800;font-size:14px;transition:background .15s}
+.acc button:hover{background:var(--paper)}
+.err{color:#a13a2f;font-weight:700;display:none;margin-top:8px;font-size:14px}
+@media print{
+  .top,form,.acc{display:none}
+  .res{display:block!important}
+  .cards{grid-template-columns:1fr 1fr 1fr}
+  .price-card.highlight{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+</style>
+</head>
+<body>
+<div class="top">Barkery von Zuhause</div>
+<main class="wrap">
+  <h1>TruePrice™ Gewinnrechner</h1>
+  <p class="intro">Gib deine Zahlen ein und finde sofort heraus, was du mindestens verlangen musst — und was du verlangen solltest, um wirklich Gewinn zu machen.</p>
+
+  <form id="f" novalidate>
+    <label>
+      <span>Zutatenkosten pro Charge <small>Alle Zutaten zusammen für eine Backrunde</small></span>
+      <div class="campo"><input type="number" id="zutaten" inputmode="decimal" min="0" step="any" placeholder="z. B. 5,00"><span>€</span></div>
+    </label>
+
+    <label>
+      <span>Anzahl Leckerlis/Beutel pro Charge <small>Wie viele verkaufbare Einheiten kommen raus?</small></span>
+      <div class="campo"><input type="number" id="anzahl" inputmode="decimal" min="1" step="any" placeholder="z. B. 20"><span>Stk.</span></div>
+    </label>
+
+    <label>
+      <span>Verpackungskosten pro Einheit <small>Tüte, Etikett, Schleife — pro verkaufte Einheit</small></span>
+      <div class="campo"><input type="number" id="verpackung" inputmode="decimal" min="0" step="any" placeholder="z. B. 0,80"><span>€</span></div>
+    </label>
+
+    <label>
+      <span>Arbeitszeit <small>Gesamte Zeit von der Vorbereitung bis zur fertigen Tüte</small></span>
+      <div class="campo"><input type="number" id="arbeitszeit" inputmode="decimal" min="0" step="any" placeholder="z. B. 120"><span>Min.</span></div>
+    </label>
+
+    <label>
+      <span>Gewünschte Marge <small>Wie viel Prozent deines Verkaufspreises soll Gewinn sein?</small></span>
+      <div class="slider-wrap">
+        <div class="slider-row">
+          <input type="range" id="marge" min="30" max="80" value="50" step="1">
+          <span class="slider-val" id="marge-display">50 %</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--ink-soft)">
+          <span>30 %</span><span>80 %</span>
+        </div>
+      </div>
+    </label>
+
+    <button class="calc" type="submit">Berechnen</button>
+  </form>
+
+  <p class="err" id="err">Bitte fülle alle Felder mit gültigen Zahlen aus (Zutaten, Verpackung und Arbeitszeit mindestens 0, Anzahl mindestens 1).</p>
+
+  <section class="res" id="res" aria-live="polite"></section>
+</main>
+
+<script>
+const CLAVE = "calc-" + location.pathname;
+const EUR = new Intl.NumberFormat("de-DE", {style:"currency",currency:"EUR",minimumFractionDigits:2,maximumFractionDigits:2});
+
+function fmt(n){return EUR.format(n)}
+function leer(){try{return JSON.parse(localStorage.getItem(CLAVE)||"{}") }catch(e){return {}}}
+function guardar(v){try{localStorage.setItem(CLAVE,JSON.stringify(v))}catch(e){}}
+
+// Restore saved values
+const prev = leer();
+["zutaten","anzahl","verpackung","arbeitszeit"].forEach(id=>{
+  const el = document.getElementById(id);
+  if(prev[id] != null) el.value = prev[id];
+});
+if(prev.marge != null){
+  document.getElementById("marge").value = prev.marge;
+}
+
+// Slider live update
+const margeSlider = document.getElementById("marge");
+const margeDisplay = document.getElementById("marge-display");
+function updateMargeDisplay(){margeDisplay.textContent = margeSlider.value + " %"}
+margeSlider.addEventListener("input", updateMargeDisplay);
+updateMargeDisplay();
+
+const f = document.getElementById("f");
+const res = document.getElementById("res");
+const err = document.getElementById("err");
+
+f.addEventListener("submit", ev=>{
+  ev.preventDefault();
+
+  const zutaten = parseFloat(String(document.getElementById("zutaten").value).replace(",","."));
+  const anzahl = parseFloat(String(document.getElementById("anzahl").value).replace(",","."));
+  const verpackung = parseFloat(String(document.getElementById("verpackung").value).replace(",","."));
+  const arbeitszeit = parseFloat(String(document.getElementById("arbeitszeit").value).replace(",","."));
+  const marge = parseFloat(margeSlider.value);
+
+  if(!isFinite(zutaten)||zutaten<0||!isFinite(anzahl)||anzahl<1||!isFinite(verpackung)||verpackung<0||!isFinite(arbeitszeit)||arbeitszeit<0){
+    err.style.display = "block";
+    res.classList.remove("on");
+    return;
+  }
+  err.style.display = "none";
+  guardar({zutaten,anzahl,verpackung,arbeitszeit,marge});
+
+  // Calculation
+  const kostenProEinheit = (zutaten / anzahl) + verpackung;
+  const arbeitskostenProEinheit = (arbeitszeit / 60) * 15 / anzahl;
+  const gesamtkostenProEinheit = kostenProEinheit + arbeitskostenProEinheit;
+  const mindestpreis = gesamtkostenProEinheit * 1.1;
+  const empfohlen = gesamtkostenProEinheit / (1 - marge / 100);
+  const premium = empfohlen * 1.3;
+  const gewinnProEinheit = empfohlen - gesamtkostenProEinheit;
+  const gewinnProCharge = gewinnProEinheit * anzahl;
+
+  const resultText = `Mindestpreis: ${fmt(mindestpreis)}\nEmpfohlener Preis: ${fmt(empfohlen)}\nPremium-Preis: ${fmt(premium)}\nGewinn pro Einheit: ${fmt(gewinnProEinheit)}\nGewinn pro Charge: ${fmt(gewinnProCharge)}`;
+
+  res.innerHTML = `
+    <div class="cards">
+      <div class="price-card outline">
+        <span class="label">Mindestpreis</span>
+        <span class="price">${fmt(mindestpreis)}</span>
+        <span class="note">Deckt Kosten + 10 % Puffer</span>
+      </div>
+      <div class="price-card highlight">
+        <span class="label">Empfohlener Preis</span>
+        <span class="price">${fmt(empfohlen)}</span>
+        <span class="note">${marge} % Marge eingerechnet</span>
+      </div>
+      <div class="price-card sage">
+        <span class="label">Premium-Preis</span>
+        <span class="price">${fmt(premium)}</span>
+        <span class="note">+30 % auf den empfohlenen Preis</span>
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="stat-row">
+        <span class="stat-label">Gewinn pro Einheit (empfohlener Preis)</span>
+        <span class="stat-val">${fmt(gewinnProEinheit)}</span>
+      </div>
+      <div class="stat-row">
+        <span class="stat-label">Gewinn pro Charge (${anzahl} Einheiten)</span>
+        <span class="stat-val">${fmt(gewinnProCharge)}</span>
+      </div>
+    </div>
+
+    <details>
+      <summary>So wurde gerechnet</summary>
+      <div class="inner">
+        <p><b>Materialkosten pro Einheit</b><br>
+        <code>${fmt(zutaten)} / ${anzahl} = ${fmt(zutaten/anzahl)}</code></p>
+        <p><b>+ Verpackungskosten pro Einheit</b><br>
+        <code>${fmt(verpackung)}</code></p>
+        <p><b>= Kosten pro Einheit (ohne Arbeit)</b><br>
+        <code>${fmt(kostenProEinheit)}</code></p>
+        <p><b>+ Arbeitskosten pro Einheit</b><br>
+        <code>(${arbeitszeit} Min. / 60) × 15 € / ${anzahl} = ${fmt(arbeitskostenProEinheit)}</code><br>
+        <small>Berechnet mit 15 €/Stunde als Referenz (gesetzl. Mindestlohn DE)</small></p>
+        <p><b>= Gesamtkosten pro Einheit</b><br>
+        <code>${fmt(gesamtkostenProEinheit)}</code></p>
+        <p><b>Mindestpreis</b> = Gesamtkosten × 1,1 (10 % Sicherheitspuffer)<br>
+        <code>${fmt(gesamtkostenProEinheit)} × 1,1 = ${fmt(mindestpreis)}</code></p>
+        <p><b>Empfohlener Preis</b> = Gesamtkosten / (1 − ${marge}%)<br>
+        <code>${fmt(gesamtkostenProEinheit)} / ${(1 - marge/100).toFixed(2)} = ${fmt(empfohlen)}</code></p>
+        <p><b>Premium-Preis</b> = Empfohlener Preis × 1,3<br>
+        <code>${fmt(empfohlen)} × 1,3 = ${fmt(premium)}</code></p>
+      </div>
+    </details>
+
+    <div class="acc">
+      <button type="button" id="cp">Ergebnis kopieren</button>
+      <button type="button" onclick="window.print()">Ausdrucken</button>
+    </div>
+  `;
+
+  res.classList.add("on");
+
+  document.getElementById("cp").onclick = async e => {
+    try{await navigator.clipboard.writeText(resultText)}catch(x){
+      const t=document.createElement("textarea");t.value=resultText;document.body.append(t);t.select();document.execCommand("copy");t.remove();
+    }
+    e.target.textContent="Kopiert!";setTimeout(()=>e.target.textContent="Ergebnis kopieren",1500);
+  };
+
+  res.scrollIntoView({behavior:"smooth",block:"nearest"});
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,137 @@
+{
+  "producto": "Crochet Home Patterns",
+  "slug": "crochet-home",
+  "titulo_completo": "The Ultimate Crochet Home Decor Vault · 30+ Tested Patterns + 4 Free Bonus Guides",
+  "idioma": "en",
+  "registro": "en-us",
+  "mercado": "ANGLO (US, UK, CA, AU, NZ)",
+  "precio": "US$ 27",
+  "precio_tachado": "US$ 81",
+  "ahorro": "US$ 54",
+  "tienda": "ImpulTienda",
+  "subdominio": "crochethome.impultienda.ar",
+  "subdominio_estado": "activo",
+  "landing_publicada": "https://crochethome.impultienda.ar",
+  "dominio_entregables": "https://santilahoz03.github.io/crochet-home",
+  "paleta": {
+    "bg": "#FAF8F5",
+    "paper": "#FFFFFF",
+    "ink": "#2E2820",
+    "ink_soft": "#6B5F54",
+    "accent": "#3D7A5A",
+    "accent_dark": "#2F5E44",
+    "line": "#C4B8AA"
+  },
+  "fuentes": {
+    "titulo": "Lora",
+    "texto": "Source Sans 3"
+  },
+  "hub": {
+    "carpeta": "g3akw88a2m",
+    "random": "g3akw88a2m",
+    "titulo": "Crochet for Your Home",
+    "subtitulo": "Everything you need to transform your home with beautiful handmade crochet — one corner at a time.",
+    "stats": [
+      "30+ step-by-step patterns",
+      "6 home decor categories",
+      "4 bonus guides included"
+    ],
+    "pasos": [
+      "Download the main pattern book and pick your first project",
+      "Choose a category that matches the room you want to transform",
+      "Follow the step-by-step instructions — each pattern has materials, stitch counts, and finishing tips",
+      "Explore the bonus guides for color matching, decoration ideas, and a structured weekend plan"
+    ]
+  },
+  "entregables": [
+    {
+      "id": "core",
+      "tipo": "core",
+      "nombre": "Crochet for Your Home · 30 Step-by-Step Patterns",
+      "descripcion": "Complete pattern collection across 6 home decor categories: cushions, blankets, table runners, placemats, coasters, and organizers.",
+      "carpeta": "crochet-for-your-home",
+      "random": "m0g1vb8amy",
+      "en_hub": true,
+      "pdf": "crochet-for-your-home.pdf",
+      "fuente": "pdf-sources/crochet-for-your-home.html",
+      "paginas": 50
+    },
+    {
+      "id": "bono-glossary",
+      "tipo": "bono",
+      "nombre": "Illustrated Glossary & Materials Guide",
+      "descripcion": "Complete reference: 20+ stitches, yarn guide, hook chart, finishing techniques, and troubleshooting.",
+      "carpeta": "illustrated-glossary-materials-guide",
+      "random": "19dfg11yyp",
+      "en_hub": true,
+      "pdf": "illustrated-glossary-materials-guide.pdf",
+      "fuente": "pdf-sources/illustrated-glossary-materials-guide.html",
+      "paginas": 20,
+      "orden": "1/4"
+    },
+    {
+      "id": "bono-color",
+      "tipo": "bono",
+      "nombre": "Color Matching Guide",
+      "descripcion": "Color theory, room-by-room palettes, seasonal schemes, and swatching tips for home decor.",
+      "carpeta": "color-matching-guide",
+      "random": "52kk00cati",
+      "en_hub": true,
+      "pdf": "color-matching-guide.pdf",
+      "fuente": "pdf-sources/color-matching-guide.html",
+      "paginas": 15,
+      "orden": "2/4"
+    },
+    {
+      "id": "bono-decoration",
+      "tipo": "bono",
+      "nombre": "Interior Decoration Guide",
+      "descripcion": "Room-by-room styling, texture layering, care & maintenance, and creating a cohesive home.",
+      "carpeta": "interior-decoration-guide",
+      "random": "bwcpi9wyxy",
+      "en_hub": true,
+      "pdf": "interior-decoration-guide.pdf",
+      "fuente": "pdf-sources/interior-decoration-guide.html",
+      "paginas": 16,
+      "orden": "3/4"
+    },
+    {
+      "id": "bono-weekend",
+      "tipo": "bono",
+      "nombre": "4-Weekend Program",
+      "descripcion": "Structured plan to complete 4 home decor projects in 4 weekends — from coasters to a throw blanket.",
+      "carpeta": "4-weekend-program",
+      "random": "4w8b816qxt",
+      "en_hub": true,
+      "pdf": "4-weekend-program.pdf",
+      "fuente": "pdf-sources/4-weekend-program.html",
+      "paginas": 17,
+      "orden": "4/4"
+    }
+  ],
+  "textos_ui": {
+    "bienvenida": "Welcome to",
+    "principal": "Main Product",
+    "bonos": "Your Bonuses",
+    "herramienta": "Tool",
+    "bono": "Bonus",
+    "de": "of",
+    "descargar": "Download PDF",
+    "nueva": "Open in a new window",
+    "paginas": "pages",
+    "acceso": "Lifetime access · Download anytime",
+    "uso": "For personal use only. Resale or redistribution is prohibited.",
+    "no_pdf": "Your browser can't display the PDF here.",
+    "descargalo": "Download it with the button",
+    "empezar": "Where to Start",
+    "abrir": "Open"
+  },
+  "promesas": [],
+  "imagenes": [
+    {"tipo": "hero", "archivo": "mockups/1-hero-crochet-home.png", "uso": "checkout, producto tienda, ads"},
+    {"tipo": "caja", "archivo": "mockups/2-caja-crochet-home.png", "uso": "ads, redes"}
+  ],
+  "ads_dir": "",
+  "lanzamiento": "pendiente",
+  "checklist": []
+}

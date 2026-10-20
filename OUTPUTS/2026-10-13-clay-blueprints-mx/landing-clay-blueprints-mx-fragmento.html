@@ -1,0 +1,584 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+html{scroll-behavior:smooth}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#f4f4f4;color:#121212;font-family:'Inter',system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+.cb-wrap{max-width:1100px;margin:0 auto;padding:0 24px}
+.cb-section{padding:80px 0}
+.cb-placeholder{aspect-ratio:3/2;background:#e0d5c8;display:flex;align-items:center;justify-content:center;border-radius:12px;color:#4a3020;font-weight:600;font-size:15px;text-align:center;padding:20px}
+.cb-btn-primary{display:inline-block;background:#c8722a;color:#fff;font-weight:700;font-size:18px;padding:18px 40px;border-radius:8px;border:none;cursor:pointer;transition:background .2s ease,transform .15s ease;text-align:center;letter-spacing:.3px}
+.cb-btn-primary:hover{background:#e4893a;transform:translateY(-1px)}
+.cb-btn-primary:active{transform:translateY(0)}
+.cb-pulse{animation:cb-pulse-anim 2.5s ease-in-out infinite}
+@media(prefers-reduced-motion:reduce){.cb-pulse{animation:none}}
+@keyframes cb-pulse-anim{0%,100%{box-shadow:0 0 0 0 rgba(200,114,42,.45)}50%{box-shadow:0 0 0 12px rgba(200,114,42,0)}}
+.cb-fade{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+html.cb-js .cb-fade.cb-visible{opacity:1;transform:translateY(0)}
+html:not(.cb-js) .cb-fade{opacity:1;transform:none}
+.cb-hero{background:#1a0f08 url('https://files.catbox.moe/krgpmn.png') center/cover no-repeat;color:#fff;padding:100px 0 90px;text-align:center;position:relative;overflow:hidden}
+.cb-hero::before{content:'';position:absolute;inset:0;background:rgba(26,15,8,.72);pointer-events:none}
+.cb-hero-inner{position:relative;z-index:1}
+.cb-pill{display:inline-block;background:rgba(200,114,42,.18);color:#e4893a;font-size:13px;font-weight:700;letter-spacing:1.2px;padding:8px 20px;border-radius:50px;margin-bottom:28px;text-transform:uppercase}
+.cb-hero h1{font-size:clamp(36px,5.5vw,64px);font-weight:900;line-height:1.1;margin-bottom:20px;letter-spacing:-.5px}
+.cb-hero-sub{font-size:clamp(16px,2.2vw,20px);color:rgba(255,255,255,.8);max-width:620px;margin:0 auto 44px;line-height:1.55}
+.cb-steps{display:flex;justify-content:center;gap:40px;margin-bottom:48px;flex-wrap:wrap}
+.cb-step{display:flex;flex-direction:column;align-items:center;gap:8px;font-size:14px;font-weight:600;color:rgba(255,255,255,.85)}
+.cb-step-icon{width:48px;height:48px;border-radius:50%;background:rgba(200,114,42,.2);display:flex;align-items:center;justify-content:center;font-size:22px}
+.cb-step-arrow{font-size:24px;color:rgba(255,255,255,.3);align-self:center;margin-top:10px}
+.cb-offer{background:#fff;padding:80px 0;scroll-margin-top:24px}
+.cb-offer-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.cb-offer-right{display:flex;flex-direction:column;gap:16px}
+.cb-urgency-pill{display:inline-block;background:#fef2f2;color:#e05555;font-size:13px;font-weight:700;padding:8px 16px;border-radius:6px;letter-spacing:.3px}
+.cb-offer-title{font-size:28px;font-weight:800;color:#121212;line-height:1.25}
+.cb-offer-subtitle{font-size:17px;color:#555;font-weight:500}
+.cb-checklist{list-style:none;display:flex;flex-direction:column;gap:10px}
+.cb-checklist li{font-size:15px;line-height:1.5;display:flex;align-items:flex-start;gap:10px}
+.cb-checklist li::before{content:'✓';color:#22a06b;font-weight:800;font-size:16px;flex-shrink:0;margin-top:1px}
+.cb-prices{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap}
+.cb-price-old{font-size:22px;color:#888;text-decoration:line-through;font-weight:500}
+.cb-price-new{font-size:56px;font-weight:900;color:#121212;line-height:1;font-family:Georgia,'Times New Roman',serif}
+.cb-trust{display:flex;gap:20px;flex-wrap:wrap;font-size:13px;color:#666;margin-top:8px;align-items:center}
+.cb-trust span{display:flex;align-items:center;gap:6px}
+.cb-lograr{background:#fdf8f2;padding:80px 0}
+.cb-lograr h2{text-align:center;font-size:clamp(28px,4vw,40px);font-weight:800;margin-bottom:12px;color:#121212}
+.cb-lograr-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-top:48px}
+.cb-lograr-card{background:#fff;border-radius:12px;padding:32px 28px;box-shadow:0 2px 12px rgba(0,0,0,.06);display:flex;align-items:flex-start;gap:16px}
+.cb-lograr-icon{width:44px;height:44px;border-radius:10px;background:rgba(200,114,42,.12);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+.cb-lograr-card p{font-size:15px;line-height:1.55;color:#333}
+.cb-como{overflow:hidden}
+.cb-como-top{background:#1a0f08;color:#fff;padding:80px 0 120px;text-align:center}
+.cb-como-top h2{font-size:clamp(28px,4vw,40px);font-weight:800;margin-bottom:12px}
+.cb-como-top p{font-size:18px;color:rgba(255,255,255,.7);max-width:500px;margin:0 auto}
+.cb-como-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:-60px;position:relative;z-index:1}
+.cb-como-card{background:#fff;border-radius:12px;padding:32px 24px;text-align:center;box-shadow:0 4px 20px rgba(0,0,0,.08)}
+.cb-como-num{width:44px;height:44px;border-radius:50%;background:#c8722a;color:#fff;font-weight:800;font-size:18px;display:flex;align-items:center;justify-content:center;margin:0 auto 16px}
+.cb-como-card h3{font-size:18px;font-weight:700;margin-bottom:8px;color:#121212}
+.cb-como-card p{font-size:14px;color:#555;line-height:1.55}
+.cb-incluye{background:#fff;padding:80px 0}
+.cb-incluye h2{text-align:center;font-size:clamp(28px,4vw,40px);font-weight:800;margin-bottom:12px;color:#121212}
+.cb-incluye>div>.cb-sub-center{text-align:center;font-size:17px;color:#555;max-width:700px;margin:0 auto 56px;line-height:1.55}
+.cb-product-card{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;margin-bottom:56px}
+.cb-product-card:nth-child(even){direction:rtl}
+.cb-product-card:nth-child(even)>*{direction:ltr}
+.cb-product-info h3{font-size:22px;font-weight:700;color:#121212;margin-bottom:16px}
+.cb-product-info ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+.cb-product-info li{font-size:15px;line-height:1.5;display:flex;align-items:flex-start;gap:10px}
+.cb-product-info li::before{content:'✓';color:#22a06b;font-weight:800;flex-shrink:0}
+.cb-desglose{background:#1a0f08;color:#fff;padding:80px 0}
+.cb-desglose h2{text-align:center;font-size:clamp(28px,4vw,40px);font-weight:800;margin-bottom:12px}
+.cb-desglose .cb-sub-center{text-align:center;font-size:17px;color:rgba(255,255,255,.65);max-width:700px;margin:0 auto 48px;line-height:1.55}
+.cb-cat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;margin-bottom:48px}
+.cb-cat-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:28px 20px;text-align:center}
+.cb-cat-card h3{font-size:18px;font-weight:700;margin-bottom:4px}
+.cb-cat-card .cb-cat-count{font-size:32px;font-weight:900;color:#c8722a;margin-bottom:8px}
+.cb-cat-card p{font-size:13px;color:rgba(255,255,255,.55);line-height:1.5}
+.cb-totals{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;border-top:1px solid rgba(255,255,255,.1);padding-top:40px}
+.cb-total-item{text-align:center}
+.cb-total-item .cb-total-num{font-size:28px;font-weight:900;color:#c8722a}
+.cb-total-item p{font-size:14px;color:rgba(255,255,255,.6);margin-top:4px}
+.cb-tabla{background:#fff;padding:80px 0}
+.cb-tabla h2{text-align:center;font-size:clamp(28px,4vw,40px);font-weight:800;margin-bottom:48px;color:#121212}
+.cb-table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.cb-compare{width:100%;border-collapse:collapse;font-size:15px}
+.cb-compare thead th{padding:16px 20px;text-align:left;font-weight:700;font-size:14px;text-transform:uppercase;letter-spacing:.5px;border-bottom:2px solid #eee}
+.cb-compare thead th:first-child{color:#888}
+.cb-compare thead th:nth-child(2){color:#888}
+.cb-compare thead th:nth-child(3){color:#c8722a;background:rgba(200,114,42,.06);border-radius:8px 8px 0 0}
+.cb-compare td{padding:14px 20px;border-bottom:1px solid #f0f0f0;vertical-align:top}
+.cb-compare td:nth-child(3){background:rgba(200,114,42,.03)}
+.cb-compare .cb-x{color:#e05555;font-weight:700}
+.cb-compare .cb-check{color:#22a06b;font-weight:700}
+.cb-faq{background:#1a0f08;color:#fff;padding:80px 0}
+.cb-faq h2{text-align:center;font-size:clamp(28px,4vw,40px);font-weight:800;margin-bottom:48px}
+.cb-faq-list{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:12px}
+.cb-faq-item{border:1px solid rgba(255,255,255,.1);border-radius:10px;overflow:hidden}
+.cb-faq-item summary{padding:20px 24px;font-size:16px;font-weight:600;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;transition:background .2s}
+.cb-faq-item summary:hover{background:rgba(255,255,255,.04)}
+.cb-faq-item summary::after{content:'+';font-size:24px;font-weight:300;color:#c8722a;flex-shrink:0;margin-left:16px;transition:transform .2s}
+.cb-faq-item[open] summary::after{content:'−'}
+.cb-faq-item summary::-webkit-details-marker{display:none}
+.cb-faq-item .cb-faq-answer{padding:0 24px 20px;font-size:15px;color:rgba(255,255,255,.7);line-height:1.65}
+.cb-footer{background:#eee;padding:40px 0;text-align:center;font-size:14px;color:#666}
+.cb-footer a{color:#c8722a;font-weight:500}
+.cb-footer a:hover{text-decoration:underline}
+.cb-sticky-bar{position:fixed;bottom:0;left:0;right:0;background:rgba(26,15,8,.97);padding:12px 20px;z-index:100;display:flex;justify-content:center;transform:translateY(100%);transition:transform .35s ease;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.cb-sticky-bar.cb-sticky-show{transform:translateY(0)}
+.cb-sticky-bar .cb-btn-primary{font-size:15px;padding:14px 32px;width:100%;max-width:420px}
+@media(min-width:769px){.cb-sticky-bar{display:none}}
+@media(max-width:768px){
+.cb-offer-grid{grid-template-columns:1fr}
+.cb-product-card{grid-template-columns:1fr}
+.cb-product-card:nth-child(even){direction:ltr}
+.cb-como-cards{grid-template-columns:repeat(2,1fr)}
+.cb-steps{gap:24px}
+.cb-totals{grid-template-columns:1fr}
+.cb-totals .cb-total-item{padding:16px 0;border-bottom:1px solid rgba(255,255,255,.08)}
+.cb-totals .cb-total-item:last-child{border:none}
+.cb-section{padding:60px 0}
+.cb-hero{padding:80px 0 70px}
+}
+@media(max-width:520px){
+.cb-wrap{padding:0 16px}
+.cb-hero{padding:64px 0 56px}
+.cb-hero h1{font-size:32px}
+.cb-hero-sub{font-size:16px;margin-bottom:32px}
+.cb-pill{font-size:11px;padding:6px 14px}
+.cb-steps{flex-direction:column;gap:16px;align-items:center}
+.cb-step-arrow{display:none}
+.cb-btn-primary{font-size:16px;padding:16px 28px;width:100%}
+.cb-offer-title{font-size:24px}
+.cb-price-new{font-size:44px}
+.cb-price-old{font-size:18px}
+.cb-trust{flex-direction:column;gap:8px;align-items:flex-start}
+.cb-como-cards{grid-template-columns:1fr}
+.cb-como-top{padding:60px 0 100px}
+.cb-lograr-grid{grid-template-columns:1fr}
+.cb-cat-grid{grid-template-columns:repeat(2,1fr)}
+.cb-compare{font-size:13px}
+.cb-compare thead th,.cb-compare td{padding:10px 12px}
+.cb-section{padding:48px 0}
+.cb-faq-item summary{font-size:15px;padding:16px 18px}
+.cb-faq-item .cb-faq-answer{padding:0 18px 16px;font-size:14px}
+}
+@media(max-width:380px){
+.cb-wrap{padding:0 12px}
+.cb-hero{padding:52px 0 44px}
+.cb-hero h1{font-size:27px}
+.cb-hero-sub{font-size:15px}
+.cb-offer-title{font-size:21px}
+.cb-price-new{font-size:38px}
+.cb-checklist li{font-size:14px}
+.cb-product-info h3{font-size:19px}
+.cb-cat-grid{grid-template-columns:1fr}
+.cb-cat-card{padding:20px 16px}
+.cb-btn-primary{font-size:15px;padding:14px 20px}
+.cb-lograr-card{padding:24px 20px}
+.cb-como-card{padding:24px 18px}
+.cb-faq-item summary{font-size:14px;padding:14px 14px}
+}
+</style>
+<section class="cb-hero">
+<div class="cb-hero-inner cb-wrap">
+<span class="cb-pill">150+ PLANTILLAS DE CERÁMICA IMPRIMIBLES</span>
+<h1>Deja de medir.<br>Empieza a crear.</h1>
+<p class="cb-hero-sub">Plantillas descargables diseñadas para eliminar las dudas en tu trabajo con arcilla. Solo imprime, traza y crea.</p>
+<div class="cb-steps">
+<div class="cb-step">
+<div class="cb-step-icon">📄</div>
+<span>Elige tu plantilla</span>
+</div>
+<span class="cb-step-arrow">→</span>
+<div class="cb-step">
+<div class="cb-step-icon">🖨️</div>
+<span>Imprime tu diseño</span>
+</div>
+<span class="cb-step-arrow">→</span>
+<div class="cb-step">
+<div class="cb-step-icon">🏺</div>
+<span>Empieza a construir</span>
+</div>
+</div>
+<a href="#cb-offer" class="cb-btn-primary cb-pulse">VER LA OFERTA ↓</a>
+</div>
+</section>
+
+<section class="cb-offer cb-section cb-fade" id="cb-offer">
+<div class="cb-wrap">
+<div class="cb-offer-grid">
+<div>
+<img src="https://files.catbox.moe/rri1dk.png" alt="La Biblioteca Maestra de Cerámica — 150+ Plantillas Profesionales" style="width:100%;border-radius:12px">
+</div>
+<div class="cb-offer-right">
+<span class="cb-urgency-pill">🚀 Precio de Lanzamiento — 78% de Descuento Solo Hoy</span>
+<h2 class="cb-offer-title">La Biblioteca Maestra de Cerámica</h2>
+<p class="cb-offer-subtitle">150+ Plantillas de Cerámica Listas Para Usar</p>
+<ul class="cb-checklist">
+<li>150+ Plantillas de Cerámica Listas Para Usar</li>
+<li>210+ Páginas Detalladas Para Imprimir</li>
+<li>Plantillas: Losa (68), Rollo (44) y Pellizco (43)</li>
+<li>Formas de Plantilla a Tamaño Real 1:1</li>
+<li>Tamaño ajustado por contracción</li>
+<li>Plantillas PDF listas para imprimir en casa</li>
+<li>Medidas Precisas y Líneas de Corte</li>
+<li>5 Colecciones Completas de Cerámica</li>
+<li>BONUS #1: Manual de Construcción a Mano</li>
+<li>BONUS #2: Planificador de Proyectos del Ceramista</li>
+<li>BONUS #3: Registro de Horneado y Seguimiento del Horno</li>
+<li>Acceso instantáneo después de la compra — descarga inmediata</li>
+</ul>
+<div class="cb-prices">
+<span class="cb-price-old">{{original_price}}</span>
+<span class="cb-price-new">{{price}}</span>
+</div>
+<a href="/checkout" class="cb-btn-primary cb-pulse" style="text-align:center;">QUIERO MI ACCESO AHORA</a>
+<div class="cb-trust">
+<span>🔒 Pago 100% Seguro</span>
+<span>⚡ Entrega Inmediata</span>
+<span>✅ Garantía 7 Días</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="cb-lograr cb-section cb-fade">
+<div class="cb-wrap">
+<h2>Lo Que Vas a Lograr Con Estas Plantillas</h2>
+<div class="cb-lograr-grid">
+<div class="cb-lograr-card">
+<div class="cb-lograr-icon">🎯</div>
+<p>Piezas con proporciones profesionales desde el primer intento</p>
+</div>
+<div class="cb-lograr-card">
+<div class="cb-lograr-icon">🔲</div>
+<p>Tapas que ajustan perfectamente — sin adivinar medidas</p>
+</div>
+<div class="cb-lograr-card">
+<div class="cb-lograr-icon">⏱️</div>
+<p>Ahorro de horas de prueba y error en cada proyecto</p>
+</div>
+<div class="cb-lograr-card">
+<div class="cb-lograr-icon">📚</div>
+<p>Una biblioteca completa para explorar más de 150 formas distintas</p>
+</div>
+<div class="cb-lograr-card">
+<div class="cb-lograr-icon">💪</div>
+<p>Confianza para crear y vender tus propias piezas de cerámica</p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="cb-como cb-fade">
+<div class="cb-como-top">
+<div class="cb-wrap">
+<h2>Cómo Funciona</h2>
+<p>Desde el clic hasta tu proyecto terminado.</p>
+</div>
+</div>
+<div class="cb-wrap">
+<div class="cb-como-cards">
+<div class="cb-como-card">
+<div class="cb-como-num">1</div>
+<h3>Descarga</h3>
+<p>Pago seguro. Obtén acceso instantáneo a tu biblioteca completa de plantillas.</p>
+</div>
+<div class="cb-como-card">
+<div class="cb-como-num">2</div>
+<h3>Elige</h3>
+<p>Explora la biblioteca organizada y elige el proyecto de cerámica que quieras hacer.</p>
+</div>
+<div class="cb-como-card">
+<div class="cb-como-num">3</div>
+<h3>Imprime</h3>
+<p>Imprime al 100% / Tamaño Real y verifica la referencia de escala de 100 mm / 4 pulgadas.</p>
+</div>
+<div class="cb-como-card">
+<div class="cb-como-num">4</div>
+<h3>Construye</h3>
+<p>Sigue la plantilla, da forma a tu arcilla, une las piezas y perfecciona tu obra terminada.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="cb-incluye cb-section cb-fade">
+<div class="cb-wrap">
+<h2>Todo Lo Que Necesitas. Nada Que No.</h2>
+<p class="cb-sub-center">Una sola compra. Acceso instantáneo. Un sistema completo para construir piezas de cerámica profesionales desde el día uno.</p>
+
+<div class="cb-product-card">
+<div>
+<img src="https://files.catbox.moe/tgbpkm.png" alt="Biblioteca Maestra de Plantillas de Cerámica" style="width:100%;border-radius:12px">
+</div>
+<div class="cb-product-info">
+<h3>Producto Principal: Biblioteca Maestra</h3>
+<ul>
+<li>150+ plantillas de cerámica imprimibles en 5 categorías</li>
+<li>Plantillas a tamaño real 1:1 con medidas exactas</li>
+<li>Contracción incorporada en cada plantilla</li>
+<li>Pulgadas + mm en cada página</li>
+<li>Componentes y tapas que encajan entre sí</li>
+<li>Listas para imprimir en casa (A4, A1 y Carta)</li>
+</ul>
+</div>
+</div>
+
+<div class="cb-product-card">
+<div>
+<img src="https://files.catbox.moe/ac11k1.png" alt="Manual de Construcción a Mano" style="width:100%;border-radius:12px">
+</div>
+<div class="cb-product-info">
+<h3>Bonus #1: Manual de Construcción a Mano</h3>
+<ul>
+<li>Técnicas de losa, rollo y pellizco explicadas de forma simple</li>
+<li>Marcado, unión, modelado y refinado</li>
+<li>Guía de secado, horneado y esmaltado</li>
+<li>Una referencia confiable para cada proyecto</li>
+</ul>
+</div>
+</div>
+
+<div class="cb-product-card">
+<div>
+<img src="https://files.catbox.moe/ib28ih.png" alt="Planificador de Proyectos del Ceramista" style="width:100%;border-radius:12px">
+</div>
+<div class="cb-product-info">
+<h3>Bonus #2: Planificador de Proyectos</h3>
+<ul>
+<li>Páginas de planificación y boceto</li>
+<li>Secciones de arcilla, esmalte y registro de horneado</li>
+<li>Registra pruebas, ajustes y mejoras</li>
+<li>Mantente organizado y haz mejores piezas</li>
+</ul>
+</div>
+</div>
+
+<div class="cb-product-card">
+<div>
+<img src="https://files.catbox.moe/co95l5.png" alt="Registro de Horneado y Seguimiento del Horno" style="width:100%;border-radius:12px">
+</div>
+<div class="cb-product-info">
+<h3>Bonus #3: Registro de Horneado</h3>
+<ul>
+<li>Registra detalles de horno, arcilla, esmalte y horneado</li>
+<li>Controla cono, temperatura, tiempos de reposo y enfriamiento</li>
+<li>Anota resultados de esmalte, defectos, grietas y deformaciones</li>
+<li>Planifica ajustes para tu próximo horneado</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+
+<section class="cb-desglose cb-section cb-fade">
+<div class="cb-wrap">
+<h2>150+ plantillas. 5 categorías. Una biblioteca.</h2>
+<p class="cb-sub-center">210+ páginas en total, organizadas para navegación rápida por categoría y método de construcción.</p>
+<div class="cb-cat-grid">
+<div class="cb-cat-card">
+<div class="cb-cat-count">70+</div>
+<h3>Cocina</h3>
+<p>Tazas, Jarros, Tazones, Platos</p>
+</div>
+<div class="cb-cat-card">
+<div class="cb-cat-count">30+</div>
+<h3>Hogar</h3>
+<p>Baño, Escritorio, Joyería, Estudio</p>
+</div>
+<div class="cb-cat-card">
+<div class="cb-cat-count">25+</div>
+<h3>Jarrones</h3>
+<p>Mesa, Botella y Frasco, Brote y Tallo</p>
+</div>
+<div class="cb-cat-card">
+<div class="cb-cat-count">15+</div>
+<h3>Macetas</h3>
+<p>Macetas, Colgantes y Pared, Decorativas</p>
+</div>
+<div class="cb-cat-card">
+<div class="cb-cat-count">10+</div>
+<h3>Iluminación</h3>
+<p>Faroles, Pared, Portavelas</p>
+</div>
+</div>
+<div class="cb-totals">
+<div class="cb-total-item">
+<div class="cb-total-num">68</div>
+<p>plantillas de Losa</p>
+</div>
+<div class="cb-total-item">
+<div class="cb-total-num">44</div>
+<p>plantillas de Rollo</p>
+</div>
+<div class="cb-total-item">
+<div class="cb-total-num">43</div>
+<p>plantillas de Pellizco</p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="cb-tabla cb-section cb-fade">
+<div class="cb-wrap">
+<h2>Plantillas hechas como planos profesionales</h2>
+<div class="cb-table-wrap">
+<table class="cb-compare">
+<thead>
+<tr>
+<th>Característica</th>
+<th>Otros patrones</th>
+<th>NUESTRAS PLANTILLAS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cantidad de patrones</td>
+<td><span class="cb-x">✗</span> 30+</td>
+<td><span class="cb-check">✓</span> 150+</td>
+</tr>
+<tr>
+<td>Verificación de escala</td>
+<td><span class="cb-x">✗</span> A menudo falta</td>
+<td><span class="cb-check">✓</span> Referencia en cada hoja</td>
+</tr>
+<tr>
+<td>Ajuste por contracción</td>
+<td><span class="cb-x">✗</span> Se calcula manualmente</td>
+<td><span class="cb-check">✓</span> Incorporado en el tamaño</td>
+</tr>
+<tr>
+<td>Plantillas a tamaño real</td>
+<td><span class="cb-check">✓</span> Algunas</td>
+<td><span class="cb-check">✓</span> Imprime al 100%</td>
+</tr>
+<tr>
+<td>Tapas y piezas que encajan</td>
+<td><span class="cb-x">✗</span> Se calculan aparte</td>
+<td><span class="cb-check">✓</span> Diseñadas para encajar</td>
+</tr>
+<tr>
+<td>Listas para imprimir en casa</td>
+<td><span class="cb-check">✓</span> Normalmente sí</td>
+<td><span class="cb-check">✓</span> Hechas para impresoras estándar</td>
+</tr>
+<tr>
+<td>Soporte paso a paso</td>
+<td><span class="cb-check">✓</span> Guía básica</td>
+<td><span class="cb-check">✓</span> Biblioteca + manual + planificador</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+
+<section class="cb-offer cb-section cb-fade">
+<div class="cb-wrap">
+<div class="cb-offer-grid">
+<div>
+<img src="https://files.catbox.moe/rri1dk.png" alt="La Biblioteca Maestra de Cerámica — 150+ Plantillas Profesionales" style="width:100%;border-radius:12px">
+</div>
+<div class="cb-offer-right">
+<span class="cb-urgency-pill">🚀 Precio de Lanzamiento — 78% de Descuento Solo Hoy</span>
+<h2 class="cb-offer-title">La Biblioteca Maestra de Cerámica</h2>
+<p class="cb-offer-subtitle">150+ Plantillas de Cerámica Listas Para Usar</p>
+<ul class="cb-checklist">
+<li>150+ Plantillas de Cerámica Listas Para Usar</li>
+<li>210+ Páginas Detalladas Para Imprimir</li>
+<li>Plantillas: Losa (68), Rollo (44) y Pellizco (43)</li>
+<li>Formas de Plantilla a Tamaño Real 1:1</li>
+<li>Tamaño ajustado por contracción</li>
+<li>Plantillas PDF listas para imprimir en casa</li>
+<li>Medidas Precisas y Líneas de Corte</li>
+<li>5 Colecciones Completas de Cerámica</li>
+<li>BONUS #1: Manual de Construcción a Mano</li>
+<li>BONUS #2: Planificador de Proyectos del Ceramista</li>
+<li>BONUS #3: Registro de Horneado y Seguimiento del Horno</li>
+<li>Acceso instantáneo después de la compra — descarga inmediata</li>
+</ul>
+<div class="cb-prices">
+<span class="cb-price-old">{{original_price}}</span>
+<span class="cb-price-new">{{price}}</span>
+</div>
+<a href="/checkout" class="cb-btn-primary cb-pulse" style="text-align:center;">QUIERO MI ACCESO AHORA</a>
+<div class="cb-trust">
+<span>🔒 Pago 100% Seguro</span>
+<span>⚡ Entrega Inmediata</span>
+<span>✅ Garantía 7 Días</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="cb-faq cb-section cb-fade">
+<div class="cb-wrap">
+<h2>Preguntas Frecuentes</h2>
+<div class="cb-faq-list">
+<details class="cb-faq-item">
+<summary>¿Necesito experiencia en cerámica para usar estas plantillas?</summary>
+<div class="cb-faq-answer">No. La colección incluye proyectos adecuados tanto para principiantes como para personas con más experiencia en construcción a mano. Cada plantilla te da un punto de partida técnico claro, mientras que el Manual de Construcción a Mano incluido cubre las técnicas fundamentales de losa, rollo y pellizco.</div>
+</details>
+<details class="cb-faq-item">
+<summary>¿Qué recibo exactamente?</summary>
+<div class="cb-faq-answer">Acceso a una biblioteca completa de plantillas de cerámica con 150+ planos en 5 categorías, 210+ páginas imprimibles, formas de plantilla a tamaño real, medidas, guía de proyectos y componentes que encajan entre sí. También recibirás el Manual de Construcción a Mano, el Planificador de Proyectos del Ceramista y la Licencia Comercial para Artesanos.</div>
+</details>
+<details class="cb-faq-item">
+<summary>¿Las plantillas son a tamaño real?</summary>
+<div class="cb-faq-answer">Sí. Las piezas relevantes de la plantilla están diseñadas para imprimirse al 100% / Tamaño Real, dándote formas a escala que puedes usar directamente como guías para tu arcilla. Los proyectos más grandes pueden usar varias páginas que se ensamblan para crear la plantilla completa.</div>
+</details>
+<details class="cb-faq-item">
+<summary>¿Las medidas incluyen pulgadas y milímetros?</summary>
+<div class="cb-faq-answer">Sí. Las medidas se proporcionan en pulgadas y milímetros, para que puedas trabajar con el sistema que prefieras sin tener que convertir todo tú mismo.</div>
+</details>
+<details class="cb-faq-item">
+<summary>¿Cómo sé que mi impresora imprimió la plantilla al tamaño correcto?</summary>
+<div class="cb-faq-answer">Imprime la plantilla al 100% / Tamaño Real y usa la referencia de verificación de escala incluida en la plantilla para comprobar que se imprimió correctamente. Evita opciones como "Ajustar a la página", que pueden redimensionar la plantilla.</div>
+</details>
+<details class="cb-faq-item">
+<summary>¿Necesito una impresora especial?</summary>
+<div class="cb-faq-answer">No. Las plantillas están diseñadas para funcionar con impresoras domésticas estándar. Simplemente descarga las páginas necesarias, imprímelas a la escala especificada y ensambla cualquier plantilla de varias páginas donde sea necesario.</div>
+</details>
+<details class="cb-faq-item">
+<summary>¿Tengo que calcular la contracción de la arcilla yo mismo?</summary>
+<div class="cb-faq-answer">El tamaño de las plantillas ya tiene en cuenta la contracción, así que no necesitas agrandar manualmente cada plantilla antes de empezar. Las dimensiones finales después del horneado pueden variar según tu tipo de arcilla, nivel de humedad, proceso de secado y programa de horneado.</div>
+</details>
+<details class="cb-faq-item">
+<summary>¿Son solo plantillas de construcción con losa?</summary>
+<div class="cb-faq-answer">No. La biblioteca incluye proyectos diseñados para diferentes métodos de construcción a mano, incluyendo losa, rollo y pellizco. Eso te da un rango mucho más amplio de formas y proyectos para explorar.</div>
+</details>
+<details class="cb-faq-item">
+<summary>¿Las tapas y componentes vienen incluidos?</summary>
+<div class="cb-faq-answer">Sí. Cuando un proyecto incluye tapas o varios componentes, la plantilla proporciona las piezas correspondientes con proporciones diseñadas para encajar entre sí. Simplemente imprime al 100% / Tamaño Real, sigue las medidas y construye a partir de las plantillas. El ajuste final puede variar ligeramente según tu tipo de arcilla, contracción, secado y proceso de horneado.</div>
+</details>
+<details class="cb-faq-item">
+<summary>¿Puedo vender la cerámica que haga con las plantillas?</summary>
+<div class="cb-faq-answer">Sí. Tu compra incluye una Licencia Comercial para Artesanos, que te permite crear y vender piezas de cerámica terminadas hechas a mano usando las plantillas incluidas. Los archivos originales de las plantillas no pueden copiarse, compartirse, redistribuirse ni revenderse.</div>
+</details>
+</div>
+</div>
+</section>
+
+<footer class="cb-footer">
+<div class="cb-wrap">
+<p>&copy; 2026 — Todos los derechos reservados</p>
+<p style="margin-top:8px;"><a href="#">Términos y Condiciones</a></p>
+</div>
+</footer>
+
+<div class="cb-sticky-bar" id="cb-sticky">
+<a href="#cb-offer" class="cb-btn-primary cb-pulse">QUIERO MI ACCESO AHORA ↓</a>
+</div>
+
+<script>
+try{document.documentElement.classList.add('cb-js')}catch(e){}
+try{
+var cbEls=document.querySelectorAll('.cb-fade');
+var cbTO=setTimeout(function(){for(var i=0;i<cbEls.length;i++){cbEls[i].classList.add('cb-visible')}},2500);
+if('IntersectionObserver' in window){
+clearTimeout(cbTO);
+var cbObs=new IntersectionObserver(function(entries){
+for(var i=0;i<entries.length;i++){
+if(entries[i].isIntersecting){entries[i].target.classList.add('cb-visible');cbObs.unobserve(entries[i].target)}
+}
+},{threshold:0.12});
+for(var i=0;i<cbEls.length;i++){cbObs.observe(cbEls[i])}
+}
+}catch(e){for(var j=0;j<cbEls.length;j++){cbEls[j].classList.add('cb-visible')}}
+try{
+var cbSticky=document.getElementById('cb-sticky');
+var cbHero=document.querySelector('.cb-hero');
+if(cbSticky&&cbHero&&window.innerWidth<=768){
+var cbStickyObs=new IntersectionObserver(function(entries){
+cbSticky.classList.toggle('cb-sticky-show',!entries[0].isIntersecting);
+},{threshold:0});
+cbStickyObs.observe(cbHero);
+}
+}catch(e){}
+</script>

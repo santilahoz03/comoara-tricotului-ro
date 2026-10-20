@@ -1,0 +1,584 @@
+<title>Guía ImpulTienda · Leder & Werkstatt</title>
+<style>
+  /* Layout: single-column reference card, dense but scannable, warm leather palette */
+  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap');
+
+  :root {
+    --bg: #F5EDE0;
+    --surface: #FDF8F2;
+    --ink: #1A0F08;
+    --ink-soft: #5A4232;
+    --accent: #B5611F;
+    --accent-light: #E0A15E;
+    --line: #E6D5C0;
+    --ok: #2D6A3F;
+    --warn: #B5611F;
+    --code-bg: #1A0F08;
+    --code-fg: #F5EDE0;
+    --ff-display: 'Playfair Display', Georgia, serif;
+    --ff-body: 'DM Sans', system-ui, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #1A1410;
+      --surface: #2A2018;
+      --ink: #F0E6D8;
+      --ink-soft: #B8A898;
+      --accent: #E0A15E;
+      --accent-light: #B5611F;
+      --line: #3D3028;
+      --ok: #5DB87A;
+      --warn: #E0A15E;
+      --code-bg: #0E0A06;
+      --code-fg: #F0E6D8;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #1A1410;
+    --surface: #2A2018;
+    --ink: #F0E6D8;
+    --ink-soft: #B8A898;
+    --accent: #E0A15E;
+    --accent-light: #B5611F;
+    --line: #3D3028;
+    --ok: #5DB87A;
+    --warn: #E0A15E;
+    --code-bg: #0E0A06;
+    --code-fg: #F0E6D8;
+    color-scheme: dark;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--ff-body);
+    line-height: 1.55;
+    padding-inline: 20px;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  h1, h2, h3 { font-family: var(--ff-display); font-weight: 700; }
+  h1 { font-size: 1.75rem; margin: 0; line-height: 1.2; text-wrap: balance; }
+  h2 { font-size: 1.2rem; margin: 2.5rem 0 0.75rem; border-bottom: 2px solid var(--accent); padding-bottom: 0.4rem; text-wrap: balance; }
+  h3 { font-size: 1rem; margin: 1.5rem 0 0.5rem; color: var(--accent); }
+
+  .header {
+    padding: 1.5rem 0 1rem;
+    border-bottom: 3px solid var(--accent);
+    margin-bottom: 1.5rem;
+  }
+  .header p { color: var(--ink-soft); margin: 0.3rem 0 0; font-size: 0.9rem; }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
+    margin: 0.75rem 0;
+  }
+
+  .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--line);
+    flex-wrap: wrap;
+  }
+  .row:last-child { border-bottom: none; }
+  .row-label {
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    flex-shrink: 0;
+    min-width: 100px;
+  }
+  .row-value {
+    font-weight: 500;
+    text-align: right;
+    word-break: break-word;
+    min-width: 0;
+  }
+
+  .copy-block {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--code-bg);
+    color: var(--code-fg);
+    border-radius: 6px;
+    padding: 0.6rem 0.75rem;
+    margin: 0.5rem 0;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 0.82rem;
+    word-break: break-all;
+    line-height: 1.4;
+  }
+  .copy-block span { flex: 1; min-width: 0; user-select: all; }
+  .copy-btn {
+    flex-shrink: 0;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 4px 10px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: var(--ff-body);
+    letter-spacing: 0.04em;
+  }
+  .copy-btn:active { opacity: 0.7; }
+
+  .step {
+    display: flex;
+    gap: 0.75rem;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid var(--line);
+    align-items: flex-start;
+  }
+  .step:last-child { border-bottom: none; }
+  .step-num {
+    flex-shrink: 0;
+    width: 26px;
+    height: 26px;
+    background: var(--accent);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.78rem;
+    font-weight: 700;
+    margin-top: 2px;
+  }
+  .step-text { flex: 1; min-width: 0; }
+  .step-text strong { color: var(--ink); }
+  .step-text .detail { color: var(--ink-soft); font-size: 0.88rem; }
+
+  .color-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.45rem 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .color-row:last-child { border-bottom: none; }
+  .color-swatch {
+    width: 28px;
+    height: 28px;
+    border-radius: 4px;
+    border: 1px solid var(--line);
+    flex-shrink: 0;
+  }
+  .color-name { flex: 1; min-width: 0; font-size: 0.9rem; }
+  .color-hex { font-family: 'SF Mono', monospace; font-size: 0.85rem; font-weight: 600; }
+
+  .warn-box {
+    background: color-mix(in srgb, var(--warn) 12%, transparent);
+    border: 1px solid var(--warn);
+    border-radius: 6px;
+    padding: 0.75rem 1rem;
+    margin: 0.75rem 0;
+    font-size: 0.9rem;
+    line-height: 1.45;
+  }
+
+  .checklist { list-style: none; padding: 0; margin: 0; }
+  .checklist li {
+    padding: 0.45rem 0;
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    gap: 0.5rem;
+    align-items: flex-start;
+    font-size: 0.92rem;
+  }
+  .checklist li:last-child { border-bottom: none; }
+  .checklist li::before {
+    content: '';
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    border: 2px solid var(--line);
+    border-radius: 3px;
+    margin-top: 2px;
+  }
+
+  .section-badge {
+    display: inline-block;
+    background: var(--accent);
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 99px;
+    vertical-align: middle;
+    margin-left: 0.5rem;
+  }
+
+  .file-note {
+    color: var(--ink-soft);
+    font-size: 0.82rem;
+    margin-top: 0.25rem;
+  }
+
+  @media (max-width: 520px) {
+    h1 { font-size: 1.4rem; }
+    .row { flex-direction: column; gap: 0.15rem; }
+    .row-value { text-align: left; }
+  }
+</style>
+
+<div class="header">
+  <h1>Leder & Werkstatt</h1>
+  <p>Configuración manual de ImpulTienda · Mercado DE · EUR 17,99 · 2026-10-10</p>
+</div>
+
+<!-- ═══════════ 1. TIENDA ═══════════ -->
+<h2>1 · Crear la tienda</h2>
+<div class="card">
+  <div class="row">
+    <span class="row-label">Idioma del contenido</span>
+    <span class="row-value"><strong>Espanol (Argentina)</strong></span>
+  </div>
+  <div class="row">
+    <span class="row-label">Nombre</span>
+    <span class="row-value"><strong>Leder & Werkstatt</strong></span>
+  </div>
+  <div class="row">
+    <span class="row-label">Email de contacto</span>
+    <span class="row-value">customersupport.santi@gmail.com</span>
+  </div>
+</div>
+
+<div class="warn-box">
+  El idioma del contenido en ImpulTienda es siempre <strong>Espanol (Argentina)</strong>, sin importar que el mercado sea Alemania. No lo cambies a aleman.
+</div>
+
+<!-- ═══════════ 2. SUBDOMINIO ═══════════ -->
+<h2>2 · Subdominio</h2>
+<div class="card">
+  <div class="row">
+    <span class="row-label">Subdominio sugerido</span>
+    <span class="row-value"><strong>lederwerkstatt</strong></span>
+  </div>
+</div>
+<p class="detail" style="color:var(--ink-soft); font-size:0.9rem;">Una sola palabra, sin guiones. Despues de crearlo, espera a que diga "SSL activo" antes de seguir.</p>
+
+<!-- ═══════════ 3. LANDING (fragmento) ═══════════ -->
+<h2>3 · Personalizar la landing</h2>
+<p>Ir a <strong>Personalizacion > HTML Personalizado</strong> y pegar el contenido completo de este archivo:</p>
+<div class="copy-block">
+  <span>landing-leder-werkstatt-fragmento.html</span>
+  <button class="copy-btn" onclick="c(this,'landing-leder-werkstatt-fragmento.html')">Copiar</button>
+</div>
+<p class="file-note">Archivo local: <code>OUTPUTS/2026-10-10-cuir-et-atelier-de/landing-leder-werkstatt-fragmento.html</code> (70 KB). Abrilo con un editor de texto, selecciona todo, copialo y pegalo en el bloque HTML.</p>
+
+<div class="warn-box">
+  No dejes que ImpulTienda genere el copy con su IA. Pegá el HTML tal cual.
+</div>
+
+<!-- ═══════════ 4. PRODUCTO ═══════════ -->
+<h2>4 · Crear el producto</h2>
+<div class="card">
+  <div class="row">
+    <span class="row-label">Titulo del producto</span>
+    <span class="row-value" style="text-align:left;"><strong>Meister-Schnittmusterkollektion fur Leder · uber 170 Professionelle Schnittmuster + 3 Bonus-Anleitungen Inklusive</strong></span>
+  </div>
+</div>
+<div class="copy-block">
+  <span>Meister-Schnittmusterkollektion für Leder · über 170 Professionelle Schnittmuster + 3 Bonus-Anleitungen Inklusive</span>
+  <button class="copy-btn" onclick="c(this,'Meister-Schnittmusterkollektion für Leder · über 170 Professionelle Schnittmuster + 3 Bonus-Anleitungen Inklusive')">Copiar</button>
+</div>
+
+<div class="card">
+  <div class="row">
+    <span class="row-label">Precio</span>
+    <span class="row-value"><strong>17,99 EUR</strong></span>
+  </div>
+  <div class="row">
+    <span class="row-label">Precio original (tachado)</span>
+    <span class="row-value"><strong>37,99 EUR</strong></span>
+  </div>
+  <div class="row">
+    <span class="row-label">Ahorro</span>
+    <span class="row-value">20,00 EUR</span>
+  </div>
+  <div class="row">
+    <span class="row-label">Garantia</span>
+    <span class="row-value">7 dias</span>
+  </div>
+</div>
+
+<h3>Imagen del producto</h3>
+<p>Subir el archivo <strong>hero 3:2</strong> (fondo blanco). Tambien podes pegar esta URL de catbox:</p>
+<div class="copy-block">
+  <span>https://files.catbox.moe/jvio8o.png</span>
+  <button class="copy-btn" onclick="c(this,'https://files.catbox.moe/jvio8o.png')">Copiar</button>
+</div>
+<p class="file-note">Archivo local: <code>OUTPUTS/2026-10-10-cuir-et-atelier-de/mockups/1-hero-leder-werkstatt.png</code> (1536x1024, 2.5 MB)</p>
+
+<h3>Entrega del producto</h3>
+<p>Tipo de entrega: <strong>Link/URL</strong>. Pegar este link al hub:</p>
+<div class="copy-block">
+  <span>https://santilahoz03.github.io/leder-werkstatt-de/acceso/fzw7goxfd3/</span>
+  <button class="copy-btn" onclick="c(this,'https://santilahoz03.github.io/leder-werkstatt-de/acceso/fzw7goxfd3/')">Copiar</button>
+</div>
+
+<div class="warn-box">
+  <strong>Un solo producto = toda la oferta.</strong> NO agregar los bonos como productos separados. El comprador recibe UN link al hub donde esta todo.
+</div>
+
+<!-- ═══════════ 5. CHECKOUT ═══════════ -->
+<h2>5 · Diseno del checkout</h2>
+
+<h3>Bloque de arriba</h3>
+<div class="card">
+  <div class="row">
+    <span class="row-label">Imagen</span>
+    <span class="row-value">Hero 3:2 (la misma del producto)</span>
+  </div>
+  <div class="row">
+    <span class="row-label">Cuenta regresiva</span>
+    <span class="row-value"><strong>10 minutos</strong></span>
+  </div>
+</div>
+
+<h3>Bloque de abajo</h3>
+<div class="card">
+  <div class="row">
+    <span class="row-label">Cupos</span>
+    <span class="row-value">Activar (si esta disponible)</span>
+  </div>
+</div>
+
+<h3>Boton de pago</h3>
+<div class="card">
+  <div class="row">
+    <span class="row-label">Texto del boton</span>
+    <span class="row-value"><strong>JETZT ZUGANG SICHERN</strong></span>
+  </div>
+</div>
+<div class="copy-block">
+  <span>JETZT ZUGANG SICHERN</span>
+  <button class="copy-btn" onclick="c(this,'JETZT ZUGANG SICHERN')">Copiar</button>
+</div>
+
+<h3>Garantia</h3>
+<div class="card">
+  <div class="row">
+    <span class="row-label">Visible en el checkout</span>
+    <span class="row-value">Si · 7 dias</span>
+  </div>
+</div>
+
+<h3>Datos del comprador</h3>
+<div class="card">
+  <div class="row">
+    <span class="row-label">Titulos de campos</span>
+    <span class="row-value"><strong>ON</strong></span>
+  </div>
+  <div class="row">
+    <span class="row-label">"Aqui recibiras tu producto..."</span>
+    <span class="row-value"><strong>ON</strong></span>
+  </div>
+  <div class="row">
+    <span class="row-label">Direccion (entrega/facturacion)</span>
+    <span class="row-value"><strong>OFF</strong></span>
+  </div>
+  <div class="row">
+    <span class="row-label">Email (obligatorio)</span>
+    <span class="row-value"><strong>ON</strong></span>
+  </div>
+  <div class="row">
+    <span class="row-label">Telefono</span>
+    <span class="row-value"><strong>OFF</strong></span>
+  </div>
+  <div class="row">
+    <span class="row-label">Nombre</span>
+    <span class="row-value"><strong>OFF</strong></span>
+  </div>
+  <div class="row">
+    <span class="row-label">Apellido</span>
+    <span class="row-value"><strong>OFF</strong></span>
+  </div>
+</div>
+
+<h3>Otros</h3>
+<div class="card">
+  <div class="row">
+    <span class="row-label">Resumen de compra</span>
+    <span class="row-value">Oculto</span>
+  </div>
+  <div class="row">
+    <span class="row-label">Barra de compradores</span>
+    <span class="row-value">Debajo del boton (si disponible)</span>
+  </div>
+</div>
+
+<!-- ═══════════ 6. COLORES ═══════════ -->
+<h2>6 · Colores del checkout <span class="section-badge">HEX exactos</span></h2>
+
+<div class="card">
+  <div class="color-row">
+    <div class="color-swatch" style="background:#F5EDE0;"></div>
+    <span class="color-name">Fondo general</span>
+    <span class="color-hex">#F5EDE0</span>
+    <button class="copy-btn" onclick="c(this,'#F5EDE0')">Copiar</button>
+  </div>
+  <div class="color-row">
+    <div class="color-swatch" style="background:#FDF8F2;"></div>
+    <span class="color-name">Fondo tarjetas</span>
+    <span class="color-hex">#FDF8F2</span>
+    <button class="copy-btn" onclick="c(this,'#FDF8F2')">Copiar</button>
+  </div>
+  <div class="color-row">
+    <div class="color-swatch" style="background:#1A0F08;"></div>
+    <span class="color-name">Texto principal</span>
+    <span class="color-hex">#1A0F08</span>
+    <button class="copy-btn" onclick="c(this,'#1A0F08')">Copiar</button>
+  </div>
+  <div class="color-row">
+    <div class="color-swatch" style="background:#5A4232;"></div>
+    <span class="color-name">Texto secundario</span>
+    <span class="color-hex">#5A4232</span>
+    <button class="copy-btn" onclick="c(this,'#5A4232')">Copiar</button>
+  </div>
+  <div class="color-row">
+    <div class="color-swatch" style="background:#E0A15E;"></div>
+    <span class="color-name">Acento / CTA</span>
+    <span class="color-hex">#E0A15E</span>
+    <button class="copy-btn" onclick="c(this,'#E0A15E')">Copiar</button>
+  </div>
+  <div class="color-row">
+    <div class="color-swatch" style="background:#B5611F;"></div>
+    <span class="color-name">Boton del checkout</span>
+    <span class="color-hex">#B5611F</span>
+    <button class="copy-btn" onclick="c(this,'#B5611F')">Copiar</button>
+  </div>
+  <div class="color-row">
+    <div class="color-swatch" style="background:#1A0F08;"></div>
+    <span class="color-name">Cuenta regresiva (fondo cajas)</span>
+    <span class="color-hex">#1A0F08</span>
+    <button class="copy-btn" onclick="c(this,'#1A0F08')">Copiar</button>
+  </div>
+  <div class="color-row">
+    <div class="color-swatch" style="background:#B5611F;"></div>
+    <span class="color-name">Badge de urgencia</span>
+    <span class="color-hex">#B5611F</span>
+    <button class="copy-btn" onclick="c(this,'#B5611F')">Copiar</button>
+  </div>
+  <div class="color-row">
+    <div class="color-swatch" style="background:#E6D5C0;"></div>
+    <span class="color-name">Bordes</span>
+    <span class="color-hex">#E6D5C0</span>
+    <button class="copy-btn" onclick="c(this,'#E6D5C0')">Copiar</button>
+  </div>
+</div>
+
+<div class="warn-box">
+  Boton del checkout: fondo <strong>#B5611F</strong> con texto <strong>blanco</strong>. Texto del boton: <strong>JETZT ZUGANG SICHERN</strong>.
+</div>
+
+<!-- ═══════════ 7. PAGOS ═══════════ -->
+<h2>7 · Procesador de pagos</h2>
+<div class="card">
+  <div class="row">
+    <span class="row-label">Procesador</span>
+    <span class="row-value"><strong>ImpulPay (multidivisa)</strong></span>
+  </div>
+  <div class="row">
+    <span class="row-label">Moneda</span>
+    <span class="row-value"><strong>EUR</strong></span>
+  </div>
+  <div class="row">
+    <span class="row-label">Metodos de pago locales</span>
+    <span class="row-value"><strong>ON</strong> (SEPA, Klarna, etc.)</span>
+  </div>
+</div>
+
+<!-- ═══════════ 8. URLS ═══════════ -->
+<h2>8 · Todas las URLs</h2>
+
+<h3>Hub de entrega (link del producto)</h3>
+<div class="copy-block">
+  <span>https://santilahoz03.github.io/leder-werkstatt-de/acceso/fzw7goxfd3/</span>
+  <button class="copy-btn" onclick="c(this,'https://santilahoz03.github.io/leder-werkstatt-de/acceso/fzw7goxfd3/')">Copiar</button>
+</div>
+
+<h3>Imagen hero del checkout (catbox)</h3>
+<div class="copy-block">
+  <span>https://files.catbox.moe/jvio8o.png</span>
+  <button class="copy-btn" onclick="c(this,'https://files.catbox.moe/jvio8o.png')">Copiar</button>
+</div>
+<p class="file-note">Archivo local: <code>mockups/1-hero-leder-werkstatt.png</code></p>
+
+<h3>Entregables online (para verificar)</h3>
+<div class="card">
+  <div class="row">
+    <span class="row-label">Core (PDF)</span>
+    <span class="row-value" style="font-size:0.82rem; word-break:break-all; text-align:left;">https://santilahoz03.github.io/leder-werkstatt-de/meister-schnittmusterkollektion/pihbxzbrmj/</span>
+  </div>
+  <div class="row">
+    <span class="row-label">Bonus 1</span>
+    <span class="row-value" style="font-size:0.82rem; word-break:break-all; text-align:left;">https://santilahoz03.github.io/leder-werkstatt-de/ratgeber-zur-lederwahl/7afdfusoqo/</span>
+  </div>
+  <div class="row">
+    <span class="row-label">Bonus 2</span>
+    <span class="row-value" style="font-size:0.82rem; word-break:break-all; text-align:left;">https://santilahoz03.github.io/leder-werkstatt-de/masterclass-leder-naehen/ejsswm16wl/</span>
+  </div>
+  <div class="row">
+    <span class="row-label">Bonus 3</span>
+    <span class="row-value" style="font-size:0.82rem; word-break:break-all; text-align:left;">https://santilahoz03.github.io/leder-werkstatt-de/der-weg-des-handwerkers/uwj4rgq10q/</span>
+  </div>
+</div>
+
+<!-- ═══════════ 9. CHECKLIST ═══════════ -->
+<h2>9 · Antes de pautar</h2>
+<div class="card">
+  <ul class="checklist">
+    <li>Configurar ImpulTienda con los datos de arriba</li>
+    <li>Verificar que el subdominio tenga SSL activo</li>
+    <li>Abrir la tienda en movil y verificar que se ve bien</li>
+    <li>Hacer clic en el boton de la landing — debe ir al checkout</li>
+    <li>Verificar que la imagen del checkout sea el hero 3:2</li>
+    <li>Verificar precio: 17,99 EUR (tachado 37,99 EUR)</li>
+    <li>Verificar que el link de entrega lleve al hub</li>
+    <li>Conectar procesador de pagos (ImpulPay EUR)</li>
+    <li>Conectar cuenta publicitaria + pixel (cuando decidas)</li>
+    <li>Compra de prueba: verificar que llegue el mail con UN solo link al hub</li>
+  </ul>
+</div>
+
+<script>
+function c(btn, text) {
+  try {
+    navigator.clipboard.writeText(text).then(function() {
+      var orig = btn.textContent;
+      btn.textContent = 'Listo';
+      setTimeout(function() { btn.textContent = orig; }, 1200);
+    }).catch(function() {
+      fallbackSelect(btn);
+    });
+  } catch(e) {
+    fallbackSelect(btn);
+  }
+}
+function fallbackSelect(btn) {
+  var span = btn.previousElementSibling;
+  if (span) {
+    var range = document.createRange();
+    range.selectNodeContents(span);
+    var sel = window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+  }
+}
+</script>

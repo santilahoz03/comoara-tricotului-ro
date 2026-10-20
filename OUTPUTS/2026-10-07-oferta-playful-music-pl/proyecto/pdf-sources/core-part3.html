@@ -1,0 +1,2840 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zabawowa Metoda Muzyczna — Modul 5 + Dyplom</title>
+<link rel="stylesheet" href="_shared.css">
+<style>
+  /* ── Score-page extras ── */
+  .score-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 6px;
+  }
+  .score-header h2 { margin-bottom: 0; }
+  .score-meta {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    margin-bottom: 14px;
+  }
+  .tempo-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-family: var(--df);
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--ink-mid);
+    background: var(--cream-deep);
+    padding: 3px 10px;
+    border-radius: 99px;
+  }
+  .lyrics-line {
+    font-family: var(--bf);
+    font-size: 13px;
+    color: var(--ink-mid);
+    padding: 4px 0 6px 4px;
+    font-style: italic;
+    line-height: 1.4;
+  }
+  .note-legend {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-bottom: 14px;
+    padding: 10px 14px;
+    background: var(--cream-card);
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+  }
+  .note-legend-item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-family: var(--af);
+    font-size: 12px;
+    font-weight: 700;
+  }
+  .note-legend-dot {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: 800;
+    color: #fff;
+  }
+  .staff-section { margin-bottom: 8px; }
+  .staff-label {
+    font-family: var(--df);
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--muted);
+    margin-bottom: 2px;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+  }
+  /* practice page: outline beats */
+  .beat-outline {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--af);
+    font-size: 16px;
+    font-weight: 800;
+    background: #fff;
+    border: 3px dashed var(--border);
+  }
+  .practice-instruction {
+    font-family: var(--df);
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--teal-dark);
+    margin-bottom: 10px;
+  }
+  .practice-lines {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin: 10px 0;
+  }
+  .practice-line {
+    border-bottom: 1.5px dashed var(--border);
+    height: 28px;
+  }
+  .section-intro-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .section-intro-grid .note-card {
+    background: var(--cream-card);
+    border: 2px solid var(--border);
+    border-radius: 16px;
+    padding: 16px 12px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+  }
+  .note-card .nc-name {
+    font-family: var(--df);
+    font-size: 15px;
+    font-weight: 800;
+  }
+  .note-card .nc-desc {
+    font-size: 11px;
+    color: var(--muted);
+    line-height: 1.4;
+  }
+  .how-to-box {
+    background: var(--cream-card);
+    border: 2px solid var(--border);
+    border-radius: 16px;
+    padding: 18px;
+    margin: 12px 0;
+  }
+  .how-to-box h3 {
+    font-size: 15px;
+    margin-bottom: 10px;
+    color: var(--teal-dark);
+  }
+  .progress-bar {
+    display: flex;
+    gap: 3px;
+    margin: 6px 0;
+  }
+  .progress-bar .prog-segment {
+    height: 10px;
+    border-radius: 5px;
+    flex: 1;
+  }
+  .difficulty-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 18px 0 10px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--border);
+  }
+  .difficulty-header h3 {
+    margin-bottom: 0;
+    font-size: 17px;
+  }
+  .song-decoration {
+    position: absolute;
+    font-size: 60px;
+    opacity: .07;
+    right: 16mm;
+    top: 20mm;
+  }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════
+     MODULE 5 — SEPARATOR (p.105)
+     ══════════════════════════════════════════════ -->
+<div class="page separator">
+  <div class="sep-num" style="background:var(--coral)">5</div>
+  <h2>Ilustrowane Partytury</h2>
+  <p class="sep-desc">Kolorowe nuty, prawdziwe melodie. Zagraj znane piosenki za pomocą naszego systemu kolorowych nut &mdash; od najprostszych do najbardziej zaawansowanych.</p>
+  <div style="display:flex; gap:6px; margin-top:20px;">
+    <span style="width:36px; height:8px; border-radius:4px; background:var(--n1)"></span>
+    <span style="width:36px; height:8px; border-radius:4px; background:var(--n2)"></span>
+    <span style="width:36px; height:8px; border-radius:4px; background:var(--n3)"></span>
+    <span style="width:36px; height:8px; border-radius:4px; background:var(--n4)"></span>
+    <span style="width:36px; height:8px; border-radius:4px; background:var(--n5)"></span>
+    <span style="width:36px; height:8px; border-radius:4px; background:var(--n6)"></span>
+  </div>
+  <p style="font-size:13px; color:var(--muted); margin-top:14px;">15 piosenek &bull; 3 poziomy trudności &bull; Prawdziwe polskie melodie</p>
+  <div class="page-num">105</div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     INTRODUCTION — COLOR-NOTE SYSTEM (p.106)
+     ══════════════════════════════════════════════ -->
+<div class="page">
+  <h2 style="text-align:center; margin-bottom:6px;">Nasz System Kolorowych Nut</h2>
+  <p style="text-align:center; font-size:14px; color:var(--muted); margin-bottom:18px;">Każda nuta ma swój kolor. Zapamiętaj je i graj ulubione piosenki!</p>
+
+  <div class="section-intro-grid">
+    <div class="note-card">
+      <span class="note-circle do">Do</span>
+      <span class="nc-name" style="color:var(--n1);">Do</span>
+      <span class="nc-desc">Czerwona nuta. Najniższy dźwięk w naszej skali.</span>
+    </div>
+    <div class="note-card">
+      <span class="note-circle re">Re</span>
+      <span class="nc-name" style="color:var(--n2);">Re</span>
+      <span class="nc-desc">Pomarańczowa nuta. Jeden stopień wyżej.</span>
+    </div>
+    <div class="note-card">
+      <span class="note-circle mi">Mi</span>
+      <span class="nc-name" style="color:#9A7800;">Mi</span>
+      <span class="nc-desc">Żółta nuta. Jasna i wesoła.</span>
+    </div>
+    <div class="note-card">
+      <span class="note-circle fa">Fa</span>
+      <span class="nc-name" style="color:var(--n4);">Fa</span>
+      <span class="nc-desc">Zielona nuta. Spokojna i stabilna.</span>
+    </div>
+    <div class="note-card">
+      <span class="note-circle sol">Sol</span>
+      <span class="nc-name" style="color:var(--n5);">Sol</span>
+      <span class="nc-desc">Niebieska nuta. Wysoka i czysta.</span>
+    </div>
+    <div class="note-card">
+      <span class="note-circle la">La</span>
+      <span class="nc-name" style="color:var(--n6);">La</span>
+      <span class="nc-desc">Łososiowa nuta. Najwyższy dźwięk.</span>
+    </div>
+  </div>
+
+  <div class="callout ok" style="margin-top:14px;">
+    <strong>Jak ćwiczyć?</strong> Zacznij od piosenek dla początkujących (tylko 3 nuty: Do, Re, Mi). Kiedy poczujesz się pewnie, przejdź do średniozaawansowanych (5 nut), a potem do zaawansowanych (wszystkie 6 nut).
+  </div>
+
+  <div class="card" style="margin-top:12px;">
+    <h3 style="font-size:14px;">Od najniższej do najwyższej:</h3>
+    <div style="display:flex; align-items:center; gap:6px; margin-top:10px; justify-content:center;">
+      <div class="beat" style="background:var(--n1)">Do</div>
+      <span style="font-size:20px; color:var(--muted);">&rarr;</span>
+      <div class="beat" style="background:var(--n2)">Re</div>
+      <span style="font-size:20px; color:var(--muted);">&rarr;</span>
+      <div class="beat" style="background:var(--n3); color:#4A3200">Mi</div>
+      <span style="font-size:20px; color:var(--muted);">&rarr;</span>
+      <div class="beat" style="background:var(--n4)">Fa</div>
+      <span style="font-size:20px; color:var(--muted);">&rarr;</span>
+      <div class="beat" style="background:var(--n5)">Sol</div>
+      <span style="font-size:20px; color:var(--muted);">&rarr;</span>
+      <div class="beat" style="background:var(--n6)">La</div>
+    </div>
+  </div>
+
+  <div class="page-num">106</div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     BEGINNER SONGS — 3 notes: Do, Re, Mi
+     ══════════════════════════════════════════════════════════ -->
+
+<div class="page">
+  <div class="difficulty-header">
+    <span class="pill pill-teal">Początkujący</span>
+    <h3>Piosenki na 3 nuty: Do, Re, Mi</h3>
+  </div>
+  <p style="font-size:14px; color:var(--ink-mid); margin-bottom:18px;">Pierwsze pięć piosenek. Używamy tylko trzech nut &mdash; czerwonej (Do), pomarańczowej (Re) i żółtej (Mi). To idealny start dla każdego małego muzyka!</p>
+  <div class="note-legend">
+    <span class="note-legend-item"><span class="note-legend-dot" style="background:var(--n1)">Do</span></span>
+    <span class="note-legend-item"><span class="note-legend-dot" style="background:var(--n2)">Re</span></span>
+    <span class="note-legend-item"><span class="note-legend-dot" style="background:var(--n3); color:#4A3200">Mi</span></span>
+  </div>
+  <div style="display:flex; flex-direction:column; gap:10px;">
+    <div class="card" style="display:flex; align-items:center; gap:12px;">
+      <span style="font-size:28px;">&#128049;</span>
+      <div><strong style="font-family:var(--df);">1. Wlazł Kotek na Płotek</strong><br><span style="font-size:12px; color:var(--muted);">Klasyczna polska piosenka &bull; Strona 108</span></div>
+    </div>
+    <div class="card" style="display:flex; align-items:center; gap:12px;">
+      <span style="font-size:28px;">&#128276;</span>
+      <div><strong style="font-family:var(--df);">2. Panie Janie</strong><br><span style="font-size:12px; color:var(--muted);">Znana melodia &bull; Strona 110</span></div>
+    </div>
+    <div class="card" style="display:flex; align-items:center; gap:12px;">
+      <span style="font-size:28px;">&#128059;</span>
+      <div><strong style="font-family:var(--df);">3. Stary Niedźwiedź Mocno Śpi</strong><br><span style="font-size:12px; color:var(--muted);">Gra ruchowa &bull; Strona 112</span></div>
+    </div>
+    <div class="card" style="display:flex; align-items:center; gap:12px;">
+      <span style="font-size:28px;">&#127783;</span>
+      <div><strong style="font-family:var(--df);">4. Deszczyk Pada</strong><br><span style="font-size:12px; color:var(--muted);">Piosenka o pogodzie &bull; Strona 114</span></div>
+    </div>
+    <div class="card" style="display:flex; align-items:center; gap:12px;">
+      <span style="font-size:28px;">&#129525;</span>
+      <div><strong style="font-family:var(--df);">5. Mam Chusteczkę Haftowaną</strong><br><span style="font-size:12px; color:var(--muted);">Zabawa w kole &bull; Strona 116</span></div>
+    </div>
+  </div>
+  <div class="page-num">107</div>
+</div>
+
+<!-- ── SONG 1: Wlazl Kotek na Plotek — SCORE (p.109) ── -->
+<div class="page">
+  <div class="song-decoration">&#128049;</div>
+  <div class="score-header">
+    <h2>Wlazł Kotek na Płotek</h2>
+  </div>
+  <div class="score-meta">
+    <span class="pill pill-teal">Początkujący</span>
+    <span class="tempo-badge">&#127956; Wolno</span>
+    <span class="tempo-badge">&#128266; Średnio</span>
+  </div>
+  <div class="note-legend">
+    <span class="note-legend-item"><span class="note-legend-dot" style="background:var(--n1)">Do</span> Do</span>
+    <span class="note-legend-item"><span class="note-legend-dot" style="background:var(--n2)">Re</span> Re</span>
+    <span class="note-legend-item"><span class="note-legend-dot" style="background:var(--n3); color:#4A3200">Mi</span> Mi</span>
+  </div>
+
+  <div class="staff-section">
+    <div class="staff-label">Linia 1</div>
+    <div class="staff">
+      <div class="beat" style="background:var(--n3); color:#4A3200">Mi</div>
+      <div class="beat" style="background:var(--n2)">Re</div>
+      <div class="beat" style="background:var(--n1)">Do</div>
+      <div class="rest">&#119100;</div>
+      <div class="beat" style="background:var(--n3); color:#4A3200">Mi</div>
+      <div class="beat" style="background:var(--n2)">Re</div>
+      <div class="beat" style="background:var(--n1)">Do</div>
+      <div class="rest">&#119100;</div>
+    </div>
+    <p class="lyrics-line">Wla-zł ko-tek &emsp; na pło-tek</p>
+  </div>
+
+  <div class="staff-section">
+    <div class="staff-label">Linia 2</div>
+    <div class="staff">
+      <div class="beat" style="background:var(--n3); color:#4A3200">Mi</div>
+      <div class="beat" style="background:var(--n3); color:#4A3200">Mi</div>
+      <div class="beat" style="background:var(--n2)">Re</div>
+      <div class="beat" style="background:var(--n2)">Re</div>
+      <div class="beat" style="background:var(--n3); color:#4A3200">Mi</div>
+      <div class="beat" style="background:var(--n2)">Re</div>
+      <div class="beat" style="background:var(--n1)">Do</div>
+      <div class="rest">&#119100;</div>
+    </div>
+    <p class="lyrics-line">i mru-ga, &emsp; i mru-ga</p>
+  </div>
+
+  <div class="staff-section">
+    <div class="staff-label">Linia 3</div>
+    <div class="staff">
+      <div class="beat" style="background:var(--n3); color:#4A3200">Mi</div>
+      <div class="beat" style="background:var(--n2)">Re</div>
+      <div class="beat" style="background:var(--n1)">Do</div>
+      <div class="rest">&#119100;</div>
+      <div class="beat" style="background:var(--n3); color:#4A3200">Mi</div>
+      <div class="beat" style="background:var(--n2)">Re</div>
+      <div class="beat" style="background:var(--n1)">Do</div>
+      <div class="rest">&#119100;</div>
+    </div>
+    <p class="lyrics-line">ład-na to &emsp; pio-sen-ka</p>
+  </div>
+
+  <div class="staff-section">
+    <div class="staff-label">Linia 4</div>
+    <div class="staff">
+      <div class="beat" style="background:var(--n3); color:#4A3200">Mi</div>
+      <div class="beat" style="background:var(--n3); color:#4A3200">Mi</div>
+      <div class="beat" style="background:var(--n2)">Re</div>
+      <div class="beat" style="background:var(--n2)">Re</div>
+      <div class="beat" style="background:var(--n1)">Do</div>
+      <div class="rest">&#119100;</div>
+    </div>
+    <p class="lyrics-line">nie-dłu-ga, nie-dłu-ga</p>
+  </div>
+
+  <div class="callout ok" style="margin-top:10px; font-size:12px;">
+    <strong>Wskazówka:</strong> Zaśpiewajcie razem &mdash; rodzic wskazuje palcem kolorowe kółka, a dziecko śpiewa odpowiedni dźwięk.
+  </div>
+
+  <div class="page-num">108</div>
+</div>
+
+<!-- ── SONG 1: Wlazl Kotek — PRACTICE (p.110) ── -->
+<div class="page">
+  <h2 style="font-size:19px; margin-bottom:4px;">Poćwicz: Wlazł Kotek na Płotek</h2>
+  <p style="font-size:12px; color:var(--muted); margin-bottom:14px;">Pokoloruj kółka odpowiednimi kolorami, a potem zaśpiewaj piosenkę!</p>
+
+  <div class="activity-card">
+    <div class="ac-header">
+      <div class="ac-icon" style="background:var(--teal);">&#127912;</div>
+      <div>
+        <div class="ac-title">Pokoloruj nuty</div>
+        <div class="ac-subtitle">Do = czerwony, Re = pomarańczowy, Mi = żółty</div>
+      </div>
+    </div>
+    <div class="staff">
+      <div class="beat-outline" style="border-color:var(--n3)">Mi</div>
+      <div class="beat-outline" style="border-color:var(--n2)">Re</div>
+      <div class="beat-outline" style="border-color:var(--n1)">Do</div>
+      <div class="beat-outline" style="border-color:var(--muted)"></div>
+      <div class="beat-outline" style="border-color:var(--n3)">Mi</div>
+      <div class="beat-outline" style="border-color:var(--n2)">Re</div>
+      <div class="beat-outline" style="border-color:var(--n1)">Do</div>
+    </div>
+    <div class="staff">
+      <div class="beat-outline" style="border-color:var(--n3)">Mi</div>
+      <div class="beat-outline" style="border-color:var(--n3)">Mi</div>
+      <div class="beat-outline" style="border-color:var(--n2)">Re</div>
+      <div class="beat-outline" style="border-color:var(--n2)">Re</div>
+      <div class="beat-outline" style="border-color:var(--n1)">Do</div>
+    </div>
+  </div>
+
+  <div class="activity-card">
+    <div class="ac-header">
+      <div class="ac-icon" style="background:var(--coral);">&#9997;</div>
+      <div>
+        <div class="ac-title">Napisz tekst piosenki</div>
+        <div class="ac-subtitle">Przepisz słowa z pamięci</div>
+      </div>
+    </div>
+    <div class="practice-lines">
+      <div class="practice-line"></div>
+      <div class="practice-line"></div>
+      <div class="practice-line"></div>
+      <div class="practice-line"></div>
+    </div>
+  </div>
+
+  <div class="activity-card">
+    <div class="ac-header">
+      <div class="ac-icon" style="background:var(--gold);">&#11088;</div>
+      <div>
+        <div class="ac-title">Ocena samodzielna</div>
+        <div class="ac-subtitle">Jak poszło? Zaznacz swoją ocenę!</div>
+      </div>
+    </div>
+    <div style="display:flex; gap:14px; justify-content:center; margin-top:6px;">
+      <div class="visual-card" style="padding:10px; min-width:80px;">
+        <span class="vc-emoji" style="font-size:32px;">&#128515;</span>
+        <span class="vc-sub">Świetnie!</span>
+      </div>
+      <div class="visual-card" style="padding:10px; min-width:80px;">
+        <span class="vc-emoji" style="font-size:32px;">&#128522;</span>
+        <span class="vc-sub">Dobrze</span>
+      </div>
+      <div class="visual-card" style="padding:10px; min-width:80px;">
+        <span class="vc-emoji" style="font-size:32px;">&#129300;</span>
+        <span class="vc-sub">Jeszcze raz!</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-num">109</div>
+</div>
+
+<!-- ── SONG 2: Panie Janie — SCORE (p.111) ── -->
+<div class="page">
+  <div class="song-decoration">&#128276;</div>
+  <div class="score-header">
+    <h2>Panie Janie</h2>
+  </div>
+  <div class="score-meta">
+    <span class="pill pill-teal">Początkujący</span>
+    <span class="tempo-badge">&#9654; Umiarkowanie</span>
+    <span class="tempo-badge">&#128266; Średnio</span>
+  </div>
+  <div class="note-legend">
+    <span class="note-legend-item"><span class="note-legend-dot" style="background:var(--n1)">Do</span> Do</span>
+    <span class="note-legend-item"><span class="note-legend-dot" style="background:var(--n2)">Re</span> Re</span>
+    <span class="note-legend-item"><span class="note-legend-dot" style="background:var(--n3); color:#4A3200">Mi</span> Mi</span>
+  </div>
+
+  <div class="staff-section">
+    <div class="staff-label">Linia 1</div>
+    <div class="staff">
+      <div class="beat" style="background:var(--n1)">Do</div>
+      <div class="beat" style="background:var(--n2)">Re</div>
+      <div class="beat" style="background:var(--n3); color:#4A3200">Mi</div>
+      <div class="beat" style="background:var(--n1)">Do</div>
+      <div class="rest">&#119100;</div>
+      <div class="beat" style="background:var(--n1)">Do</div>
+      <div class="beat" style="background:var(--n2)">Re</div>
+      <div class="beat" style="background:var(--n3); color:#4A3200">Mi</div>
+      <div class="beat" style="background:var(--n1)">Do</div>
+    </div>
+    <p class="lyrics-line">Pa-nie Ja-nie, &emsp; Pa-nie Ja-nie,</p>
+  </div>
+
+  <div class="staff-section">
+    <div class="staff-label">Linia 2</div>
+    <div class="staff">
+      <div class="beat" style="background:var(--n3); color:#4A3200">Mi</div>
+      <div class="beat" style="background:var(--n3); color:#4A3200">Mi</div>
+      <div class="beat" style="background:var(--n2)">Re</div>
+      <div class="rest">&#119100;</div>
+      <div class="beat" style="background:var(--n3); color:#4A3200">Mi</div>
+      <div class="beat" style="background:var(--n3); color:#4A3200">Mi</div>
+      <div class="beat" style="background:var(--n2)">Re</div>
+      <div class="rest">&#119100;</div>
+    </div>
+    <p class="lyrics-line">ra-no wstań, &emsp; ra-no wstań!</p>
+  </div>
+
+  <div class="staff-section">
+    <div class="staff-label">Linia 3</div>
+    <div class="staff">
+      <div class="beat" style="background:var(--n2)">Re</div>
+      <div class="beat" style="background:var(--n1)">Do</div>
+      <div class="beat" style="background:var(--n2)">Re</div>
+      <div class="rest">&#119100;</div>
+      <div class="beat" style="background:var(--n2)">Re</div>
+      <div class="beat" style="background:var(--n1)">Do</div>
+      <div class="beat" style="background:var(--n2)">Re</div>
+      <div class="rest">&#119100;</div>
+    </div>
+    <p class="lyrics-line">dzwo-ny bi-ją, &emsp; dzwo-ny bi-ją:</p>
+  </div>
+
+  <div class="staff-section">
+    <div class="staff-label">Linia 4</div>
+    <div class="staff">
+      <div class="beat" style="background:var(--n1)">Do</div>
+      <div class="rest">&#119100;</div>
+      <div class="beat" style="background:var(--n1)">Do</div>
+      <div class="rest">&#119100;</div>
+    </div>
+    <p class="lyrics-line">bim &mdash; bam &mdash; bom!</p>
+  </div>
+
+  <div class="callout ok" style="margin-top:10px; font-size:12px;">
+    <strong>Wskazówka:</strong> Spróbuj zaśpiewać tę piosenkę kanonem &mdash; jeden głos zaczyna, a drugi dołącza po dwóch taktach!
+  </div>
+
+  <div class="page-num">110</div>
+</div>
+
+<!-- ── SONG 2: Panie Janie — PRACTICE (p.112) ── -->
+<div class="page">
+  <h2 style="font-size:19px; margin-bottom:4px;">Poćwicz: Panie Janie</h2>
+  <p style="font-size:12px; color:var(--muted); margin-bottom:14px;">Pokoloruj kółka i zaśpiewaj piosenkę od nowa!</p>
+
+  <div class="activity-card">
+    <div class="ac-header">
+      <div class="ac-icon" style="background:var(--teal);">&#127912;</div>
+      <div>
+        <div class="ac-title">Pokoloruj nuty</div>
+        <div class="ac-subtitle">Do = czerwony, Re = pomarańczowy, Mi = żółty</div>
+      </div>
+    </div>
+    <div class="staff">
+      <div class="beat-outline" style="border-color:var(--n1)">Do</div>
+      <div class="beat-outline" style="border-color:var(--n2)">Re</div>
+      <div class="beat-outline" style="border-color:var(--n3)">Mi</div>
+      <div class="beat-outline" style="border-color:var(--n1)">Do</div>
+      <div class="beat-outline" style="border-color:var(--muted)"></div>
+      <div class="beat-outline" style="border-color:var(--n1)">Do</div>
+      <div class="beat-outline" style="border-color:var(--n2)">Re</div>
+      <div class="beat-outline" style="border-color:var(--n3)">Mi</div>
+      <div class="beat-outline" style="border-color:var(--n1)">Do</div>
+    </div>
+    <div class="staff">
+      <div class="beat-outline" style="border-color:var(--n3)">Mi</div>
+      <div class="beat-outline" style="border-color:var(--n3)">Mi</div>
+      <div class="beat-outline" style="border-color:var(--n2)">Re</div>
+      <div class="beat-outline" style="border-color:var(--muted)"></div>
+      <div class="beat-outline" style="border-color:var(--n3)">Mi</div>
+      <div class="beat-outline" style="border-color:var(--n3)">Mi</div>
+      <div class="beat-outline" style="border-color:var(--n2)">Re</div>
+    </div>
+  </div>
+
+  <div class="activity-card">
+    <div class="ac-header">
+      <div class="ac-icon" style="background:var(--coral);">&#127925;</div>
+      <div>
+        <div class="ac-title">Połącz nuty ze słowami</div>
+        <div class="ac-subtitle">Narysuj linię od nuty do odpowiedniego słowa</div>
+      </div>
+    </div>
+    <div class="grid-2" style="margin-top:8px;">
+      <div style="display:flex; flex-direction:column; gap:12px; align-items:center;">
+        <div class="beat" style="background:var(--n1)">Do</div>
+        <div class="beat" style="background:var(--n3); color:#4A3200">Mi</div>
+        <div class="beat" style="background:var(--n2)">Re</div>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:12px; align-items:center; justify-content:center;">
+        <span style="font-family:var(--df); font-size:14px; padding:6px 12px; border:1.5px solid var(--border); border-radius:8px;">rano wstań</span>
+        <span style="font-family:var(--df); font-size:14px; padding:6px 12px; border:1.5px solid var(--border); border-radius:8px;">bim-bam-bom</span>
+        <span style="font-family:var(--df); font-size:14px; padding:6px 12px; border:1.5px solid var(--border); border-radius:8px;">dzwony biją</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="activity-card">
+    <div class="ac-header">
+      <div class="ac-icon" style="background:var(--gold);">&#11088;</div>
+      <div>
+        <div class="ac-title">Ocena samodzielna</div>
+        <div class="ac-subtitle">Jak ci poszło?</div>
+      </div>
+    </div>
+    <div style="display:flex; gap:14px; justify-content:center; margin-top:6px;">
+      <div class="visual-card" style="padding:10px; min-width:80px;"><span class="vc-emoji" style="font-size:32px;">&#128515;</span><span class="vc-sub">Świetnie!</span></div>
+      <div class="visual-card" style="padding:10px; min-width:80px;"><span class="vc-emoji" style="font-size:32px;">&#128522;</span><span class="vc-sub">Dobrze</span></div>
+      <div class="visual-card" style="padding:10px; min-width:80px;"><span class="vc-emoji" style="font-size:32px;">&#129300;</span><span class="vc-sub">Jeszcze raz!</span></div>
+    </div>
+  </div>
+
+  <div class="page-num">111</div>
+</div>
+
+<!-- ── SONG 3: Stary Niedzwiedz — SCORE (p.113) ── -->
+<div class="page">
+  <div class="song-decoration">&#128059;</div>
+  <div class="score-header">
+    <h2>Stary Niedźwiedź Mocno Śpi</h2>
+  </div>
+  <div class="score-meta">
+    <span class="pill pill-teal">Początkujący</span>
+    <span class="tempo-badge">&#127956; Wolno</span>
+    <span class="tempo-badge">&#128220; Cicho</span>
+  </div>
+  <div class="note-legend">
+    <span class="note-legend-item"><span class="note-legend-dot" style="background:var(--n1)">Do</span> Do</span>
+    <span class="note-legend-item"><span class="note-legend-dot" style="background:var(--n2)">Re</span> Re</span>
+    <span class="note-legend-item"><span class="note-legend-dot" style="background:var(--n3); color:#4A3200">Mi</span> Mi</span>
+  </div>
+
+  <div class="staff-section">
+    <div class="staff-label">Linia 1</div>
+    <div class="staff">
+      <div class="beat" style="background:var(--n3); color:#4A3200">Mi</div>
+      <div class="beat" style="background:var(--n3); color:#4A3200">Mi</div>
+      <div class="beat" style="background:var(--n2)">Re</div>
+      <div class="beat" style="background:var(--n2)">Re</div>
+      <div class="beat" style="background:var(--n1)">Do</div>
+      <div class="rest">&#119100;</div>
+    </div>
+    <p class="lyrics-line">Sta-ry nie-dźwiedź moc-no śpi,</p>
+  </div>
+
+  <div class="staff-section">
+    <div class="staff-label">Linia 2</div>
+    <div class="staff">
+      <div class="beat" style="background:var(--n3); color:#4A3200">Mi</div>
+      <div class="beat" style="background:var(--n3); color:#4A3200">Mi</div>
+      <div class="beat" style="background:var(--n2)">Re</div>
+      <div class="beat" style="background:var(--n2)">Re</div>
+      <div class="beat" style="background:var(--n1)">Do</div>
+      <div class="rest">&#119100;</div>
+    </div>
+    <p class="lyrics-line">sta-ry nie-dźwiedź moc-no śpi.</p>
+  </div>
+
+  <div class="staff-section">
+    <div class="staff-label">Linia 3</div>
+    <div class="staff">
+      <div class="beat" style="background:var(--n3); color:#4A3200">Mi</div>
+      <div class="beat" style="background:var(--n2)">Re</div>
+      <div class="beat" style="background:var(--n1)">Do</div>
+      <div class="rest">&#119100;</div>
+      <div class="beat" style="background:var(--n3); color:#4A3200">Mi</div>
+      <div class="beat" style="background:var(--n2)">Re</div>
+      <div class="beat" style="background:var(--n1)">Do</div>
+      <div class="rest">&#119100;</div>
+    </div>
+    <p class="lyrics-line">My go nie zbu-dzi-my,</p>
+  </div>
+
+  <div class="staff-section">
+    <div class="staff-label">Linia 4</div>
+    <div class="staff">
+      <div class="beat" style="background:var(--n2)">Re</div>
+      <div class="beat" style="background:var(--n3); color:#4A3200">Mi</div>
+      <div class="beat" style="background:var(--n2)">Re</div>
+      <div class="beat" style="background:var(--n1)">Do</div>
+      <div class="rest">&#119100;</div>
+    </div>
+    <p class="lyrics-line">na pa-lusz-kach cho-dzi-my.</p>
+  </div>
+
+  <div class="callout warn" style="margin-top:10px; font-size:12px;">
+    <strong>Gra ruchowa:</strong> Śpiewaj coraz ciszej, a na koniec krzyknij &bdquo;Niedźwiedź wstaje!&rdquo; i uciekajcie!
+  </div>
+
+  <div class="page-num">112</div>
+</div>
+
+<!-- ── SONG 3: Stary Niedzwiedz — PRACTICE (p.114) ── -->
+<div class="page">
+  <h2 style="font-size:19px; margin-bottom:4px;">Poćwicz: Stary Niedźwiedź Mocno Śpi</h2>
+  <p style="font-size:12px; color:var(--muted); margin-bottom:14px;">Pokoloruj nuty, potem zaśpiewaj cicho jak myszka!</p>
+
+  <div class="activity-card">
+    <div class="ac-header">
+      <div class="ac-icon" style="background:var(--teal);">&#127912;</div>
+      <div>
+        <div class="ac-title">Pokoloruj nuty</div>
+        <div class="ac-subtitle">Użyj trzech kolorów: czerwony, pomarańczowy, żółty</div>
+      </div>
+    </div>
+    <div class="staff">
+      <div class="beat-outline" style="border-color:var(--n3)">Mi</div>
+      <div class="beat-outline" style="border-color:var(--n3)">Mi</div>
+      <div class="beat-outline" style="border-color:var(--n2)">Re</div>
+      <div class="beat-outline" style="border-color:var(--n2)">Re</div>
+      <div class="beat-outline" style="border-color:var(--n1)">Do</div>
+    </div>
+    <div class="staff">
+      <div class="beat-outline" style="border-color:var(--n3)">Mi</div>
+      <div class="beat-outline" style="border-color:var(--n2)">Re</div>
+      <div class="beat-outline" style="border-color:var(--n1)">Do</div>
+      <div class="beat-outline" style="border-color:var(--muted)"></div>
+      <div class="beat-outline" style="border-color:var(--n2)">Re</div>
+      <div class="beat-outline" style="border-color:var(--n3)">Mi</div>
+      <div class="beat-outline" style="border-color:var(--n2)">Re</div>
+      <div class="beat-outline" style="border-color:var(--n1)">Do</div>
+    </div>
+  </div>
+
+  <div class="activity-card">
+    <div class="ac-header">
+      <div class="ac-icon" style="background:var(--coral);">&#9997;</div>
+      <div>
+        <div class="ac-title">Narysuj niedźwiedzia</div>
+        <div class="ac-subtitle">W ramce poniżej narysuj śpiącego niedźwiedzia</div>
+      </div>
+    </div>
+    <div class="cut-border" style="min-height:120px; display:flex; align-items:center; justify-content:center;">
+      <span style="font-size:14px; color:var(--muted);">Twoje miejsce na rysunek</span>
+    </div>
+  </div>
+
+  <div class="activity-card">
+    <div class="ac-header">
+      <div class="ac-icon" style="background:var(--gold);">&#11088;</div>
+      <div>
+        <div class="ac-title">Ocena samodzielna</div>
+        <div class="ac-subtitle">Jak ci poszło?</div>
+      </div>
+    </div>
+    <div style="display:flex; gap:14px; justify-content:center; margin-top:6px;">
+      <div class="visual-card" style="padding:10px; min-width:80px;"><span class="vc-emoji" style="font-size:32px;">&#128515;</span><span class="vc-sub">Świetnie!</span></div>
+      <div class="visual-card" style="padding:10px; min-width:80px;"><span class="vc-emoji" style="font-size:32px;">&#128522;</span><span class="vc-sub">Dobrze</span></div>
+      <div class="visual-card" style="padding:10px; min-width:80px;"><span class="vc-emoji" style="font-size:32px;">&#129300;</span><span class="vc-sub">Jeszcze raz!</span></div>
+    </div>
+  </div>
+
+  <div class="page-num">113</div>
+</div>
+
+<!-- ── SONG 4: Deszczyk Pada — SCORE (p.115) ── -->
+<div class="page">
+  <div class="song-decoration">&#127783;</div>
+  <div class="score-header">
+    <h2>Deszczyk Pada</h2>
+  </div>
+  <div class="score-meta">
+    <span class="pill pill-teal">Początkujący</span>
+    <span class="tempo-badge">&#9654; Umiarkowanie</span>
+    <span class="tempo-badge">&#128266; Średnio</span>
+  </div>
+  <div class="note-legend">
+    <span class="note-legend-item"><span class="note-legend-dot" style="background:var(--n1)">Do</span> Do</span>
+    <span class="note-legend-item"><span class="note-legend-dot" style="background:var(--n2)">Re</span> Re</span>
+    <span class="note-legend-item"><span class="note-legend-dot" style="background:var(--n3); color:#4A3200">Mi</span> Mi</span>
+  </div>
+
+  <div class="staff-section">
+    <div class="staff-label">Linia 1</div>
+    <div class="staff">
+      <div class="beat" style="background:var(--n1)">Do</div>
+      <div class="beat" style="background:var(--n2)">Re</div>
+      <div class="beat" style="background:var(--n3); color:#4A3200">Mi</div>
+      <div class="beat" style="background:var(--n3); color:#4A3200">Mi</div>
+      <div class="rest">&#119100;</div>
+      <div class="beat" style="background:var(--n2)">Re</div>
+      <div class="beat" style="background:var(--n1)">Do</div>
+      <div class="beat" style="background:var(--n2)">Re</div>
+    </div>
+    <p class="lyrics-line">Desz-czyk pa-da, &emsp; słon-ko świ-eci,</p>
+  </div>
+
+  <div class="staff-section">
+    <div class="staff-label">Linia 2</div>
+    <div class="staff">
+      <div class="beat" style="background:var(--n3); color:#4A3200">Mi</div>
+      <div class="beat" style="background:var(--n2)">Re</div>
+      <div class="beat" style="background:var(--n1)">Do</div>
+      <div class="beat" style="background:var(--n1)">Do</div>
+      <div class="rest">&#119100;</div>
+      <div class="beat" style="background:var(--n2)">Re</div>
+      <div class="beat" style="background:var(--n3); color:#4A3200">Mi</div>
+      <div class="beat" style="background:var(--n2)">Re</div>
+    </div>
+    <p class="lyrics-line">bar-dzo to się &emsp; po-do-ba dzie-ciom,</p>
+  </div>
+
+  <div class="staff-section">
+    <div class="staff-label">Linia 3</div>
+    <div class="staff">
+      <div class="beat" style="background:var(--n1)">Do</div>
+      <div class="beat" style="background:var(--n2)">Re</div>
+      <div class="beat" style="background:var(--n3); color:#4A3200">Mi</div>
+      <div class="beat" style="background:var(--n3); color:#4A3200">Mi</div>
+      <div class="rest">&#119100;</div>
+      <div class="beat" style="background:var(--n3); color:#4A3200">Mi</div>
+      <div class="beat" style="background:var(--n2)">Re</div>
+      <div class="beat" style="background:var(--n1)">Do</div>
+    </div>
+    <p class="lyrics-line">niech pa-da-ją, &emsp; kro-ple wa-dy,</p>
+  </div>
+
+  <div class="staff-section">
+    <div class="staff-label">Linia 4</div>
+    <div class="staff">
+      <div class="beat" style="background:var(--n2)">Re</div>
+      <div class="beat" style="background:var(--n3); color:#4A3200">Mi</div>
+      <div class="beat" style="background:var(--n2)">Re</div>
+      <div class="beat" style="background:var(--n1)">Do</div>
+      <div class="rest">&#119100;</div>
+      <div class="rest">&#119100;</div>
+    </div>
+    <p class="lyrics-line">to jest wy-bor-nie!</p>
+  </div>
+
+  <div class="callout ok" style="margin-top:10px; font-size:12px;">
+    <strong>Wskazówka:</strong> Zaśpiewaj tę piosenkę przy oknie, kiedy pada deszcz! Bębnij palcami po stole, naśladując krople.
+  </div>
+
+  <div class="page-num">114</div>
+</div>
+
+<!-- ── SONG 4: Deszczyk Pada — PRACTICE (p.116) ── -->
+<div class="page">
+  <h2 style="font-size:19px; margin-bottom:4px;">Poćwicz: Deszczyk Pada</h2>
+  <p style="font-size:12px; color:var(--muted); margin-bottom:14px;">Pokoloruj krople deszczu odpowiednimi kolorami nut!</p>
+
+  <div class="activity-card">
+    <div class="ac-header">
+      <div class="ac-icon" style="background:var(--teal);">&#127912;</div>
+      <div>
+        <div class="ac-title">Pokoloruj nuty</div>
+        <div class="ac-subtitle">Każda nuta to kropla deszczu</div>
+      </div>
+    </div>
+    <div class="staff">
+      <div class="beat-outline" style="border-color:var(--n1)">Do</div>
+      <div class="beat-outline" style="border-color:var(--n2)">Re</div>
+      <div class="beat-outline" style="border-color:var(--n3)">Mi</div>
+      <div class="beat-outline" style="border-color:var(--n3)">Mi</div>
+      <div class="beat-outline" style="border-color:var(--muted)"></div>
+      <div class="beat-outline" style="border-color:var(--n2)">Re</div>
+      <div class="beat-outline" style="border-color:var(--n1)">Do</div>
+      <div class="beat-outline" style="border-color:var(--n2)">Re</div>
+    </div>
+    <div class="staff">
+      <div class="beat-outline" style="border-color:var(--n3)">Mi</div>
+      <div class="beat-outline" style="border-color:var(--n2)">Re</div>
+      <div class="beat-outline" style="border-color:var(--n1)">Do</div>
+      <div class="beat-outline" style="border-color:var(--n1)">Do</div>
+      <div class="beat-outline" style="border-color:var(--muted)"></div>
+      <div class="beat-outline" style="border-color:var(--n2)">Re</div>
+      <div class="beat-outline" style="border-color:var(--n3)">Mi</div>
+      <div class="beat-outline" style="border-color:var(--n2)">Re</div>
+    </div>
+  </div>
+
+  <div class="activity-card">
+    <div class="ac-header">
+      <div class="ac-icon" style="background:var(--coral);">&#9997;</div>
+      <div>
+        <div class="ac-title">Napisz tekst piosenki</div>
+        <div class="ac-subtitle">Przepisz słowa z pamięci</div>
+      </div>
+    </div>
+    <div class="practice-lines">
+      <div class="practice-line"></div>
+      <div class="practice-line"></div>
+      <div class="practice-line"></div>
+    </div>
+  </div>
+
+  <div class="activity-card">
+    <div class="ac-header">
+      <div class="ac-icon" style="background:var(--gold);">&#11088;</div>
+      <div>
+        <div class="ac-title">Ocena samodzielna</div>
+        <div class="ac-subtitle">Jak ci poszło?</div>
+      </div>
+    </div>
+    <div style="display:flex; gap:14px; justify-content:center; margin-top:6px;">
+      <div class="visual-card" style="padding:10px; min-width:80px;"><span class="vc-emoji" style="font-size:32px;">&#128515;</span><span class="vc-sub">Świetnie!</span></div>
+      <div class="visual-card" style="padding:10px; min-width:80px;"><span class="vc-emoji" style="font-size:32px;">&#128522;</span><span class="vc-sub">Dobrze</span></div>
+      <div class="visual-card" style="padding:10px; min-width:80px;"><span class="vc-emoji" style="font-size:32px;">&#129300;</span><span class="vc-sub">Jeszcze raz!</span></div>
+    </div>
+  </div>
+
+  <div class="page-num">115</div>
+</div>
+
+<!-- ── SONG 5: Mam Chusteczke — SCORE (p.117) ── -->
+<div class="page">
+  <div class="song-decoration">&#129525;</div>
+  <div class="score-header">
+    <h2>Mam Chusteczkę Haftowaną</h2>
+  </div>
+  <div class="score-meta">
+    <span class="pill pill-teal">Początkujący</span>
+    <span class="tempo-badge">&#127939; Szybko</span>
+    <span class="tempo-badge">&#128264; Głośno</span>
+  </div>
+  <div class="note-legend">
+    <span class="note-legend-item"><span class="note-legend-dot" style="background:var(--n1)">Do</span> Do</span>
+    <span class="note-legend-item"><span class="note-legend-dot" style="background:var(--n2)">Re</span> Re</span>
+    <span class="note-legend-item"><span class="note-legend-dot" style="background:var(--n3); color:#4A3200">Mi</span> Mi</span>
+  </div>
+
+  <div class="staff-section">
+    <div class="staff-label">Linia 1</div>
+    <div class="staff">
+      <div class="beat" style="background:var(--n1)">Do</div>
+      <div class="beat" style="background:var(--n3); color:#4A3200">Mi</div>
+      <div class="beat" style="background:var(--n3); color:#4A3200">Mi</div>
+      <div class="beat" style="background:var(--n2)">Re</div>
+      <div class="rest">&#119100;</div>
+      <div class="beat" style="background:var(--n1)">Do</div>
+      <div class="beat" style="background:var(--n3); color:#4A3200">Mi</div>
+      <div class="beat" style="background:var(--n3); color:#4A3200">Mi</div>
+      <div class="beat" style="background:var(--n2)">Re</div>
+    </div>
+    <p class="lyrics-line">Mam chu-stecz-kę haf-to-wa-ną,</p>
+  </div>
+
+  <div class="staff-section">
+    <div class="staff-label">Linia 2</div>
+    <div class="staff">
+      <div class="beat" style="background:var(--n1)">Do</div>
+      <div class="beat" style="background:var(--n2)">Re</div>
+      <div class="beat" style="background:var(--n3); color:#4A3200">Mi</div>
+      <div class="beat" style="background:var(--n2)">Re</div>
+      <div class="beat" style="background:var(--n1)">Do</div>
+      <div class="rest">&#119100;</div>
+    </div>
+    <p class="lyrics-line">co ma czte-ry ro-gi,</p>
+  </div>
+
+  <div class="staff-section">
+    <div class="staff-label">Linia 3</div>
+    <div class="staff">
+      <div class="beat" style="background:var(--n1)">Do</div>
+      <div class="beat" style="background:var(--n3); color:#4A3200">Mi</div>
+      <div class="beat" style="background:var(--n3); color:#4A3200">Mi</div>
+      <div class="beat" style="background:var(--n2)">Re</div>
+      <div class="rest">&#119100;</div>
+      <div class="beat" style="background:var(--n1)">Do</div>
+      <div class="beat" style="background:var(--n3); color:#4A3200">Mi</div>
+      <div class="beat" style="background:var(--n3); color:#4A3200">Mi</div>
+      <div class="beat" style="background:var(--n2)">Re</div>
+    </div>
+    <p class="lyrics-line">kto mi ją wyj-mie, kto mi ją schowa,</p>
+  </div>
+
+  <div class="staff-section">
+    <div class="staff-label">Linia 4</div>
+    <div class="staff">
+      <div class="beat" style="background:var(--n3); color:#4A3200">Mi</div>
+      <div class="beat" style="background:var(--n2)">Re</div>
+      <div class="beat" style="background:var(--n1)">Do</div>
+      <div class="beat" style="background:var(--n2)">Re</div>
+      <div class="beat" style="background:var(--n1)">Do</div>
+      <div class="rest">&#119100;</div>
+    </div>
+    <p class="lyrics-line">ten mi jest mi-ły, ten mi jest dro-gi.</p>
+  </div>
+
+  <div class="callout ok" style="margin-top:10px; font-size:12px;">
+    <strong>Wskazówka:</strong> Pobawcie się w kole z chusteczką &mdash; jedno dziecko chodzi dookoła i podrzuca chusteczkę komuś za plecami!
+  </div>
+
+  <div class="page-num">116</div>
+</div>
+
+<!-- ── SONG 5: Mam Chusteczke — PRACTICE (p.118) ── -->
+<div class="page">
+  <h2 style="font-size:19px; margin-bottom:4px;">Poćwicz: Mam Chusteczkę Haftowaną</h2>
+  <p style="font-size:12px; color:var(--muted); margin-bottom:14px;">Pokoloruj nuty i zaśpiewaj wesoło!</p>
+
+  <div class="activity-card">
+    <div class="ac-header">
+      <div class="ac-icon" style="background:var(--teal);">&#127912;</div>
+      <div>
+        <div class="ac-title">Pokoloruj nuty</div>
+        <div class="ac-subtitle">Do = czerwony, Re = pomarańczowy, Mi = żółty</div>
+      </div>
+    </div>
+    <div class="staff">
+      <div class="beat-outline" style="border-color:var(--n1)">Do</div>
+      <div class="beat-outline" style="border-color:var(--n3)">Mi</div>
+      <div class="beat-outline" style="border-color:var(--n3)">Mi</div>
+      <div class="beat-outline" style="border-color:var(--n2)">Re</div>
+      <div class="beat-outline" style="border-color:var(--muted)"></div>
+      <div class="beat-outline" style="border-color:var(--n1)">Do</div>
+      <div class="beat-outline" style="border-color:var(--n3)">Mi</div>
+      <div class="beat-outline" style="border-color:var(--n3)">Mi</div>
+      <div class="beat-outline" style="border-color:var(--n2)">Re</div>
+    </div>
+    <div class="staff">
+      <div class="beat-outline" style="border-color:var(--n1)">Do</div>
+      <div class="beat-outline" style="border-color:var(--n2)">Re</div>
+      <div class="beat-outline" style="border-color:var(--n3)">Mi</div>
+      <div class="beat-outline" style="border-color:var(--n2)">Re</div>
+      <div class="beat-outline" style="border-color:var(--n1)">Do</div>
+    </div>
+  </div>
+
+  <div class="activity-card">
+    <div class="ac-header">
+      <div class="ac-icon" style="background:var(--coral);">&#127925;</div>
+      <div>
+        <div class="ac-title">Ile razy pojawia się każda nuta?</div>
+        <div class="ac-subtitle">Policz i wpisz liczbę</div>
+      </div>
+    </div>
+    <div class="grid-3" style="margin-top:8px;">
+      <div class="visual-card">
+        <div class="beat" style="background:var(--n1); width:36px; height:36px; font-size:14px;">Do</div>
+        <span class="vc-label" style="font-size:20px; border-bottom:2px solid var(--border); width:40px; text-align:center;">&nbsp;</span>
+      </div>
+      <div class="visual-card">
+        <div class="beat" style="background:var(--n2); width:36px; height:36px; font-size:14px;">Re</div>
+        <span class="vc-label" style="font-size:20px; border-bottom:2px solid var(--border); width:40px; text-align:center;">&nbsp;</span>
+      </div>
+      <div class="visual-card">
+        <div class="beat" style="background:var(--n3); color:#4A3200; width:36px; height:36px; font-size:14px;">Mi</div>
+        <span class="vc-label" style="font-size:20px; border-bottom:2px solid var(--border); width:40px; text-align:center;">&nbsp;</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="activity-card">
+    <div class="ac-header">
+      <div class="ac-icon" style="background:var(--gold);">&#11088;</div>
+      <div>
+        <div class="ac-title">Ocena samodzielna</div>
+        <div class="ac-subtitle">Jak ci poszło?</div>
+      </div>
+    </div>
+    <div style="display:flex; gap:14px; justify-content:center; margin-top:6px;">
+      <div class="visual-card" style="padding:10px; min-width:80px;"><span class="vc-emoji" style="font-size:32px;">&#128515;</span><span class="vc-sub">Świetnie!</span></div>
+      <div class="visual-card" style="padding:10px; min-width:80px;"><span class="vc-emoji" style="font-size:32px;">&#128522;</span><span class="vc-sub">Dobrze</span></div>
+      <div class="visual-card" style="padding:10px; min-width:80px;"><span class="vc-emoji" style="font-size:32px;">&#129300;</span><span class="vc-sub">Jeszcze raz!</span></div>
+    </div>
+  </div>
+
+  <div class="page-num">117</div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     INTERMEDIATE SONGS — 5 notes: Do, Re, Mi, Fa, Sol
+     ══════════════════════════════════════════════════════════ -->
+
+<div class="page">
+  <div class="difficulty-header">
+    <span class="pill pill-gold">Średniozaawansowany</span>
+    <h3>Piosenki na 5 nut: Do &ndash; Sol</h3>
+  </div>
+  <p style="font-size:14px; color:var(--ink-mid); margin-bottom:18px;">Dodajemy dwie nowe nuty: zieloną (Fa) i niebieską (Sol). Teraz możesz zagrać jeszcze więcej piosenek!</p>
+  <div class="note-legend">
+    <span class="note-legend-item"><span class="note-legend-dot" style="background:var(--n1)">Do</span></span>
+    <span class="note-legend-item"><span class="note-legend-dot" style="background:var(--n2)">Re</span></span>
+    <span class="note-legend-item"><span class="note-legend-dot" style="background:var(--n3); color:#4A3200">Mi</span></span>
+    <span class="note-legend-item"><span class="note-legend-dot" style="background:var(--n4)">Fa</span></span>
+    <span class="note-legend-item"><span class="note-legend-dot" style="background:var(--n5)">Sol</span></span>
+  </div>
+
+  <div class="grid-2" style="margin-bottom:12px;">
+    <div class="note-card">
+      <span class="note-circle fa" style="width:42px; height:42px; font-size:16px;">Fa</span>
+      <span class="nc-name" style="color:var(--n4);">Fa &mdash; Nowa!</span>
+      <span class="nc-desc">Zielona nuta. Spokojna jak las.</span>
+    </div>
+    <div class="note-card">
+      <span class="note-circle sol" style="width:42px; height:42px; font-size:16px;">Sol</span>
+      <span class="nc-name" style="color:var(--n5);">Sol &mdash; Nowa!</span>
+      <span class="nc-desc">Niebieska nuta. Wysoka jak niebo.</span>
+    </div>
+  </div>
+
+  <div style="display:flex; flex-direction:column; gap:10px;">
+    <div class="card" style="display:flex; align-items:center; gap:12px;">
+      <span style="font-size:28px;">&#128646;</span>
+      <div><strong style="font-family:var(--df);">6. Jedzie Pociąg z Daleka</strong><br><span style="font-size:12px; color:var(--muted);">Piosenka podróżna &bull; Strona 119</span></div>
+    </div>
+    <div class="card" style="display:flex; align-items:center; gap:12px;">
+      <span style="font-size:28px;">&#127874;</span>
+      <div><strong style="font-family:var(--df);">7. Sto Lat</strong><br><span style="font-size:12px; color:var(--muted);">Piosenka urodzinowa &bull; Strona 121</span></div>
+    </div>
+    <div class="card" style="display:flex; align-items:center; gap:12px;">
+      <span style="font-size:28px;">&#128049;</span>
+      <div><strong style="font-family:var(--df);">8. Wlazł Kotek (rozszerzony)</strong><br><span style="font-size:12px; color:var(--muted);">Wersja z nowymi nutami &bull; Strona 123</span></div>
+    </div>
+    <div class="card" style="display:flex; align-items:center; gap:12px;">
+      <span style="font-size:28px;">&#127904;</span>
+      <div><strong style="font-family:var(--df);">9. Konik na Biegunach</strong><br><span style="font-size:12px; color:var(--muted);">Zabawna melodia &bull; Strona 125</span></div>
+    </div>
+    <div class="card" style="display:flex; align-items:center; gap:12px;">
+      <span style="font-size:28px;">&#127922;</span>
+      <div><strong style="font-family:var(--df);">10. Entliczek Pentliczek</strong><br><span style="font-size:12px; color:var(--muted);">Wyliczanka &bull; Strona 127</span></div>
+    </div>
+  </div>
+
+  <div class="page-num">118</div>
+</div>
+
+
+<!-- ── SONG 6: Jedzie Pociag — SCORE (p.121) ── -->
+<div class="page">
+  <div class="song-decoration">&#128646;</div>
+  <div class="score-header">
+    <h2>Jedzie Pociąg z Daleka</h2>
+  </div>
+  <div class="score-meta">
+    <span class="pill pill-gold">Średniozaawansowany</span>
+    <span class="tempo-badge">&#9654; Umiarkowanie</span>
+    <span class="tempo-badge">&#128264; Głośno</span>
+  </div>
+  <div class="note-legend">
+    <span class="note-legend-item"><span class="note-legend-dot" style="background:var(--n1)">Do</span></span>
+    <span class="note-legend-item"><span class="note-legend-dot" style="background:var(--n2)">Re</span></span>
+    <span class="note-legend-item"><span class="note-legend-dot" style="background:var(--n3); color:#4A3200">Mi</span></span>
+    <span class="note-legend-item"><span class="note-legend-dot" style="background:var(--n4)">Fa</span></span>
+    <span class="note-legend-item"><span class="note-legend-dot" style="background:var(--n5)">Sol</span></span>
+  </div>
+
+  <div class="staff-section">
+    <div class="staff-label">Linia 1</div>
+    <div class="staff">
+      <div class="beat" style="background:var(--n1)">Do</div>
+      <div class="beat" style="background:var(--n2)">Re</div>
+      <div class="beat" style="background:var(--n3); color:#4A3200">Mi</div>
+      <div class="beat" style="background:var(--n4)">Fa</div>
+      <div class="beat" style="background:var(--n5)">Sol</div>
+      <div class="beat" style="background:var(--n5)">Sol</div>
+      <div class="rest">&#119100;</div>
+    </div>
+    <p class="lyrics-line">Je-dzie po-ciąg z da-le-ka,</p>
+  </div>
+
+  <div class="staff-section">
+    <div class="staff-label">Linia 2</div>
+    <div class="staff">
+      <div class="beat" style="background:var(--n5)">Sol</div>
+      <div class="beat" style="background:var(--n4)">Fa</div>
+      <div class="beat" style="background:var(--n3); color:#4A3200">Mi</div>
+      <div class="beat" style="background:var(--n2)">Re</div>
+      <div class="beat" style="background:var(--n1)">Do</div>
+      <div class="rest">&#119100;</div>
+    </div>
+    <p class="lyrics-line">na ni-ko-go nie cze-ka,</p>
+  </div>
+
+  <div class="staff-section">
+    <div class="staff-label">Linia 3</div>
+    <div class="staff">
+      <div class="beat" style="background:var(--n1)">Do</div>
+      <div class="beat" style="background:var(--n2)">Re</div>
+      <div class="beat" style="background:var(--n3); color:#4A3200">Mi</div>
+      <div class="beat" style="background:var(--n4)">Fa</div>
+      <div class="rest">&#119100;</div>
+      <div class="beat" style="background:var(--n5)">Sol</div>
+      <div class="beat" style="background:var(--n4)">Fa</div>
+      <div class="beat" style="background:var(--n3); color:#4A3200">Mi</div>
+      <div class="beat" style="background:var(--n2)">Re</div>
+    </div>
+    <p class="lyrics-line">ko-niec-nie mu-szę zdą-żyć tam,</p>
+  </div>
+
+  <div class="staff-section">
+    <div class="staff-label">Linia 4</div>
+    <div class="staff">
+      <div class="beat" style="background:var(--n1)">Do</div>
+      <div class="beat" style="background:var(--n2)">Re</div>
+      <div class="beat" style="background:var(--n3); color:#4A3200">Mi</div>
+      <div class="beat" style="background:var(--n2)">Re</div>
+      <div class="beat" style="background:var(--n1)">Do</div>
+      <div class="rest">&#119100;</div>
+    </div>
+    <p class="lyrics-line">bo pociąg nie po-cze-ka!</p>
+  </div>
+
+  <div class="callout ok" style="margin-top:10px; font-size:12px;">
+    <strong>Wskazówka:</strong> Zacznij wolno jak pociąg ruszający ze stacji, potem przyśpieszaj z każdą zwrotką!
+  </div>
+
+  <div class="page-num">119</div>
+</div>
+
+<!-- ── SONG 6: Jedzie Pociag — PRACTICE (p.122) ── -->
+<div class="page">
+  <h2 style="font-size:19px; margin-bottom:4px;">Poćwicz: Jedzie Pociąg z Daleka</h2>
+  <p style="font-size:12px; color:var(--muted); margin-bottom:14px;">Pokoloruj nuty i zaśpiewaj jak lokomotywa!</p>
+
+  <div class="activity-card">
+    <div class="ac-header">
+      <div class="ac-icon" style="background:var(--teal);">&#127912;</div>
+      <div>
+        <div class="ac-title">Pokoloruj nuty</div>
+        <div class="ac-subtitle">5 kolorów: czerwony, pomarańczowy, żółty, zielony, niebieski</div>
+      </div>
+    </div>
+    <div class="staff">
+      <div class="beat-outline" style="border-color:var(--n1)">Do</div>
+      <div class="beat-outline" style="border-color:var(--n2)">Re</div>
+      <div class="beat-outline" style="border-color:var(--n3)">Mi</div>
+      <div class="beat-outline" style="border-color:var(--n4)">Fa</div>
+      <div class="beat-outline" style="border-color:var(--n5)">Sol</div>
+      <div class="beat-outline" style="border-color:var(--n5)">Sol</div>
+    </div>
+    <div class="staff">
+      <div class="beat-outline" style="border-color:var(--n5)">Sol</div>
+      <div class="beat-outline" style="border-color:var(--n4)">Fa</div>
+      <div class="beat-outline" style="border-color:var(--n3)">Mi</div>
+      <div class="beat-outline" style="border-color:var(--n2)">Re</div>
+      <div class="beat-outline" style="border-color:var(--n1)">Do</div>
+    </div>
+  </div>
+
+  <div class="activity-card">
+    <div class="ac-header">
+      <div class="ac-icon" style="background:var(--coral);">&#9997;</div>
+      <div>
+        <div class="ac-title">Napisz tekst piosenki</div>
+        <div class="ac-subtitle">Przepisz słowa z pamięci</div>
+      </div>
+    </div>
+    <div class="practice-lines">
+      <div class="practice-line"></div>
+      <div class="practice-line"></div>
+      <div class="practice-line"></div>
+      <div class="practice-line"></div>
+    </div>
+  </div>
+
+  <div class="activity-card">
+    <div class="ac-header">
+      <div class="ac-icon" style="background:var(--gold);">&#11088;</div>
+      <div>
+        <div class="ac-title">Ocena samodzielna</div>
+        <div class="ac-subtitle">Jak ci poszło?</div>
+      </div>
+    </div>
+    <div style="display:flex; gap:14px; justify-content:center; margin-top:6px;">
+      <div class="visual-card" style="padding:10px; min-width:80px;"><span class="vc-emoji" style="font-size:32px;">&#128515;</span><span class="vc-sub">Świetnie!</span></div>
+      <div class="visual-card" style="padding:10px; min-width:80px;"><span class="vc-emoji" style="font-size:32px;">&#128522;</span><span class="vc-sub">Dobrze</span></div>
+      <div class="visual-card" style="padding:10px; min-width:80px;"><span class="vc-emoji" style="font-size:32px;">&#129300;</span><span class="vc-sub">Jeszcze raz!</span></div>
+    </div>
+  </div>
+
+  <div class="page-num">120</div>
+</div>
+
+<!-- ── SONG 7: Sto Lat — SCORE (p.123) ── -->
+<div class="page">
+  <div class="song-decoration">&#127874;</div>
+  <div class="score-header">
+    <h2>Sto Lat</h2>
+  </div>
+  <div class="score-meta">
+    <span class="pill pill-gold">Średniozaawansowany</span>
+    <span class="tempo-badge">&#127939; Szybko</span>
+    <span class="tempo-badge">&#128264; Głośno</span>
+  </div>
+  <div class="note-legend">
+    <span class="note-legend-item"><span class="note-legend-dot" style="background:var(--n1)">Do</span></span>
+    <span class="note-legend-item"><span class="note-legend-dot" style="background:var(--n2)">Re</span></span>
+    <span class="note-legend-item"><span class="note-legend-dot" style="background:var(--n3); color:#4A3200">Mi</span></span>
+    <span class="note-legend-item"><span class="note-legend-dot" style="background:var(--n4)">Fa</span></span>
+    <span class="note-legend-item"><span class="note-legend-dot" style="background:var(--n5)">Sol</span></span>
+  </div>
+
+  <div class="staff-section">
+    <div class="staff-label">Linia 1</div>
+    <div class="staff">
+      <div class="beat" style="background:var(--n1)">Do</div>
+      <div class="beat" style="background:var(--n1)">Do</div>
+      <div class="beat" style="background:var(--n2)">Re</div>
+      <div class="beat" style="background:var(--n1)">Do</div>
+      <div class="rest">&#119100;</div>
+      <div class="beat" style="background:var(--n4)">Fa</div>
+      <div class="beat" style="background:var(--n3); color:#4A3200">Mi</div>
+      <div class="rest">&#119100;</div>
+    </div>
+    <p class="lyrics-line">Sto lat, sto lat, &emsp; niech ży-je nam!</p>
+  </div>
+
+  <div class="staff-section">
+    <div class="staff-label">Linia 2</div>
+    <div class="staff">
+      <div class="beat" style="background:var(--n1)">Do</div>
+      <div class="beat" style="background:var(--n1)">Do</div>
+      <div class="beat" style="background:var(--n2)">Re</div>
+      <div class="beat" style="background:var(--n1)">Do</div>
+      <div class="rest">&#119100;</div>
+      <div class="beat" style="background:var(--n5)">Sol</div>
+      <div class="beat" style="background:var(--n4)">Fa</div>
+      <div class="rest">&#119100;</div>
+    </div>
+    <p class="lyrics-line">Sto lat, sto lat, &emsp; niech ży-je nam!</p>
+  </div>
+
+  <div class="staff-section">
+    <div class="staff-label">Linia 3</div>
+    <div class="staff">
+      <div class="beat" style="background:var(--n1)">Do</div>
+      <div class="beat" style="background:var(--n1)">Do</div>
+      <div class="beat" style="background:var(--n5)">Sol</div>
+      <div class="beat" style="background:var(--n3); color:#4A3200">Mi</div>
+      <div class="rest">&#119100;</div>
+      <div class="beat" style="background:var(--n4)">Fa</div>
+      <div class="beat" style="background:var(--n3); color:#4A3200">Mi</div>
+      <div class="beat" style="background:var(--n2)">Re</div>
+    </div>
+    <p class="lyrics-line">Jesz-cze raz, jesz-cze raz, niech ży-je nam!</p>
+  </div>
+
+  <div class="staff-section">
+    <div class="staff-label">Linia 4</div>
+    <div class="staff">
+      <div class="beat" style="background:var(--n3); color:#4A3200">Mi</div>
+      <div class="beat" style="background:var(--n4)">Fa</div>
+      <div class="beat" style="background:var(--n5)">Sol</div>
+      <div class="beat" style="background:var(--n4)">Fa</div>
+      <div class="beat" style="background:var(--n3); color:#4A3200">Mi</div>
+      <div class="beat" style="background:var(--n2)">Re</div>
+      <div class="beat" style="background:var(--n1)">Do</div>
+      <div class="rest">&#119100;</div>
+    </div>
+    <p class="lyrics-line">Niech ży-je, ży-je nam!</p>
+  </div>
+
+  <div class="callout ok" style="margin-top:10px; font-size:12px;">
+    <strong>Wskazówka:</strong> Zaśpiewaj na najbliższych urodzinach! Klaskaj w rytm kolorowych nut.
+  </div>
+
+  <div class="page-num">121</div>
+</div>
+
+<!-- ── SONG 7: Sto Lat — PRACTICE (p.124) ── -->
+<div class="page">
+  <h2 style="font-size:19px; margin-bottom:4px;">Poćwicz: Sto Lat</h2>
+  <p style="font-size:12px; color:var(--muted); margin-bottom:14px;">Pokoloruj nuty &mdash; i zaśpiewaj komuś bliskiemu!</p>
+
+  <div class="activity-card">
+    <div class="ac-header">
+      <div class="ac-icon" style="background:var(--teal);">&#127912;</div>
+      <div>
+        <div class="ac-title">Pokoloruj nuty</div>
+        <div class="ac-subtitle">5 kolorów nut</div>
+      </div>
+    </div>
+    <div class="staff">
+      <div class="beat-outline" style="border-color:var(--n1)">Do</div>
+      <div class="beat-outline" style="border-color:var(--n1)">Do</div>
+      <div class="beat-outline" style="border-color:var(--n2)">Re</div>
+      <div class="beat-outline" style="border-color:var(--n1)">Do</div>
+      <div class="beat-outline" style="border-color:var(--muted)"></div>
+      <div class="beat-outline" style="border-color:var(--n4)">Fa</div>
+      <div class="beat-outline" style="border-color:var(--n3)">Mi</div>
+    </div>
+    <div class="staff">
+      <div class="beat-outline" style="border-color:var(--n1)">Do</div>
+      <div class="beat-outline" style="border-color:var(--n1)">Do</div>
+      <div class="beat-outline" style="border-color:var(--n2)">Re</div>
+      <div class="beat-outline" style="border-color:var(--n1)">Do</div>
+      <div class="beat-outline" style="border-color:var(--muted)"></div>
+      <div class="beat-outline" style="border-color:var(--n5)">Sol</div>
+      <div class="beat-outline" style="border-color:var(--n4)">Fa</div>
+    </div>
+  </div>
+
+  <div class="activity-card">
+    <div class="ac-header">
+      <div class="ac-icon" style="background:var(--coral);">&#127925;</div>
+      <div>
+        <div class="ac-title">Dla kogo zaśpiewasz &bdquo;Sto lat&rdquo;?</div>
+        <div class="ac-subtitle">Napisz imię tej osoby i narysuj jej portret</div>
+      </div>
+    </div>
+    <div class="grid-2" style="margin-top:8px;">
+      <div style="text-align:center;">
+        <p style="font-size:12px; color:var(--muted); margin-bottom:4px;">Imię:</p>
+        <div style="border-bottom:2px solid var(--border); width:100%; height:28px;"></div>
+      </div>
+      <div class="cut-border" style="min-height:80px; display:flex; align-items:center; justify-content:center;">
+        <span style="font-size:12px; color:var(--muted);">Portret</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="activity-card">
+    <div class="ac-header">
+      <div class="ac-icon" style="background:var(--gold);">&#11088;</div>
+      <div>
+        <div class="ac-title">Ocena samodzielna</div>
+        <div class="ac-subtitle">Jak ci poszło?</div>
+      </div>
+    </div>
+    <div style="display:flex; gap:14px; justify-content:center; margin-top:6px;">
+      <div class="visual-card" style="padding:10px; min-width:80px;"><span class="vc-emoji" style="font-size:32px;">&#128515;</span><span class="vc-sub">Świetnie!</span></div>
+      <div class="visual-card" style="padding:10px; min-width:80px;"><span class="vc-emoji" style="font-size:32px;">&#128522;</span><span class="vc-sub">Dobrze</span></div>
+      <div class="visual-card" style="padding:10px; min-width:80px;"><span class="vc-emoji" style="font-size:32px;">&#129300;</span><span class="vc-sub">Jeszcze raz!</span></div>
+    </div>
+  </div>
+
+  <div class="page-num">122</div>
+</div>
+
+<!-- ── SONG 8: Wlazl Kotek (rozszerzony) — SCORE (p.125) ── -->
+<div class="page">
+  <div class="song-decoration">&#128049;</div>
+  <div class="score-header">
+    <h2>Wlazł Kotek (rozszerzony)</h2>
+  </div>
+  <div class="score-meta">
+    <span class="pill pill-gold">Średniozaawansowany</span>
+    <span class="tempo-badge">&#127956; Wolno</span>
+    <span class="tempo-badge">&#128266; Średnio</span>
+  </div>
+  <div class="note-legend">
+    <span class="note-legend-item"><span class="note-legend-dot" style="background:var(--n1)">Do</span></span>
+    <span class="note-legend-item"><span class="note-legend-dot" style="background:var(--n2)">Re</span></span>
+    <span class="note-legend-item"><span class="note-legend-dot" style="background:var(--n3); color:#4A3200">Mi</span></span>
+    <span class="note-legend-item"><span class="note-legend-dot" style="background:var(--n4)">Fa</span></span>
+    <span class="note-legend-item"><span class="note-legend-dot" style="background:var(--n5)">Sol</span></span>
+  </div>
+
+  <div class="staff-section">
+    <div class="staff-label">Linia 1</div>
+    <div class="staff">
+      <div class="beat" style="background:var(--n3); color:#4A3200">Mi</div>
+      <div class="beat" style="background:var(--n2)">Re</div>
+      <div class="beat" style="background:var(--n1)">Do</div>
+      <div class="beat" style="background:var(--n1)">Do</div>
+      <div class="rest">&#119100;</div>
+      <div class="beat" style="background:var(--n3); color:#4A3200">Mi</div>
+      <div class="beat" style="background:var(--n2)">Re</div>
+      <div class="beat" style="background:var(--n1)">Do</div>
+    </div>
+    <p class="lyrics-line">Wla-zł ko-tek na pło-tek &emsp; i mru-ga,</p>
+  </div>
+
+  <div class="staff-section">
+    <div class="staff-label">Linia 2</div>
+    <div class="staff">
+      <div class="beat" style="background:var(--n3); color:#4A3200">Mi</div>
+      <div class="beat" style="background:var(--n4)">Fa</div>
+      <div class="beat" style="background:var(--n5)">Sol</div>
+      <div class="beat" style="background:var(--n4)">Fa</div>
+      <div class="rest">&#119100;</div>
+      <div class="beat" style="background:var(--n3); color:#4A3200">Mi</div>
+      <div class="beat" style="background:var(--n2)">Re</div>
+      <div class="beat" style="background:var(--n1)">Do</div>
+    </div>
+    <p class="lyrics-line">ład-na to pio-sen-ka &emsp; nie-dłu-ga.</p>
+  </div>
+
+  <div class="staff-section">
+    <div class="staff-label">Linia 3</div>
+    <div class="staff">
+      <div class="beat" style="background:var(--n5)">Sol</div>
+      <div class="beat" style="background:var(--n4)">Fa</div>
+      <div class="beat" style="background:var(--n3); color:#4A3200">Mi</div>
+      <div class="beat" style="background:var(--n2)">Re</div>
+      <div class="rest">&#119100;</div>
+      <div class="beat" style="background:var(--n3); color:#4A3200">Mi</div>
+      <div class="beat" style="background:var(--n2)">Re</div>
+      <div class="beat" style="background:var(--n1)">Do</div>
+    </div>
+    <p class="lyrics-line">Nie dłu-ga, nie krót-ka, lecz w sam raz!</p>
+  </div>
+
+  <div class="staff-section">
+    <div class="staff-label">Linia 4</div>
+    <div class="staff">
+      <div class="beat" style="background:var(--n1)">Do</div>
+      <div class="beat" style="background:var(--n3); color:#4A3200">Mi</div>
+      <div class="beat" style="background:var(--n5)">Sol</div>
+      <div class="beat" style="background:var(--n3); color:#4A3200">Mi</div>
+      <div class="beat" style="background:var(--n1)">Do</div>
+      <div class="rest">&#119100;</div>
+    </div>
+    <p class="lyrics-line">Ko-tek znów za-mrugał!</p>
+  </div>
+
+  <div class="callout warn" style="margin-top:10px; font-size:12px;">
+    <strong>Porównaj:</strong> Ta wersja ma nowe nuty Fa i Sol! Porównaj ją z wersją dla początkujących na stronie 108.
+  </div>
+
+  <div class="page-num">123</div>
+</div>
+
+<!-- ── SONG 8: Wlazl Kotek (rozszerzony) — PRACTICE (p.126) ── -->
+<div class="page">
+  <h2 style="font-size:19px; margin-bottom:4px;">Poćwicz: Wlazł Kotek (rozszerzony)</h2>
+  <p style="font-size:12px; color:var(--muted); margin-bottom:14px;">Pokoloruj nowe nuty &mdash; zieloną (Fa) i niebieską (Sol)!</p>
+
+  <div class="activity-card">
+    <div class="ac-header">
+      <div class="ac-icon" style="background:var(--teal);">&#127912;</div>
+      <div>
+        <div class="ac-title">Pokoloruj nuty</div>
+        <div class="ac-subtitle">Zwróć uwagę na nowe kolory: zielony i niebieski</div>
+      </div>
+    </div>
+    <div class="staff">
+      <div class="beat-outline" style="border-color:var(--n3)">Mi</div>
+      <div class="beat-outline" style="border-color:var(--n2)">Re</div>
+      <div class="beat-outline" style="border-color:var(--n1)">Do</div>
+      <div class="beat-outline" style="border-color:var(--n1)">Do</div>
+      <div class="beat-outline" style="border-color:var(--muted)"></div>
+      <div class="beat-outline" style="border-color:var(--n3)">Mi</div>
+      <div class="beat-outline" style="border-color:var(--n4)">Fa</div>
+      <div class="beat-outline" style="border-color:var(--n5)">Sol</div>
+      <div class="beat-outline" style="border-color:var(--n4)">Fa</div>
+    </div>
+    <div class="staff">
+      <div class="beat-outline" style="border-color:var(--n5)">Sol</div>
+      <div class="beat-outline" style="border-color:var(--n4)">Fa</div>
+      <div class="beat-outline" style="border-color:var(--n3)">Mi</div>
+      <div class="beat-outline" style="border-color:var(--n2)">Re</div>
+      <div class="beat-outline" style="border-color:var(--muted)"></div>
+      <div class="beat-outline" style="border-color:var(--n1)">Do</div>
+      <div class="beat-outline" style="border-color:var(--n3)">Mi</div>
+      <div class="beat-outline" style="border-color:var(--n5)">Sol</div>
+      <div class="beat-outline" style="border-color:var(--n3)">Mi</div>
+      <div class="beat-outline" style="border-color:var(--n1)">Do</div>
+    </div>
+  </div>
+
+  <div class="activity-card">
+    <div class="ac-header">
+      <div class="ac-icon" style="background:var(--coral);">&#127925;</div>
+      <div>
+        <div class="ac-title">Co się zmieniło?</div>
+        <div class="ac-subtitle">Napisz, jakie nowe nuty pojawiły się w tej wersji</div>
+      </div>
+    </div>
+    <div class="practice-lines">
+      <div class="practice-line"></div>
+      <div class="practice-line"></div>
+    </div>
+  </div>
+
+  <div class="activity-card">
+    <div class="ac-header">
+      <div class="ac-icon" style="background:var(--gold);">&#11088;</div>
+      <div>
+        <div class="ac-title">Ocena samodzielna</div>
+        <div class="ac-subtitle">Jak ci poszło?</div>
+      </div>
+    </div>
+    <div style="display:flex; gap:14px; justify-content:center; margin-top:6px;">
+      <div class="visual-card" style="padding:10px; min-width:80px;"><span class="vc-emoji" style="font-size:32px;">&#128515;</span><span class="vc-sub">Świetnie!</span></div>
+      <div class="visual-card" style="padding:10px; min-width:80px;"><span class="vc-emoji" style="font-size:32px;">&#128522;</span><span class="vc-sub">Dobrze</span></div>
+      <div class="visual-card" style="padding:10px; min-width:80px;"><span class="vc-emoji" style="font-size:32px;">&#129300;</span><span class="vc-sub">Jeszcze raz!</span></div>
+    </div>
+  </div>
+
+  <div class="page-num">124</div>
+</div>
+
+<!-- ── SONG 9: Konik na Biegunach — SCORE (p.127) ── -->
+<div class="page">
+  <div class="song-decoration">&#127904;</div>
+  <div class="score-header">
+    <h2>Konik na Biegunach</h2>
+  </div>
+  <div class="score-meta">
+    <span class="pill pill-gold">Średniozaawansowany</span>
+    <span class="tempo-badge">&#127939; Szybko</span>
+    <span class="tempo-badge">&#128264; Głośno</span>
+  </div>
+  <div class="note-legend">
+    <span class="note-legend-item"><span class="note-legend-dot" style="background:var(--n1)">Do</span></span>
+    <span class="note-legend-item"><span class="note-legend-dot" style="background:var(--n2)">Re</span></span>
+    <span class="note-legend-item"><span class="note-legend-dot" style="background:var(--n3); color:#4A3200">Mi</span></span>
+    <span class="note-legend-item"><span class="note-legend-dot" style="background:var(--n4)">Fa</span></span>
+    <span class="note-legend-item"><span class="note-legend-dot" style="background:var(--n5)">Sol</span></span>
+  </div>
+
+  <div class="staff-section">
+    <div class="staff-label">Linia 1</div>
+    <div class="staff">
+      <div class="beat" style="background:var(--n5)">Sol</div>
+      <div class="beat" style="background:var(--n3); color:#4A3200">Mi</div>
+      <div class="beat" style="background:var(--n5)">Sol</div>
+      <div class="beat" style="background:var(--n3); color:#4A3200">Mi</div>
+      <div class="rest">&#119100;</div>
+      <div class="beat" style="background:var(--n4)">Fa</div>
+      <div class="beat" style="background:var(--n2)">Re</div>
+      <div class="beat" style="background:var(--n4)">Fa</div>
+      <div class="beat" style="background:var(--n2)">Re</div>
+    </div>
+    <p class="lyrics-line">Ko-nik na bie-gu-nach, hop-sa-sa,</p>
+  </div>
+
+  <div class="staff-section">
+    <div class="staff-label">Linia 2</div>
+    <div class="staff">
+      <div class="beat" style="background:var(--n1)">Do</div>
+      <div class="beat" style="background:var(--n2)">Re</div>
+      <div class="beat" style="background:var(--n3); color:#4A3200">Mi</div>
+      <div class="beat" style="background:var(--n4)">Fa</div>
+      <div class="beat" style="background:var(--n5)">Sol</div>
+      <div class="beat" style="background:var(--n5)">Sol</div>
+      <div class="rest">&#119100;</div>
+    </div>
+    <p class="lyrics-line">ga-lo-pu-je co sił ma!</p>
+  </div>
+
+  <div class="staff-section">
+    <div class="staff-label">Linia 3</div>
+    <div class="staff">
+      <div class="beat" style="background:var(--n5)">Sol</div>
+      <div class="beat" style="background:var(--n4)">Fa</div>
+      <div class="beat" style="background:var(--n3); color:#4A3200">Mi</div>
+      <div class="beat" style="background:var(--n2)">Re</div>
+      <div class="rest">&#119100;</div>
+      <div class="beat" style="background:var(--n3); color:#4A3200">Mi</div>
+      <div class="beat" style="background:var(--n2)">Re</div>
+      <div class="beat" style="background:var(--n1)">Do</div>
+    </div>
+    <p class="lyrics-line">bie-gnie, bie-gnie, &emsp; w dal, w dal, w dal!</p>
+  </div>
+
+  <div class="staff-section">
+    <div class="staff-label">Linia 4</div>
+    <div class="staff">
+      <div class="beat" style="background:var(--n1)">Do</div>
+      <div class="beat" style="background:var(--n3); color:#4A3200">Mi</div>
+      <div class="beat" style="background:var(--n5)">Sol</div>
+      <div class="beat" style="background:var(--n3); color:#4A3200">Mi</div>
+      <div class="beat" style="background:var(--n1)">Do</div>
+      <div class="rest">&#119100;</div>
+    </div>
+    <p class="lyrics-line">Ko-nik &mdash; stój!</p>
+  </div>
+
+  <div class="callout ok" style="margin-top:10px; font-size:12px;">
+    <strong>Wskazówka:</strong> Biegaj w rytm muzyki! Na &bdquo;hop-sa-sa&rdquo; podskakuj, a na końcowe &bdquo;stój!&rdquo; zamierasz w miejscu.
+  </div>
+
+  <div class="page-num">125</div>
+</div>
+
+<!-- ── SONG 9: Konik na Biegunach — PRACTICE (p.128) ── -->
+<div class="page">
+  <h2 style="font-size:19px; margin-bottom:4px;">Poćwicz: Konik na Biegunach</h2>
+  <p style="font-size:12px; color:var(--muted); margin-bottom:14px;">Pokoloruj i galopuj!</p>
+
+  <div class="activity-card">
+    <div class="ac-header">
+      <div class="ac-icon" style="background:var(--teal);">&#127912;</div>
+      <div>
+        <div class="ac-title">Pokoloruj nuty</div>
+        <div class="ac-subtitle">5 kolorów nut</div>
+      </div>
+    </div>
+    <div class="staff">
+      <div class="beat-outline" style="border-color:var(--n5)">Sol</div>
+      <div class="beat-outline" style="border-color:var(--n3)">Mi</div>
+      <div class="beat-outline" style="border-color:var(--n5)">Sol</div>
+      <div class="beat-outline" style="border-color:var(--n3)">Mi</div>
+      <div class="beat-outline" style="border-color:var(--muted)"></div>
+      <div class="beat-outline" style="border-color:var(--n4)">Fa</div>
+      <div class="beat-outline" style="border-color:var(--n2)">Re</div>
+      <div class="beat-outline" style="border-color:var(--n4)">Fa</div>
+      <div class="beat-outline" style="border-color:var(--n2)">Re</div>
+    </div>
+    <div class="staff">
+      <div class="beat-outline" style="border-color:var(--n1)">Do</div>
+      <div class="beat-outline" style="border-color:var(--n2)">Re</div>
+      <div class="beat-outline" style="border-color:var(--n3)">Mi</div>
+      <div class="beat-outline" style="border-color:var(--n4)">Fa</div>
+      <div class="beat-outline" style="border-color:var(--n5)">Sol</div>
+      <div class="beat-outline" style="border-color:var(--n5)">Sol</div>
+    </div>
+  </div>
+
+  <div class="activity-card">
+    <div class="ac-header">
+      <div class="ac-icon" style="background:var(--coral);">&#9997;</div>
+      <div>
+        <div class="ac-title">Narysuj konika</div>
+        <div class="ac-subtitle">Narysuj konika na biegunach w ramce poniżej</div>
+      </div>
+    </div>
+    <div class="cut-border" style="min-height:130px; display:flex; align-items:center; justify-content:center;">
+      <span style="font-size:14px; color:var(--muted);">Twoje miejsce na rysunek</span>
+    </div>
+  </div>
+
+  <div class="activity-card">
+    <div class="ac-header">
+      <div class="ac-icon" style="background:var(--gold);">&#11088;</div>
+      <div>
+        <div class="ac-title">Ocena samodzielna</div>
+        <div class="ac-subtitle">Jak ci poszło?</div>
+      </div>
+    </div>
+    <div style="display:flex; gap:14px; justify-content:center; margin-top:6px;">
+      <div class="visual-card" style="padding:10px; min-width:80px;"><span class="vc-emoji" style="font-size:32px;">&#128515;</span><span class="vc-sub">Świetnie!</span></div>
+      <div class="visual-card" style="padding:10px; min-width:80px;"><span class="vc-emoji" style="font-size:32px;">&#128522;</span><span class="vc-sub">Dobrze</span></div>
+      <div class="visual-card" style="padding:10px; min-width:80px;"><span class="vc-emoji" style="font-size:32px;">&#129300;</span><span class="vc-sub">Jeszcze raz!</span></div>
+    </div>
+  </div>
+
+  <div class="page-num">126</div>
+</div>
+
+<!-- ── SONG 10: Entliczek Pentliczek — SCORE (p.129) ── -->
+<div class="page">
+  <div class="song-decoration">&#127922;</div>
+  <div class="score-header">
+    <h2>Entliczek Pentliczek</h2>
+  </div>
+  <div class="score-meta">
+    <span class="pill pill-gold">Średniozaawansowany</span>
+    <span class="tempo-badge">&#9654; Umiarkowanie</span>
+    <span class="tempo-badge">&#128266; Średnio</span>
+  </div>
+  <div class="note-legend">
+    <span class="note-legend-item"><span class="note-legend-dot" style="background:var(--n1)">Do</span></span>
+    <span class="note-legend-item"><span class="note-legend-dot" style="background:var(--n2)">Re</span></span>
+    <span class="note-legend-item"><span class="note-legend-dot" style="background:var(--n3); color:#4A3200">Mi</span></span>
+    <span class="note-legend-item"><span class="note-legend-dot" style="background:var(--n4)">Fa</span></span>
+    <span class="note-legend-item"><span class="note-legend-dot" style="background:var(--n5)">Sol</span></span>
+  </div>
+
+  <div class="staff-section">
+    <div class="staff-label">Linia 1</div>
+    <div class="staff">
+      <div class="beat" style="background:var(--n5)">Sol</div>
+      <div class="beat" style="background:var(--n4)">Fa</div>
+      <div class="beat" style="background:var(--n3); color:#4A3200">Mi</div>
+      <div class="beat" style="background:var(--n2)">Re</div>
+      <div class="rest">&#119100;</div>
+      <div class="beat" style="background:var(--n1)">Do</div>
+      <div class="beat" style="background:var(--n2)">Re</div>
+      <div class="beat" style="background:var(--n3); color:#4A3200">Mi</div>
+    </div>
+    <p class="lyrics-line">En-tli-czek pen-tli-czek, czer-wo-ny sto-li-czek,</p>
+  </div>
+
+  <div class="staff-section">
+    <div class="staff-label">Linia 2</div>
+    <div class="staff">
+      <div class="beat" style="background:var(--n3); color:#4A3200">Mi</div>
+      <div class="beat" style="background:var(--n4)">Fa</div>
+      <div class="beat" style="background:var(--n5)">Sol</div>
+      <div class="beat" style="background:var(--n4)">Fa</div>
+      <div class="rest">&#119100;</div>
+      <div class="beat" style="background:var(--n3); color:#4A3200">Mi</div>
+      <div class="beat" style="background:var(--n2)">Re</div>
+      <div class="beat" style="background:var(--n1)">Do</div>
+    </div>
+    <p class="lyrics-line">a na nim ta-le-rzyk, &emsp; a na nim o-grze-szyk,</p>
+  </div>
+
+  <div class="staff-section">
+    <div class="staff-label">Linia 3</div>
+    <div class="staff">
+      <div class="beat" style="background:var(--n1)">Do</div>
+      <div class="beat" style="background:var(--n2)">Re</div>
+      <div class="beat" style="background:var(--n3); color:#4A3200">Mi</div>
+      <div class="beat" style="background:var(--n4)">Fa</div>
+      <div class="rest">&#119100;</div>
+      <div class="beat" style="background:var(--n5)">Sol</div>
+      <div class="beat" style="background:var(--n4)">Fa</div>
+      <div class="beat" style="background:var(--n3); color:#4A3200">Mi</div>
+    </div>
+    <p class="lyrics-line">kto go weź-mie, &emsp; ten się schowa,</p>
+  </div>
+
+  <div class="staff-section">
+    <div class="staff-label">Linia 4</div>
+    <div class="staff">
+      <div class="beat" style="background:var(--n2)">Re</div>
+      <div class="beat" style="background:var(--n1)">Do</div>
+      <div class="beat" style="background:var(--n2)">Re</div>
+      <div class="beat" style="background:var(--n1)">Do</div>
+      <div class="rest">&#119100;</div>
+      <div class="rest">&#119100;</div>
+    </div>
+    <p class="lyrics-line">en-tli-czek pen-tli-czek &mdash; bęc!</p>
+  </div>
+
+  <div class="callout ok" style="margin-top:10px; font-size:12px;">
+    <strong>Wskazówka:</strong> Używaj tej wyliczanki do wybierania, kto będzie pierwszy! Wskazuj palcem kolejne osoby w rytm kolorowych nut.
+  </div>
+
+  <div class="page-num">127</div>
+</div>
+
+<!-- ── SONG 10: Entliczek Pentliczek — PRACTICE (p.130) ── -->
+<div class="page">
+  <h2 style="font-size:19px; margin-bottom:4px;">Poćwicz: Entliczek Pentliczek</h2>
+  <p style="font-size:12px; color:var(--muted); margin-bottom:14px;">Pokoloruj i policz nuty!</p>
+
+  <div class="activity-card">
+    <div class="ac-header">
+      <div class="ac-icon" style="background:var(--teal);">&#127912;</div>
+      <div>
+        <div class="ac-title">Pokoloruj nuty</div>
+        <div class="ac-subtitle">5 kolorów nut</div>
+      </div>
+    </div>
+    <div class="staff">
+      <div class="beat-outline" style="border-color:var(--n5)">Sol</div>
+      <div class="beat-outline" style="border-color:var(--n4)">Fa</div>
+      <div class="beat-outline" style="border-color:var(--n3)">Mi</div>
+      <div class="beat-outline" style="border-color:var(--n2)">Re</div>
+      <div class="beat-outline" style="border-color:var(--muted)"></div>
+      <div class="beat-outline" style="border-color:var(--n1)">Do</div>
+      <div class="beat-outline" style="border-color:var(--n2)">Re</div>
+      <div class="beat-outline" style="border-color:var(--n3)">Mi</div>
+    </div>
+    <div class="staff">
+      <div class="beat-outline" style="border-color:var(--n3)">Mi</div>
+      <div class="beat-outline" style="border-color:var(--n4)">Fa</div>
+      <div class="beat-outline" style="border-color:var(--n5)">Sol</div>
+      <div class="beat-outline" style="border-color:var(--n4)">Fa</div>
+      <div class="beat-outline" style="border-color:var(--muted)"></div>
+      <div class="beat-outline" style="border-color:var(--n3)">Mi</div>
+      <div class="beat-outline" style="border-color:var(--n2)">Re</div>
+      <div class="beat-outline" style="border-color:var(--n1)">Do</div>
+    </div>
+  </div>
+
+  <div class="activity-card">
+    <div class="ac-header">
+      <div class="ac-icon" style="background:var(--coral);">&#127925;</div>
+      <div>
+        <div class="ac-title">Ile razy pojawia się każda nuta?</div>
+        <div class="ac-subtitle">Policz nuty w całej piosence i wpisz liczbę</div>
+      </div>
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(5,1fr); gap:8px; margin-top:8px;">
+      <div class="visual-card" style="padding:8px;">
+        <div class="beat" style="background:var(--n1); width:30px; height:30px; font-size:12px;">Do</div>
+        <span class="vc-label" style="font-size:18px; border-bottom:2px solid var(--border); width:30px; text-align:center;">&nbsp;</span>
+      </div>
+      <div class="visual-card" style="padding:8px;">
+        <div class="beat" style="background:var(--n2); width:30px; height:30px; font-size:12px;">Re</div>
+        <span class="vc-label" style="font-size:18px; border-bottom:2px solid var(--border); width:30px; text-align:center;">&nbsp;</span>
+      </div>
+      <div class="visual-card" style="padding:8px;">
+        <div class="beat" style="background:var(--n3); color:#4A3200; width:30px; height:30px; font-size:12px;">Mi</div>
+        <span class="vc-label" style="font-size:18px; border-bottom:2px solid var(--border); width:30px; text-align:center;">&nbsp;</span>
+      </div>
+      <div class="visual-card" style="padding:8px;">
+        <div class="beat" style="background:var(--n4); width:30px; height:30px; font-size:12px;">Fa</div>
+        <span class="vc-label" style="font-size:18px; border-bottom:2px solid var(--border); width:30px; text-align:center;">&nbsp;</span>
+      </div>
+      <div class="visual-card" style="padding:8px;">
+        <div class="beat" style="background:var(--n5); width:30px; height:30px; font-size:12px;">Sol</div>
+        <span class="vc-label" style="font-size:18px; border-bottom:2px solid var(--border); width:30px; text-align:center;">&nbsp;</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="activity-card">
+    <div class="ac-header">
+      <div class="ac-icon" style="background:var(--gold);">&#11088;</div>
+      <div>
+        <div class="ac-title">Ocena samodzielna</div>
+        <div class="ac-subtitle">Jak ci poszło?</div>
+      </div>
+    </div>
+    <div style="display:flex; gap:14px; justify-content:center; margin-top:6px;">
+      <div class="visual-card" style="padding:10px; min-width:80px;"><span class="vc-emoji" style="font-size:32px;">&#128515;</span><span class="vc-sub">Świetnie!</span></div>
+      <div class="visual-card" style="padding:10px; min-width:80px;"><span class="vc-emoji" style="font-size:32px;">&#128522;</span><span class="vc-sub">Dobrze</span></div>
+      <div class="visual-card" style="padding:10px; min-width:80px;"><span class="vc-emoji" style="font-size:32px;">&#129300;</span><span class="vc-sub">Jeszcze raz!</span></div>
+    </div>
+  </div>
+
+  <div class="page-num">128</div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     ADVANCED SONGS — 6 notes: Do, Re, Mi, Fa, Sol, La
+     ══════════════════════════════════════════════════════════ -->
+
+<div class="page">
+  <div class="difficulty-header">
+    <span class="pill pill-coral">Zaawansowany</span>
+    <h3>Piosenki na 6 nut: Do &ndash; La</h3>
+  </div>
+  <p style="font-size:14px; color:var(--ink-mid); margin-bottom:18px;">Ostatnia nuta: łososiowa La! Teraz znasz cały kolorowy alfabet muzyczny i możesz zagrać najtrudniejsze piosenki.</p>
+  <div class="note-legend">
+    <span class="note-legend-item"><span class="note-legend-dot" style="background:var(--n1)">Do</span></span>
+    <span class="note-legend-item"><span class="note-legend-dot" style="background:var(--n2)">Re</span></span>
+    <span class="note-legend-item"><span class="note-legend-dot" style="background:var(--n3); color:#4A3200">Mi</span></span>
+    <span class="note-legend-item"><span class="note-legend-dot" style="background:var(--n4)">Fa</span></span>
+    <span class="note-legend-item"><span class="note-legend-dot" style="background:var(--n5)">Sol</span></span>
+    <span class="note-legend-item"><span class="note-legend-dot" style="background:var(--n6)">La</span></span>
+  </div>
+
+  <div class="grid-2" style="margin-bottom:14px;">
+    <div class="note-card" style="border-color:var(--n6);">
+      <span class="note-circle la" style="width:48px; height:48px; font-size:18px;">La</span>
+      <span class="nc-name" style="color:var(--n6);">La &mdash; Nowa!</span>
+      <span class="nc-desc">Łososiowa nuta. Najwyższy dźwięk w naszym systemie. Jasna i radosna!</span>
+    </div>
+    <div class="card" style="display:flex; flex-direction:column; align-items:center; justify-content:center; gap:6px; text-align:center;">
+      <span style="font-size:32px;">&#127942;</span>
+      <span style="font-family:var(--df); font-size:13px; font-weight:700; color:var(--teal-dark);">Gratulacje!</span>
+      <span style="font-size:11px; color:var(--muted);">Znasz już wszystkie 6 nut!</span>
+    </div>
+  </div>
+
+  <div style="display:flex; flex-direction:column; gap:10px;">
+    <div class="card" style="display:flex; align-items:center; gap:12px;">
+      <span style="font-size:28px;">&#127926;</span>
+      <div><strong style="font-family:var(--df);">11. Oj Dana Dana</strong><br><span style="font-size:12px; color:var(--muted);">Wesoła ludowa &bull; Strona 130</span></div>
+    </div>
+    <div class="card" style="display:flex; align-items:center; gap:12px;">
+      <span style="font-size:28px;">&#129525;</span>
+      <div><strong style="font-family:var(--df);">12. Prząśniczka</strong><br><span style="font-size:12px; color:var(--muted);">Piosenka ludowa &bull; Strona 132</span></div>
+    </div>
+    <div class="card" style="display:flex; align-items:center; gap:12px;">
+      <span style="font-size:28px;">&#128038;</span>
+      <div><strong style="font-family:var(--df);">13. Kukułeczka</strong><br><span style="font-size:12px; color:var(--muted);">Piosenka o ptaku &bull; Strona 134</span></div>
+    </div>
+    <div class="card" style="display:flex; align-items:center; gap:12px;">
+      <span style="font-size:28px;">&#129526;</span>
+      <div><strong style="font-family:var(--df);">14. Tańcowała Igła z Nitką</strong><br><span style="font-size:12px; color:var(--muted);">Piosenka taneczna &bull; Strona 136</span></div>
+    </div>
+    <div class="card" style="display:flex; align-items:center; gap:12px;">
+      <span style="font-size:28px;">&#127783;</span>
+      <div><strong style="font-family:var(--df);">15. Idzie Deszcz</strong><br><span style="font-size:12px; color:var(--muted);">Piosenka o pogodzie &bull; Strona 138</span></div>
+    </div>
+  </div>
+
+  <div class="page-num">129</div>
+</div>
+
+
+<!-- ── SONG 11: Oj Dana Dana — SCORE (p.133) ── -->
+<div class="page">
+  <div class="song-decoration">&#127926;</div>
+  <div class="score-header">
+    <h2>Oj Dana Dana</h2>
+  </div>
+  <div class="score-meta">
+    <span class="pill pill-coral">Zaawansowany</span>
+    <span class="tempo-badge">&#127939; Szybko</span>
+    <span class="tempo-badge">&#128264; Głośno</span>
+  </div>
+  <div class="note-legend">
+    <span class="note-legend-item"><span class="note-legend-dot" style="background:var(--n1)">Do</span></span>
+    <span class="note-legend-item"><span class="note-legend-dot" style="background:var(--n2)">Re</span></span>
+    <span class="note-legend-item"><span class="note-legend-dot" style="background:var(--n3); color:#4A3200">Mi</span></span>
+    <span class="note-legend-item"><span class="note-legend-dot" style="background:var(--n4)">Fa</span></span>
+    <span class="note-legend-item"><span class="note-legend-dot" style="background:var(--n5)">Sol</span></span>
+    <span class="note-legend-item"><span class="note-legend-dot" style="background:var(--n6)">La</span></span>
+  </div>
+
+  <div class="staff-section">
+    <div class="staff-label">Linia 1</div>
+    <div class="staff">
+      <div class="beat" style="background:var(--n6)">La</div>
+      <div class="beat" style="background:var(--n5)">Sol</div>
+      <div class="beat" style="background:var(--n4)">Fa</div>
+      <div class="beat" style="background:var(--n3); color:#4A3200">Mi</div>
+      <div class="rest">&#119100;</div>
+      <div class="beat" style="background:var(--n2)">Re</div>
+      <div class="beat" style="background:var(--n1)">Do</div>
+      <div class="beat" style="background:var(--n2)">Re</div>
+      <div class="beat" style="background:var(--n3); color:#4A3200">Mi</div>
+    </div>
+    <p class="lyrics-line">Oj da-na, da-na, &emsp; nie chcę cię znać,</p>
+  </div>
+
+  <div class="staff-section">
+    <div class="staff-label">Linia 2</div>
+    <div class="staff">
+      <div class="beat" style="background:var(--n4)">Fa</div>
+      <div class="beat" style="background:var(--n5)">Sol</div>
+      <div class="beat" style="background:var(--n6)">La</div>
+      <div class="beat" style="background:var(--n5)">Sol</div>
+      <div class="rest">&#119100;</div>
+      <div class="beat" style="background:var(--n4)">Fa</div>
+      <div class="beat" style="background:var(--n3); color:#4A3200">Mi</div>
+      <div class="beat" style="background:var(--n2)">Re</div>
+    </div>
+    <p class="lyrics-line">bo mi się nie chce &emsp; za to-bą gnać,</p>
+  </div>
+
+  <div class="staff-section">
+    <div class="staff-label">Linia 3</div>
+    <div class="staff">
+      <div class="beat" style="background:var(--n1)">Do</div>
+      <div class="beat" style="background:var(--n3); color:#4A3200">Mi</div>
+      <div class="beat" style="background:var(--n5)">Sol</div>
+      <div class="beat" style="background:var(--n6)">La</div>
+      <div class="rest">&#119100;</div>
+      <div class="beat" style="background:var(--n5)">Sol</div>
+      <div class="beat" style="background:var(--n4)">Fa</div>
+      <div class="beat" style="background:var(--n3); color:#4A3200">Mi</div>
+      <div class="beat" style="background:var(--n2)">Re</div>
+    </div>
+    <p class="lyrics-line">oj da-na, da-na, da-na, &emsp; oj da-na!</p>
+  </div>
+
+  <div class="staff-section">
+    <div class="staff-label">Linia 4</div>
+    <div class="staff">
+      <div class="beat" style="background:var(--n1)">Do</div>
+      <div class="beat" style="background:var(--n2)">Re</div>
+      <div class="beat" style="background:var(--n3); color:#4A3200">Mi</div>
+      <div class="beat" style="background:var(--n2)">Re</div>
+      <div class="beat" style="background:var(--n1)">Do</div>
+      <div class="rest">&#119100;</div>
+    </div>
+    <p class="lyrics-line">Oj da-na, da-na!</p>
+  </div>
+
+  <div class="callout ok" style="margin-top:10px; font-size:12px;">
+    <strong>Wskazówka:</strong> To wesoła piosenka ludowa! Zaśpiewaj ją głośno i z uśmiechem. Klaskaj na pauzach!
+  </div>
+
+  <div class="page-num">130</div>
+</div>
+
+<!-- ── SONG 11: Oj Dana Dana — PRACTICE (p.134) ── -->
+<div class="page">
+  <h2 style="font-size:19px; margin-bottom:4px;">Poćwicz: Oj Dana Dana</h2>
+  <p style="font-size:12px; color:var(--muted); margin-bottom:14px;">Pokoloruj wszystkie 6 kolorów nut!</p>
+
+  <div class="activity-card">
+    <div class="ac-header">
+      <div class="ac-icon" style="background:var(--teal);">&#127912;</div>
+      <div>
+        <div class="ac-title">Pokoloruj nuty</div>
+        <div class="ac-subtitle">6 kolorów: czerwony, pomarańczowy, żółty, zielony, niebieski, łososiowy</div>
+      </div>
+    </div>
+    <div class="staff">
+      <div class="beat-outline" style="border-color:var(--n6)">La</div>
+      <div class="beat-outline" style="border-color:var(--n5)">Sol</div>
+      <div class="beat-outline" style="border-color:var(--n4)">Fa</div>
+      <div class="beat-outline" style="border-color:var(--n3)">Mi</div>
+      <div class="beat-outline" style="border-color:var(--muted)"></div>
+      <div class="beat-outline" style="border-color:var(--n2)">Re</div>
+      <div class="beat-outline" style="border-color:var(--n1)">Do</div>
+      <div class="beat-outline" style="border-color:var(--n2)">Re</div>
+      <div class="beat-outline" style="border-color:var(--n3)">Mi</div>
+    </div>
+    <div class="staff">
+      <div class="beat-outline" style="border-color:var(--n4)">Fa</div>
+      <div class="beat-outline" style="border-color:var(--n5)">Sol</div>
+      <div class="beat-outline" style="border-color:var(--n6)">La</div>
+      <div class="beat-outline" style="border-color:var(--n5)">Sol</div>
+      <div class="beat-outline" style="border-color:var(--muted)"></div>
+      <div class="beat-outline" style="border-color:var(--n4)">Fa</div>
+      <div class="beat-outline" style="border-color:var(--n3)">Mi</div>
+      <div class="beat-outline" style="border-color:var(--n2)">Re</div>
+    </div>
+  </div>
+
+  <div class="activity-card">
+    <div class="ac-header">
+      <div class="ac-icon" style="background:var(--coral);">&#9997;</div>
+      <div>
+        <div class="ac-title">Napisz tekst piosenki</div>
+        <div class="ac-subtitle">Przepisz słowa z pamięci</div>
+      </div>
+    </div>
+    <div class="practice-lines">
+      <div class="practice-line"></div>
+      <div class="practice-line"></div>
+      <div class="practice-line"></div>
+      <div class="practice-line"></div>
+    </div>
+  </div>
+
+  <div class="activity-card">
+    <div class="ac-header">
+      <div class="ac-icon" style="background:var(--gold);">&#11088;</div>
+      <div>
+        <div class="ac-title">Ocena samodzielna</div>
+        <div class="ac-subtitle">Jak ci poszło?</div>
+      </div>
+    </div>
+    <div style="display:flex; gap:14px; justify-content:center; margin-top:6px;">
+      <div class="visual-card" style="padding:10px; min-width:80px;"><span class="vc-emoji" style="font-size:32px;">&#128515;</span><span class="vc-sub">Świetnie!</span></div>
+      <div class="visual-card" style="padding:10px; min-width:80px;"><span class="vc-emoji" style="font-size:32px;">&#128522;</span><span class="vc-sub">Dobrze</span></div>
+      <div class="visual-card" style="padding:10px; min-width:80px;"><span class="vc-emoji" style="font-size:32px;">&#129300;</span><span class="vc-sub">Jeszcze raz!</span></div>
+    </div>
+  </div>
+
+  <div class="page-num">131</div>
+</div>
+
+<!-- ── SONG 12: Przasniczka — SCORE (p.135) ── -->
+<div class="page">
+  <div class="song-decoration">&#129525;</div>
+  <div class="score-header">
+    <h2>Prząśniczka</h2>
+  </div>
+  <div class="score-meta">
+    <span class="pill pill-coral">Zaawansowany</span>
+    <span class="tempo-badge">&#9654; Umiarkowanie</span>
+    <span class="tempo-badge">&#128266; Średnio</span>
+  </div>
+  <div class="note-legend">
+    <span class="note-legend-item"><span class="note-legend-dot" style="background:var(--n1)">Do</span></span>
+    <span class="note-legend-item"><span class="note-legend-dot" style="background:var(--n2)">Re</span></span>
+    <span class="note-legend-item"><span class="note-legend-dot" style="background:var(--n3); color:#4A3200">Mi</span></span>
+    <span class="note-legend-item"><span class="note-legend-dot" style="background:var(--n4)">Fa</span></span>
+    <span class="note-legend-item"><span class="note-legend-dot" style="background:var(--n5)">Sol</span></span>
+    <span class="note-legend-item"><span class="note-legend-dot" style="background:var(--n6)">La</span></span>
+  </div>
+
+  <div class="staff-section">
+    <div class="staff-label">Linia 1</div>
+    <div class="staff">
+      <div class="beat" style="background:var(--n1)">Do</div>
+      <div class="beat" style="background:var(--n3); color:#4A3200">Mi</div>
+      <div class="beat" style="background:var(--n5)">Sol</div>
+      <div class="beat" style="background:var(--n6)">La</div>
+      <div class="rest">&#119100;</div>
+      <div class="beat" style="background:var(--n5)">Sol</div>
+      <div class="beat" style="background:var(--n4)">Fa</div>
+      <div class="beat" style="background:var(--n3); color:#4A3200">Mi</div>
+      <div class="beat" style="background:var(--n2)">Re</div>
+    </div>
+    <p class="lyrics-line">Prząś-nicz-ka, prząś-nicz-ka, &emsp; prząd-ła nit-ki,</p>
+  </div>
+
+  <div class="staff-section">
+    <div class="staff-label">Linia 2</div>
+    <div class="staff">
+      <div class="beat" style="background:var(--n1)">Do</div>
+      <div class="beat" style="background:var(--n3); color:#4A3200">Mi</div>
+      <div class="beat" style="background:var(--n5)">Sol</div>
+      <div class="beat" style="background:var(--n6)">La</div>
+      <div class="rest">&#119100;</div>
+      <div class="beat" style="background:var(--n5)">Sol</div>
+      <div class="beat" style="background:var(--n3); color:#4A3200">Mi</div>
+      <div class="beat" style="background:var(--n1)">Do</div>
+    </div>
+    <p class="lyrics-line">prząd-ła nit-ki ca-łe dnie!</p>
+  </div>
+
+  <div class="staff-section">
+    <div class="staff-label">Linia 3</div>
+    <div class="staff">
+      <div class="beat" style="background:var(--n6)">La</div>
+      <div class="beat" style="background:var(--n5)">Sol</div>
+      <div class="beat" style="background:var(--n4)">Fa</div>
+      <div class="beat" style="background:var(--n3); color:#4A3200">Mi</div>
+      <div class="rest">&#119100;</div>
+      <div class="beat" style="background:var(--n2)">Re</div>
+      <div class="beat" style="background:var(--n1)">Do</div>
+      <div class="beat" style="background:var(--n2)">Re</div>
+      <div class="beat" style="background:var(--n3); color:#4A3200">Mi</div>
+    </div>
+    <p class="lyrics-line">a ko-ło-wro-tek &emsp; krę-cił się,</p>
+  </div>
+
+  <div class="staff-section">
+    <div class="staff-label">Linia 4</div>
+    <div class="staff">
+      <div class="beat" style="background:var(--n3); color:#4A3200">Mi</div>
+      <div class="beat" style="background:var(--n2)">Re</div>
+      <div class="beat" style="background:var(--n1)">Do</div>
+      <div class="rest">&#119100;</div>
+      <div class="rest">&#119100;</div>
+    </div>
+    <p class="lyrics-line">i krę-cił się!</p>
+  </div>
+
+  <div class="callout ok" style="margin-top:10px; font-size:12px;">
+    <strong>Wskazówka:</strong> Kręć rękami w kółko jak kołowrotek, kiedy śpiewasz tę piosenkę!
+  </div>
+
+  <div class="page-num">132</div>
+</div>
+
+<!-- ── SONG 12: Przasniczka — PRACTICE (p.136) ── -->
+<div class="page">
+  <h2 style="font-size:19px; margin-bottom:4px;">Poćwicz: Prząśniczka</h2>
+  <p style="font-size:12px; color:var(--muted); margin-bottom:14px;">Pokoloruj nuty i kręć się w kółko!</p>
+
+  <div class="activity-card">
+    <div class="ac-header">
+      <div class="ac-icon" style="background:var(--teal);">&#127912;</div>
+      <div>
+        <div class="ac-title">Pokoloruj nuty</div>
+        <div class="ac-subtitle">Wszystkie 6 kolorów!</div>
+      </div>
+    </div>
+    <div class="staff">
+      <div class="beat-outline" style="border-color:var(--n1)">Do</div>
+      <div class="beat-outline" style="border-color:var(--n3)">Mi</div>
+      <div class="beat-outline" style="border-color:var(--n5)">Sol</div>
+      <div class="beat-outline" style="border-color:var(--n6)">La</div>
+      <div class="beat-outline" style="border-color:var(--muted)"></div>
+      <div class="beat-outline" style="border-color:var(--n5)">Sol</div>
+      <div class="beat-outline" style="border-color:var(--n4)">Fa</div>
+      <div class="beat-outline" style="border-color:var(--n3)">Mi</div>
+      <div class="beat-outline" style="border-color:var(--n2)">Re</div>
+    </div>
+    <div class="staff">
+      <div class="beat-outline" style="border-color:var(--n6)">La</div>
+      <div class="beat-outline" style="border-color:var(--n5)">Sol</div>
+      <div class="beat-outline" style="border-color:var(--n4)">Fa</div>
+      <div class="beat-outline" style="border-color:var(--n3)">Mi</div>
+      <div class="beat-outline" style="border-color:var(--muted)"></div>
+      <div class="beat-outline" style="border-color:var(--n2)">Re</div>
+      <div class="beat-outline" style="border-color:var(--n1)">Do</div>
+      <div class="beat-outline" style="border-color:var(--n2)">Re</div>
+      <div class="beat-outline" style="border-color:var(--n3)">Mi</div>
+    </div>
+  </div>
+
+  <div class="activity-card">
+    <div class="ac-header">
+      <div class="ac-icon" style="background:var(--coral);">&#127925;</div>
+      <div>
+        <div class="ac-title">Narysuj kołowrotek</div>
+        <div class="ac-subtitle">Narysuj kołowrotek prząśniczki</div>
+      </div>
+    </div>
+    <div class="cut-border" style="min-height:120px; display:flex; align-items:center; justify-content:center;">
+      <span style="font-size:14px; color:var(--muted);">Twoje miejsce na rysunek</span>
+    </div>
+  </div>
+
+  <div class="activity-card">
+    <div class="ac-header">
+      <div class="ac-icon" style="background:var(--gold);">&#11088;</div>
+      <div>
+        <div class="ac-title">Ocena samodzielna</div>
+        <div class="ac-subtitle">Jak ci poszło?</div>
+      </div>
+    </div>
+    <div style="display:flex; gap:14px; justify-content:center; margin-top:6px;">
+      <div class="visual-card" style="padding:10px; min-width:80px;"><span class="vc-emoji" style="font-size:32px;">&#128515;</span><span class="vc-sub">Świetnie!</span></div>
+      <div class="visual-card" style="padding:10px; min-width:80px;"><span class="vc-emoji" style="font-size:32px;">&#128522;</span><span class="vc-sub">Dobrze</span></div>
+      <div class="visual-card" style="padding:10px; min-width:80px;"><span class="vc-emoji" style="font-size:32px;">&#129300;</span><span class="vc-sub">Jeszcze raz!</span></div>
+    </div>
+  </div>
+
+  <div class="page-num">133</div>
+</div>
+
+<!-- ── SONG 13: Kukuleczka — SCORE (p.137) ── -->
+<div class="page">
+  <div class="song-decoration">&#128038;</div>
+  <div class="score-header">
+    <h2>Kukułeczka</h2>
+  </div>
+  <div class="score-meta">
+    <span class="pill pill-coral">Zaawansowany</span>
+    <span class="tempo-badge">&#9654; Umiarkowanie</span>
+    <span class="tempo-badge">&#128220; Cicho</span>
+  </div>
+  <div class="note-legend">
+    <span class="note-legend-item"><span class="note-legend-dot" style="background:var(--n1)">Do</span></span>
+    <span class="note-legend-item"><span class="note-legend-dot" style="background:var(--n2)">Re</span></span>
+    <span class="note-legend-item"><span class="note-legend-dot" style="background:var(--n3); color:#4A3200">Mi</span></span>
+    <span class="note-legend-item"><span class="note-legend-dot" style="background:var(--n4)">Fa</span></span>
+    <span class="note-legend-item"><span class="note-legend-dot" style="background:var(--n5)">Sol</span></span>
+    <span class="note-legend-item"><span class="note-legend-dot" style="background:var(--n6)">La</span></span>
+  </div>
+
+  <div class="staff-section">
+    <div class="staff-label">Linia 1</div>
+    <div class="staff">
+      <div class="beat" style="background:var(--n5)">Sol</div>
+      <div class="beat" style="background:var(--n3); color:#4A3200">Mi</div>
+      <div class="beat" style="background:var(--n5)">Sol</div>
+      <div class="beat" style="background:var(--n3); color:#4A3200">Mi</div>
+      <div class="rest">&#119100;</div>
+      <div class="beat" style="background:var(--n6)">La</div>
+      <div class="beat" style="background:var(--n5)">Sol</div>
+      <div class="beat" style="background:var(--n4)">Fa</div>
+      <div class="beat" style="background:var(--n3); color:#4A3200">Mi</div>
+    </div>
+    <p class="lyrics-line">Ku-ku-łecz-ka ku-ka, &emsp; z da-le-ka ją sły-chać,</p>
+  </div>
+
+  <div class="staff-section">
+    <div class="staff-label">Linia 2</div>
+    <div class="staff">
+      <div class="beat" style="background:var(--n2)">Re</div>
+      <div class="beat" style="background:var(--n1)">Do</div>
+      <div class="beat" style="background:var(--n2)">Re</div>
+      <div class="beat" style="background:var(--n3); color:#4A3200">Mi</div>
+      <div class="rest">&#119100;</div>
+      <div class="beat" style="background:var(--n4)">Fa</div>
+      <div class="beat" style="background:var(--n5)">Sol</div>
+      <div class="beat" style="background:var(--n6)">La</div>
+    </div>
+    <p class="lyrics-line">sie-dzi na ga-łąz-ce &emsp; w zie-lo-nym le-sie,</p>
+  </div>
+
+  <div class="staff-section">
+    <div class="staff-label">Linia 3</div>
+    <div class="staff">
+      <div class="beat" style="background:var(--n6)">La</div>
+      <div class="beat" style="background:var(--n5)">Sol</div>
+      <div class="beat" style="background:var(--n4)">Fa</div>
+      <div class="beat" style="background:var(--n3); color:#4A3200">Mi</div>
+      <div class="rest">&#119100;</div>
+      <div class="beat" style="background:var(--n2)">Re</div>
+      <div class="beat" style="background:var(--n3); color:#4A3200">Mi</div>
+      <div class="beat" style="background:var(--n4)">Fa</div>
+      <div class="beat" style="background:var(--n5)">Sol</div>
+    </div>
+    <p class="lyrics-line">ku-ku, ku-ku, &emsp; wszy-stkim wio-snę nie-sie.</p>
+  </div>
+
+  <div class="staff-section">
+    <div class="staff-label">Linia 4</div>
+    <div class="staff">
+      <div class="beat" style="background:var(--n5)">Sol</div>
+      <div class="beat" style="background:var(--n3); color:#4A3200">Mi</div>
+      <div class="beat" style="background:var(--n1)">Do</div>
+      <div class="rest">&#119100;</div>
+      <div class="rest">&#119100;</div>
+    </div>
+    <p class="lyrics-line">Ku-ku!</p>
+  </div>
+
+  <div class="callout ok" style="margin-top:10px; font-size:12px;">
+    <strong>Wskazówka:</strong> Zaśpiewaj &bdquo;ku-ku&rdquo; cicho, jakbyś był kukułką schowaną na drzewie! Na resztę melodii możesz śpiewać głośniej.
+  </div>
+
+  <div class="page-num">134</div>
+</div>
+
+<!-- ── SONG 13: Kukuleczka — PRACTICE (p.138) ── -->
+<div class="page">
+  <h2 style="font-size:19px; margin-bottom:4px;">Poćwicz: Kukułeczka</h2>
+  <p style="font-size:12px; color:var(--muted); margin-bottom:14px;">Pokoloruj nuty i zaśpiewaj jak kukułka!</p>
+
+  <div class="activity-card">
+    <div class="ac-header">
+      <div class="ac-icon" style="background:var(--teal);">&#127912;</div>
+      <div>
+        <div class="ac-title">Pokoloruj nuty</div>
+        <div class="ac-subtitle">Wszystkie 6 kolorów!</div>
+      </div>
+    </div>
+    <div class="staff">
+      <div class="beat-outline" style="border-color:var(--n5)">Sol</div>
+      <div class="beat-outline" style="border-color:var(--n3)">Mi</div>
+      <div class="beat-outline" style="border-color:var(--n5)">Sol</div>
+      <div class="beat-outline" style="border-color:var(--n3)">Mi</div>
+      <div class="beat-outline" style="border-color:var(--muted)"></div>
+      <div class="beat-outline" style="border-color:var(--n6)">La</div>
+      <div class="beat-outline" style="border-color:var(--n5)">Sol</div>
+      <div class="beat-outline" style="border-color:var(--n4)">Fa</div>
+      <div class="beat-outline" style="border-color:var(--n3)">Mi</div>
+    </div>
+    <div class="staff">
+      <div class="beat-outline" style="border-color:var(--n2)">Re</div>
+      <div class="beat-outline" style="border-color:var(--n1)">Do</div>
+      <div class="beat-outline" style="border-color:var(--n2)">Re</div>
+      <div class="beat-outline" style="border-color:var(--n3)">Mi</div>
+      <div class="beat-outline" style="border-color:var(--muted)"></div>
+      <div class="beat-outline" style="border-color:var(--n4)">Fa</div>
+      <div class="beat-outline" style="border-color:var(--n5)">Sol</div>
+      <div class="beat-outline" style="border-color:var(--n6)">La</div>
+    </div>
+  </div>
+
+  <div class="activity-card">
+    <div class="ac-header">
+      <div class="ac-icon" style="background:var(--coral);">&#127925;</div>
+      <div>
+        <div class="ac-title">Narysuj kukułkę</div>
+        <div class="ac-subtitle">Narysuj kukułkę siedzącą na gałęzi</div>
+      </div>
+    </div>
+    <div class="cut-border" style="min-height:120px; display:flex; align-items:center; justify-content:center;">
+      <span style="font-size:14px; color:var(--muted);">Twoje miejsce na rysunek</span>
+    </div>
+  </div>
+
+  <div class="activity-card">
+    <div class="ac-header">
+      <div class="ac-icon" style="background:var(--gold);">&#11088;</div>
+      <div>
+        <div class="ac-title">Ocena samodzielna</div>
+        <div class="ac-subtitle">Jak ci poszło?</div>
+      </div>
+    </div>
+    <div style="display:flex; gap:14px; justify-content:center; margin-top:6px;">
+      <div class="visual-card" style="padding:10px; min-width:80px;"><span class="vc-emoji" style="font-size:32px;">&#128515;</span><span class="vc-sub">Świetnie!</span></div>
+      <div class="visual-card" style="padding:10px; min-width:80px;"><span class="vc-emoji" style="font-size:32px;">&#128522;</span><span class="vc-sub">Dobrze</span></div>
+      <div class="visual-card" style="padding:10px; min-width:80px;"><span class="vc-emoji" style="font-size:32px;">&#129300;</span><span class="vc-sub">Jeszcze raz!</span></div>
+    </div>
+  </div>
+
+  <div class="page-num">135</div>
+</div>
+
+<!-- ── SONG 14: Tancowala Igla z Nitka — SCORE (p.139) ── -->
+<div class="page">
+  <div class="song-decoration">&#129526;</div>
+  <div class="score-header">
+    <h2>Tańcowała Igła z Nitką</h2>
+  </div>
+  <div class="score-meta">
+    <span class="pill pill-coral">Zaawansowany</span>
+    <span class="tempo-badge">&#127939; Szybko</span>
+    <span class="tempo-badge">&#128264; Głośno</span>
+  </div>
+  <div class="note-legend">
+    <span class="note-legend-item"><span class="note-legend-dot" style="background:var(--n1)">Do</span></span>
+    <span class="note-legend-item"><span class="note-legend-dot" style="background:var(--n2)">Re</span></span>
+    <span class="note-legend-item"><span class="note-legend-dot" style="background:var(--n3); color:#4A3200">Mi</span></span>
+    <span class="note-legend-item"><span class="note-legend-dot" style="background:var(--n4)">Fa</span></span>
+    <span class="note-legend-item"><span class="note-legend-dot" style="background:var(--n5)">Sol</span></span>
+    <span class="note-legend-item"><span class="note-legend-dot" style="background:var(--n6)">La</span></span>
+  </div>
+
+  <div class="staff-section">
+    <div class="staff-label">Linia 1</div>
+    <div class="staff">
+      <div class="beat" style="background:var(--n1)">Do</div>
+      <div class="beat" style="background:var(--n2)">Re</div>
+      <div class="beat" style="background:var(--n3); color:#4A3200">Mi</div>
+      <div class="beat" style="background:var(--n4)">Fa</div>
+      <div class="rest">&#119100;</div>
+      <div class="beat" style="background:var(--n5)">Sol</div>
+      <div class="beat" style="background:var(--n6)">La</div>
+      <div class="beat" style="background:var(--n5)">Sol</div>
+      <div class="beat" style="background:var(--n4)">Fa</div>
+    </div>
+    <p class="lyrics-line">Tań-co-wa-ła i-gła &emsp; z nit-ką, z nit-ką,</p>
+  </div>
+
+  <div class="staff-section">
+    <div class="staff-label">Linia 2</div>
+    <div class="staff">
+      <div class="beat" style="background:var(--n3); color:#4A3200">Mi</div>
+      <div class="beat" style="background:var(--n2)">Re</div>
+      <div class="beat" style="background:var(--n1)">Do</div>
+      <div class="beat" style="background:var(--n2)">Re</div>
+      <div class="rest">&#119100;</div>
+      <div class="beat" style="background:var(--n3); color:#4A3200">Mi</div>
+      <div class="beat" style="background:var(--n4)">Fa</div>
+      <div class="beat" style="background:var(--n5)">Sol</div>
+    </div>
+    <p class="lyrics-line">i-gła z nit-ką, &emsp; i-gła z nit-ką,</p>
+  </div>
+
+  <div class="staff-section">
+    <div class="staff-label">Linia 3</div>
+    <div class="staff">
+      <div class="beat" style="background:var(--n6)">La</div>
+      <div class="beat" style="background:var(--n5)">Sol</div>
+      <div class="beat" style="background:var(--n4)">Fa</div>
+      <div class="beat" style="background:var(--n3); color:#4A3200">Mi</div>
+      <div class="rest">&#119100;</div>
+      <div class="beat" style="background:var(--n2)">Re</div>
+      <div class="beat" style="background:var(--n1)">Do</div>
+      <div class="rest">&#119100;</div>
+    </div>
+    <p class="lyrics-line">haj-da, haj-da, haj! &emsp; Hop, hop!</p>
+  </div>
+
+  <div class="staff-section">
+    <div class="staff-label">Linia 4</div>
+    <div class="staff">
+      <div class="beat" style="background:var(--n1)">Do</div>
+      <div class="beat" style="background:var(--n3); color:#4A3200">Mi</div>
+      <div class="beat" style="background:var(--n5)">Sol</div>
+      <div class="beat" style="background:var(--n6)">La</div>
+      <div class="beat" style="background:var(--n5)">Sol</div>
+      <div class="beat" style="background:var(--n3); color:#4A3200">Mi</div>
+      <div class="beat" style="background:var(--n1)">Do</div>
+      <div class="rest">&#119100;</div>
+    </div>
+    <p class="lyrics-line">Tań-co-wa-ła, tań-co-wa-ła!</p>
+  </div>
+
+  <div class="callout ok" style="margin-top:10px; font-size:12px;">
+    <strong>Wskazówka:</strong> To piosenka do tańca! Kręć się w kółko, klaszcz i podskakuj na &bdquo;haj-da&rdquo;!
+  </div>
+
+  <div class="page-num">136</div>
+</div>
+
+<!-- ── SONG 14: Tancowala Igla z Nitka — PRACTICE (p.140) ── -->
+<div class="page">
+  <h2 style="font-size:19px; margin-bottom:4px;">Poćwicz: Tańcowała Igła z Nitką</h2>
+  <p style="font-size:12px; color:var(--muted); margin-bottom:14px;">Pokoloruj nuty i tańcz!</p>
+
+  <div class="activity-card">
+    <div class="ac-header">
+      <div class="ac-icon" style="background:var(--teal);">&#127912;</div>
+      <div>
+        <div class="ac-title">Pokoloruj nuty</div>
+        <div class="ac-subtitle">Wszystkie 6 kolorów!</div>
+      </div>
+    </div>
+    <div class="staff">
+      <div class="beat-outline" style="border-color:var(--n1)">Do</div>
+      <div class="beat-outline" style="border-color:var(--n2)">Re</div>
+      <div class="beat-outline" style="border-color:var(--n3)">Mi</div>
+      <div class="beat-outline" style="border-color:var(--n4)">Fa</div>
+      <div class="beat-outline" style="border-color:var(--muted)"></div>
+      <div class="beat-outline" style="border-color:var(--n5)">Sol</div>
+      <div class="beat-outline" style="border-color:var(--n6)">La</div>
+      <div class="beat-outline" style="border-color:var(--n5)">Sol</div>
+      <div class="beat-outline" style="border-color:var(--n4)">Fa</div>
+    </div>
+    <div class="staff">
+      <div class="beat-outline" style="border-color:var(--n3)">Mi</div>
+      <div class="beat-outline" style="border-color:var(--n2)">Re</div>
+      <div class="beat-outline" style="border-color:var(--n1)">Do</div>
+      <div class="beat-outline" style="border-color:var(--n2)">Re</div>
+      <div class="beat-outline" style="border-color:var(--muted)"></div>
+      <div class="beat-outline" style="border-color:var(--n3)">Mi</div>
+      <div class="beat-outline" style="border-color:var(--n4)">Fa</div>
+      <div class="beat-outline" style="border-color:var(--n5)">Sol</div>
+    </div>
+  </div>
+
+  <div class="activity-card">
+    <div class="ac-header">
+      <div class="ac-icon" style="background:var(--coral);">&#9997;</div>
+      <div>
+        <div class="ac-title">Napisz tekst piosenki</div>
+        <div class="ac-subtitle">Przepisz słowa z pamięci</div>
+      </div>
+    </div>
+    <div class="practice-lines">
+      <div class="practice-line"></div>
+      <div class="practice-line"></div>
+      <div class="practice-line"></div>
+      <div class="practice-line"></div>
+    </div>
+  </div>
+
+  <div class="activity-card">
+    <div class="ac-header">
+      <div class="ac-icon" style="background:var(--gold);">&#11088;</div>
+      <div>
+        <div class="ac-title">Ocena samodzielna</div>
+        <div class="ac-subtitle">Jak ci poszło?</div>
+      </div>
+    </div>
+    <div style="display:flex; gap:14px; justify-content:center; margin-top:6px;">
+      <div class="visual-card" style="padding:10px; min-width:80px;"><span class="vc-emoji" style="font-size:32px;">&#128515;</span><span class="vc-sub">Świetnie!</span></div>
+      <div class="visual-card" style="padding:10px; min-width:80px;"><span class="vc-emoji" style="font-size:32px;">&#128522;</span><span class="vc-sub">Dobrze</span></div>
+      <div class="visual-card" style="padding:10px; min-width:80px;"><span class="vc-emoji" style="font-size:32px;">&#129300;</span><span class="vc-sub">Jeszcze raz!</span></div>
+    </div>
+  </div>
+
+  <div class="page-num">137</div>
+</div>
+
+<!-- ── SONG 15: Idzie Deszcz — SCORE (p.141) ── -->
+<div class="page">
+  <div class="song-decoration">&#127783;</div>
+  <div class="score-header">
+    <h2>Idzie Deszcz</h2>
+  </div>
+  <div class="score-meta">
+    <span class="pill pill-coral">Zaawansowany</span>
+    <span class="tempo-badge">&#9654; Umiarkowanie</span>
+    <span class="tempo-badge">&#128266; Średnio</span>
+  </div>
+  <div class="note-legend">
+    <span class="note-legend-item"><span class="note-legend-dot" style="background:var(--n1)">Do</span></span>
+    <span class="note-legend-item"><span class="note-legend-dot" style="background:var(--n2)">Re</span></span>
+    <span class="note-legend-item"><span class="note-legend-dot" style="background:var(--n3); color:#4A3200">Mi</span></span>
+    <span class="note-legend-item"><span class="note-legend-dot" style="background:var(--n4)">Fa</span></span>
+    <span class="note-legend-item"><span class="note-legend-dot" style="background:var(--n5)">Sol</span></span>
+    <span class="note-legend-item"><span class="note-legend-dot" style="background:var(--n6)">La</span></span>
+  </div>
+
+  <div class="staff-section">
+    <div class="staff-label">Linia 1</div>
+    <div class="staff">
+      <div class="beat" style="background:var(--n6)">La</div>
+      <div class="beat" style="background:var(--n6)">La</div>
+      <div class="beat" style="background:var(--n5)">Sol</div>
+      <div class="beat" style="background:var(--n4)">Fa</div>
+      <div class="rest">&#119100;</div>
+      <div class="beat" style="background:var(--n3); color:#4A3200">Mi</div>
+      <div class="beat" style="background:var(--n3); color:#4A3200">Mi</div>
+      <div class="beat" style="background:var(--n2)">Re</div>
+      <div class="beat" style="background:var(--n1)">Do</div>
+    </div>
+    <p class="lyrics-line">I-dzie deszcz, i-dzie deszcz, &emsp; u-cie-kaj-my stąd,</p>
+  </div>
+
+  <div class="staff-section">
+    <div class="staff-label">Linia 2</div>
+    <div class="staff">
+      <div class="beat" style="background:var(--n2)">Re</div>
+      <div class="beat" style="background:var(--n3); color:#4A3200">Mi</div>
+      <div class="beat" style="background:var(--n4)">Fa</div>
+      <div class="beat" style="background:var(--n5)">Sol</div>
+      <div class="rest">&#119100;</div>
+      <div class="beat" style="background:var(--n6)">La</div>
+      <div class="beat" style="background:var(--n5)">Sol</div>
+      <div class="beat" style="background:var(--n4)">Fa</div>
+      <div class="beat" style="background:var(--n3); color:#4A3200">Mi</div>
+    </div>
+    <p class="lyrics-line">bo kro-ple pa-da-ją &emsp; z każ-dej stro-ny,</p>
+  </div>
+
+  <div class="staff-section">
+    <div class="staff-label">Linia 3</div>
+    <div class="staff">
+      <div class="beat" style="background:var(--n1)">Do</div>
+      <div class="beat" style="background:var(--n2)">Re</div>
+      <div class="beat" style="background:var(--n3); color:#4A3200">Mi</div>
+      <div class="beat" style="background:var(--n4)">Fa</div>
+      <div class="rest">&#119100;</div>
+      <div class="beat" style="background:var(--n5)">Sol</div>
+      <div class="beat" style="background:var(--n6)">La</div>
+      <div class="rest">&#119100;</div>
+    </div>
+    <p class="lyrics-line">a my chce-my zo-stać &emsp; su-chy!</p>
+  </div>
+
+  <div class="staff-section">
+    <div class="staff-label">Linia 4</div>
+    <div class="staff">
+      <div class="beat" style="background:var(--n6)">La</div>
+      <div class="beat" style="background:var(--n4)">Fa</div>
+      <div class="beat" style="background:var(--n2)">Re</div>
+      <div class="rest">&#119100;</div>
+      <div class="beat" style="background:var(--n5)">Sol</div>
+      <div class="beat" style="background:var(--n3); color:#4A3200">Mi</div>
+      <div class="beat" style="background:var(--n1)">Do</div>
+      <div class="rest">&#119100;</div>
+    </div>
+    <p class="lyrics-line">Schy-lam się &emsp; pod pa-ra-sol!</p>
+  </div>
+
+  <div class="callout ok" style="margin-top:10px; font-size:12px;">
+    <strong>Wskazówka:</strong> Bębnij palcami po stole jak krople deszczu! Na &bdquo;uciekajmy&rdquo; biegnij w miejscu, a na końcu udawaj, że otwierasz parasol.
+  </div>
+
+  <div class="page-num">138</div>
+</div>
+
+<!-- ── SONG 15: Idzie Deszcz — PRACTICE (p.142) ── -->
+<div class="page">
+  <h2 style="font-size:19px; margin-bottom:4px;">Poćwicz: Idzie Deszcz</h2>
+  <p style="font-size:12px; color:var(--muted); margin-bottom:14px;">Pokoloruj krople deszczu i zaśpiewaj!</p>
+
+  <div class="activity-card">
+    <div class="ac-header">
+      <div class="ac-icon" style="background:var(--teal);">&#127912;</div>
+      <div>
+        <div class="ac-title">Pokoloruj nuty</div>
+        <div class="ac-subtitle">Wszystkie 6 kolorów!</div>
+      </div>
+    </div>
+    <div class="staff">
+      <div class="beat-outline" style="border-color:var(--n6)">La</div>
+      <div class="beat-outline" style="border-color:var(--n6)">La</div>
+      <div class="beat-outline" style="border-color:var(--n5)">Sol</div>
+      <div class="beat-outline" style="border-color:var(--n4)">Fa</div>
+      <div class="beat-outline" style="border-color:var(--muted)"></div>
+      <div class="beat-outline" style="border-color:var(--n3)">Mi</div>
+      <div class="beat-outline" style="border-color:var(--n3)">Mi</div>
+      <div class="beat-outline" style="border-color:var(--n2)">Re</div>
+      <div class="beat-outline" style="border-color:var(--n1)">Do</div>
+    </div>
+    <div class="staff">
+      <div class="beat-outline" style="border-color:var(--n2)">Re</div>
+      <div class="beat-outline" style="border-color:var(--n3)">Mi</div>
+      <div class="beat-outline" style="border-color:var(--n4)">Fa</div>
+      <div class="beat-outline" style="border-color:var(--n5)">Sol</div>
+      <div class="beat-outline" style="border-color:var(--muted)"></div>
+      <div class="beat-outline" style="border-color:var(--n6)">La</div>
+      <div class="beat-outline" style="border-color:var(--n5)">Sol</div>
+      <div class="beat-outline" style="border-color:var(--n4)">Fa</div>
+      <div class="beat-outline" style="border-color:var(--n3)">Mi</div>
+    </div>
+  </div>
+
+  <div class="activity-card">
+    <div class="ac-header">
+      <div class="ac-icon" style="background:var(--coral);">&#127925;</div>
+      <div>
+        <div class="ac-title">Ile razy pojawia się każda nuta?</div>
+        <div class="ac-subtitle">Policz i wpisz liczbę</div>
+      </div>
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(6,1fr); gap:6px; margin-top:8px;">
+      <div class="visual-card" style="padding:6px;">
+        <div class="beat" style="background:var(--n1); width:28px; height:28px; font-size:10px;">Do</div>
+        <span class="vc-label" style="font-size:16px; border-bottom:2px solid var(--border); width:28px; text-align:center;">&nbsp;</span>
+      </div>
+      <div class="visual-card" style="padding:6px;">
+        <div class="beat" style="background:var(--n2); width:28px; height:28px; font-size:10px;">Re</div>
+        <span class="vc-label" style="font-size:16px; border-bottom:2px solid var(--border); width:28px; text-align:center;">&nbsp;</span>
+      </div>
+      <div class="visual-card" style="padding:6px;">
+        <div class="beat" style="background:var(--n3); color:#4A3200; width:28px; height:28px; font-size:10px;">Mi</div>
+        <span class="vc-label" style="font-size:16px; border-bottom:2px solid var(--border); width:28px; text-align:center;">&nbsp;</span>
+      </div>
+      <div class="visual-card" style="padding:6px;">
+        <div class="beat" style="background:var(--n4); width:28px; height:28px; font-size:10px;">Fa</div>
+        <span class="vc-label" style="font-size:16px; border-bottom:2px solid var(--border); width:28px; text-align:center;">&nbsp;</span>
+      </div>
+      <div class="visual-card" style="padding:6px;">
+        <div class="beat" style="background:var(--n5); width:28px; height:28px; font-size:10px;">Sol</div>
+        <span class="vc-label" style="font-size:16px; border-bottom:2px solid var(--border); width:28px; text-align:center;">&nbsp;</span>
+      </div>
+      <div class="visual-card" style="padding:6px;">
+        <div class="beat" style="background:var(--n6); width:28px; height:28px; font-size:10px;">La</div>
+        <span class="vc-label" style="font-size:16px; border-bottom:2px solid var(--border); width:28px; text-align:center;">&nbsp;</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="activity-card">
+    <div class="ac-header">
+      <div class="ac-icon" style="background:var(--gold);">&#11088;</div>
+      <div>
+        <div class="ac-title">Ocena samodzielna</div>
+        <div class="ac-subtitle">Jak ci poszło?</div>
+      </div>
+    </div>
+    <div style="display:flex; gap:14px; justify-content:center; margin-top:6px;">
+      <div class="visual-card" style="padding:10px; min-width:80px;"><span class="vc-emoji" style="font-size:32px;">&#128515;</span><span class="vc-sub">Świetnie!</span></div>
+      <div class="visual-card" style="padding:10px; min-width:80px;"><span class="vc-emoji" style="font-size:32px;">&#128522;</span><span class="vc-sub">Dobrze</span></div>
+      <div class="visual-card" style="padding:10px; min-width:80px;"><span class="vc-emoji" style="font-size:32px;">&#129300;</span><span class="vc-sub">Jeszcze raz!</span></div>
+    </div>
+  </div>
+
+  <div class="page-num">139</div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     DIPLOMA (p.143)
+     ══════════════════════════════════════════════════════════ -->
+<div class="page diploma">
+  <div style="font-size:48px; margin-bottom:16px;">&#127942;</div>
+  <p style="font-family:var(--df); font-size:14px; font-weight:700; color:var(--coral); letter-spacing:.08em; text-transform:uppercase; margin-bottom:8px;">Dyplom Ukończenia</p>
+  <h1>Zabawowa Metoda Muzyczna</h1>
+  <p class="dip-text" style="margin-top:18px;">Niniejszym zaświadczamy, że</p>
+  <div class="dip-name-line">&nbsp;</div>
+  <p style="font-size:13px; color:var(--muted); margin-top:4px;">(wpisz imię dziecka)</p>
+
+  <p class="dip-text" style="margin-top:18px;">
+    z powodzeniem ukończył/a program <strong>Zabawowej Metody Muzycznej</strong> dla dzieci w&nbsp;wieku 3&ndash;7 lat, opanowując:
+  </p>
+
+  <div style="text-align:left; max-width:320px; margin:14px auto;">
+    <ul class="checklist">
+      <li>System 6 kolorowych nut</li>
+      <li>15 polskich piosenek dla dzieci</li>
+      <li>Podstawy rytmu i tempa</li>
+      <li>Rozpoznawanie dźwięków</li>
+      <li>Gry i zabawy muzyczne</li>
+    </ul>
+  </div>
+
+  <div style="display:flex; gap:8px; margin:22px 0 16px;">
+    <span style="width:32px; height:10px; border-radius:5px; background:var(--n1)"></span>
+    <span style="width:32px; height:10px; border-radius:5px; background:var(--n2)"></span>
+    <span style="width:32px; height:10px; border-radius:5px; background:var(--n3)"></span>
+    <span style="width:32px; height:10px; border-radius:5px; background:var(--n4)"></span>
+    <span style="width:32px; height:10px; border-radius:5px; background:var(--n5)"></span>
+    <span style="width:32px; height:10px; border-radius:5px; background:var(--n6)"></span>
+  </div>
+
+  <p style="font-size:13px; color:var(--muted); margin-top:10px;">Data ukończenia:</p>
+  <div style="width:180px; border-bottom:2px solid var(--teal); margin:4px auto 16px; min-height:24px;"></div>
+
+  <p class="dip-text" style="font-style:italic; margin-top:16px;">
+    &bdquo;Muzyka jest językiem, który rozumieją wszystkie dzieci na świecie.&rdquo;
+  </p>
+
+  <div style="font-size:32px; margin-top:14px;">&#127926; &#127927; &#127928; &#127929; &#127930;</div>
+
+  <div class="page-num">140</div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     BACK COVER
+     ══════════════════════════════════════════════════════════ -->
+<div class="page back-cover">
+  <div style="font-size:42px; margin-bottom:18px;">&#127926;</div>
+  <h2>Następny Krok</h2>
+  <p class="bc-sub" style="margin-top:14px; line-height:1.7;">
+    Gratulacje! Ukończyłeś Zabawową Metodę Muzyczną. Twoje dziecko zna już system kolorowych nut i potrafi zagrać 15 prawdziwych polskich piosenek.
+  </p>
+  <p class="bc-sub" style="margin-top:16px; line-height:1.7;">
+    Sprawdź materiały bonusowe, aby kontynuować muzyczną przygodę &mdash; znajdziesz tam dodatkowe zabawy, karty do wydrukowania i nowe wyzwania muzyczne!
+  </p>
+
+  <div style="display:flex; gap:8px; margin:28px 0;">
+    <span style="width:36px; height:8px; border-radius:4px; background:var(--n1)"></span>
+    <span style="width:36px; height:8px; border-radius:4px; background:var(--n2)"></span>
+    <span style="width:36px; height:8px; border-radius:4px; background:var(--n3)"></span>
+    <span style="width:36px; height:8px; border-radius:4px; background:var(--n4)"></span>
+    <span style="width:36px; height:8px; border-radius:4px; background:var(--n5)"></span>
+    <span style="width:36px; height:8px; border-radius:4px; background:var(--n6)"></span>
+  </div>
+
+  <p style="font-size:13px; color:rgba(255,255,255,.5); margin-top:16px;">
+    Zabawowa Metoda Muzyczna &bull; Dla dzieci 3&ndash;7 lat
+  </p>
+</div>
+
+</body>
+</html>

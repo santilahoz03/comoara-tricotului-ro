@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="_shared.css">
+<style>
+  .eighth-pair {
+    display: inline-flex;
+    align-items: flex-end;
+    gap: 2px;
+    position: relative;
+  }
+  .eighth-pair .beat {
+    width: 36px;
+    height: 36px;
+    font-size: 0.85rem;
+  }
+  .eighth-pair::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 6px;
+    right: 6px;
+    height: 3px;
+    background: var(--ink);
+    border-radius: 2px;
+  }
+  .rhythm-label {
+    text-align: center;
+    font-family: var(--af);
+    font-size: 1.1rem;
+    color: var(--ink-mid);
+    margin-top: 8px;
+    letter-spacing: 0.5px;
+  }
+  .rhythm-action {
+    text-align: center;
+    font-family: var(--bf);
+    font-size: 0.95rem;
+    color: var(--muted);
+    margin-top: 6px;
+  }
+  .card-title {
+    font-family: var(--af);
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 8px;
+    text-align: center;
+  }
+  .cut-border {
+    position: relative;
+  }
+  .blank-beat {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 2px dashed var(--border);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ COVER ============ -->
+<div class="page cover">
+  <div class="cover-badge">Bonus 2 z 3</div>
+  <img src="https://files.catbox.moe/yreh13.png" alt="Kolorowe Karty Rytmu" style="width:220px;border-radius:16px;box-shadow:0 10px 30px rgba(36,29,22,.15);margin-bottom:20px">
+  <h1>Kolorowe Karty Rytmu</h1>
+  <p class="subtitle">Wydrukuj, wytnij i graj — nauka rytmu przez zabawę</p>
+  <div class="rainbow-bar">
+    <span></span><span></span><span></span><span></span><span></span><span></span>
+  </div>
+  <p style="font-family:var(--af);font-size:1.1rem;color:var(--ink-mid);margin-top:12px;">
+    🎵 Zabawowa Metoda Muzyczna 🎶 • dla dzieci 3–7 lat
+  </p>
+</div>
+
+<!-- ============ HOW TO USE ============ -->
+<div class="page">
+  <h2 style="font-family:var(--df);color:var(--teal);margin-bottom:6px;">&#127924; Jak korzysta&#263; z kart rytmu</h2>
+  <p style="font-family:var(--bf);color:var(--ink-mid);margin-bottom:14px;">
+    Ka&#380;da karta zawiera wz&#243;r rytmiczny zapisany kolorowymi kr&#261;&#380;kami i sylabami. Oto co oznaczaj&#261;:
+  </p>
+
+  <div class="card" style="margin-bottom:14px;">
+    <table class="data" style="width:100%;">
+      <thead><tr><th>Symbol</th><th>Sylaba</th><th>Warto&#347;&#263;</th><th>Opis</th></tr></thead>
+      <tbody>
+        <tr><td style="text-align:center;"><span style="display:inline-block;width:36px;height:36px;border-radius:50%;background:var(--n1);"></span></td><td><strong>ta</strong></td><td>1 uderzenie</td><td>&#262;wier&#263;nuta — jeden klask</td></tr>
+        <tr><td style="text-align:center;"><span style="display:inline-flex;gap:2px;"><span style="display:inline-block;width:36px;height:36px;border-radius:50%;background:var(--n4);"></span><span style="display:inline-block;width:36px;height:36px;border-radius:50%;background:var(--n4);opacity:0.5;"></span></span></td><td><strong>ta-a</strong></td><td>2 uderzenia</td><td>P&#243;&#322;nuta — d&#322;ugi d&#378;wi&#281;k</td></tr>
+        <tr><td style="text-align:center;"><span style="display:inline-flex;gap:2px;"><span style="display:inline-block;width:28px;height:28px;border-radius:50%;background:var(--n5);"></span><span style="display:inline-block;width:28px;height:28px;border-radius:50%;background:var(--n5);"></span></span></td><td><strong>ti-ti</strong></td><td>1 uderzenie</td><td>&#211;semki — dwa szybkie d&#378;wi&#281;ki</td></tr>
+        <tr><td style="text-align:center;"><span style="display:inline-block;width:36px;height:36px;border-radius:50%;background:var(--n3);"></span><span style="display:inline-block;width:36px;height:36px;border-radius:50%;background:var(--n3);opacity:0.5;"></span><span style="display:inline-block;width:36px;height:36px;border-radius:50%;background:var(--n3);opacity:0.3;"></span><span style="display:inline-block;width:36px;height:36px;border-radius:50%;background:var(--n3);opacity:0.15;"></span></td><td><strong>ta-a-a-a</strong></td><td>4 uderzenia</td><td>Ca&#322;a nuta — bardzo d&#322;ugi d&#378;wi&#281;k</td></tr>
+        <tr><td style="text-align:center;"><span style="display:inline-block;width:36px;height:36px;border-radius:50%;border:2px dashed var(--muted);"></span></td><td><strong>sza</strong></td><td>1 uderzenie</td><td>Pauza — cisza!</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <ol class="steps">
+    <li><strong>Wytnij karty</strong> wzd&#322;u&#380; przerywanych linii &#9986;.</li>
+    <li><strong>Poka&#380; dziecku kart&#281;</strong> i razem odczytajcie sylaby rytmiczne.</li>
+    <li><strong>Wyklaskajcie rytm</strong> — m&#243;wcie sylaby na g&#322;os i klaskajcie w d&#322;onie.</li>
+    <li><strong>Zacznijcie od Poziomu 1</strong> i przechod&#378;cie do trudniejszych, gdy dziecko jest gotowe.</li>
+    <li><strong>U&#380;ywajcie cia&#322;a!</strong> Tupcie, uderzajcie w kolana, skaczcie — ka&#380;dy ruch si&#281; liczy.</li>
+  </ol>
+
+  <div class="callout tip">
+    <strong>&#128161; Wskaz&#243;wka dla rodzica:</strong> Zacznij powoli — m&#243;w sylaby wyra&#378;nie i r&#243;wnomiernie. Gdy dziecko z&#322;apie rytm, stopniowo przyspieszaj. Najwa&#380;niejsze to zabawa, nie perfekcja!
+  </div>
+
+  <div class="page-num">2</div>
+</div>
+
+<!-- ============ LEVEL 1 — PAGE 1 ============ -->
+<div class="page">
+  <div class="separator" style="padding:12px 0 8px;">
+    <span class="sep-num">Poziom 1</span>
+    <span class="sep-desc">&#127925; Proste Rytmy</span>
+  </div>
+
+  <!-- Card 1-1: ta ta ta ta -->
+  <div class="cut-border" style="margin-bottom:18px;">
+    <span class="scissors-icon">&#9986;</span>
+    <div style="text-align:center;margin-bottom:6px;"><span class="pill pill-teal">POZIOM 1</span></div>
+    <div class="card-title">Marsz &#128694;</div>
+    <div class="staff">
+      <span class="beat" style="background:var(--n1);">1</span>
+      <span class="beat" style="background:var(--n2);">2</span>
+      <span class="beat" style="background:var(--n4);">3</span>
+      <span class="beat" style="background:var(--n5);">4</span>
+    </div>
+    <div class="rhythm-label">ta &nbsp; ta &nbsp; ta &nbsp; ta</div>
+    <div class="rhythm-action">&#128079; Klaskaj w d&#322;onie przy ka&#380;dym &bdquo;ta&rdquo;!</div>
+  </div>
+
+  <!-- Card 1-2: ta-a ta-a -->
+  <div class="cut-border" style="margin-bottom:18px;">
+    <span class="scissors-icon">&#9986;</span>
+    <div style="text-align:center;margin-bottom:6px;"><span class="pill pill-teal">POZIOM 1</span></div>
+    <div class="card-title">Hu&#347;tawka &#127904;</div>
+    <div class="staff">
+      <span class="beat" style="background:var(--n3);">1</span>
+      <span class="beat" style="background:var(--n3);opacity:0.5;">2</span>
+      <span class="beat" style="background:var(--n6);">3</span>
+      <span class="beat" style="background:var(--n6);opacity:0.5;">4</span>
+    </div>
+    <div class="rhythm-label">ta-a &nbsp;&nbsp; ta-a</div>
+    <div class="rhythm-action">&#128079; Klaskaj na &bdquo;1&rdquo; i &bdquo;3&rdquo;, trzymaj d&#378;wi&#281;k na &bdquo;2&rdquo; i &bdquo;4&rdquo;!</div>
+  </div>
+
+  <!-- Card 1-3: ta ta ta-a -->
+  <div class="cut-border">
+    <span class="scissors-icon">&#9986;</span>
+    <div style="text-align:center;margin-bottom:6px;"><span class="pill pill-teal">POZIOM 1</span></div>
+    <div class="card-title">Konik &#128052;</div>
+    <div class="staff">
+      <span class="beat" style="background:var(--n5);">1</span>
+      <span class="beat" style="background:var(--n2);">2</span>
+      <span class="beat" style="background:var(--n4);">3</span>
+      <span class="beat" style="background:var(--n4);opacity:0.5;">4</span>
+    </div>
+    <div class="rhythm-label">ta &nbsp; ta &nbsp; ta-a</div>
+    <div class="rhythm-action">&#128079; Dwa klaski, potem d&#322;ugi d&#378;wi&#281;k &bdquo;aaaa&rdquo;!</div>
+  </div>
+
+  <div class="page-num">3</div>
+</div>
+
+<!-- ============ LEVEL 1 — PAGE 2 ============ -->
+<div class="page">
+
+  <!-- Card 1-4: ta-a ta ta -->
+  <div class="cut-border" style="margin-bottom:18px;">
+    <span class="scissors-icon">&#9986;</span>
+    <div style="text-align:center;margin-bottom:6px;"><span class="pill pill-teal">POZIOM 1</span></div>
+    <div class="card-title">S&#322;onik &#128024;</div>
+    <div class="staff">
+      <span class="beat" style="background:var(--n1);">1</span>
+      <span class="beat" style="background:var(--n1);opacity:0.5;">2</span>
+      <span class="beat" style="background:var(--n3);">3</span>
+      <span class="beat" style="background:var(--n5);">4</span>
+    </div>
+    <div class="rhythm-label">ta-a &nbsp;&nbsp; ta &nbsp; ta</div>
+    <div class="rhythm-action">&#128062; Tupaj jak s&#322;o&#324;! D&#322;ugi tupni&#281;cie, potem dwa kr&#243;tkie!</div>
+  </div>
+
+  <!-- Card 1-5: ta ta-a ta (adjusted to 4 beats — but ta + ta-a + ta = 1+2+1 = 4) -->
+  <div class="cut-border" style="margin-bottom:18px;">
+    <span class="scissors-icon">&#9986;</span>
+    <div style="text-align:center;margin-bottom:6px;"><span class="pill pill-teal">POZIOM 1</span></div>
+    <div class="card-title">Kangur &#129432;</div>
+    <div class="staff">
+      <span class="beat" style="background:var(--n6);">1</span>
+      <span class="beat" style="background:var(--n4);">2</span>
+      <span class="beat" style="background:var(--n4);opacity:0.5;">3</span>
+      <span class="beat" style="background:var(--n2);">4</span>
+    </div>
+    <div class="rhythm-label">ta &nbsp; ta-a &nbsp;&nbsp; ta</div>
+    <div class="rhythm-action">&#129432; Skok kr&#243;tki, skok d&#322;ugi, skok kr&#243;tki!</div>
+  </div>
+
+  <!-- Card 1-6: ta-a-a-a (whole note) -->
+  <div class="cut-border">
+    <span class="scissors-icon">&#9986;</span>
+    <div style="text-align:center;margin-bottom:6px;"><span class="pill pill-teal">POZIOM 1</span></div>
+    <div class="card-title">Wieloryb &#128011;</div>
+    <div class="staff">
+      <span class="beat" style="background:var(--n5);">1</span>
+      <span class="beat" style="background:var(--n5);opacity:0.6;">2</span>
+      <span class="beat" style="background:var(--n5);opacity:0.35;">3</span>
+      <span class="beat" style="background:var(--n5);opacity:0.15;">4</span>
+    </div>
+    <div class="rhythm-label">ta-a-a-a</div>
+    <div class="rhythm-action">&#127754; Jeden bardzo d&#322;ugi d&#378;wi&#281;k — &#347;piewaj &bdquo;aaaa&rdquo; przez 4 uderzenia!</div>
+  </div>
+
+  <div class="page-num">4</div>
+</div>
+
+<!-- ============ LEVEL 1 — PAGE 3 ============ -->
+<div class="page">
+
+  <!-- Card 1-7: ta ta ta ta (different theme) -->
+  <div class="cut-border" style="margin-bottom:18px;">
+    <span class="scissors-icon">&#9986;</span>
+    <div style="text-align:center;margin-bottom:6px;"><span class="pill pill-teal">POZIOM 1</span></div>
+    <div class="card-title">Zegar &#9200;</div>
+    <div class="staff">
+      <span class="beat" style="background:var(--n2);">1</span>
+      <span class="beat" style="background:var(--n3);">2</span>
+      <span class="beat" style="background:var(--n1);">3</span>
+      <span class="beat" style="background:var(--n6);">4</span>
+    </div>
+    <div class="rhythm-label">ta &nbsp; ta &nbsp; ta &nbsp; ta</div>
+    <div class="rhythm-action">&#9200; R&#243;wnomiernie jak tykanie zegara — pukaj w st&#243;&#322;!</div>
+  </div>
+
+  <!-- Card 1-8: ta ta-a ta -->
+  <div class="cut-border" style="margin-bottom:18px;">
+    <span class="scissors-icon">&#9986;</span>
+    <div style="text-align:center;margin-bottom:6px;"><span class="pill pill-teal">POZIOM 1</span></div>
+    <div class="card-title">Poci&#261;g &#128646;</div>
+    <div class="staff">
+      <span class="beat" style="background:var(--n4);">1</span>
+      <span class="beat" style="background:var(--n1);">2</span>
+      <span class="beat" style="background:var(--n1);opacity:0.5;">3</span>
+      <span class="beat" style="background:var(--n5);">4</span>
+    </div>
+    <div class="rhythm-label">ta &nbsp; ta-a &nbsp;&nbsp; ta</div>
+    <div class="rhythm-action">&#128646; Czu-czuuuu-czu! Poci&#261;g jedzie!</div>
+  </div>
+
+  <!-- Card 1-9: ta-a ta-a (different theme) -->
+  <div class="cut-border">
+    <span class="scissors-icon">&#9986;</span>
+    <div style="text-align:center;margin-bottom:6px;"><span class="pill pill-teal">POZIOM 1</span></div>
+    <div class="card-title">Motyl &#129419;</div>
+    <div class="staff">
+      <span class="beat" style="background:var(--n6);">1</span>
+      <span class="beat" style="background:var(--n6);opacity:0.5;">2</span>
+      <span class="beat" style="background:var(--n3);">3</span>
+      <span class="beat" style="background:var(--n3);opacity:0.5;">4</span>
+    </div>
+    <div class="rhythm-label">ta-a &nbsp;&nbsp; ta-a</div>
+    <div class="rhythm-action">&#129419; Machaj r&#281;kami jak skrzyd&#322;ami motyla — powoli!</div>
+  </div>
+
+  <div class="page-num">5</div>
+</div>
+
+<!-- ============ LEVEL 2 — PAGE 4 ============ -->
+<div class="page">
+  <div class="separator" style="padding:12px 0 8px;">
+    <span class="sep-num">Poziom 2</span>
+    <span class="sep-desc">&#9996;&#65039; Rytmy z Pauzami</span>
+  </div>
+
+  <!-- Card 2-1: ta ta sza ta -->
+  <div class="cut-border" style="margin-bottom:18px;">
+    <span class="scissors-icon">&#9986;</span>
+    <div style="text-align:center;margin-bottom:6px;"><span class="pill pill-gold">POZIOM 2</span></div>
+    <div class="card-title">Chowanego &#128064;</div>
+    <div class="staff">
+      <span class="beat" style="background:var(--n1);">1</span>
+      <span class="beat" style="background:var(--n2);">2</span>
+      <span class="rest">3</span>
+      <span class="beat" style="background:var(--n4);">4</span>
+    </div>
+    <div class="rhythm-label">ta &nbsp; ta &nbsp; sza &nbsp; ta</div>
+    <div class="rhythm-action">&#128079; Klaskaj, klaskaj, &#9995; r&#281;ce na kolana, klaskaj!</div>
+  </div>
+
+  <!-- Card 2-2: ta sza ta ta -->
+  <div class="cut-border" style="margin-bottom:18px;">
+    <span class="scissors-icon">&#9986;</span>
+    <div style="text-align:center;margin-bottom:6px;"><span class="pill pill-gold">POZIOM 2</span></div>
+    <div class="card-title">Kr&#243;lik &#128007;</div>
+    <div class="staff">
+      <span class="beat" style="background:var(--n3);">1</span>
+      <span class="rest">2</span>
+      <span class="beat" style="background:var(--n5);">3</span>
+      <span class="beat" style="background:var(--n6);">4</span>
+    </div>
+    <div class="rhythm-label">ta &nbsp; sza &nbsp; ta &nbsp; ta</div>
+    <div class="rhythm-action">&#128007; Skok, cisza, skok, skok!</div>
+  </div>
+
+  <!-- Card 2-3: ta-a sza ta (2+1+1=4) -->
+  <div class="cut-border">
+    <span class="scissors-icon">&#9986;</span>
+    <div style="text-align:center;margin-bottom:6px;"><span class="pill pill-gold">POZIOM 2</span></div>
+    <div class="card-title">Sowa &#129417;</div>
+    <div class="staff">
+      <span class="beat" style="background:var(--n4);">1</span>
+      <span class="beat" style="background:var(--n4);opacity:0.5;">2</span>
+      <span class="rest">3</span>
+      <span class="beat" style="background:var(--n1);">4</span>
+    </div>
+    <div class="rhythm-label">ta-a &nbsp;&nbsp; sza &nbsp; ta</div>
+    <div class="rhythm-action">&#129417; Huuuu... cisza... hu!</div>
+  </div>
+
+  <div class="page-num">6</div>
+</div>
+
+<!-- ============ LEVEL 2 — PAGE 5 ============ -->
+<div class="page">
+
+  <!-- Card 2-4: sza ta ta ta -->
+  <div class="cut-border" style="margin-bottom:18px;">
+    <span class="scissors-icon">&#9986;</span>
+    <div style="text-align:center;margin-bottom:6px;"><span class="pill pill-gold">POZIOM 2</span></div>
+    <div class="card-title">Niespodzianka &#127881;</div>
+    <div class="staff">
+      <span class="rest">1</span>
+      <span class="beat" style="background:var(--n2);">2</span>
+      <span class="beat" style="background:var(--n5);">3</span>
+      <span class="beat" style="background:var(--n6);">4</span>
+    </div>
+    <div class="rhythm-label">sza &nbsp; ta &nbsp; ta &nbsp; ta</div>
+    <div class="rhythm-action">&#9995; Cisza... a potem trzy klaski!</div>
+  </div>
+
+  <!-- Card 2-5: ta sza ta-a (1+1+2=4) -->
+  <div class="cut-border" style="margin-bottom:18px;">
+    <span class="scissors-icon">&#9986;</span>
+    <div style="text-align:center;margin-bottom:6px;"><span class="pill pill-gold">POZIOM 2</span></div>
+    <div class="card-title">Kot &#128008;</div>
+    <div class="staff">
+      <span class="beat" style="background:var(--n6);">1</span>
+      <span class="rest">2</span>
+      <span class="beat" style="background:var(--n3);">3</span>
+      <span class="beat" style="background:var(--n3);opacity:0.5;">4</span>
+    </div>
+    <div class="rhythm-label">ta &nbsp; sza &nbsp; ta-a</div>
+    <div class="rhythm-action">&#128008; Miau! Cisza... Miauuu (d&#322;ugie)!</div>
+  </div>
+
+  <!-- Card 2-6: sza sza ta ta -->
+  <div class="cut-border">
+    <span class="scissors-icon">&#9986;</span>
+    <div style="text-align:center;margin-bottom:6px;"><span class="pill pill-gold">POZIOM 2</span></div>
+    <div class="card-title">Ninja &#129399;</div>
+    <div class="staff">
+      <span class="rest">1</span>
+      <span class="rest">2</span>
+      <span class="beat" style="background:var(--n1);">3</span>
+      <span class="beat" style="background:var(--n4);">4</span>
+    </div>
+    <div class="rhythm-label">sza &nbsp; sza &nbsp; ta &nbsp; ta</div>
+    <div class="rhythm-action">&#129399; Cicho, cicho... BAM BAM! Klaskaj mocno na ko&#324;cu!</div>
+  </div>
+
+  <div class="page-num">7</div>
+</div>
+
+<!-- ============ LEVEL 2 — PAGE 6 ============ -->
+<div class="page">
+
+  <!-- Card 2-7: ta sza ta sza -->
+  <div class="cut-border" style="margin-bottom:18px;">
+    <span class="scissors-icon">&#9986;</span>
+    <div style="text-align:center;margin-bottom:6px;"><span class="pill pill-gold">POZIOM 2</span></div>
+    <div class="card-title">Stra&#380;nik &#128110;</div>
+    <div class="staff">
+      <span class="beat" style="background:var(--n5);">1</span>
+      <span class="rest">2</span>
+      <span class="beat" style="background:var(--n2);">3</span>
+      <span class="rest">4</span>
+    </div>
+    <div class="rhythm-label">ta &nbsp; sza &nbsp; ta &nbsp; sza</div>
+    <div class="rhythm-action">&#128110; Puk! Cisza. Puk! Cisza. Jak stra&#380;nik przy bramie!</div>
+  </div>
+
+  <!-- Card 2-8: sza ta-a sza (1+2+1=4) -->
+  <div class="cut-border" style="margin-bottom:18px;">
+    <span class="scissors-icon">&#9986;</span>
+    <div style="text-align:center;margin-bottom:6px;"><span class="pill pill-gold">POZIOM 2</span></div>
+    <div class="card-title">Duch &#128123;</div>
+    <div class="staff">
+      <span class="rest">1</span>
+      <span class="beat" style="background:var(--n4);">2</span>
+      <span class="beat" style="background:var(--n4);opacity:0.5;">3</span>
+      <span class="rest">4</span>
+    </div>
+    <div class="rhythm-label">sza &nbsp; ta-a &nbsp;&nbsp; sza</div>
+    <div class="rhythm-action">&#128123; Cisza... buuuu... cisza! Strasz jak duszek!</div>
+  </div>
+
+  <!-- Card 2-9: ta ta sza sza -->
+  <div class="cut-border">
+    <span class="scissors-icon">&#9986;</span>
+    <div style="text-align:center;margin-bottom:6px;"><span class="pill pill-gold">POZIOM 2</span></div>
+    <div class="card-title">Kukuku &#129667;</div>
+    <div class="staff">
+      <span class="beat" style="background:var(--n3);">1</span>
+      <span class="beat" style="background:var(--n6);">2</span>
+      <span class="rest">3</span>
+      <span class="rest">4</span>
+    </div>
+    <div class="rhythm-label">ta &nbsp; ta &nbsp; sza &nbsp; sza</div>
+    <div class="rhythm-action">&#128038; Ku-ku! A potem cisza — schowaj si&#281;!</div>
+  </div>
+
+  <div class="page-num">8</div>
+</div>
+
+<!-- ============ LEVEL 3 — PAGE 7 ============ -->
+<div class="page">
+  <div class="separator" style="padding:12px 0 8px;">
+    <span class="sep-num">Poziom 3</span>
+    <span class="sep-desc">&#127928; Zaawansowane Rytmy</span>
+  </div>
+
+  <!-- Card 3-1: ti-ti ta ta ta (1+1+1+1=4) -->
+  <div class="cut-border" style="margin-bottom:18px;">
+    <span class="scissors-icon">&#9986;</span>
+    <div style="text-align:center;margin-bottom:6px;"><span class="pill pill-coral">POZIOM 3</span></div>
+    <div class="card-title">Wiewi&#243;rka &#128063;</div>
+    <div class="staff">
+      <span class="eighth-pair">
+        <span class="beat" style="background:var(--n1);">&#8226;</span>
+        <span class="beat" style="background:var(--n2);">&#8226;</span>
+      </span>
+      <span class="beat" style="background:var(--n3);">2</span>
+      <span class="beat" style="background:var(--n4);">3</span>
+      <span class="beat" style="background:var(--n5);">4</span>
+    </div>
+    <div class="rhythm-label">ti-ti &nbsp; ta &nbsp; ta &nbsp; ta</div>
+    <div class="rhythm-action">&#128062; Dwa szybkie tupni&#281;cia, trzy normalne!</div>
+  </div>
+
+  <!-- Card 3-2: ta ti-ti ta ta -->
+  <div class="cut-border" style="margin-bottom:18px;">
+    <span class="scissors-icon">&#9986;</span>
+    <div style="text-align:center;margin-bottom:6px;"><span class="pill pill-coral">POZIOM 3</span></div>
+    <div class="card-title">Konik polny &#129431;</div>
+    <div class="staff">
+      <span class="beat" style="background:var(--n5);">1</span>
+      <span class="eighth-pair">
+        <span class="beat" style="background:var(--n6);">&#8226;</span>
+        <span class="beat" style="background:var(--n1);">&#8226;</span>
+      </span>
+      <span class="beat" style="background:var(--n3);">3</span>
+      <span class="beat" style="background:var(--n4);">4</span>
+    </div>
+    <div class="rhythm-label">ta &nbsp; ti-ti &nbsp; ta &nbsp; ta</div>
+    <div class="rhythm-action">&#129431; Skok, dwa szybkie, skok, skok!</div>
+  </div>
+
+  <!-- Card 3-3: ta ta ti-ti ta -->
+  <div class="cut-border">
+    <span class="scissors-icon">&#9986;</span>
+    <div style="text-align:center;margin-bottom:6px;"><span class="pill pill-coral">POZIOM 3</span></div>
+    <div class="card-title">Dzięcioł &#129413;</div>
+    <div class="staff">
+      <span class="beat" style="background:var(--n2);">1</span>
+      <span class="beat" style="background:var(--n4);">2</span>
+      <span class="eighth-pair">
+        <span class="beat" style="background:var(--n1);">&#8226;</span>
+        <span class="beat" style="background:var(--n6);">&#8226;</span>
+      </span>
+      <span class="beat" style="background:var(--n5);">4</span>
+    </div>
+    <div class="rhythm-label">ta &nbsp; ta &nbsp; ti-ti &nbsp; ta</div>
+    <div class="rhythm-action">&#129413; Puk, puk, pukpuk, puk! Jak dzi&#281;cio&#322;!</div>
+  </div>
+
+  <div class="page-num">9</div>
+</div>
+
+<!-- ============ LEVEL 3 — PAGE 8 ============ -->
+<div class="page">
+
+  <!-- Card 3-4: ti-ti ta ta-a (1+1+2=4) -->
+  <div class="cut-border" style="margin-bottom:18px;">
+    <span class="scissors-icon">&#9986;</span>
+    <div style="text-align:center;margin-bottom:6px;"><span class="pill pill-coral">POZIOM 3</span></div>
+    <div class="card-title">Rakieta &#128640;</div>
+    <div class="staff">
+      <span class="eighth-pair">
+        <span class="beat" style="background:var(--n1);">&#8226;</span>
+        <span class="beat" style="background:var(--n2);">&#8226;</span>
+      </span>
+      <span class="beat" style="background:var(--n3);">2</span>
+      <span class="beat" style="background:var(--n5);">3</span>
+      <span class="beat" style="background:var(--n5);opacity:0.5;">4</span>
+    </div>
+    <div class="rhythm-label">ti-ti &nbsp; ta &nbsp; ta-a</div>
+    <div class="rhythm-action">&#128640; Szybki start, normalny lot, d&#322;uuugi ogon rakiety!</div>
+  </div>
+
+  <!-- Card 3-5: ta-a ti-ti ta (2+1+1=4) -->
+  <div class="cut-border" style="margin-bottom:18px;">
+    <span class="scissors-icon">&#9986;</span>
+    <div style="text-align:center;margin-bottom:6px;"><span class="pill pill-coral">POZIOM 3</span></div>
+    <div class="card-title">Balonik &#127880;</div>
+    <div class="staff">
+      <span class="beat" style="background:var(--n4);">1</span>
+      <span class="beat" style="background:var(--n4);opacity:0.5;">2</span>
+      <span class="eighth-pair">
+        <span class="beat" style="background:var(--n6);">&#8226;</span>
+        <span class="beat" style="background:var(--n1);">&#8226;</span>
+      </span>
+      <span class="beat" style="background:var(--n3);">4</span>
+    </div>
+    <div class="rhythm-label">ta-a &nbsp;&nbsp; ti-ti &nbsp; ta</div>
+    <div class="rhythm-action">&#127880; D&#322;ugi dmuch, dwa szybkie klapni&#281;cia, bum!</div>
+  </div>
+
+  <!-- Card 3-6: ti-ti ti-ti ta-a (1+1+2=4) -->
+  <div class="cut-border">
+    <span class="scissors-icon">&#9986;</span>
+    <div style="text-align:center;margin-bottom:6px;"><span class="pill pill-coral">POZIOM 3</span></div>
+    <div class="card-title">Deszczyk &#127783;&#65039;</div>
+    <div class="staff">
+      <span class="eighth-pair">
+        <span class="beat" style="background:var(--n5);">&#8226;</span>
+        <span class="beat" style="background:var(--n5);">&#8226;</span>
+      </span>
+      <span class="eighth-pair">
+        <span class="beat" style="background:var(--n2);">&#8226;</span>
+        <span class="beat" style="background:var(--n2);">&#8226;</span>
+      </span>
+      <span class="beat" style="background:var(--n4);">3</span>
+      <span class="beat" style="background:var(--n4);opacity:0.5;">4</span>
+    </div>
+    <div class="rhythm-label">ti-ti &nbsp; ti-ti &nbsp; ta-a</div>
+    <div class="rhythm-action">&#127783;&#65039; Kap-kap, kap-kap, szuuuum! Deszcz i wiatr!</div>
+  </div>
+
+  <div class="page-num">10</div>
+</div>
+
+<!-- ============ LEVEL 3 — PAGE 9 ============ -->
+<div class="page">
+
+  <!-- Card 3-7: ti-ti sza ta ta (1+1+1+1=4) -->
+  <div class="cut-border" style="margin-bottom:16px;">
+    <span class="scissors-icon">&#9986;</span>
+    <div style="text-align:center;margin-bottom:6px;"><span class="pill pill-coral">POZIOM 3</span></div>
+    <div class="card-title">Mysz &#128045;</div>
+    <div class="staff">
+      <span class="eighth-pair">
+        <span class="beat" style="background:var(--n3);">&#8226;</span>
+        <span class="beat" style="background:var(--n6);">&#8226;</span>
+      </span>
+      <span class="rest">2</span>
+      <span class="beat" style="background:var(--n1);">3</span>
+      <span class="beat" style="background:var(--n4);">4</span>
+    </div>
+    <div class="rhythm-label">ti-ti &nbsp; sza &nbsp; ta &nbsp; ta</div>
+    <div class="rhythm-action">&#128045; Szybkie &#322;apki, cisza, tupnij dwa razy!</div>
+  </div>
+
+  <!-- Card 3-8: ta ti-ti sza ta -->
+  <div class="cut-border" style="margin-bottom:16px;">
+    <span class="scissors-icon">&#9986;</span>
+    <div style="text-align:center;margin-bottom:6px;"><span class="pill pill-coral">POZIOM 3</span></div>
+    <div class="card-title">Robot &#129302;</div>
+    <div class="staff">
+      <span class="beat" style="background:var(--n5);">1</span>
+      <span class="eighth-pair">
+        <span class="beat" style="background:var(--n2);">&#8226;</span>
+        <span class="beat" style="background:var(--n1);">&#8226;</span>
+      </span>
+      <span class="rest">3</span>
+      <span class="beat" style="background:var(--n4);">4</span>
+    </div>
+    <div class="rhythm-label">ta &nbsp; ti-ti &nbsp; sza &nbsp; ta</div>
+    <div class="rhythm-action">&#129302; Bip, bip-bip, ..., bip! Robot si&#281; &#322;aduje!</div>
+  </div>
+
+  <!-- Card 3-9: ti-ti ta sza ta -->
+  <div class="cut-border" style="margin-bottom:16px;">
+    <span class="scissors-icon">&#9986;</span>
+    <div style="text-align:center;margin-bottom:6px;"><span class="pill pill-coral">POZIOM 3</span></div>
+    <div class="card-title">Papuga &#129436;</div>
+    <div class="staff">
+      <span class="eighth-pair">
+        <span class="beat" style="background:var(--n6);">&#8226;</span>
+        <span class="beat" style="background:var(--n3);">&#8226;</span>
+      </span>
+      <span class="beat" style="background:var(--n4);">2</span>
+      <span class="rest">3</span>
+      <span class="beat" style="background:var(--n1);">4</span>
+    </div>
+    <div class="rhythm-label">ti-ti &nbsp; ta &nbsp; sza &nbsp; ta</div>
+    <div class="rhythm-action">&#129436; Kra-kra, kra, cisza, kra!</div>
+  </div>
+
+  <!-- Card 3-10: sza ti-ti ta ta -->
+  <div class="cut-border">
+    <span class="scissors-icon">&#9986;</span>
+    <div style="text-align:center;margin-bottom:6px;"><span class="pill pill-coral">POZIOM 3</span></div>
+    <div class="card-title">Sprinter &#127939;</div>
+    <div class="staff">
+      <span class="rest">1</span>
+      <span class="eighth-pair">
+        <span class="beat" style="background:var(--n1);">&#8226;</span>
+        <span class="beat" style="background:var(--n2);">&#8226;</span>
+      </span>
+      <span class="beat" style="background:var(--n5);">3</span>
+      <span class="beat" style="background:var(--n3);">4</span>
+    </div>
+    <div class="rhythm-label">sza &nbsp; ti-ti &nbsp; ta &nbsp; ta</div>
+    <div class="rhythm-action">&#127939; Na miejscu... szybki start i bieg!</div>
+  </div>
+
+  <div class="page-num">11</div>
+</div>
+
+<!-- ============ LEVEL 3 — PAGE 10 ============ -->
+<div class="page">
+
+  <!-- Card 3-11: ti-ti ti-ti ta ta (1+1+1+1=4) -->
+  <div class="cut-border" style="margin-bottom:16px;">
+    <span class="scissors-icon">&#9986;</span>
+    <div style="text-align:center;margin-bottom:6px;"><span class="pill pill-coral">POZIOM 3</span></div>
+    <div class="card-title">Burza &#9889;</div>
+    <div class="staff">
+      <span class="eighth-pair">
+        <span class="beat" style="background:var(--n1);">&#8226;</span>
+        <span class="beat" style="background:var(--n2);">&#8226;</span>
+      </span>
+      <span class="eighth-pair">
+        <span class="beat" style="background:var(--n3);">&#8226;</span>
+        <span class="beat" style="background:var(--n6);">&#8226;</span>
+      </span>
+      <span class="beat" style="background:var(--n4);">3</span>
+      <span class="beat" style="background:var(--n5);">4</span>
+    </div>
+    <div class="rhythm-label">ti-ti &nbsp; ti-ti &nbsp; ta &nbsp; ta</div>
+    <div class="rhythm-action">&#9889; Szybkie pioruny, a potem dwa grzmoty — BUM BUM!</div>
+  </div>
+
+  <!-- Card 3-12: ta ti-ti ti-ti ta -->
+  <div class="cut-border" style="margin-bottom:16px;">
+    <span class="scissors-icon">&#9986;</span>
+    <div style="text-align:center;margin-bottom:6px;"><span class="pill pill-coral">POZIOM 3</span></div>
+    <div class="card-title">Karuzelka &#127904;</div>
+    <div class="staff">
+      <span class="beat" style="background:var(--n5);">1</span>
+      <span class="eighth-pair">
+        <span class="beat" style="background:var(--n3);">&#8226;</span>
+        <span class="beat" style="background:var(--n1);">&#8226;</span>
+      </span>
+      <span class="eighth-pair">
+        <span class="beat" style="background:var(--n6);">&#8226;</span>
+        <span class="beat" style="background:var(--n4);">&#8226;</span>
+      </span>
+      <span class="beat" style="background:var(--n2);">4</span>
+    </div>
+    <div class="rhythm-label">ta &nbsp; ti-ti &nbsp; ti-ti &nbsp; ta</div>
+    <div class="rhythm-action">&#127904; Wolno, szybko, szybko, wolno — karuzela si&#281; kr&#281;ci!</div>
+  </div>
+
+  <!-- Card 3-13: ti-ti ta ti-ti ta -->
+  <div class="cut-border" style="margin-bottom:16px;">
+    <span class="scissors-icon">&#9986;</span>
+    <div style="text-align:center;margin-bottom:6px;"><span class="pill pill-coral">POZIOM 3</span></div>
+    <div class="card-title">Pingwin &#128039;</div>
+    <div class="staff">
+      <span class="eighth-pair">
+        <span class="beat" style="background:var(--n4);">&#8226;</span>
+        <span class="beat" style="background:var(--n5);">&#8226;</span>
+      </span>
+      <span class="beat" style="background:var(--n1);">2</span>
+      <span class="eighth-pair">
+        <span class="beat" style="background:var(--n3);">&#8226;</span>
+        <span class="beat" style="background:var(--n6);">&#8226;</span>
+      </span>
+      <span class="beat" style="background:var(--n2);">4</span>
+    </div>
+    <div class="rhythm-label">ti-ti &nbsp; ta &nbsp; ti-ti &nbsp; ta</div>
+    <div class="rhythm-action">&#128039; Dreptaj jak pingwin — szybko-wolno-szybko-wolno!</div>
+  </div>
+
+  <!-- Card 3-14: ti-ti ti-ti ti-ti ta (1+1+1+1=4) -->
+  <div class="cut-border">
+    <span class="scissors-icon">&#9986;</span>
+    <div style="text-align:center;margin-bottom:6px;"><span class="pill pill-coral">POZIOM 3</span></div>
+    <div class="card-title">Super Bohater &#129464;</div>
+    <div class="staff">
+      <span class="eighth-pair">
+        <span class="beat" style="background:var(--n1);">&#8226;</span>
+        <span class="beat" style="background:var(--n2);">&#8226;</span>
+      </span>
+      <span class="eighth-pair">
+        <span class="beat" style="background:var(--n3);">&#8226;</span>
+        <span class="beat" style="background:var(--n4);">&#8226;</span>
+      </span>
+      <span class="eighth-pair">
+        <span class="beat" style="background:var(--n5);">&#8226;</span>
+        <span class="beat" style="background:var(--n6);">&#8226;</span>
+      </span>
+      <span class="beat" style="background:var(--n1);">4</span>
+    </div>
+    <div class="rhythm-label">ti-ti &nbsp; ti-ti &nbsp; ti-ti &nbsp; ta</div>
+    <div class="rhythm-action">&#129464; Szybko, szybko, szybko... BOOM! Super l&#261;dowanie!</div>
+  </div>
+
+  <div class="page-num">12</div>
+</div>
+
+<!-- ============ GAME 1: REPEAT AFTER ME ============ -->
+<div class="page">
+  <h2 style="font-family:var(--df);color:var(--teal);margin-bottom:8px;">&#127925; Gra: Powt&#243;rz za mn&#261;</h2>
+  <p style="font-family:var(--bf);color:var(--ink-mid);margin-bottom:14px;">
+    Gra rytmiczna dla 2 lub wi&#281;cej os&#243;b. Doskonale rozwija pami&#281;&#263; s&#322;uchow&#261; i koncentracj&#281;!
+  </p>
+
+  <div class="activity-card" style="margin-bottom:14px;">
+    <div class="ac-header">
+      <span class="ac-icon">&#128079;</span>
+      <div>
+        <div class="ac-title">Powt&#243;rz za mn&#261;</div>
+        <div class="ac-subtitle">Gra rytmiczna &bull; 2+ os&#243;b &bull; od 3 lat</div>
+      </div>
+    </div>
+
+    <ol class="steps">
+      <li><strong>Wybierz kart&#281; rytmu</strong> z Poziomu 1 (lub trudniejszego, gdy dziecko jest gotowe).</li>
+      <li><strong>Rodzic klaskaje rytm</strong> z karty — powoli i wyra&#378;nie, m&#243;wi&#261;c sylaby na g&#322;os.</li>
+      <li><strong>Dziecko powtarza</strong> ten sam rytm — klaskaniem, tupaniem lub uderzaniem w b&#281;benek.</li>
+      <li><strong>Zamiana r&#243;l!</strong> Teraz dziecko wybiera kart&#281; i klaskaje, a rodzic powtarza.</li>
+      <li><strong>Zwi&#281;kszaj trudno&#347;&#263;:</strong> po kilku rundach przejd&#378; do Poziomu 2, potem 3.</li>
+    </ol>
+  </div>
+
+  <div class="callout ok" style="margin-bottom:14px;">
+    <strong>&#127775; Wariant &bdquo;Coraz d&#322;u&#380;szy&rdquo;:</strong> Zamiast pojedynczej karty, po&#322;&#261;cz 2, a potem 3 karty w jeden d&#322;ugi rytm. Kto zapami&#281;ta i powt&#243;rzy ca&#322;o&#347;&#263;?
+  </div>
+
+  <div class="callout warn" style="margin-bottom:14px;">
+    <strong>&#127917; Wariant z cia&#322;em:</strong> Ka&#380;dy d&#378;wi&#281;k to inny ruch:<br>
+    <strong>ta</strong> = klask w d&#322;onie &#128079;<br>
+    <strong>ti-ti</strong> = dwa szybkie tupni&#281;cia &#128062;<br>
+    <strong>ta-a</strong> = uderzenie w kolana &#129463;<br>
+    <strong>sza</strong> = r&#281;ce w g&#243;r&#281; &#9995;
+  </div>
+
+  <div class="callout tip">
+    <strong>&#128161; Wskaz&#243;wka:</strong> Zacznij od 2 kart z Poziomu 1. Nigdy nie poprawiaj od razu — daj dziecku spr&#243;bowa&#263; 2–3 razy. Chwal wysi&#322;ek, nie wynik!
+  </div>
+
+  <div class="page-num">13</div>
+</div>
+
+<!-- ============ GAME 2: CREATE YOUR RHYTHM ============ -->
+<div class="page">
+  <h2 style="font-family:var(--df);color:var(--teal);margin-bottom:8px;">&#127924; Stw&#243;rz sw&#243;j rytm!</h2>
+  <p style="font-family:var(--bf);color:var(--ink-mid);margin-bottom:14px;">
+    Wytnij te puste karty i wype&#322;nij je w&#322;asnymi rytmami. Pokoloruj kr&#261;&#380;ki i zapisz sylaby!
+  </p>
+
+  <!-- Blank Card 1 -->
+  <div class="cut-border" style="margin-bottom:18px;">
+    <span class="scissors-icon">&#9986;</span>
+    <div style="text-align:center;margin-bottom:6px;"><span class="pill pill-teal">M&#211;J RYTM</span></div>
+    <div style="text-align:center;font-family:var(--af);color:var(--muted);margin-bottom:8px;">Nazwa: ________________________</div>
+    <div class="staff">
+      <span class="blank-beat"></span>
+      <span class="blank-beat"></span>
+      <span class="blank-beat"></span>
+      <span class="blank-beat"></span>
+    </div>
+    <div style="text-align:center;font-family:var(--bf);color:var(--muted);margin-top:10px;border-bottom:1px dashed var(--border);padding-bottom:6px;">
+      Sylaby: ____ &nbsp; ____ &nbsp; ____ &nbsp; ____
+    </div>
+    <div style="text-align:center;font-family:var(--bf);color:var(--muted);margin-top:8px;">
+      Ruch: ________________________
+    </div>
+  </div>
+
+  <!-- Blank Card 2 -->
+  <div class="cut-border" style="margin-bottom:18px;">
+    <span class="scissors-icon">&#9986;</span>
+    <div style="text-align:center;margin-bottom:6px;"><span class="pill pill-gold">M&#211;J RYTM</span></div>
+    <div style="text-align:center;font-family:var(--af);color:var(--muted);margin-bottom:8px;">Nazwa: ________________________</div>
+    <div class="staff">
+      <span class="blank-beat"></span>
+      <span class="blank-beat"></span>
+      <span class="blank-beat"></span>
+      <span class="blank-beat"></span>
+    </div>
+    <div style="text-align:center;font-family:var(--bf);color:var(--muted);margin-top:10px;border-bottom:1px dashed var(--border);padding-bottom:6px;">
+      Sylaby: ____ &nbsp; ____ &nbsp; ____ &nbsp; ____
+    </div>
+    <div style="text-align:center;font-family:var(--bf);color:var(--muted);margin-top:8px;">
+      Ruch: ________________________
+    </div>
+  </div>
+
+  <!-- Blank Card 3 -->
+  <div class="cut-border">
+    <span class="scissors-icon">&#9986;</span>
+    <div style="text-align:center;margin-bottom:6px;"><span class="pill pill-coral">M&#211;J RYTM</span></div>
+    <div style="text-align:center;font-family:var(--af);color:var(--muted);margin-bottom:8px;">Nazwa: ________________________</div>
+    <div class="staff">
+      <span class="blank-beat"></span>
+      <span class="blank-beat"></span>
+      <span class="blank-beat"></span>
+      <span class="blank-beat"></span>
+    </div>
+    <div style="text-align:center;font-family:var(--bf);color:var(--muted);margin-top:10px;border-bottom:1px dashed var(--border);padding-bottom:6px;">
+      Sylaby: ____ &nbsp; ____ &nbsp; ____ &nbsp; ____
+    </div>
+    <div style="text-align:center;font-family:var(--bf);color:var(--muted);margin-top:8px;">
+      Ruch: ________________________
+    </div>
+  </div>
+
+  <ul class="checklist" style="margin-top:14px;">
+    <li>Pokoloruj kr&#261;&#380;ki r&#243;&#380;nymi kolorami &#127912;</li>
+    <li>Wymie&#324; si&#281; kartami z rodze&#324;stwem lub przyjacielem</li>
+    <li>Spr&#243;buj zagra&#263; sw&#243;j rytm na prawdziwym instrumencie &#127928;</li>
+    <li>Po&#322;&#261;cz kilka kart w d&#322;ug&#261; kompozycj&#281; &#127926;</li>
+  </ul>
+
+  <div class="page-num">14</div>
+</div>
+
+<!-- ============ BACK COVER ============ -->
+<div class="page back-cover">
+  <h2>&#127925; Nast&#281;pny krok</h2>
+  <p style="max-width:420px;margin:0 auto 18px;line-height:1.6;">
+    Twoje dziecko ju&#380; zna kolory d&#378;wi&#281;k&#243;w i potrafi klaska&#263; rytmy!
+    Teraz pora po&#322;&#261;czy&#263; muzyk&#281; z rozwojem motoryki — otwieramy
+    <strong>Bonus 3: Zestaw Motoryki Drobnej</strong>.
+  </p>
+  <p style="font-family:var(--af);font-size:1.15rem;opacity:0.85;">
+    &#127912; &#9986; &#127925; &#128588; &#128640;
+  </p>
+  <p style="margin-top:24px;font-size:0.9rem;opacity:0.65;">
+    Zabawowa Metoda Muzyczna &bull; Bonus 2 z 3
+  </p>
+</div>
+
+</body>
+</html>

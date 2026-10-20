@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Twój Dostęp</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700;800&family=Baloo+2:wght@700;800&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FBF3E6;--paper:#FFFDF8;--ink:#241D16;--ink-mid:#4A3F33;--muted:#8C8172;
+  --teal:#2E6E68;--teal-dk:#1E4C48;--coral:#F0592C;--gold:#F0B93D;
+  --border:#E7DAC0;--cream-deep:#F2E4CB;
+  --n1:#E5533A;--n2:#EF8C2C;--n3:#EFC13F;--n4:#4FA37B;--n5:#4A90C4;--n6:#F28A6B;
+  --df:'Fraunces',Georgia,serif;--af:'Baloo 2',sans-serif;--bf:'Karla',-apple-system,Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{font-family:var(--bf);color:var(--ink);background:var(--bg);min-height:100vh}
+.wrap{max-width:720px;margin:0 auto;padding:40px 20px 80px}
+
+.hero{text-align:center;margin-bottom:36px}
+.hero .kicker{display:inline-block;background:var(--teal);color:#fff;padding:5px 16px;
+  border-radius:99px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:14px}
+.hero h1{font-family:var(--df);font-size:28px;line-height:1.2;color:var(--teal-dk);margin-bottom:8px}
+.hero .sub{font-size:16px;color:var(--muted);max-width:520px;margin:0 auto 20px}
+.rainbow{display:flex;justify-content:center;gap:6px;margin:18px 0}
+.rainbow span{width:36px;height:8px;border-radius:4px}
+.stats{display:flex;justify-content:center;gap:24px;flex-wrap:wrap;margin-top:16px}
+.stats .s{text-align:center}
+.stats .n{display:block;font-family:var(--df);font-size:28px;font-weight:800;color:var(--teal-dk)}
+.stats .l{font-size:13px;color:var(--muted)}
+
+h2{font-family:var(--df);font-size:20px;color:var(--teal-dk);margin:32px 0 14px;
+  padding-bottom:8px;border-bottom:2px solid var(--border)}
+.label{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  padding:3px 10px;border-radius:99px;margin-bottom:8px}
+.label-core{background:var(--teal);color:#fff}
+.label-bonus{background:var(--paper);color:var(--teal-dk);border:1px solid var(--border)}
+
+.card{background:var(--paper);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:14px;
+  transition:box-shadow .15s}
+.card:hover{box-shadow:0 4px 16px rgba(36,29,22,.08)}
+.card h3{font-family:var(--df);font-size:17px;margin:0 0 4px;color:var(--ink)}
+.card .desc{font-size:14px;color:var(--ink-mid);margin-bottom:12px;line-height:1.55}
+.card .meta{font-size:13px;color:var(--muted);margin-bottom:12px}
+
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--teal);color:#fff;
+  padding:10px 22px;border-radius:8px;font-weight:600;font-size:14px;text-decoration:none;
+  transition:background .15s}
+.btn:hover{background:var(--teal-dk)}
+.btn svg{width:16px;height:16px;fill:currentColor}
+
+.steps-box{background:var(--paper);border:2px solid var(--teal);border-radius:12px;padding:24px;margin-top:32px}
+.steps-box h2{margin-top:0;border:none;padding:0}
+.steps-list{counter-reset:krok;list-style:none;padding:0;margin:14px 0 0}
+.steps-list li{counter-increment:krok;position:relative;padding:6px 0 10px 36px;font-size:15px;color:var(--ink)}
+.steps-list li::before{content:counter(krok);position:absolute;left:0;top:4px;width:24px;height:24px;
+  border-radius:50%;background:var(--teal);color:#fff;font-weight:700;font-size:13px;
+  display:flex;align-items:center;justify-content:center}
+
+.footer{text-align:center;margin-top:40px;padding-top:20px;border-top:1px solid var(--border);
+  font-size:12px;color:var(--muted);line-height:1.6}
+
+@media(max-width:520px){
+  .hero h1{font-size:22px}
+  .stats{gap:16px}
+  .stats .n{font-size:22px}
+  .wrap{padding:24px 16px 60px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hero">
+    <span class="kicker">Zakup potwierdzony</span>
+    <h1>Zabawowa Metoda Muzyczna</h1>
+    <p class="sub">Tw&oacute;j kompletny program edukacji muzycznej dla dzieci 3&ndash;7 lat jest gotowy. Pobierz wszystkie materiały poniżej.</p>
+    <div class="rainbow">
+      <span style="background:var(--n1)"></span>
+      <span style="background:var(--n2)"></span>
+      <span style="background:var(--n3)"></span>
+      <span style="background:var(--n4)"></span>
+      <span style="background:var(--n5)"></span>
+      <span style="background:var(--n6)"></span>
+    </div>
+    <div class="stats">
+      <div class="s"><span class="n">180+</span><span class="l">stron do druku</span></div>
+      <div class="s"><span class="n">5</span><span class="l">moduł&oacute;w</span></div>
+      <div class="s"><span class="n">3</span><span class="l">bonusy</span></div>
+    </div>
+  </div>
+
+  <h2>Produkt Gł&oacute;wny</h2>
+
+  <div class="card">
+    <span class="label label-core">Produkt Gł&oacute;wny</span>
+    <h3>Zabawowa Metoda Muzyczna &middot; Ponad 180 Gotowych Kart Muzycznych</h3>
+    <p class="desc">Kompletny program w 5 modułach: przewodnik dla rodzic&oacute;w, 32 karty ćwiczeń praktycznych, 30 kart muzycznych, 30 gier do druku, 35 ilustrowanych partytur z systemem kolorowych nut + dyplom ukończenia.</p>
+    <p class="meta">180+ stron &middot; PDF</p>
+    <a class="btn" href="zabawowa-metoda-muzyczna.pdf" download>
+      <svg viewBox="0 0 24 24"><path d="M12 16l-6-6h4V4h4v6h4l-6 6zm-8 4h16v-2H4v2z"/></svg>
+      Pobierz PDF
+    </a>
+  </div>
+
+  <h2>Twoje Bonusy</h2>
+
+  <div class="card">
+    <span class="label label-bonus">Bonus 1 z 3</span>
+    <h3>Tygodniowy Planer Lekcji</h3>
+    <p class="desc">Gotowe plany lekcji na 4 tygodnie &mdash; od odkrywania dźwięk&oacute;w po tworzenie własnych kompozycji. Rozkład zajęć na każdy dzień tygodnia + pusty szablon do własnych plan&oacute;w.</p>
+    <p class="meta">12 stron &middot; PDF</p>
+    <a class="btn" href="bonus-1-tygodniowy-planer-lekcji.pdf" download>
+      <svg viewBox="0 0 24 24"><path d="M12 16l-6-6h4V4h4v6h4l-6 6zm-8 4h16v-2H4v2z"/></svg>
+      Pobierz PDF
+    </a>
+  </div>
+
+  <div class="card">
+    <span class="label label-bonus">Bonus 2 z 3</span>
+    <h3>Kolorowe Karty Rytmu</h3>
+    <p class="desc">Karty rytmiczne w 3 poziomach trudności &mdash; od prostych wzor&oacute;w po zaawansowane sekwencje z pauzami i &oacute;semkami. Idealne do gier i ćwiczeń rytmicznych.</p>
+    <p class="meta">15 stron &middot; PDF</p>
+    <a class="btn" href="bonus-2-kolorowe-karty-rytmu.pdf" download>
+      <svg viewBox="0 0 24 24"><path d="M12 16l-6-6h4V4h4v6h4l-6 6zm-8 4h16v-2H4v2z"/></svg>
+      Pobierz PDF
+    </a>
+  </div>
+
+  <div class="card">
+    <span class="label label-bonus">Bonus 3 z 3</span>
+    <h3>Pakiet Motoryki Drobnej Muzycznej</h3>
+    <p class="desc">Ćwiczenia grafomotoryczne z muzycznym motywem: odrysowywanie klucz&oacute;w wiolinowych i nut, łączenie instrument&oacute;w, wycinanie i układanie &mdash; dla dzieci 3&ndash;7 lat.</p>
+    <p class="meta">15 stron &middot; PDF</p>
+    <a class="btn" href="bonus-3-pakiet-motoryki-drobnej.pdf" download>
+      <svg viewBox="0 0 24 24"><path d="M12 16l-6-6h4V4h4v6h4l-6 6zm-8 4h16v-2H4v2z"/></svg>
+      Pobierz PDF
+    </a>
+  </div>
+
+  <div class="steps-box">
+    <h2>Od Czego Zacząć</h2>
+    <ol class="steps-list">
+      <li>Pobierz produkt gł&oacute;wny i wydrukuj Moduł 1 &mdash; Przewodnik dla Rodzic&oacute;w</li>
+      <li>Zapoznaj się z systemem 6 kolorowych nut (strony 5&ndash;6)</li>
+      <li>Zacznij od Modułu 2 &mdash; wybierz pierwsze ćwiczenie i baw się z dzieckiem</li>
+      <li>Odkrywaj bonusy w swoim tempie &mdash; są idealne jako uzupełnienie codziennych zajęć</li>
+    </ol>
+  </div>
+
+  <div class="footer">
+    <p>Dożywotni dostęp &middot; Pobieraj kiedy chcesz</p>
+    <p>Wyłącznie do użytku osobistego. Odsprzedaż i redystrybucja zabroniona.</p>
+  </div>
+
+</div>
+</body>
+</html>

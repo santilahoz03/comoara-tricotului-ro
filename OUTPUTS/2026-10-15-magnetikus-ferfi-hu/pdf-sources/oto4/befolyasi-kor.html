@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Befolyási Kör™ — Mágneses Férfi</title>
+<style>
+:root {
+  --bg: #FBF9F5;
+  --ink: #17130E;
+  --accent: #A63A2A;
+  --muted: #6B5E54;
+  --line: #E2D9CE;
+  --bg-alt: #F2EDE5;
+  --page: #FFFFFF;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 15px;
+  line-height: 1.8;
+}
+.page {
+  background: var(--page);
+  width: 210mm;
+  min-height: 297mm;
+  margin: 0 auto 24px;
+  padding: 22mm 20mm 20mm;
+}
+@media print {
+  body { background: white; }
+  .page { width: 100%; margin: 0; padding: 18mm 17mm 15mm; page-break-after: always; }
+  .page:last-child { page-break-after: avoid; }
+}
+h1 { font-family: Georgia, serif; font-size: 27px; font-weight: 700; color: var(--ink); margin-bottom: 8px; }
+h2 { font-family: Georgia, serif; font-size: 19px; font-weight: 700; color: var(--ink); margin-top: 28px; margin-bottom: 12px; }
+h3 { font-family: Georgia, serif; font-size: 15px; font-weight: 700; color: var(--accent); margin-top: 20px; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.05em; }
+p { margin-bottom: 12px; }
+.brand { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-bottom: 16px; }
+.subtitle { font-size: 16px; color: var(--muted); margin-bottom: 28px; font-style: italic; }
+.divider { border: none; border-top: 1px solid var(--line); margin: 24px 0; }
+.insight {
+  background: var(--bg-alt);
+  border-left: 3px solid var(--accent);
+  padding: 12px 18px;
+  margin: 18px 0;
+  font-style: italic;
+}
+.insight p { margin: 0; }
+.section-num {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 3px 10px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+.step-list { margin: 12px 0 12px 20px; }
+.step-list li { margin-bottom: 10px; }
+.step-list li strong { color: var(--accent); }
+.check-list { list-style: none; margin: 12px 0; padding: 0; }
+.check-list li { padding-left: 22px; position: relative; margin-bottom: 8px; font-size: 14px; }
+.check-list li::before { content: "→"; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
+.rule-box {
+  border: 1px solid var(--line);
+  padding: 14px 18px;
+  margin: 18px 0;
+  background: var(--bg-alt);
+}
+.rule-box .rule-title { font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); margin-bottom: 8px; }
+.rule-box p { margin: 0; font-size: 15px; }
+.footer { border-top: 1px solid var(--line); padding-top: 12px; margin-top: auto; font-size: 11px; color: var(--muted); text-align: center; letter-spacing: 0.06em; }
+.page-cover {
+  display: flex; flex-direction: column; justify-content: flex-end;
+  min-height: 297mm; background: var(--ink); color: #FBF9F5;
+  padding: 0 24mm 28mm;
+}
+.cover-title { font-family: Georgia, serif; font-size: 33px; font-weight: 700; color: #FBF9F5; margin-bottom: 14px; line-height: 1.2; }
+.cover-sub { font-size: 16px; color: rgba(251,249,245,0.7); margin-bottom: 28px; font-style: italic; }
+.cover-brand { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(251,249,245,0.4); margin-bottom: auto; padding-top: 32mm; }
+.tag-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
+.tag { background: rgba(166,58,42,0.85); color: #fff; font-size: 11px; padding: 4px 12px; letter-spacing: 0.08em; text-transform: uppercase; }
+.cover-footer { font-size: 11px; color: rgba(251,249,245,0.35); letter-spacing: 0.06em; }
+.strategy-card {
+  border: 1px solid var(--line);
+  margin: 20px 0;
+  overflow: hidden;
+}
+.strategy-header {
+  background: var(--bg-alt);
+  padding: 12px 18px;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.strategy-num {
+  background: var(--accent);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.strategy-header strong { font-size: 15px; color: var(--ink); }
+.strategy-body { padding: 14px 18px; font-size: 14px; }
+.strategy-body p { margin-bottom: 8px; }
+.strategy-body ul { margin: 8px 0 0 18px; }
+.strategy-body ul li { margin-bottom: 6px; }
+.env-grid { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 14px; }
+.env-grid th { background: var(--bg-alt); text-align: left; padding: 8px 12px; border-bottom: 2px solid var(--line); font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
+.env-grid td { padding: 8px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+.env-grid tr:last-child td { border-bottom: none; }
+.env-grid td:first-child { font-weight: 700; color: var(--accent); }
+</style>
+</head>
+<body>
+
+<!-- BORÍTÓ -->
+<div class="page page-cover">
+  <div class="cover-brand">Mágneses Férfi™ · OTO4</div>
+  <div class="tag-row">
+    <span class="tag">Meglévő közegek</span>
+    <span class="tag">Új közegek</span>
+    <span class="tag">Láthatóság</span>
+    <span class="tag">Kör gondozása</span>
+  </div>
+  <div class="cover-title">Befolyási Kör™</div>
+  <div class="cover-sub">Hogyan bővítsd a társadalmi körödet<br>alkalmazások és bárok nélkül.</div>
+  <div class="cover-footer">Csak vásárlóknak · Ne továbbítsd</div>
+</div>
+
+<!-- BEVEZETÉS -->
+<div class="page">
+  <div class="brand">Befolyási Kör™ · Bevezetés</div>
+  <h1>A vonzó férfiak paradoxona</h1>
+  <p class="subtitle">Nem az számít, hova mennek — az, hogyan mozognak.</p>
+
+  <p>A vonzással foglalkozó anyagok nagy része azzal kezdi: "menj ki több helyre, ismerd meg az embereket." Ez a tanács hiányzik az egyik legfontosabb elemből: <strong>a kontextusból.</strong></p>
+
+  <p>Az, hogy elmész egy bárba vagy buliba, ahol mindenki idegen, és ott ismerkedni próbálsz — alacsony siker-arányú, stresszes és nem fenntartható. A valódi befolyási kör más elvekre épül:</p>
+
+  <ol class="step-list">
+    <li><strong>Az ismétlés teremt bizalmat.</strong> Az emberek megbíznak abban, akit már többször láttak egy kontextusban.</li>
+    <li><strong>A szerep láthatóvá tesz.</strong> Aki szervez, segít, vezet — azt észreveszik. Aki csak "jelen van" — nem feltétlenül.</li>
+    <li><strong>A gyenge kapcsolatok a leghatékonyabbak.</strong> Nem a legjobb barátaid hoznak a legtöbb lehetőséget — hanem azok, akiket "félbő ismersz".</li>
+  </ol>
+
+  <div class="insight">
+    <p>„A legtöbb vonzó ismerkedés nem azon a napon következik be, amikor megpróbálod. Hanem azon a napon, amelyik az ötödik alkalom egy olyan helyen, ahol visszajársz."</p>
+  </div>
+
+  <p>Ez az anyag 4 stratégiára bontja a befolyási kör építését:</p>
+  <ol class="step-list">
+    <li>Meglévő közegek aktiválása — a már meglévő hálózatod aknázása</li>
+    <li>Új közegek megtalálása — konkrét 7 környezettípus</li>
+    <li>Szerepvállalás és láthatóság — hogyan leszel az, akit észrevesznek</li>
+    <li>A kör gondozása — hogyan tartsd fenn, amit felépítettél</li>
+  </ol>
+
+  <div class="footer">Mágneses Férfi™ · Befolyási Kör™ · Csak vásárlóknak</div>
+</div>
+
+<!-- STRATÉGIÁK 1-2 -->
+<div class="page">
+  <div class="brand">Befolyási Kör™ · 1–2. stratégia</div>
+
+  <div class="strategy-card">
+    <div class="strategy-header">
+      <div class="strategy-num">1</div>
+      <strong>Meglévő közegek aktiválása</strong>
+    </div>
+    <div class="strategy-body">
+      <p>A "gyenge kapcsolatok" fogalma azt jelenti, hogy azok az ismerőseid, akikkel nem vagy szoros barátságban, valójában a legnagyobb hálózati tőkéd. Ők más körökbe mozognak, és ha aktiválod őket, ajtókat nyitnak meg, amelyeket a szoros barátaid nem tudnának.</p>
+
+      <p><strong>Hogyan aktiválod a meglévő körödet:</strong></p>
+      <ul>
+        <li>Menj végig az utóbbi 2 év ismerőseinek listáján (Facebook, LinkedIn, telefon). Ki az, akivel 6+ hónapja nem volt kontaktus, de pozitív volt az utolsó találkozó?</li>
+        <li>Küldj 2-3 hetente egy rövid üzenetet valakinek: nem "hogyvoltál általában" — hanem "láttam, hogy [konkrét dolog], és eszembe jutott, egyszer arról beszéltünk, hogy..." Ez nem spam, ez a kapcsolat élesztése.</li>
+        <li>Vedd fel a szálat 3-5 olyan emberrel, akivel van közös kontextus (volt osztálytárs, volt kolléga, régi barát közös ismerőssel) — és hívd meg egy konkrét programra. "Van egy [hely/esemény] szerdán, jössz?"</li>
+      </ul>
+
+      <p><strong>Az élesztés szabálya:</strong></p>
+      <p>Ne legyen kertelés. "Régen nem találkoztunk, coffee?" — egyszerű, direkt, nem igényel magyarázatot.</p>
+    </div>
+  </div>
+
+  <div class="strategy-card">
+    <div class="strategy-header">
+      <div class="strategy-num">2</div>
+      <strong>Új közegek megtalálása</strong>
+    </div>
+    <div class="strategy-body">
+      <p>A 7 legjobban működő környezettípus magas arányban tartalmaz önálló, aktív, érdeklődő nőket:</p>
+
+      <table class="env-grid">
+        <thead><tr><th>#</th><th>Közeg</th><th>Miért működik</th><th>Belépési küszöb</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Tánckurzus (salsa, swing, tango)</td>
+            <td>Kényszerített fizikai kontakt, ismétlődő személyek</td>
+            <td>Beiratkozás, belépő</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Mászófal / bouldering</td>
+            <td>Közös kihívás, természetes segítségkérés</td>
+            <td>Bérlet vagy napi belépő</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Főzőtanfolyam / gasztro workshop</td>
+            <td>Csoportos, kötetlenebb, közvetlen interakció</td>
+            <td>Tanfolyamdíj</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>Önkéntes / közösségi szervező</td>
+            <td>Közös cél, tartós projektkontaktus</td>
+            <td>Jelentkezés, idő</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>Szakmai meetup / iparági este</td>
+            <td>Közös szakmai kontextus, természetes témák</td>
+            <td>Ingyenes vagy alacsony díj</td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td>Természetjáró / kerékpáros csoport</td>
+            <td>Fizikai aktivitás, közös cél, hosszabb idő együtt</td>
+            <td>Csatlakozás, eszköz</td>
+          </tr>
+          <tr>
+            <td>7</td>
+            <td>Alkotóközösség (kerámia, festészet, workshop)</td>
+            <td>Inspiráló környezet, alkotás mint párbeszéd-indító</td>
+            <td>Tanfolyamdíj</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p><strong>Időbefektetés:</strong> Minden közegnek adj minimum 3-4 alkalmot mielőtt ítélsz. Az első alkalom mindig ismerkedés — az eredmény csak az ismétlésnél jön.</p>
+    </div>
+  </div>
+
+  <div class="footer">Mágneses Férfi™ · Befolyási Kör™ · Csak vásárlóknak</div>
+</div>
+
+<!-- STRATÉGIÁK 3-4 -->
+<div class="page">
+  <div class="brand">Befolyási Kör™ · 3–4. stratégia</div>
+
+  <div class="strategy-card">
+    <div class="strategy-header">
+      <div class="strategy-num">3</div>
+      <strong>Szerepvállalás és láthatóság</strong>
+    </div>
+    <div class="strategy-body">
+      <p>"Benn lenni egy helyen" nem elég. A láthatóság azzal jön, hogy feladatot vállalsz, és arra reagálsz a többi ember.</p>
+
+      <p><strong>Miért nem elég "jelen lenni":</strong></p>
+      <p>Egy teremben 20 emberből 15 "csak ott van". A másik 5 csinál valamit — szervez, segít, kérdez, vezet. A 15-ből senki nem emlékszik senkiről részletesen. Az 5-ről mindenki emlékszik.</p>
+
+      <p><strong>Az „szervező" (szervező) elv:</strong></p>
+      <ul>
+        <li>Nem kell a vezető lenned. Elég egy kis logisztikai feladatot önként felvállalni.</li>
+        <li>Példák: "Összegyűjtöm az e-maileket a következő alkalomra", "Megcsinálom a WhatsApp csoportot", "Jövő héten én hozom a csapatsnacket".</li>
+        <li>Ez nulla státusveszteséggel jár — de sokszorosan növeli a láthatóságodat és azt, hogy az emberek pozitívan gondolnak rád.</li>
+      </ul>
+
+      <p><strong>Hogyan ne legyél a bohóc:</strong></p>
+      <p>A "szórakoztató ember" csapda: mindenki szeret veled lenni, de senki nem vesz komolyan. A szervező-szerepben nem kell vicces lenned — kell konkrétnak, megbízhatónak és csendesen kompetensnek lenned.</p>
+
+      <ul>
+        <li>Ne erőltesd a vicceket — ha jön, jön; ha nem, nem</li>
+        <li>Amikor feladatot vállalsz, csináld meg. A megbízhatóság vonzerő.</li>
+        <li>Ha véleményt kérdeznek, adj konkrét véleményt — ne "én mindent jónak tartok"</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="strategy-card">
+    <div class="strategy-header">
+      <div class="strategy-num">4</div>
+      <strong>A kör gondozása</strong>
+    </div>
+    <div class="strategy-body">
+      <p>Az ismerősi kör romlékony. Ha nem gondozod, elhal. A gondozás nem nagy befektetés — de rendszeres.</p>
+
+      <p><strong>Kontakt-ritmus különböző kapcsolati rétegekre:</strong></p>
+
+      <table class="env-grid">
+        <thead><tr><th>Réteg</th><th>Kik tartoznak ide</th><th>Kontakt-ritmus</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>Szoros kör (3-7 fő)</td>
+            <td>Legjobb barátok, heti kontaktus amúgy is</td>
+            <td>Folyamatos — nincs külön teendő</td>
+          </tr>
+          <tr>
+            <td>Aktív ismerősök (15-25 fő)</td>
+            <td>Akik az életedben rendszeresen feltűnnek</td>
+            <td>Havonta egyszer valami (üzenet, találkozó)</td>
+          </tr>
+          <tr>
+            <td>Gyenge kapcsolatok (50-100 fő)</td>
+            <td>Ismerősök, volt kollégák, alkalmi találkozók</td>
+            <td>Negyedévente egy inger (megjegyzés, esemény)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p><strong>Természetes alkalmak / "szociális gesztikuláció":</strong></p>
+      <ul>
+        <li>Születésnapi üzenet (nem generikus — egy személyes sorral)</li>
+        <li>Érdekesnek tűnő cikk, esemény vagy megjegyzés, ami konkrétan rájuk vonatkozik</li>
+        <li>Egy program, amelyre természetesen meghívhatsz embert: "mész jövő szombaton erre az eseményre?"</li>
+      </ul>
+
+      <p><strong>A heti szociális gesztus (Heti Szociális Gesztus™):</strong></p>
+
+      <div class="rule-box" style="margin-top: 10px; margin-bottom: 0;">
+        <div class="rule-title">Heti minimum</div>
+        <p>Hetente egyszer küldj egy üzenetet (nem mélyebből jövő — csak egy inger) egy gyenge kapcsolatnak. Egy megjegyzés, egy meghívás, egy kérdés. 30 másodperces befektetés — hosszú távon hatalmas kör.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="insight">
+    <p>„A Befolyási Kör™ nem az ismerősök száma — az, hogy azok, akiket ismersz, gondolnak-e rád pozitívan és spontán, vagy egyáltalán nem gondolnak rád."</p>
+  </div>
+
+  <div class="footer">Mágneses Férfi™ · Befolyási Kör™ · Csak vásárlóknak</div>
+</div>
+
+</body>
+</html>

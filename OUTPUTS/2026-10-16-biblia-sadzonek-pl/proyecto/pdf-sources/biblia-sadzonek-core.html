@@ -1,0 +1,583 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<title>Biblia Sadzonek · Kompletny Przewodnik Rozmnażania Roślin w Domu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="_shared.css">
+<style>
+  /* Extra styles for the core ebook */
+  .chapter-opener {
+    page-break-before: always;
+    background: var(--accent-dark);
+    color: #fff;
+    padding: 48px 40px;
+    border-radius: 0;
+    margin: 0 -40px 32px;
+    text-align: center;
+  }
+  @media print {
+    .chapter-opener { margin: 0 -40px; }
+  }
+  .chapter-opener .chapter-num { font-size: 0.9rem; opacity: 0.7; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 2px; }
+  .chapter-opener h2 { font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 10px; }
+  .chapter-opener p { opacity: 0.85; font-size: 1rem; }
+
+  .species-card {
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    background: var(--paper);
+  }
+  .species-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: var(--accent-dark);
+    margin-bottom: 4px;
+  }
+  .species-card .latin { font-style: italic; color: var(--ink-soft); font-size: 0.9rem; margin-bottom: 12px; }
+  .species-meta { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 14px; }
+  .species-meta .meta-item { background: var(--bg); border-radius: 6px; padding: 8px 10px; font-size: 0.82rem; }
+  .species-meta .meta-item strong { display: block; color: var(--ink-soft); margin-bottom: 2px; font-size: 0.75rem; text-transform: uppercase; }
+
+  .technique-box {
+    background: var(--accent-dark);
+    color: #fff;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 16px;
+  }
+  .technique-box h4 { font-size: 1rem; margin-bottom: 8px; }
+  .technique-box ol { padding-left: 18px; font-size: 0.9rem; }
+  .technique-box ol li { margin-bottom: 6px; }
+
+  .window-diagram {
+    background: #f0ebe0;
+    border: 2px solid var(--line);
+    border-radius: 10px;
+    padding: 20px;
+    margin: 16px 0;
+    text-align: center;
+  }
+  .window-diagram h4 { font-family: 'Playfair Display', serif; color: var(--accent-dark); margin-bottom: 12px; }
+  .windows-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .window-box {
+    flex: 1;
+    min-width: 130px;
+    max-width: 160px;
+    border: 2px solid var(--accent-dark);
+    border-radius: 8px;
+    padding: 12px;
+    background: var(--paper);
+  }
+  .window-box .wnum { font-size: 1.6rem; font-weight: 800; color: var(--accent-dark); font-family: 'Playfair Display', serif; }
+  .window-box .wname { font-size: 0.85rem; font-weight: 700; margin: 4px 0; }
+  .window-box p { font-size: 0.78rem; color: var(--ink-soft); }
+</style>
+</head>
+<body>
+
+<!-- COVER PAGE -->
+<section class="cover">
+  <div>
+    <span class="kicker">Kompletny przewodnik</span>
+    <h1>Biblia Sadzonek</h1>
+    <p class="sub">Kompletny Przewodnik Rozmnażania Roślin w Domu + 15 Poradników w Prezencie</p>
+  </div>
+  <div class="brand">121 stron · +17 000 egzemplarzy</div>
+</section>
+
+<!-- TABLE OF CONTENTS -->
+<section class="toc-page">
+  <h2>Spis treści</h2>
+  <ul class="toc">
+    <li><span>Wstęp — Dlaczego rozmnażanie roślin zmienia wszystko</span><span>3</span></li>
+    <li><span>Rozdział 1 — Metoda Trzech Okien</span><span>5</span></li>
+    <li><span>Rozdział 2 — Podstawy anatomii sadzonki</span><span>14</span></li>
+    <li><span>Rozdział 3 — Sadzonki łodygowe: protokół krok po kroku</span><span>20</span></li>
+    <li><span>Rozdział 4 — Sadzonki liściowe i bulwiaste</span><span>30</span></li>
+    <li><span>Rozdział 5 — Podział i odrostki</span><span>38</span></li>
+    <li><span>Rozdział 6 — 9 przewodników gatunkowych</span><span>46</span></li>
+    <li><span>&nbsp;&nbsp;&nbsp;&nbsp;Pothos i Scindapsus</span><span>47</span></li>
+    <li><span>&nbsp;&nbsp;&nbsp;&nbsp;Monstera (adansonii i deliciosa)</span><span>54</span></li>
+    <li><span>&nbsp;&nbsp;&nbsp;&nbsp;Echeveria i sukulenty rozetowe</span><span>61</span></li>
+    <li><span>&nbsp;&nbsp;&nbsp;&nbsp;Pelargonia</span><span>68</span></li>
+    <li><span>&nbsp;&nbsp;&nbsp;&nbsp;Filodendron</span><span>73</span></li>
+    <li><span>&nbsp;&nbsp;&nbsp;&nbsp;Fikusy (Ficus elastica, benjamina)</span><span>78</span></li>
+    <li><span>&nbsp;&nbsp;&nbsp;&nbsp;Hoya</span><span>84</span></li>
+    <li><span>&nbsp;&nbsp;&nbsp;&nbsp;Begonia</span><span>89</span></li>
+    <li><span>&nbsp;&nbsp;&nbsp;&nbsp;Tradeskancja</span><span>95</span></li>
+    <li><span>Rozdział 7 — Od sadzonki do pieniędzy</span><span>100</span></li>
+    <li><span>Rozdział 8 — Szkółka domowa: organizacja i produkcja</span><span>108</span></li>
+    <li><span>Rozdział 9 — Diagnostyka i ratowanie sadzonek</span><span>115</span></li>
+    <li><span>Słownik terminów</span><span>120</span></li>
+  </ul>
+</section>
+
+<!-- WSTEP -->
+<h2>Wstęp — Dlaczego rozmnażanie roślin zmienia wszystko</h2>
+<p>Rozmnażanie roślin jest jednym z najstarszych ludzkich zajęć. Przed 10 000 lat, pierwsi rolnicy sadzili nasiona, korzenie i sadzonki — nie z pasji, ale z konieczności. Dziś robimy to z wyboru, z miłości do roślin i, coraz częściej, dla zarobku.</p>
+<p>Ten przewodnik jest napisany dla kogoś, kto już ma rośliny w domu i chce zrobić z nich więcej. Nie potrzebujesz szklarni, drogich narzędzi ani doświadczenia agronoma. Potrzebujesz metody.</p>
+
+<div class="callout ok">
+  <strong>Co znajdziesz w Biblii Sadzonek:</strong> Trzy techniki (łodygowe, liściowe, podział), 9 szczegółowych przewodników gatunkowych, system sprzedaży domowej szkółki i pełny protokół ratunkowy dla sadzonek w kryzysie.
+</div>
+
+<p>Każda metoda opisana jest w sposób, który możesz zastosować dzisiaj, z tym co masz. Zacznij od Rozdziału 1 — Metody Trzech Okien. To jest rdzeń wszystkiego, co opisuje ta Biblia.</p>
+
+<!-- ROZDZIAŁ 1 -->
+<div class="chapter-opener">
+  <div class="chapter-num">Rozdział 1</div>
+  <h2>Metoda Trzech Okien</h2>
+  <p>Prosty system, który organizuje cały cykl produkcyjny sadzonek w trzech etapach</p>
+</div>
+
+<h3>Skąd pochodzi Metoda Trzech Okien</h3>
+<p>W tradycyjnych szkółkach produkcja sadzonek jest zorganizowana przestrzennie: inna strefa na cięcie, inna na ukorzenianie, inna na wzrost. Metodę Trzech Okien opracowałem jako uproszczoną wersję tej logiki — dostosowaną do mieszkania, parapetu i kilku doniczek.</p>
+<p>Nazwa pochodzi od tres okien, które wystarczą do prowadzenia domowej produkcji sadzonek przez cały rok. Każde okno to inny etap cyklu.</p>
+
+<div class="window-diagram">
+  <h4>Trzy okna — trzy etapy cyklu</h4>
+  <div class="windows-row">
+    <div class="window-box">
+      <div class="wnum">1</div>
+      <div class="wname">Okno Pobierania</div>
+      <p>Mateczniki. Tu pobierasz sadzonki. Dobre oświetlenie, regularne podlewanie, zdrowe rośliny.</p>
+    </div>
+    <div class="window-box">
+      <div class="wnum">2</div>
+      <div class="wname">Okno Ukorzeniania</div>
+      <p>Sadzonki w trakcie ukorzeniania. Jasne, ale bez bezpośredniego słońca. Wysoka wilgotność.</p>
+    </div>
+    <div class="window-box">
+      <div class="wnum">3</div>
+      <div class="wname">Okno Wzrostu</div>
+      <p>Sadzonki po ukorzenieniu, oczekujące na sprzedaż. Pełne słońce, normalne podlewanie.</p>
+    </div>
+  </div>
+</div>
+
+<h3>Jak to działa w praktyce</h3>
+<p>Wyobraź sobie poniedziałkowy poranek. Idziesz do Okna 1 (mateczniki) i pobierasz 10 sadzonek pothos. Przenos je do Okna 2 (ukorzenianie) w szklankach z wodą. Za 10-14 dni mają korzenie — przenosisz je do Okna 3 (doniczki 9 cm, rosną). Za kolejne 2-3 tygodnie gotowe do sprzedaży.</p>
+<p>Okno 2 się opróżnia — wchodzi nowa seria. Cykl trwa.</p>
+
+<div class="callout ok">
+  <strong>Kluczowy insight:</strong> Nie musisz "wiedzieć kiedy sadzić". Wystarczy że Okno 2 jest zawsze zajęte. Jeśli jest puste przez więcej niż tydzień, pobierasz nowe sadzonki — niezależnie od daty w kalendarzu.
+</div>
+
+<h3>Optymalizacja cyklu</h3>
+<p>Czas cyklu (od cięcia do gotowej sadzonki) zależy od gatunku:</p>
+<table class="data">
+<thead><tr><th>Gatunek</th><th>Okno 2 (ukorzenianie)</th><th>Okno 3 (wzrost)</th><th>Łączny cykl</th></tr></thead>
+<tbody>
+<tr><td>Pothos, tradeskancja</td><td>7-14 dni</td><td>14-21 dni</td><td>3-5 tygodni</td></tr>
+<tr><td>Pelargonia, fuksja</td><td>14-21 dni</td><td>21-28 dni</td><td>5-7 tygodni</td></tr>
+<tr><td>Monstera, filodendron</td><td>21-35 dni</td><td>21-35 dni</td><td>6-10 tygodni</td></tr>
+<tr><td>Echeveria (liść)</td><td>21-42 dni</td><td>28-42 dni</td><td>7-12 tygodni</td></tr>
+<tr><td>Fikus elastica</td><td>28-45 dni</td><td>21-35 dni</td><td>7-12 tygodni</td></tr>
+</tbody>
+</table>
+
+<h3>Zarządzanie trzema oknami równocześnie</h3>
+<p>W praktyce: trzymasz w każdym oknie kilka serii sadzonek na różnych etapach. Okno 2 może mieć jednocześnie pothos z 5-dniowymi korzeniami i monstera wciąż bez korzeni. To normalne — zarządzasz przepływem, nie jedną sadzonką naraz.</p>
+
+<div class="steps">
+  <div>
+    <span>Etykietuj każdą serię: gatunek + data wejścia</span>
+    <p>Karteczka papieru lub sklep z etykietami to wystarczy. Bez etykiety nie wiesz ile czasu upłynęło i nie możesz przewidzieć kiedy gotowe.</p>
+  </div>
+  <div>
+    <span>Sprawdzaj Okno 2 co 3-4 dni</span>
+    <p>Kontrola korzeni: delikatnie wyciągnij sadzonkę. Korzenie 2-4 cm w perlicie lub wodzie = czas na Okno 3.</p>
+  </div>
+  <div>
+    <span>Okno 3: raz w tygodniu ocena gotowości</span>
+    <p>Nowe liście i mocno zakorzeniona w podłożu = gotowa do sprzedaży. Zapisz w Arkuszu produkcji.</p>
+  </div>
+</div>
+
+<!-- ROZDZIAŁ 2 -->
+<div class="chapter-opener">
+  <div class="chapter-num">Rozdział 2</div>
+  <h2>Podstawy anatomii sadzonki</h2>
+  <p>Co to jest węzeł, gdzie są korzenie i dlaczego to ma znaczenie przy cięciu</p>
+</div>
+
+<h3>Węzeł — serce sadzonki</h3>
+<p>Węzeł (ang. node) to punkt na łodydze, z którego wyrastają liście, gałęzie i, co najważniejsze, korzenie. Każda skuteczna sadzonka łodygowa musi zawierać przynajmniej jeden węzeł.</p>
+<p>Jak rozpoznać węzeł: to lekko zgrubione miejsce na łodydze, z którego wyrastają liście. U roślin tropikalnych często widać tam "blizny" po opadłych liściach lub wypukłości.</p>
+
+<div class="callout warn">
+  <strong>Najczęstszy błąd:</strong> Cięcie między węzłami. Sadzonka bez węzła nigdy nie wypuści korzeni — jest skazana na gnicie. Zawsze tnie się tuż poniżej węzła (5-10 mm pod węzłem).
+</div>
+
+<h3>Merystem — tam gdzie dzieje się wzrost</h3>
+<p>Merystem to tkanka wzrostowa roślin — komórki zdolne do podziału i tworzenia nowych organów. W sadzonkach kluczowe są dwa rodzaje:</p>
+<ul>
+  <li><strong>Merystem wierzchołkowy</strong> — wierzchołek pędu. Stymuluje wzrost łodygi i liści.</li>
+  <li><strong>Merystem boczny</strong> — węzły. Stamtąd wyrastają korzenie przy ukorzenianiu.</li>
+</ul>
+
+<h3>Jak długa powinna być sadzonka</h3>
+<table class="data">
+<thead><tr><th>Typ rośliny</th><th>Optymalna długość</th><th>Min. węzłów</th></tr></thead>
+<tbody>
+<tr><td>Rośliny tropikalne (pothos, filodendron)</td><td>10-15 cm</td><td>2-3</td></tr>
+<tr><td>Rośliny miękołodygowe (koleus, impatiens)</td><td>8-12 cm</td><td>2</td></tr>
+<tr><td>Rośliny półdrewniane (pelargonia, fuksja)</td><td>10-15 cm</td><td>3</td></tr>
+<tr><td>Krzewy i drzewa (fikus, rozmaryn)</td><td>12-20 cm</td><td>3-4</td></tr>
+<tr><td>Sukulenty łodygowe</td><td>5-10 cm</td><td>1-2</td></tr>
+</tbody>
+</table>
+
+<!-- ROZDZIAŁ 3 -->
+<div class="chapter-opener">
+  <div class="chapter-num">Rozdział 3</div>
+  <h2>Sadzonki łodygowe</h2>
+  <p>Protokół krok po kroku dla najczęstszej metody rozmnażania</p>
+</div>
+
+<h3>Kiedy pobierać sadzonki łodygowe</h3>
+<p>Optymalne: wiosna i wczesne lato (marzec-czerwiec), gdy roślina aktywnie rośnie. W innych porach roku też działa, ale wolniej — hormony wzrostu są mniej aktywne poza sezonem wiosennym.</p>
+<p>Poranny pobór jest lepszy niż wieczorny — roślina ma więcej wody w tkankach po nocy.</p>
+
+<div class="technique-box">
+  <h4>Protokół sadzonek łodygowych — 8 kroków</h4>
+  <ol>
+    <li>Wybierz zdrową, silną łodygę z matecznika. Nie za starą (drewniejącą), nie za młodą (zbyt miękką). Idealna: łodyga z 3-4 liśćmi, jasnozielona.</li>
+    <li>Zdezynfekuj nóż lub nożyczki alkoholem 70%. Ważne przy każdym cięciu — między sadzonkami.</li>
+    <li>Tni tuż poniżej węzła (5-10 mm). Ukośne cięcie zwiększa powierzchnię ukorzenienia.</li>
+    <li>Usuń dolne 1-2 liście — te, które byłyby pod wodą lub w podłożu. Zostaw 2-3 górne.</li>
+    <li>Opcjonalnie: zanurz cięcie w ukorzeniaczu (naturalnym lub syntetycznym) na 1-2 godziny.</li>
+    <li>Umieść w wodzie lub podłożu. W wodzie: 3-5 cm pod wodą; zmiana wody co 5-7 dni. W podłożu: perlit lub wermikulit, lekko wilgotny.</li>
+    <li>Umieść w jasnym miejscu bez bezpośredniego słońca. Temperatura 18-25°C.</li>
+    <li>Sprawdzaj co 3-4 dni. Korzenie 2-4 cm = czas na przesadzenie do doniczki.</li>
+  </ol>
+</div>
+
+<h3>Woda vs podłoże — kiedy co wybrać</h3>
+<table class="data">
+<thead><tr><th>Metoda</th><th>Zalety</th><th>Wady</th><th>Najlepsze dla</th></tr></thead>
+<tbody>
+<tr><td>Woda</td><td>Widzisz korzenie, prosto</td><td>Korzenie wodne ≠ ziemne, przesadzenie wymaga ostrożności</td><td>Pothos, tradeskancja, koleus, mięta</td></tr>
+<tr><td>Perlit</td><td>Korzenie od razu "ziemne", mniej szoku przy przesadzeniu</td><td>Nie widać korzeni</td><td>Pelargonia, fuksja, hoya</td></tr>
+<tr><td>Wermikulit</td><td>Retencja wilgoci + dobre korzenie</td><td>Może zagnieść przy podlewaniu</td><td>Delikatne gatunki</td></tr>
+</tbody>
+</table>
+
+<!-- ROZDZIAŁ 4 -->
+<div class="chapter-opener">
+  <div class="chapter-num">Rozdział 4</div>
+  <h2>Sadzonki liściowe i bulwiaste</h2>
+  <p>Metoda liścia, podział bulw i inne techniki dla sukulentów i wybranych gatunków</p>
+</div>
+
+<h3>Metoda liścia — tylko dla odpowiednich gatunków</h3>
+<p>Nie każda roślina może się rozmnażać z liścia. Ta metoda działa dla roślin przechowujących składniki odżywcze w liściach (sukulenty) lub mających aktywny merystem przy nasadzie liścia.</p>
+<p><strong>Gatunki, które działają:</strong> Echeveria, sedum, graptoveria, graptopetalum, kalanchoe, crassula, niektóre begonie (Begonia rex).</p>
+<p><strong>Gatunki, które NIE działają:</strong> Monstera, pothos, filodendron, hoya, fikus — z pojedynczego liścia nie wypuszczą korzeni bez węzła.</p>
+
+<h3>Podział bulw i kłączy</h3>
+<p>Dla roślin, które tworzą kłącza (hosty, mięta) lub bulwy (orchidee pseudobulwy, begonie bulwiaste). Metoda idealna gdy roślina mateczna jest za duża lub gdy chcesz szybko podwoić kolekcję.</p>
+
+<div class="steps">
+  <div>
+    <span>Wyjmij całą roślinę z doniczki i wyprostuj korzenie</span>
+    <p>Pod bieżącą wodą, delikatnie. Chodzi o zobaczenie naturalnych podziałów.</p>
+  </div>
+  <div>
+    <span>Znajdź naturalne podziały — każdy segment z korzeniami i przynajmniej 1 pędem</span>
+    <p>Nigdy nie dziel "na pół" losowo. Każda część musi mieć własny system korzeniowy i wzrostowy.</p>
+  </div>
+  <div>
+    <span>Tni ostrym nożem, posyp węglem aktywnym lub cynamonem</span>
+    <p>Antygrzybicza ochrona rany cięcia.</p>
+  </div>
+  <div>
+    <span>Posadź każdą część osobno, podlewaj skąpo przez 2 tygodnie</span>
+    <p>Czas na adaptację — korzenie były naruszone.</p>
+  </div>
+</div>
+
+<!-- ROZDZIAŁ 5 -->
+<div class="chapter-opener">
+  <div class="chapter-num">Rozdział 5</div>
+  <h2>Podział i odrostki</h2>
+  <p>Rozłogi, odrostki i dzieci — jak pobierać sadzonki bez cięcia</p>
+</div>
+
+<h3>Rozłogi i długie pędy</h3>
+<p>Chlorofitum (zielistka), truskawki, saxifraga — tworzą długie pędy z "dziećmi" na końcu. To najłatwiejsze rozmnażanie: dziecko już ma zawiązki korzeni lub korzenie. Wystarczy je odciąć i posadzić.</p>
+<p>Nie odcinaj zanim dziecko nie ma 3-4 własnych liści. Wcześniej jest za słabe.</p>
+
+<h3>Odrostki boczne (pups)</h3>
+<p>Aloes, agawa, bromeliad — wypuszczają boczne odrostki. Pobierasz je kiedy mają min. 10 cm i własne korzenie. Nóż dezynfekowany, cięcie jak najbliżej matki, zasusa 24h przed sadzeniem.</p>
+
+<!-- ROZDZIAŁ 6 -->
+<div class="chapter-opener">
+  <div class="chapter-num">Rozdział 6</div>
+  <h2>9 przewodników gatunkowych</h2>
+  <p>Wszystko co musisz wiedzieć o rozmnażaniu najchętniej sprzedawanych gatunków</p>
+</div>
+
+<!-- GATUNEK 1: POTHOS -->
+<div class="species-card">
+  <h3>Pothos Złoty</h3>
+  <div class="latin">Epipremnum aureum / Scindapsus aureus</div>
+  <div class="species-meta">
+    <div class="meta-item"><strong>Trudność</strong>Bardzo łatwa ⭐</div>
+    <div class="meta-item"><strong>Cykl</strong>3-5 tygodni</div>
+    <div class="meta-item"><strong>Cena rynkowa</strong>7-15 zł</div>
+  </div>
+  <p>Pothos to "roślina niepotopialista" — przeżyje błędy, które zabijają inne. Jeden z najlepszych gatunków na start. Dostępny wszędzie, rośnie szybko, ukorzenia się równie szybko w wodzie.</p>
+  <h4>Protokół ukorzeniania</h4>
+  <div class="steps">
+    <div><span>Tni 10-15 cm sadzonkę tuż poniżej węzła</span><p>1 węzeł pod wodą wystarczy. Usuń liście, które będą pod wodą.</p></div>
+    <div><span>Woda odstawana, temperatura pokojowa</span><p>Zmień co 5-7 dni. Korzenie pojawią się w 7-14 dni.</p></div>
+    <div><span>Przesadź przy korzeniach 3-4 cm</span><p>Podłoże: 50% gotowe + 50% perlit. Doniczka 9 cm.</p></div>
+  </div>
+  <div class="callout ok">
+    <strong>Warianty:</strong> Pothos Mable Queen (biały wzór), Pothos Neon (żółtozielony), Pothos N'Joy (zielono-biały) — te same metody, wyższe ceny na rynku (+20-50%).
+  </div>
+</div>
+
+<!-- GATUNEK 2: MONSTERA -->
+<div class="species-card">
+  <h3>Monstera Adansonii i Deliciosa</h3>
+  <div class="latin">Monstera adansonii · Monstera deliciosa</div>
+  <div class="species-meta">
+    <div class="meta-item"><strong>Trudność</strong>Łatwa ⭐⭐</div>
+    <div class="meta-item"><strong>Cykl</strong>6-10 tygodni</div>
+    <div class="meta-item"><strong>Cena rynkowa</strong>20-50 zł</div>
+  </div>
+  <p>Monstera jest popularna i dobrze się sprzedaje. Adansonii (z dziurkami) jest szybsza i tańsza niż deliciosa. Obie wymagają węzła przy sadzonkach łodygowych.</p>
+  <h4>Protokół ukorzeniania</h4>
+  <div class="steps">
+    <div><span>Sadzonka z 1-2 węzłami i 1-2 liśćmi</span><p>Cięcie tuż poniżej węzła. Nie tni zbyt krótko — łodyga musi sięgnąć wody.</p></div>
+    <div><span>Woda lub perlit, jasne miejsce bez słońca bezpośredniego</span><p>Korzenie po 14-30 dniach. Adansonii szybsza niż deliciosa.</p></div>
+    <div><span>Przesadź do podłoża aroidowego</span><p>Mix: ziemia kokosowa + perlit + kora. Doniczka 11-13 cm.</p></div>
+  </div>
+</div>
+
+<!-- GATUNEK 3: ECHEVERIA -->
+<div class="species-card">
+  <h3>Echeveria i sukulenty rozetowe</h3>
+  <div class="latin">Echeveria spp. · Graptoveria · Sedum</div>
+  <div class="species-meta">
+    <div class="meta-item"><strong>Trudność</strong>Łatwa-Umiarkowana ⭐⭐</div>
+    <div class="meta-item"><strong>Cykl</strong>7-12 tygodni</div>
+    <div class="meta-item"><strong>Cena rynkowa</strong>12-25 zł</div>
+  </div>
+  <p>Echeveria wymaga protokołu antyzgnilizowego (Poradnik 6). Metoda liścia lub główki. Zakaz podlewania przed korzeniami.</p>
+  <h4>Protokół metody liścia</h4>
+  <div class="steps">
+    <div><span>Oderwij liść ruchem skręcania, cały z nasadą</span><p>Bez nasady = nie wypuści korzeni.</p></div>
+    <div><span>Zasusa 24-48h, połóż na podłożu kaktusowym</span><p>Bez podlewania przez 3-4 tygodnie. Delikatne zraszanie co 3-4 dni.</p></div>
+    <div><span>Korzenie i mała rozeta pojawią się po 2-6 tygodniach</span><p>Kiedy rozeta ma 1-2 cm — posadź. Stary liść odpadnie sam.</p></div>
+  </div>
+</div>
+
+<!-- GATUNEK 4: PELARGONIA -->
+<div class="species-card">
+  <h3>Pelargonia</h3>
+  <div class="latin">Pelargonium ×hortorum · Pelargonium peltatum</div>
+  <div class="species-meta">
+    <div class="meta-item"><strong>Trudność</strong>Łatwa ⭐⭐</div>
+    <div class="meta-item"><strong>Cykl</strong>5-7 tygodni</div>
+    <div class="meta-item"><strong>Cena rynkowa</strong>8-18 zł</div>
+  </div>
+  <p>Pelargonia ma bardzo dobry rynek wiosenny (balkonowy). Sadzonki pobierane wiosną lub jesienią — te jesienne zimują w domu i kwitną pierwszy rok.</p>
+  <h4>Protokół</h4>
+  <div class="steps">
+    <div><span>Sadzonka 10-12 cm, 3-4 węzły, cięcie pod węzłem</span><p>Zasusz cięcie 30-60 min przed posadzeniem — redukuje gnicie.</p></div>
+    <div><span>Perlit lub wermikulit, NIE woda (peleargonia gnije szybko w wodzie)</span><p>Wilgotny, nie mokry. Jasne, ciepłe miejsce.</p></div>
+    <div><span>Korzenie po 14-21 dniach — przesadź do podłoża przepuszczalnego</span><p>Mix: podłoże universal 60% + perlit 40%.</p></div>
+  </div>
+</div>
+
+<!-- GATUNEK 5: FILODENDRON -->
+<div class="species-card">
+  <h3>Filodendron</h3>
+  <div class="latin">Philodendron spp. (hederaceum, Brasil, Pink Princess, Birkin)</div>
+  <div class="species-meta">
+    <div class="meta-item"><strong>Trudność</strong>Łatwa ⭐⭐</div>
+    <div class="meta-item"><strong>Cykl</strong>6-10 tygodni</div>
+    <div class="meta-item"><strong>Cena rynkowa</strong>15-60 zł (zależnie od odmiany)</div>
+  </div>
+  <p>Filodendron sercowaty (hederaceum) jest tani i łatwy. Odmiany variegated (Pink Princess, Birkin, Brasil) kosztują 3-10× więcej — te same metody.</p>
+  <h4>Protokół</h4>
+  <div class="steps">
+    <div><span>Sadzonka łodygowa z węzłem lub odrostek boczny</span><p>Filodendron chętnie tworzy odrostki — pobierz gdy mają 3+ liście i własne korzenie.</p></div>
+    <div><span>Woda lub perlit — obie metody działają dobrze</span><p>Korzenie po 10-21 dniach.</p></div>
+    <div><span>Przesadź do podłoża dla aroidów</span><p>Mix: kokos + perlit + kora. Doniczka 9-11 cm.</p></div>
+  </div>
+</div>
+
+<!-- GATUNEK 6: FIKUS -->
+<div class="species-card">
+  <h3>Fikus</h3>
+  <div class="latin">Ficus elastica · Ficus benjamina · Ficus lyrata</div>
+  <div class="species-meta">
+    <div class="meta-item"><strong>Trudność</strong>Umiarkowana ⭐⭐⭐</div>
+    <div class="meta-item"><strong>Cykl</strong>8-14 tygodni</div>
+    <div class="meta-item"><strong>Cena rynkowa</strong>20-50 zł</div>
+  </div>
+  <p>Fikus elastica (gumowy) jest najłatwiejszy z trojga. Lyrata (skrzypce) jest wolna ale kosztuje znacznie więcej. Ważne: zetrzyj mleczny sok z cięcia przed ukorzenianiem.</p>
+  <h4>Protokół</h4>
+  <div class="steps">
+    <div><span>Sadzonka 15-20 cm, cięcie pod węzłem, zetrzyj mleczny sok</span><p>Sok jest drażniący. Rękawiczki przy Ficus elastica i lyrata.</p></div>
+    <div><span>Zasusa 30-60 min, potem woda lub perlit</span><p>Korzenie po 21-45 dniach — cierpliwość.</p></div>
+    <div><span>Jasne miejsce, temperatura 20-25°C</span><p>Zimno = brak korzeni. Wymagające zimą.</p></div>
+  </div>
+</div>
+
+<!-- GATUNEK 7: HOYA -->
+<div class="species-card">
+  <h3>Hoya</h3>
+  <div class="latin">Hoya carnosa · Hoya kerrii · Hoya pubicalyx · i inne</div>
+  <div class="species-meta">
+    <div class="meta-item"><strong>Trudność</strong>Umiarkowana ⭐⭐⭐</div>
+    <div class="meta-item"><strong>Cykl</strong>8-16 tygodni</div>
+    <div class="meta-item"><strong>Cena rynkowa</strong>20-80 zł (zależnie od odmiany)</div>
+  </div>
+  <p>Hoya jest wolna — nie spiesz się. Ale jest popularna i opłacalna. Kolekcjonerzy płacą wysokie ceny za rzadkie odmiany. Sadzonka z węzłem (nie sam liść bez węzła).</p>
+  <h4>Protokół</h4>
+  <div class="steps">
+    <div><span>Sadzonka 2-3 węzłów, koniecznie z węzłem</span><p>Sam liść Hoya kerrii BEZ węzła nigdy nie wypuści rośliny. Popularne nieporozumienie!</p></div>
+    <div><span>Perlit lub wermikulit — unikaj wody dla hoi</span><p>Hoja dobrze się ukorzenia w perlicie. Wilgotny, nie mokry. 21-45 dni.</p></div>
+    <div><span>Jasne, ciepłe miejsce. Cierpliwość.</span><p>Hoja jest wolna. Nie kopaj korzeni co tydzień — to stresuje roślinę.</p></div>
+  </div>
+</div>
+
+<!-- GATUNEK 8: BEGONIA -->
+<div class="species-card">
+  <h3>Begonia</h3>
+  <div class="latin">Begonia semperflorens · Begonia ×tuberhybrida · Begonia rex</div>
+  <div class="species-meta">
+    <div class="meta-item"><strong>Trudność</strong>Łatwa ⭐⭐</div>
+    <div class="meta-item"><strong>Cykl</strong>5-9 tygodni</div>
+    <div class="meta-item"><strong>Cena rynkowa</strong>8-20 zł</div>
+  </div>
+  <p>Begonia ma dwie główne metody: sadzonki łodygowe (semperflorens, ×tuberhybrida) i liściowe (Begonia rex). Obie działają dobrze. Wrażliwa na choroby grzybiczne przy zbyt dużej wilgotności.</p>
+  <h4>Protokół łodygowy (semperflorens)</h4>
+  <div class="steps">
+    <div><span>Sadzonka 8-12 cm z 2-3 węzłami</span><p>Wiosna = najlepszy czas. Usuń dolne liście.</p></div>
+    <div><span>Woda lub wermikulit. Jasne miejsce.</span><p>Korzenie po 14-28 dniach.</p></div>
+    <div><span>Przesadź do podłoża torfiastego z perlitem</span><p>Doniczka 9 cm. Dobra wentylacja — zapobiega szarej pleśni.</p></div>
+  </div>
+</div>
+
+<!-- GATUNEK 9: TRADESKANCJA -->
+<div class="species-card">
+  <h3>Tradeskancja</h3>
+  <div class="latin">Tradescantia zebrina · T. pallida · T. fluminensis</div>
+  <div class="species-meta">
+    <div class="meta-item"><strong>Trudność</strong>Bardzo łatwa ⭐</div>
+    <div class="meta-item"><strong>Cykl</strong>2-4 tygodnie</div>
+    <div class="meta-item"><strong>Cena rynkowa</strong>5-12 zł</div>
+  </div>
+  <p>Tradeskancja jest idealna do ćwiczenia i do szybkiej sprzedaży. Ukorzenia się w 5-10 dni w wodzie, jeden węzeł wystarczy. Z jednej matki możesz pobierać dziesiątki sadzonek.</p>
+  <h4>Protokół</h4>
+  <div class="steps">
+    <div><span>Sadzonka 10-15 cm z 2-3 węzłami</span><p>Woda. Natychmiast po cięciu.</p></div>
+    <div><span>Korzenie 5-10 dni. Zmiana wody co 3-4 dni.</span><p>Widoczne korzenie białe, zdrowe.</p></div>
+    <div><span>Przesadź do standardowego podłoża z perlitem</span><p>Doniczka 9 cm. Szybki wzrost.</p></div>
+  </div>
+  <div class="callout ok">
+    <strong>Tip sprzedażowy:</strong> Tradeskancja zebrina (fioletowo-srebrna) sprzedaje się lepiej niż zielona — te same nakłady, 20-30% wyższa cena.
+  </div>
+</div>
+
+<!-- ROZDZIAŁ 7 -->
+<div class="chapter-opener">
+  <div class="chapter-num">Rozdział 7</div>
+  <h2>Od sadzonki do pieniędzy</h2>
+  <p>Jak wyceniać, gdzie sprzedawać i jak budować bazę stałych klientów</p>
+</div>
+
+<h3>Wycena — formuła minimalna</h3>
+<p>Cena minimalna = koszty materiałowe + czas / (1 - prowizja%). Poniżej tej ceny tracisz na każdej sadzonkę. Kalkulator Szkółki automatyzuje ten obliczenie — znajdziesz go w zakładce Aplikacje.</p>
+<p>Cena sugerowana: zazwyczaj 2-3× koszty całkowite. Sprawdź OLX dla swojego rynku lokalnego i ustaw cenę w środku przedziału.</p>
+
+<h3>Pierwsza sprzedaż — 14-dniowy plan</h3>
+<table class="data">
+<thead><tr><th>Tydzień</th><th>Zadanie</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>Pobierz 20-30 sadzonek. Uruchom Okno 2.</td></tr>
+<tr><td>1-2</td><td>Przygotuj zdjęcia mateczników + pierwszych sadzonek w Oknie 2.</td></tr>
+<tr><td>2</td><td>Przesadź pierwsze gotowe sadzonki. Zrób finalne zdjęcia.</td></tr>
+<tr><td>2</td><td>Wystaw na OLX + post na grupie FB lokalnej + WhatsApp do znajomych.</td></tr>
+<tr><td>2-3</td><td>Pierwsza sprzedaż!</td></tr>
+</tbody>
+</table>
+
+<!-- ROZDZIAŁ 8 -->
+<div class="chapter-opener">
+  <div class="chapter-num">Rozdział 8</div>
+  <h2>Szkółka domowa</h2>
+  <p>Organizacja przestrzeni, planowanie produkcji i śledzenie wyników</p>
+</div>
+
+<h3>Harmonogram tygodniowy (60 minut)</h3>
+<div class="steps">
+  <div><span>Poniedziałek (10 min): Inspekcja Okna 2</span><p>Sprawdź korzenie, zmień wodę, wyrzuć zgniłe. Etykiety aktualizuj.</p></div>
+  <div><span>Środa (10 min): Podlewanie i zraszanie</span><p>Okno 3: podlewanie gdy suche. Okno 2: zmiana wody jeśli mętna.</p></div>
+  <div><span>Piątek (20 min): Przenoszenia i nowe cięcia</span><p>Gotowe z Okna 2 → Okno 3. Nowe sadzonki do Okna 2 z mateczników.</p></div>
+  <div><span>Sobota (20 min): Sprzedaż</span><p>Zdjęcia gotowych, ogłoszenia, odpowiedzi kupującym.</p></div>
+</div>
+
+<!-- ROZDZIAŁ 9 -->
+<div class="chapter-opener">
+  <div class="chapter-num">Rozdział 9</div>
+  <h2>Diagnostyka i ratowanie sadzonek</h2>
+  <p>Szybka tabela diagnoz i plany ratunkowe dla najczęstszych problemów</p>
+</div>
+
+<h3>Tabela diagnoz — szybkie spojrzenie</h3>
+<table class="data">
+<thead><tr><th>Co widzisz</th><th>Prawdopodobna przyczyna</th><th>Pierwsze 24h</th></tr></thead>
+<tbody>
+<tr><td>Więdnie mimo wilgotnej ziemi</td><td>Gnicie korzeni</td><td>Wyjmij z doniczki, sprawdź korzenie</td></tr>
+<tr><td>Łodyga miękka przy nasadzie</td><td>Gnicie, zakażenie grzybami</td><td>Odetnij, zasusz, przesadź</td></tr>
+<tr><td>Brązowe plamy po słonecznym miejscu</td><td>Poparzenie słoneczne</td><td>Przenieś w cień pośredni</td></tr>
+<tr><td>Nie rośnie przez 6+ tygodni</td><td>Za mała doniczka, brak korzeni</td><td>Sprawdź korzenie, przesadź jeśli przyroste</td></tr>
+<tr><td>Liście opadają masowo</td><td>Stres adaptacyjny</td><td>Mini-szklarnia foliowa na 7 dni</td></tr>
+<tr><td>Pajęczynka na spodzie liści</td><td>Przędziorek</td><td>Prysznic + spray z mydłem potasowym</td></tr>
+<tr><td>Białe muszki przy ruszeniu</td><td>Mączlik szklarniowy</td><td>Tablice lepowe + olej neem</td></tr>
+</tbody>
+</table>
+
+<!-- SŁOWNIK -->
+<div class="chapter-opener">
+  <div class="chapter-num">Słownik</div>
+  <h2>Terminy używane w Biblii Sadzonek</h2>
+  <p></p>
+</div>
+
+<table class="data">
+<thead><tr><th>Termin</th><th>Definicja</th></tr></thead>
+<tbody>
+<tr><td>Węzeł (node)</td><td>Punkt na łodydze, z którego wyrastają liście i korzenie. Niezbędny do sadzonek łodygowych.</td></tr>
+<tr><td>Merystem</td><td>Tkanka wzrostowa rośliny. Źródło podziałów komórkowych i wzrostu korzeni.</td></tr>
+<tr><td>Perlit</td><td>Spienione szkło wulkaniczne. Napowietrzający składnik podłoży do ukorzeniania.</td></tr>
+<tr><td>Wermikulit</td><td>Spieniony minerał łyszczykowy. Zatrzymuje wilgoć + napowietrzanie.</td></tr>
+<tr><td>Etiolacja</td><td>Wydłużanie rośliny przy niedoborze światła. Sadzonki z etiolowanych łodyg ukorzeniają się gorzej.</td></tr>
+<tr><td>Auksyny</td><td>Hormony wzrostu roślin stymulujące wzrost korzeni. Zawarte w ukorzeniaczach syntetycznych i naturalnych (woda wierzbowa).</td></tr>
+<tr><td>Protokół antyzgnilizowy</td><td>Zestaw zasad zapobiegania gniciu przy sukulentach: zasusz, suche podłoże, bez podlewania przed korzeniami.</td></tr>
+<tr><td>Metoda Trzech Okien</td><td>System organizacji produkcji sadzonek: Okno 1 (mateczniki), Okno 2 (ukorzenianie), Okno 3 (wzrost).</td></tr>
+<tr><td>Matecznik</td><td>Roślina mateczna — z której pobierasz sadzonki. Należy dbać o jej kondycję.</td></tr>
+<tr><td>Kłącze (rhizome)</td><td>Podziemna łodyga magazynująca składniki odżywcze. U mięty, hosta, storczyków.</td></tr>
+</tbody>
+</table>
+
+<section class="endcover">
+  <h2>Próxny krok</h2>
+  <p>Masz teraz kompletny system. Zacznij od Rozdziału 1 — Metody Trzech Okien. Ustaw swoje trzy okna. Pobierz pierwsze 10 sadzonek z gatunku, który już masz. Uruchom cykl.</p>
+  <p>Reszta przyjdzie sama.</p>
+</section>
+
+</body>
+</html>

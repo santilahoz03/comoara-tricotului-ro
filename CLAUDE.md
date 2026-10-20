@@ -106,7 +106,7 @@ Propiedad de archivos:
 
 <!-- Cada kit de ZEA que instales agrega acá una línea: fecha · kit · skills · rutinas. -->
 - 2026-10-02 · kit-00 configuración inicial · perfil: Solo Cazar · skills: bibliotecario, guardar-regla, instalar-skill, verificar-stack · rutinas: ninguna (pendiente de elegir)
-- 2026-10-02 · kit-01 cazar · skills: cazar, watch · rutinas: scouting-diario (06:30, programada)
+- 2026-10-02 · kit-01 cazar · skills: cazar, watch · rutinas: scouting-diario (07:45, programada; desde 2026-10-11: 08:20; desde 2026-10-12: 07:30; desde 2026-10-16: 08:45; luego 09:05)
 - 2026-10-02 · kit-02 modelar · skills: modelar, qc-landing · rutinas: ninguna
 - 2026-10-02 · kit-06 entregables y hub · skills: hub-entrega, generador-ebooks · rutinas: ninguna
 - 2026-10-02 · kit-03 creación de ads · skills: conceptos-zebra, guiones-ads, guiones-diarios, replicar-ad, doblar-ad, ugc-broll, iterar-winner, preview-ads, watch · rutinas: ninguna (Vmake pendiente)
@@ -115,18 +115,20 @@ Propiedad de archivos:
 ## Mi negocio (completá esto)
 
 - Qué vendo: [todavía no definido; barrido amplio con /cazar]
-- Mercados: US, GB, IT, FR, RO, PL, HU, BR, AR (barrido y destino)
+- Mercados: US, ES, IT, DE, GB, FR, RO, PL, HU, BR, AR (barrido y destino)
 - Ticket de referencia: USD 27 (US/GB) · EUR 17,99 (Europa) · USD 19 (BR) · ARS 19.990 (AR)
-- Tienda y checkout: ImpulTienda
+- Tienda y checkout: ImpulTienda (se opera solo con su conector MCP, a pedido; regla `memoria/impultienda-solo-mcp.md`)
 - Cobro: Whop
-- Tracking: [Utmify / otro]
+- Tracking: Utmify (MCP de solo lectura conectado el 2026-10-12; `.mcp.json` + `tools/utmify.py`; dashboard «Principal»)
 - Sistema operativo: Mac
 - Cómo me gusta que me hables: español rioplatense, directo
 ## Scouting de ofertas (kit /cazar)
 
 - Antes de evaluar o buscar cualquier oferta, leé `WIKI/criterios-oferta.md`, `scouting/config.md` y `scouting/criterio-aprendido.md`, y aplicalos tal cual.
 - La Biblioteca de Anuncios de Meta se navega **siempre con el navegador integrado de Claude**, nunca con mi Chrome personal ni con mi sesión de Facebook.
-- Máximo 2-3 pestañas o agentes a la vez sobre la Biblioteca, cada uno en su propia pestaña, y canario («fitness» en US) antes de cada tanda. Un cero medido bajo rate limit no es un dato.
+- La rutina de rastrear (scouting diario) es SECUENCIAL: el agente principal recorre los mercados uno por uno, con 45 s de pausa entre cada uno. Sin sub-agentes en el Paso 1. En el Paso 2 (arsenales), máximo 1 sub-agente a la vez. El paralelismo era lo que causaba el rate limit silencioso de Meta.
+- Canario («crochet» en country=ALL) antes de cada mercado. Si da cero, es rate limit: pausar y esperar (3 min, luego 5 más). Un cero medido bajo rate limit no es un dato.
+- Ritmo: pausa de 8 a 15 s entre búsquedas dentro de cada mercado (regla `memoria/scouting-ritmo-sin-rate-limit.md`).
 - Todo link a la Biblioteca va con el formato de arsenal completo ordenado por impresiones, nunca un anuncio suelto.
 - Una oferta = una fila, aunque corra en varios mercados.
 - El scouting es solo lectura y cero gasto: nunca tocar cuentas publicitarias ni usar generación paga.
@@ -155,9 +157,13 @@ Propiedad de archivos:
 |---|---|---|---|---|---|---|---|
 | Argentina | AR | rioplatense, voseo | ARS | 19.990 | ~59.970 (3×) | 7 días | QUIERO MI ACCESO YA |
 | LATAM | MX, CL, CO, PE, UY, ES | español neutro, "tú" | USD | 19 | [por definir] | 7 días | QUIERO MI ACCESO AHORA |
-| Europa | IT, FR, PL, RO, HU | idioma local | EUR | 17,99 | [por definir] | 7 días | [traducido] |
+| Europa | IT, FR, PL, RO | idioma local | EUR | 17,99 | [por definir] | 7 días | [traducido] |
 | Anglo | US, UK, CA, AU, NZ | inglés US | USD | 27 | [por definir] | 7 días | I WANT ACCESS NOW |
 | Brasil | BR | portugués | USD | 19 | [por definir] | 7 días | [traducido] |
+| Nórdico | SE (+ DK, NO, FI a futuro) | idioma local · du/du/du/sinä | EUR | 17,99 | EUR 39,99 | 7 días | JA, JAG VILL HA TILLGÅNG TILL [PRODUCTO] → (SE) · [traducido para otros] |
+| Chequia | CZ | checo, tuteo (ty/tvůj) | CZK | 299 | ~1 499 Kč (5×) | 90 días | ANO, CHCI PŘÍSTUP |
+| Hungría | HU | húngaro, tuteo (te/tied) | HUF | 4.999 | ~24.990 Ft (5×) | 90 días | IGEN, HOZZÁFÉRÉST KÉREK |
+| Eslovaquia | SK | eslovaco, tuteo (ty/tvoja) | EUR | 14,99 | €74,99 (5×) | 7 días | ZÍSKAŤ PRÍSTUP HNEĎ |
 
 ### Reglas de modelado
 - Si te paso una landing real + un arsenal real, el modo es CLONADO FIEL: no inventes bonos ni secciones. Offer Hacking solo si lo pido explícito o si no hay landing de referencia. Si dudás, preguntá una vez.
@@ -211,6 +217,8 @@ WIKI/reglas-ads.md             Las reglas de ads que fuimos aprendiendo. Leerlo 
 8. **Nunca precios en moneda** en guiones multi-país. Nunca claims de salud, peso o ingresos garantizados sin su variante compliance.
 9. **Vmake: solo `python3 tools/vmake_limpiar.py`** (tarea `videoscreenclear`). Nunca otra tarea de Vmake ni la web; si falla, parás y me mostrás el error textual, sin probar alternativas.
 10. Nada de técnicas para esconder el contenido real del anuncio a Meta: si un anuncio es rechazado, se corrige el anuncio (variante compliance), no se evade la revisión.
+11. **Renovación de creativos:** sigue el sistema 70/30 (`WIKI/renovacion-creativos-70-30.md`, regla `memoria/renovacion-creativos-70-30.md`). La base de fichas, métricas y aprendizajes vive en `ADS/_base-renovacion/`. Prevalece sobre la rutina `renovacion-diaria` del kit.
+12. **SOP de creativos y VSL (compuertas de aprobación):** sigue `WIKI/sop-creativos-y-vsl.md` y la regla `memoria/sop-creativos-compuertas.md`. Aplica a réplicas y a producción propia: ad1 y luego el resto hasta la cantidad que yo elija (por defecto seis), sin gasto, publicación ni compra sin mi OK con alcance y tope. Ejecución detallada (SOP v2, 2026-10-11): `~/.claude/skills/ad-creator/references/sop-claude-exacto.md`; proyectos pesados en `~/Renovaciones-local/`; Chrome personal solo para TikTok/Pinterest/SSSTik.
 
 ### Skills de este kit
 `/conceptos-zebra` · `/guiones-ads` · `/watch` · `/replicar-ad` · `/doblar-ad` · `/ugc-broll` · `/iterar-winner` · `/guiones-diarios` · `/preview-ads`

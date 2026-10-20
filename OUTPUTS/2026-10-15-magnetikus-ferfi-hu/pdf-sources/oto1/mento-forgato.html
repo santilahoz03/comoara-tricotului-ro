@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Megmentő Forgatókönyv™ — Kilépés a Barátságzónából</title>
+<style>
+@page { size: A4; margin: 18mm 20mm; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: #FBF9F5; color: #17130E; font-family: Georgia, 'Times New Roman', serif; font-size: 13px; line-height: 1.7; }
+.cover { page-break-after: always; min-height: 85vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 60px 40px; }
+.cover-brand { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: #6B5E54; margin-bottom: 24px; }
+.cover-title { font-size: 30px; font-weight: bold; color: #17130E; line-height: 1.2; margin-bottom: 10px; }
+.cover-subtitle { font-size: 15px; color: #A63A2A; font-style: italic; margin-bottom: 32px; }
+.cover-divider { width: 60px; height: 2px; background: #A63A2A; margin: 0 auto 32px; }
+.cover-desc { font-size: 13px; color: #6B5E54; max-width: 460px; line-height: 1.8; }
+.cover-warning { margin-top: 32px; padding: 16px 20px; border: 1px solid #A63A2A; font-size: 12px; color: #A63A2A; max-width: 400px; }
+.cover-tag { margin-top: 32px; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: #A63A2A; border: 1px solid #A63A2A; padding: 6px 18px; display: inline-block; }
+.intro { padding: 32px 0; border-bottom: 1px solid #E2D9CE; margin-bottom: 36px; }
+.intro h2 { font-size: 17px; color: #A63A2A; margin-bottom: 14px; }
+.intro p { color: #6B5E54; margin-bottom: 10px; }
+.intro strong { color: #17130E; }
+.forgato { page-break-inside: avoid; margin-bottom: 44px; }
+.forgato-header { background: #17130E; color: #FBF9F5; padding: 14px 20px; display: flex; align-items: center; gap: 14px; }
+.forgato-num { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: #A63A2A; min-width: 28px; }
+.forgato-title { font-size: 17px; font-weight: bold; }
+.forgato-body { border: 1px solid #E2D9CE; border-top: none; padding: 20px 22px; }
+.section-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #6B5E54; margin-bottom: 8px; margin-top: 20px; }
+.section-label:first-child { margin-top: 0; }
+.diagnozis { background: #F3EDE5; border-left: 4px solid #6B5E54; padding: 12px 14px; color: #6B5E54; font-style: italic; font-size: 12.5px; margin-bottom: 4px; }
+.script-main { background: #17130E; color: #FBF9F5; padding: 14px 18px; font-style: italic; font-size: 13px; line-height: 1.8; margin-bottom: 4px; }
+.script-label-white { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #A63A2A; margin-bottom: 6px; }
+.valaszok-block { margin-top: 4px; }
+.valasz-row { display: flex; gap: 0; margin-bottom: 10px; border: 1px solid #E2D9CE; }
+.valasz-ella { flex: 1; padding: 10px 12px; border-right: 1px solid #E2D9CE; }
+.valasz-te { flex: 1; padding: 10px 12px; }
+.valasz-col-label { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: #6B5E54; margin-bottom: 5px; }
+.valasz-ella .text { font-style: italic; color: #17130E; font-size: 12px; }
+.valasz-te .text { font-weight: bold; color: #17130E; font-size: 12px; }
+.soha-ne { background: #FBF9F5; border: 1px solid #A63A2A; border-left: 4px solid #A63A2A; padding: 12px 16px; margin-top: 6px; }
+.soha-ne-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #A63A2A; margin-bottom: 8px; }
+.soha-ne ul { padding-left: 18px; }
+.soha-ne li { font-size: 12px; color: #17130E; margin-bottom: 5px; }
+footer { margin-top: 50px; padding-top: 16px; border-top: 1px solid #E2D9CE; text-align: center; font-size: 10px; color: #6B5E54; letter-spacing: 1px; }
+.page-break { page-break-before: always; }
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="cover-brand">Mágneses Férfi™ · Szituációs Arzenál™</div>
+  <div class="cover-title">Megmentő Forgatókönyv™</div>
+  <div class="cover-subtitle">Kilépés a Barátságzónából — 5 Pontos Szkript</div>
+  <div class="cover-divider"></div>
+  <div class="cover-desc">
+    A barátságzóna nem a te bűnöd — de te tartod életben minden nap, amikor nem lépsz.
+    Ez az útmutató nem "trükkökről" szól. A valódi vonzalom és egyértelműség helyreállításáról szól,
+    mielőtt végleg barátok lesztek.
+  </div>
+  <div class="cover-warning">
+    Figyelem: Ezek a szkriptek akkor működnek, ha valódi vonzalom volt korábban. Ha nem volt, a szavak nem hoznak létre olyat, ami sosem volt ott.
+  </div>
+  <div class="cover-tag">Csak vásárlóknak · OTO1</div>
+</div>
+
+<div class="intro">
+  <h2>Miért kerülsz barátságzónába?</h2>
+  <p>Nem azért, mert "túl rendes" vagy. Azért, mert <strong>soha nem jelezted egyértelműen, mit akarsz.</strong> Kétértelmű voltál — barátként viselkedtél, de randipartnert vártál. Ez az üzenet zavaros, és a zavar esetén az emberek az ismerőset választják: a barátságot.</p>
+  <p>A kilépés egyetlen módja az, hogy visszahozod az egyértelműséget. Nem melegséggel, nem nyomással — hanem azzal, hogy világosan megmutatod a szándékodat, és <strong>elfogadod a valódi választ</strong>, bármi legyen is az.</p>
+  <p><strong>Fontos:</strong> Ezeket a mondatokat nyugodtan, nem szánalomra vágyva mondod. Egyetlen mondat sem kér semmit — <em>kijelent</em>.</p>
+</div>
+
+<!-- FORGATÓKÖNYV 1 -->
+<div class="forgato">
+  <div class="forgato-header">
+    <span class="forgato-num">01</span>
+    <span class="forgato-title">Azt mondja: "Olyan jó barátom vagy"</span>
+  </div>
+  <div class="forgato-body">
+    <div class="section-label">Diagnózis — miért mondja ezt?</div>
+    <div class="diagnozis">
+      Mert te soha nem mutattál más szándékot. A barátságzóna nem az ő döntése volt — az a kommunikációd hiányának eredménye. Ő nem a barátságot kínálja tudatosan — hanem oda sorolja be, ahol nem volt más jel.
+    </div>
+
+    <div class="section-label">Szkript — amit mondasz (azonnali reakcióként)</div>
+    <div class="script-main">
+      <div class="script-label-white">Te mondod →</div>
+      "Örülök, hogy mondod. De meg kell mondanom: én nem barátot keresek benned. Ezt látom rajtad, ami mást jelent nekem. Ha csak barátok lehetünk, azt el kell fogadnom — de nem fogok úgy tenni, mintha nem így lenne."
+    </div>
+
+    <div class="section-label">Az ő lehetséges válaszai és a te reakcióid</div>
+    <div class="valaszok-block">
+      <div class="valasz-row">
+        <div class="valasz-ella">
+          <div class="valasz-col-label">Ő mondja →</div>
+          <div class="text">"Whoa, ez meglepő... nem is gondoltam erre."</div>
+        </div>
+        <div class="valasz-te">
+          <div class="valasz-col-label">Te válaszolsz →</div>
+          <div class="text">"Tudom. Ezért mondtam el. Most tudod, és dönthetsz." [csend — nem magyarázol tovább]</div>
+        </div>
+      </div>
+      <div class="valasz-row">
+        <div class="valasz-ella">
+          <div class="valasz-col-label">Ő mondja →</div>
+          <div class="text">"Nem akarlak elveszíteni barátként..." [aggódva]</div>
+        </div>
+        <div class="valasz-te">
+          <div class="valasz-col-label">Te válaszolsz →</div>
+          <div class="text">"Nem fogsz. De ha csak a barátságot fogadok el, nem leszek jelen úgy, ahogy te szeretnéd. Neked dönteni kell, nem nekem."</div>
+        </div>
+      </div>
+      <div class="valasz-row">
+        <div class="valasz-ella">
+          <div class="valasz-col-label">Ő mondja →</div>
+          <div class="text">"Esetleg... megpróbálhatnánk valami mást?" [nyitottan]</div>
+        </div>
+        <div class="valasz-te">
+          <div class="valasz-col-label">Te válaszolsz →</div>
+          <div class="text">"Ez az, amit szerettem volna hallani. Szombat este — csak mi ketten, nem csoportosan."</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="soha-ne">
+      <div class="soha-ne-label">Amit soha ne mondj ebben a szituációban</div>
+      <ul>
+        <li>"Én is jó barátodnak tartlak..." — visszalépsz a saját mondatodból</li>
+        <li>"Nem akarok semmit, csak éreztem, hogy megmondjam..." — meggyengíted a pozíciót</li>
+        <li>"Ha te is úgy éreznéd..." — feltételes mód = gyengeség itt</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- FORGATÓKÖNYV 2 -->
+<div class="forgato page-break">
+  <div class="forgato-header">
+    <span class="forgato-num">02</span>
+    <span class="forgato-title">Megölelget, de nem közelebb</span>
+  </div>
+  <div class="forgato-body">
+    <div class="section-label">Diagnózis — miért ez a minta?</div>
+    <div class="diagnozis">
+      Mert az ölelés a biztonságot jelzi — megvan a közelség, de a határok is megvannak. Te "biztonságos" vagy számára — ez baráti, nem vonzalmi jel. A fizikai közelség megvan, de a feszültség hiányzik.
+    </div>
+
+    <div class="section-label">Szkript — amit mondasz (miközben közelebb lépsz, szemkontakttal)</div>
+    <div class="script-main">
+      <div class="script-label-white">Te mondod →</div>
+      "Észreveszem, hogy mindig te ölelgetsz meg — de aztán visszalépsz. Kíváncsi vagyok: ez szokásból van, vagy valami más okból?"
+    </div>
+
+    <div class="section-label">Az ő lehetséges válaszai és a te reakcióid</div>
+    <div class="valaszok-block">
+      <div class="valasz-row">
+        <div class="valasz-ella">
+          <div class="valasz-col-label">Ő mondja →</div>
+          <div class="text">"Csak így vagyok mindenkivel..." [általánosan]</div>
+        </div>
+        <div class="valasz-te">
+          <div class="valasz-col-label">Te válaszolsz →</div>
+          <div class="text">"Lehet. De velem mást érzek." [nem vitázol, csak jelzed] "Egyébként az van, hogy közel vagy hozzám, de nem teljesen. Miért?"</div>
+        </div>
+      </div>
+      <div class="valasz-row">
+        <div class="valasz-ella">
+          <div class="valasz-col-label">Ő mondja →</div>
+          <div class="text">"Nem gondoltam bele..." [meglepetten]</div>
+        </div>
+        <div class="valasz-te">
+          <div class="valasz-col-label">Te válaszolsz →</div>
+          <div class="text">"Most gondolj bele." [szünet, szemkontakt — hagyd, hogy a csend dolgozzon]</div>
+        </div>
+      </div>
+      <div class="valasz-row">
+        <div class="valasz-ella">
+          <div class="valasz-col-label">Ő mondja →</div>
+          <div class="text">[Közelebb marad, nem lép el — jelzés]</div>
+        </div>
+        <div class="valasz-te">
+          <div class="valasz-col-label">Te válaszolsz →</div>
+          <div class="text">[Ne siess. Ne magyarázz. A jelenléteddel reagálj — maradj közel, hangosság nélkül]</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="soha-ne">
+      <div class="soha-ne-label">Amit soha ne mondj ebben a szituációban</div>
+      <ul>
+        <li>"Miért nem engedsz közelebb?" — panaszos hangnem, azonnal veszítesz</li>
+        <li>"Tetszem neked?" — soha ne kérdezz rá direkt vonzalomra közvetlen kérdéssel</li>
+        <li>"Azt hittem, köztünk valami van..." — ez érzelmi nyomás, nem hoz közelebb</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- FORGATÓKÖNYV 3 -->
+<div class="forgato">
+  <div class="forgato-header">
+    <span class="forgato-num">03</span>
+    <span class="forgato-title">A szexuális kérdéseket viccel söpri el</span>
+  </div>
+  <div class="forgato-body">
+    <div class="section-label">Diagnózis — miért humorizál?</div>
+    <div class="diagnozis">
+      Mert a humor menekülés az egyértelműség elől. Nem mondja ki, hogy nem — de nem is vállalja, hogy igen. Ez az ő barátságzóna-eszköze: "viccesnek" tekinti a közeledést, hogy ne kelljen pozíciót foglalnia.
+    </div>
+
+    <div class="section-label">Szkript — amit mondasz (miután a vicc elhangzott, csendben)</div>
+    <div class="script-main">
+      <div class="script-label-white">Te mondod →</div>
+      "Ez vicces volt — de észrevettem, hogy mindig akkor nevetsz, amikor valami komoly irányba megy köztünk. Ez mögött mi van valójában?"
+    </div>
+
+    <div class="section-label">Az ő lehetséges válaszai és a te reakcióid</div>
+    <div class="valaszok-block">
+      <div class="valasz-row">
+        <div class="valasz-ella">
+          <div class="valasz-col-label">Ő mondja →</div>
+          <div class="text">"Hahaha, te mindig ilyen mélyen gondolsz mindent?" [visszaviccel]</div>
+        </div>
+        <div class="valasz-te">
+          <div class="valasz-col-label">Te válaszolsz →</div>
+          <div class="text">"Igen. Különösen akkor, amikor valami fontos. Hallgatlak." [komolyan, nem megfutamodva a témától]</div>
+        </div>
+      </div>
+      <div class="valasz-row">
+        <div class="valasz-ella">
+          <div class="valasz-col-label">Ő mondja →</div>
+          <div class="text">"Hát... talán nem tudom, mit akarok." [habozva, őszintén]</div>
+        </div>
+        <div class="valasz-te">
+          <div class="valasz-col-label">Te válaszolsz →</div>
+          <div class="text">"Ez legalább igaz válasz. Megvárom, amíg kiderítesz. De tudni kell, mikor kell továbblépni."</div>
+        </div>
+      </div>
+      <div class="valasz-row">
+        <div class="valasz-ella">
+          <div class="valasz-col-label">Ő mondja →</div>
+          <div class="text">"Ne vedd ennyire komolyan!" [elhárítóan]</div>
+        </div>
+        <div class="valasz-te">
+          <div class="valasz-col-label">Te válaszolsz →</div>
+          <div class="text">"Én komolyan veszem azt, ami fontos nekem. Ez természetes." [nem szállsz le a témáról, de nem nyomod se]</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="soha-ne">
+      <div class="soha-ne-label">Amit soha ne mondj ebben a szituációban</div>
+      <ul>
+        <li>Ne nevess vissza a viccen, hogy "feloldd a feszültséget" — azzal eltemetted a témát</li>
+        <li>"Csak vicceltem én is..." — visszalépsz, és most már ketten titokzatoskodtok</li>
+        <li>Ne kérdezz rá érzelmileg: "Miért féltől tőlem?" — vádaskodó hangnem, nem nyit</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- FORGATÓKÖNYV 4 -->
+<div class="forgato page-break">
+  <div class="forgato-header">
+    <span class="forgato-num">04</span>
+    <span class="forgato-title">Másik férfiról mesél neked</span>
+  </div>
+  <div class="forgato-body">
+    <div class="section-label">Diagnózis — miért teszi ezt?</div>
+    <div class="diagnozis">
+      Mert téged barátnak lát — és a barátokkal megosztjuk a romantikus élményeinket. Ez NEM egy jelzés arra, hogy féltékennyé akar tenni. Ez egy jelzés arra, hogy barátként tekint rád. A féltékenység mutatása csapdát jelent — azonnal mélyebbre süllyedsz a barátságzónában.
+    </div>
+
+    <div class="section-label">Szkript — amit mondasz (nem féltékenyen, hanem egyértelműen)</div>
+    <div class="script-main">
+      <div class="script-label-white">Te mondod →</div>
+      "Megállítlak egy pillanatra. Engem te arra kértél, hogy hallgassam a randiélményeidet — de ez nem az a barátság, ami engem érdekel veled. Ha ezt tudomásul veszed, rendben vagyunk. Ha nem, szólj."
+    </div>
+
+    <div class="section-label">Az ő lehetséges válaszai és a te reakcióid</div>
+    <div class="valaszok-block">
+      <div class="valasz-row">
+        <div class="valasz-ella">
+          <div class="valasz-col-label">Ő mondja →</div>
+          <div class="text">"Bocs, nem gondoltam bele..." [meglepett]</div>
+        </div>
+        <div class="valasz-te">
+          <div class="valasz-col-label">Te válaszolsz →</div>
+          <div class="text">"Nem haragszom. De ha értesz engem, akkor érhető, miért mondom ezt."</div>
+        </div>
+      </div>
+      <div class="valasz-row">
+        <div class="valasz-ella">
+          <div class="valasz-col-label">Ő mondja →</div>
+          <div class="text">"De te a legjobb barátom vagy, kivel beszéljek ha nem veled?"</div>
+        </div>
+        <div class="valasz-te">
+          <div class="valasz-col-label">Te válaszolsz →</div>
+          <div class="text">"Rengeteg emberrel — de nem velem. Én nem azt a szerepet vállalom."</div>
+        </div>
+      </div>
+      <div class="valasz-row">
+        <div class="valasz-ella">
+          <div class="valasz-col-label">Ő mondja →</div>
+          <div class="text">"Féltékeny vagy?" [kacéran]</div>
+        </div>
+        <div class="valasz-te">
+          <div class="valasz-col-label">Te válaszolsz →</div>
+          <div class="text">"Nem. Egyértelmű vagyok. Nem ugyanaz." [száraz, nem mutat érzelmet]</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="soha-ne">
+      <div class="soha-ne-label">Amit soha ne mondj ebben a szituációban</div>
+      <ul>
+        <li>Ne hallgasd végig a másik férfiról szóló mesét csendben — ez elfogadja a "barát" szerepet</li>
+        <li>"Én jobb vagyok nála..." — összehasonlítasz, és ezzel versenybe szállsz, amit sosem nyerhetsz meg</li>
+        <li>Szarkasztikus megjegyzések a másik férfiról — ez féltékenység, nem önbizalom</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- FORGATÓKÖNYV 5 -->
+<div class="forgato">
+  <div class="forgato-header">
+    <span class="forgato-num">05</span>
+    <span class="forgato-title">Azt mondja: "Nem keresek most kapcsolatot"</span>
+  </div>
+  <div class="forgato-body">
+    <div class="section-label">Diagnózis — mit jelent valójában ez?</div>
+    <div class="diagnozis">
+      Két dolog egyike: (A) valóban nem keres — ekkor nincs mit tenni, és el kell engedni. (B) Nem veled keres — a "most" szó menekülés, mert nem akar elutasítani téged, csak nem akarja elmondani az igazságot. A szkript elkülöníti a kettőt.
+    </div>
+
+    <div class="section-label">Szkript — amit mondasz (melegség nélkül, de sem nem hidegen)</div>
+    <div class="script-main">
+      <div class="script-label-white">Te mondod →</div>
+      "Megértem. Én sem kapcsolatot keresek most — en egy olyan személlyel töltöm az időt, aki engem is érdekel. Ha ez egyszer, 'most' nincs, akkor nem kell erőltetni. Semmi gond."
+    </div>
+
+    <div class="section-label">Az ő lehetséges válaszai és a te reakcióid</div>
+    <div class="valaszok-block">
+      <div class="valasz-row">
+        <div class="valasz-ella">
+          <div class="valasz-col-label">Ő mondja →</div>
+          <div class="text">"Nem azt mondtam, hogy nem vagyok érdekelt..." [habozva]</div>
+        </div>
+        <div class="valasz-te">
+          <div class="valasz-col-label">Te válaszolsz →</div>
+          <div class="text">"Akkor mi van?" [egyenesen, várod a választ]</div>
+        </div>
+      </div>
+      <div class="valasz-row">
+        <div class="valasz-ella">
+          <div class="valasz-col-label">Ő mondja →</div>
+          <div class="text">"Talán egy kicsit még várnunk kéne..." [halogat]</div>
+        </div>
+        <div class="valasz-te">
+          <div class="valasz-col-label">Te válaszolsz →</div>
+          <div class="text">"Mire várunk? Ha van bármi, amit el kell rendezned magadban, azt megértem — de én nem fogok itt lebegni határozatlan időre."</div>
+        </div>
+      </div>
+      <div class="valasz-row">
+        <div class="valasz-ella">
+          <div class="valasz-col-label">Ő mondja →</div>
+          <div class="text">"Igen, valóban most nem — sajnálom." [határozottan]</div>
+        </div>
+        <div class="valasz-te">
+          <div class="valasz-col-label">Te válaszolsz →</div>
+          <div class="text">"Rendben. Becsülöm az őszinteséget." [és elmész — nem könyörögsz, nem magyarázol]</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="soha-ne">
+      <div class="soha-ne-label">Amit soha ne mondj ebben a szituációban</div>
+      <ul>
+        <li>"De én megvárlak!" — ezzel megvásárolod a "barát" szerepet örökre</li>
+        <li>"Miért nem?" — a "miért" kérdés gyengeséget jelez és nem változtat a helyzeten</li>
+        <li>"Talán idővel megváltozik a véleményed..." — jövőbeli reményre alapozol, nem jelenre</li>
+        <li>Hónapokig "barátként" maradni abban a reményben, hogy majd valami változik</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<footer>
+  Mágneses Férfi™ · Szituációs Arzenál™ · Csak vásárlóknak
+</footer>
+
+</body>
+</html>

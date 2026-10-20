@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Panel · Neulonnan Aarreaitta FI</title>
+<style>
+:root{
+  --bg:#1a1a2e;--card:#16213e;--accent:#b0714a;--green:#22c55e;--yellow:#f59e0b;
+  --red:#ef4444;--text:#e2e8f0;--muted:#94a3b8;--border:#2d3748;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:system-ui,sans-serif;padding:24px 16px;line-height:1.5;}
+h1{font-size:1.5rem;margin-bottom:.3rem;}
+.subtitle{color:var(--muted);font-size:.9rem;margin-bottom:2rem;}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+@media(max-width:700px){.grid{grid-template-columns:1fr;}}
+.card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:20px;}
+.card h2{font-size:.85rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:12px;}
+.row{display:flex;justify-content:space-between;align-items:flex-start;padding:6px 0;border-bottom:1px solid var(--border);gap:12px;font-size:.87rem;}
+.row:last-child{border-bottom:none;}
+.row .label{color:var(--muted);white-space:nowrap;flex-shrink:0;}
+.row .val{text-align:right;word-break:break-all;}
+.badge{display:inline-block;padding:2px 8px;border-radius:20px;font-size:.75rem;font-weight:700;}
+.badge.done{background:#14532d;color:#86efac;}
+.badge.pending{background:#78350f;color:#fde68a;}
+.badge.skip{background:#1e3a5f;color:#93c5fd;}
+.section-full{grid-column:1/-1;}
+.phase-list{list-style:none;padding:0;}
+.phase-list li{display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid var(--border);font-size:.88rem;}
+.phase-list li:last-child{border-bottom:none;}
+.phase-num{background:var(--border);color:var(--muted);border-radius:50%;width:22px;height:22px;display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:700;flex-shrink:0;}
+.phase-name{flex:1;}
+.urls a{color:#60a5fa;font-size:.82rem;word-break:break-all;}
+.mockup-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.mockup-slot{background:#0f172a;border:1px dashed var(--border);border-radius:8px;padding:12px;text-align:center;font-size:.8rem;color:var(--muted);}
+.mockup-slot img{max-width:100%;border-radius:6px;margin-bottom:6px;}
+.note{background:#0f172a;border-left:3px solid var(--yellow);padding:12px 16px;border-radius:0 8px 8px 0;font-size:.85rem;color:#fde68a;margin-top:8px;}
+.pause-box{background:#0f172a;border:2px solid var(--red);border-radius:10px;padding:20px;text-align:center;margin-top:16px;}
+.pause-box h2{color:var(--red);font-size:1.2rem;margin-bottom:.5rem;}
+.pause-box p{color:var(--muted);font-size:.9rem;}
+.checkout-config .row .val code{background:#0f172a;padding:2px 6px;border-radius:4px;font-size:.8rem;color:#86efac;}
+pre{background:#0f172a;padding:12px;border-radius:6px;font-size:.78rem;overflow-x:auto;color:#86efac;white-space:pre-wrap;word-break:break-all;}
+.token{color:#f59e0b;}
+</style>
+</head>
+<body>
+
+<h1>🇫🇮 Panel · Neulonnan Aarreaitta</h1>
+<p class="subtitle">Generado: 2026-10-16 · Mercado: Finlandia · EUR · Modo: Manual (paquete al cierre)</p>
+
+<div class="grid">
+
+  <!-- IDENTIDAD -->
+  <div class="card">
+    <h2>Identidad de la oferta</h2>
+    <div class="row"><span class="label">Nombre corto</span><span class="val">Neulonnan Aarreaitta</span></div>
+    <div class="row"><span class="label">Nombre largo</span><span class="val">Neulonnan Aarreaitta™ · 5 200+ Premium-neulontamallia + 7 Bonusopasta</span></div>
+    <div class="row"><span class="label">Persona</span><span class="val">Aino</span></div>
+    <div class="row"><span class="label">Prefijo CSS</span><span class="val">na-</span></div>
+    <div class="row"><span class="label">Ancla oferta</span><span class="val">#na-offer</span></div>
+    <div class="row"><span class="label">Subdominio sugerido</span><span class="val">neulonta.impultienda.ar</span></div>
+    <div class="row"><span class="label">Fuente / Arsenal</span><span class="val">page 1289737737563235</span></div>
+  </div>
+
+  <!-- PRECIOS -->
+  <div class="card">
+    <h2>Precios y tokens ImpulTienda</h2>
+    <div class="row"><span class="label">Precio de venta</span><span class="val">EUR 17,99</span></div>
+    <div class="row"><span class="label">Ancla / tachado</span><span class="val">EUR 89,99 (5×, 80% off)</span></div>
+    <div class="row"><span class="label">Ahorro declarado</span><span class="val">EUR 72,00</span></div>
+    <div class="row"><span class="label">Token <span class="token">{{price}}</span></span><span class="val">17,99 (con símbolo €)</span></div>
+    <div class="row"><span class="label">Token <span class="token">{{original_price}}</span></span><span class="val">89,99 (con símbolo €)</span></div>
+    <div class="row"><span class="label">Token <span class="token">{{savings}}</span></span><span class="val">72,00 (con símbolo €)</span></div>
+    <div class="row"><span class="label">Moneda tienda</span><span class="val">EUR</span></div>
+    <div class="row"><span class="label">Garantía</span><span class="val">7 päivää (7 días)</span></div>
+  </div>
+
+  <!-- COPY CHECKOUT -->
+  <div class="card checkout-config">
+    <h2>Copy del checkout</h2>
+    <div class="row"><span class="label">Botón CTA</span><span class="val"><code>KYLLÄ, HALUAN PÄÄSYN NYT</code></span></div>
+    <div class="row"><span class="label">Scroll hero / final</span><span class="val"><code>↓ Haluan pääsyn heti</code></span></div>
+    <div class="row"><span class="label">Mobile sticky</span><span class="val"><code>KYLLÄ, HALUAN PÄÄSYN NYT · {{price}}</code></span></div>
+    <div class="row"><span class="label">Barra urgencia</span><span class="val">TÄNÄÄN [DÍA] — Vain N paikkaa · 80% alennusta</span></div>
+    <div class="row"><span class="label">Sello "viewers"</span><span class="val">44 henkilöä katsoo juuri nyt tätä tarjousta</span></div>
+    <div class="row"><span class="label">Garantía landing</span><span class="val">7 päivän rahat takaisin -takuu</span></div>
+    <div class="row"><span class="label">Config checkout</span><span class="val">Verde oscuro · countdown 10min rojo · solo email · cupos bajo botón</span></div>
+    <div class="row"><span class="label">Procesador</span><span class="val">ImpulPay (multidivisa) · métodos locales ON</span></div>
+  </div>
+
+  <!-- MOCKUPS -->
+  <div class="card">
+    <h2>Mockups (Fase 6 — ✅ completa · 2026-10-16)</h2>
+    <div class="mockup-grid">
+      <div class="mockup-slot">
+        <img src="https://files.catbox.moe/sniwyi.webp" alt="Hero 3:2">
+        <div style="color:#22c55e;margin-top:4px;font-size:.75rem;">✅ Hero 3:2 · catbox.moe/sniwyi.webp</div>
+      </div>
+      <div class="mockup-slot">
+        <img src="https://files.catbox.moe/22a2oo.webp" alt="Caja 1:1">
+        <div style="color:#22c55e;margin-top:4px;font-size:.75rem;">✅ Caja 1:1 · catbox.moe/22a2oo.webp</div>
+      </div>
+    </div>
+    <div style="margin-top:10px;font-size:.82rem;color:#22c55e;">✅ Foto Aino · catbox.moe/djvfk1.webp</div>
+    <div class="note">Generado 2026-10-16 · gpt-image-2-image-to-image · 1K · ~USD 0,09</div>
+  </div>
+
+  <!-- ARCHIVOS -->
+  <div class="card section-full urls">
+    <h2>Archivos generados</h2>
+    <div class="row">
+      <span class="label">Ficha</span>
+      <span class="val"><a href="ficha-oferta-neulonnan-fi.md">ficha-oferta-neulonnan-fi.md</a></span>
+    </div>
+    <div class="row">
+      <span class="label">Landing HTML</span>
+      <span class="val"><a href="landing-neulonnan-fi.html">landing-neulonnan-fi.html</a></span>
+    </div>
+    <div class="row">
+      <span class="label">Hero mockup</span>
+      <span class="val">mockups/1-hero-neulonnan-fi.webp · <a href="https://files.catbox.moe/sniwyi.webp">catbox ✓</a></span>
+    </div>
+    <div class="row">
+      <span class="label">Caja mockup</span>
+      <span class="val">mockups/2-caja-neulonnan-fi.webp · <a href="https://files.catbox.moe/22a2oo.webp">catbox ✓</a></span>
+    </div>
+    <div class="row">
+      <span class="label">Foto Aino</span>
+      <span class="val">mockups/foto-aino-fi.webp · <a href="https://files.catbox.moe/djvfk1.webp">catbox ✓</a></span>
+    </div>
+    <div class="row">
+      <span class="label">Fragmento .txt</span>
+      <span class="val">pendiente (python3 tools/fragmento.py landing-neulonnan-fi.html)</span>
+    </div>
+    <div class="row">
+      <span class="label">Entrega "en preparación"</span>
+      <span class="val">pendiente (copiar plantilla + traducir a FI)</span>
+    </div>
+  </div>
+
+  <!-- FASES -->
+  <div class="card section-full">
+    <h2>Estado de fases</h2>
+    <ul class="phase-list">
+      <li><span class="phase-num">0</span><span class="phase-name">Mercado + links de referencia</span><span class="badge done">✓</span></li>
+      <li><span class="phase-num">1</span><span class="phase-name">Extracción oferta + landing (base RO)</span><span class="badge done">✓</span></li>
+      <li><span class="phase-num">2</span><span class="phase-name">Oferta definida (Modo A · Clonado fiel)</span><span class="badge done">✓</span></li>
+      <li><span class="phase-num">3</span><span class="phase-name">Landing HTML en finés — 18 secciones</span><span class="badge done">✓</span></li>
+      <li><span class="phase-num">4</span><span class="phase-name">Imágenes con texto quemado</span><span class="badge done">✓ 29 imgs image-to-image · catbox · 2026-10-16</span></li>
+      <li><span class="phase-num">5</span><span class="phase-name">Título único — Neulonnan Aarreaitta™</span><span class="badge done">✓</span></li>
+      <li><span class="phase-num">6</span><span class="phase-name">Mockups de checkout (3× image-to-image)</span><span class="badge done">✓</span></li>
+      <li><span class="phase-num">7</span><span class="phase-name">Tienda ImpulTienda</span><span class="badge skip">manual · al cierre</span></li>
+      <li><span class="phase-num">7b</span><span class="phase-name">QC landing</span><span class="badge done">✓ 2026-10-16 · 31 imgs catbox · 5 botones FI · tokens OK</span></li>
+      <li><span class="phase-num">8</span><span class="phase-name">Panel v1</span><span class="badge done">✓ (este archivo)</span></li>
+    </ul>
+  </div>
+
+  <!-- INSTRUCCIONES TIENDA (MANUAL) -->
+  <div class="card section-full">
+    <h2>Instrucciones para cargar la tienda manualmente</h2>
+    <div style="font-size:.88rem;line-height:1.8;">
+      <p style="margin-bottom:.8rem;color:var(--muted);">Cuando tengas los mockups listos, seguí estos pasos en ImpulTienda:</p>
+      <ol style="padding-left:1.2rem;">
+        <li><strong>Subí el mockup hero</strong> a catbox.moe — anotá la URL.</li>
+        <li><strong>Publicá la página "en preparación"</strong> en <code>https://&lt;tu-dominio-entregas&gt;/neulonnan-aarreaitta/&lt;slug-10-chars&gt;/</code> (traducida al finés).</li>
+        <li><strong>Creá la tienda</strong> → subdominio: <code>neulonta</code> → idioma: Español (Argentina).</li>
+        <li><strong>Creá el producto:</strong>
+          <ul style="margin-top:.4rem;padding-left:1.2rem;">
+            <li>Nombre: <code>Neulonnan Aarreaitta™ · 5 200+ Premium-neulontamallia + 7 Bonusopasta</code></li>
+            <li>Precio: EUR 17,99 · Tachado: EUR 89,99</li>
+            <li>Imagen: mockup hero 3:2 blanco</li>
+            <li>Entrega: URL "en preparación" de arriba</li>
+          </ul>
+        </li>
+        <li><strong>Cargá el HTML</strong> → pegá el fragmento <code>.txt</code> en el editor.</li>
+        <li><strong>Checkout:</strong> botón verde oscuro · texto: <code>KYLLÄ, HALUAN PÄÄSYN NYT</code> · countdown 10 min · cupos bajo botón · solo email · garantía visible.</li>
+        <li><strong>Procesador:</strong> ImpulPay · moneda EUR · métodos locales ON.</li>
+        <li><strong>Países asignados:</strong> FI (Finlandia).</li>
+        <li><strong>Tracking:</strong> no ahora — lo conectás cuando elijas la cuenta publicitaria (Fase 10).</li>
+      </ol>
+    </div>
+  </div>
+
+</div>
+
+<!-- PAUSA 1 -->
+<div class="pause-box">
+  <h2>🛑 PAUSA 1</h2>
+  <p>Landing + mockups + configuración de tienda listos para revisar.<br>
+  <strong>Dá tu OK para continuar con los anuncios (Fase 9).</strong></p>
+</div>
+
+</body>
+</html>

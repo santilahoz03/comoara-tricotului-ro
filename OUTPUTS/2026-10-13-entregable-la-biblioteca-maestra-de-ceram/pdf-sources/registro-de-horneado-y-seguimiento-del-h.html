@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<title>Registro de Horneado y Seguimiento del Horno · La Biblioteca Maestra de Cerámica</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="_shared.css">
+<style>
+.reg{border:2pt solid var(--line);border-radius:10pt;padding:16pt;margin:14pt 0;break-inside:avoid;background:var(--paper)}
+.reg h3{margin:0 0 10pt;font-size:13pt;color:var(--accent-dark)}
+.reg .campo{display:grid;grid-template-columns:130pt 1fr;gap:4pt;padding:5pt 0;border-bottom:1pt dashed var(--line);font-size:10pt}
+.reg .campo:last-child{border-bottom:none}
+.reg .campo b{color:var(--ink-soft)}
+.reg .campo .linea{border-bottom:1pt solid var(--line);min-height:14pt}
+.reg-doble{display:grid;grid-template-columns:1fr 1fr;gap:10pt}
+.curva{border:1.5pt dashed var(--line);border-radius:8pt;height:120pt;position:relative;margin:10pt 0}
+.curva .eje-y{position:absolute;left:8pt;top:8pt;bottom:20pt;border-left:1pt solid var(--ink-soft)}
+.curva .eje-x{position:absolute;left:8pt;right:8pt;bottom:20pt;border-bottom:1pt solid var(--ink-soft)}
+.curva .lab-y{position:absolute;left:2pt;top:0;font-size:7pt;color:var(--ink-soft);transform:rotate(-90deg);transform-origin:left bottom}
+.curva .lab-x{position:absolute;right:4pt;bottom:6pt;font-size:7pt;color:var(--ink-soft)}
+</style>
+</head>
+<body>
+
+<section class="cover">
+  <div>
+    <span class="kicker">Bono 3 de 4</span>
+    <h1>Registro de Horneado y Seguimiento del Horno</h1>
+    <p class="sub">Registro detallado de cada horneado: arcilla, esmalte, temperatura, tiempos y resultados para aprender de cada quema.</p>
+  </div>
+  <div class="brand">La Biblioteca Maestra de Cerámica</div>
+</section>
+
+<section class="toc-page">
+  <h2>Contenido</h2>
+  <ul class="toc">
+    <li><span>1 · Cómo Usar Este Registro</span><span>3</span></li>
+    <li><span>2 · Hoja de Horneado (20 copias)</span><span>4</span></li>
+    <li><span>3 · Registro de Mantenimiento del Horno</span><span>14</span></li>
+    <li><span>4 · Tabla de Referencia Rápida</span><span>17</span></li>
+    <li><span>Próximo paso</span><span>19</span></li>
+  </ul>
+</section>
+
+<!-- SECCIÓN 1 -->
+<section>
+  <div class="section-heading">
+    <span class="num">Sección 1</span>
+    <h2>Cómo Usar Este Registro</h2>
+    <p>Cada horneado es un experimento. Este registro te permite repetir los que salieron bien y corregir los que no.</p>
+  </div>
+
+  <p class="lead">El horno es la variable más difícil de controlar en cerámica. Dos quemas con los mismos ajustes pueden dar resultados distintos si la carga, la humedad ambiente o el estado de las resistencias cambiaron. Registrar todo es lo que separa al ceramista que mejora del que repite errores.</p>
+
+  <h3>Qué registrar</h3>
+  <ol class="steps">
+    <li><strong>Antes de cargar:</strong> qué piezas entran, qué arcilla y esmalte tienen, cómo están ubicadas.</li>
+    <li><strong>Durante el horneado:</strong> programa usado, temperatura máxima, tiempo total, conos testigo.</li>
+    <li><strong>Después de abrir:</strong> resultado de cada pieza, problemas, aprendizajes.</li>
+  </ol>
+
+  <div class="callout ok">
+    <span class="t">El dato más valioso</span>
+    El campo "Qué cambiar en la próxima quema" es el más importante de toda la ficha. Si lo llenas después de cada horneado, en 10 quemas vas a tener un manual personal de tu horno.
+  </div>
+</section>
+
+<!-- SECCIÓN 2: Hojas de horneado -->
+<section>
+  <div class="section-heading">
+    <span class="num">Sección 2</span>
+    <h2>Hoja de Horneado</h2>
+    <p>Una hoja por cada vez que enciendes el horno. Imprime tantas como necesites.</p>
+  </div>
+
+  <div class="reg">
+    <h3>Registro de Horneado N.° _____</h3>
+    <div class="reg-doble">
+      <div>
+        <div class="campo"><b>Fecha</b><div class="linea"></div></div>
+        <div class="campo"><b>Tipo de quema</b><div class="linea"></div></div>
+        <div class="campo"><b>Programa / rampa</b><div class="linea"></div></div>
+        <div class="campo"><b>Temp. máxima</b><div class="linea"></div></div>
+      </div>
+      <div>
+        <div class="campo"><b>Hora de encendido</b><div class="linea"></div></div>
+        <div class="campo"><b>Hora de apagado</b><div class="linea"></div></div>
+        <div class="campo"><b>Hora de apertura</b><div class="linea"></div></div>
+        <div class="campo"><b>Cono testigo</b><div class="linea"></div></div>
+      </div>
+    </div>
+
+    <h4 style="margin-top:12pt">Piezas en este horneado</h4>
+    <table class="data" style="font-size:9pt">
+      <thead><tr><th>Pieza</th><th>Arcilla</th><th>Esmalte</th><th>Ubicación</th><th>Resultado</th></tr></thead>
+      <tbody>
+        <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+        <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+        <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+        <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+        <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+        <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+      </tbody>
+    </table>
+
+    <div class="campo"><b>Observaciones</b><div class="linea" style="min-height:24pt"></div></div>
+    <div class="campo"><b>Qué cambiar en la próxima quema</b><div class="linea" style="min-height:24pt"></div></div>
+  </div>
+
+  <div class="reg">
+    <h3>Registro de Horneado N.° _____</h3>
+    <div class="reg-doble">
+      <div>
+        <div class="campo"><b>Fecha</b><div class="linea"></div></div>
+        <div class="campo"><b>Tipo de quema</b><div class="linea"></div></div>
+        <div class="campo"><b>Programa / rampa</b><div class="linea"></div></div>
+        <div class="campo"><b>Temp. máxima</b><div class="linea"></div></div>
+      </div>
+      <div>
+        <div class="campo"><b>Hora de encendido</b><div class="linea"></div></div>
+        <div class="campo"><b>Hora de apagado</b><div class="linea"></div></div>
+        <div class="campo"><b>Hora de apertura</b><div class="linea"></div></div>
+        <div class="campo"><b>Cono testigo</b><div class="linea"></div></div>
+      </div>
+    </div>
+
+    <h4 style="margin-top:12pt">Piezas en este horneado</h4>
+    <table class="data" style="font-size:9pt">
+      <thead><tr><th>Pieza</th><th>Arcilla</th><th>Esmalte</th><th>Ubicación</th><th>Resultado</th></tr></thead>
+      <tbody>
+        <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+        <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+        <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+        <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+        <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+        <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+      </tbody>
+    </table>
+
+    <div class="campo"><b>Observaciones</b><div class="linea" style="min-height:24pt"></div></div>
+    <div class="campo"><b>Qué cambiar en la próxima quema</b><div class="linea" style="min-height:24pt"></div></div>
+  </div>
+
+  <p style="color:var(--ink-soft);font-size:9pt;font-style:italic;margin-top:12pt">Imprime esta página tantas veces como horneados hagas. Con el tiempo, estas hojas se convierten en el manual de tu horno.</p>
+</section>
+
+<!-- SECCIÓN 3: Mantenimiento del horno -->
+<section>
+  <div class="section-heading">
+    <span class="num">Sección 3</span>
+    <h2>Registro de Mantenimiento del Horno</h2>
+    <p>El horno es tu herramienta más cara. Registrar su estado previene sorpresas.</p>
+  </div>
+
+  <h3>Datos del horno</h3>
+  <div class="reg">
+    <div class="campo"><b>Marca y modelo</b><div class="linea"></div></div>
+    <div class="campo"><b>Capacidad (litros)</b><div class="linea"></div></div>
+    <div class="campo"><b>Temp. máxima</b><div class="linea"></div></div>
+    <div class="campo"><b>Voltaje / fase</b><div class="linea"></div></div>
+    <div class="campo"><b>Fecha de compra</b><div class="linea"></div></div>
+    <div class="campo"><b>N.° de serie</b><div class="linea"></div></div>
+  </div>
+
+  <h3>Registro de mantenimiento</h3>
+  <table class="data">
+    <thead><tr><th>Fecha</th><th>Tipo (revisión / reparación / cambio)</th><th>Detalle</th><th>Costo</th><th>Próximo</th></tr></thead>
+    <tbody>
+      <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+      <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+      <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+      <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+      <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+      <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+      <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+      <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+    </tbody>
+  </table>
+
+  <div class="checklist">
+    <h3>Checklist de mantenimiento periódico</h3>
+    <ul>
+      <li>Revisar resistencias (cada 50 horneados o 6 meses)</li>
+      <li>Verificar el termopar con cono testigo (cada 20 horneados)</li>
+      <li>Inspeccionar los ladrillos internos (grietas, desgaste)</li>
+      <li>Limpiar polvo de esmalte del interior</li>
+      <li>Revisar bisagras y cierre de la puerta</li>
+      <li>Verificar ventilación (peephole y chimenea)</li>
+      <li>Comprobar que las placas del horno estén niveladas</li>
+    </ul>
+  </div>
+</section>
+
+<!-- SECCIÓN 4: Referencia rápida -->
+<section>
+  <div class="section-heading">
+    <span class="num">Sección 4</span>
+    <h2>Tabla de Referencia Rápida</h2>
+    <p>Los números que más necesitas, en una sola página para pegar en la pared del taller.</p>
+  </div>
+
+  <h3>Conos Orton y temperaturas equivalentes</h3>
+  <table class="data">
+    <thead><tr><th>Cono</th><th>Temp. (°C)</th><th>Uso típico</th></tr></thead>
+    <tbody>
+      <tr><td>022</td><td>586 °C</td><td>Sobreesmaltes, lustres</td></tr>
+      <tr><td>018</td><td>696 °C</td><td>Biscocho bajo</td></tr>
+      <tr><td>06</td><td>998 °C</td><td>Biscocho estándar</td></tr>
+      <tr><td>04</td><td>1060 °C</td><td>Esmalte de loza</td></tr>
+      <tr><td>02</td><td>1101 °C</td><td>Esmalte de loza alta</td></tr>
+      <tr><td>2</td><td>1142 °C</td><td>Gres bajo</td></tr>
+      <tr><td>6</td><td>1222 °C</td><td>Gres medio</td></tr>
+      <tr><td>10</td><td>1285 °C</td><td>Gres alto / porcelana</td></tr>
+      <tr><td>12</td><td>1306 °C</td><td>Porcelana alta</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Velocidades de rampa recomendadas</h3>
+  <table class="data">
+    <thead><tr><th>Rango</th><th>Velocidad</th><th>Motivo</th></tr></thead>
+    <tbody>
+      <tr><td>Ambiente → 200 °C</td><td>50 °C/hora</td><td>Evaporar agua sin vapor</td></tr>
+      <tr><td>200 → 600 °C</td><td>80 °C/hora</td><td>Quemar orgánicos + cuarzo a 573 °C</td></tr>
+      <tr><td>600 → temp. final</td><td>100-150 °C/hora</td><td>Sinterización</td></tr>
+      <tr><td>Enfriamiento hasta 573 °C</td><td>Natural (puerta cerrada)</td><td>Inversión del cuarzo</td></tr>
+      <tr><td>573 → 200 °C</td><td>Natural</td><td>Enfriamiento gradual</td></tr>
+      <tr><td>200 → ambiente</td><td>Abrir rendija</td><td>Seguro para abrir gradualmente</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout warn">
+    <span class="t">Regla de oro del enfriamiento</span>
+    Nunca abras el horno por encima de 200 °C. El choque térmico agrieta las piezas, especialmente las esmaltadas. El esmalte se contrae más rápido que la arcilla y se cuartea.
+  </div>
+</section>
+
+<!-- CIERRE -->
+<section class="endcover">
+  <h2>Próximo Paso</h2>
+  <div class="box">
+    <p style="font-size:12pt;margin-bottom:8pt"><strong>Imprime varias hojas de horneado y llénalas después de cada quema.</strong></p>
+    <p style="color:var(--ink-soft)">En 10 horneados registrados vas a saber exactamente cómo se comporta tu horno, tu arcilla y tus esmaltes favoritos. Ese conocimiento no se compra: se registra.</p>
+  </div>
+</section>
+</body>
+</html>

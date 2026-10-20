@@ -1,0 +1,3012 @@
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<style>
+/* ==========================================================================
+   CSS RESET & VARIABLES
+   ========================================================================== */
+:root {
+    /* Template Palette Replacement */
+    --color-bg-white: #FFFFFF;
+    --color-bg-light: #F5F0FF;
+    /* Very light cyan/blue alternating background */
+
+    --color-primary: #6B3FA0;
+    /* Vibrant Cyan / Light Blue */
+    --color-secondary: #C9A84C;
+    /* Borders */
+    --color-accent: #8B5CF6;
+    /* Strong Orange CTA */
+    --color-accent-hover: #6D28D9;
+
+    --color-text-main: #2D2D2D;
+    /* Navy Dark */
+    --color-text-muted: #4B5563;
+    /* Muted Slate */
+
+    --color-highlight: #C9A84C;
+    /* Warning/Yellow for stars and banners */
+    --color-error: #C9A84C;
+    /* Red */
+
+    /* Typography All Poppins */
+    --font-heading: 'Poppins', sans-serif;
+    --font-body: 'Poppins', sans-serif;
+
+    /* Template Effects */
+    --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.04);
+    --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.08);
+    /* Softer, broader shadow */
+    --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.12);
+
+    --radius-sm: 12px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+    --radius-xl: 32px;
+
+    /* Transitions */
+    --transition-fast: 0.3s ease;
+    --transition-smooth: 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+    /* Base for REM */
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--color-text-main);
+    background-color: var(--color-bg-white);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-heading);
+    color: var(--color-text-main);
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-white {
+    color: #FFF;
+}
+
+.text-success {
+    color: var(--color-accent);
+}
+
+.text-error {
+    color: #E74C3C;
+}
+
+.text-warning {
+    color: var(--color-highlight);
+}
+
+.mt-4 {
+    margin-top: 2rem;
+}
+
+/* ==========================================================================
+   LAYOUT CONTAINERS
+   ========================================================================== */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 35px 24px;
+    /* Reduced from 60px for tighter sections */
+}
+
+.container-sm {
+    max-width: 800px;
+}
+
+.section-white {
+    background-color: var(--color-bg-white);
+}
+
+.section-light {
+    background-color: var(--color-bg-light);
+}
+
+.section-warm {
+    background-color: var(--color-bg-light);
+}
+
+.section-gradient {
+    background: var(--color-bg-light);
+}
+
+.section-gradient-rev {
+    background: var(--color-bg-white);
+}
+
+.section-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 30px;
+    /* Reduced bottom margin from 50px */
+}
+
+.section-header h2 {
+    font-size: 2.3rem;
+    /* Slightly smaller for compactness */
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.section-header p {
+    font-size: 1.1rem;
+    color: var(--color-text-muted);
+}
+
+/* ==========================================================================
+   COMPONENTS
+   ========================================================================== */
+/* Buttons */
+.btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-accent);
+    color: #FFF;
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: 0.95rem;
+    /* Reduced from 1.1rem */
+    padding: 16px 40px;
+    /* Reduced from 50px */
+    border-radius: 100px;
+    transition: transform 0.2s ease-out, box-shadow 0.2s ease-out, background-color 0.2s;
+    box-shadow: 0 6px 15px rgba(139, 92, 246, 0.3);
+    cursor: pointer;
+    border: none;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+    /* Forces text to stay in 1 line */
+}
+
+.btn-primary:hover {
+    background-color: var(--color-accent-hover);
+    transform: scale(1.06);
+    /* Pop effect on hover */
+    box-shadow: 0 12px 25px rgba(139, 92, 246, 0.5);
+    /* Enhanced shadow on pop */
+}
+
+.btn-large {
+    font-size: 1.3rem;
+    padding: 20px 40px;
+    width: 100%;
+}
+
+.btn-white {
+    background-color: #FFF;
+    color: var(--color-accent);
+    box-shadow: var(--shadow-md);
+}
+
+.btn-white:hover {
+    background-color: var(--color-bg-warm);
+    color: var(--color-accent-hover);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Animations */
+/* pulseGlow disabled per user request to avoid blinking */
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.delay-1 {
+    transition-delay: 0.2s;
+}
+
+.delay-2 {
+    transition-delay: 0.4s;
+}
+
+/* Images and Helpers */
+.responsive-img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.mix-blend-multiply {
+    /* Useful for removing white backgrounds on images placed over light/white sections */
+    mix-blend-mode: multiply;
+}
+
+/* ==========================================================================
+   SECTIONS
+   ========================================================================== */
+
+/* 1. Top Bar */
+.top-bar {
+    background-color: var(--color-primary);
+    /* Vibrant Cyan/Teal */
+    color: #FFF;
+    text-align: center;
+    padding: 10px 20px;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 0.9rem;
+    animation: slideDown 0.5s ease-out;
+    text-transform: uppercase;
+}
+
+.top-bar span {
+    color: var(--color-highlight);
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+/* 2. Hero Section */
+.hero {
+    padding-top: 25px;
+    padding-bottom: 25px;
+    background-color: var(--color-bg-white);
+}
+
+.hero-container {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.hero-container-centered {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 1100px;
+}
+
+.hero-content-centered {
+    width: 100%;
+}
+
+.badge-limit {
+    display: inline-block;
+    background-color: #E2E8F0;
+    color: #4A5568;
+    padding: 8px 24px;
+    border-radius: 100px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+    margin-bottom: 25px;
+}
+
+.badge-review {
+    display: inline-block;
+    background-color: rgba(201, 168, 76, 0.15);
+    color: #C9A84C;
+    padding: 6px 14px;
+    border-radius: 100px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    letter-spacing: -1px;
+    margin-bottom: 25px;
+    /* Increased gap below headline */
+    color: #2D2D2D;
+}
+
+.hero h1 .highlight {
+    color: var(--color-accent);
+    /* Green for highlighted parts */
+}
+
+.hero .subheadline {
+    font-size: 1.2rem;
+    color: var(--color-text-muted);
+    margin-bottom: 15px;
+    /* Tighter gap below subheadline */
+}
+
+.subheadline.text-muted-dark {
+    font-size: 1.25rem;
+    color: #4A5568;
+    margin-bottom: 25px;
+    font-weight: 500;
+    line-height: 1.5;
+    max-width: 850px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.badge-bonus {
+    display: inline-block;
+    background-color: #FAF5FF;
+    color: #8B5CF6;
+    border: 1px solid #FED7D7;
+    padding: 10px 24px;
+    border-radius: 100px;
+    font-weight: 700;
+    font-size: 1.05rem;
+    margin-bottom: 30px;
+}
+
+.mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-btn-centered {
+    margin-top: 30px;
+    font-size: 1.2rem;
+    padding: 18px 45px;
+}
+
+.hero-trust-pills {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 25px;
+    /* Tighter space before button */
+}
+
+.trust-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border: 1px solid var(--color-secondary);
+    border-radius: 50px;
+    background-color: var(--color-bg-white);
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--color-text-main);
+    box-shadow: var(--shadow-sm);
+}
+
+.trust-pill i {
+    color: #C9A84C;
+    /* Green checkmark */
+    font-size: 1.2rem;
+}
+
+/* 3. Pain Section */
+.pain-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.pain-grid-4 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.pain-card {
+    background: var(--color-bg-white);
+    padding: 35px 25px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-fast);
+    text-align: center;
+    border: none;
+}
+
+.pain-card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-5px);
+}
+
+.emoji-icon-large {
+    font-size: 3.5rem;
+    /* Large expressive size */
+    display: block;
+    margin-bottom: 15px;
+    line-height: 1;
+    text-align: center;
+}
+
+.icon-wrapper {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    /* Larger icon */
+    margin: 0 auto 20px auto;
+    /* Slightly more space before title */
+}
+
+/* Specific soft background colors for the feature cards */
+.icon-purple {
+    background-color: #F5F0FF;
+    color: #6B3FA0;
+}
+
+.icon-gold {
+    background-color: rgba(201, 168, 76, 0.15);
+    color: #C9A84C;
+}
+
+.pain-footer {
+    text-align: center;
+    margin-top: 30px;
+    /* Reduced from 50px */
+    font-size: 1.2rem;
+    color: var(--color-primary);
+}
+
+/* 4. Why it Works */
+.works-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+}
+
+.work-card {
+    text-align: center;
+    padding: 20px;
+}
+
+.work-card i {
+    font-size: 3rem;
+    color: var(--color-primary);
+    margin-bottom: 20px;
+}
+
+.work-card h3 {
+    font-size: 1.4rem;
+}
+
+/* 5. What You Get */
+.get-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.get-block,
+.get-block-alt {
+    background: var(--color-bg-white);
+    padding: 40px;
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--color-secondary);
+}
+
+.get-block h3,
+.get-block-alt h3 {
+    font-size: 1.5rem;
+    margin-bottom: 25px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.05);
+    padding-bottom: 15px;
+    color: var(--color-primary);
+    text-align: center;
+}
+
+.check-list li,
+.check-list-alt li {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 15px;
+    font-size: 1.05rem;
+}
+
+.check-list i,
+.check-list-alt i {
+    color: var(--color-accent);
+    margin-top: 4px;
+    font-size: 1.3rem;
+}
+
+/* 6. Preview Section */
+.preview-theme {
+    margin-bottom: 60px;
+}
+
+.preview-theme h3 {
+    font-size: 1.4rem;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.preview-carousel-wrapper {
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+    padding: 10px 0 20px 0;
+}
+
+/* Create the gradient fade effect on edges */
+.preview-carousel-wrapper::before,
+.preview-carousel-wrapper::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 60px;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.preview-carousel-wrapper::before {
+    left: 0;
+    background: linear-gradient(to right, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+.preview-carousel-wrapper::after {
+    right: 0;
+    background: linear-gradient(to left, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+.preview-carousel-track {
+    display: flex;
+    gap: 0;
+    /* Remove gap completely */
+    width: max-content;
+    /* 4 images = 4 steps. 4 images * 5s each = 20s total duration */
+    animation: marquee-steps 20s steps(4, end) infinite;
+}
+
+.preview-carousel-track:hover {
+    animation-play-state: paused;
+}
+
+@keyframes marquee-steps {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+
+    /* -50% shifts by exactly one set of 4 images */
+}
+
+.preview-item {
+    /* Exact width to show 4 images simultaneously without gaps in a 1040px container */
+    width: 260px;
+    /* 1040 / 4 = 260 */
+    flex-shrink: 0;
+    cursor: pointer;
+    /* Remove padding to allow images to touch exactly */
+    padding: 0;
+}
+
+/* Remove inline animation durations to sync all trackers */
+.preview-carousel-track[style] {
+    animation-duration: 20s !important;
+}
+
+.preview-item img {
+    width: 100%;
+    height: auto;
+    /* Remove radius and shadow to allow them to stitch seamlessly */
+    border-radius: 0;
+    box-shadow: none;
+    display: block;
+    margin: 0;
+    transition: transform var(--transition-fast), filter var(--transition-fast);
+}
+
+.preview-item img:hover {
+    transform: scale(1.03);
+    box-shadow: var(--shadow-md);
+}
+
+/* 6.5 Anatomy Section */
+.anatomy-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.anatomy-card {
+    background: var(--color-bg-white);
+    padding: 30px 20px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-fast);
+    text-align: center;
+    border: 1px solid rgba(0,0,0,0.04);
+}
+
+.anatomy-card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-5px);
+}
+
+.anatomy-card .icon-wrapper {
+    width: 60px;
+    height: 60px;
+    font-size: 1.8rem;
+    margin: 0 auto 15px auto;
+}
+
+.anatomy-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    color: var(--color-text-main);
+}
+
+.anatomy-card p {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    line-height: 1.4;
+}
+
+/* 7. Comparison Section */
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--color-bg-white);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+}
+
+.comparison-table th,
+.comparison-table td {
+    padding: 20px;
+    text-align: left;
+    border-bottom: 1px solid #EAEAEA;
+    font-size: 1.1rem;
+}
+
+.comparison-table th {
+    background-color: var(--color-bg-warm);
+    font-family: var(--font-heading);
+    font-weight: 600;
+}
+
+.highlight-col {
+    background-color: rgba(125, 175, 142, 0.05);
+    /* Very light primary */
+    border-left: 2px solid var(--color-primary);
+    border-right: 2px solid var(--color-primary);
+}
+
+.desktop-only {
+    display: table;
+}
+
+.mobile-only {
+    display: none;
+}
+
+/* 8. Bonuses */
+.bonuses {
+    background: var(--color-bg-white);
+    padding: 40px 0;
+    /* Reduced from 80px */
+}
+
+.section-header-bonuses {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.bonus-pill-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #FFF9E6;
+    color: #C9A84C;
+    padding: 6px 16px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+}
+
+.section-header-bonuses h2 {
+    font-size: 2.2rem;
+    color: #2D2D2D;
+    margin-bottom: 10px;
+}
+
+.section-header-bonuses p {
+    color: #4A5568;
+    font-size: 1.1rem;
+}
+
+.bonus-grid-new {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.bonus-card-new {
+    background: #FFFFFF;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+    border: 1px solid #E2E8F0;
+    display: flex;
+    flex-direction: column;
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.bonus-card-new:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.bonus-img-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16/9;
+}
+
+.bonus-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.bonus-number {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: #C9A84C;
+    color: white;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 1.1rem;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.bonus-body {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.bonus-body h3 {
+    font-size: 1.25rem;
+    color: #2D2D2D;
+    margin-bottom: 12px;
+}
+
+.bonus-body p {
+    color: #64748B;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    flex-grow: 1;
+}
+
+.bonus-divider {
+    border-top: 1px dashed #CBD5E1;
+    margin-bottom: 20px;
+}
+
+.bonus-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.val-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.bonus-summary-box {
+    max-width: 320px;
+    /* Reduced from 450px */
+    margin: 40px auto 0;
+    background: #FFFFFF;
+    border-radius: var(--radius-lg);
+    padding: 15px 20px;
+    /* Reduced from 25px 30px */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    /* Soft shadow from template */
+    text-align: center;
+    border: 1px solid #F1F5F9;
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.bonus-summary-box:hover {
+    transform: scale(1.05);
+    /* Pop effect on hover */
+    box-shadow: var(--shadow-md);
+    /* Enhance shadow slightly on pop */
+}
+
+.summary-total {
+    font-size: 1.15rem;
+    /* Reduced from 1.35rem */
+    color: #64748B;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.summary-strike {
+    color: #C9A84C;
+    /* Red strikethrough */
+    text-decoration: line-through;
+    font-weight: 600;
+    margin-left: 5px;
+}
+
+.summary-hoy {
+    font-size: 2.2rem;
+    /* Reduced from 2.8rem */
+    color: #2D2D2D;
+    margin: 0;
+    font-family: var(--font-heading);
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.summary-free {
+    color: #8B5CF6;
+    /* Green */
+}
+
+.val-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: #94A3B8;
+    margin-bottom: 4px;
+}
+
+.val-strike {
+    font-size: 1rem;
+    color: #C9A84C;
+    /* red strike */
+    text-decoration: line-through;
+    font-weight: 600;
+}
+
+.badge-free {
+    background: #FFF9E6;
+    color: #C9A84C;
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-weight: 800;
+    font-size: 0.95rem;
+}
+
+/* 9. Offer Section */
+.countdown-wrapper-new {
+    background-color: #F5F0FF;
+    border-radius: 12px;
+    padding: 10px 15px;
+    /* Reduced from 15px 20px */
+    text-align: center;
+    max-width: 280px;
+    /* Reduced from 320px */
+    margin: 0 auto 30px auto;
+    /* Reduced bottom margin from 40px */
+}
+
+.countdown-title-new {
+    color: #6B3FA0;
+    font-size: 0.85rem;
+    /* Reduced from 0.95rem */
+    font-weight: 800;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    /* Tighter spacing */
+}
+
+.countdown-timer-new {
+    background: #FFFFFF;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 15px;
+    /* Reduced from 12px 20px */
+    gap: 10px;
+    /* Tighter gap */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    /* Slight shadow to match template */
+}
+
+.countdown-timer-new span {
+    color: #6B3FA0;
+    font-size: 1.6rem;
+    /* Reduced from 2rem */
+    font-weight: 800;
+    font-family: var(--font-heading);
+    line-height: 1;
+}
+
+.countdown-timer-new .colon {
+    color: #9CA3AF;
+    font-size: 1.2rem;
+    /* Reduced from 1.5rem */
+    transform: translateY(-2px);
+}
+
+.offer-card {
+    background: var(--color-bg-white);
+    border-radius: var(--radius-xl);
+    padding: 40px 30px;
+    /* Reduced from 60px 50px */
+    box-shadow: 0 15px 40px rgba(201, 168, 76, 0.2);
+    text-align: center;
+    position: relative;
+    border: 3px solid var(--color-highlight);
+    margin-top: 20px;
+}
+
+.offer-card-ribbon {
+    position: absolute;
+    top: -24px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--color-highlight);
+    color: #FFFFFF;
+    padding: 10px 35px;
+    border-radius: 100px;
+    font-weight: 800;
+    white-space: nowrap;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-size: 1rem;
+    letter-spacing: 1px;
+}
+
+.price-header-new {
+    margin-bottom: 35px;
+    text-align: center;
+}
+
+.price-header-new h2 {
+    font-size: 2.2rem;
+    color: #2D2D2D;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    /* Reduced from 25px */
+    font-weight: 800;
+}
+
+.offer-social-proof-pill {
+    background: #F8FAFC;
+    border: 1px solid #E2E8F0;
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 25px 8px 15px;
+    border-radius: 50px;
+    gap: 15px;
+}
+
+.overlapping-avatars {
+    display: flex;
+    align-items: center;
+}
+
+.overlapping-avatars img {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid white;
+    margin-right: -12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.avatar-count {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: #E2E8F0;
+    color: #4A5568;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: 700;
+    border: 2px solid white;
+    z-index: 4;
+}
+
+.offer-social-text {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.offer-social-text .stars {
+    margin-bottom: 2px;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+}
+
+.offer-social-text span {
+    font-size: 0.85rem;
+    color: #64748B;
+    line-height: 1.3;
+}
+
+.price-body-pricing {
+    margin-bottom: 30px;
+}
+
+.price-old {
+    font-size: 1.1rem;
+    color: var(--color-text-muted);
+    text-decoration: line-through;
+    margin-bottom: 5px;
+}
+
+.price-new {
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: 4.5rem;
+    color: #8B5CF6;
+    /* Emerald Green for Price */
+    line-height: 1;
+}
+
+.offer-includes {
+    text-align: left;
+    margin: 30px 0;
+    padding: 0;
+}
+
+.offer-includes li {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 1.1rem;
+    color: var(--color-text-main);
+    font-weight: 500;
+}
+
+.offer-includes i {
+    color: #C9A84C;
+    /* Green checkmark from template */
+    font-size: 1.3rem;
+}
+
+.offer-divider {
+    border-top: 2px dotted #E2E8F0;
+    margin: 30px 0;
+}
+
+.offer-bonuses-list {
+    text-align: left;
+    padding: 0;
+    margin-bottom: 40px;
+}
+
+.offer-bonuses-list li {
+    margin-bottom: 25px;
+    display: flex;
+    align-items: flex-start;
+    /* Better alignment for wrapping text */
+    gap: 15px;
+    font-size: 1.15rem;
+    color: var(--color-text-main);
+    line-height: 1.4;
+}
+
+.offer-bonuses-list strong {
+    color: var(--color-primary);
+    /* Emphasize the bonus tag */
+}
+
+.bonus-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+    /* Prevents squishing on mobile */
+    min-width: 100px;
+    /* Force the label column to have a minimum width */
+}
+
+.bonus-text {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.offer-bonuses-list .bonus-emoji {
+    font-size: 1.5rem;
+}
+
+.secure-badges {
+    margin-top: 20px;
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.secure-badges span {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.secure-badges span:not(:last-child)::after {
+    content: "|";
+    margin-left: 15px;
+    color: #CCC;
+    font-weight: 300;
+}
+
+/* 10. Social Proof */
+/* 10. Testimonials */
+.testimonials {
+    padding-top: 50px;
+    /* Reduced from 100px */
+    padding-bottom: 50px;
+    /* Reduced from 100px */
+}
+
+.testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.testimonial-card.new-test-layout {
+    background: var(--color-bg-white);
+    padding: 30px 20px;
+    /* Reduced from 40px 30px */
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid var(--color-bg-light-gray);
+    position: relative;
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.testimonial-card.new-test-layout:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+
+.testimonial-avatar {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 3px solid var(--color-bg-light-gray);
+    box-shadow: var(--shadow-sm);
+}
+
+.new-test-layout .stars {
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    color: var(--color-highlight);
+}
+
+.testimonial-body {
+    flex-grow: 1;
+    /* Pushes author down */
+}
+
+.testimonial-body p {
+    font-size: 1rem;
+    color: var(--color-text-muted);
+    line-height: 1.7;
+    margin-bottom: 30px;
+    font-style: italic;
+}
+
+.author-new {
+    font-weight: 700;
+    color: #2D2D2D;
+    font-size: 1.05rem;
+}
+
+/* 11. About Creator */
+.about-container {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 60px;
+    align-items: start;
+}
+
+.author-photo {
+    width: 100%;
+    aspect-ratio: 4/5;
+    border-radius: var(--radius-md);
+    object-fit: cover;
+}
+
+.author-stats-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 25px;
+    /* Reduced from 35px */
+}
+
+.stat-box {
+    border: 1px solid var(--color-secondary);
+    border-radius: var(--radius-sm);
+    padding: 10px 8px;
+    /* Significantly reduced to make card smaller */
+    text-align: center;
+    background: var(--color-bg-white);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.stat-number {
+    font-size: 1.3rem;
+    /* Reduced from 1.6rem */
+    font-weight: 800;
+    color: var(--color-primary);
+    font-family: var(--font-heading);
+    margin-bottom: 2px;
+    /* Tighter spacing */
+    line-height: 1.1;
+}
+
+.stat-label {
+    font-size: 0.75rem;
+    /* Reduced from 0.85rem */
+    color: var(--color-text-muted);
+}
+
+.about-content h2 {
+    font-size: 2.2rem;
+    color: #2D2D2D;
+    margin-bottom: 8px;
+}
+
+.author-subtitle-new {
+    font-size: 1.1rem;
+    color: var(--color-primary);
+    font-weight: 600;
+    margin-bottom: 25px;
+}
+
+.author-text-new p {
+    margin-bottom: 20px;
+    font-size: 1.05rem;
+    color: #4A5568;
+    line-height: 1.7;
+}
+
+.author-quote {
+    background: #F8FAFC;
+    border-left: 4px solid var(--color-primary);
+    padding: 20px 25px;
+    margin: 30px 0;
+    border-radius: 0 8px 8px 0;
+    font-size: 1.15rem;
+    color: #2D2D2D;
+}
+
+.author-quote p {
+    margin-bottom: 10px;
+    color: var(--color-primary);
+}
+
+.author-quote footer {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #64748B;
+    text-align: right;
+}
+
+.author-philosophy-box {
+    background-color: #F5F0FF;
+    /* Very light primary blue */
+    border-radius: var(--radius-md);
+    padding: 30px;
+    margin-top: 35px;
+}
+
+.author-philosophy-box h4 {
+    font-size: 0.95rem;
+    font-family: var(--font-heading);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 20px;
+    color: #2D2D2D;
+}
+
+.philosophy-list {
+    display: grid;
+    grid-template-columns: max-content max-content;
+    justify-content: space-between;
+    row-gap: 15px;
+    column-gap: 20px;
+}
+
+.philosophy-list li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--color-text-main);
+    font-size: 1rem;
+    white-space: nowrap;
+}
+
+.philosophy-list i {
+    color: var(--color-primary);
+    font-size: 1.2rem;
+}
+
+/* 12. FAQ */
+.faq-accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.faq-item {
+    background: var(--color-bg-white);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+    border: 1px solid var(--color-secondary);
+}
+
+.faq-question {
+    width: 100%;
+    text-align: left;
+    padding: 20px 25px;
+    background: none;
+    border: none;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--color-primary);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: var(--transition-fast);
+}
+
+.faq-question:hover {
+    color: var(--color-accent);
+}
+
+.faq-question i {
+    transition: var(--transition-fast);
+}
+
+.faq-question.active i {
+    transform: rotate(180deg);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    padding: 0 25px;
+}
+
+.faq-answer p {
+    padding-bottom: 20px;
+    color: var(--color-text-muted);
+}
+
+/* 13. Guarantee */
+.guarantee-card-new {
+    background-color: #FFF9E6;
+    /* Very light subtle green */
+    border-radius: var(--radius-xl);
+    padding: 60px 40px;
+    text-align: center;
+    position: relative;
+    border: 1px solid #FFF9E6;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+    margin-top: 40px;
+    /* Space for the floating icon */
+}
+
+.icon-floating-circle {
+    width: 80px;
+    height: 80px;
+    background: #FFFFFF;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+}
+
+.icon-floating-circle i {
+    font-size: 2.5rem;
+    color: #C9A84C;
+    /* Strong green for the icon */
+}
+
+.guarantee-card-new h2 {
+    font-size: 2rem;
+    color: #2D2D2D;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.guarantee-text-new {
+    max-width: 650px;
+    margin: 0 auto 30px auto;
+}
+
+.guarantee-text-new p {
+    font-size: 1.1rem;
+    color: #4A5568;
+    line-height: 1.6;
+}
+
+.guarantee-trust-list {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.guarantee-trust-list li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #4A5568;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.guarantee-trust-list i {
+    color: #C9A84C;
+    font-size: 1.1rem;
+}
+
+/* 14 & 15. Unified Final CTA & Footer */
+.cta-final-unified {
+    background-color: var(--color-primary);
+    /* Lighter blue as requested */
+    color: #FFFFFF;
+    padding: 40px 0 20px 0;
+    /* Reduced top padding from 80px to 40px */
+}
+
+.cta-final-unified h2 {
+    color: #FFFFFF;
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+    /* Reduced from 15px */
+}
+
+.final-desc {
+    font-size: 1.15rem;
+    margin-bottom: 25px;
+    /* Reduced from 40px */
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.6;
+}
+
+.final-trust-list {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 25px;
+    /* Reduced from 30px */
+    flex-wrap: wrap;
+    padding-bottom: 30px;
+    /* Reduced from 60px */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.final-trust-list li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.95rem;
+    color: #FFFFFF;
+}
+
+.final-trust-list i {
+    color: #FFFFFF;
+    font-size: 1.1rem;
+}
+
+.footer-bottom {
+    padding-top: 20px;
+    /* Reduced from 30px */
+}
+
+.footer-bottom p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+.footer-links a {
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0 15px;
+    font-size: 0.85rem;
+    text-decoration: none;
+    transition: var(--transition-fast);
+}
+
+.footer-links a:hover {
+    color: #FFFFFF;
+    text-decoration: underline;
+}
+
+/* ==========================================================================
+   MOBILE RESPONSIVE
+   ========================================================================== */
+@media (max-width: 991px) {
+
+    /* Layout */
+    .hero-container,
+    .pain-grid,
+    .pain-grid-4,
+    .works-grid,
+    .get-grid,
+    .bonus-grid-new,
+    .about-container,
+    .author-stats-container,
+    .philosophy-list {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-container {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    /* Comparison Table to Cards */
+    .desktop-only {
+        display: none;
+    }
+
+    .mobile-only {
+        display: block;
+    }
+
+    .comparison-card {
+        background: var(--color-bg-white);
+        padding: 20px;
+        border-radius: var(--radius-md);
+        margin-bottom: 15px;
+        box-shadow: var(--shadow-sm);
+    }
+
+    .comparison-card h4 {
+        margin-bottom: 15px;
+        font-size: 1.1rem;
+        border-bottom: 1px solid #eee;
+        padding-bottom: 10px;
+    }
+
+    .comp-row {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+    }
+
+    .comp-label {
+        color: var(--color-text-muted);
+    }
+
+    .comp-val.success {
+        color: var(--color-accent);
+        font-weight: 600;
+    }
+
+    .comp-val.error {
+        color: #E74C3C;
+    }
+
+    .comp-val.warning {
+        color: #C9A84C;
+    }
+
+    /* Testimonials */
+    .testimonial-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Preview Carousel Responsive Fixes for exact JS translation */
+    .preview-carousel-wrapper {
+        padding: 0;
+        margin: 0 -20px;
+        /* Offset the 20px container padding */
+        width: calc(100% + 40px);
+        /* Strictly match the screen width derived from container */
+        max-width: none;
+        display: block;
+        overflow: hidden;
+    }
+
+    .preview-carousel-wrapper::before,
+    .preview-carousel-wrapper::after {
+        display: none;
+        /* Disable side fade effects on mobile for clean full width */
+    }
+
+    .preview-carousel-track {
+        justify-content: flex-start;
+        gap: 0;
+    }
+
+    .preview-item {
+        /* On mobile show 1 slot at a time, taking up exactly 100vw of the wrapper container */
+        width: 100vw;
+        flex: 0 0 100vw;
+        box-sizing: border-box;
+        /* Add 2.5vw padding to left and right to perfectly center 95vw image inside 100vw container */
+        margin: 0;
+        padding: 0 2.5vw;
+    }
+
+    /* Offer section */
+    .offer-card {
+        padding: 30px 20px;
+    }
+
+    .price-new {
+        font-size: 3.5rem;
+    }
+
+    .secure-badges {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .secure-badges span:not(:last-child)::after {
+        display: none;
+    }
+
+    .time-block {
+        width: 60px;
+        height: 60px;
+    }
+
+    .time-block span {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .container {
+        padding: 15px 20px 35px 20px;
+    }
+
+    .hero {
+        padding-top: 0;
+        padding-bottom: 35px;
+    }
+
+    .bonuses {
+        padding: 40px 0 12px 0;
+        /* Reduced bottom padding by ~70% from 40px */
+    }
+
+    .badge-limit {
+        margin-bottom: 15px;
+    }
+
+    .hero h1 {
+        font-size: 2.1rem;
+        margin-bottom: 5px;
+    }
+
+    .subheadline.text-muted-dark {
+        font-size: 1.05rem;
+        margin-bottom: 15px;
+    }
+
+    .badge-bonus {
+        margin-bottom: 5px;
+        /* Significantly tighter gap above mockup */
+    }
+
+    .hero-btn-centered {
+        width: 100%;
+        padding: 18px 20px;
+    }
+
+    .hero-trust-pills {
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        /* Tighter gap */
+    }
+
+    .trust-pill {
+        width: 100%;
+        max-width: 320px;
+        justify-content: flex-start;
+        padding: 8px 16px;
+        /* Reduced paddings */
+        font-size: 0.8rem;
+        /* Smaller font to fit one line */
+        line-height: 1.2;
+        text-align: left;
+    }
+
+    .bonus-card-new {
+        margin-bottom: 10px;
+    }
+
+    .bonus-img-wrapper {
+        aspect-ratio: 21/9;
+        /* Make the top image strip much shorter vertically */
+    }
+
+    .bonus-body {
+        padding: 15px;
+        /* Less padding inside the card */
+    }
+
+    .bonus-body h3 {
+        font-size: 1rem;
+        margin-bottom: 8px;
+        line-height: 1.2;
+        /* Line clamping to force a max of 2 lines */
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    .bonus-body p {
+        font-size: 0.8rem;
+        /* Smaller font to fit easily */
+        line-height: 1.3;
+        margin-bottom: 15px;
+        /* Line clamping to force a max of 3 lines */
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    .bonus-divider {
+        margin-bottom: 12px;
+    }
+
+    .bonus-footer {
+        align-items: center;
+    }
+
+    .val-label {
+        font-size: 0.65rem;
+    }
+
+    .val-strike {
+        font-size: 0.85rem;
+    }
+
+    .badge-free {
+        padding: 4px 10px;
+        font-size: 0.85rem;
+    }
+
+    .section-header h2 {
+        font-size: 2rem;
+    }
+
+    p,
+    li {
+        font-size: 16px;
+    }
+
+    /* Ensures readability on mobile */
+    .btn-primary {
+        width: 100%;
+        font-size: 0.85rem;
+        /* Shrink font on mobile so it doesn't touch sides */
+        padding: 16px 20px;
+        /* Reduce horizontal padding to fit safely */
+    }
+
+    /* CTA 100% width on small screens */
+    .offer-card {
+        padding: 25px 15px;
+    }
+
+    /* More space for the card on small mobile */
+    .price-new {
+        font-size: 3rem;
+    }
+
+    /* Global fix for any stray image causing horizontal scrolling */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* Force hero image to behave */
+    .hero-image-centered img {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .author-photo {
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+        border-radius: var(--radius-lg);
+    }
+
+    .author-stats-container {
+        grid-template-columns: repeat(3, 1fr);
+        /* 3 cols side-by-side on mobile to match template */
+        gap: 8px;
+    }
+
+    .stat-box {
+        padding: 10px 5px;
+        /* Tight mobile padding to fit 3 in a row */
+    }
+
+    .stat-number {
+        font-size: 1.2rem;
+        margin-bottom: 2px;
+    }
+
+    .stat-label {
+        font-size: 0.65rem;
+        line-height: 1.2;
+    }
+}
+
+/* Typography Mobile Adjustments */
+@media (max-width: 768px) {
+    .anatomy-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 15px;
+    }
+
+    h1 {
+        font-size: 2rem !important;
+    }
+
+    h2 {
+        font-size: 1.6rem !important;
+    }
+
+    .works-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 15px;
+    }
+
+    .work-card h3 {
+        font-weight: 400 !important;
+        font-size: 13px !important;
+    }
+
+    .work-card i {
+        margin-bottom: 10px !important;
+    }
+    
+    .san-badge {
+        margin-bottom: 16px !important;
+    }
+
+    section h2 {
+        padding-top: 48px !important;
+    }
+
+    h3 {
+        font-size: 1.2rem !important;
+    }
+
+    p {
+        font-size: 0.95rem !important;
+    }
+
+    /* Segmento para tags e badges (limit, bonus, review, pills) */
+    .badge-limit,
+    .badge-bonus,
+    .badge-review,
+    .trust-pill,
+    .bonus-pill-badge {
+        font-size: 0.75rem !important;
+    }
+}
+
+/* Animação exclusiva para o botão principal de oferta */
+@keyframes pulse-gold {
+    0% { box-shadow: 0 6px 24px rgba(240, 165, 0, 0.5); }
+    50% { box-shadow: 0 6px 36px rgba(240, 165, 0, 0.85); }
+    100% { box-shadow: 0 6px 24px rgba(240, 165, 0, 0.5); }
+}
+
+/* Ajustes Específicos do Botão de Oferta e Textos de Bônus (Mobile) */
+@media (max-width: 768px) {
+    /* 1. Redução da fonte dos Bônus (Todos os textos) */
+    .offer-bonuses-list li,
+    .offer-bonuses-list p,
+    .offer-bonuses-list span.bonus-text,
+    .offer-bonuses-list span.bonus-label,
+    .bonus-body h3,
+    .bonus-body p,
+    .bonus-pill-badge,
+    .val-strike,
+    .val-label {
+        font-size: 0.82rem !important;
+    }
+
+    /* 2. Botão de Oferta Exclusivo ("ASEGURAR MI OFERTA AHORA") */
+    .offer-card .btn-primary {
+        background: linear-gradient(135deg, #F5C518, #F0A500) !important;
+        color: #1a1a1a !important;
+        font-weight: 800 !important;
+        font-size: 1.1rem !important;
+        box-shadow: 0 6px 24px rgba(240, 165, 0, 0.5) !important;
+        border: none !important;
+        animation: pulse-gold 2s infinite !important;
+    }
+
+    /* 3. Imagens dos Cards de Bônus (Garantir que preencham bem o espaço) */
+    .bonus-img-wrapper {
+        min-height: 220px !important;
+    }
+    
+    .bonus-img-wrapper img {
+        height: 100% !important;
+        object-fit: cover !important;
+    }
+
+    /* 4. Espaçamentos Seção de Bônus */
+    .bonuses {
+        padding-top: 12px !important;
+        margin-top: 0 !important;
+    }
+
+    .section-header-bonuses {
+        margin-bottom: 25px !important;
+    }
+
+    /* 5. Trust badges (oferta) */
+    .secure-badges {
+        margin-top: 16px !important;
+        gap: 6px !important;
+    }
+
+    .secure-badges span, .secure-badges i {
+        font-size: 0.75rem !important;
+        color: #888 !important;
+    }
+
+    /* 6. Distância badge "BONOS EXCLUSIVOS" */
+    .bonus-pill-badge {
+        margin-bottom: 8px !important;
+    }
+
+    /* 7. Badge OFERTA LIMITADA no hero */
+    .badge-limit {
+        font-size: 0.65rem !important;
+        padding: 4px 12px !important;
+    }
+
+    /* 8. Trust pills no hero */
+    .trust-pill {
+        width: 100% !important;
+        box-sizing: border-box !important;
+        font-size: 0.8rem !important;
+        padding: 6px 12px !important;
+        white-space: nowrap !important;
+    }
+
+    /* 9. Hero H1 */
+    .hero h1 {
+        margin-bottom: 20px !important;
+    }
+
+    /* 10. Seção Sobre la Creadora */
+    .about {
+        margin-top: 6px !important;
+    }
+    .about-image {
+        padding-top: 0 !important;
+    }
+    .about .section-header {
+        margin-bottom: 12px !important;
+    }
+
+    /* 11. Seção Lo que dicen los profesionales */
+    section.testimonials {
+        padding: 24px 16px !important;
+        padding-top: 24px !important;
+        padding-bottom: 8px !important;
+        margin-top: 0 !important;
+    }
+    .testimonials .section-header {
+        margin-top: 0 !important;
+    }
+
+    /* 11.5 Seção Preguntas Frecuentes */
+    section.faq {
+        padding: 24px 16px !important;
+        padding-top: 8px !important;
+        margin-top: 0 !important;
+    }
+
+    /* 12. Oferta Headings / Ribbons */
+    .offer-card-ribbon {
+        margin-bottom: 8px !important;
+    }
+    .price-header-new h2 {
+        margin-top: 8px !important;
+    }
+
+    /* 13. Seção da garantia e Card */
+    .guarantee-card-new {
+        background: #f3eeff !important;
+        padding: 32px 24px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 16px !important;
+    }
+
+    .guarantee-card-new .icon-floating-circle img {
+        width: 120px !important;
+    }
+
+    .guarantee-card-new .btn-primary {
+        background: linear-gradient(135deg, #F5C518, #F0A500) !important;
+        color: #1a1a1a !important;
+        font-weight: 800 !important;
+        box-shadow: 0 6px 24px rgba(240, 165, 0, 0.5) !important;
+        border: none !important;
+        margin-top: 0 !important; 
+    }
+
+    .guarantee-trust-list {
+        gap: 8px !important;
+        margin-bottom: 0 !important;
+    }
+    .guarantee-trust-list li {
+        margin: 0 !important;
+    }
+
+    /* 14. Stat boxes da autora */
+    .author-stats-container {
+        align-items: center !important;
+    }
+
+    .stat-number {
+        font-size: 1.2rem !important;
+    }
+
+    .stat-label {
+        font-size: 0.7rem !important;
+    }
+
+    /* 15. Footer */
+    .footer-bottom {
+        padding-top: 8px !important;
+        padding-bottom: 8px !important;
+        font-size: 0.75rem !important;
+    }
+    .footer-bottom p {
+        font-size: 0.75rem !important;
+    }
+    .footer-links a {
+        font-size: 0.75rem !important;
+    }
+}
+/* Scroll suave */
+html {
+    scroll-behavior: smooth;
+}
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+}
+
+</style>
+<script src="https://unpkg.com/@phosphor-icons/web"></script>
+<!-- SECCIÓN 1 — BARRA SUPERIOR DE URGENCIA -->
+<div class="top-bar" id="top-bar">
+<p>OFERTA WAŻNA TYLKO DZIŚ: <span id="current-date"></span></p>
+</div>
+<!-- SECCIÓN 2 — HERO / HEADLINE PRINCIPAL -->
+<section class="hero section-white" id="hero">
+<div class="container hero-container-centered">
+<div class="hero-content-centered fade-in">
+<!-- Top Limit Badge -->
+<div class="badge-limit">
+                    OFERTA OGRANICZONA • NATYCHMIASTOWY DOSTĘP
+                </div>
+<!-- Main Headline -->
+<h1>
+<span class="highlight">1500 Metafor</span> Terapeutycznych Ilustrowanych <br/>
+                    aby <span class="highlight">odblokować emocje</span>
+</h1>
+<!-- Subheadline -->
+<p class="subheadline text-muted-dark">
+                    Wprowadzaj realne zmiany dzięki praktycznemu narzędziu zorganizowanemu według tematów emocjonalnych, gotowemu do użycia bez oporu
+                </p>
+<div class="hero-image-centered fade-in delay-1 mt-4">
+<img alt="Mockup 1500 Metafor Terapeutycznych" class="product-mockup responsive-img mix-blend-multiply mx-auto" src="https://files.catbox.moe/r18yxg.png" style="max-width: 850px; width: 100%;"/>
+</div>
+<!-- Transition Text -->
+<p class="hero-transition-text fade-in delay-2" style="font-size: 1.15rem; color: var(--color-text-main); max-width: 850px; margin: 30px auto 20px; line-height: 1.6; text-align: center;">
+                    Metafory gotowe do użycia, ułatwiające głębokie procesy emocjonalne podczas sesji
+                </p>
+<!-- New Inline Trust Pills -->
+<div class="hero-trust-pills fade-in delay-2 mt-4">
+<span class="trust-pill"><i class="ph-bold ph-check-circle"></i> Gotowe na Twoją <strong>następną sesję</strong></span>
+<span class="trust-pill"><i class="ph-bold ph-check-circle"></i> Zgodne z <strong>każde podejście</strong></span>
+<span class="trust-pill"><i class="ph-bold ph-check-circle"></i> <strong>Dożywotni dostęp</strong> i natychmiastowy</span>
+</div>
+<a class="btn-primary cta-pulse hero-btn-centered" href="#checkout">CHCĘ NATYCHMIASTOWEGO DOSTĘPU!</a>
+</div>
+</div>
+</section>
+<!-- SECCIÓN 3 — SECCIÓN DE DOLOR -->
+<section class="pain section-light" id="pain">
+<div class="container">
+<div class="section-header fade-in">
+<h2>Czy identyfikujesz się z którąś z tych sytuacji?</h2>
+<p>Czy znasz ten moment, kiedy Twój pacjent mówi: „Rozumiem… ale nie mogę się zmienić"?<br/>Nie jesteś sam.
+                    To przytrafia się najlepszym specjalistom.</p>
+</div>
+<div class="pain-grid pain-grid-4">
+<!-- Card 1 -->
+<div class="pain-card fade-in">
+<div class="icon-wrapper icon-purple"><i class="ph-bold ph-heart-break"></i></div>
+<h3>Sesje zablokowane emocjonalnie</h3>
+<p>Twój pacjent mówi, ale nie łączy się z tym, co istotne. Brakuje tego wewnętrznego „kliknięcia", które
+                        oświetla drogę do zmiany. Sesja posuwa się naprzód… ale nie dotykając tego, co naprawdę ważne.</p>
+</div>
+<!-- Card 2 -->
+<div class="pain-card fade-in delay-1">
+<div class="icon-wrapper icon-gold"><i class="ph-bold ph-user-minus"></i></div>
+<h3>Wie, co trzeba zrobić… ale tego nie robi</h3>
+<p>Pacjent rozumie zmianę, której potrzebuje, ale coś go powstrzymuje. Frustracja
+                        rośnie — po obu stronach — i zastanawiasz się, jak naprawdę mu pomóc.</p>
+</div>
+<!-- Card 3 -->
+<div class="pain-card fade-in">
+<div class="icon-wrapper icon-purple"><i class="ph-bold ph-toolbox"></i></div>
+<h3>Twoje narzędzia stały się przewidywalne</h3>
+<p>Czujesz, że powtarzasz te same narzędzia. Twoi pacjenci to zauważają. Potrzebujesz czegoś nowego —
+                        co dostosuje się do różnych realiów emocjonalnych osób, z którymi pracujesz.</p>
+</div>
+<!-- Card 4 -->
+<div class="pain-card fade-in delay-1">
+<div class="icon-wrapper icon-gold"><i class="ph-bold ph-chat-circle-slash"></i></div>
+<h3>Racjonalne wyjaśnienia nie wywołują zmiany</h3>
+<p>Wiesz już, że samo informowanie nie transformuje. Twoi pacjenci muszą czuć, nie tylko rozumieć. I Ty
+                        potrzebujesz narzędzia, które dotrze tam, gdzie same słowa nie wystarczają.</p>
+</div>
+</div>
+<p style="padding: 24px; font-size: 0.95rem;">Twoje wykształcenie nauczyło Cię teorii. Ale nikt nie nauczył Cię, jak dotrzeć do <strong>nieświadomość</strong> swojego pacjenta w minuty. A <strong>metafory terapeutyczne</strong> są tym mostem — i dziś możesz mieć je wszystkie w jednym miejscu.</p>
+</div>
+</section>
+<!-- SECCIÓN 4 — POR QUÉ LAS METÁFORAS FUNCIONAN -->
+<section class="why-works section-white" id="why-works">
+<div class="container">
+<div class="section-header fade-in">
+<div class="san-badge" style="display: inline-block; background-color: var(--color-primary); color: #FFF; padding: 6px 16px; border-radius: 50px; font-weight: 600; font-size: 0.85rem; margin-bottom: 15px;">System Aktywacji Narracyjnej w praktyce</div>
+<h2>Dlaczego metafory działają tak dobrze?</h2>
+</div>
+<div class="works-grid">
+<div class="work-card fade-in">
+<i class="ph-fill ph-dna"></i>
+<h3>
+<span class="desktop-only">Bezpośrednio docierają do nieświadomości</span>
+<span class="mobile-only">Bezpośredni dostęp do nieświadomości</span>
+</h3>
+</div>
+<div class="work-card fade-in delay-1">
+<i class="ph-fill ph-palette"></i>
+<h3>
+<span class="desktop-only">Ilustracja przekazuje to, czego słowa nie dosięgają</span>
+<span class="mobile-only">Ilustracja przekazuje to, czego słowa nie dosięgają</span>
+</h3>
+</div>
+<div class="work-card fade-in">
+<i class="ph-fill ph-chats-circle"></i>
+<h3>
+<span class="desktop-only">Wywołują refleksję bez konfrontacji</span>
+<span class="mobile-only">Wywołują refleksję bez bezpośredniej konfrontacji</span>
+</h3>
+</div>
+<div class="work-card fade-in delay-1">
+<i class="ph-fill ph-lightning"></i>
+<h3>
+<span class="desktop-only">Natychmiastowe zastosowanie — na Twojej następnej sesji</span>
+<span class="mobile-only">Natychmiastowe zastosowanie na następnej sesji</span>
+</h3>
+</div>
+</div>
+</div>
+</section> <!-- SECCIÓN 5 — LO QUE RECIBIRÁS -->
+<section class="what-you-get section-light" id="what-you-get">
+<div class="container">
+<div class="section-header fade-in">
+<h2 style="color: var(--color-primary);">Wszystko, co otrzymasz dziś</h2>
+</div>
+<div class="get-grid">
+<div class="get-block fade-in">
+<h3><i class="ph-fill ph-stack"></i> Kompletny Materiał</h3>
+<ul class="check-list">
+<li><i class="ph-fill ph-check-circle"></i> 1500 Ilustrowanych
+                            Metafor Terapeutycznych</li>
+<li><i class="ph-fill ph-check-circle"></i> +50 różnych tematów emocjonalnych
+                        </li>
+<li><i class="ph-fill ph-check-circle"></i> Indeks odsyłaczy według tematu i emocji
+                        </li>
+<li><i class="ph-fill ph-check-circle"></i> Przewodnik stosowania podczas sesji</li>
+<li><i class="ph-fill ph-check-circle"></i> Praktyczne przykłady zastosowania klinicznego
+                        </li>
+<li><i class="ph-fill ph-check-circle"></i> Dożywotni i natychmiastowy dostęp</li>
+<li><i class="ph-fill ph-check-circle"></i> Gotowe do wydruku lub użycia
+                            cyfrowo</li>
+</ul>
+</div>
+<div class="get-block-alt fade-in delay-1">
+<h3><i class="ph-fill ph-target"></i> Zastosowanie Kliniczne</h3>
+<ul class="check-list-alt">
+<li><i class="ph-fill ph-check-circle"></i> Sesje zablokowane lub bez
+                            głębi</li>
+<li><i class="ph-fill ph-check-circle"></i> Pacjenci oporni lub zbyt
+                            racjonalni</li>
+<li><i class="ph-fill ph-check-circle"></i> Dzieci, nastolatki i dorośli</li>
+<li><i class="ph-fill ph-check-circle"></i> Sesje indywidualne i grupowe
+                        </li>
+<li><i class="ph-fill ph-check-circle"></i> Procesy żałoby, lęku i traumy
+                        </li>
+<li><i class="ph-fill ph-check-circle"></i> Rozwój poczucia własnej wartości i celu
+                        </li>
+<li><i class="ph-fill ph-check-circle"></i> Coaching życiowy i rozwój
+                            osobisty</li>
+</ul>
+</div>
+</div>
+<div class="text-center mt-4 fade-in">
+<a class="btn-primary cta-pulse hero-btn-centered" href="#checkout">CHCĘ PRZEKSZTAŁCIĆ
+                    SWOJE SESJE</a>
+</div>
+</div>
+</section>
+<!-- SECCIÓN 6 — PREVIEW DEL MATERIAL -->
+<section class="preview section-white" id="preview">
+<div class="container">
+<div class="section-header fade-in">
+<h2>Poznaj materiał od środka</h2>
+<p>Ponad 1500 metafor zorganizowanych według tematu emocjonalnego — z ekskluzywnymi ilustracjami
+                    do każdej z nich.
+                </p>
+</div>
+<!-- Tema 1 -->
+<div class="preview-theme fade-in">
+<h3 class="preview-theme-title" style="text-align: center; margin-top: 2.5rem; line-height: 1.4;">
+                    100 Metafor Terapeutycznych<br/>
+                    Lęk i Troski
+                </h3>
+<div class="preview-carousel-wrapper">
+<div class="preview-carousel-track">
+<!-- Grupo Original -->
+<div class="preview-item"><img alt="Lęk 1" src="https://files.catbox.moe/hlq7id.png"/>
+</div>
+<div class="preview-item"><img alt="Lęk 2" src="https://files.catbox.moe/2g6fgd.png"/>
+</div>
+<div class="preview-item"><img alt="Lęk 3" src="https://files.catbox.moe/3sgg9x.png"/>
+</div>
+<div class="preview-item"><img alt="Lęk 4" src="https://files.catbox.moe/g4plxb.png"/>
+</div>
+<!-- Grupo Duplicado (Marquee infinito) -->
+<div class="preview-item"><img alt="Lęk 1" src="https://files.catbox.moe/hlq7id.png"/>
+</div>
+<div class="preview-item"><img alt="Lęk 2" src="https://files.catbox.moe/2g6fgd.png"/>
+</div>
+<div class="preview-item"><img alt="Lęk 3" src="https://files.catbox.moe/3sgg9x.png"/>
+</div>
+<div class="preview-item"><img alt="Lęk 4" src="https://files.catbox.moe/g4plxb.png"/>
+</div>
+</div>
+</div>
+</div>
+<!-- Tema 2 -->
+<div class="preview-theme fade-in">
+<h3 class="preview-theme-title" style="text-align: center; margin-top: 2.5rem; line-height: 1.4;">
+                    100 Metafor Terapeutycznych<br/>
+                    Strach i Niepewność
+                </h3>
+<div class="preview-carousel-wrapper">
+<div class="preview-carousel-track" style="animation-duration: 30s;">
+<!-- ligera variación de velocidad -->
+<div class="preview-item"><img alt="Strach 1" src="https://files.catbox.moe/6vpso2.png"/></div>
+<div class="preview-item"><img alt="Strach 2" src="https://files.catbox.moe/smd1om.png"/></div>
+<div class="preview-item"><img alt="Strach 3" src="https://files.catbox.moe/rlfqsy.png"/></div>
+<div class="preview-item"><img alt="Strach 4" src="https://files.catbox.moe/f3h9h4.png"/></div>
+<div class="preview-item"><img alt="Strach 1" src="https://files.catbox.moe/6vpso2.png"/></div>
+<div class="preview-item"><img alt="Strach 2" src="https://files.catbox.moe/smd1om.png"/></div>
+<div class="preview-item"><img alt="Strach 3" src="https://files.catbox.moe/rlfqsy.png"/></div>
+<div class="preview-item"><img alt="Strach 4" src="https://files.catbox.moe/f3h9h4.png"/></div>
+</div>
+</div>
+</div>
+<!-- Tema 3 -->
+<div class="preview-theme fade-in">
+<h3 class="preview-theme-title" style="text-align: center; margin-top: 2.5rem; line-height: 1.4;">
+                    100 Metafor Terapeutycznych<br/>
+                    Miłość i Poczucie Własnej Wartości
+                </h3>
+<div class="preview-carousel-wrapper">
+<div class="preview-carousel-track" style="animation-duration: 28s;">
+<div class="preview-item"><img alt="Poczucie własnej wartości 1" src="https://files.catbox.moe/zqehaq.png"/>
+</div>
+<div class="preview-item"><img alt="Poczucie własnej wartości 2" src="https://files.catbox.moe/jebzgr.png"/>
+</div>
+<div class="preview-item"><img alt="Poczucie własnej wartości 3" src="https://files.catbox.moe/trkm95.png"/>
+</div>
+<div class="preview-item"><img alt="Poczucie własnej wartości 4" src="https://files.catbox.moe/lrc81u.png"/>
+</div>
+<div class="preview-item"><img alt="Poczucie własnej wartości 1" src="https://files.catbox.moe/zqehaq.png"/>
+</div>
+<div class="preview-item"><img alt="Poczucie własnej wartości 2" src="https://files.catbox.moe/jebzgr.png"/>
+</div>
+<div class="preview-item"><img alt="Poczucie własnej wartości 3" src="https://files.catbox.moe/trkm95.png"/>
+</div>
+<div class="preview-item"><img alt="Poczucie własnej wartości 4" src="https://files.catbox.moe/lrc81u.png"/>
+</div>
+</div>
+</div>
+</div>
+<!-- Tema 4 -->
+<div class="preview-theme fade-in">
+<h3 class="preview-theme-title" style="text-align: center; margin-top: 2.5rem; line-height: 1.4;">
+                    100 Metafor Terapeutycznych<br/>
+                    Smutek i Straty
+                </h3>
+<div class="preview-carousel-wrapper">
+<div class="preview-carousel-track" style="animation-duration: 26s;">
+<div class="preview-item"><img alt="Smutek 1" src="https://files.catbox.moe/3ur81u.png"/>
+</div>
+<div class="preview-item"><img alt="Smutek 2" src="https://files.catbox.moe/5tixa7.png"/>
+</div>
+<div class="preview-item"><img alt="Smutek 3" src="https://files.catbox.moe/vbi3gr.png"/>
+</div>
+<div class="preview-item"><img alt="Smutek 4" src="https://files.catbox.moe/lz2b7d.png"/>
+</div>
+<div class="preview-item"><img alt="Smutek 1" src="https://files.catbox.moe/3ur81u.png"/>
+</div>
+<div class="preview-item"><img alt="Smutek 2" src="https://files.catbox.moe/5tixa7.png"/>
+</div>
+<div class="preview-item"><img alt="Smutek 3" src="https://files.catbox.moe/vbi3gr.png"/>
+</div>
+<div class="preview-item"><img alt="Smutek 4" src="https://files.catbox.moe/lz2b7d.png"/>
+</div>
+</div>
+</div>
+</div>
+<!-- Tema 5 -->
+<div class="preview-theme fade-in">
+<h3 class="preview-theme-title" style="text-align: center; margin-top: 2.5rem; line-height: 1.4;">
+                    100 Metafor Terapeutycznych<br/>
+                    Odwaga i Przezwyciężenie
+                </h3>
+<div class="preview-carousel-wrapper">
+<div class="preview-carousel-track" style="animation-duration: 32s;">
+<div class="preview-item"><img alt="Odwaga 1" src="https://files.catbox.moe/m8mp5r.png"/></div>
+<div class="preview-item"><img alt="Odwaga 2" src="https://files.catbox.moe/bqmo6t.png"/></div>
+<div class="preview-item"><img alt="Odwaga 3" src="https://files.catbox.moe/ck8rnw.png"/></div>
+<div class="preview-item"><img alt="Odwaga 4" src="https://files.catbox.moe/ahlh58.png"/></div>
+<div class="preview-item"><img alt="Odwaga 1" src="https://files.catbox.moe/m8mp5r.png"/></div>
+<div class="preview-item"><img alt="Odwaga 2" src="https://files.catbox.moe/bqmo6t.png"/></div>
+<div class="preview-item"><img alt="Odwaga 3" src="https://files.catbox.moe/ck8rnw.png"/></div>
+<div class="preview-item"><img alt="Odwaga 4" src="https://files.catbox.moe/ahlh58.png"/></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECCIÓN NUEVA — ANATOMÍA DE CADA METÁFORA -->
+<section class="anatomy section-white" id="anatomy">
+<div class="container">
+<div class="section-header fade-in">
+<h2>Anatomia Każdej Metafory</h2>
+<p>Każda z 1500 metafor zawiera 4 ustrukturyzowane elementy gotowe do użycia podczas sesji</p>
+</div>
+<div class="anatomy-grid">
+<!-- Card 1 -->
+<div class="anatomy-card fade-in">
+<div class="icon-wrapper icon-purple"><i class="ph-bold ph-book"></i></div>
+<h3>Historia Symboliczna</h3>
+<p>Starannie zaprojektowana, by przyciągnąć uwagę i obniżyć mechanizmy obronne.</p>
+</div>
+<!-- Card 3 -->
+<div class="anatomy-card fade-in delay-2">
+<div class="icon-wrapper icon-purple"><i class="ph-bold ph-clipboard"></i></div>
+<h3>Zastosowanie Kliniczne</h3>
+<p>Jak wprowadzić ją do sesji krok po kroku, bez improwizacji.</p>
+</div>
+<!-- Card 4 -->
+<div class="anatomy-card fade-in">
+<div class="icon-wrapper icon-purple"><i class="ph-bold ph-lightning"></i></div>
+<h3>Ustrukturyzowane Ćwiczenie</h3>
+<p>Ćwiczenie gotowe do wykonania z pacjentem od razu.</p>
+</div>
+<!-- Card 5 -->
+<div class="anatomy-card fade-in delay-1">
+<div class="icon-wrapper icon-purple"><i class="ph-bold ph-image"></i></div>
+<h3>Profesjonalna Ilustracja</h3>
+<p>Wsparcie wizualne gotowe do użycia na ekranie lub do wydruku.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- SECCIÓN 7 — POR QUÉ ELEGIR ESTE MATERIAL (Reemplazando Tabla por Cards) -->
+<section class="comparison section-light" id="comparison">
+<div class="container">
+<div class="section-header fade-in">
+<h2 style="color: var(--color-primary);">Dlaczego Warto Wybrać Ten Materiał?</h2>
+</div>
+<div class="pain-grid">
+<!-- Tarjeta 1 -->
+<div class="pain-card fade-in">
+<div class="icon-wrapper icon-purple"><i class="ph-bold ph-brain"></i></div>
+<h3 style="font-size: 1.25rem; margin-bottom: 10px; color: var(--color-text-main);">
+                        Bezpośredni Dostęp
+                        do Nieświadomości</h3>
+<p style="color: var(--color-text-muted);">Metafory przełamujące opór
+                        mentalny i wywołujące
+                        zmiany tam, gdzie same słowa nie docierają.</p>
+</div>
+<!-- Tarjeta 2 -->
+<div class="pain-card fade-in delay-1">
+<div class="icon-wrapper icon-gold"><i class="ph-bold ph-book-open-text"></i></div>
+<h3 style="font-size: 1.25rem; margin-bottom: 10px; color: var(--color-text-main);">
+                        1500 Ilustrowanych
+                        Metafor</h3>
+<p style="color: var(--color-text-muted);">Każda metafora jest uzupełniona o
+                        obraz wizualny, który
+                        ułatwia natychmiastowe rozumienie emocjonalne.</p>
+</div>
+<!-- Tarjeta 3 -->
+<div class="pain-card fade-in delay-2">
+<div class="icon-wrapper icon-purple"><i class="ph-bold ph-folders"></i></div>
+<h3 style="font-size: 1.25rem; margin-bottom: 10px; color: var(--color-text-main);">
+                        Zorganizowane według
+                        Tematu Emocjonalnego</h3>
+<p style="color: var(--color-text-muted);">+50 tematów z indeksem odsyłaczy — znajdź
+                        idealną metaforę
+                        na każdą sesję w kilka sekund.</p>
+</div>
+<!-- Tarjeta 4 -->
+<div class="pain-card fade-in">
+<div class="icon-wrapper icon-gold"><i class="ph-bold ph-lightning"></i></div>
+<h3 style="font-size: 1.25rem; margin-bottom: 10px; color: var(--color-text-main);">
+                        Gotowe do Użycia
+                        od Dziś</h3>
+<p style="color: var(--color-text-muted);">Bez kursów, bez modułów. Pobierz, otwórz i
+                        zastosuj na
+                        swojej następnej sesji. Natychmiastowy efekt.</p>
+</div>
+<!-- Tarjeta 5 -->
+<div class="pain-card fade-in delay-1">
+<div class="icon-wrapper icon-purple"><i class="ph-bold ph-users-three"></i></div>
+<h3 style="font-size: 1.25rem; margin-bottom: 10px; color: var(--color-text-main);">
+                        Działa z
+                        Każdym Pacjentem</h3>
+<p style="color: var(--color-text-muted);">Dzieci, nastolatki i dorośli. Indywidualnie
+                        lub grupowo.
+                        Zgodne z CBT, psychoanalizą, coachingiem i nie tylko.</p>
+</div>
+<!-- Tarjeta 6 -->
+<div class="pain-card fade-in delay-2">
+<div class="icon-wrapper icon-gold"><i class="ph-bold ph-shield-check"></i></div>
+<h3 style="font-size: 1.25rem; margin-bottom: 10px; color: var(--color-text-main);">
+                        Bezwarunkowa
+                        Gwarancja 7 Dni</h3>
+<p style="color: var(--color-text-muted);">Sprawdź bez ryzyka — jeśli
+                        materiał nie spełni Twoich oczekiwań,
+                        zwrócimy Ci całą kwotę.</p>
+</div>
+</div>
+<div class="text-center mt-4 fade-in">
+<a class="btn-primary cta-pulse hero-btn-centered" href="#checkout">CHCĘ
+                    NATYCHMIASTOWEGO DOSTĘPU</a>
+</div>
+</div>
+</section>
+<!-- SECCIÓN 8 — BONOS EXCLUSIVOS -->
+<section class="bonuses section-white" id="bonuses">
+<div class="container">
+<div class="section-header-bonuses fade-in">
+<div class="bonus-pill-badge"><i class="ph-bold ph-gift"></i> EKSKLUZYWNE BONUSY</div>
+<h2>Otrzymaj 3 Niesamowite Bonusy <span style="color: #C9A84C;">GRATIS</span>!</h2>
+<p>Dodatkowe materiały do znacznego wzmocnienia wyników w pracy z pacjentami.</p>
+</div>
+<div class="bonus-grid-new">
+<!-- Bono 1 -->
+<div class="bonus-card-new fade-in">
+<div class="bonus-img-wrapper">
+<img alt="Bonus 1" src="https://files.catbox.moe/yq3qz2.png"/>
+<div class="bonus-number">1</div>
+</div>
+<div class="bonus-body">
+<h3>Diagnostyczna Lista Kontrolna</h3>
+<p>Wizualne i ustrukturyzowane narzędzie do dogłębnego mapowania stanu
+                            emocjonalnego pacjenta
+                            podczas pierwszych sesji.</p>
+<div class="bonus-divider"></div>
+<div class="bonus-footer">
+<div class="val-group">
+<span class="val-label">WARTOŚĆ ORYGINALNA:</span>
+<span class="val-strike">79 zł</span>
+</div>
+<div class="badge-free">GRATIS</div>
+</div>
+</div>
+</div>
+<!-- Bono 2 -->
+<div class="bonus-card-new fade-in delay-1">
+<div class="bonus-img-wrapper">
+<img alt="Bonus 2" src="https://files.catbox.moe/3ijuoq.png"/>
+<div class="bonus-number">2</div>
+</div>
+<div class="bonus-body">
+<h3>Mapa Ograniczających Przekonań</h3>
+<p>Odkryj i przewartościuj nieświadome przekonania blokujące Twoich
+                            pacjentów dzięki temu mapie
+                            prowadzonemu krok po kroku.</p>
+<div class="bonus-divider"></div>
+<div class="bonus-footer">
+<div class="val-group">
+<span class="val-label">WARTOŚĆ ORYGINALNA:</span>
+<span class="val-strike">109 zł</span>
+</div>
+<div class="badge-free">GRATIS</div>
+</div>
+</div>
+</div>
+<!-- Bono 3 -->
+<div class="bonus-card-new fade-in delay-2">
+<div class="bonus-img-wrapper">
+<img alt="Bonus 3" src="https://files.catbox.moe/fz5lb9.png"/>
+<div class="bonus-number">3</div>
+</div>
+<div class="bonus-body">
+<h3>50 Strategii na Lęk</h3>
+<p>Szybkie i bezpieczne interwencje terapeutyczne, gotowe do zastosowania w celu skutecznego łagodzenia
+                            lub zapobiegania
+                            kryzysom lękowym.</p>
+<div class="bonus-divider"></div>
+<div class="bonus-footer">
+<div class="val-group">
+<span class="val-label">WARTOŚĆ ORYGINALNA:</span>
+<span class="val-strike">139 zł</span>
+</div>
+<div class="badge-free">GRATIS</div>
+</div>
+</div>
+</div>
+</div>
+<div class="bonus-summary-box fade-in delay-2 mt-4">
+<p class="summary-total">Łączna wartość bonusów: <span class="summary-strike">327 zł</span></p>
+<h3 class="summary-hoy">DZIŚ: <span class="summary-free">GRATIS!</span></h3>
+</div>
+</div>
+</section>
+<!-- SECCIÓN 9 — OFERTA CON CONTADOR -->
+<section class="offer section-gradient" id="checkout" style="scroll-margin-top: 24px;">
+<div class="container container-sm">
+<div class="section-header fade-in" style="margin-bottom: 20px;">
+<h2 style="color: var(--color-primary);">Zabezpiecz swój pełny dostęp</h2>
+</div>
+<div class="countdown-wrapper-new fade-in mt-4">
+<div class="countdown-title-new">OFERTA OGRANICZONA — KOŃCZY SIĘ ZA:</div>
+<div class="countdown-timer-new" id="countdown">
+<span id="hours">01</span>
+<span class="colon">:</span>
+<span id="minutes">42</span>
+<span class="colon">:</span>
+<span id="seconds">37</span>
+</div>
+</div>
+<div class="offer-card fade-in">
+<div class="offer-card-ribbon"><i class="ph-fill ph-crown" style="margin-right: 8px; font-size: 1.2rem; transform: translateY(2px); display: inline-block;"></i>
+                    OFERTA EKSKLUZYWNA</div>
+<div class="price-header-new">
+<h2>1500 Ilustrowanych Metafor Terapeutycznych</h2>
+<div class="offer-social-proof-pill">
+<div class="overlapping-avatars">
+<img alt="Psycholożka" src="https://files.catbox.moe/yptgco.png"/>
+<img alt="Psycholog" src="https://files.catbox.moe/daz95b.png"/>
+<img alt="Psycholożka" src="https://files.catbox.moe/8tlah7.png"/>
+<div class="avatar-count">+4k</div>
+</div>
+<div class="offer-social-text">
+<div class="stars">⭐⭐⭐⭐⭐</div>
+<span>4.821 terapeutów<br/>wybrało tę opcję</span>
+</div>
+</div>
+</div>
+<div class="price-body-pricing">
+<div class="price-old">Z {{original_price}} za:</div>
+<div class="price-new">{{price}}</div>
+<div style="font-size: 0.8rem; color: #888; margin-top: 6px;">💳 Płacisz w lokalnej walucie</div>
+</div>
+<ul class="offer-includes">
+<li><i class="ph-bold ph-check"></i> 1500 Ilustrowanych Metafor Terapeutycznych</li>
+<li><i class="ph-bold ph-check"></i> +50 różnych tematów emocjonalnych</li>
+<li><i class="ph-bold ph-check"></i> Odpowiednie dla każdego podejścia terapeutycznego</li>
+<li><i class="ph-bold ph-check"></i> Pliki PDF gotowe do wydruku</li>
+<li><i class="ph-bold ph-check"></i> Natychmiastowy dostęp do materiału</li>
+<li><i class="ph-bold ph-check"></i> Bezpłatne Przyszłe Aktualizacje</li>
+<li><i class="ph-bold ph-check"></i> Bezwarunkowa gwarancja 7 dni</li>
+</ul>
+<div class="offer-divider"></div>
+<ul class="offer-bonuses-list">
+<li><span class="bonus-label"><span class="bonus-emoji">🎁</span> <strong>GRATIS 1:</strong></span>
+<span class="bonus-text">Diagnostyczna Lista Kontrolna (wartość 79 zł)</span>
+</li>
+<li><span class="bonus-label"><span class="bonus-emoji">🎁</span> <strong>GRATIS 2:</strong></span>
+<span class="bonus-text">Mapa Ograniczających Przekonań (wartość 109 zł)</span>
+</li>
+<li><span class="bonus-label"><span class="bonus-emoji">🎁</span> <strong>GRATIS 3:</strong></span>
+<span class="bonus-text">50 Strategii na Lęk (wartość 139 zł)</span>
+</li>
+</ul>
+<a class="btn-primary btn-large cta-pulse" href="#checkout">ZAPEWNIJ SOBIE DOSTĘP TERAZ</a>
+<div class="secure-badges">
+<span><i class="ph-fill ph-lock-key"></i> Płatność 100% bezpieczna</span>
+<span><i class="ph-fill ph-lightning"></i> Natychmiastowy dostęp</span>
+<span><i class="ph-fill ph-shield-check"></i> Gwarancja 7 dni</span>
+</div>
+</div>
+</div>
+</section>
+<!-- SECCIÓN 11 — SOBRE LA CREADORA (Agora antes de Testimonials) -->
+<section class="about section-white" id="about">
+<div class="container pb-0">
+<div class="section-header fade-in" style="margin-bottom: 30px;">
+<h2 style="color: #2D2D2D;">O Twórczyni</h2>
+</div>
+</div>
+<div class="container about-container" style="padding-top: 0;">
+<div class="about-image fade-in">
+<img alt="Zdjęcie profesjonalne Dr. Marty Kowalskiej" class="author-photo responsive-img" src="https://files.catbox.moe/z612px.png"/>
+</div>
+<div class="about-content fade-in delay-1">
+<!-- Top Stats -->
+<div class="author-stats-container">
+<div class="stat-box">
+<div class="stat-number">12+</div>
+<div class="stat-label">Lat Doświadczenia</div>
+</div>
+<div class="stat-box">
+<div class="stat-number">8.000+</div>
+<div class="stat-label">Obsłużonych Pacjentów</div>
+</div>
+<div class="stat-box">
+<div class="stat-number">Specjalista</div>
+<div class="stat-label">w Psychologii Narracyjnej</div>
+</div>
+</div>
+<h3 style="font-size: 1.8rem; color: #2D2D2D;">Dr. Marta Kowalska</h3>
+<p class="author-subtitle-new">Psycholożka i Twórczyni Systemu Aktywacji Narracyjnej (S.A.N.)</p>
+<div class="author-text-new">
+<p>Psycholog Kliniczny z ponad 12-letnim doświadczeniem, Marta Kowalska doskonale zna
+                        te chwile,
+                        kiedy słowa nie wystarczają — kiedy pacjent rozumie, ale się nie zmienia.
+                    </p>
+<p>Po latach badań nad terapeutycznym zastosowaniem metafor w tradycjach
+                        Miltona Ericksona,
+                        Junga i nowoczesnych neuronauk języka, opracowała własną metodologię,
+                        która jest dziś
+                        stosowana przez ponad 3.200 specjalistów w Polsce i Europie.</p>
+<blockquote class="author-quote fade-in">
+<p><em>"Metafora to nie narzędzie drugiego wyboru. To język, który
+                                nieświadomość
+                                naprawdę rozumie."</em></p>
+<footer>— Dr. Marta Kowalska</footer>
+</blockquote>
+</div>
+<div class="author-philosophy-box">
+<h4>FILOZOFIA KOMPENDIUM:</h4>
+<ul class="philosophy-list">
+<li><i class="ph-bold ph-check"></i> Efekt od pierwszej sesji</li>
+<li><i class="ph-bold ph-check"></i> Skupienie na nieświadomości</li>
+<li><i class="ph-bold ph-check"></i> Zastosowanie bez przygotowania</li>
+<li><i class="ph-bold ph-check"></i> Poparte przez Neuronauki</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- SECCIÓN 10 — PRUEBA SOCIAL -->
+<section class="testimonials section-light" id="testimonials">
+<div class="container">
+<div class="section-header fade-in">
+<h2>Co mówią specjaliści</h2>
+</div>
+<div class="testimonial-grid">
+<!-- Testimonial 1 -->
+<div class="testimonial-card fade-in new-test-layout">
+<div class="stars">⭐⭐⭐⭐⭐</div>
+<div class="testimonial-body">
+<p>"W 2 sesjach z metaforą o rzece i kamieniach mój pacjent przełamał blokadę emocjonalną, z którą zmagał się przez 3 lata. Żadne inne narzędzie by tego nie osiągnęło."</p>
+</div>
+<div class="author-new">Agnieszka M., Psycholog Kliniczny</div>
+</div>
+<!-- Testimonial 2 -->
+<div class="testimonial-card fade-in delay-1 new-test-layout">
+<div class="stars">⭐⭐⭐⭐⭐</div>
+<div class="testimonial-body">
+<p>"Pracuję z nastolatkami w trudnych sytuacjach. W pierwszym tygodniu używania metafor 4 z 6 moich pacjentów poruszyło tematy, o których wcześniej nigdy nie mówiło. To niezwykłe."</p>
+</div>
+<div class="author-new">Tomasz R., Psycholog Edukacyjny</div>
+</div>
+<!-- Testimonial 3 -->
+<div class="testimonial-card fade-in delay-2 new-test-layout">
+<div class="stars">⭐⭐⭐⭐⭐</div>
+<div class="testimonial-body">
+<p>"Zastosowałam 3 metafory podczas warsztatów grupowych z 12 osobami. Na koniec 9 z nich poprosiło o sesję indywidualną. Nigdy wcześniej nie miałam takiej skuteczności. Materiał zwraca się już przy pierwszym użyciu."</p>
+</div>
+<div class="author-new">Katarzyna S., Coach i Terapeuta</div>
+</div>
+<!-- Testimonial 4 -->
+<div class="testimonial-card fade-in new-test-layout">
+<div class="stars">⭐⭐⭐⭐⭐</div>
+<div class="testimonial-body">
+<p>"Zaskoczyła mnie głębokość kliniczna tego materiału. Używam go jako uzupełnienie sesji, a reakcja pacjentów jest natychmiastowa. Ilustracje robią to, czego żadne racjonalne wyjaśnienie nie osiągnie."</p>
+</div>
+<div class="author-new">Dr. Marek W., Psychiatra</div>
+</div>
+<!-- Testimonial 5 -->
+<div class="testimonial-card fade-in delay-1 new-test-layout">
+<div class="stars">⭐⭐⭐⭐⭐</div>
+<div class="testimonial-body">
+<p>"Pracuję z dziećmi w wieku 6–12 lat i zawsze trudno było im wyjaśniać złożone koncepty emocjonalne. Ilustrowane metafory zmieniły wszystko. Dzieci rozumieją je od razu, utożsamiają się z historiami i zaczynają mówić o emocjach z naturalną swobodą, która wcześniej była niemożliwa do osiągnięcia."</p>
+</div>
+<div class="author-new">Lic. Zofia R., Psycholog Dziecięcy</div>
+</div>
+<!-- Testimonial 6 -->
+<div class="testimonial-card fade-in delay-2 new-test-layout">
+<div class="stars">⭐⭐⭐⭐⭐</div>
+<div class="testimonial-body">
+<p>"Stosuję je podczas warsztatów grupowych i efekt jest natychmiastowy. Już na pierwszej sesji widzę, jak grupa nawiązuje kontakt emocjonalny. Polecam to narzędzie każdemu specjaliście pracującemu z ludźmi."</p>
+</div>
+<div class="author-new">Andrzej T., Coach Emocjonalny</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECCIÓN 12 — PREGUNTAS FRECUENTES -->
+<section class="faq section-light" id="faq">
+<div class="container container-sm">
+<div class="section-header fade-in">
+<h2>Często Zadawane Pytania</h2>
+</div>
+<div class="faq-accordion fade-in">
+<!-- FAQ 1 -->
+<div class="faq-item">
+<button class="faq-question">
+                        Jak otrzymam materiał po zakupie?
+                        <i class="ph-bold ph-caret-down"></i>
+</button>
+<div class="faq-answer">
+<p>Natychmiast po potwierdzeniu płatności otrzymasz e-mail z
+                            linkiem
+                            dostępu. Pobieranie jest natychmiastowe.</p>
+</div>
+</div>
+<!-- FAQ 2 -->
+<div class="faq-item">
+<button class="faq-question">
+                        Czy materiał działa przy każdym podejściu terapeutycznym?
+                        <i class="ph-bold ph-caret-down"></i>
+</button>
+<div class="faq-answer">
+<p>Tak. Metafory to narzędzia uzupełniające, które integrują się
+                            naturalnie z każdym
+                            podejściem — CBT, psychoanalizą, humanistycznym, systemowym, coachingiem i edukacją.
+                        </p>
+</div>
+</div>
+<!-- FAQ 3 -->
+<div class="faq-item">
+<button class="faq-question">
+                        Czy mogę używać go z dziećmi i nastolatkami?
+                        <i class="ph-bold ph-caret-down"></i>
+</button>
+<div class="faq-answer">
+<p>Oczywiście. Materiał zawiera metafory specjalnie opracowane
+                            dla różnych
+                            grup wiekowych i kontekstów.</p>
+</div>
+</div>
+<!-- FAQ 4 -->
+<div class="faq-item">
+<button class="faq-question">
+                        Czy potrzebuję specjalnego szkolenia, żeby go używać?
+                        <i class="ph-bold ph-caret-down"></i>
+</button>
+<div class="faq-answer">
+<p>Nie. Materiał zawiera szczegółowy przewodnik zastosowania. Jeśli jesteś psychologiem,
+                            terapeutą, coachem
+                            lub edukatorem, masz już niezbędny kontekst do jego zastosowania.</p>
+</div>
+</div>
+<!-- FAQ 5 -->
+<div class="faq-item">
+<button class="faq-question">
+                        Czy mogę wydrukować materiał?
+                        <i class="ph-bold ph-caret-down"></i>
+</button>
+<div class="faq-answer">
+<p>Tak. PDF jest w wysokiej rozdzielczości, gotowy do wydruku i oprawienia, jeśli
+                            preferujesz format
+                            fizyczny.</p>
+</div>
+</div>
+<!-- FAQ 6 -->
+<div class="faq-item">
+<button class="faq-question">
+                        Co jeśli mi się nie spodoba?
+                        <i class="ph-bold ph-caret-down"></i>
+</button>
+<div class="faq-answer">
+<p>Masz 7 dni bezwarunkowej gwarancji. Jeśli z jakiegokolwiek powodu materiał
+                            nie spełni Twoich
+                            oczekiwań, zwrócimy 100% Twojej inwestycji — bez pytań.</p>
+</div>
+</div>
+<!-- FAQ 7 -->
+<div class="faq-item">
+<button class="faq-question">
+                        Co jeśli nie stosuję Terapii Poznawczo-Behawioralnej (CBT)?
+                        <i class="ph-bold ph-caret-down"></i>
+</button>
+<div class="faq-answer">
+<p>Żaden problem. Metafory to narzędzia uzupełniające działające z
+                            każdym podejściem — psychoanalizą, humanistycznym, systemowym, coachingiem i edukacją. Nie musisz
+                            stosować CBT, żeby w pełni skorzystać z materiału.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECCIÓN 13 — GARANTÍA -->
+<section class="guarantee section-white" id="guarantee">
+<div class="container container-sm">
+<div class="guarantee-card-new fade-in">
+<div class="icon-floating-circle" style="padding: 0; background: transparent; box-shadow: none;">
+<img alt="Pieczęć Gwarancyjna" src="https://files.catbox.moe/z61x4o.png" style="width: 100%; height: 100%; object-fit: contain;"/>
+</div>
+<h2>Bezwarunkowa Gwarancja 7 Dni</h2>
+<div class="guarantee-text-new">
+<p>Przetestuj materiał przez 7 dni. Jeśli nie ułatwia Twojej pracy lub uważasz, że nie
+                        przynosi
+                        wartości, zwrócimy Ci 100% pieniędzy. Bez pytań. Bez komplikacji.
+                    </p>
+</div>
+<ul class="guarantee-trust-list">
+<li><i class="ph-fill ph-check-circle"></i> Bezpieczny Zakup</li>
+<li><i class="ph-fill ph-check-circle"></i> Natychmiastowy Dostęp</li>
+<li><i class="ph-fill ph-check-circle"></i> Gwarantowany Zwrot</li>
+</ul>
+<a class="btn-primary cta-pulse" href="#checkout">CHCĘ ZACZĄĆ TERAZ!</a>
+</div>
+</div>
+</section>
+<!-- SECCIÓN 14 & 15 — CTA FINAL Y FOOTER UNIFICADOS -->
+<section class="cta-final-unified" id="final-cta">
+<div class="container footer-bottom text-center">
+<p>© 2026 Terapeutyczne Metafory. Wszelkie prawa zastrzeżone.</p>
+<div class="footer-links">
+<a href="#">Warunki Użytkowania</a> <a href="#">Polityka Prywatności</a>
+</div>
+</div>
+</section>
+<!-- Scripts -->
+<script src="js/script.js"></script>
+<!-- Carousel Interaction -->
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const tracks = document.querySelectorAll('.preview-carousel-track');
+            
+            const pauseAll = () => {
+                tracks.forEach(t => t.style.animationPlayState = 'paused');
+            };
+
+            const resumeAll = () => {
+                tracks.forEach(t => t.style.animationPlayState = 'running');
+            };
+
+            tracks.forEach(track => {
+                // Pause on pointer down
+                track.addEventListener('mousedown', pauseAll);
+                track.addEventListener('touchstart', (e) => {
+                    pauseAll();
+                }, { passive: true });
+
+                // Resume on pointer up / leave
+                track.addEventListener('mouseup', resumeAll);
+                track.addEventListener('mouseleave', resumeAll);
+                track.addEventListener('touchend', resumeAll);
+                track.addEventListener('touchcancel', resumeAll);
+            });
+        });
+    </script>

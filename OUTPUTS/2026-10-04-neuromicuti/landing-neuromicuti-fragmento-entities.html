@@ -1,0 +1,538 @@
+<script>document.documentElement.classList.add('js');</script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+:root{--nm-bg:#FFFFFF;--nm-bg2:#F7F9FB;--nm-text:#121212;--nm-muted:#4A4A4A;--nm-accent:#6AA2D9;--nm-accent2:#73ACE4;--nm-soft:rgba(115,172,228,.1);--nm-border:#E3EAF2;--nm-star:#FFD700;--nm-ok:#16A34A;--nm-red:#D93636}
+html,body{background:#FFFFFF;margin:0}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.nm-pulse{animation:none!important}}
+#nm-page,#nm-page *{box-sizing:border-box}
+#nm-page{font-family:'Poppins',system-ui,-apple-system,sans-serif;color:var(--nm-text);background:var(--nm-bg);line-height:1.55;font-size:16px;overflow-x:hidden}
+#nm-page img{max-width:100%;height:auto;display:block}
+#nm-page h1,#nm-page h2,#nm-page h3{margin:0 0 14px;line-height:1.2}
+#nm-page p{margin:0 0 12px}
+.nm-wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+.nm-section{padding:56px 0}
+.nm-alt{background:var(--nm-bg2)}
+.nm-center{text-align:center}
+.nm-h2{font-size:30px;font-weight:700}
+.nm-grid-2{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.nm-grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.nm-grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.nm-img{border-radius:12px}
+
+/* 1 · Hero / producto */
+.nm-hero{padding:32px 0 48px}
+.nm-hero .nm-grid-2{align-items:start}
+.nm-gal-main{border-radius:12px;overflow:hidden;background:var(--nm-bg2);aspect-ratio:1/1}
+.nm-gal-main img{width:100%;height:100%;object-fit:cover}
+.nm-thumbs{display:grid;grid-template-columns:repeat(8,1fr);gap:8px;margin-top:10px}
+.nm-thumbs button{padding:0;border:2px solid transparent;border-radius:8px;overflow:hidden;cursor:pointer;background:none;aspect-ratio:1/1}
+.nm-thumbs button.nm-on{border-color:var(--nm-accent)}
+.nm-thumbs img{width:100%;height:100%;object-fit:cover}
+.nm-badge{display:inline-block;background:var(--nm-accent);color:#fff;font-weight:600;font-size:13px;padding:6px 14px;border-radius:999px;margin-bottom:14px}
+.nm-hero h1{font-size:28px;font-weight:700}
+.nm-checks{list-style:none;padding:0;margin:0 0 18px}
+.nm-checks li{display:flex;gap:10px;margin-bottom:10px;font-size:15px}
+.nm-tick{flex:0 0 22px;height:22px;border-radius:50%;background:var(--nm-accent);color:#fff;font-size:12px;display:flex;align-items:center;justify-content:center;margin-top:2px}
+.nm-digital{background:var(--nm-soft);border-radius:10px;padding:14px 16px;font-size:14px;margin-bottom:18px}
+.nm-hero-price{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:6px}
+.nm-hero-price .nm-now{font-size:30px;font-weight:700;color:var(--nm-accent)}
+.nm-hero-price s{color:#888;font-size:18px}
+.nm-save{background:var(--nm-accent);color:#fff;font-size:12px;font-weight:700;padding:4px 10px;border-radius:999px}
+.nm-urgent{font-size:14px;font-weight:600;margin:8px 0 14px}
+.nm-pack{border:2px solid var(--nm-accent);border-radius:10px;padding:14px 16px;margin-bottom:14px;background:var(--nm-soft)}
+.nm-pack b{display:block;font-size:16px}
+.nm-pack span{font-size:14px;color:var(--nm-muted)}
+.nm-btn{display:block;width:100%;text-align:center;background:var(--nm-accent);color:#FDFBF7!important;text-decoration:none;font-weight:700;font-size:17px;letter-spacing:.03em;padding:17px 18px;border-radius:6px;border:0;cursor:pointer;transition:background .2s}
+.nm-btn:hover{background:var(--nm-accent2)}
+.nm-pulse{animation:nm-pulse 2.2s ease-in-out infinite}
+@keyframes nm-pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.025)}}
+.nm-under{font-size:13px;text-align:center;color:var(--nm-muted);margin:10px 0 18px}
+.nm-icons3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;text-align:center}
+.nm-icons3 div{background:var(--nm-bg2);border-radius:10px;padding:12px 6px;font-size:13px;font-weight:600;line-height:1.3}
+.nm-icons3 i{display:block;font-style:normal;font-size:22px;margin-bottom:4px}
+
+/* 2 · Imagineaz&#259;-&#539;i */
+.nm-imagine h2{font-size:26px}
+.nm-imagine ul{list-style:none;padding:0;margin:18px auto;max-width:620px;text-align:left}
+.nm-imagine li{padding:9px 0 9px 34px;position:relative;border-bottom:1px solid var(--nm-border)}
+.nm-imagine li:before{content:"✓";position:absolute;left:0;top:9px;color:var(--nm-ok);font-weight:700}
+.nm-imagine .nm-close{font-weight:700;font-size:18px;margin-top:14px}
+
+/* 3 · De ce func&#539;ioneaz&#259; */
+.nm-list-check{list-style:none;padding:0;margin:0 0 16px}
+.nm-list-check li{padding:6px 0;font-size:16px}
+.nm-list-check li b{color:var(--nm-accent)}
+
+/* 4-5 · &#206;nainte &#537;i dup&#259; */
+.nm-table{width:100%;max-width:720px;margin:0 auto;border-collapse:collapse;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 2px 14px rgba(0,0,0,.06)}
+.nm-table th,.nm-table td{padding:14px 12px;text-align:center;border-bottom:1px solid var(--nm-border);font-size:15px}
+.nm-table th{background:var(--nm-accent);color:#fff;font-weight:600}
+.nm-table td:first-child{text-align:left;font-weight:500}
+.nm-yes{color:var(--nm-ok);font-weight:700;font-size:18px}
+.nm-no{color:var(--nm-red);font-weight:700;font-size:18px}
+
+/* 6-7 · Ce vei ob&#539;ine */
+.nm-card{background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 2px 14px rgba(0,0,0,.06)}
+.nm-card img{aspect-ratio:1/1;object-fit:cover;width:100%}
+.nm-card div{padding:18px}
+.nm-card h3{font-size:18px}
+
+/* 8 · Tot ce prime&#537;te */
+.nm-blocks{list-style:none;padding:0;margin:0 0 14px}
+.nm-blocks li{padding:5px 0;font-size:16px}
+.nm-bonus-line{font-weight:700;color:var(--nm-accent);margin:10px 0}
+.nm-small{font-size:14px;color:var(--nm-muted)}
+
+/* 9 · Oferta */
+#nm-offer{scroll-margin-top:24px}
+.nm-offer-card{position:relative;background:#fff;border:2px solid var(--nm-accent);border-radius:16px;padding:36px 28px 26px;box-shadow:0 6px 30px rgba(106,162,217,.18)}
+.nm-ribbon{position:absolute;top:-15px;left:50%;transform:translateX(-50%);background:var(--nm-red);color:#fff;font-size:12px;font-weight:700;letter-spacing:.06em;padding:6px 16px;border-radius:999px;white-space:nowrap}
+.nm-was{display:flex;justify-content:center;align-items:center;gap:10px;flex-wrap:wrap}
+.nm-was s{color:#888;font-size:20px}
+.nm-price-now{font-family:Georgia,'Times New Roman',serif;font-size:76px;font-weight:700;line-height:1;margin:10px 0 6px;color:var(--nm-text);white-space:nowrap}
+.nm-once{font-size:14px;font-weight:600;color:var(--nm-muted);margin-bottom:18px}
+.nm-offer-list{list-style:none;padding:0;margin:0 0 18px;text-align:left}
+.nm-offer-list li{padding:6px 0;font-size:15px}
+.nm-bonusbox{border:2px dashed var(--nm-accent);border-radius:12px;padding:16px;margin-bottom:20px;background:var(--nm-soft);text-align:left}
+.nm-bonusbox b{display:block;margin-bottom:8px}
+.nm-bonusbox ul{margin:0;padding-left:20px;font-size:14px}
+.nm-bonusbox li{padding:3px 0}
+.nm-trust{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;font-size:13px;color:var(--nm-muted);margin-top:14px}
+.nm-every{font-style:italic;margin-top:16px}
+
+/* 10-11 · De ce s&#259; alegi */
+.nm-feat{text-align:center;padding:10px}
+.nm-feat i{display:flex;width:56px;height:56px;margin:0 auto 12px;border-radius:50%;background:var(--nm-soft);align-items:center;justify-content:center;font-style:normal;font-size:26px}
+.nm-feat h3{font-size:17px}
+.nm-feat p{font-size:14px;color:var(--nm-muted)}
+
+/* 12 · FAQ */
+.nm-faq{max-width:780px;margin:0 auto}
+.nm-faq details{border-bottom:1px solid var(--nm-border);padding:4px 0}
+.nm-faq summary{cursor:pointer;font-weight:600;padding:14px 30px 14px 0;list-style:none;position:relative}
+.nm-faq summary::-webkit-details-marker{display:none}
+.nm-faq summary:after{content:"+";position:absolute;right:4px;top:10px;font-size:22px;color:var(--nm-accent)}
+.nm-faq details[open] summary:after{content:"–"}
+.nm-faq details p{font-size:15px;color:var(--nm-muted)}
+
+/* 13-14 · Barra + garan&#539;ie */
+.nm-bar{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;text-align:center;font-weight:600;font-size:15px}
+.nm-bar i{display:block;font-style:normal;font-size:28px;margin-bottom:6px}
+.nm-guar{max-width:640px;margin:0 auto;text-align:center}
+.nm-guar .nm-seal{font-size:46px;margin-bottom:8px}
+
+/* 6-7 · Testimoniale */
+.nm-review{background:var(--nm-bg2);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
+.nm-review-photo{width:100%;aspect-ratio:1/1;object-fit:cover;display:block}
+.nm-review-body{padding:20px 24px 24px;display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center;position:relative}
+.nm-review-quote{width:42px;height:42px;background:var(--nm-accent);border-radius:50%;display:flex;align-items:center;justify-content:center;position:absolute;top:-21px;right:20px;box-shadow:0 2px 8px rgba(0,0,0,.12)}
+.nm-review-quote svg{width:18px;height:18px;fill:#fff}
+.nm-review-stars{color:#f5a623;font-size:22px;letter-spacing:2px;margin-top:8px}
+.nm-review-text{font-size:15px;line-height:1.55;color:var(--nm-text);font-style:normal;margin:0}
+.nm-review-name{font-size:15px;font-weight:700;color:var(--nm-heading);margin:4px 0 0}
+
+/* 8b · Bonusuri cadou + valoare */
+.nm-bonus-head{max-width:720px;margin:0 auto 32px;text-align:center}
+.nm-pill{display:inline-block;background:var(--nm-soft);color:var(--nm-accent);font-weight:700;font-size:13px;letter-spacing:.06em;padding:6px 14px;border-radius:999px;margin-bottom:12px}
+.nm-bonus-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.nm-bcard{background:#fff;border:1px solid var(--nm-border);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 4px 18px rgba(18,18,18,.05)}
+.nm-bcard-img{background:var(--nm-bg2);position:relative}
+.nm-bcard-img img{width:100%;aspect-ratio:1/1;object-fit:cover}
+.nm-bnum{position:absolute;top:14px;left:14px;background:var(--nm-accent);color:#fff;font-weight:700;font-size:12px;letter-spacing:.06em;padding:5px 12px;border-radius:999px}
+.nm-bcard-body{padding:20px 22px 22px;display:flex;flex-direction:column;flex:1}
+.nm-bcard h3{font-size:20px;margin-bottom:6px!important}
+.nm-hook{font-size:17px;font-weight:700;color:var(--nm-accent);line-height:1.35;margin:0 0 14px!important}
+.nm-bcard ul{list-style:none;padding:0;margin:0 0 16px}
+.nm-bcard li{font-size:15px;padding:4px 0 4px 26px;position:relative}
+.nm-bcard li:before{content:"✓";position:absolute;left:0;top:4px;color:var(--nm-ok);font-weight:700}
+.nm-bprice{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;border-top:1px dashed var(--nm-border);padding-top:14px}
+.nm-bprice s{color:#888;font-size:16px}
+.nm-free{background:var(--nm-ok);color:#fff;font-weight:700;font-size:13px;padding:6px 12px;border-radius:999px}
+.nm-stack{max-width:560px;margin:40px auto 0;background:#fff;border:2px solid var(--nm-accent);border-radius:16px;padding:26px 24px;box-shadow:0 6px 30px rgba(106,162,217,.15)}
+.nm-stack h3{text-align:center;font-size:20px;margin-bottom:16px}
+.nm-row{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px dashed var(--nm-border);font-size:15px}
+.nm-row span:last-child{white-space:nowrap;font-weight:600}
+.nm-row.nm-total{border-bottom:0;font-weight:700;font-size:17px;padding-top:14px}
+.nm-row.nm-total s{color:#888}
+.nm-today{text-align:center;background:var(--nm-soft);border-radius:12px;padding:16px;margin:14px 0 18px}
+.nm-today small{display:block;font-size:14px;font-weight:600;color:var(--nm-muted)}
+.nm-today b{display:block;font-family:Georgia,'Times New Roman',serif;font-size:46px;line-height:1.1;color:var(--nm-text);white-space:nowrap}
+.nm-today .nm-save{display:inline-block;margin-top:6px}
+
+/* fade-in (4 capas) */
+html.js #nm-page .nm-fade{opacity:0;transform:translateY(12px);transition:opacity .6s,transform .6s}
+html.js #nm-page .nm-fade.nm-visible{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){html.js #nm-page .nm-fade{opacity:1;transform:none;transition:none}}
+
+@media (max-width:860px){
+  .nm-grid-2{grid-template-columns:1fr;gap:28px}
+  .nm-grid-3{grid-template-columns:1fr}
+  .nm-grid-4{grid-template-columns:1fr 1fr}
+  .nm-rev-m .nm-media{order:2}
+}
+@media (max-width:520px){
+  .nm-wrap{padding:0 20px}
+  .nm-section{padding:40px 0}
+  .nm-hero h1{font-size:23px;line-height:1.25}
+  .nm-h2{font-size:24px}
+  .nm-grid-4{grid-template-columns:1fr}
+  .nm-thumbs{grid-template-columns:repeat(4,1fr)}
+  .nm-offer-card{padding:30px 18px 22px}
+  .nm-price-now{font-size:56px}
+  .nm-ribbon{top:-14px;font-size:10px}
+  .nm-btn{font-size:16px;letter-spacing:.02em}
+  .nm-bonus-grid{grid-template-columns:1fr}
+  .nm-bcard-body{padding:18px}
+  .nm-stack{padding:22px 16px}
+  .nm-today b{font-size:40px}
+  .nm-bar{grid-template-columns:1fr}
+  .nm-table th,.nm-table td{padding:11px 6px;font-size:13px}
+}
+@media (max-width:380px){
+  .nm-hero h1{font-size:21px}
+  .nm-price-now{font-size:48px}
+  .nm-icons3 div{font-size:12px}
+}
+</style>
+
+<div id="nm-page">
+
+<!-- 1 · Hero / producto -->
+<section class="nm-hero">
+  <div class="nm-wrap nm-grid-2">
+    <div class="nm-media">
+      <div class="nm-gal-main"><img id="nm-main-img" src="https://raw.githubusercontent.com/santilahoz03/neuromicuti-assets/e63f34ee2c1faf92fd0543334f43348b3b9c3a95/g1-tapa.jpg" alt="NeuroMicu&#539;i · Sistemul Focus"></div>
+      <div class="nm-thumbs" id="nm-thumbs">
+        <button class="nm-on" data-src="https://raw.githubusercontent.com/santilahoz03/neuromicuti-assets/e63f34ee2c1faf92fd0543334f43348b3b9c3a95/g1-tapa.jpg" aria-label="Imagine 1"><img src="https://raw.githubusercontent.com/santilahoz03/neuromicuti-assets/e63f34ee2c1faf92fd0543334f43348b3b9c3a95/g1-tapa.jpg" alt=""></button>
+        <button data-src="https://raw.githubusercontent.com/santilahoz03/neuromicuti-assets/e63f34ee2c1faf92fd0543334f43348b3b9c3a95/g2-familias.jpg" aria-label="Imagine 2"><img src="https://raw.githubusercontent.com/santilahoz03/neuromicuti-assets/e63f34ee2c1faf92fd0543334f43348b3b9c3a95/g2-familias.jpg" alt=""></button>
+        <button data-src="https://raw.githubusercontent.com/santilahoz03/neuromicuti-assets/e63f34ee2c1faf92fd0543334f43348b3b9c3a95/g3-nena-cuaderno.jpg" aria-label="Imagine 3"><img src="https://raw.githubusercontent.com/santilahoz03/neuromicuti-assets/e63f34ee2c1faf92fd0543334f43348b3b9c3a95/g3-nena-cuaderno.jpg" alt=""></button>
+        <button data-src="https://raw.githubusercontent.com/santilahoz03/neuromicuti-assets/e63f34ee2c1faf92fd0543334f43348b3b9c3a95/g4-antes-despues.jpg" aria-label="Imagine 4"><img src="https://raw.githubusercontent.com/santilahoz03/neuromicuti-assets/e63f34ee2c1faf92fd0543334f43348b3b9c3a95/g4-antes-despues.jpg" alt=""></button>
+        <button data-src="https://raw.githubusercontent.com/santilahoz03/neuromicuti-assets/e63f34ee2c1faf92fd0543334f43348b3b9c3a95/g5-perfecto-para.jpg" aria-label="Imagine 5"><img src="https://raw.githubusercontent.com/santilahoz03/neuromicuti-assets/e63f34ee2c1faf92fd0543334f43348b3b9c3a95/g5-perfecto-para.jpg" alt=""></button>
+        <button data-src="https://raw.githubusercontent.com/santilahoz03/neuromicuti-assets/e63f34ee2c1faf92fd0543334f43348b3b9c3a95/g6-chico-mesa.jpg" aria-label="Imagine 6"><img src="https://raw.githubusercontent.com/santilahoz03/neuromicuti-assets/e63f34ee2c1faf92fd0543334f43348b3b9c3a95/g6-chico-mesa.jpg" alt=""></button>
+        <button data-src="https://raw.githubusercontent.com/santilahoz03/neuromicuti-assets/e63f34ee2c1faf92fd0543334f43348b3b9c3a95/g7-contenido.jpg" aria-label="Imagine 7"><img src="https://raw.githubusercontent.com/santilahoz03/neuromicuti-assets/e63f34ee2c1faf92fd0543334f43348b3b9c3a95/g7-contenido.jpg" alt=""></button>
+        <button data-src="https://raw.githubusercontent.com/santilahoz03/neuromicuti-assets/e63f34ee2c1faf92fd0543334f43348b3b9c3a95/g8-afuera.jpg" aria-label="Imagine 8"><img src="https://raw.githubusercontent.com/santilahoz03/neuromicuti-assets/e63f34ee2c1faf92fd0543334f43348b3b9c3a95/g8-afuera.jpg" alt=""></button>
+      </div>
+    </div>
+    <div>
+      <span class="nm-badge">⭐ Sistemul Focus pentru copii de 3–14 ani</span>
+      <h1>NeuroMicu&#539;i +100 de activit&#259;&#539;i pentru stimularea aten&#539;iei, concentr&#259;rii &#537;i &#238;nv&#259;&#539;&#259;rii</h1>
+      <ul class="nm-checks">
+        <li><span class="nm-tick">✓</span><span>&#206;l ajut&#259; pe copilul t&#259;u s&#259; <b>r&#259;m&#226;n&#259; concentrat &#537;i s&#259; termine activit&#259;&#539;ile</b>, &#238;n loc s&#259; renun&#539;e la jum&#259;tate.</span></li>
+        <li><span class="nm-tick">✓</span><span>Reduce frustrarea &#537;i greut&#259;&#539;ile de zi cu zi, transform&#226;nd momentele de „nu pot” &#238;n <b>&#238;ncredere &#537;i m&#226;ndrie</b>.</span></li>
+        <li><span class="nm-tick">✓</span><span>Creeaz&#259; momente de joac&#259; mai lini&#537;tite dup&#259; &#537;coal&#259; sau &#238;nainte de culcare, <b>f&#259;r&#259; ecrane &#537;i f&#259;r&#259; certuri</b>.</span></li>
+        <li><span class="nm-tick">✓</span><span>Ideal pentru copiii care se distrag u&#537;or, sunt agita&#539;i sau par mereu <b>„&#238;n lumea lor”</b>.</span></li>
+        <li><span class="nm-tick">✓</span><span>Dezvolt&#259; abilit&#259;&#539;i concrete care &#238;i &#238;ngrijoreaz&#259; pe p&#259;rin&#539;i: <b>aten&#539;ia, r&#259;bdarea &#537;i autocontrolul</b>.</span></li>
+        <li><span class="nm-tick">✓</span><span>Pentru copilul t&#259;u pare o joac&#259;, iar tu &#537;tii c&#259; <b>&#238;nva&#539;&#259; &#537;i &#238;&#537;i antreneaz&#259; concentrarea</b>.</span></li>
+        <li><span class="nm-tick">✓</span><span>Doar 10 minute pe zi: o rutin&#259; simpl&#259; &#537;i realist&#259; pentru p&#259;rin&#539;ii care vor s&#259; <b>vad&#259; o schimbare real&#259;</b>.</span></li>
+      </ul>
+      <div class="nm-digital">✓ <b>Produs 100% digital &#537;i printabil.</b> Prime&#537;ti <b>imediat dup&#259; cump&#259;rare</b>, pe e-mail, accesul la toate fi&#537;ierele de desc&#259;rcat &#537;i printat. Nu se trimite niciun produs fizic. Include <b>acces pe via&#539;&#259;</b>.</div>
+      <div class="nm-hero-price"><span class="nm-now">{{price}}</span><s>{{original_price}}</s><span class="nm-save">Economise&#537;ti {{savings}}</span></div>
+      <p class="nm-urgent">⏰ OFERTA EXPIR&#258; AZI / ACCES IMEDIAT PE E-MAIL</p>
+      <div class="nm-pack"><b>Sistemul Focus NeuroMicu&#539;i + 4 bonusuri</b><span>Include Inteligen&#539;a Emo&#539;ional&#259; NeuroMicu&#539;i &#537;i &#238;nc&#259; 3 bonusuri</span></div>
+      <a class="nm-btn nm-pulse" href="#nm-offer">VREAU ACCES ACUM ↓</a>
+      <p class="nm-under">Desc&#259;rcare imediat&#259; • Printezi &#537;i folose&#537;ti • Acces pe via&#539;&#259;</p>
+      <div class="nm-icons3">
+        <div><i>⚡</i>Acces imediat</div>
+        <div><i>🖨️</i>PDF digital printabil</div>
+        <div><i>🧒</i>V&#226;rsta 3–14 ani</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 2 · Imagineaz&#259;-&#539;i -->
+<section class="nm-section nm-alt nm-imagine nm-center">
+  <div class="nm-wrap nm-fade">
+    <h2>🧠🧠 Imagineaz&#259;-&#539;i dac&#259; copilul t&#259;u ar putea reu&#537;i toate acestea &#238;n doar <span style="color:var(--nm-accent)">10 minute pe zi…</span></h2>
+    <ul>
+      <li>S&#259; se concentreze mai repede, f&#259;r&#259; ecrane, &#539;ipete sau frustr&#259;ri</li>
+      <li>S&#259;-&#537;i termine temele f&#259;r&#259; lacrimi &#537;i f&#259;r&#259; „nu pot”</li>
+      <li>S&#259;-&#537;i gestioneze emo&#539;iile f&#259;r&#259; crize</li>
+      <li>S&#259; &#238;nve&#539;e mai repede &#537;i s&#259; re&#539;in&#259; mai mult</li>
+      <li>S&#259;-&#537;i dezvolte r&#259;bdarea, calmul &#537;i autocontrolul</li>
+      <li>S&#259; se joace stimul&#226;ndu-&#537;i creierul (100% f&#259;r&#259; ecrane)</li>
+    </ul>
+    <p class="nm-close">Exact asta face NeuroMicu&#539;i pentru ei.</p>
+  </div>
+</section>
+
+<!-- 3 · De ce func&#539;ioneaz&#259; (text izq / imagen der) -->
+<section class="nm-section">
+  <div class="nm-wrap nm-grid-2 nm-fade">
+    <div>
+      <h2 class="nm-h2">De ce func&#539;ioneaz&#259; NeuroMicu&#539;i at&#226;t de repede?</h2>
+      <ul class="nm-list-check">
+        <li><b>✔</b> Bazat pe principiile metodei Montessori</li>
+        <li><b>✔</b> Exerseaz&#259; aten&#539;ia, memoria &#537;i logica</li>
+        <li><b>✔</b> Exerci&#539;ii scurte, dar eficiente</li>
+        <li><b>✔</b> Progresie simpl&#259; &#537;i treptat&#259;</li>
+        <li><b>✔</b> Ideal pentru copiii foarte activi sau care se distrag u&#537;or</li>
+        <li><b>✔</b> 100% f&#259;r&#259; ecrane</li>
+        <li><b>✔</b> O rutin&#259; scurt&#259; pe care o po&#539;i &#238;ncepe chiar azi</li>
+      </ul>
+      <p>Fiecare activitate este g&#226;ndit&#259; s&#259; stimuleze abilit&#259;&#539;i cognitive care adesea nu se predau la &#537;coal&#259;, dar de care copilul t&#259;u are cu adev&#259;rat nevoie.</p>
+    </div>
+    <div class="nm-media"><img class="nm-img" src="https://raw.githubusercontent.com/santilahoz03/neuromicuti-assets/e63f34ee2c1faf92fd0543334f43348b3b9c3a95/g2-familias.jpg" alt="Familii care folosesc activit&#259;&#539;ile NeuroMicu&#539;i"></div>
+  </div>
+</section>
+
+<!-- 4-5 · &#206;nainte &#537;i dup&#259; -->
+<section class="nm-section nm-alt">
+  <div class="nm-wrap nm-fade">
+    <h2 class="nm-h2 nm-center">&#206;nainte &#537;i dup&#259; NeuroMicu&#539;i</h2>
+    <table class="nm-table">
+      <thead><tr><th></th><th>Cu NeuroMicu&#539;i</th><th>F&#259;r&#259; NeuroMicu&#539;i</th></tr></thead>
+      <tbody>
+        <tr><td>Mai mult&#259; concentrare &#537;i calm</td><td class="nm-yes">✓</td><td class="nm-no">✗</td></tr>
+        <tr><td>Termin&#259; activit&#259;&#539;ile mai repede</td><td class="nm-yes">✓</td><td class="nm-no">✗</td></tr>
+        <tr><td>Memorie &#537;i &#238;n&#539;elegere mai dezvoltate</td><td class="nm-yes">✓</td><td class="nm-no">✗</td></tr>
+        <tr><td>Activit&#259;&#539;i care chiar &#238;l captiveaz&#259;</td><td class="nm-yes">✓</td><td class="nm-no">✗</td></tr>
+        <tr><td>Mai mult&#259; &#238;ncredere &#537;i motiva&#539;ie</td><td class="nm-yes">✓</td><td class="nm-no">✗</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 6-7 · Testimoniale -->
+<section class="nm-section">
+  <div class="nm-wrap nm-fade">
+    <h2 class="nm-h2 nm-center">Ce spun al&#539;i p&#259;rin&#539;i:</h2>
+    <div class="nm-grid-3">
+      <div class="nm-review">
+        <img class="nm-review-photo" src="https://raw.githubusercontent.com/santilahoz03/neuromicuti-assets/e1125aac178731c0b8f175b49d4699befe9700f6/review-1-ro.jpg" alt="Familie f&#259;c&#226;nd activit&#259;&#539;i NeuroMicu&#539;i">
+        <div class="nm-review-body">
+          <div class="nm-review-quote"><svg viewBox="0 0 24 24"><path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"/></svg></div>
+          <div class="nm-review-stars" aria-label="5 stele din 5">★★★★★</div>
+          <p class="nm-review-text">"Cea mai bun&#259; achizi&#539;ie pe care am f&#259;cut-o vreodat&#259; pentru fiica mea. <b>A trecut de la frustrare la a finaliza fiecare activitate cu z&#226;mbetul pe buze</b>."</p>
+          <p class="nm-review-name">Elena M.</p>
+        </div>
+      </div>
+      <div class="nm-review">
+        <img class="nm-review-photo" src="https://raw.githubusercontent.com/santilahoz03/neuromicuti-assets/e63f34ee2c1faf92fd0543334f43348b3b9c3a95/g8-afuera.jpg" alt="B&#259;ie&#539;i bucuro&#537;i f&#259;c&#226;nd activit&#259;&#539;i afar&#259;">
+        <div class="nm-review-body">
+          <div class="nm-review-quote"><svg viewBox="0 0 24 24"><path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"/></svg></div>
+          <div class="nm-review-stars" aria-label="5 stele din 5">★★★★★</div>
+          <p class="nm-review-text">"Credeam c&#259; nimic nu va func&#539;iona… dar &#238;n c&#226;teva zile fiul meu s-a schimbat: <b>mai calm, mai concentrat &#537;i chiar fericit s&#259; &#238;nve&#539;e</b>!"</p>
+          <p class="nm-review-name">Ana D.</p>
+        </div>
+      </div>
+      <div class="nm-review">
+        <img class="nm-review-photo" src="https://raw.githubusercontent.com/santilahoz03/neuromicuti-assets/e1125aac178731c0b8f175b49d4699befe9700f6/review-3-ro.jpg" alt="Copil concentrat la activit&#259;&#539;i de &#238;nv&#259;&#539;are">
+        <div class="nm-review-body">
+          <div class="nm-review-quote"><svg viewBox="0 0 24 24"><path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"/></svg></div>
+          <div class="nm-review-stars" aria-label="5 stele din 5">★★★★★</div>
+          <p class="nm-review-text">"Fiul meu se chinuia s&#259; se concentreze… acum <b>el este cel care m&#259; roag&#259; s&#259; facem aceste activit&#259;&#539;i &#238;n fiecare zi</b>. Nu l-am v&#259;zut niciodat&#259; at&#226;t de motivat."</p>
+          <p class="nm-review-name">Ioana P.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 8 · Tot ce prime&#537;te (imagen izq / texto der) -->
+<section class="nm-section nm-alt">
+  <div class="nm-wrap nm-grid-2 nm-rev-m nm-fade">
+    <div class="nm-media"><img class="nm-img" src="https://raw.githubusercontent.com/santilahoz03/neuromicuti-assets/e63f34ee2c1faf92fd0543334f43348b3b9c3a95/g7-contenido.jpg" alt="Ce con&#539;ine NeuroMicu&#539;i"></div>
+    <div>
+      <h2 class="nm-h2">Tot ce prime&#537;te copilul t&#259;u cu NeuroMicu&#539;i</h2>
+      <p><b>Peste 100 de activit&#259;&#539;i incluse:</b></p>
+      <ul class="nm-blocks">
+        <li>📘 Activit&#259;&#539;i pentru concentrare &#537;i aten&#539;ie</li>
+        <li>📗 Activit&#259;&#539;i pentru dezvoltarea memoriei</li>
+        <li>📙 Forme &#537;i secven&#539;e</li>
+        <li>📕 Secven&#539;e logice</li>
+        <li>📒 Pregrafie &#537;i motricitate fin&#259;</li>
+        <li>⬛ Culori &#537;i asocieri</li>
+        <li>⬛ Coordonare ochi-m&#226;n&#259;</li>
+        <li>🌀 Activit&#259;&#539;i 100% f&#259;r&#259; ecrane</li>
+      </ul>
+      <p class="nm-bonus-line">✨ Toate cele 4 bonusuri incluse GRATUIT, doar azi!</p>
+      <p class="nm-small">Program digital cu acces imediat<br>Activit&#259;&#539;i simple &#537;i progresive<br>Nu se trimite niciun produs fizic</p>
+    </div>
+  </div>
+</section>
+
+<!-- 8b · Bonusuri cadou (agregada a pedido del usuario, 2026-10-04) -->
+<section class="nm-section">
+  <div class="nm-wrap">
+    <div class="nm-bonus-head nm-fade">
+      <span class="nm-pill">🎁 CADOU, DOAR AZI</span>
+      <h2 class="nm-h2">Prime&#537;ti &#537;i 4 bonusuri GRATUITE</h2>
+      <p>Pe l&#226;ng&#259; cele peste 100 de activit&#259;&#539;i, copilul t&#259;u prime&#537;te 4 materiale extra care te ajut&#259; cu emo&#539;iile, rutina, g&#226;ndirea &#537;i calmul de zi cu zi.</p>
+    </div>
+    <div class="nm-bonus-grid">
+      <article class="nm-bcard nm-fade">
+        <div class="nm-bcard-img"><span class="nm-bnum">BONUS 1</span><img src="https://raw.githubusercontent.com/santilahoz03/neuromicuti-assets/e63f34ee2c1faf92fd0543334f43348b3b9c3a95/b1-emotional.jpg" alt="Bonus 1: Inteligen&#539;a Emo&#539;ional&#259; NeuroMicu&#539;i"></div>
+        <div class="nm-bcard-body">
+          <h3>Inteligen&#539;a Emo&#539;ional&#259; NeuroMicu&#539;i</h3>
+          <p class="nm-hook">Mai pu&#539;ine crize, mai mult&#259; r&#259;bdare.</p>
+          <ul>
+            <li>30 de activit&#259;&#539;i pentru a-&#537;i &#238;n&#539;elege emo&#539;iile</li>
+            <li>&#206;nva&#539;&#259; s&#259; se calmeze singur</li>
+            <li>Mai pu&#539;in pl&#226;ns c&#226;nd ceva nu iese din prima</li>
+          </ul>
+          <div class="nm-bprice"><span>Valoare: <s>24 €</s></span><span class="nm-free">GRATUIT AZI</span></div>
+        </div>
+      </article>
+      <article class="nm-bcard nm-fade">
+        <div class="nm-bcard-img"><span class="nm-bnum">BONUS 2</span><img src="https://raw.githubusercontent.com/santilahoz03/neuromicuti-assets/e63f34ee2c1faf92fd0543334f43348b3b9c3a95/b2-planificator.jpg" alt="Bonus 2: Planificator zilnic pentru copii"></div>
+        <div class="nm-bcard-body">
+          <h3>Planificator zilnic pentru copii</h3>
+          <p class="nm-hook">O zi organizat&#259;, f&#259;r&#259; negocieri.</p>
+          <ul>
+            <li>Rutina zilei pe imagini, de diminea&#539;a p&#226;n&#259; seara</li>
+            <li>Tabel s&#259;pt&#259;m&#226;nal cu stele pentru progres</li>
+            <li>Cele 10 minute pe zi devin un obicei</li>
+          </ul>
+          <div class="nm-bprice"><span>Valoare: <s>9 €</s></span><span class="nm-free">GRATUIT AZI</span></div>
+        </div>
+      </article>
+      <article class="nm-bcard nm-fade">
+        <div class="nm-bcard-img"><span class="nm-bnum">BONUS 3</span><img src="https://raw.githubusercontent.com/santilahoz03/neuromicuti-assets/e63f34ee2c1faf92fd0543334f43348b3b9c3a95/b3-creier.jpg" alt="Bonus 3: Activit&#259;&#539;i pentru stimularea creierului"></div>
+        <div class="nm-bcard-body">
+          <h3>Activit&#259;&#539;i pentru stimularea creierului</h3>
+          <p class="nm-hook">Gata cu „m-am plictisit”.</p>
+          <ul>
+            <li>Labirinturi, diferen&#539;e &#537;i jocuri de logic&#259;</li>
+            <li>Antreneaz&#259; aten&#539;ia la detalii</li>
+            <li>Perfecte pentru weekend &#537;i drumuri lungi</li>
+          </ul>
+          <div class="nm-bprice"><span>Valoare: <s>9 €</s></span><span class="nm-free">GRATUIT AZI</span></div>
+        </div>
+      </article>
+      <article class="nm-bcard nm-fade">
+        <div class="nm-bcard-img"><span class="nm-bnum">BONUS 4</span><img src="https://raw.githubusercontent.com/santilahoz03/neuromicuti-assets/e63f34ee2c1faf92fd0543334f43348b3b9c3a95/b4-mindfulness.jpg" alt="Bonus 4: Mindfulness zilnic pentru copii"></div>
+        <div class="nm-bcard-body">
+          <h3>Mindfulness zilnic pentru copii</h3>
+          <p class="nm-hook">Calm &#238;n 3 minute, &#238;nainte de teme sau de culcare.</p>
+          <ul>
+            <li>Exerci&#539;ii de respira&#539;ie pe &#238;n&#539;elesul copiilor</li>
+            <li>Trece mai u&#537;or de la joac&#259; la concentrare</li>
+            <li>Seri mai lini&#537;tite pentru toat&#259; familia</li>
+          </ul>
+          <div class="nm-bprice"><span>Valoare: <s>7 €</s></span><span class="nm-free">GRATUIT AZI</span></div>
+        </div>
+      </article>
+    </div>
+
+    <div class="nm-stack nm-fade">
+      <h3>Tot ce prime&#537;ti azi</h3>
+      <div class="nm-row"><span>📚 NeuroMicu&#539;i: +100 de activit&#259;&#539;i</span><span>64,99 €</span></div>
+      <div class="nm-row"><span>🎁 Bonus 1 · Inteligen&#539;a Emo&#539;ional&#259;</span><span>24 €</span></div>
+      <div class="nm-row"><span>🎁 Bonus 2 · Planificator zilnic</span><span>9 €</span></div>
+      <div class="nm-row"><span>🎁 Bonus 3 · Stimularea creierului</span><span>9 €</span></div>
+      <div class="nm-row"><span>🎁 Bonus 4 · Mindfulness zilnic</span><span>7 €</span></div>
+      <div class="nm-row nm-total"><span>Valoare total&#259;</span><span><s>113,99 €</s></span></div>
+      <div class="nm-today"><small>Azi pl&#259;te&#537;ti doar</small><b>{{price}}</b></div>
+      <a class="nm-btn" href="#nm-offer">VREAU ACCES ACUM ↓</a>
+    </div>
+  </div>
+</section>
+
+<!-- 9 · Oferta (texto + tarjeta izq / imagen der) -->
+<section class="nm-section" id="nm-offer">
+  <div class="nm-wrap nm-grid-2">
+    <div>
+      <h2 class="nm-h2 nm-center">🎁 Ofert&#259; special&#259; – Doar azi</h2>
+      <p class="nm-center">Prime&#537;te NeuroMicu&#539;i + 4 bonusuri GRATUITE &#238;nainte s&#259; creasc&#259; pre&#539;ul.</p>
+      <div class="nm-offer-card nm-center">
+        <span class="nm-ribbon">OFERTA EXPIR&#258; AZI</span>
+        <div class="nm-was"><s>{{original_price}}</s><span class="nm-save">Economise&#537;ti {{savings}}</span></div>
+        <div class="nm-price-now">{{price}}</div>
+        <div class="nm-once">Plat&#259; unic&#259; · Acces pe via&#539;&#259;</div>
+        <ul class="nm-offer-list">
+          <li>✔ ⚡ Acces imediat</li>
+          <li>✔ 📚 Peste 100 de activit&#259;&#539;i printabile</li>
+          <li>✔ 🎁 4 bonusuri</li>
+          <li>✔ ♾️ Acces pe via&#539;&#259;</li>
+        </ul>
+        <div class="nm-bonusbox">
+          <b>🎁 4 bonusuri GRATUITE incluse (valoare 49 €):</b>
+          <ul>
+            <li>Inteligen&#539;a Emo&#539;ional&#259; NeuroMicu&#539;i</li>
+            <li>Planificator zilnic pentru copii</li>
+            <li>Activit&#259;&#539;i pentru stimularea creierului</li>
+            <li>Mindfulness zilnic pentru copii</li>
+          </ul>
+        </div>
+        <a class="nm-btn nm-pulse" href="/checkout">VREAU ACCES ACUM – {{price}}</a>
+        <div class="nm-trust"><span>🔒 Plat&#259; securizat&#259;</span><span>⚡ Livrare imediat&#259;</span><span>🛡️ Garan&#539;ie 7 zile</span></div>
+      </div>
+      <p class="nm-every nm-center">Creierul copilului t&#259;u se dezvolt&#259; &#238;n fiecare secund&#259;… fiecare zi conteaz&#259;.</p>
+    </div>
+    <div class="nm-media"><img class="nm-img" src="https://raw.githubusercontent.com/santilahoz03/neuromicuti-assets/e63f34ee2c1faf92fd0543334f43348b3b9c3a95/s9-oferta.jpg" alt="Ofert&#259; pe timp limitat NeuroMicu&#539;i"></div>
+  </div>
+</section>
+
+<!-- 10-11 · De ce s&#259; alegi -->
+<section class="nm-section nm-alt">
+  <div class="nm-wrap nm-fade">
+    <h2 class="nm-h2 nm-center">DE CE S&#258; ALEGI NEUROMICU&#538;I</h2>
+    <div class="nm-grid-4">
+      <div class="nm-feat"><i>🧘</i><h3>Mai mult&#259; concentrare &#537;i calm</h3><p>Activit&#259;&#539;i g&#226;ndite s&#259; antreneze aten&#539;ia &#537;i autocontrolul.</p></div>
+      <div class="nm-feat"><i>🧠</i><h3>Memorie mai puternic&#259;</h3><p>Exerci&#539;ii care stimuleaz&#259; memoria, &#238;n&#539;elegerea &#537;i ra&#539;ionamentul.</p></div>
+      <div class="nm-feat"><i>✏️</i><h3>Simplu de folosit</h3><p>Activit&#259;&#539;i ghidate, progresive &#537;i u&#537;or de urmat.</p></div>
+      <div class="nm-feat"><i>⏱️</i><h3>Doar 10 minute pe zi</h3><p>U&#537;or de integrat &#238;n rutina zilnic&#259;.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 12 · FAQ -->
+<section class="nm-section">
+  <div class="nm-wrap nm-faq">
+    <h2 class="nm-h2 nm-center">&#206;ntreb&#259;ri frecvente</h2>
+    <details><summary>Cum primesc produsul?</summary><p>Imediat dup&#259; cump&#259;rare prime&#537;ti <b>acces imediat</b> ca s&#259; descarci tot. F&#259;r&#259; a&#537;teptare &#537;i f&#259;r&#259; livrare: po&#539;i &#238;ncepe chiar azi.</p></details>
+    <details><summary>Pentru ce v&#226;rst&#259; este potrivit?</summary><p>NeuroMicu&#539;i este potrivit mai ales pentru copiii <b>&#238;ntre 3 &#537;i 14 ani</b>. Activit&#259;&#539;ile sunt progresive &#537;i se adapteaz&#259; u&#537;or nivelului copilului t&#259;u.</p></details>
+    <details><summary>Trebuie s&#259; am experien&#539;&#259; &#238;n predare sau cuno&#537;tin&#539;e speciale?</summary><p>Deloc. Totul este g&#226;ndit s&#259; fie <b>simplu, ghidat &#537;i u&#537;or de urmat</b>, ca orice p&#259;rinte s&#259;-l poat&#259; folosi.</p></details>
+    <details><summary>&#536;i dac&#259; copilul meu e foarte activ sau se distrage u&#537;or?</summary><p>Perfect: NeuroMicu&#539;i a fost creat exact pentru asta. &#206;i ajut&#259; pe copii s&#259;-&#537;i canalizeze energia &#238;ntr-un mod pozitiv, dezvolt&#226;nd treptat concentrarea &#537;i aten&#539;ia.</p></details>
+    <details><summary>C&#226;t timp e nevoie &#238;n fiecare zi?</summary><p>Sunt suficiente doar <b>10 minute pe zi</b>. Activit&#259;&#539;ile sunt scurte, simple &#537;i u&#537;or de inclus &#238;n rutina zilnic&#259;.</p></details>
+    <details><summary>Este nevoie de un ecran?</summary><p>Nu. Activit&#259;&#539;ile sunt <b>100% f&#259;r&#259; ecrane</b>. Le po&#539;i desc&#259;rca, printa &#537;i folosi oriunde.</p></details>
+    <details><summary>De c&#226;te ori pot folosi activit&#259;&#539;ile?</summary><p>De c&#226;te ori vrei. Ai <b>acces pe via&#539;&#259;</b>, a&#537;a c&#259; le po&#539;i printa din nou ori de c&#226;te ori ai nevoie.</p></details>
+    <details><summary>&#206;l va ajuta pe copilul meu cu concentrarea?</summary><p>Activit&#259;&#539;ile sunt g&#226;ndite s&#259; antreneze aten&#539;ia, memoria, logica &#537;i autocontrolul prin exerci&#539;ii simple &#537;i progresive.</p></details>
+    <details><summary>Pot s&#259;-l folosesc cu mai mul&#539;i copii?</summary><p>Da! &#206;l cumperi o singur&#259; dat&#259; &#537;i &#238;l po&#539;i folosi cu to&#539;i copiii t&#259;i.</p></details>
+  </div>
+</section>
+
+<!-- 13 · Barra -->
+<section class="nm-section nm-alt" style="padding:36px 0">
+  <div class="nm-wrap nm-bar">
+    <div><i>⚡</i>Acces imediat</div>
+    <div><i>📚</i>Peste 100 de activit&#259;&#539;i</div>
+    <div><i>🛡️</i>Garan&#539;ie 100% f&#259;r&#259; riscuri</div>
+  </div>
+</section>
+
+<!-- 14 · Garan&#539;ie -->
+<section class="nm-section">
+  <div class="nm-wrap nm-guar">
+    <div class="nm-seal">🛡️</div>
+    <h2 class="nm-h2">Garan&#539;ie de satisfac&#539;ie 100% sau banii &#238;napoi</h2>
+    <p>&#206;ncearc&#259; NeuroMicu&#539;i timp de 7 zile.</p>
+    <p>Dac&#259; nu observi nicio &#238;mbun&#259;t&#259;&#539;ire, &#238;&#539;i return&#259;m integral banii.</p>
+  </div>
+</section>
+
+</div>
+
+<script>
+(function(){
+  try{
+    var main=document.getElementById('nm-main-img');
+    var btns=document.querySelectorAll('#nm-thumbs button');
+    btns.forEach(function(b){b.addEventListener('click',function(){
+      main.src=b.getAttribute('data-src');
+      btns.forEach(function(x){x.classList.remove('nm-on')});
+      b.classList.add('nm-on');
+    })});
+  }catch(e){}
+  try{
+    var els=document.querySelectorAll('#nm-page .nm-fade');
+    if('IntersectionObserver' in window){
+      var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('nm-visible');io.unobserve(e.target)}})},{threshold:.12});
+      els.forEach(function(el){io.observe(el)});
+    }else{els.forEach(function(el){el.classList.add('nm-visible')})}
+  }catch(e){}
+  setTimeout(function(){document.querySelectorAll('#nm-page .nm-fade').forEach(function(el){el.classList.add('nm-visible')})},2500);
+})();
+</script>

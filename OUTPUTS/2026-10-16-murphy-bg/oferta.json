@@ -1,0 +1,144 @@
+{
+  "producto": "Мърфи за Деца",
+  "slug": "murphy-bg",
+  "titulo_completo": "Комплект 3 в 1 — Законът на Мърфи за Деца + Голямата Книга на Защо + Лидерството Започва Тук",
+  "idioma": "bg",
+  "registro": "neutro",
+  "mercado": "BG",
+  "precio": "EUR 14,99",
+  "precio_tachado": "EUR 74,99",
+  "ahorro": "EUR 60",
+  "tienda": "ImpulTienda",
+  "subdominio": "",
+  "subdominio_estado": "pendiente",
+  "landing_publicada": "",
+  "landing_variante": "landing-murphy-bg-fragmento.html",
+  "dominio_entregables": "https://santilahoz03.github.io/entregas",
+  "paleta": {
+    "bg": "#ffffff",
+    "paper": "#f8fafc",
+    "ink": "#1c3a5e",
+    "ink_soft": "#718096",
+    "accent": "#ff6b35",
+    "accent_dark": "#e8551f",
+    "line": "#e2e8f0"
+  },
+  "fuentes": {
+    "titulo": "Nunito",
+    "texto": "Nunito Sans"
+  },
+  "hub": {
+    "carpeta": "acceso",
+    "random": "mox0yx2pon",
+    "titulo": "Комплект 3 в 1 — Мърфи за Деца",
+    "subtitulo": "Твоите 3 PDF книги са готови. Изтегли ги веднага и започни тази вечер.",
+    "stats": [
+      "3 400+ семейства",
+      "4.9★ средна оценка",
+      "30-дневна гаранция"
+    ],
+    "pasos": [
+      "Изтегли Законът на Мърфи за Деца и я прочетете заедно тази вечер.",
+      "Отвори Голямата Книга на Защо — нека детето избере свят, който го интересува.",
+      "Прочетете Лидерството Започва Тук преди важно събитие в училище или в екип."
+    ]
+  },
+  "entregables": [
+    {
+      "id": "murphy",
+      "tipo": "bono",
+      "nombre": "Законът на Мърфи за Деца",
+      "descripcion": "Учи децата как да се справят с грешките и неочакваните ситуации чрез хумор и реални примери.",
+      "carpeta": "murphy",
+      "random": "q0tyfq97rd",
+      "en_hub": true,
+      "pdf": "murphy.pdf",
+      "fuente": "pdf-sources/murphy.html",
+      "paginas": 26,
+      "orden": "1/3"
+    },
+    {
+      "id": "golqma-kniga",
+      "tipo": "bono",
+      "nombre": "Голямата Книга на Защо",
+      "descripcion": "200+ факта за 6 свята — тяло, животни, растения, космос, астрономия и география — в стил комикс.",
+      "carpeta": "golqma-kniga",
+      "random": "dsibo1wg4p",
+      "en_hub": true,
+      "pdf": "golqma-kniga.pdf",
+      "fuente": "pdf-sources/golqma-kniga.html",
+      "paginas": 17,
+      "orden": "2/3"
+    },
+    {
+      "id": "liderstvo",
+      "tipo": "bono",
+      "nombre": "Лидерството Започва Тук",
+      "descripcion": "Практическо ръководство за деца: как да изразяват идеи, да работят в екип и да водят с увереност.",
+      "carpeta": "liderstvo",
+      "random": "glpsgedamb",
+      "en_hub": true,
+      "pdf": "liderstvo.pdf",
+      "fuente": "pdf-sources/liderstvo.html",
+      "paginas": 17,
+      "orden": "3/3"
+    }
+  ],
+  "promesas": [
+    {
+      "promesa": "Законът на Мърфи за Деца — комикс формат, 100+ жизнени урока",
+      "entrega": "murphy.pdf",
+      "ok": true
+    },
+    {
+      "promesa": "Голямата Книга на Защо — 6 свята, 200+ факта и илюстрации",
+      "entrega": "golqma-kniga.pdf",
+      "ok": true
+    },
+    {
+      "promesa": "Лидерството Започва Тук — умения, екип, увереност",
+      "entrega": "liderstvo.pdf",
+      "ok": true
+    },
+    {
+      "promesa": "PDF, незабавна доставка по имейл",
+      "entrega": "hub GitHub Pages",
+      "ok": true
+    },
+    {
+      "promesa": "30-дневна гаранция",
+      "entrega": "promesa de servicio",
+      "ok": true
+    }
+  ],
+  "imagenes": [
+    {
+      "rol": "hero_mockup",
+      "local": "mockups/1-hero-murphy-bg.png",
+      "catbox": "https://files.catbox.moe/e4oao9.png"
+    },
+    {
+      "rol": "caja_mockup",
+      "local": "mockups/2-caja-murphy-bg.png",
+      "catbox": "https://files.catbox.moe/q0vdgy.png"
+    },
+    {
+      "rol": "portada_murphy",
+      "local": "portadas-bg/1-murphy-bg.png",
+      "catbox": "https://files.catbox.moe/w306bw.png"
+    },
+    {
+      "rol": "portada_bigbook",
+      "local": "portadas-bg/2-bigbook-bg.png",
+      "catbox": "https://files.catbox.moe/5kt1l1.png"
+    },
+    {
+      "rol": "portada_liderstvo",
+      "local": "portadas-bg/3-leadership-bg.png",
+      "catbox": "https://files.catbox.moe/oh212q.png"
+    }
+  ],
+  "ads_dir": "ADS/murphy-bg/",
+  "lanzamiento": "pendiente",
+  "checklist": []
+}

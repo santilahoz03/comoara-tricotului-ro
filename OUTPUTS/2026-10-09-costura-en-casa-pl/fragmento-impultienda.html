@@ -1,0 +1,1474 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+/* ── Reset & Variables ─────────────────────── */
+:root {
+  --cec-bg: #f7f0e6;
+  --cec-bg-alt: #f6efe5;
+  --cec-card: #fffdf9;
+  --cec-ink: #2d211c;
+  --cec-brown: #6f3e22;
+  --cec-brown-2: #5d4a3d;
+  --cec-gold: #c88415;
+  --cec-gold-2: #cb8516;
+  --cec-green: #1f7a53;
+  --cec-green-2: #2a8e62;
+  --cec-red: #92262a;
+  --cec-line: rgba(111, 62, 34, .10);
+  --cec-shadow: 0 18px 40px rgba(52, 30, 18, .10);
+  --cec-shadow-soft: 0 10px 24px rgba(52, 30, 18, .07);
+  --cec-radius: 20px;
+  --cec-radius-sm: 12px;
+  --cec-radius-pill: 100px;
+  --cec-max: 720px;
+  --cec-gutter: 16px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: smooth;
+  background: var(--cec-bg);
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+body {
+  font-family: 'Outfit', sans-serif;
+  color: var(--cec-ink);
+  background: var(--cec-bg);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; text-decoration: none; }
+
+/* ── Fade-in on scroll ─────────────────────── */
+html.js .cec-fade {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity .7s cubic-bezier(.22,1,.36,1), transform .7s cubic-bezier(.22,1,.36,1);
+}
+html.js .cec-fade.cec-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Shared layout ─────────────────────────── */
+.cec-wrap {
+  max-width: var(--cec-max);
+  margin: 0 auto;
+  padding: 0 var(--cec-gutter);
+}
+
+.cec-section {
+  padding: 64px 0;
+}
+
+.cec-eyebrow {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--cec-gold);
+  margin-bottom: 10px;
+}
+
+.cec-title {
+  font-size: clamp(26px, 5vw, 36px);
+  font-weight: 800;
+  line-height: 1.18;
+  color: var(--cec-ink);
+  margin-bottom: 16px;
+}
+.cec-title strong, .cec-title b {
+  color: var(--cec-brown);
+}
+
+.cec-subtitle {
+  font-size: 17px;
+  color: var(--cec-brown-2);
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.cec-divider {
+  width: 48px;
+  height: 3px;
+  background: var(--cec-gold);
+  border-radius: 2px;
+  margin: 32px auto;
+}
+
+/* ── Buttons ───────────────────────────────── */
+.cec-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--cec-green);
+  color: #fff;
+  font-family: 'Outfit', sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  padding: 18px 36px;
+  border-radius: var(--cec-radius-pill);
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  transition: background .25s, transform .2s, box-shadow .25s;
+  box-shadow: 0 6px 20px rgba(31, 122, 83, .25);
+  line-height: 1.3;
+}
+.cec-btn:hover {
+  background: var(--cec-green-2);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(31, 122, 83, .3);
+}
+.cec-btn:active {
+  transform: translateY(0);
+}
+
+.cec-btn--pulse {
+  animation: cec-pulse 2.2s infinite;
+}
+@keyframes cec-pulse {
+  0%, 100% { box-shadow: 0 6px 20px rgba(31, 122, 83, .25); }
+  50% { box-shadow: 0 6px 32px rgba(31, 122, 83, .45); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cec-btn--pulse { animation: none; }
+}
+
+/* ── SECTION 1: HERO ──────────────────────── */
+.cec-hero {
+  position: relative;
+  background: linear-gradient(160deg, #3a2218 0%, #2d211c 40%, #1e150f 100%);
+  color: #fff;
+  padding: 56px 0 64px;
+  overflow: hidden;
+}
+.cec-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 30% 20%, rgba(200, 132, 21, .12) 0%, transparent 60%),
+              radial-gradient(ellipse at 70% 80%, rgba(111, 62, 34, .10) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.cec-hero__inner {
+  position: relative;
+  z-index: 1;
+}
+
+.cec-hero__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 28px;
+  justify-content: center;
+}
+.cec-hero__badge {
+  font-size: 13px;
+  font-weight: 600;
+  background: rgba(255, 255, 255, .10);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, .12);
+  padding: 7px 16px;
+  border-radius: var(--cec-radius-pill);
+  white-space: nowrap;
+}
+
+.cec-hero__title {
+  font-size: clamp(30px, 6.5vw, 44px);
+  font-weight: 900;
+  line-height: 1.12;
+  text-align: center;
+  margin-bottom: 18px;
+}
+.cec-hero__title strong {
+  color: var(--cec-gold);
+}
+
+.cec-hero__sub {
+  font-size: 17px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, .82);
+  text-align: center;
+  max-width: 540px;
+  margin: 0 auto 32px;
+  line-height: 1.6;
+}
+
+.cec-hero__stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 36px;
+}
+.cec-hero__stat {
+  font-size: 14px;
+  font-weight: 600;
+  background: rgba(200, 132, 21, .14);
+  border: 1px solid rgba(200, 132, 21, .22);
+  padding: 8px 18px;
+  border-radius: var(--cec-radius-pill);
+  color: #ffd98e;
+}
+
+.cec-hero__cta {
+  text-align: center;
+}
+
+/* ── SECTION 2: PAIN POINTS ───────────────── */
+.cec-pain {
+  background: var(--cec-bg);
+}
+
+.cec-pain__quote {
+  font-size: 18px;
+  font-weight: 500;
+  font-style: italic;
+  color: var(--cec-brown);
+  border-left: 3px solid var(--cec-gold);
+  padding: 16px 0 16px 20px;
+  margin: 28px 0;
+  line-height: 1.6;
+}
+.cec-pain__quote strong {
+  font-style: normal;
+  color: var(--cec-ink);
+}
+
+.cec-pain__img {
+  width: 100%;
+  border-radius: var(--cec-radius);
+  margin: 24px 0;
+  background: var(--cec-card);
+  aspect-ratio: 4/3;
+  object-fit: cover;
+}
+
+.cec-pain__list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 28px 0;
+}
+.cec-pain__item {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--cec-brown-2);
+}
+.cec-pain__x {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  background: rgba(146, 38, 42, .10);
+  color: var(--cec-red);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 700;
+  margin-top: 2px;
+}
+
+.cec-pain__transition {
+  text-align: center;
+  font-size: 19px;
+  font-weight: 600;
+  color: var(--cec-ink);
+  margin-top: 36px;
+  padding: 28px 20px;
+  background: var(--cec-card);
+  border-radius: var(--cec-radius);
+  box-shadow: var(--cec-shadow-soft);
+}
+.cec-pain__transition strong {
+  color: var(--cec-brown);
+}
+
+/* ── SECTION 3: PROCESS ───────────────────── */
+.cec-process {
+  background: var(--cec-bg-alt);
+}
+
+.cec-process__img {
+  width: 100%;
+  border-radius: var(--cec-radius);
+  margin: 8px 0 32px;
+  background: var(--cec-card);
+  aspect-ratio: 4/3;
+  object-fit: cover;
+}
+
+.cec-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.cec-step {
+  background: var(--cec-card);
+  border-radius: var(--cec-radius);
+  padding: 28px 24px;
+  box-shadow: var(--cec-shadow-soft);
+  border: 1px solid var(--cec-line);
+}
+.cec-step__header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 12px;
+}
+.cec-step__num {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  background: var(--cec-gold);
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 800;
+}
+.cec-step__label {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--cec-ink);
+}
+.cec-step__body {
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--cec-brown-2);
+}
+.cec-step__note {
+  margin-top: 14px;
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--cec-brown);
+  background: rgba(200, 132, 21, .06);
+  border-left: 3px solid var(--cec-gold);
+  padding: 12px 16px;
+  border-radius: 0 var(--cec-radius-sm) var(--cec-radius-sm) 0;
+}
+
+/* ── SECTION 4: GUARANTEE ─────────────────── */
+.cec-guarantee {
+  background: var(--cec-bg);
+}
+
+.cec-guarantee__card {
+  background: var(--cec-card);
+  border-radius: var(--cec-radius);
+  padding: 40px 28px;
+  box-shadow: var(--cec-shadow);
+  text-align: center;
+  border: 1px solid var(--cec-line);
+}
+
+.cec-guarantee__badge {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--cec-green) 0%, var(--cec-green-2) 100%);
+  color: #fff;
+  margin-bottom: 24px;
+}
+.cec-guarantee__badge-num {
+  font-size: 32px;
+  font-weight: 900;
+  line-height: 1;
+}
+.cec-guarantee__badge-label {
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  line-height: 1.2;
+}
+
+.cec-guarantee__headline {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--cec-ink);
+  margin-bottom: 8px;
+}
+.cec-guarantee__sub {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--cec-green);
+  margin-bottom: 4px;
+}
+.cec-guarantee__detail {
+  font-size: 14px;
+  color: var(--cec-brown-2);
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+.cec-guarantee__text {
+  font-size: 15px;
+  color: var(--cec-brown-2);
+  line-height: 1.65;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+/* ── SECTION 5: OFFER ─────────────────────── */
+.cec-offer {
+  background: var(--cec-bg-alt);
+  scroll-margin-top: 24px;
+}
+
+.cec-offer__card {
+  background: var(--cec-card);
+  border-radius: 24px;
+  padding: 40px 24px;
+  box-shadow: var(--cec-shadow);
+  text-align: center;
+  border: 2px solid var(--cec-gold);
+  position: relative;
+  overflow: hidden;
+}
+.cec-offer__card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--cec-gold), var(--cec-green), var(--cec-gold));
+}
+
+.cec-offer__discount {
+  display: inline-block;
+  background: var(--cec-green);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 6px 16px;
+  border-radius: var(--cec-radius-pill);
+  margin-bottom: 16px;
+}
+
+.cec-offer__title {
+  font-size: clamp(24px, 5vw, 32px);
+  font-weight: 800;
+  color: var(--cec-ink);
+  margin-bottom: 24px;
+  line-height: 1.2;
+}
+
+.cec-offer__prices {
+  margin-bottom: 20px;
+}
+.cec-offer__original {
+  font-size: 20px;
+  color: var(--cec-brown-2);
+  text-decoration: line-through;
+  opacity: .7;
+  margin-bottom: 4px;
+}
+.cec-offer__price {
+  font-size: clamp(48px, 12vw, 72px);
+  font-weight: 900;
+  color: var(--cec-green);
+  line-height: 1.1;
+  letter-spacing: -1px;
+}
+.cec-offer__savings {
+  display: inline-block;
+  background: rgba(31, 122, 83, .10);
+  color: var(--cec-green);
+  font-size: 14px;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: var(--cec-radius-pill);
+  margin-top: 8px;
+}
+
+.cec-offer__fire {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--cec-red);
+  margin: 16px 0 24px;
+}
+
+.cec-offer__trust {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--cec-line);
+}
+.cec-offer__trust-item {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--cec-brown-2);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.cec-offer__trust-icon {
+  font-size: 16px;
+}
+
+.cec-offer__summary {
+  font-size: 14px;
+  color: var(--cec-brown-2);
+  margin-top: 18px;
+  line-height: 1.6;
+}
+
+.cec-offer__img {
+  width: 200px;
+  height: 200px;
+  border-radius: var(--cec-radius);
+  margin: 24px auto 0;
+  background: var(--cec-bg);
+  object-fit: cover;
+}
+
+/* ── SECTION 6: BONUSES ───────────────────── */
+.cec-bonuses {
+  background: var(--cec-bg);
+}
+
+.cec-bonuses__value {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--cec-brown);
+  margin-bottom: 24px;
+  text-align: center;
+}
+.cec-bonuses__value strong {
+  color: var(--cec-green);
+}
+
+.cec-bonuses__slider {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 12px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--cec-gold) transparent;
+}
+.cec-bonuses__slider::-webkit-scrollbar {
+  height: 6px;
+}
+.cec-bonuses__slider::-webkit-scrollbar-thumb {
+  background: var(--cec-gold);
+  border-radius: 3px;
+}
+.cec-bonuses__slider::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.cec-bonus-card {
+  flex: 0 0 280px;
+  scroll-snap-align: start;
+  background: var(--cec-card);
+  border-radius: var(--cec-radius);
+  padding: 24px 20px;
+  box-shadow: var(--cec-shadow-soft);
+  border: 1px solid var(--cec-line);
+  display: flex;
+  flex-direction: column;
+}
+.cec-bonus-card__tag {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: var(--cec-gold);
+  margin-bottom: 8px;
+}
+.cec-bonus-card__img {
+  width: 100%;
+  aspect-ratio: 3/2;
+  background: var(--cec-bg);
+  border-radius: var(--cec-radius-sm);
+  margin-bottom: 14px;
+  object-fit: cover;
+}
+.cec-bonus-card__name {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--cec-ink);
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+.cec-bonus-card__desc {
+  font-size: 14px;
+  color: var(--cec-brown-2);
+  line-height: 1.55;
+  flex: 1;
+}
+.cec-bonus-card__badge {
+  display: inline-block;
+  background: rgba(31, 122, 83, .10);
+  color: var(--cec-green);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  padding: 5px 12px;
+  border-radius: var(--cec-radius-pill);
+  margin-top: 14px;
+  align-self: flex-start;
+}
+
+.cec-bonuses__hint {
+  text-align: center;
+  font-size: 14px;
+  color: var(--cec-brown-2);
+  margin-top: 16px;
+  font-weight: 500;
+}
+
+/* ── SECTION 7: CO ZYSKASZ ────────────────── */
+.cec-results {
+  background: var(--cec-bg-alt);
+}
+
+.cec-results__grid {
+  display: grid;
+  gap: 16px;
+}
+
+.cec-result-card {
+  background: var(--cec-card);
+  border-radius: var(--cec-radius);
+  padding: 28px 24px;
+  box-shadow: var(--cec-shadow-soft);
+  border: 1px solid var(--cec-line);
+}
+.cec-result-card__icon {
+  font-size: 28px;
+  margin-bottom: 12px;
+}
+.cec-result-card__title {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--cec-ink);
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+.cec-result-card__text {
+  font-size: 15px;
+  color: var(--cec-brown-2);
+  line-height: 1.6;
+}
+
+/* ── SECTION 8: CTA MID ──────────────────── */
+.cec-cta-mid {
+  background: var(--cec-bg);
+}
+
+.cec-cta-mid__card {
+  background: var(--cec-card);
+  border-radius: var(--cec-radius);
+  padding: 40px 24px;
+  text-align: center;
+  box-shadow: var(--cec-shadow);
+  border: 1px solid var(--cec-line);
+}
+
+.cec-cta-mid__title {
+  font-size: clamp(22px, 4.5vw, 28px);
+  font-weight: 800;
+  color: var(--cec-ink);
+  margin-bottom: 20px;
+  line-height: 1.25;
+}
+
+.cec-cta-mid__prices {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+.cec-cta-mid__original {
+  font-size: 18px;
+  color: var(--cec-brown-2);
+  text-decoration: line-through;
+  opacity: .65;
+}
+.cec-cta-mid__price {
+  font-size: 36px;
+  font-weight: 900;
+  color: var(--cec-green);
+}
+.cec-cta-mid__badge {
+  font-size: 12px;
+  font-weight: 700;
+  background: var(--cec-gold);
+  color: #fff;
+  padding: 4px 12px;
+  border-radius: var(--cec-radius-pill);
+  text-transform: uppercase;
+}
+
+.cec-cta-mid__btn {
+  margin-top: 20px;
+}
+
+.cec-cta-mid__trust {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 20px;
+  font-size: 13px;
+  color: var(--cec-brown-2);
+  font-weight: 600;
+}
+
+/* ── SECTION 9: FAQ ───────────────────────── */
+.cec-faq {
+  background: var(--cec-bg-alt);
+}
+
+.cec-faq__list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cec-faq__item {
+  background: var(--cec-card);
+  border-radius: var(--cec-radius);
+  border: 1px solid var(--cec-line);
+  overflow: hidden;
+}
+.cec-faq__item summary {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--cec-ink);
+  padding: 20px 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  list-style: none;
+  user-select: none;
+}
+.cec-faq__item summary::-webkit-details-marker { display: none; }
+.cec-faq__item summary::after {
+  content: '+';
+  flex-shrink: 0;
+  font-size: 22px;
+  font-weight: 300;
+  color: var(--cec-gold);
+  transition: transform .3s;
+}
+.cec-faq__item[open] summary::after {
+  transform: rotate(45deg);
+}
+.cec-faq__answer {
+  font-size: 15px;
+  color: var(--cec-brown-2);
+  line-height: 1.65;
+  padding: 0 24px 20px;
+}
+
+/* ── SECTION 10: CTA FINAL ────────────────── */
+.cec-final {
+  background: linear-gradient(160deg, #3a2218 0%, #2d211c 40%, #1e150f 100%);
+  color: #fff;
+  position: relative;
+}
+.cec-final::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(200, 132, 21, .08) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.cec-final__inner {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.cec-final__title {
+  font-size: clamp(22px, 4.5vw, 30px);
+  font-weight: 800;
+  line-height: 1.25;
+  margin-bottom: 20px;
+}
+.cec-final__title strong {
+  color: var(--cec-gold);
+}
+
+.cec-final__text {
+  font-size: 16px;
+  color: rgba(255, 255, 255, .78);
+  line-height: 1.65;
+  margin-bottom: 16px;
+  max-width: 560px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cec-final__payment-note {
+  font-size: 15px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, .9);
+  margin-bottom: 28px;
+}
+
+.cec-final__prices {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+.cec-final__original {
+  font-size: 20px;
+  color: rgba(255, 255, 255, .5);
+  text-decoration: line-through;
+}
+.cec-final__price {
+  font-size: 44px;
+  font-weight: 900;
+  color: #fff;
+}
+.cec-final__savings {
+  display: inline-block;
+  background: rgba(31, 122, 83, .2);
+  color: #6fddaa;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 5px 14px;
+  border-radius: var(--cec-radius-pill);
+  margin-bottom: 24px;
+}
+
+.cec-final__trust {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 24px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, .6);
+  font-weight: 600;
+}
+
+/* ── MOBILE STICKY BAR ────────────────────── */
+.cec-sticky-bar {
+  display: none;
+}
+
+@media (max-width: 520px) {
+  .cec-sticky-bar {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: var(--cec-card);
+    padding: 12px var(--cec-gutter);
+    box-shadow: 0 -4px 24px rgba(52, 30, 18, .12);
+    border-top: 1px solid var(--cec-line);
+  }
+  .cec-sticky-bar .cec-btn {
+    width: 100%;
+    font-size: 15px;
+    padding: 15px 20px;
+  }
+  body {
+    padding-bottom: 72px;
+  }
+}
+
+/* ── RESPONSIVE ───────────────────────────── */
+@media (max-width: 520px) {
+  .cec-section {
+    padding: 48px 0;
+  }
+  .cec-hero {
+    padding: 40px 0 48px;
+  }
+  .cec-hero__badges {
+    justify-content: center;
+  }
+  .cec-hero__badge {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+  .cec-hero__stat {
+    font-size: 12px;
+    padding: 6px 14px;
+  }
+  .cec-step {
+    padding: 22px 18px;
+  }
+  .cec-bonus-card {
+    flex: 0 0 260px;
+  }
+  .cec-offer__card {
+    padding: 32px 18px;
+  }
+  .cec-guarantee__card {
+    padding: 32px 20px;
+  }
+  .cec-cta-mid__card {
+    padding: 32px 18px;
+  }
+  .cec-faq__item summary {
+    padding: 16px 18px;
+    font-size: 15px;
+  }
+  .cec-faq__answer {
+    padding: 0 18px 16px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 380px) {
+  :root {
+    --cec-gutter: 12px;
+  }
+  .cec-hero__title {
+    font-size: 26px;
+  }
+  .cec-title {
+    font-size: 24px;
+  }
+  .cec-offer__price {
+    font-size: 44px;
+  }
+  .cec-final__price {
+    font-size: 36px;
+  }
+  .cec-bonus-card {
+    flex: 0 0 240px;
+    padding: 20px 16px;
+  }
+}
+
+/* ── Utility ──────────────────────────────── */
+.cec-text-center { text-align: center; }
+</style>
+<script>document.documentElement.classList.add('js');</script>
+<!-- ===================== SECTION 1: HERO ===================== -->
+<section class="cec-hero">
+  <div class="cec-wrap cec-hero__inner">
+
+    <div class="cec-hero__badges">
+      <span class="cec-hero__badge">+150 wykrojów odzieżowych</span>
+      <span class="cec-hero__badge">5 bonusów gratis</span>
+      <span class="cec-hero__badge">🖨️ Gotowe do wydruku w domu (A4)</span>
+    </div>
+
+    <h1 class="cec-hero__title">
+      Twórz własne <strong>ubrania z wykrojami</strong> gotowymi do użycia
+    </h1>
+
+    <p class="cec-hero__sub">
+      150 wykrojów we wszystkich rozmiarach, gotowych do wydruku, wycięcia i użycia na tkaninie. Nieskazitelne ubrania od zera.
+    </p>
+
+    <div class="cec-hero__stats">
+      <span class="cec-hero__stat">100 wykrojów damskich</span>
+      <span class="cec-hero__stat">50 wykrojów męskich</span>
+      <span class="cec-hero__stat">Natychmiastowy dostęp</span>
+      <span class="cec-hero__stat">15 dni gwarancji</span>
+    </div>
+
+    <div class="cec-hero__cta">
+      <a href="#cec-offer" class="cec-btn cec-btn--pulse">CHCĘ TO ZOBACZYĆ ↓</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===================== SECTION 2: PAIN POINTS ===================== -->
+<section class="cec-section cec-pain">
+  <div class="cec-wrap">
+
+    <div class="cec-fade">
+      <p class="cec-eyebrow">Brzmi znajomo?</p>
+      <h2 class="cec-title">Chcesz szyć, a całe popołudnie <strong>szukasz wykroju</strong></h2>
+      <p class="cec-subtitle">Otwierasz Pinterest. Potem Google. Potem grupę. Dwie godziny później — wciąż nic nie skroiłaś.</p>
+    </div>
+
+    <blockquote class="cec-pain__quote cec-fade">
+      To nie tak, że wolno szyjesz. Brakuje ci <strong>gotowej bazy</strong> na każdą rzecz.
+    </blockquote>
+
+    <img
+      class="cec-pain__img cec-fade"
+      src="https://files.catbox.moe/ietu5k.webp"
+      alt="Prawdziwy spis treści Biblii Wykrojów Krawiectwa"
+      data-placeholder="toc"
+      loading="lazy"
+    >
+
+    <ul class="cec-pain__list cec-fade">
+      <li class="cec-pain__item">
+        <span class="cec-pain__x" aria-hidden="true">✕</span>
+        <span>Dostajesz zamówienie i nie masz wykroju: musisz szukać od zera.</span>
+      </li>
+      <li class="cec-pain__item">
+        <span class="cec-pain__x" aria-hidden="true">✕</span>
+        <span>Znajdujesz jeden… ale nie podaje rozmiaru, a zdjęcie nie pasuje do wykroju.</span>
+      </li>
+      <li class="cec-pain__item">
+        <span class="cec-pain__x" aria-hidden="true">✕</span>
+        <span>Drukujesz i wychodzi za małe: czy to było A4, Letter, czy w skali rzeczywistej?</span>
+      </li>
+      <li class="cec-pain__item">
+        <span class="cec-pain__x" aria-hidden="true">✕</span>
+        <span>Sklejasz kartki, linie się nie zgadzają… a maszyna stoi wyłączona.</span>
+      </li>
+    </ul>
+
+    <div class="cec-pain__transition cec-fade">
+      To nie brak umiejętności. To brak <strong>uporządkowanego katalogu</strong>.
+    </div>
+
+  </div>
+</section>
+
+<!-- ===================== SECTION 3: PROCESS ===================== -->
+<section class="cec-section cec-process">
+  <div class="cec-wrap">
+
+    <div class="cec-fade">
+      <p class="cec-eyebrow">Prawdziwy proces</p>
+      <h2 class="cec-title">Wybierz, wydrukuj i <strong>skrój</strong></h2>
+      <p class="cec-subtitle">To nie są przypadkowe wykroje. To kompletny system do tworzenia własnych ubrań — od wyboru bazy i rozmiaru po krój i szycie.</p>
+    </div>
+
+    <img
+      class="cec-process__img cec-fade"
+      src="https://files.catbox.moe/7ov5o9.webp"
+      alt="Prawdziwa strona katalogu: sekcja damska z opisami"
+      data-placeholder="catalog"
+      loading="lazy"
+    >
+
+    <div class="cec-steps">
+
+      <div class="cec-step cec-fade">
+        <div class="cec-step__header">
+          <span class="cec-step__num">1</span>
+          <span class="cec-step__label">Pobierz bibliotekę</span>
+        </div>
+        <p class="cec-step__body">Po potwierdzeniu płatności otrzymujesz dostęp. Otwórz katalog z telefonu lub komputera i wybierz model ze zdjęcia.</p>
+        <div class="cec-step__note">📐 Każdy model ma swoją kartę: podany rozmiar, format wydruku i dokładny folder. Nie musisz niczego zgadywać.</div>
+      </div>
+
+      <div class="cec-step cec-fade">
+        <div class="cec-step__header">
+          <span class="cec-step__num">2</span>
+          <span class="cec-step__label">Wydrukuj w 100% i zmierz</span>
+        </div>
+        <p class="cec-step__body">Każdy folder zawiera PRZECZYTAJ NAJPIERW z podanym formatem każdego PDF. Drukujesz w 100%, mierzysz kwadrat próbny i gotowe.</p>
+      </div>
+
+      <div class="cec-step cec-fade">
+        <div class="cec-step__header">
+          <span class="cec-step__num">3</span>
+          <span class="cec-step__label">Wybierz rozmiar i skrój</span>
+        </div>
+        <p class="cec-step__body">Wybierz rozmiar na podstawie swoich miar (nigdy na podstawie rozmiaru komercyjnego), zrób standardowe dopasowania i skrój. Ta sama baza, ile razy potrzebujesz.</p>
+      </div>
+
+      <div class="cec-step cec-fade">
+        <div class="cec-step__header">
+          <span class="cec-step__num">4</span>
+          <span class="cec-step__label">Złóż i wykończ</span>
+        </div>
+        <p class="cec-step__body">Z 5 bonusami uzupełnisz cały proces: techniki i wykończenia, podstawy modelowania, modyfikacja wykrojów, maszyna do szycia i kreatywne projekty.</p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ===================== SECTION 4: GUARANTEE ===================== -->
+<section class="cec-section cec-guarantee">
+  <div class="cec-wrap">
+    <div class="cec-fade">
+      <p class="cec-eyebrow cec-text-center">Prawdziwa gwarancja</p>
+    </div>
+
+    <div class="cec-guarantee__card cec-fade">
+      <div class="cec-guarantee__badge">
+        <span class="cec-guarantee__badge-num">15</span>
+        <span class="cec-guarantee__badge-label">DNI<br>GWARANCJI</span>
+      </div>
+      <h2 class="cec-guarantee__headline">Masz 15 dni, żeby zobaczyć materiał.</h2>
+      <p class="cec-guarantee__sub">Jeśli nie jest dla ciebie, zwracamy pieniądze.</p>
+      <p class="cec-guarantee__detail">Bez komplikacji</p>
+      <p class="cec-guarantee__text">
+        Chcemy, żebyś kupował/a z pełnym spokojem. Jeśli w ciągu pierwszych 15 dni poczujesz, że to nie dla ciebie, napisz do nas e-mail, a zwrócimy ci pieniądze.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SECTION 5: OFFER ===================== -->
+<section class="cec-section cec-offer" id="cec-offer">
+  <div class="cec-wrap">
+
+    <div class="cec-fade">
+      <p class="cec-eyebrow cec-text-center">Kompletny zestaw cyfrowy</p>
+    </div>
+
+    <div class="cec-offer__card cec-fade">
+      <span class="cec-offer__discount">+ 67% ZNIŻKI</span>
+      <h2 class="cec-offer__title">Biblia Wykrojów Krawiectwa</h2>
+
+      <div class="cec-offer__prices">
+        <div class="cec-offer__original">{{original_price}}</div>
+        <div class="cec-offer__price">{{price}}</div>
+        <span class="cec-offer__savings">67% ZNIŻKI</span>
+      </div>
+
+      <p class="cec-offer__fire">🔥 Specjalna cena promocyjna</p>
+
+      <a href="/checkout" class="cec-btn cec-btn--pulse" data-ssb-checkout>Chcę dostęp teraz za {{price}}</a>
+
+      <div class="cec-offer__trust">
+        <span class="cec-offer__trust-item"><span class="cec-offer__trust-icon">🔒</span> Płatność 100% bezpieczna</span>
+        <span class="cec-offer__trust-item"><span class="cec-offer__trust-icon">📦</span> Produkt cyfrowy</span>
+        <span class="cec-offer__trust-item"><span class="cec-offer__trust-icon">⚡</span> Natychmiastowy dostęp</span>
+      </div>
+
+      <p class="cec-offer__summary">
+        +150 wykrojów we wszystkich rozmiarach · Kreatywne projekty · 5 bonusów · 15 dni gwarancji
+      </p>
+
+      <img
+        class="cec-offer__img"
+        src="https://files.catbox.moe/mm5q04.png"
+        alt="Biblia Wykrojów Krawiectwa — zestaw cyfrowy"
+        data-placeholder="product"
+        loading="lazy"
+      >
+    </div>
+
+  </div>
+</section>
+
+<!-- ===================== SECTION 6: BONUSES ===================== -->
+<section class="cec-section cec-bonuses">
+  <div class="cec-wrap">
+
+    <div class="cec-fade">
+      <p class="cec-eyebrow cec-text-center">W zestawie z Biblią</p>
+      <h2 class="cec-title cec-text-center">🎁 I to nie <strong>wszystko</strong></h2>
+      <p class="cec-subtitle cec-text-center">Kupując dzisiaj, otrzymujesz również 5 kompletnych bonusów gratis — do montażu, regulacji i wykończenia każdej rzeczy, a także do szycia nie tylko odzieży.</p>
+      <p class="cec-bonuses__value">Wartość rzeczywista: 50 € <strong>DZIŚ W ZESTAWIE GRATIS</strong></p>
+    </div>
+
+    <div class="cec-bonuses__slider cec-fade">
+
+      <!-- Bonus 1 -->
+      <div class="cec-bonus-card">
+        <span class="cec-bonus-card__tag">Bonus #1 · 152 str.</span>
+        <img class="cec-bonus-card__img" src="https://files.catbox.moe/11ls85.png" alt="Metoda Szycia 360°" data-placeholder="bonus1" loading="lazy">
+        <h3 class="cec-bonus-card__name">Metoda Szycia 360°</h3>
+        <p class="cec-bonus-card__desc">Kompletny kurs szycia w jednym: maszyna, tkaniny, techniki, wykończenia, naprawy i ubrania krok po kroku.</p>
+        <span class="cec-bonus-card__badge">W zestawie</span>
+      </div>
+
+      <!-- Bonus 2 -->
+      <div class="cec-bonus-card">
+        <span class="cec-bonus-card__tag">Bonus #2 · 48 str.</span>
+        <img class="cec-bonus-card__img" src="https://files.catbox.moe/gc5z8s.png" alt="Podstawy Modelowania" data-placeholder="bonus2" loading="lazy">
+        <h3 class="cec-bonus-card__name">Podstawy Modelowania</h3>
+        <p class="cec-bonus-card__desc">Od miar do wykroju: bloki bazowe, toile i rozwój rozmiarów, żeby zrozumieć, jak działa wykrój od środka.</p>
+        <span class="cec-bonus-card__badge">W zestawie</span>
+      </div>
+
+      <!-- Bonus 3 -->
+      <div class="cec-bonus-card">
+        <span class="cec-bonus-card__tag">Bonus #3 · 76 str.</span>
+        <img class="cec-bonus-card__img" src="https://files.catbox.moe/e8obd3.png" alt="Modyfikacja Wykrojów" data-placeholder="bonus3" loading="lazy">
+        <h3 class="cec-bonus-card__name">Modyfikacja Wykrojów</h3>
+        <p class="cec-bonus-card__desc">Jeden wykrój, wiele wersji: długości, dekolty, rękawy, zaszewki i dopasowanie do twoich miar lub miar klientki.</p>
+        <span class="cec-bonus-card__badge">W zestawie</span>
+      </div>
+
+      <!-- Bonus 4 -->
+      <div class="cec-bonus-card">
+        <span class="cec-bonus-card__tag">Bonus #4 · 21 str.</span>
+        <img class="cec-bonus-card__img" src="https://files.catbox.moe/ju7r2t.png" alt="Maszyna do Szycia: Obsługa i Konserwacja" data-placeholder="bonus4" loading="lazy">
+        <h3 class="cec-bonus-card__name">Maszyna do Szycia: Obsługa i Konserwacja</h3>
+        <p class="cec-bonus-card__desc">Regulacja, naciąg, igły, czyszczenie i 15 najczęstszych problemów — rozwiązanych w domu.</p>
+        <span class="cec-bonus-card__badge">W zestawie</span>
+      </div>
+
+      <!-- Bonus 5 -->
+      <div class="cec-bonus-card">
+        <span class="cec-bonus-card__tag">Bonus #5 · 486 PDF</span>
+        <img class="cec-bonus-card__img" src="https://files.catbox.moe/atumbl.png" alt="Kreatywne Projekty Krawieckie" data-placeholder="bonus5" loading="lazy">
+        <h3 class="cec-bonus-card__name">Kreatywne Projekty Krawieckie</h3>
+        <p class="cec-bonus-card__desc">Torebki, dekoracje, święta, kuchnia, niemowlęta, akcesoria i zwierzęta domowe: 486 projektów krok po kroku, przetłumaczonych na polski, z dedykowanym katalogiem.</p>
+        <span class="cec-bonus-card__badge">W zestawie</span>
+      </div>
+
+    </div>
+
+    <p class="cec-bonuses__hint cec-fade">Przewiń, żeby zobaczyć 5 bonusów 👉</p>
+
+  </div>
+</section>
+
+<!-- ===================== SECTION 7: CO ZYSKASZ ===================== -->
+<section class="cec-section cec-results">
+  <div class="cec-wrap">
+
+    <div class="cec-fade">
+      <p class="cec-eyebrow">Co zyskasz</p>
+      <h2 class="cec-title">Mniej czasu na szukanie. <strong>Więcej czasu na szycie.</strong></h2>
+    </div>
+
+    <div class="cec-results__grid">
+
+      <div class="cec-result-card cec-fade">
+        <div class="cec-result-card__icon">✂️</div>
+        <h3 class="cec-result-card__title">Gotowe wykroje do każdego projektu</h3>
+        <p class="cec-result-card__text">Zamiast tracić godziny na szukanie odpowiedniego wykroju, otwierasz katalog, wybierasz model i przechodzisz od razu do krojenia.</p>
+      </div>
+
+      <div class="cec-result-card cec-fade">
+        <div class="cec-result-card__icon">📐</div>
+        <h3 class="cec-result-card__title">Rozmiary, format i instrukcje — wszystko w jednym miejscu</h3>
+        <p class="cec-result-card__text">Każdy wykrój ma swoją kartę z podanym rozmiarem, formatem wydruku i dokładnym folderem. Nie musisz niczego zgadywać.</p>
+      </div>
+
+      <div class="cec-result-card cec-fade">
+        <div class="cec-result-card__icon">🧵</div>
+        <h3 class="cec-result-card__title">Od pierwszego wykroju do gotowego ubrania</h3>
+        <p class="cec-result-card__text">5 bonusów uzupełnia cały proces: od miar przez modelowanie po wykończenia. Uczysz się, szyjąc.</p>
+      </div>
+
+      <div class="cec-result-card cec-fade">
+        <div class="cec-result-card__icon">👗</div>
+        <h3 class="cec-result-card__title">Szyj na zamówienie, na prezent lub dla siebie</h3>
+        <p class="cec-result-card__text">Ubrania, które uszyjesz z tych wykrojów, są twoje: noś je, podaruj lub sprzedaj. Jedyne, czego nie możesz, to odsprzedać pliki PDF.</p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ===================== SECTION 8: CTA MID ===================== -->
+<section class="cec-section cec-cta-mid">
+  <div class="cec-wrap">
+
+    <div class="cec-cta-mid__card cec-fade">
+      <h2 class="cec-cta-mid__title">Widziałaś już, jak to działa. Teraz twoja kolej.</h2>
+
+      <div class="cec-cta-mid__prices">
+        <span class="cec-cta-mid__original">{{original_price}}</span>
+        <span class="cec-cta-mid__price">{{price}}</span>
+        <span class="cec-cta-mid__badge">Oferta</span>
+      </div>
+
+      <div class="cec-cta-mid__btn">
+        <a href="#cec-offer" class="cec-btn cec-btn--pulse">CHCĘ DOSTĘP TERAZ ↓</a>
+      </div>
+
+      <div class="cec-cta-mid__trust">
+        <span>⚡ Natychmiastowy dostęp</span>
+        <span>🛡️ 15 dni gwarancji</span>
+        <span>📦 Dostawa cyfrowa</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===================== SECTION 9: FAQ ===================== -->
+<section class="cec-section cec-faq">
+  <div class="cec-wrap">
+
+    <div class="cec-fade">
+      <p class="cec-eyebrow">Najczęściej zadawane pytania</p>
+      <h2 class="cec-title">Wszystko, co chcesz wiedzieć <strong>przed zakupem</strong></h2>
+    </div>
+
+    <div class="cec-faq__list">
+
+      <details class="cec-faq__item cec-fade">
+        <summary>Co otrzymuję i jak?</summary>
+        <div class="cec-faq__answer">
+          Po potwierdzeniu płatności otrzymujesz dostęp do pobrania wszystkiego: Biblię (katalog 45 stron), foldery z 1180 plikami PDF (694 ze 156 modeli ubrań i 486 projektów) w 5 sekcjach, PRZECZYTAJ NAJPIERW w każdym folderze i 5 bonusów. Otwiera się na telefonie, tablecie lub komputerze.
+        </div>
+      </details>
+
+      <details class="cec-faq__item cec-fade">
+        <summary>Czy muszę umieć szyć?</summary>
+        <div class="cec-faq__answer">
+          Nie. Chodzi właśnie o to, żebyś mógł/mogła zacząć, nawet jeśli nie masz jeszcze doświadczenia. 🧵✨ Wykroje krawiectwa dają ci klarowną bazę do tworzenia każdego ubrania, a poradniki + bonusy pomagają zrozumieć, jak brać miary, przygotować wykrój, skroić tkaninę i szyć krok po kroku. Nie musisz wiedzieć wszystkiego, zanim zaczniesz. Chodzi o to, żebyś zaczął/a z jasnym przewodnikiem i uczył/a się w trakcie.
+        </div>
+      </details>
+
+      <details class="cec-faq__item cec-fade">
+        <summary>Wykroje są w formacie A4 czy Letter?</summary>
+        <div class="cec-faq__answer">
+          Zależy od projektu. 🖨️✂️ Większość modeli można wydrukować w domu w formacie Letter, A4 lub A3. Większe modele (wcześniej dostępne tylko dla plotera) mają teraz wersję A4 podzieloną na arkusze ze schematem montażu — drukujesz w domu w 100%, sklejasz kartki i gotowe. Każdy folder podaje format i zawiera instrukcję krok po kroku. Jeśli wolisz, oryginalny plik do plotera też jest dostępny.
+        </div>
+      </details>
+
+      <details class="cec-faq__item cec-fade">
+        <summary>Jak wybrać swój rozmiar?</summary>
+        <div class="cec-faq__answer">
+          Na podstawie miar, nigdy na podstawie rozmiaru komercyjnego. Zmierz obwód klatki piersiowej, talii i bioder i porównaj z tabelą: dla góry liczy się klatka piersiowa, dla dołu — biodra. Jesteś między dwoma rozmiarami? Wybierz większy. Każda karta podaje rozmiar lub przedział modelu.
+        </div>
+      </details>
+
+      <details class="cec-faq__item cec-fade">
+        <summary>Czy mogę sprzedawać uszyte rzeczy?</summary>
+        <div class="cec-faq__answer">
+          Tak. Ubrania, które uszyjesz z tych wykrojów, są twoje: możesz ich używać, podarować lub sprzedać — na zamówienie lub pod własną marką. Jedyne, czego nie możesz, to odsprzedawać lub udostępniać pliki PDF.
+        </div>
+      </details>
+
+      <details class="cec-faq__item cec-fade">
+        <summary>Czy to kurs wideo?</summary>
+        <div class="cec-faq__answer">
+          Nie. To materiał cyfrowy do pobrania: katalog, 1180 plików PDF z wykrojami i projektami oraz 5 bonusów w PDF. Pobierasz i zostaje zapisane na twoich urządzeniach.
+        </div>
+      </details>
+
+      <details class="cec-faq__item cec-fade">
+        <summary>Co dokładnie zawiera?</summary>
+        <div class="cec-faq__answer">
+          156 wykrojów odzieżowych gotowych do wydruku: swetry, bluzy, dżinsy, sukienki, bluzki, polo, koszule, piżamy, szorty i odzież sportowa do kolarstwa i fitnessu. Ponad 99 modeli damskich i ponad 50 męskich, w rozmiarach od 34 do 56 (od PP do G5 w zależności od modelu). Ponad 1000 plików PDF, uporządkowanych w wizualnym katalogu: każdy wykrój ze zdjęciem, rozmiarem i instrukcją wydruku. Możesz swobodnie sprzedawać ubrania, które uszyjesz. + 4 e-booki gratis: kompletny kurs szycia, modelowanie, modyfikacja wykrojów i maszyna do szycia. + 486 kreatywnych projektów krawieckich do sprzedaży lub prezentów: torebki, worki, dekoracje do domu, kuchni, na święta i akcesoria.
+        </div>
+      </details>
+
+      <details class="cec-faq__item cec-fade">
+        <summary>A jeśli to nie dla mnie?</summary>
+        <div class="cec-faq__answer">
+          Masz 15 dni gwarancji. Jeśli materiał nie jest tym, czego się spodziewałaś, napisz do nas e-mail, a zwrócimy ci 100% pieniędzy. Bez pytań. Ryzyko jest nasze.
+        </div>
+      </details>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ===================== SECTION 10: CTA FINAL ===================== -->
+<section class="cec-section cec-final">
+  <div class="cec-wrap cec-final__inner">
+
+    <div class="cec-fade">
+      <h2 class="cec-final__title">
+        Nie potrzebujesz kolejnych wykrojów zapisanych w folderach. Potrzebujesz <strong>znaleźć ten właściwy i szyć.</strong>
+      </h2>
+
+      <p class="cec-final__text">
+        Jeśli umiesz szyć i każde nowe ubranie zmusza cię do szukania od zera — dla siebie, na prezent lub na sprzedaż — to jest impuls, którego ci brakowało.
+      </p>
+
+      <p class="cec-final__text">
+        Biblia Wykrojów Krawiectwa daje ci model, rozmiar, format wydruku i bonusy do złożenia ubrania. Wszystko w jednym miejscu.
+      </p>
+
+      <p class="cec-final__payment-note">
+        Jednorazowa płatność. Natychmiastowy dostęp i 15 dni gwarancji.
+      </p>
+    </div>
+
+    <div class="cec-fade">
+      <div class="cec-final__prices">
+        <span class="cec-final__original">{{original_price}}</span>
+        <span class="cec-final__price">{{price}}</span>
+      </div>
+      <span class="cec-final__savings">67% ZNIŻKI</span>
+
+      <div style="margin-top:24px;">
+        <a href="#cec-offer" class="cec-btn cec-btn--pulse">CHCĘ DOSTĘP TERAZ ↓</a>
+      </div>
+
+      <div class="cec-final__trust">
+        <span>⚡ Natychmiastowy dostęp</span>
+        <span>🛡️ 15 dni gwarancji</span>
+        <span>📦 Dostawa cyfrowa</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===================== MOBILE STICKY BAR ===================== -->
+<div class="cec-sticky-bar">
+  <a href="#cec-offer" class="cec-btn cec-btn--pulse">CHCĘ TO ZOBACZYĆ ↓</a>
+</div>
+
+<!-- ===================== SCRIPTS ===================== -->
+<script>
+(function(){
+  try {
+    var fades = document.querySelectorAll('.cec-fade');
+    if (!fades.length) return;
+
+    if ('IntersectionObserver' in window) {
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('cec-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+      fades.forEach(function(el) { observer.observe(el); });
+
+      // Fallback: reveal all after 2.5s
+      setTimeout(function() {
+        fades.forEach(function(el) { el.classList.add('cec-visible'); });
+      }, 2500);
+    } else {
+      // No IntersectionObserver: show everything
+      fades.forEach(function(el) { el.classList.add('cec-visible'); });
+    }
+  } catch(e) {
+    // If anything fails, make content visible
+    var all = document.querySelectorAll('.cec-fade');
+    all.forEach(function(el) { el.classList.add('cec-visible'); });
+  }
+})();
+</script>

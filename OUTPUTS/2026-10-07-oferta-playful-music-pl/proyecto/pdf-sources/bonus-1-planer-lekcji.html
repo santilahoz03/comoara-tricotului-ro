@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="_shared.css">
+<style>
+  .week-badge {
+    display: inline-block;
+    background: var(--teal);
+    color: #fff;
+    font-family: var(--af);
+    font-size: 13px;
+    font-weight: 700;
+    padding: 3px 14px;
+    border-radius: 20px;
+    margin-bottom: 6px;
+  }
+  .week-focus {
+    font-family: var(--af);
+    font-size: 14px;
+    color: var(--teal-dark);
+    margin: 4px 0 10px;
+  }
+  table.data td {
+    font-size: 10.5px;
+    line-height: 1.35;
+    vertical-align: top;
+  }
+  table.data th {
+    font-size: 10.5px;
+  }
+  .template-row {
+    height: 48px;
+    border-bottom: 1.5px solid var(--border);
+  }
+  .template-label {
+    font-family: var(--af);
+    font-weight: 700;
+    font-size: 13px;
+    color: var(--ink-mid);
+    width: 90px;
+    padding: 8px 6px;
+    vertical-align: middle;
+  }
+  .template-cell {
+    padding: 8px 6px;
+    vertical-align: middle;
+  }
+</style>
+</head>
+<body>
+
+<!-- ====== COVER ====== -->
+<div class="page cover">
+  <div class="cover-badge">Bonus 1 z 3</div>
+  <img src="https://files.catbox.moe/d5nbaj.png" alt="Tygodniowy Planer Lekcji" style="width:220px;border-radius:16px;box-shadow:0 10px 30px rgba(36,29,22,.15);margin-bottom:20px">
+  <h1>Tygodniowy Planer Lekcji</h1>
+  <p class="subtitle">Gotowe mini-plany do rotacji aktywności muzycznych<br>dla dzieci w wieku 3–7 lat</p>
+  <div class="rainbow-bar">
+    <span></span><span></span><span></span><span></span><span></span><span></span>
+  </div>
+  <p style="font-family:var(--bf);font-size:14px;color:var(--ink-mid);margin-top:18px;">
+    Zabawowa Metoda Muzyczna
+  </p>
+</div>
+
+<!-- ====== HOW TO USE ====== -->
+<div class="page">
+  <h2 style="font-family:var(--df);color:var(--teal-dark);font-size:22px;margin-bottom:14px;">
+    🎵 Jak korzystac z tego planera?
+  </h2>
+
+  <div class="card" style="margin-bottom:14px;">
+    <p style="font-size:13px;line-height:1.6;margin:0;">
+      Ten planer zawiera <strong>4 gotowe tygodniowe plany</strong> z aktywnosciami muzycznymi
+      na kazdy dzien roboczy (poniedzialek-piatek). Kazda aktywnosc trwa <strong>15-20 minut</strong>
+      i jest zaprojektowana tak, zeby Twoje dziecko uczylo sie muzyki przez zabawe.
+    </p>
+  </div>
+
+  <div class="callout ok" style="margin-bottom:14px;">
+    <strong>🎯 Zasada dzialania:</strong> Jeden tydzien = jeden temat przewodni. Kazdy dzien to
+    inna aktywnosc z tego samego modulu, dzieki czemu dziecko poglabia umiejetnosci stopniowo.
+  </div>
+
+  <h3 style="font-family:var(--af);font-size:15px;color:var(--ink);margin-bottom:8px;">
+    📋 Jak zaczac:
+  </h3>
+  <ol class="steps">
+    <li>Wybierz tydzien, ktory Cie interesuje (mozesz zaczac od dowolnego).</li>
+    <li>Przygotuj materialy wymienione w kolumnie "Potrzebne materialy" — to codzienne przedmioty.</li>
+    <li>Zacznij od rozgrzewki (1-2 minuty), potem przejdz do glownej aktywnosci.</li>
+    <li>Powtarzaj ulubione tygodnie! Dzieci ucza sie przez powtarzanie.</li>
+  </ol>
+
+  <div class="grid-2" style="margin-top:14px;">
+    <div class="visual-card">
+      <div class="vc-emoji">⏱️</div>
+      <div class="vc-label">15-20 minut</div>
+      <div class="vc-sub">dziennie wystarczy</div>
+    </div>
+    <div class="visual-card">
+      <div class="vc-emoji">🔄</div>
+      <div class="vc-label">4 tygodnie</div>
+      <div class="vc-sub">gotowych planow</div>
+    </div>
+    <div class="visual-card">
+      <div class="vc-emoji">🏠</div>
+      <div class="vc-label">Zero zakupow</div>
+      <div class="vc-sub">uzyj tego, co masz w domu</div>
+    </div>
+    <div class="visual-card">
+      <div class="vc-emoji">🎶</div>
+      <div class="vc-label">20 aktywnosci</div>
+      <div class="vc-sub">unikatowych zabaw</div>
+    </div>
+  </div>
+
+  <div class="callout tip" style="margin-top:14px;">
+    <strong>💡 Wskazowka:</strong> Na koncu znajdziesz pusty szablon — mozesz tworzyc wlasne
+    tygodniowe plany, mieszajac ulubione aktywnosci dziecka!
+  </div>
+
+  <div class="page-num">2</div>
+</div>
+
+<!-- ====== WEEK 1 — SEPARATOR ====== -->
+<div class="page separator">
+  <div class="sep-num">Tydzien 1</div>
+  <div class="sep-desc">🔊 Odkrywanie Dzwiekow<br>
+    <span style="font-size:15px;color:var(--muted);">Modul 3 — Eksploracja swiata dzwiekow</span>
+  </div>
+  <div class="page-num">3</div>
+</div>
+
+<!-- ====== WEEK 1 — TABLE ====== -->
+<div class="page">
+  <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
+    <span class="week-badge">Tydzien 1</span>
+    <h2 style="font-family:var(--df);font-size:19px;color:var(--teal-dark);margin:0;">
+      🔊 Odkrywanie Dzwiekow
+    </h2>
+  </div>
+  <p class="week-focus">Cel: Nauczyc dziecko uwaznego sluchania i rozrozniania dzwiekow wokol siebie.</p>
+
+  <table class="data" style="font-size:10px;">
+    <thead>
+      <tr>
+        <th style="width:13%;">Dzien</th>
+        <th style="width:22%;">Aktywnosc 🎵</th>
+        <th style="width:11%;">Modul / Str.</th>
+        <th style="width:8%;">Czas</th>
+        <th style="width:22%;">Potrzebne materialy</th>
+        <th style="width:24%;">Rozgrzewka (2 min)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Pn</strong></td>
+        <td><strong>Safari Dzwiekowe</strong> — spacer po domu, dziecko zamyka oczy na 30 sek. i liczy ile roznych dzwiekow slyszy (zegar, lodowka, ptak). Rysuje je potem na kartce.</td>
+        <td>Modul 3, s. 8</td>
+        <td>15 min</td>
+        <td>Kartka, kredki, opaska na oczy (opcjonalnie)</td>
+        <td>🎤 Spiewanie "Dzien dobry, uszy!" — dziecko dotyka uszu i mowi "slucham!"</td>
+      </tr>
+      <tr>
+        <td><strong>Wt</strong></td>
+        <td><strong>Orkiestra Kuchenna</strong> — zbierz 5 przedmiotow kuchennych (garnek, lyzka, kubek, pokrywka, butelka). Dziecko uderza i sortuje: glosne vs. ciche, wysokie vs. niskie.</td>
+        <td>Modul 3, s. 12</td>
+        <td>20 min</td>
+        <td>Garnek, lyzka drewniana, kubek, pokrywka, plastikowa butelka</td>
+        <td>🫸 Klaskanie cicho-glosno: zaczynasz szeptem, konczysz glosno (crescendo)</td>
+      </tr>
+      <tr>
+        <td><strong>Sr</strong></td>
+        <td><strong>Zgadnij, co gra</strong> — nagraj 6 dzwiekow domowych telefonem. Odtwarzaj i dziecko zgaduje co to. Potem zamiencie sie rolami!</td>
+        <td>Modul 3, s. 15</td>
+        <td>15 min</td>
+        <td>Telefon z dyktafonem, 6 przedmiotow wydajacych rozne dzwieki</td>
+        <td>🎵 "Cisza-muzyka": stoisz nieruchomo w ciszy, przy klaśnięciu tańczysz, przy klaśnięciu stop</td>
+      </tr>
+      <tr>
+        <td><strong>Cz</strong></td>
+        <td><strong>Deszczowa Butelka</strong> — zrob instrument: plastikowa butelka + ryz/makaron/fasola. Porownaj rozne "nadzienia". Ktore brzmi jak deszcz? Jak grad?</td>
+        <td>Modul 3, s. 18</td>
+        <td>20 min</td>
+        <td>3 plastikowe butelki, ryz, makaron, fasola, tasma klejaca</td>
+        <td>🌧️ Naśladowanie deszczu: palce po stole = kapanie, dłonie = ulewa, ciało = burza</td>
+      </tr>
+      <tr>
+        <td><strong>Pt</strong></td>
+        <td><strong>Koncert dla Misia</strong> — dziecko wybiera 3 ulubione "instrumenty" z tygodnia i gra krotki koncert dla pluszaka. Ty klaszczez na koniec!</td>
+        <td>Modul 3, s. 22</td>
+        <td>15 min</td>
+        <td>Instrumenty z tego tygodnia, pluszak jako publicznosc</td>
+        <td>🧸 Miś tańczy: dziecko porusza misiem w rytm klaskania (szybko/wolno)</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout ok" style="margin-top:12px;font-size:11.5px;">
+    <strong>💡 Wskazowka dla rodzica:</strong> Nie poprawiaj dziecka, kiedy opisuje dzwieki
+    "po swojemu" — jesli mowi, ze garnek brzmi "jak dinozaur", to swietnie! Buduje skojarzenia
+    dzwiekowe. Nagraj zabawniejsze opisy w telefonie — za rok bedziecie sie smiac z tego razem.
+  </div>
+
+  <div class="page-num">4</div>
+</div>
+
+<!-- ====== WEEK 2 — SEPARATOR ====== -->
+<div class="page separator">
+  <div class="sep-num">Tydzien 2</div>
+  <div class="sep-desc">🥁 Rytm i Ruch<br>
+    <span style="font-size:15px;color:var(--muted);">Modul 2 — Cialo jako instrument</span>
+  </div>
+  <div class="page-num">5</div>
+</div>
+
+<!-- ====== WEEK 2 — TABLE ====== -->
+<div class="page">
+  <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
+    <span class="week-badge">Tydzien 2</span>
+    <h2 style="font-family:var(--df);font-size:19px;color:var(--teal-dark);margin:0;">
+      🥁 Rytm i Ruch
+    </h2>
+  </div>
+  <p class="week-focus">Cel: Rozwijac poczucie rytmu poprzez ruch calego ciala i proste wzory rytmiczne.</p>
+
+  <table class="data" style="font-size:10px;">
+    <thead>
+      <tr>
+        <th style="width:13%;">Dzien</th>
+        <th style="width:22%;">Aktywnosc 🎵</th>
+        <th style="width:11%;">Modul / Str.</th>
+        <th style="width:8%;">Czas</th>
+        <th style="width:22%;">Potrzebne materialy</th>
+        <th style="width:24%;">Rozgrzewka (2 min)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Pn</strong></td>
+        <td><strong>Marsz Zwierzat</strong> — naśladuj chodzenie zwierzat w rytm: slon (mocne tupanie, wolno), mysz (szybkie drobne kroki), zajac (skoki co 2 uderzenia). Ty klaszczesz tempo.</td>
+        <td>Modul 2, s. 6</td>
+        <td>15 min</td>
+        <td>Wolna przestrzen do ruchu, opcjonalnie bebenek lub garnek</td>
+        <td>🤸 Rozciaganie z nuceniem: ramiona w gore = wysoki dzwiek, w dol = niski</td>
+      </tr>
+      <tr>
+        <td><strong>Wt</strong></td>
+        <td><strong>Powtorz Rytm</strong> — klaszcz prosty wzor (np. klask-klask-pauza-klask). Dziecko powtarza. Zamieniajcie sie. Stopniowo dodawaj elementy (tupanie noga, uderzenie o kolana).</td>
+        <td>Modul 2, s. 10</td>
+        <td>15 min</td>
+        <td>Nic — tylko cialo!</td>
+        <td>👐 "Witaj, rytmie!": klask-klask-pauza x3, potem imie dziecka wyklaskane sylabami</td>
+      </tr>
+      <tr>
+        <td><strong>Sr</strong></td>
+        <td><strong>Taniec Stop-Start</strong> — wlacz muzyk (telefon). Kiedy grasz = taniec. Pauza = zamrozenie w pozycji. Dodaj reguly: przy pauzie dotknij podlogi / stoj na jednej nodze.</td>
+        <td>Modul 2, s. 14</td>
+        <td>20 min</td>
+        <td>Telefon z muzyka (rozne tempa: wolna, szybka, srednia)</td>
+        <td>🎵 Spiewanie powitalnej piosenki: "Hej, hej, muzyka gra, kazdy tancerz wita ja!"</td>
+      </tr>
+      <tr>
+        <td><strong>Cz</strong></td>
+        <td><strong>Rytmiczne Rysowanie</strong> — przy muzyce dziecko rysuje linie na duzej kartce: szybka muzyka = szybkie linie, wolna = powolne kregi. Porownaj rysunki z roznych piosenek.</td>
+        <td>Modul 2, s. 17</td>
+        <td>20 min</td>
+        <td>Duza kartka (A3 lub wiekszej), kredki/mazaki, muzyka z telefonu</td>
+        <td>🖐️ "Palce graja": kazdy palec puka o stol w kolejnosci, coraz szybciej</td>
+      </tr>
+      <tr>
+        <td><strong>Pt</strong></td>
+        <td><strong>Rodzinny Jam</strong> — kazdy dostaje "instrument" (lyzki, garnki, butelki z ryzem). Ustalcie prosty rytm razem i zagrajcie "piosenke" — 4 powtorzenia wzoru to juz utwór!</td>
+        <td>Modul 2, s. 21</td>
+        <td>20 min</td>
+        <td>Domowe instrumenty z Tygodnia 1, lyzki, garnki</td>
+        <td>🎶 Kazdy czlonek rodziny klascze swoje imie (sy-la-by), potem wszyscy razem</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout ok" style="margin-top:12px;font-size:11.5px;">
+    <strong>💡 Wskazowka dla rodzica:</strong> Jesli dziecko nie trzyma rytmu — to normalne!
+    W wieku 3-4 lat koordynacja ruchowa dopiero sie rozwija. Zamiast poprawiac, pokaz wlasnym
+    cialem. Dzieci ucza sie przez naśladowanie, nie przez instrukcje slowne. Tanczcie razem!
+  </div>
+
+  <div class="page-num">6</div>
+</div>
+
+<!-- ====== WEEK 3 — SEPARATOR ====== -->
+<div class="page separator">
+  <div class="sep-num">Tydzien 3</div>
+  <div class="sep-desc">🎲 Gry Muzyczne<br>
+    <span style="font-size:15px;color:var(--muted);">Modul 4 — Nauka przez zabawe zespolowa</span>
+  </div>
+  <div class="page-num">7</div>
+</div>
+
+<!-- ====== WEEK 3 — TABLE ====== -->
+<div class="page">
+  <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
+    <span class="week-badge">Tydzien 3</span>
+    <h2 style="font-family:var(--df);font-size:19px;color:var(--teal-dark);margin:0;">
+      🎲 Gry Muzyczne
+    </h2>
+  </div>
+  <p class="week-focus">Cel: Utrwalic wiedze muzyczna przez gry, ktore angazuja sluch, pamiec i wyobraznie.</p>
+
+  <table class="data" style="font-size:10px;">
+    <thead>
+      <tr>
+        <th style="width:13%;">Dzien</th>
+        <th style="width:22%;">Aktywnosc 🎵</th>
+        <th style="width:11%;">Modul / Str.</th>
+        <th style="width:8%;">Czas</th>
+        <th style="width:22%;">Potrzebne materialy</th>
+        <th style="width:24%;">Rozgrzewka (2 min)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Pn</strong></td>
+        <td><strong>Memory Dzwiekowy</strong> — przygotuj 6 par pojemnikow (kubki papierowe) z roznymi "nadzeniami" (ryz, monety, spinacze, fasola, kamyki, wata). Dziecko potrząsa i szuka par po dzwieku.</td>
+        <td>Modul 4, s. 7</td>
+        <td>20 min</td>
+        <td>12 kubkow papierowych, tasma, ryz, monety, spinacze, fasola, kamyki, wata</td>
+        <td>🎵 "Raz, dwa, trzy — muzyka graj!": 3 klaśnięcia + melodyjne "la-la-la"</td>
+      </tr>
+      <tr>
+        <td><strong>Wt</strong></td>
+        <td><strong>Muzyczny Czerwone-Zielone</strong> — dziecko chodzi po pokoju. Glosne klaskanie = stop (czerwone). Cichy klask = wolno (zolte). Szybkie klaskanie = biegnij (zielone). Dodaj: wysoki dzwiek = rece w gore.</td>
+        <td>Modul 4, s. 11</td>
+        <td>15 min</td>
+        <td>Przestrzen do biegania, opcjonalnie gwizdek</td>
+        <td>🚦 Rozgrzewka "semafor ciala": klaśnij kolano=stoj, brzuch=idz, glowa=skacz</td>
+      </tr>
+      <tr>
+        <td><strong>Sr</strong></td>
+        <td><strong>Bingo Instrumentow</strong> — narysuj kartke bingo 3x3 z obrazkami instrumentow (bebenek, gitara, pianino itp.). Odtwarzaj dzwieki z telefonu — dziecko zaznacza, ktory slyszy.</td>
+        <td>Modul 4, s. 15</td>
+        <td>20 min</td>
+        <td>Kartka bingo (narysowana), kredka, telefon z dzwiekami instrumentow (YouTube)</td>
+        <td>🎸 "Zgadnij instrument": nucisz melodie "grajac" na wyimaginowanym instrumencie, dziecko zgaduje</td>
+      </tr>
+      <tr>
+        <td><strong>Cz</strong></td>
+        <td><strong>Muzyczne Krzesla</strong> — klasyczna gra, ale z twistem: kiedy muzyka sie zatrzymuje, dziecko musi spiewac jedna nutke (Do, Re, Mi...) zeby "zdobyc" krzeslo. Graj z pluszakami!</td>
+        <td>Modul 4, s. 19</td>
+        <td>15 min</td>
+        <td>3-4 poduszki/krzesla, pluszaki, muzyka z telefonu</td>
+        <td>🎹 Spiewanie gamy: Do-Re-Mi-Fa-Sol — wskazuj kolorowe kartki z Modulu 1</td>
+      </tr>
+      <tr>
+        <td><strong>Pt</strong></td>
+        <td><strong>Historia Dzwiekowa</strong> — opowiedz krotka bajke. Dziecko tworzy dzwieki do akcji: "szedl rycerz" (tupanie), "zaczal padac deszcz" (shaker), "zapiał kogut" (głos). Nagraj to!</td>
+        <td>Modul 4, s. 23</td>
+        <td>20 min</td>
+        <td>Domowe instrumenty, telefon do nagrywania, krotka bajka (wymyślona lub z ksiazki)</td>
+        <td>🧙 "Czarodziejskie slowa": dziecko mowi kazde slowo innym glosem (wysoko, nisko, szepcze, krzyczy)</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout ok" style="margin-top:12px;font-size:11.5px;">
+    <strong>💡 Wskazowka dla rodzica:</strong> Gry muzyczne swietnie dzialaja z rowiasnikami —
+    jesli dziecko ma rodzenstwo lub przyjdzie kolega, zaangazuj ich! Rywalizacja (np. kto pierwszy
+    znajdzie pare w Memory) naturalnie zwieksza motywacje. Ale pamietaj: kazdy wygrywa na koniec. 🏆
+  </div>
+
+  <div class="page-num">8</div>
+</div>
+
+<!-- ====== WEEK 4 — SEPARATOR ====== -->
+<div class="page separator">
+  <div class="sep-num">Tydzien 4</div>
+  <div class="sep-desc">🎼 Maly Kompozytor<br>
+    <span style="font-size:15px;color:var(--muted);">Modul 5 — Tworzenie wlasnej muzyki</span>
+  </div>
+  <div class="page-num">9</div>
+</div>
+
+<!-- ====== WEEK 4 — TABLE ====== -->
+<div class="page">
+  <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
+    <span class="week-badge">Tydzien 4</span>
+    <h2 style="font-family:var(--df);font-size:19px;color:var(--teal-dark);margin:0;">
+      🎼 Maly Kompozytor
+    </h2>
+  </div>
+  <p class="week-focus">Cel: Zachecic dziecko do tworzenia wlasnych melodii, rytmow i "piosenek" — kreatywnosc ponad perfekcje!</p>
+
+  <table class="data" style="font-size:10px;">
+    <thead>
+      <tr>
+        <th style="width:13%;">Dzien</th>
+        <th style="width:22%;">Aktywnosc 🎵</th>
+        <th style="width:11%;">Modul / Str.</th>
+        <th style="width:8%;">Czas</th>
+        <th style="width:22%;">Potrzebne materialy</th>
+        <th style="width:24%;">Rozgrzewka (2 min)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Pn</strong></td>
+        <td><strong>Moja Piosenka Poranna</strong> — dziecko wymysla krotka piosenke o tym, co robi rano (4-8 slow). Powtarzajcie ja razem. Sprobuj zaśpiewac ja wesolo, potem smutno, potem jak robot.</td>
+        <td>Modul 5, s. 6</td>
+        <td>15 min</td>
+        <td>Nic — tylko wyobraźnia i glos!</td>
+        <td>🌅 "Budzik muzyczny": dziecko lezy, ty "budzisz" je roznymi dzwiekami — wstaje przy ulubionym</td>
+      </tr>
+      <tr>
+        <td><strong>Wt</strong></td>
+        <td><strong>Kolorowa Partytura</strong> — narysuj 8 kratek. Kazdy kolor = dzwiek (czerwony=klask, niebieski=tupniecie, zolty=pstryk palcami, zielony=pauza). Dziecko koloruje kartki i gra swoja "partyture".</td>
+        <td>Modul 5, s. 10</td>
+        <td>20 min</td>
+        <td>Kartka z 8 kratkami, kredki w 4 kolorach, legenda kolorow</td>
+        <td>🎨 "Kolorowe dzwieki": pokaz kolor, dziecko robi przypisany dzwiek (trenuj 4 kolory)</td>
+      </tr>
+      <tr>
+        <td><strong>Sr</strong></td>
+        <td><strong>DJ Mieszacz</strong> — dziecko dostaje 3 "instrumenty" (shaker, garnek, glos). Nagrywasz 10 sek. kazdego na telefon. Dziecko mowi kiedy wlaczyc/wylaczyc kazdy — tworzy miks!</td>
+        <td>Modul 5, s. 14</td>
+        <td>20 min</td>
+        <td>3 domowe instrumenty, telefon z funkcja nagrywania</td>
+        <td>🎧 "Cisza DJ-a": siedzisz cicho 15 sek., potem dziecko mowi "drop!" i wszyscy robią halas</td>
+      </tr>
+      <tr>
+        <td><strong>Cz</strong></td>
+        <td><strong>Piosenka o Moim Zwierzaku</strong> — wybierz zwierze (prawdziwe lub wymarzone). Wymyslcie 3 linie o nim, dodajcie melodie. Nic nie musi sie rymowac! Mozna narysowac "okladke albumu".</td>
+        <td>Modul 5, s. 18</td>
+        <td>20 min</td>
+        <td>Kartka na okladke, kredki, przykladowe piosenki zwierzece (opcjonalnie)</td>
+        <td>🐱 "Odglosy zwierzat w rytmie": miau-miau-hau! (2x krotko + 1x dlugo) — powtarzaj z roznymi zwierzetami</td>
+      </tr>
+      <tr>
+        <td><strong>Pt</strong></td>
+        <td><strong>Wielki Koncert!</strong> — dziecko planuje set-liste: 3 "utwory" z calego tygodnia. Zrob bilety, przygotuj "scene" (koc na podlodze). Nagraj koncert! To pamiatka na lata.</td>
+        <td>Modul 5, s. 22</td>
+        <td>20 min</td>
+        <td>Wszystkie instrumenty, kartka na bilety, koc, telefon do nagrywania</td>
+        <td>🎤 Proba mikrofonu: dziecko mowi "raz, dwa, trzy — probaaaa!" coraz glosniej</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout ok" style="margin-top:12px;font-size:11.5px;">
+    <strong>💡 Wskazowka dla rodzica:</strong> Piatkowny "Wielki Koncert" to punkt kulminacyjny
+    tygodnia. Nagraj go na telefon! Dzieci, ktore widza siebie jako "artystow", buduja pewnosc
+    siebie. A za rok bedziecie ogladac to nagranie i nie uwierzycie, ile sie zmienilo. 🎬
+  </div>
+
+  <div class="page-num">10</div>
+</div>
+
+<!-- ====== BLANK TEMPLATE ====== -->
+<div class="page">
+  <h2 style="font-family:var(--df);font-size:20px;color:var(--teal-dark);margin-bottom:4px;">
+    📝 Moj Wlasny Plan Tygodniowy
+  </h2>
+  <p style="font-family:var(--bf);font-size:12px;color:var(--muted);margin-bottom:10px;">
+    Wypelnij ten szablon swoimi ulubionymi aktywnosciami. Mieszaj moduly, powtarzaj hity, kombinuj!
+  </p>
+
+  <div class="callout warn" style="margin-bottom:10px;font-size:11px;">
+    <strong>🖊️ Temat tygodnia:</strong> ________________________________________
+  </div>
+
+  <table style="width:100%;border-collapse:collapse;font-family:var(--bf);font-size:11px;">
+    <thead>
+      <tr style="background:var(--teal);color:#fff;">
+        <th style="padding:7px 6px;text-align:left;width:12%;font-family:var(--af);font-weight:700;font-size:10.5px;">Dzien</th>
+        <th style="padding:7px 6px;text-align:left;width:23%;font-family:var(--af);font-weight:700;font-size:10.5px;">Aktywnosc</th>
+        <th style="padding:7px 6px;text-align:left;width:12%;font-family:var(--af);font-weight:700;font-size:10.5px;">Modul / Str.</th>
+        <th style="padding:7px 6px;text-align:left;width:8%;font-family:var(--af);font-weight:700;font-size:10.5px;">Czas</th>
+        <th style="padding:7px 6px;text-align:left;width:22%;font-family:var(--af);font-weight:700;font-size:10.5px;">Materialy</th>
+        <th style="padding:7px 6px;text-align:left;width:23%;font-family:var(--af);font-weight:700;font-size:10.5px;">Rozgrzewka</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="template-row">
+        <td class="template-label">Pn</td>
+        <td class="template-cell"></td>
+        <td class="template-cell"></td>
+        <td class="template-cell"></td>
+        <td class="template-cell"></td>
+        <td class="template-cell"></td>
+      </tr>
+      <tr class="template-row">
+        <td class="template-label">Wt</td>
+        <td class="template-cell"></td>
+        <td class="template-cell"></td>
+        <td class="template-cell"></td>
+        <td class="template-cell"></td>
+        <td class="template-cell"></td>
+      </tr>
+      <tr class="template-row">
+        <td class="template-label">Sr</td>
+        <td class="template-cell"></td>
+        <td class="template-cell"></td>
+        <td class="template-cell"></td>
+        <td class="template-cell"></td>
+        <td class="template-cell"></td>
+      </tr>
+      <tr class="template-row">
+        <td class="template-label">Cz</td>
+        <td class="template-cell"></td>
+        <td class="template-cell"></td>
+        <td class="template-cell"></td>
+        <td class="template-cell"></td>
+        <td class="template-cell"></td>
+      </tr>
+      <tr class="template-row">
+        <td class="template-label">Pt</td>
+        <td class="template-cell"></td>
+        <td class="template-cell"></td>
+        <td class="template-cell"></td>
+        <td class="template-cell"></td>
+        <td class="template-cell"></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div style="margin-top:16px;">
+    <h3 style="font-family:var(--af);font-size:13px;color:var(--ink-mid);margin-bottom:8px;">
+      ✅ Lista kontrolna na koniec tygodnia:
+    </h3>
+    <ul class="checklist" style="font-size:11.5px;">
+      <li>Ktora aktywnosc najbardziej sie podobala dziecku?</li>
+      <li>Co bylo najtrudniejsze?</li>
+      <li>Co chce powtorzyc w nastepnym tygodniu?</li>
+      <li>Czy pojawil sie nowy ulubiony "instrument"?</li>
+      <li>Nagralismy cos wartego zachowania? 🎬</li>
+    </ul>
+  </div>
+
+  <div class="callout tip" style="margin-top:10px;font-size:11px;">
+    <strong>💡 Pro tip:</strong> Wydrukuj kilka kopii tej strony! Mozesz planowac tygodnie z wyprzedzeniem
+    albo dac dziecku samemu wybrac aktywnosci na kazdy dzien — poczucie kontroli = wiecej motywacji.
+  </div>
+
+  <div class="page-num">11</div>
+</div>
+
+<!-- ====== BACK COVER ====== -->
+<div class="page back-cover">
+  <h2 style="font-family:var(--df);font-size:24px;color:#fff;margin-bottom:12px;">
+    🎵 Nastepny krok
+  </h2>
+  <p style="font-family:var(--bf);font-size:14px;color:rgba(255,255,255,0.9);line-height:1.7;max-width:420px;margin:0 auto 20px;">
+    Masz juz plan na 4 tygodnie muzycznej zabawy!<br>
+    Teraz przejdz do <strong>Bonusu 2: Karty Rytmiczne</strong> —
+    gotowe karty do wydrukowania, ktore uczyly dziecko nut, pauz i prostych
+    melodii w formie gry.
+  </p>
+  <div style="display:inline-block;background:var(--gold);color:var(--ink);font-family:var(--af);font-weight:700;font-size:15px;padding:10px 28px;border-radius:30px;">
+    ▶ Bonus 2: Karty Rytmiczne
+  </div>
+  <p style="font-family:var(--bf);font-size:12px;color:rgba(255,255,255,0.6);margin-top:24px;">
+    Zabawowa Metoda Muzyczna
+  </p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,7 @@
+id,concepto,origen,parent,batch,archivo,audio,costo,estado
+A1,Jung neurociencia — 37s,V4 ID 2623242251431673,,-,2026-10-14/1.mp4,A1_V4_voz.mp3,USD ~1.60 (Vmake+ElevenLabs),listo
+A2,Rogers — barco sin ancla 76s,V5 ID 1395230399238355,,-,2026-10-14/2.mp4,A2_V5_voz.mp3,USD ~0.97 (ElevenLabs; Vmake falló),listo
+A3,Jung en consulta — 83s,V2 ID 1426495279281222,,-,2026-10-14/3.mp4,A3_V2_voz.mp3,USD ~1.51 (Vmake+ElevenLabs),listo
+A4,Lista sin fin — 100s,V3 ID 987919614152469,,-,2026-10-14/4.mp4,A4_V3_voz.mp3,USD ~0.00 (ElevenLabs; Vmake sin créditos),listo
+A5,Paciente sin palabras — 56s,Original PL,,-,2026-10-14/5.mp4,A5_new_voz.mp3,USD ~0.00 (ElevenLabs),listo
+A6,Erickson condensado — 58s,Original PL,,-,2026-10-14/6.mp4,A6_new_voz.mp3,USD ~0.00 (ElevenLabs),listo

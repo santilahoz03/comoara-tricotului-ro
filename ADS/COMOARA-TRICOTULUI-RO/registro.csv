@@ -1,0 +1,7 @@
+id,concepto,origen,parent,batch,archivo,audio,costo_usd,estado
+g1,De ani de zile,produccion-propia,,2026-10-14,ADS/COMOARA-TRICOTULUI-RO/2026-10-14/1.mp4,work/comoara-ro-g1/voz.wav,0.18,listo-v3
+g2,Minute pierdute,produccion-propia,,2026-10-14,ADS/COMOARA-TRICOTULUI-RO/2026-10-14/2.mp4,work/comoara-ro-g2/voz.wav,0.14,listo-v3
+g3,5200 de tipare,produccion-propia,,2026-10-14,ADS/COMOARA-TRICOTULUI-RO/2026-10-14/3.mp4,work/comoara-ro-g3/voz.wav,0.14,listo-v3
+g4,Proiecte neterminate,produccion-propia,,2026-10-14,ADS/COMOARA-TRICOTULUI-RO/2026-10-14/4.mp4,work/comoara-ro-g4/voz.wav,0.14,listo-v3
+g5,Intr-un weekend,produccion-propia,,2026-10-14,ADS/COMOARA-TRICOTULUI-RO/2026-10-14/5.mp4,work/comoara-ro-g5/voz.wav,0.14,listo-v3
+g6,Nu stiam ca pot tricota asta,produccion-propia,,2026-10-14,ADS/COMOARA-TRICOTULUI-RO/2026-10-14/6.mp4,work/comoara-ro-g6/voz.wav,0.12,listo-v3

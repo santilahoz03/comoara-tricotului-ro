@@ -1,0 +1,172 @@
+{
+  "producto": "Kreativa Akvarellakademien",
+  "slug": "akvarellakademien-se",
+  "titulo_completo": "Kreativa Akvarellakademien · 200+ Guidade Akvarellprojekt + 8 Bonusguider",
+  "idioma": "sv",
+  "registro": "du",
+  "mercado": "SE",
+  "precio": "139 SEK",
+  "precio_tachado": "556 SEK",
+  "ahorro": "417 SEK",
+  "tienda": "ImpulTienda",
+  "subdominio": "",
+  "subdominio_estado": "pendiente",
+  "landing_publicada": "",
+  "dominio_entregables": "https://santilahoz03.github.io/entregas",
+  "paleta": {
+    "bg": "#ffffff",
+    "paper": "#fffaf8",
+    "ink": "#1a1a1a",
+    "ink_soft": "#eaddd6",
+    "accent": "#c2705a",
+    "accent_dark": "#15803d",
+    "line": "#f3e3dc"
+  },
+  "fuentes": {
+    "titulo": "Cormorant Garamond",
+    "texto": "Lato"
+  },
+  "hub": {
+    "carpeta": "acceso",
+    "random": "acx5dmel44",
+    "titulo": "Kreativa Akvarellakademien",
+    "subtitulo": "Välkommen! Allt du betalade för är redo att hämtas nedan.",
+    "stats": [
+      "200+ guidade projekt",
+      "8 bonusguider",
+      "Omedelbar åtkomst"
+    ],
+    "pasos": [
+      "Börja med Akvarellguiden (Bonus 1) om du är helt ny — den ger dig grunden på 30 minuter.",
+      "Välj ett projekt från huvudguiden som matchar din nivå. Nybörjare: börja med Moln och Blommor.",
+      "Ha Vanliga akvarellmisstag (Bonus 4) öppen när du målar — det löser 90% av problemen som uppstår.",
+      "Återvänd till Färgkombinationer (Bonus 3) när du vill experimentera med nya paletter."
+    ]
+  },
+  "entregables": [
+    {
+      "id": "core",
+      "tipo": "core",
+      "nombre": "200+ Akvarellprojekt — Steg för Steg",
+      "descripcion": "Det kompletta projekthäftet med 200+ guidade akvarellprojekt sorterade efter svårighetsgrad — från enkla moln till detaljerade botaniska illustrationer.",
+      "carpeta": "200-akvarellprojekt-steg-f-r-steg",
+      "random": "cmtvbfq1sr",
+      "en_hub": true,
+      "pdf": "200-akvarellprojekt-steg-f-r-steg.pdf",
+      "fuente": "pdf-sources/200-akvarellprojekt.html",
+      "paginas": 28
+    },
+    {
+      "id": "bono-akvarellguide",
+      "tipo": "bono",
+      "nombre": "Akvarellguide",
+      "descripcion": "Grundläggande tekniker, penslar, papper och färger — allt du behöver för att förstå akvarell från grunden.",
+      "carpeta": "akvarellguide",
+      "random": "u6tzqe09o4",
+      "en_hub": true,
+      "pdf": "akvarellguide.pdf",
+      "fuente": "pdf-sources/akvarellguide.html",
+      "paginas": 9,
+      "orden": "1/8"
+    },
+    {
+      "id": "bono-akvarell-f-r-avkoppling",
+      "tipo": "bono",
+      "nombre": "Akvarell för avkoppling",
+      "descripcion": "5 mindfulness-projekt, andningsövningar och en 7-dagars ritual för att använda akvarell som avkoppling.",
+      "carpeta": "akvarell-f-r-avkoppling",
+      "random": "6z7ri01k9p",
+      "en_hub": true,
+      "pdf": "akvarell-f-r-avkoppling.pdf",
+      "fuente": "pdf-sources/akvarell-f-r-avkoppling.html",
+      "paginas": 8,
+      "orden": "2/8"
+    },
+    {
+      "id": "bono-f-rgkombinationer",
+      "tipo": "bono",
+      "nombre": "Färgkombinationer",
+      "descripcion": "30 kompletta färgpaletter med hex-koder, harmonimodeller och blandningsregler för mer levande akvareller.",
+      "carpeta": "f-rgkombinationer",
+      "random": "65gxnzob26",
+      "en_hub": true,
+      "pdf": "f-rgkombinationer.pdf",
+      "fuente": "pdf-sources/f-rgkombinationer.html",
+      "paginas": 11,
+      "orden": "3/8"
+    },
+    {
+      "id": "bono-vanliga-akvarellmisstag",
+      "tipo": "bono",
+      "nombre": "Vanliga akvarellmisstag",
+      "descripcion": "15 misstag med symptom, orsak och fix — plus en snabbdiagnos-tabell för när något ser konstigt ut.",
+      "carpeta": "vanliga-akvarellmisstag",
+      "random": "w7ybi5e1of",
+      "en_hub": true,
+      "pdf": "vanliga-akvarellmisstag.pdf",
+      "fuente": "pdf-sources/vanliga-akvarellmisstag.html",
+      "paginas": 10,
+      "orden": "4/8"
+    },
+    {
+      "id": "bono-dekoration-med-akvarell",
+      "tipo": "bono",
+      "nombre": "Dekoration med akvarell",
+      "descripcion": "Hur du ramar in, presenterar och skänker dina akvareller — 4 hemprojekt + 6 presentidéer.",
+      "carpeta": "dekoration-med-akvarell",
+      "random": "2v0dcgmm8g",
+      "en_hub": true,
+      "pdf": "dekoration-med-akvarell.pdf",
+      "fuente": "pdf-sources/dekoration-med-akvarell.html",
+      "paginas": 10,
+      "orden": "5/8"
+    },
+    {
+      "id": "bono-guide-till-grundl-ggande-verktyg",
+      "tipo": "bono",
+      "nombre": "Guide till grundläggande verktyg",
+      "descripcion": "Köpguide för papper, penslar och färger — vad du faktiskt behöver och i vilken ordning du ska uppgradera.",
+      "carpeta": "guide-till-grundl-ggande-verktyg",
+      "random": "2q7tr9zo4l",
+      "en_hub": true,
+      "pdf": "guide-till-grundl-ggande-verktyg.pdf",
+      "fuente": "pdf-sources/guide-till-grundl-ggande-verktyg.html",
+      "paginas": 11,
+      "orden": "6/8"
+    },
+    {
+      "id": "bono-akvarellbokm-rken",
+      "tipo": "bono",
+      "nombre": "Akvarellbokmärken",
+      "descripcion": "25 bokmärkesmotiv att måla — från botaniska rosor till norrskenet, med instruktioner för varje design.",
+      "carpeta": "akvarellbokm-rken",
+      "random": "4bsa0she0e",
+      "en_hub": true,
+      "pdf": "akvarellbokm-rken.pdf",
+      "fuente": "pdf-sources/akvarellbokm-rken.html",
+      "paginas": 14,
+      "orden": "7/8"
+    },
+    {
+      "id": "bono-v-rldsresande-samling-m-la-efter-nummer",
+      "tipo": "bono",
+      "nombre": "Världsresande samling – Måla efter nummer",
+      "descripcion": "23 destinationer från Kyoto till Kapstaden — palett, motiv och steg-för-steg för varje land.",
+      "carpeta": "v-rldsresande-samling-m-la-efter-nummer",
+      "random": "cm1u6ckv69",
+      "en_hub": true,
+      "pdf": "v-rldsresande-samling-m-la-efter-nummer.pdf",
+      "fuente": "pdf-sources/v-rldsresande-samling-m-la-efter-nummer.html",
+      "paginas": 9,
+      "orden": "8/8"
+    }
+  ],
+  "promesas": [],
+  "imagenes": [
+    {"id": "hero", "archivo": "mockups/1-hero-akvarellakademien-se-v2.png", "url": "https://files.catbox.moe/a15pjz.png", "formato": "3:2", "uso": "checkout + producto tienda"},
+    {"id": "caja", "archivo": "mockups/2-caja-akvarellakademien-se-v2.png", "url": "https://files.catbox.moe/ka83fl.png", "formato": "1:1", "uso": "escena"}
+  ],
+  "ads_dir": "",
+  "lanzamiento": "pendiente",
+  "checklist": []
+}

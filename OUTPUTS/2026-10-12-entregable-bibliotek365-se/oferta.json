@@ -1,0 +1,150 @@
+{
+  "producto": "bibliotek365-se",
+  "slug": "bibliotek365-se",
+  "titulo_completo": "Bibliotek 365 · 365 Aktiviteter Utan Skärmar + 5 Temaguider Ingår",
+  "idioma": "sv",
+  "registro": "neutro",
+  "mercado": "Suecia (SE)",
+  "precio": "EUR 17,99",
+  "precio_tachado": "EUR 39,99",
+  "ahorro": "EUR 22,00",
+  "tienda": "ImpulTienda",
+  "subdominio": "",
+  "subdominio_estado": "pendiente",
+  "landing_publicada": "",
+  "dominio_entregables": "https://santilahoz03.github.io/bibliotek365-se",
+  "paleta": {
+    "bg": "#FFFFFF",
+    "paper": "#F6F7F9",
+    "ink": "#20242C",
+    "ink_soft": "#6B7280",
+    "accent": "#1FA35A",
+    "accent_dark": "#178048",
+    "line": "#E7E9EE",
+    "cta": "#FFC93C",
+    "navy": "#16233B",
+    "red": "#E8395B"
+  },
+  "fuentes": {
+    "titulo": "Nunito",
+    "texto": "Nunito"
+  },
+  "hub": {
+    "carpeta": "acceso",
+    "random": "wvrf9x6lmg",
+    "titulo": "Bibliotek 365",
+    "subtitulo": "Ditt kompletta bibliotek med 365 aktiviteter utan skärmar — plus 5 temaguider.",
+    "stats": [
+      "365 aktiviteter",
+      "5 temaguider",
+      "7 dagars garanti"
+    ],
+    "pasos": [
+      "Ladda ner och öppna Bibliotek 365 (PDF).",
+      "Välj en aktivitet som passar dagen — använd innehållsförteckningen.",
+      "Följ stegen: barnet är igång på minuter, med saker du redan har hemma.",
+      "Utforska temaguider när du vill gå djupare inom ett specifikt område."
+    ]
+  },
+  "entregables": [
+    {
+      "id": "core",
+      "tipo": "core",
+      "nombre": "Bibliotek 365",
+      "descripcion": "365 aktiviteter utan skärmar för barn 3–8 år, indelade i 5 kategorier, med material och steg-för-steg-instruktioner.",
+      "carpeta": "bibliotek-365",
+      "random": "jrkd760k9b",
+      "en_hub": true,
+      "pdf": "bibliotek-365.pdf",
+      "fuente": "pdf-sources/bibliotek-365.html",
+      "paginas": 53
+    },
+    {
+      "id": "bono-lilla-kockar",
+      "tipo": "bono",
+      "nombre": "Lilla Kockar",
+      "descripcion": "Recept och köksuppgifter anpassade för barn 3–8 år: enkla steg, vardagsmat och roliga experiment i köket.",
+      "carpeta": "lilla-kockar",
+      "random": "ter72200xb",
+      "en_hub": true,
+      "pdf": "lilla-kockar.pdf",
+      "fuente": "pdf-sources/lilla-kockar.html",
+      "paginas": 14,
+      "orden": "1/5"
+    },
+    {
+      "id": "bono-jag-klarar-det-sjalv",
+      "tipo": "bono",
+      "nombre": "Jag Klarar Det Själv",
+      "descripcion": "Vardagsuppgifter och rutiner som hjälper barnet att bli mer självständigt och bygga självförtroende.",
+      "carpeta": "jag-klarar-det-sjalv",
+      "random": "swuwote4o1",
+      "en_hub": true,
+      "pdf": "jag-klarar-det-sjalv.pdf",
+      "fuente": "pdf-sources/jag-klarar-det-sjalv.html",
+      "paginas": 11,
+      "orden": "2/5"
+    },
+    {
+      "id": "bono-min-leksaksfabrik",
+      "tipo": "bono",
+      "nombre": "Min Leksaksfabrik",
+      "descripcion": "Kreativa projekt med återvinningsmaterial för att tillverka leksaker och träna finmotorik.",
+      "carpeta": "min-leksaksfabrik",
+      "random": "9btibcza1l",
+      "en_hub": true,
+      "pdf": "min-leksaksfabrik.pdf",
+      "fuente": "pdf-sources/min-leksaksfabrik.html",
+      "paginas": 9,
+      "orden": "3/5"
+    },
+    {
+      "id": "bono-lilla-uppfinnare",
+      "tipo": "bono",
+      "nombre": "Lilla Uppfinnare",
+      "descripcion": "Experiment och utmaningar som väcker nyfikenhet, logiskt tänkande och vetenskapligt utforskande hos barnet.",
+      "carpeta": "lilla-uppfinnare",
+      "random": "8citj92qsw",
+      "en_hub": true,
+      "pdf": "lilla-uppfinnare.pdf",
+      "fuente": "pdf-sources/lilla-uppfinnare.html",
+      "paginas": 13,
+      "orden": "4/5"
+    },
+    {
+      "id": "bono-tillsammans-ar-det-roligare",
+      "tipo": "bono",
+      "nombre": "Tillsammans Är Det Roligare",
+      "descripcion": "Familjeaktiviteter och lekar som stärker banden, skapar minnen och ger skratt tillsammans.",
+      "carpeta": "tillsammans-ar-det-roligare",
+      "random": "pt4z181kmv",
+      "en_hub": true,
+      "pdf": "tillsammans-ar-det-roligare.pdf",
+      "fuente": "pdf-sources/tillsammans-ar-det-roligare.html",
+      "paginas": 11,
+      "orden": "5/5"
+    }
+  ],
+  "textos_ui": {
+    "abrir": "Öppna",
+    "descargar": "Ladda ner PDF",
+    "nueva": "Öppna i ny flik",
+    "paginas": "sidor",
+    "acceso": "Livstidsåtkomst",
+    "empezar": "Kom igång",
+    "bonos": "Dina temaguider",
+    "principal": "Huvudguide",
+    "bienvenida": "Välkommen till",
+    "herramienta": "Verktyg",
+    "bono": "Temaguide",
+    "de": "av",
+    "no_pdf": "Din webbläsare kan inte visa PDF:en här.",
+    "descargalo": "Ladda ner med knappen nedan",
+    "uso": "Endast för personligt bruk. Vidareförsäljning är förbjuden."
+  },
+  "promesas": [],
+  "imagenes": [],
+  "ads_dir": "ADS/BIBLIOTEK365-SE/2026-10-12",
+  "lanzamiento": "pendiente",
+  "checklist": []
+}

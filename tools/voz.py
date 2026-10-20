@@ -105,7 +105,9 @@ def gemini(texto, voz, salida):
 def elevenlabs(texto, voz, salida):
     api_key = clave("ELEVENLABS_API_KEY")
     url = f"https://api.elevenlabs.io/v1/text-to-speech/{voz}?output_format=mp3_44100_128"
-    cuerpo = {"text": texto, "model_id": os.environ.get("ELEVENLABS_MODEL", "eleven_multilingual_v2")}
+    cuerpo = {"text": texto, "model_id": os.environ.get("ELEVENLABS_MODEL", "eleven_multilingual_v2"),
+              "voice_settings": {"stability": 0.45, "similarity_boost": 0.75,
+                                 "style": 0.40, "use_speaker_boost": True}}
     req = urllib.request.Request(url, data=json.dumps(cuerpo).encode(),
                                  headers={"Content-Type": "application/json", "xi-api-key": api_key})
     tmp = tempfile.mktemp(suffix=".mp3")

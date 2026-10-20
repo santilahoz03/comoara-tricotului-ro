@@ -1,0 +1,148 @@
+{
+  "producto": "NeuroMicuți",
+  "slug": "neuromicuti",
+  "titulo_completo": "NeuroMicuți +100 de activități pentru stimularea atenției, concentrării și învățării · 4 bonusuri incluse",
+  "idioma": "ro",
+  "registro": "tu-informal",
+  "mercado": "România",
+  "precio": "17,99 €",
+  "precio_tachado": "64,99 €",
+  "ahorro": "47 €",
+  "tienda": "ImpulTienda",
+  "subdominio": "neuromicuti.impultienda.ar",
+  "subdominio_estado": "activo",
+  "landing_publicada": "https://neuromicuti.impultienda.ar",
+  "dominio_entregables": "https://santilahoz03.github.io/neuromicuti-entrega",
+  "paleta": {
+    "bg": "#ffffff",
+    "paper": "#fdfbf7",
+    "ink": "#121212",
+    "ink_soft": "#888888",
+    "accent": "#6aa2d9",
+    "accent_dark": "#4a7fb8",
+    "line": "#e3eaf2"
+  },
+  "fuentes": {
+    "titulo": "Poppins",
+    "texto": "Poppins"
+  },
+  "hub": {
+    "carpeta": "acceso",
+    "random": "u6ff4499af",
+    "titulo": "NeuroMicuți",
+    "subtitulo": "Tot ce ai nevoie ca să antrenezi atenția, memoria și concentrarea copilului tău, în doar 10 minute pe zi.",
+    "stats": [
+      "100+ activități printabile",
+      "7 categorii cognitive",
+      "4 bonusuri incluse"
+    ],
+    "pasos": [
+      "Descarcă PDF-ul principal și printează primele 3-5 fișe",
+      "Alege o categorie potrivită vârstei copilului tău",
+      "Începe cu 10 minute pe zi și urmărește progresul",
+      "Explorează bonusurile pentru rutină, emoții și mindfulness"
+    ]
+  },
+  "entregables": [
+    {
+      "id": "core",
+      "tipo": "core",
+      "nombre": "NeuroMicuți · Sistemul Focus · Peste 100 de activități",
+      "descripcion": "",
+      "carpeta": "neuromicu-i-sistemul-focus-peste-100-de-",
+      "random": "g4l388rzn4",
+      "en_hub": true,
+      "pdf": "neuromicu-i-sistemul-focus-peste-100-de-.pdf",
+      "fuente": "ai-ebook/core.pdf",
+      "paginas": 122
+    },
+    {
+      "id": "bono-inteligen-a-emo-ional-neuromicu-i",
+      "tipo": "bono",
+      "nombre": "Inteligența Emoțională NeuroMicuți",
+      "descripcion": "",
+      "carpeta": "inteligen-a-emo-ional-neuromicu-i",
+      "random": "gp1dka7vdb",
+      "en_hub": true,
+      "pdf": "inteligen-a-emo-ional-neuromicu-i.pdf",
+      "fuente": "pdf-sources/inteligen-a-emo-ional-neuromicu-i.html",
+      "paginas": 12,
+      "orden": "1/4"
+    },
+    {
+      "id": "bono-planificator-zilnic-pentru-copii",
+      "tipo": "bono",
+      "nombre": "Planificator zilnic pentru copii",
+      "descripcion": "",
+      "carpeta": "planificator-zilnic-pentru-copii",
+      "random": "95j8eboah8",
+      "en_hub": true,
+      "pdf": "planificator-zilnic-pentru-copii.pdf",
+      "fuente": "pdf-sources/planificator-zilnic-pentru-copii.html",
+      "paginas": 10,
+      "orden": "2/4"
+    },
+    {
+      "id": "bono-activit-i-pentru-stimularea-creierului",
+      "tipo": "bono",
+      "nombre": "Activități pentru stimularea creierului",
+      "descripcion": "",
+      "carpeta": "activit-i-pentru-stimularea-creierului",
+      "random": "kiau83nb7u",
+      "en_hub": true,
+      "pdf": "activit-i-pentru-stimularea-creierului.pdf",
+      "fuente": "pdf-sources/activit-i-pentru-stimularea-creierului.html",
+      "paginas": 17,
+      "orden": "3/4"
+    },
+    {
+      "id": "bono-mindfulness-zilnic-pentru-copii",
+      "tipo": "bono",
+      "nombre": "Mindfulness zilnic pentru copii",
+      "descripcion": "",
+      "carpeta": "mindfulness-zilnic-pentru-copii",
+      "random": "vhtnjxet03",
+      "en_hub": true,
+      "pdf": "mindfulness-zilnic-pentru-copii.pdf",
+      "fuente": "pdf-sources/mindfulness-zilnic-pentru-copii.html",
+      "paginas": 11,
+      "orden": "4/4"
+    }
+  ],
+  "textos_ui": {
+    "bienvenida": "Bine ai venit la",
+    "principal": "Produs principal",
+    "bonos": "Bonusurile tale",
+    "herramienta": "Instrument",
+    "bono": "Bonus",
+    "de": "din",
+    "descargar": "Descarcă PDF",
+    "nueva": "Deschide într-o fereastră nouă",
+    "paginas": "pagini",
+    "acceso": "Acces pe viață · Descarcă oricând",
+    "uso": "Uz personal. Revânzarea sau redistribuirea este interzisă.",
+    "no_pdf": "Browserul tău nu afișează PDF-ul aici.",
+    "descargalo": "Descarcă-l cu butonul",
+    "empezar": "De unde să începi",
+    "abrir": "Deschide"
+  },
+  "promesas": [],
+  "imagenes": [
+    {"tipo": "hero", "archivo": "mockups/1-hero-neuromicuti.png", "uso": "checkout, producto tienda, ads"},
+    {"tipo": "caja", "archivo": "mockups/2-caja-neuromicuti.png", "uso": "ads, redes"}
+  ],
+  "ads_dir": "ADS/NEUROMICUTI/2026-10-05",
+  "lanzamiento": "activo",
+  "fecha_lanzamiento": "2026-10-07",
+  "checklist": [
+    {"item": "Landing publicada", "ok": true},
+    {"item": "Checkout configurado", "ok": true},
+    {"item": "Pixel + CAPI + Utmify", "ok": true},
+    {"item": "QC 375px y 380px", "ok": true},
+    {"item": "Entregables en GitHub Pages", "ok": true},
+    {"item": "Entrega automática en tienda", "ok": true},
+    {"item": "Mockups de checkout", "ok": true},
+    {"item": "10 videos de anuncios", "ok": true},
+    {"item": "Campaña publicada en Meta", "ok": true}
+  ]
+}

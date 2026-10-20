@@ -63,6 +63,7 @@ def main():
     ap.add_argument("--sfx-cta", default=None)
     ap.add_argument("--factor", default="auto", help="auto = (voz+cola)/video · o un número")
     ap.add_argument("--cola", type=float, default=0.4, help="segundos de video después de la última palabra")
+    ap.add_argument("--vol-musica", type=float, default=0.20, help="volumen música 0-1 (0.20 = fondo suave)")
     ap.add_argument("--salida", required=True)
     a = ap.parse_args()
 
@@ -100,7 +101,7 @@ def main():
     filtros.append("[1:a]aresample=48000,aformat=channel_layouts=stereo[vo]")
     if musica:
         entradas += ["-stream_loop", "-1", "-i", musica]
-        filtros.append(f"[{idx}:a]aresample=48000,aformat=channel_layouts=stereo,volume=0.08,"
+        filtros.append(f"[{idx}:a]aresample=48000,aformat=channel_layouts=stereo,volume={a.vol_musica:.2f},"
                        f"afade=t=in:d=1.5,afade=t=out:st={max(0, total - 1.8):.2f}:d=1.5[mu]")
         mezcla.append("[mu]"); idx += 1
     if a.sfx_inicio:

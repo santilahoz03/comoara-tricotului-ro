@@ -1,0 +1,21 @@
+{
+  "oferta": "Neulonnan Aarreaitta™",
+  "mercado": "FI",
+  "idioma": "fi",
+  "hub": "docs/acceso/bbuwcpvqfh/index.html",
+  "entregables": [
+    {"slug": "mallikirjasto-5200-mallia",       "code": "sddx6u08zp", "orden": 0, "tipo": "principal", "titulo": "Mallikirjasto — 5 200+ Premium-neulontamallia"},
+    {"slug": "suuri-silmukkakirjasto",          "code": "473jkaip97",  "orden": 1, "tipo": "bonus",     "titulo": "Suuri Silmukkakirjasto"},
+    {"slug": "erikoiskirjastot",                "code": "faofuctj50",  "orden": 2, "tipo": "bonus",     "titulo": "Erikoiskirjastot"},
+    {"slug": "ensimmaisten-silmukoiden-opas",   "code": "zibfo2o0dt",  "orden": 3, "tipo": "bonus",     "titulo": "Ensimmäisten Silmukoiden Opas"},
+    {"slug": "neulonnan-tyokalupakki",          "code": "kji44pdcnc",  "orden": 4, "tipo": "bonus",     "titulo": "Neulonnan Työkalupakki"},
+    {"slug": "neulojien-suosikkimallit",        "code": "qj3cxpacg0",  "orden": 5, "tipo": "bonus",     "titulo": "Neulojien Suosikkimallit — Top 50"},
+    {"slug": "malleja-lemmikillesi",            "code": "erhhouy375",  "orden": 6, "tipo": "bonus",     "titulo": "Malleja Lemmikillesi"},
+    {"slug": "elinikaiset-kokoelmapaivitykset", "code": "emrr6cx307",  "orden": 7, "tipo": "bonus",     "titulo": "Elinikäiset Kokoelmapäivitykset"},
+    {"slug": "lisaa-virkkausmalleja",           "code": "ssu90zj5oo",  "orden": 8, "tipo": "bonus",     "titulo": "Lisää Virkkausmalleja"},
+    {"slug": "neulontatodistus",                "code": "hpet1ry42z",  "orden": 9, "tipo": "bonus",     "titulo": "Neulontatodistus"},
+    {"slug": "vuoden-neulontasuunnitelma",      "code": "a0ileg07zb",  "orden": 10, "tipo": "bonus",    "titulo": "Vuoden Neulontasuunnitelma"},
+    {"slug": "neulonnan-ostoslista",            "code": "tx5oicntu4",  "orden": 11, "tipo": "bonus",    "titulo": "Neulonnan Ostoslista"},
+    {"slug": "neulottujen-lahjojen-opas",       "code": "oxg6ylfgdy",  "orden": 12, "tipo": "bonus",    "titulo": "Neulottujen Lahjojen Opas"}
+  ]
+}

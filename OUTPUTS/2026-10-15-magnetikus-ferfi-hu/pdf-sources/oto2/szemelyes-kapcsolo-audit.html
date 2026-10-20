@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Személyes Kapcsoló Audit™</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #FBF9F5;
+    color: #17130E;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 15px;
+    line-height: 1.75;
+    padding: 40px 24px;
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  h1 { font-size: 26px; font-weight: bold; color: #17130E; margin-bottom: 6px; line-height: 1.3; }
+  .subtitle { font-size: 14px; color: #6B5E54; margin-bottom: 32px; font-style: italic; }
+  .intro-block {
+    background: #F2EDE5;
+    border-left: 4px solid #A63A2A;
+    padding: 20px 24px;
+    margin-bottom: 40px;
+    border-radius: 0 6px 6px 0;
+  }
+  .intro-block p { margin-bottom: 10px; }
+  .intro-block p:last-child { margin-bottom: 0; }
+  .intro-block ol { margin: 10px 0 0 20px; }
+  .intro-block li { margin-bottom: 8px; }
+  .switch-block {
+    border: 1px solid #E2D9CE;
+    border-radius: 8px;
+    margin-bottom: 36px;
+    overflow: hidden;
+  }
+  .switch-header {
+    background: #17130E;
+    color: #FBF9F5;
+    padding: 14px 22px;
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .switch-num-badge {
+    background: #A63A2A;
+    color: #FBF9F5;
+    font-size: 13px;
+    font-weight: bold;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .switch-title-block { flex: 1; }
+  .switch-title { font-size: 18px; font-weight: bold; }
+  .switch-tagline { font-size: 13px; color: rgba(251,249,245,0.7); margin-top: 2px; font-style: italic; }
+  .switch-body { padding: 22px 24px; }
+  .section { margin-bottom: 22px; }
+  .section:last-child { margin-bottom: 0; }
+  .section-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: #A63A2A;
+    margin-bottom: 10px;
+  }
+  .questions-list { list-style: none; padding: 0; counter-reset: q; }
+  .questions-list li {
+    counter-increment: q;
+    padding: 10px 14px 10px 44px;
+    position: relative;
+    border-bottom: 1px solid #E2D9CE;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .questions-list li:last-child { border-bottom: none; }
+  .questions-list li::before {
+    content: counter(q);
+    background: #E2D9CE;
+    color: #17130E;
+    font-size: 11px;
+    font-weight: bold;
+    border-radius: 50%;
+    width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    position: absolute;
+    left: 12px;
+    top: 12px;
+  }
+  .q-text { flex: 1; }
+  .q-scale {
+    font-size: 11px;
+    color: #6B5E54;
+    background: #F2EDE5;
+    padding: 2px 8px;
+    border-radius: 10px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .interp-box {
+    background: #F2EDE5;
+    border-radius: 6px;
+    padding: 16px 18px;
+  }
+  .score-row {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid #E2D9CE;
+  }
+  .score-row:last-child { border-bottom: none; }
+  .score-range {
+    font-weight: bold;
+    color: #A63A2A;
+    min-width: 60px;
+    font-size: 14px;
+  }
+  .score-desc { flex: 1; font-size: 14px; color: #17130E; }
+  .actions-list { padding: 0; list-style: none; }
+  .actions-list li {
+    padding: 10px 14px;
+    border-bottom: 1px solid #E2D9CE;
+    padding-left: 28px;
+    position: relative;
+  }
+  .actions-list li:last-child { border-bottom: none; }
+  .actions-list li::before {
+    content: "→";
+    color: #A63A2A;
+    font-weight: bold;
+    position: absolute;
+    left: 10px;
+  }
+  .divider { border: none; border-top: 1px solid #E2D9CE; margin: 14px 0; }
+  .profile-box {
+    background: #17130E;
+    color: #FBF9F5;
+    border-radius: 8px;
+    padding: 28px 28px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+  .profile-box h2 { font-size: 20px; margin-bottom: 14px; color: #FBF9F5; }
+  .profile-box p { margin-bottom: 12px; color: rgba(251,249,245,0.9); }
+  .profile-box p:last-child { margin-bottom: 0; }
+  .profile-box .accent { color: #A63A2A; }
+  .profile-table { width: 100%; border-collapse: collapse; margin-top: 16px; }
+  .profile-table th {
+    text-align: left;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: rgba(251,249,245,0.5);
+    padding: 8px 10px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  .profile-table td {
+    padding: 10px 10px;
+    font-size: 14px;
+    color: rgba(251,249,245,0.9);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    vertical-align: top;
+  }
+  .profile-table tr:last-child td { border-bottom: none; }
+  .priority-badge {
+    background: #A63A2A;
+    color: #FBF9F5;
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  .footer {
+    margin-top: 48px;
+    text-align: center;
+    font-size: 12px;
+    color: #6B5E54;
+    padding-top: 20px;
+    border-top: 1px solid #E2D9CE;
+  }
+</style>
+</head>
+<body>
+
+<h1>Személyes Kapcsoló Audit™</h1>
+<div class="subtitle">A 7 Kapcsoló állapotának diagnosztikája — Mágneses Férfi™ OTO2</div>
+
+<div class="intro-block">
+  <p><strong>Ez az audit arra való, hogy megtudd: melyik kapcsolód van lekapcsolva.</strong></p>
+  <p>A Mágneses Férfi™ könyv 7 kapcsolót (Kapcsoló) mutat be — ezek azok a belső beállítások, amelyek meghatározzák, hogy a közeledéseid élnek-e vagy halnak. Tudni, hogy mik ezek a kapcsolók, nem elég. Tudni kell, hogy <em>nálad</em> melyik van bekapcsolva és melyik van kikapcsolva.</p>
+  <p>Hogyan használd ezt az auditot:</p>
+  <ol>
+    <li>Minden kapcsolónál olvasd el az 5 kérdést, és adj minden kérdésre egy 1–5-ös pontszámot (1 = szinte soha, 5 = majdnem mindig).</li>
+    <li>Add össze az 5 kérdés pontszámát: maximum 25 pont, minimum 5.</li>
+    <li>Olvasd el az értelmezést a pontszámodhoz.</li>
+    <li>Az utolsó oldalon lévő „Személyes Profil" segít eldönteni, melyik kapcsolón dolgozz először.</li>
+  </ol>
+  <p>A leghatékonyabb sorrend: először a legalacsonyabb pontszámú kapcsolódon dolgozz — de ne egyszerre mindenkin.</p>
+</div>
+
+<!-- SWITCH 1 -->
+<div class="switch-block">
+  <div class="switch-header">
+    <div class="switch-num-badge">1</div>
+    <div class="switch-title-block">
+      <div class="switch-title">Jelenlét Kapcsoló</div>
+      <div class="switch-tagline">Tényleg ott vagy-e, amikor ott vagy?</div>
+    </div>
+  </div>
+  <div class="switch-body">
+    <div class="section">
+      <div class="section-label">5 diagnosztikai kérdés (1–5 skálán)</div>
+      <ul class="questions-list">
+        <li><span class="q-text">Egy randin ritkán nézek a telefonra, még ha megcsörren is.</span><span class="q-scale">1–5</span></li>
+        <li><span class="q-text">Amikor valaki mesél nekem valamit, az gondolataim nem kalandoznak el más témák felé.</span><span class="q-scale">1–5</span></li>
+        <li><span class="q-text">Ha zajos vagy kellemetlen a környezet, nem az zavarj, hanem a mellém kerülök az emberrel.</span><span class="q-scale">1–5</span></li>
+        <li><span class="q-text">Éreztetni tudom, hogy az, amit a másik mond, valóban érdekli, nem csak figyelem-színlelés.</span><span class="q-scale">1–5</span></li>
+        <li><span class="q-text">Nem gondolkozom közben a következő mondatomon, miközben ő még beszél.</span><span class="q-scale">1–5</span></li>
+      </ul>
+    </div>
+    <hr class="divider">
+    <div class="section">
+      <div class="section-label">Pontszám értelmezése</div>
+      <div class="interp-box">
+        <div class="score-row"><span class="score-range">20–25</span><span class="score-desc">Erős jelenlét. Ez a kapcsolód be van kapcsolva — tartsd fenn.</span></div>
+        <div class="score-row"><span class="score-range">13–19</span><span class="score-desc">Részleges jelenlét. Jó pillanataid vannak, de belső zaj zavarja a folytonosságot.</span></div>
+        <div class="score-row"><span class="score-range">5–12</span><span class="score-desc">Hiányzó jelenlét. Ez valószínűleg az egyik legfőbb akadálya a vonzó dinamikák kialakulásának.</span></div>
+      </div>
+    </div>
+    <hr class="divider">
+    <div class="section">
+      <div class="section-label">Aktiválás — 2-3 konkrét lépés</div>
+      <ul class="actions-list">
+        <li>A következő 5 interakció során — akár rövid utcai párbeszédnél is — tedd a telefonodat zsebedbe, mielőtt megszólalnak. Maradj az arcon és a hangsúlyon.</li>
+        <li>Kísérletezz azzal, hogy 3 másodpercig nem szólsz a másik mondata után. Csak bólints. Figyeld meg, milyen folytatás jön.</li>
+        <li>Minden este 2 percet szánj arra, hogy visszaemlékezz: mit mondott ma valaki neked, amit valóban meghallottál.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- SWITCH 2 -->
+<div class="switch-block">
+  <div class="switch-header">
+    <div class="switch-num-badge">2</div>
+    <div class="switch-title-block">
+      <div class="switch-title">Irányítás Kapcsoló</div>
+      <div class="switch-tagline">Döntesz, vagy mindig a másikra várod a döntést?</div>
+    </div>
+  </div>
+  <div class="switch-body">
+    <div class="section">
+      <div class="section-label">5 diagnosztikai kérdés (1–5 skálán)</div>
+      <ul class="questions-list">
+        <li><span class="q-text">Ha egy randi helyszínét kell meghatározni, én mondok egy konkrét javaslatot — nem kérdem, hova akar ő menni.</span><span class="q-scale">1–5</span></li>
+        <li><span class="q-text">Ha az este haladni kezd egy bizonyos irányba, én vezetek — nem várom, hogy a másik eldöntse, mi jön.</span><span class="q-scale">1–5</span></li>
+        <li><span class="q-text">Ha valami nem tetszik nekem, meg tudom mondani — udvariasan, de határozottan.</span><span class="q-scale">1–5</span></li>
+        <li><span class="q-text">Ha a másik nem dönt, én döntök helyette — és nem várom a jóváhagyást.</span><span class="q-scale">1–5</span></li>
+        <li><span class="q-text">Ha programot szervezek, nem töltöm el az időt azzal, hogy minden döntést megerősíttetek.</span><span class="q-scale">1–5</span></li>
+      </ul>
+    </div>
+    <hr class="divider">
+    <div class="section">
+      <div class="section-label">Pontszám értelmezése</div>
+      <div class="interp-box">
+        <div class="score-row"><span class="score-range">20–25</span><span class="score-desc">Természetes irányítás. Ez az egyik legerősebb vonzótényező — tartsd meg.</span></div>
+        <div class="score-row"><span class="score-range">13–19</span><span class="score-desc">Szelektív irányítás. Kényelmes helyzetekben vezetsz, de bizonytalanban visszahúzódsz.</span></div>
+        <div class="score-row"><span class="score-range">5–12</span><span class="score-desc">Jóváhagyáskereső mód. Minden döntés előtt bizonyosságot keresel — ez észrevehető és csökkenti a vonzerőt.</span></div>
+      </div>
+    </div>
+    <hr class="divider">
+    <div class="section">
+      <div class="section-label">Aktiválás — 2-3 konkrét lépés</div>
+      <ul class="actions-list">
+        <li>A következő 3 alkalmon, amikor programot szervezel, egyetlen konkrét opciót adj meg: „X helyen, Y napján, Z órakor. Neked jó?" — nem listát, nem kérdést.</li>
+        <li>Eddz rá a kis döntésekre: étteremben te mondod meg, hova ültök; a séta irányát te határozod meg. A nagy döntések irányítása a kicsikkel kezdődik.</li>
+        <li>Ha véleményt kérdeznek tőled, az első 3 másodpercben adj konkrét választ — ne mondj „nem tudom" reflexszerűen.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- SWITCH 3 -->
+<div class="switch-block">
+  <div class="switch-header">
+    <div class="switch-num-badge">3</div>
+    <div class="switch-title-block">
+      <div class="switch-title">Feszültség Kapcsoló</div>
+      <div class="switch-tagline">Meg mered-e tartani a feszültséget, vagy azonnal feloldod?</div>
+    </div>
+  </div>
+  <div class="switch-body">
+    <div class="section">
+      <div class="section-label">5 diagnosztikai kérdés (1–5 skálán)</div>
+      <ul class="questions-list">
+        <li><span class="q-text">Ha csend van kettőnk között, nem sietek azt kitölteni egy viccel vagy témával.</span><span class="q-scale">1–5</span></li>
+        <li><span class="q-text">Ha valaki flörtöl velem, én nem rögtön „lerántom" a flört feszültségét humorral.</span><span class="q-scale">1–5</span></li>
+        <li><span class="q-text">Szemkontaktust tudok tartani lassan, komfortosan, hosszabb ideig.</span><span class="q-scale">1–5</span></li>
+        <li><span class="q-text">Amikor a hangulat intimebb irányba megy, nem hozom vissza azonnal a tréfát vagy a „barát" módot.</span><span class="q-scale">1–5</span></li>
+        <li><span class="q-text">Meg tudom mondani, mit akarok — lassan, halkan, anélkül hogy rögtön könnyed kommentárral megszakítanám.</span><span class="q-scale">1–5</span></li>
+      </ul>
+    </div>
+    <hr class="divider">
+    <div class="section">
+      <div class="section-label">Pontszám értelmezése</div>
+      <div class="interp-box">
+        <div class="score-row"><span class="score-range">20–25</span><span class="score-desc">Erős feszültségtűrő képesség. Képes vagy intim pillanatokat létrehozni és megtartani.</span></div>
+        <div class="score-row"><span class="score-range">13–19</span><span class="score-desc">Közepes. A feszültséget érzed, de diszkomfortból időnként feloldod mielőtt kellene.</span></div>
+        <div class="score-row"><span class="score-range">5–12</span><span class="score-desc">Feszültségkerülő. A csend, az intimitás, a direkt tekintet diszkrét félelmet kelt — és feloldod, mielőtt dolgozhatna.</span></div>
+      </div>
+    </div>
+    <hr class="divider">
+    <div class="section">
+      <div class="section-label">Aktiválás — 2-3 konkrét lépés</div>
+      <ul class="actions-list">
+        <li>Eddz napi 5 másodperces szemkontaktusokon boltokban, utcán, mindennapi interakciókban — mosoly nélkül, csak nyugodt tekintet.</li>
+        <li>Amikor egy párbeszédben természetes csend keletkezik, számolj legalább 3-ig, mielőtt megszólalnál. Figyeld meg, hogy a csend nem katasztrófa.</li>
+        <li>A következő flörthelyzetben ne mondd el a következő mondatodat rögtön. Tarts 2 másodperc szünetet, és nézd a hatást.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- SWITCH 4 -->
+<div class="switch-block">
+  <div class="switch-header">
+    <div class="switch-num-badge">4</div>
+    <div class="switch-title-block">
+      <div class="switch-title">Szelektivitás Kapcsoló</div>
+      <div class="switch-tagline">Mindenkit egyformán kezelsz, vagy van mércéd?</div>
+    </div>
+  </div>
+  <div class="switch-body">
+    <div class="section">
+      <div class="section-label">5 diagnosztikai kérdés (1–5 skálán)</div>
+      <ul class="questions-list">
+        <li><span class="q-text">Nem hívok meg mindenkit, aki tetszik — előbb figyelem, hogy mi van köztünk.</span><span class="q-scale">1–5</span></li>
+        <li><span class="q-text">Ha valaki keményen flörtöl velem, nem rohanok bele — adok magamnak időt felmérni.</span><span class="q-scale">1–5</span></li>
+        <li><span class="q-text">Vannak szempontjaim, amelyek alapján tudom, ki illik mellém — és ezeket nem adom fel „jó ajánlatért."</span><span class="q-scale">1–5</span></li>
+        <li><span class="q-text">Ha valaki vonzónak tűnik, de a közös dinamika nem jó, képes vagyok elengedni.</span><span class="q-scale">1–5</span></li>
+        <li><span class="q-text">A szándékaim meghatározottak, és nem teszek úgy, mintha barátságos lennék, ha valójában randizni szeretnék.</span><span class="q-scale">1–5</span></li>
+      </ul>
+    </div>
+    <hr class="divider">
+    <div class="section">
+      <div class="section-label">Pontszám értelmezése</div>
+      <div class="interp-box">
+        <div class="score-row"><span class="score-range">20–25</span><span class="score-desc">Valódi szelektivitás. Érezhető, hogy te is megítéled a helyzetet — ez vonzó minőség.</span></div>
+        <div class="score-row"><span class="score-range">13–19</span><span class="score-desc">Részleges. Van mércéd, de nyomás alatt hajlamos vagy feladni.</span></div>
+        <div class="score-row"><span class="score-range">5–12</span><span class="score-desc">Mindenki tetszik. Ha nem tudsz nemet mondani egy lehetőségre, az jelzés, hogy saját értékedet nem látod elég magasnak.</span></div>
+      </div>
+    </div>
+    <hr class="divider">
+    <div class="section">
+      <div class="section-label">Aktiválás — 2-3 konkrét lépés</div>
+      <ul class="actions-list">
+        <li>Írj le 3 konkrét, nem fizikai szempontot, ami alapján tudod, ki illik hozzád. Olvasd vissza hetente — ne feledd el ezeket, amikor vonzódás kerülgeti a gondolkodásodat.</li>
+        <li>A következő alkalmon, amikor elgondolkozol valaki meghívásán, tegyél fel magadnak egy kérdést: „Valóban jó dinamika van köztünk, vagy csak tetszik a külseje?"</li>
+        <li>Eddz a határokra hétköznapokon: mondj nemet kérésre, amely kényelmetlen neked — legyen az munkahelyi vagy baráti szituáció. A visszautasítás egy izom.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- SWITCH 5 -->
+<div class="switch-block">
+  <div class="switch-header">
+    <div class="switch-num-badge">5</div>
+    <div class="switch-title-block">
+      <div class="switch-title">Humor Kapcsoló</div>
+      <div class="switch-tagline">A humorod vonz, vagy megkerüli a komolyságot?</div>
+    </div>
+  </div>
+  <div class="switch-body">
+    <div class="section">
+      <div class="section-label">5 diagnosztikai kérdés (1–5 skálán)</div>
+      <ul class="questions-list">
+        <li><span class="q-text">Szituációs humort használok — nem előre kigondolt vicceket ismétlek.</span><span class="q-scale">1–5</span></li>
+        <li><span class="q-text">A humorom nem bánt senkit — de nem is kímél mindent.</span><span class="q-scale">1–5</span></li>
+        <li><span class="q-text">Tudom, mikor nem kell viccelni — és akkor komoly maradok.</span><span class="q-scale">1–5</span></li>
+        <li><span class="q-text">Vicces tudok lenni anélkül, hogy a figyelem középpontjává tennék magam.</span><span class="q-scale">1–5</span></li>
+        <li><span class="q-text">Nem nevetem ki a saját vicceimet.</span><span class="q-scale">1–5</span></li>
+      </ul>
+    </div>
+    <hr class="divider">
+    <div class="section">
+      <div class="section-label">Pontszám értelmezése</div>
+      <div class="interp-box">
+        <div class="score-row"><span class="score-range">20–25</span><span class="score-desc">Vonzó humor. Jól adagolod, és nem váltja fel — hanem kiegészíti — a komolyságot.</span></div>
+        <div class="score-row"><span class="score-range">13–19</span><span class="score-desc">Jó alapok, de időnként a humort védekezésre használod kényes szituációkban.</span></div>
+        <div class="score-row"><span class="score-range">5–12</span><span class="score-desc">Szórakoztató, de nem vonzó. Mindig szórakoztatni akarsz — de a vonzás feszültségből, nem nevetésből épül.</span></div>
+      </div>
+    </div>
+    <hr class="divider">
+    <div class="section">
+      <div class="section-label">Aktiválás — 2-3 konkrét lépés</div>
+      <ul class="actions-list">
+        <li>Figyelj meg, mikor viccelnek mások körülötted. Mit reagálnak? A humor megfigyelése fontosabb, mint a produkálása.</li>
+        <li>Egy hétig ne mondd el a saját vicceid poénját. Hagyd, hogy mások fejezzék be a gondolatmenetet, ha tudják.</li>
+        <li>Kerülj szituációba, ahol nem kell viccesnek lenned — és maradj komfortosan a csenddel. Ez a humor árnyékoldala, amelyet a legtöbben elhanyagolnak.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- SWITCH 6 -->
+<div class="switch-block">
+  <div class="switch-header">
+    <div class="switch-num-badge">6</div>
+    <div class="switch-title-block">
+      <div class="switch-title">Önérték Kapcsoló</div>
+      <div class="switch-tagline">Kívülről vagy belülről méred magad?</div>
+    </div>
+  </div>
+  <div class="switch-body">
+    <div class="section">
+      <div class="section-label">5 diagnosztikai kérdés (1–5 skálán)</div>
+      <ul class="questions-list">
+        <li><span class="q-text">Ha valaki nem válaszol, az első gondolatom nem az, hogy „biztosan valamit rontottam."</span><span class="q-scale">1–5</span></li>
+        <li><span class="q-text">A visszautasítást kellemetlennek érzem, de nem formálja az önértékelésemet hosszú távon.</span><span class="q-scale">1–5</span></li>
+        <li><span class="q-text">Nem szükségem van arra, hogy mindenki kedvelje. Elég, ha a számomra fontos emberek teszik.</span><span class="q-scale">1–5</span></li>
+        <li><span class="q-text">Ha egy randi nem megy jól, nem töltök napokat azzal, hogy mi volt a hibám.</span><span class="q-scale">1–5</span></li>
+        <li><span class="q-text">A saját véleményem saját magamról stabilabb, mint az, amit mások gondolnak rólam.</span><span class="q-scale">1–5</span></li>
+      </ul>
+    </div>
+    <hr class="divider">
+    <div class="section">
+      <div class="section-label">Pontszám értelmezése</div>
+      <div class="interp-box">
+        <div class="score-row"><span class="score-range">20–25</span><span class="score-desc">Stabil belső alap. Ez az egyik legnehezebben kialakítható tulajdonság — értékes.</span></div>
+        <div class="score-row"><span class="score-range">13–19</span><span class="score-desc">Ingadozó alap. Jó napjaid vannak, de visszautasítás vagy csend könnyen megbillent.</span></div>
+        <div class="score-row"><span class="score-range">5–12</span><span class="score-desc">Külső referenciák uralják az önértékelést. Az érdeklődés hiánya, a késő válasz, a lemondott randi — ezek mélyen megütnek.</span></div>
+      </div>
+    </div>
+    <hr class="divider">
+    <div class="section">
+      <div class="section-label">Aktiválás — 2-3 konkrét lépés</div>
+      <ul class="actions-list">
+        <li>Vezess egy „Bizonyítékok" naplót: minden nap írj le egy dolgot, amit jól csináltál — teljesen függetlenül attól, hogyan reagált rá valaki más.</li>
+        <li>Minden alkalommal, amikor valaki nem válaszol, és a fejed azt mondja: „biztosan valamit rontottam" — írd le a 3 lehetséges objektív okot, ami független tőled. Ez leállítja a spirált.</li>
+        <li>Vállalj rendszeresen olyan tevékenységet, ahol nincs közönséged, és ahol egyedül kell megítélni a teljesítményedet.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- SWITCH 7 -->
+<div class="switch-block">
+  <div class="switch-header">
+    <div class="switch-num-badge">7</div>
+    <div class="switch-title-block">
+      <div class="switch-title">Szándék Kapcsoló</div>
+      <div class="switch-tagline">Egyértelmű vagy-e abban, amit akarsz — és megmutatod-e?</div>
+    </div>
+  </div>
+  <div class="switch-body">
+    <div class="section">
+      <div class="section-label">5 diagnosztikai kérdés (1–5 skálán)</div>
+      <ul class="questions-list">
+        <li><span class="q-text">Ha valaki érdekel, azt valamilyen módon egyértelműen tudom jelezni — nem csak barátilag viselkedem.</span><span class="q-scale">1–5</span></li>
+        <li><span class="q-text">Nem hetek vagy hónapok után jelzem a vonzódásomat — teszem ezt időben.</span><span class="q-scale">1–5</span></li>
+        <li><span class="q-text">Tudom megkülönböztetni, mikor flörtölök és mikor csak barátilag csevegek — és a másik is érzékeli ezt.</span><span class="q-scale">1–5</span></li>
+        <li><span class="q-text">Ha egy randit akarok, randit javaslok — nem „tegyük össze a barátokat" köntösébe öltöztöm.</span><span class="q-scale">1–5</span></li>
+        <li><span class="q-text">Nem félek a „nemet" kapástól — mert akkor is többet tudok, mint a bizonytalanságban lebegve.</span><span class="q-scale">1–5</span></li>
+      </ul>
+    </div>
+    <hr class="divider">
+    <div class="section">
+      <div class="section-label">Pontszám értelmezése</div>
+      <div class="interp-box">
+        <div class="score-row"><span class="score-range">20–25</span><span class="score-desc">Tiszta szándék. Valaki, aki tudja, mit akar, és megmutatja — ez önmagában vonzó.</span></div>
+        <div class="score-row"><span class="score-range">13–19</span><span class="score-desc">Félig kimondott szándék. Jelzed, de nem egyértelműen — ami kétértelműséget hagy, és a másik félre bízza az értelmezést.</span></div>
+        <div class="score-row"><span class="score-range">5–12</span><span class="score-desc">Rejtett szándék. A vonzódásod nem látszik, mert túl sokat védsz — és ez azt eredményezi, hogy „barát" maradj.</span></div>
+      </div>
+    </div>
+    <hr class="divider">
+    <div class="section">
+      <div class="section-label">Aktiválás — 2-3 konkrét lépés</div>
+      <ul class="actions-list">
+        <li>A következő alkalommal, amikor valaki érdekel, adj valamilyen jelzést az első 30 percben — egy tudatos pillantás, egy célzott bók, vagy egy direkt kérdés. Nem hetek múlva.</li>
+        <li>Randit randival javasolj. Ne „kávézzunk egyszer" — hanem „Pénteken szabad vagyok, szeretném, ha találkoznánk. Neked jó?"</li>
+        <li>Írj egy mondatot, amely leírja, mit keresel kapcsolatban. Tartsd magadnál. Évente egyszer frissítsd. Ez stabilitást ad.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- PROFILE SECTION -->
+<div class="profile-box">
+  <h2>Személyes Profil — Melyik kapcsolón dolgozz először?</h2>
+  <p>Töltsd ki az alábbi táblázatot a saját pontszámaiddal, majd olvasd el az utasítást alatta.</p>
+  <table class="profile-table">
+    <thead>
+      <tr>
+        <th>Kapcsoló</th>
+        <th>Neve</th>
+        <th>Pontszám (5–25)</th>
+        <th>Prioritás</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>1</td><td>Jelenlét</td><td>_____ / 25</td><td></td></tr>
+      <tr><td>2</td><td>Irányítás</td><td>_____ / 25</td><td></td></tr>
+      <tr><td>3</td><td>Feszültség</td><td>_____ / 25</td><td></td></tr>
+      <tr><td>4</td><td>Szelektivitás</td><td>_____ / 25</td><td></td></tr>
+      <tr><td>5</td><td>Humor</td><td>_____ / 25</td><td></td></tr>
+      <tr><td>6</td><td>Önérték</td><td>_____ / 25</td><td></td></tr>
+      <tr><td>7</td><td>Szándék</td><td>_____ / 25</td><td></td></tr>
+    </tbody>
+  </table>
+  <p style="margin-top:20px;"><strong style="color:#A63A2A;">Hogyan olvasd el:</strong></p>
+  <p>Az a kapcsoló, amelyre a legalacsonyabb pontszámot kaptad, az a te <span class="accent">első prioritásod</span>. Ez az a terület, ahol a legtöbb energia vész el — és ahol a legkisebb változtatás a legnagyobb hatást hozza.</p>
+  <p>Ha két kapcsoló pontszáma közel van egymáshoz: válaszd azt, amelyik a Szándék (7), az Irányítás (2) vagy az Önérték (6) közül a legalacsonyabb — ezek az összes többi kapcsolóra hatnak.</p>
+  <p><strong style="color:#A63A2A;">Az első 30 nap:</strong> Egyetlen kapcsolóval dolgozz. Vedd elő az aktiválási lépéseit, és alkalmazd naponta. A többi kapcsolóra akkor térsz vissza, ha ez a három lépés automatikus lesz.</p>
+</div>
+
+<div class="footer">
+  Mágneses Férfi™ &middot; Személyes Kapcsoló Audit™ &middot; Csak vásárlóknak
+</div>
+
+</body>
+</html>

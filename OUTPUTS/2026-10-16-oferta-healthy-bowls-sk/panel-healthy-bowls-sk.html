@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Panel — Kuchárka Bowl Formula SK</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: system-ui, sans-serif; background: #f5f5f0; color: #111; padding: 24px 16px; }
+  h1 { font-size: 1.5rem; font-weight: 700; margin-bottom: 4px; }
+  .sub { color: #555; font-size: .95rem; margin-bottom: 24px; }
+  section { background: #fff; border-radius: 12px; padding: 20px; margin-bottom: 20px; box-shadow: 0 1px 4px rgba(0,0,0,.08); }
+  h2 { font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; color: #1F6B3A; margin-bottom: 14px; border-bottom: 1px solid #e5e5e5; padding-bottom: 8px; }
+  table { width: 100%; border-collapse: collapse; font-size: .92rem; }
+  td, th { padding: 8px 10px; border: 1px solid #e5e5e5; vertical-align: top; }
+  th { background: #f9f9f6; font-weight: 600; width: 38%; }
+  code { background: #f0f0ea; padding: 2px 6px; border-radius: 4px; font-size: .85rem; font-family: monospace; }
+  .swatch { display: inline-block; width: 18px; height: 18px; border-radius: 4px; border: 1px solid #ccc; vertical-align: middle; margin-right: 6px; }
+  .mockup-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .mockup-grid img { width: 100%; border-radius: 8px; border: 1px solid #e5e5e5; }
+  .step { margin-bottom: 10px; padding-left: 18px; position: relative; font-size: .92rem; line-height: 1.5; }
+  .step::before { content: "→"; position: absolute; left: 0; color: #1F6B3A; font-weight: 700; }
+  .tag { display: inline-block; background: #FBF6EC; border: 1px solid #e0d8c8; border-radius: 6px; padding: 2px 8px; font-size: .82rem; color: #555; margin: 2px; }
+  a { color: #1F6B3A; }
+  @media(max-width:520px) { .mockup-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<h1>Kuchárka Bowl Formula — SK</h1>
+<p class="sub">Panel de configuración manual · 2026-10-16 · Mercado: Eslovaquia</p>
+
+<!-- MOCKUPS -->
+<section>
+  <h2>Mockups de checkout</h2>
+  <div class="mockup-grid">
+    <div>
+      <img src="mockups/1-hero-healthy-bowls-sk.png" alt="Hero 3:2">
+      <p style="font-size:.8rem;color:#777;margin-top:4px">Hero 3:2 — imagen del producto en checkout y ads</p>
+      <p style="font-size:.8rem;margin-top:2px"><strong>Catbox:</strong> <a href="https://files.catbox.moe/qc9hl5.png" target="_blank">qc9hl5.png</a></p>
+    </div>
+    <div>
+      <img src="mockups/2-caja-healthy-bowls-sk.png" alt="Caja 1:1">
+      <p style="font-size:.8rem;color:#777;margin-top:4px">Caja 1:1 — no va en el checkout</p>
+      <p style="font-size:.8rem;margin-top:2px"><strong>Catbox:</strong> <a href="https://files.catbox.moe/2ma9u3.png" target="_blank">2ma9u3.png</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- DATOS DE LA OFERTA -->
+<section>
+  <h2>Datos de la oferta</h2>
+  <table>
+    <tr><th>Título largo (checkout / tienda)</th><td>Kuchárka Bowl Formula · 200+ overených receptov na zdravé bowly + 4 bonusy zadarmo</td></tr>
+    <tr><th>Título corto (nombre tienda)</th><td>Kuchárka Bowl Formula</td></tr>
+    <tr><th>Mercado / País</th><td>Eslovaquia (SK)</td></tr>
+    <tr><th>Idioma del contenido</th><td>Español (Argentina) — siempre, sin importar el mercado</td></tr>
+    <tr><th>Moneda</th><td>EUR</td></tr>
+    <tr><th>Precio de venta</th><td><strong>€14,99</strong> — token <code>{{price}}</code> en la landing</td></tr>
+    <tr><th>Precio tachado (ancla)</th><td><strong>€74,99</strong> — token <code>{{original_price}}</code> en la landing</td></tr>
+    <tr><th>Garantía</th><td>7 días</td></tr>
+    <tr><th>Texto del botón CTA</th><td><strong>ZÍSKAŤ PRÍSTUP HNEĎ</strong></td></tr>
+    <tr><th>Procesador de pagos</th><td>Whop</td></tr>
+    <tr><th>Métodos locales</th><td>ON (iDEAL, SEPA, etc.)</td></tr>
+  </table>
+</section>
+
+<!-- COLORES -->
+<section>
+  <h2>Colores exactos para el checkout</h2>
+  <table>
+    <tr><th>Botón CTA</th><td><span class="swatch" style="background:#F2542D"></span><code>#F2542D</code> (tomato)</td></tr>
+    <tr><th>Color de marca / acento</th><td><span class="swatch" style="background:#1F6B3A"></span><code>#1F6B3A</code> (verde oscuro)</td></tr>
+    <tr><th>Fondo principal</th><td><span class="swatch" style="background:#FFFFFF"></span><code>#FFFFFF</code></td></tr>
+    <tr><th>Fondo alternativo</th><td><span class="swatch" style="background:#FBF6EC"></span><code>#FBF6EC</code> (crema)</td></tr>
+    <tr><th>Texto principal</th><td><span class="swatch" style="background:#17301F"></span><code>#17301F</code></td></tr>
+    <tr><th>Verde hoja / badge</th><td><span class="swatch" style="background:#8CC63F"></span><code>#8CC63F</code></td></tr>
+    <tr><th>Urgencia / timer</th><td><span class="swatch" style="background:#F2542D"></span><code>#F2542D</code> (mismo que botón)</td></tr>
+  </table>
+</section>
+
+<!-- ARCHIVOS -->
+<section>
+  <h2>Archivos listos</h2>
+  <table>
+    <tr><th>Landing completa</th><td><code>landing-healthy-bowls-sk.html</code> — todas las imágenes en catbox.moe, tokens {{price}} / {{original_price}} activos</td></tr>
+    <tr><th>Fragmento para ImpulTienda</th><td><code>landing-healthy-bowls-sk-fragmento.html</code> — 120.859 caracteres, sin doctype/html/head/body</td></tr>
+    <tr><th>Hero mockup (local)</th><td><code>mockups/1-hero-healthy-bowls-sk.png</code></td></tr>
+    <tr><th>Caja mockup (local)</th><td><code>mockups/2-caja-healthy-bowls-sk.png</code></td></tr>
+    <tr><th>Hero mockup (catbox)</th><td><a href="https://files.catbox.moe/qc9hl5.png" target="_blank">https://files.catbox.moe/qc9hl5.png</a></td></tr>
+  </table>
+</section>
+
+<!-- PASOS PARA CONFIGURAR IMPULTIENDA -->
+<section>
+  <h2>Pasos para configurar ImpulTienda (manual)</h2>
+  <div class="step">Crear nueva tienda → nombre: <strong>Kuchárka Bowl Formula</strong> · Idioma del contenido: <strong>Español (Argentina)</strong> · Moneda: <strong>EUR</strong></div>
+  <div class="step">Crear producto → título largo de arriba · descripción breve · precio <strong>€14,99</strong> · precio tachado <strong>€74,99</strong></div>
+  <div class="step">Imagen del producto → subir <code>mockups/1-hero-healthy-bowls-sk.png</code> (o usar la URL catbox de arriba)</div>
+  <div class="step">Pegar el fragmento HTML → copiar todo el contenido de <code>landing-healthy-bowls-sk-fragmento.html</code> en el campo de código de la landing</div>
+  <div class="step">Configurar checkout → cuenta regresiva 10 min · botón color <code>#F2542D</code> · texto: <strong>ZÍSKAŤ PRÍSTUP HNEĎ</strong> · solo email + teléfono · garantía 7 días visible</div>
+  <div class="step">Link de entrega → publicar <code>entrega-en-preparacion.html</code> (traducida al eslovaco) en GitHub Pages, cargar la URL en el producto</div>
+  <div class="step">Procesador de pagos → conectar Whop · activar métodos locales</div>
+  <div class="step">Asignar país → Eslovaquia (SK) · precio EUR 14,99</div>
+  <div class="step">Tracking → NO tocar acá. Lo conectás vos cuando elegís cuenta y píxel para lanzar</div>
+  <div class="step">Verificar antes de publicar → precio tachado visible · botón funciona · imágenes cargan · tokens {{price}} / {{original_price}} se reemplazan por la plataforma</div>
+</section>
+
+<!-- PENDIENTES -->
+<section>
+  <h2>Pendientes antes del lanzamiento</h2>
+  <p class="tag">Entregables (PDFs/hub) — /hub-entrega</p>
+  <p class="tag">Ads (6 ads) — /replicar-ad desde arsenal CZ</p>
+  <p class="tag">Tracking (píxel + Utmify) — lo conectás vos</p>
+  <p class="tag">Lanzamiento — orden explícita con cuenta + píxel</p>
+</section>
+
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Panel · Comoara Tricotului</title>
+<style>
+/* PANEL DE ENTREGA (uso interno, archivo LOCAL: no se publica).
+   Todo lo que necesitás para cargar la oferta en la tienda y en Ads Manager,
+   en un solo HTML que abre sin conexión. Paleta = la de la landing. */
+:root{--bg:#f6e9df;--paper:#ffffff;--ink:#222222;--ink-soft:#4a4238;--accent:#a8603f;--accent-dark:#8c4f30;--line:#f6e9df}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--bg);color:var(--ink)}
+body{font-family:-apple-system,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.5;font-size:15px}
+.wrap{max-width:1100px;margin:0 auto;padding:0 16px 60px}
+header{background:linear-gradient(150deg,var(--accent-dark),var(--accent));color:var(--paper);padding:26px 0 22px;margin-bottom:22px}
+header small{opacity:.85;letter-spacing:.1em;text-transform:uppercase;font-weight:700;font-size:12px}
+header h1{font-size:clamp(24px,4vw,34px);line-height:1.15;margin:4px 0 14px;font-family:Georgia,serif}
+.kv{display:flex;flex-wrap:wrap;gap:10px;align-items:stretch}
+.chip{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.35);border-radius:12px;padding:10px 12px;display:flex;gap:10px;align-items:center;flex:1 1 320px;min-width:0}
+.chip .lbl{font-size:11px;text-transform:uppercase;letter-spacing:.08em;opacity:.85;display:block}
+.chip .val{font-weight:800;word-break:break-word}
+.chip > div{flex:1;min-width:0}
+nav{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line);padding:10px 0;margin-bottom:18px;display:flex;gap:8px;overflow-x:auto}
+nav a{white-space:nowrap;text-decoration:none;color:var(--accent-dark);font-weight:700;font-size:13px;background:var(--paper);border:1px solid var(--line);padding:6px 11px;border-radius:99px}
+section{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:18px;margin-bottom:18px}
+section h2{font-family:Georgia,serif;font-size:21px;margin-bottom:12px;display:flex;gap:10px;align-items:center}
+section h2 .n{background:var(--accent);color:var(--paper);border-radius:8px;min-width:30px;height:30px;display:inline-flex;align-items:center;justify-content:center;font-size:15px;font-family:inherit}
+table{width:100%;border-collapse:collapse}
+td,th{text-align:left;padding:9px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-soft)}
+.url{font-family:ui-monospace,Menlo,monospace;font-size:13px;word-break:break-all}
+.cp{border:1px solid var(--accent);background:var(--bg);color:var(--accent-dark);border-radius:8px;padding:5px 10px;font-weight:700;font-size:12px;cursor:pointer;white-space:nowrap}
+header .cp{background:var(--paper)}
+.cp.ok{background:var(--accent);color:var(--paper)}
+.hub{border:2px solid var(--accent);border-radius:12px;padding:12px;margin-bottom:12px;background:var(--bg)}
+.hub b{display:block;margin-bottom:4px}
+pre{background:#1e1e1e;color:#eee;border-radius:10px;padding:12px;max-height:320px;overflow:auto;font-size:12px;white-space:pre-wrap;word-break:break-all}
+.imgs{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
+.img{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--bg);display:flex;flex-direction:column}
+.img img{width:100%;display:block;background:#fff}
+.img div{padding:8px;display:grid;gap:6px;font-size:13px}
+.ok{color:#2f7d4f;font-weight:800}
+.pend{color:#a86a00;font-weight:800}
+.bad{color:#a13a2f;font-weight:800}
+ol.check{padding-left:22px;display:grid;gap:6px}
+.nota{background:var(--bg);border-left:4px solid var(--accent);padding:10px 12px;border-radius:0 8px 8px 0;margin-top:10px;color:var(--ink-soft)}
+.foot{color:var(--ink-soft);font-size:12px;text-align:center}
+@media (max-width:600px){section{padding:14px 10px}td,th{padding:8px 4px}th{font-size:11px}.cp{padding:5px 7px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap" style="padding-bottom:0">
+    <small>Panel de entrega · 2026-10-15</small>
+    <h1>Comoara Tricotului</h1>
+    <div class="kv">
+      <div class="chip" id="nom-completo"><div><span class="lbl">Título completo (checkout, mockups, producto)</span><span class="val" id="t-titulo">Comoara Tricotului™ · 5.200+ Tipare Premium de Tricotat + 7 Ghiduri Bonus</span></div><button class="cp" data-target="t-titulo">Copiar</button></div>
+      <div class="chip"><div><span class="lbl">Subdominio de la tienda · ⏳ pendiente</span><span class="val" id="t-sub">tricotat</span></div><button class="cp" data-target="t-sub">Copiar</button></div>
+      <div class="chip"><div><span class="lbl">URL del hub (entrega)</span><span class="val url" id="t-hub">https://santilahoz03.github.io/comoara-tricotului-ro/acceso/ovfh46cgfi/</span></div><button class="cp" data-target="t-hub">Copiar</button></div>
+    </div>
+  </div>
+</header>
+<div class="wrap">
+  <nav>
+    <a href="#s1">1 · Oferta</a><a href="#s2">2 · Landing</a><a href="#s3">3 · Entregables</a>
+    <a href="#s4">4 · Imágenes</a><a href="#s5">5 · Ads</a><a href="#s6">6 · Lanzamiento</a><a href="#s7">7 · Antes de pautar</a>
+  </nav>
+  <section id="s1"><h2><span class="n">1</span>La oferta</h2><table><tr><th>Producto</th><td>Comoara Tricotului</td><td><button class="cp" data-copy="Comoara Tricotului">Copiar</button></td></tr><tr><th>Título completo</th><td>Comoara Tricotului™ · 5.200+ Tipare Premium de Tricotat + 7 Ghiduri Bonus</td><td><button class="cp" data-copy="Comoara Tricotului™ · 5.200+ Tipare Premium de Tricotat + 7 Ghiduri Bonus">Copiar</button></td></tr><tr><th>Precio</th><td>79 RON</td><td><button class="cp" data-copy="79 RON">Copiar</button></td></tr><tr><th>Precio tachado</th><td>419 RON</td><td><button class="cp" data-copy="419 RON">Copiar</button></td></tr><tr><th>Ahorro</th><td>340 RON</td><td><button class="cp" data-copy="340 RON">Copiar</button></td></tr><tr><th>Mercado</th><td>Rumania</td><td><button class="cp" data-copy="Rumania">Copiar</button></td></tr><tr><th>Idioma / registro</th><td>ro / neutro</td><td><button class="cp" data-copy="ro / neutro">Copiar</button></td></tr><tr><th>Tienda</th><td>ImpulTienda</td><td><button class="cp" data-copy="ImpulTienda">Copiar</button></td></tr><tr><th>Landing publicada</th><td>—</td><td></td></tr><tr><th>Subdominio</th><td>tricotat (⏳ pendiente)</td><td><button class="cp" data-copy="tricotat (⏳ pendiente)">Copiar</button></td></tr></table></section>
+  <section id="s2"><h2><span class="n">2</span>Landing — código para pegar</h2><p class="pend">Falta "landing_variante" en oferta.json: la versión de la landing con las imágenes hosteadas (no en base64).</p></section>
+  <section id="s3"><h2><span class="n">3</span>Entregables</h2><div class="hub"><b>HUB — la única URL que va en la entrega del producto principal</b><span class="url">https://santilahoz03.github.io/comoara-tricotului-ro/acceso/ovfh46cgfi/</span> <button class="cp" data-copy="https://santilahoz03.github.io/comoara-tricotului-ro/acceso/ovfh46cgfi/">Copiar</button></div><table><tr><th>Entregable</th><th>Tipo</th><th>URL</th><th></th></tr><tr><td><b>Biblioteca de Tipare — 5.200+ Tipare Premium</b> · 14 págs</td><td>bono</td><td class='url'>https://santilahoz03.github.io/comoara-tricotului-ro/biblioteca-de-tipare-5-200-tipare-premiu/4o5hucb8bs/</td><td><button class="cp" data-copy="https://santilahoz03.github.io/comoara-tricotului-ro/biblioteca-de-tipare-5-200-tipare-premiu/4o5hucb8bs/">Copiar</button></td></tr><tr><td><b>Marea Bibliotecă de Împletituri</b> · 12 págs</td><td>bono</td><td class='url'>https://santilahoz03.github.io/comoara-tricotului-ro/marea-bibliotec-de-mpletituri/7i1hrv14eh/</td><td><button class="cp" data-copy="https://santilahoz03.github.io/comoara-tricotului-ro/marea-bibliotec-de-mpletituri/7i1hrv14eh/">Copiar</button></td></tr><tr><td><b>Biblioteci Speciale (Pe Durată · De Vânzare · Trending)</b> · 11 págs</td><td>bono</td><td class='url'>https://santilahoz03.github.io/comoara-tricotului-ro/biblioteci-speciale-pe-durat-de-v-nzare-/x5564coecx/</td><td><button class="cp" data-copy="https://santilahoz03.github.io/comoara-tricotului-ro/biblioteci-speciale-pe-durat-de-v-nzare-/x5564coecx/">Copiar</button></td></tr><tr><td><b>Ghidul Primelor Împletituri</b> · 8 págs</td><td>bono</td><td class='url'>https://santilahoz03.github.io/comoara-tricotului-ro/ghidul-primelor-mpletituri/bm23no8y9v/</td><td><button class="cp" data-copy="https://santilahoz03.github.io/comoara-tricotului-ro/ghidul-primelor-mpletituri/bm23no8y9v/">Copiar</button></td></tr><tr><td><b>Setul de Unelte al Tricotezei</b> · 9 págs</td><td>bono</td><td class='url'>https://santilahoz03.github.io/comoara-tricotului-ro/setul-de-unelte-al-tricotezei/zqwz4x61vh/</td><td><button class="cp" data-copy="https://santilahoz03.github.io/comoara-tricotului-ro/setul-de-unelte-al-tricotezei/zqwz4x61vh/">Copiar</button></td></tr><tr><td><b>Tiparele Preferate ale Tricotezelor Noastre</b> · 9 págs</td><td>bono</td><td class='url'>https://santilahoz03.github.io/comoara-tricotului-ro/tiparele-preferate-ale-tricotezelor-noas/urbqdisqpc/</td><td><button class="cp" data-copy="https://santilahoz03.github.io/comoara-tricotului-ro/tiparele-preferate-ale-tricotezelor-noas/urbqdisqpc/">Copiar</button></td></tr><tr><td><b>Tipare pentru Animale de Companie</b> · 8 págs</td><td>bono</td><td class='url'>https://santilahoz03.github.io/comoara-tricotului-ro/tipare-pentru-animale-de-companie/2ah46pmn5t/</td><td><button class="cp" data-copy="https://santilahoz03.github.io/comoara-tricotului-ro/tipare-pentru-animale-de-companie/2ah46pmn5t/">Copiar</button></td></tr><tr><td><b>Actualizări pe Viață ale Colecției</b> · 9 págs</td><td>bono</td><td class='url'>https://santilahoz03.github.io/comoara-tricotului-ro/actualiz-ri-pe-via-ale-colec-iei/ktikla8tnu/</td><td><button class="cp" data-copy="https://santilahoz03.github.io/comoara-tricotului-ro/actualiz-ri-pe-via-ale-colec-iei/ktikla8tnu/">Copiar</button></td></tr><tr><td><b>Tipare Suplimentare de Croșetat</b> · 8 págs</td><td>bono</td><td class='url'>https://santilahoz03.github.io/comoara-tricotului-ro/tipare-suplimentare-de-cro-etat/8m0i5ik4qu/</td><td><button class="cp" data-copy="https://santilahoz03.github.io/comoara-tricotului-ro/tipare-suplimentare-de-cro-etat/8m0i5ik4qu/">Copiar</button></td></tr><tr><td><b>Certificatul Tricotezei</b> · 7 págs</td><td>bono</td><td class='url'>https://santilahoz03.github.io/comoara-tricotului-ro/certificatul-tricotezei/iq4bi5hm5t/</td><td><button class="cp" data-copy="https://santilahoz03.github.io/comoara-tricotului-ro/certificatul-tricotezei/iq4bi5hm5t/">Copiar</button></td></tr><tr><td><b>Planul de Tricotat al Anului</b> · 7 págs</td><td>bono</td><td class='url'>https://santilahoz03.github.io/comoara-tricotului-ro/planul-de-tricotat-al-anului/19smd0wj5c/</td><td><button class="cp" data-copy="https://santilahoz03.github.io/comoara-tricotului-ro/planul-de-tricotat-al-anului/19smd0wj5c/">Copiar</button></td></tr><tr><td><b>Lista de Cumpărături a Tricotezei</b> · 10 págs</td><td>bono</td><td class='url'>https://santilahoz03.github.io/comoara-tricotului-ro/lista-de-cump-r-turi-a-tricotezei/o3vgr0d8ie/</td><td><button class="cp" data-copy="https://santilahoz03.github.io/comoara-tricotului-ro/lista-de-cump-r-turi-a-tricotezei/o3vgr0d8ie/">Copiar</button></td></tr><tr><td><b>Ghidul de Cadouri Tricotate</b> · 16 págs</td><td>bono</td><td class='url'>https://santilahoz03.github.io/comoara-tricotului-ro/ghidul-de-cadouri-tricotate/xtzr0unuxo/</td><td><button class="cp" data-copy="https://santilahoz03.github.io/comoara-tricotului-ro/ghidul-de-cadouri-tricotate/xtzr0unuxo/">Copiar</button></td></tr></table><p class="nota">Verificá que todo dé 200 con <code>python verificar.py --online</code> antes de cargar el hub en la tienda. Las OTOs llevan su propia URL en su propio producto.</p></section>
+  <section id="s4"><h2><span class="n">4</span>Imágenes y mockups</h2><p class="pend">Todavía no hay mockups ni imágenes (mockups/1-hero-*.png, 2-bonos-*.png).</p></section>
+  <section id="s5"><h2><span class="n">5</span>Ads</h2><p><span class="url">/Users/santilahoz/Desktop/Segundo Cerebro/OUTPUTS/2026-10-14-comoara-tricotului-ro/proyecto/ADS/COMOARA-TRICOTULUI-RO/2026-10-14</span> <button class="cp" data-copy="/Users/santilahoz/Desktop/Segundo Cerebro/OUTPUTS/2026-10-14-comoara-tricotului-ro/proyecto/ADS/COMOARA-TRICOTULUI-RO/2026-10-14">Copiar ruta</button> <a href="file:///Users/santilahoz/Desktop/Segundo%20Cerebro/OUTPUTS/2026-10-14-comoara-tricotului-ro/proyecto/ADS/COMOARA-TRICOTULUI-RO/2026-10-14">Abrir carpeta</a></p><p class="bad">La carpeta no existe.</p></section>
+  <section id="s6"><h2><span class="n">6</span>Lanzamiento</h2><p class="pend">⏳ Pendiente: se completa cuando se lanza (cuenta, campaña, conjunto, presupuesto, píxel, página).</p></section>
+  <section id="s7"><h2><span class="n">7</span>Antes de pautar</h2><ol class="check"><li>Todas las URLs de entregables dan 200 (verificar.py --online)</li><li>Grep de contactos y de keys vacío</li><li>Cantidades del core y nombres de bonos = landing</li><li>Mockup hero 3:2 fondo blanco cargado en el checkout</li><li>Producto principal con título completo y entrega = link al hub</li><li>OTOs cargadas en sus productos con su propia URL</li><li>Compra de prueba: el mail llega con UN link al hub y el hub abre</li></ol></section>
+  <p class="foot">Archivo local de uso interno. No lo publiques.</p>
+</div>
+<script>
+async function copiar(txt, btn) {
+  try { await navigator.clipboard.writeText(txt); }
+  catch (e) { const t = document.createElement("textarea"); t.value = txt; document.body.append(t); t.select(); document.execCommand("copy"); t.remove(); }
+  const prev = btn.textContent; btn.textContent = "¡Copiado!"; btn.classList.add("ok");
+  setTimeout(() => { btn.textContent = prev; btn.classList.remove("ok"); }, 1400);
+}
+document.addEventListener("click", e => {
+  const b = e.target.closest(".cp"); if (!b) return;
+  const txt = b.dataset.copy ?? document.getElementById(b.dataset.target)?.textContent ?? "";
+  copiar(txt, b);
+});
+</script>
+</body>
+</html>

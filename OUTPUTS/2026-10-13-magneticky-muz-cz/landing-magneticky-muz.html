@@ -1,0 +1,1261 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>Magnetický Muž — Přestaň být neviditelný</title>
+<script>document.documentElement.className='js';</script>
+<style>
+/* === TOKENS === */
+:root {
+  color-scheme: light;
+  --bg:       #FBF9F5;
+  --bg-alt:   #F0EDE6;
+  --bg-card:  #F7F4EE;
+  --bg-dark:  #17130E;
+  --text:     #17130E;
+  --text-mid: #4a3f35;
+  --accent:   #A63A2A;
+  --accent-h: #8c2f22;
+  --green:    #2a9e2a;
+  --white:    #FBF9F5;
+  --border:   #ddd6cb;
+  --gold:     #c9a84c;
+  --font:     'Georgia', 'Times New Roman', serif;
+  --sans:     system-ui, -apple-system, sans-serif;
+}
+
+/* === RESET === */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; background: var(--bg); }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { background: var(--bg); color: var(--text); font-family: var(--sans); line-height: 1.65; }
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; }
+
+/* === BARRA FIJA === */
+.mf-bar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  background: var(--bg-dark); color: var(--white);
+  display: flex; align-items: center; justify-content: center;
+  gap: 16px; padding: 10px 16px;
+  font-size: 0.85rem; font-family: var(--sans);
+}
+.mf-bar-text { opacity: 0.85; }
+.mf-bar-countdown { font-weight: 700; font-variant-numeric: tabular-nums; letter-spacing: 0.03em; }
+.mf-bar-btn {
+  background: var(--accent); color: var(--white); border: none; border-radius: 4px;
+  padding: 7px 16px; font-size: 0.8rem; font-weight: 700; cursor: pointer;
+  text-decoration: none; white-space: nowrap; letter-spacing: 0.04em;
+}
+.mf-bar-btn:hover { background: var(--accent-h); }
+@media (max-width: 520px) {
+  .mf-bar { flex-wrap: wrap; gap: 8px; }
+  .mf-bar-text { display: none; }
+}
+
+/* === LAYOUT === */
+.mf-container { max-width: 720px; margin: 0 auto; padding: 0 16px; }
+.mf-section { padding: 56px 0; }
+.mf-section-alt { background: var(--bg-alt); }
+.mf-section-dark { background: var(--bg-dark); color: var(--white); }
+
+/* === HERO === */
+.mf-hero { padding: 88px 0 56px; text-align: center; }
+.mf-social-proof-bar {
+  background: var(--bg-dark); color: var(--white);
+  font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 8px 20px; display: inline-block; margin-bottom: 24px;
+  border-radius: 2px;
+}
+.mf-label {
+  font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--accent); font-weight: 700; margin-bottom: 16px;
+}
+.mf-h1 {
+  font-family: var(--font); font-size: clamp(1.7rem, 5vw, 2.6rem);
+  line-height: 1.22; color: var(--text); margin-bottom: 20px;
+  font-weight: 700;
+}
+.mf-h1 em { color: var(--accent); font-style: normal; }
+.mf-hero-sub {
+  font-size: 1.05rem; color: var(--text-mid); max-width: 600px; margin: 0 auto 24px;
+}
+.mf-stars { margin-bottom: 32px; font-size: 0.88rem; color: var(--text-mid); }
+.mf-stars span { color: var(--gold); }
+
+/* === COUNTDOWN === */
+.mf-countdown-label {
+  font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--text-mid); margin-bottom: 10px; text-align: center;
+}
+.mf-countdown {
+  display: flex; justify-content: center; gap: 8px; margin-bottom: 28px;
+}
+.mf-cd-unit { text-align: center; }
+.mf-cd-num {
+  background: var(--bg-dark); color: var(--white);
+  font-size: 2rem; font-weight: 700; font-variant-numeric: tabular-nums;
+  width: 64px; height: 64px; display: flex; align-items: center; justify-content: center;
+  border-radius: 4px;
+}
+.mf-cd-lbl { font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; margin-top: 4px; color: var(--text-mid); }
+.mf-cd-sep { font-size: 1.8rem; color: var(--text-mid); align-self: center; line-height: 1; }
+
+/* === HERO IMAGE === */
+.mf-hero-img-wrap { max-width: 340px; margin: 0 auto 32px; }
+
+/* === CTA BUTTON === */
+.mf-btn {
+  display: block; width: 100%; max-width: 480px; margin: 0 auto;
+  background: var(--accent); color: var(--white);
+  text-align: center; text-decoration: none;
+  font-size: 1.05rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+  padding: 18px 24px; border-radius: 6px; border: none; cursor: pointer;
+  transition: background 0.18s, transform 0.12s;
+  line-height: 1.3;
+}
+.mf-btn:hover { background: var(--accent-h); }
+.mf-btn:active { transform: scale(0.98); }
+.mf-btn-price { font-size: 0.8rem; opacity: 0.85; font-weight: 400; margin-top: 4px; display: block; }
+.mf-safe {
+  text-align: center; font-size: 0.78rem; color: var(--text-mid);
+  margin-top: 10px; display: flex; align-items: center; justify-content: center; gap: 6px;
+}
+.mf-safe::before { content: '🔒'; }
+
+/* === PRODUCT BOX === */
+.mf-product-box {
+  background: var(--white); border: 2px solid var(--border);
+  border-radius: 12px; padding: 36px 32px; max-width: 560px;
+  margin: 0 auto 32px; box-shadow: 0 4px 24px rgba(23,19,14,0.08);
+}
+.mf-ebook-tag {
+  background: var(--bg-dark); color: var(--white);
+  font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase;
+  padding: 4px 12px; display: inline-block; margin-bottom: 14px; border-radius: 2px;
+}
+.mf-product-title {
+  font-family: var(--font); font-size: 1.9rem; font-weight: 700;
+  color: var(--text); margin-bottom: 4px;
+}
+.mf-product-sub { font-size: 0.92rem; color: var(--text-mid); margin-bottom: 4px; }
+.mf-product-badge { font-size: 0.78rem; color: var(--text-mid); margin-bottom: 20px; font-style: italic; }
+.mf-bullets { list-style: none; margin-bottom: 24px; }
+.mf-bullets li {
+  padding: 6px 0 6px 28px; position: relative; font-size: 0.93rem;
+  border-bottom: 1px solid var(--border); color: var(--text);
+}
+.mf-bullets li:last-child { border-bottom: none; }
+.mf-bullets li::before { content: '✓'; position: absolute; left: 0; color: var(--green); font-weight: 700; }
+.mf-price-block { text-align: center; margin-bottom: 20px; }
+.mf-price-orig { font-size: 1.1rem; text-decoration: line-through; color: var(--text-mid); }
+.mf-price-badge {
+  display: inline-block; background: var(--accent); color: var(--white);
+  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+  padding: 3px 10px; border-radius: 99px; margin: 4px 0;
+}
+.mf-price-main {
+  font-family: var(--font); font-size: 4rem; font-weight: 700; color: var(--text);
+  line-height: 1;
+}
+.mf-price-period { font-size: 0.85rem; color: var(--text-mid); margin-top: 4px; }
+.mf-guarantee-note {
+  text-align: center; font-size: 0.82rem; color: var(--text-mid); margin-top: 16px;
+}
+
+/* === SECTION HEADINGS === */
+.mf-section-tag {
+  font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--accent); font-weight: 700; margin-bottom: 8px;
+}
+.mf-h2 {
+  font-family: var(--font); font-size: clamp(1.4rem, 4vw, 2rem);
+  font-weight: 700; line-height: 1.25; color: var(--text); margin-bottom: 24px;
+}
+.mf-section-dark .mf-h2 { color: var(--white); }
+/* Elementos secundarios en secciones oscuras */
+.mf-hero .mf-cd-lbl,
+.mf-hero .mf-cd-sep,
+.mf-section-dark .mf-cd-lbl,
+.mf-section-dark .mf-cd-sep { color: rgba(251,249,245,0.55); }
+.mf-hero .mf-countdown-label { color: rgba(251,249,245,0.7); }
+.mf-hero .mf-stars { color: rgba(251,249,245,0.75); }
+.mf-hero .mf-safe { color: rgba(251,249,245,0.65); }
+.mf-hero .mf-lead,
+.mf-hero .mf-p,
+.mf-section-dark .mf-lead,
+.mf-section-dark .mf-p { color: rgba(251,249,245,0.85); }
+.mf-h3 {
+  font-family: var(--font); font-size: 1.2rem; font-weight: 700;
+  color: var(--text); margin-bottom: 10px;
+}
+.mf-lead { font-size: 1.05rem; color: var(--text-mid); margin-bottom: 20px; }
+.mf-p { margin-bottom: 16px; color: var(--text); }
+.mf-p:last-child { margin-bottom: 0; }
+
+/* === PROBLEM GRID === */
+.mf-vs-grid { display: flex; flex-direction: column; gap: 16px; margin: 28px 0; }
+.mf-vs-row {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+  border: 1px solid var(--border); border-radius: 8px; overflow: hidden;
+}
+.mf-vs-wrong {
+  background: #fdf4f2; padding: 14px 16px; font-size: 0.88rem;
+  border-right: 1px solid var(--border);
+}
+.mf-vs-right { background: var(--white); padding: 14px 16px; font-size: 0.88rem; }
+.mf-vs-label {
+  font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--text-mid); margin-bottom: 4px;
+}
+.mf-vs-wrong .mf-vs-label { color: var(--accent); }
+.mf-vs-right .mf-vs-label { color: var(--green); }
+@media (max-width: 520px) {
+  .mf-vs-row { grid-template-columns: 1fr; }
+  .mf-vs-wrong { border-right: none; border-bottom: 1px solid var(--border); }
+}
+
+/* === SWITCHES === */
+.mf-switch-list { display: flex; flex-direction: column; gap: 20px; margin: 24px 0; }
+.mf-switch-item { display: flex; gap: 16px; align-items: flex-start; }
+.mf-switch-num {
+  background: var(--accent); color: var(--white);
+  font-size: 1.1rem; font-weight: 700; width: 40px; height: 40px;
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.mf-switch-text h4 { font-weight: 700; margin-bottom: 4px; font-size: 1rem; }
+.mf-switch-text p { font-size: 0.9rem; color: var(--text-mid); }
+
+/* === CHAPTERS === */
+.mf-chapter-list { display: flex; flex-direction: column; gap: 32px; }
+.mf-chapter {
+  display: grid; grid-template-columns: 200px 1fr; gap: 24px; align-items: start;
+  padding-bottom: 32px; border-bottom: 1px solid var(--border);
+}
+.mf-chapter:last-child { border-bottom: none; padding-bottom: 0; }
+.mf-chapter-img {
+  border-radius: 8px; overflow: hidden; aspect-ratio: 4/3; background: var(--bg-alt);
+}
+.mf-chapter-img img { width: 100%; height: 100%; object-fit: cover; }
+.mf-chapter-num {
+  font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--accent); font-weight: 700; margin-bottom: 6px;
+}
+.mf-chapter-title { font-family: var(--font); font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; }
+.mf-chapter-after {
+  margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border);
+  font-size: 0.85rem; color: var(--text-mid);
+}
+.mf-chapter-after strong { color: var(--text); }
+@media (max-width: 520px) {
+  .mf-chapter { grid-template-columns: 1fr; }
+  .mf-chapter-img { aspect-ratio: 16/9; max-width: 100%; }
+}
+
+/* === BONUS BOX === */
+.mf-bonus-box {
+  border: 2px dashed var(--accent); border-radius: 10px;
+  padding: 28px 24px; margin-top: 32px; background: #fdf8f7;
+}
+.mf-bonus-tag {
+  background: var(--accent); color: var(--white);
+  font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase;
+  padding: 4px 14px; border-radius: 2px; display: inline-block; margin-bottom: 12px;
+}
+.mf-bonus-value { font-size: 0.82rem; color: var(--text-mid); margin-bottom: 8px; }
+
+/* === SITUATIONS === */
+.mf-situation-list { display: flex; flex-direction: column; gap: 12px; margin-top: 24px; }
+.mf-situation {
+  display: flex; gap: 14px; align-items: flex-start;
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: 8px; padding: 14px 16px;
+}
+.mf-sit-icon { font-size: 1.2rem; flex-shrink: 0; }
+.mf-sit-text { font-size: 0.92rem; color: var(--text); }
+
+/* === COST SECTION === */
+.mf-cost-paras { display: flex; flex-direction: column; gap: 16px; }
+.mf-cost-p { font-size: 1rem; color: var(--text); line-height: 1.7; }
+
+/* === GUARANTEE === */
+.mf-guarantee-box {
+  display: flex; gap: 32px; align-items: flex-start;
+  background: var(--white); border: 2px solid var(--border);
+  border-radius: 12px; padding: 32px;
+}
+.mf-guarantee-badge {
+  flex-shrink: 0; width: 90px; height: 90px; border-radius: 50%;
+  background: var(--accent); color: var(--white);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  font-weight: 700; line-height: 1.1; text-align: center;
+}
+.mf-guarantee-badge .g-num { font-size: 2rem; }
+.mf-guarantee-badge .g-lbl { font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; }
+.mf-guarantee-conditions { display: flex; flex-direction: column; gap: 10px; margin: 16px 0; }
+.mf-guarantee-cond { display: flex; gap: 10px; font-size: 0.9rem; }
+.mf-guarantee-cond::before { content: '✓'; color: var(--green); font-weight: 700; flex-shrink: 0; }
+@media (max-width: 520px) {
+  .mf-guarantee-box { flex-direction: column; align-items: center; }
+  .mf-guarantee-badge { margin-bottom: 16px; }
+}
+
+/* === OFFER SECTION === */
+.mf-offer-box {
+  background: var(--white); border: 2px solid var(--border);
+  border-radius: 12px; padding: 36px 28px; max-width: 560px;
+  margin: 0 auto; box-shadow: 0 4px 24px rgba(23,19,14,0.08);
+}
+.mf-offer-banner {
+  background: var(--accent); color: var(--white); text-align: center;
+  font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase;
+  font-weight: 700; padding: 8px; margin: -36px -28px 28px; border-radius: 10px 10px 0 0;
+}
+.mf-offer-items { list-style: none; margin-bottom: 24px; }
+.mf-offer-items li {
+  display: flex; gap: 10px; align-items: flex-start;
+  padding: 8px 0; border-bottom: 1px solid var(--border);
+  font-size: 0.92rem;
+}
+.mf-offer-items li:last-child { border-bottom: none; }
+.mf-offer-items li::before { content: '✓'; color: var(--green); font-weight: 700; flex-shrink: 0; }
+.mf-offer-price-block { text-align: center; margin-bottom: 24px; }
+.mf-offer-orig {
+  font-size: 1.1rem; text-decoration: line-through; color: var(--text-mid);
+  margin-bottom: 2px;
+}
+.mf-offer-badge {
+  display: inline-block; background: var(--accent); color: var(--white);
+  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+  padding: 3px 12px; border-radius: 99px; margin-bottom: 4px;
+}
+.mf-offer-price {
+  font-family: var(--font); font-size: 5rem; font-weight: 700; line-height: 1;
+  color: var(--text);
+}
+.mf-offer-period { font-size: 0.9rem; color: var(--text-mid); margin-top: 4px; }
+.mf-offer-trust {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 16px;
+  margin-top: 16px; font-size: 0.78rem; color: var(--text-mid);
+}
+.mf-offer-trust span { display: flex; align-items: center; gap: 5px; }
+
+/* === 5 TRUTHS === */
+.mf-truths { display: flex; flex-direction: column; gap: 0; }
+.mf-truth {
+  display: flex; gap: 20px; align-items: flex-start;
+  padding: 24px 0; border-bottom: 1px solid var(--border);
+}
+.mf-truth:last-child { border-bottom: none; }
+.mf-truth-num {
+  font-family: var(--font); font-size: 2rem; font-weight: 700;
+  color: var(--accent); flex-shrink: 0; line-height: 1;
+}
+.mf-truth-title { font-weight: 700; font-size: 1rem; margin-bottom: 6px; }
+.mf-truth-body { font-size: 0.9rem; color: var(--text-mid); }
+
+/* === FAQ === */
+.mf-faq { display: flex; flex-direction: column; gap: 0; }
+.mf-faq-item {
+  border-bottom: 1px solid var(--border); padding: 0;
+}
+.mf-faq-item:first-child { border-top: 1px solid var(--border); }
+.mf-faq-q {
+  width: 100%; text-align: left; background: none; border: none; cursor: pointer;
+  padding: 18px 0; font-size: 0.97rem; font-weight: 700; color: var(--text);
+  display: flex; justify-content: space-between; align-items: center; gap: 12px;
+}
+.mf-faq-q .mf-faq-icon { color: var(--accent); font-size: 1.2rem; flex-shrink: 0; transition: transform 0.2s; }
+.mf-faq-item.open .mf-faq-q .mf-faq-icon { transform: rotate(45deg); }
+.mf-faq-a { display: none; padding: 0 0 18px; font-size: 0.92rem; color: var(--text-mid); line-height: 1.7; }
+.mf-faq-item.open .mf-faq-a { display: block; }
+
+/* === FINAL CTA === */
+.mf-final { padding: 64px 0; text-align: center; }
+.mf-final .mf-h2 { margin-bottom: 32px; }
+.mf-ps { margin-top: 32px; max-width: 560px; margin-left: auto; margin-right: auto; }
+.mf-ps p {
+  font-size: 0.92rem; color: var(--text-mid); margin-bottom: 12px;
+  text-align: left; line-height: 1.7;
+}
+.mf-ps strong { color: var(--text); }
+
+/* === FOOTER === */
+.mf-footer {
+  background: var(--bg-dark); color: rgba(255,255,255,0.45);
+  text-align: center; padding: 20px 16px; font-size: 0.75rem;
+}
+.mf-footer a { color: rgba(255,255,255,0.55); text-decoration: none; }
+.mf-footer a:hover { color: var(--white); }
+
+/* === MOBILE === */
+@media (max-width: 520px) {
+  .mf-section { padding: 40px 0; }
+  .mf-hero { padding: 72px 0 40px; }
+  .mf-product-box { padding: 24px 16px; }
+  .mf-offer-box { padding: 28px 16px; }
+  .mf-offer-banner { margin: -28px -16px 24px; }
+  .mf-offer-price { font-size: 3.8rem; }
+  .mf-price-main { font-size: 3.2rem; }
+  .mf-cd-num { width: 52px; height: 52px; font-size: 1.6rem; }
+}
+@media (max-width: 380px) {
+  .mf-h1 { font-size: 1.5rem; }
+  .mf-h2 { font-size: 1.3rem; }
+  .mf-cd-num { width: 44px; height: 44px; font-size: 1.3rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ BARRA FIJA ═══ -->
+<div class="mf-bar">
+  <span class="mf-bar-text">Nabídka vyprší za:</span>
+  <span class="mf-bar-countdown" id="bar-cd">12:00:00</span>
+  <a href="#mf-offer" class="mf-bar-btn">CHCI PŘÍSTUP</a>
+</div>
+
+<!-- ═══ HERO ═══ -->
+<section class="mf-hero">
+  <div class="mf-container">
+    <div style="text-align:center; margin-bottom:20px;">
+      <span class="mf-social-proof-bar">3 973 mužů, kteří přestali být jen kamarády</span>
+    </div>
+    <p class="mf-label">PRO MUŽE, KTERÉHO ŽENY MÁ RÁDY, ALE NEVYBÍRAJÍ</p>
+    <h1 class="mf-h1">
+      Přestaň Být Neviditelný A Začni Přitahovat Ženy, Které Opravdu Chceš...
+      <em>I Když Dnes Vždy Skončí Na „Jsi Super Kámoš"</em>
+    </h1>
+    <p class="mf-hero-sub">
+      Nemusíš být pohledný, bohatý ani vysoký, abys přitahoval ženy.
+      Pokud tě mají rády, ale vybírají někoho jiného, děláš 7 věcí,
+      které tě v její hlavě hodí do zóny kamaráda. A odtud se nevrátíš.
+    </p>
+    <p class="mf-stars"><span>★★★★★</span> 4,9/5 · 3 973 mužů koupilo · založeno na výzkumech oxytocinu a dopaminu</p>
+
+    <p class="mf-countdown-label">NABÍDKA VYPRŠÍ ZA:</p>
+    <div class="mf-countdown">
+      <div class="mf-cd-unit"><div class="mf-cd-num" id="cd-h">11</div><div class="mf-cd-lbl">HOD</div></div>
+      <div class="mf-cd-sep">:</div>
+      <div class="mf-cd-unit"><div class="mf-cd-num" id="cd-m">58</div><div class="mf-cd-lbl">MIN</div></div>
+      <div class="mf-cd-sep">:</div>
+      <div class="mf-cd-unit"><div class="mf-cd-num" id="cd-s">59</div><div class="mf-cd-lbl">SEK</div></div>
+    </div>
+
+    <div class="mf-hero-img-wrap">
+      <img src="https://files.catbox.moe/v1tu6a.png" alt="Magnetický Muž + bonus Prvních 90 Sekund" loading="eager" style="border-radius:8px; box-shadow: 8px 8px 32px rgba(0,0,0,0.25);">
+    </div>
+
+    <a href="/checkout" class="mf-btn">
+      ANO, CHCI PŘÍSTUP
+      <span class="mf-btn-price">Jednorázová platba · Přístup navždy</span>
+    </a>
+    <p class="mf-safe">100% Bezpečná a šifrovaná platba</p>
+  </div>
+</section>
+
+<!-- ═══ BOX PRODUKTU ═══ -->
+<section class="mf-section mf-section-alt">
+  <div class="mf-container">
+    <p class="mf-countdown-label">NABÍDKA VYPRŠÍ ZA:</p>
+    <div class="mf-countdown" style="margin-bottom:32px;">
+      <div class="mf-cd-unit"><div class="mf-cd-num" id="cd2-h">11</div><div class="mf-cd-lbl">HOD</div></div>
+      <div class="mf-cd-sep">:</div>
+      <div class="mf-cd-unit"><div class="mf-cd-num" id="cd2-m">58</div><div class="mf-cd-lbl">MIN</div></div>
+      <div class="mf-cd-sep">:</div>
+      <div class="mf-cd-unit"><div class="mf-cd-num" id="cd2-s">59</div><div class="mf-cd-lbl">SEK</div></div>
+    </div>
+
+    <div class="mf-product-box">
+      <span class="mf-ebook-tag">E-KNIHA</span>
+      <h3 class="mf-product-title">Magnetický Muž</h3>
+      <p class="mf-product-sub">Jak zajistit, aby to ony usilovaly o tvou pozornost</p>
+      <p class="mf-product-badge">Oxytocin · dopamin · psychologie přitažlivosti · Postaveno na biologii přitažlivosti</p>
+
+      <ul class="mf-bullets">
+        <li>7 Přepínačů™ — Sedm chování, která o tobě rozhodují v prvních 90 sekundách, ještě než si ona stihne pomyslet. A jak každý z nich zapnout</li>
+        <li>Eliminační mechanismus — co tě v jejích očích vyřazuje. Proč komplimenty a laskavosti tě vyhazují ze hry, i když se zdají dobrý nápad</li>
+        <li>Oxytocin a dopamin — dva hormony, které rozhodují, jestli jsi pro ni kámoš nebo muž, na kterého myslí večer</li>
+        <li>Odchod ze zóny kamaráda — co dělat, když tě tam už zařadila, a proč rozhovor o citech je nejhorší možný tah</li>
+        <li>Napětí místo pohodlí — jak být mužem, u kterého se něco děje, aniž bys ztratil respekt</li>
+        <li><strong>BONUS: Prvních 90 Sekund</strong> — Šest situací, ve kterých se vždy zablokuješ, rozepsaných větu po větě</li>
+        <li>90denní záruka vrácení peněz. Bez otázek a bez vysvětlování</li>
+        <li>Dostupné okamžitě. Stáhni a začni číst do 2 minut</li>
+      </ul>
+
+      <div class="mf-price-block">
+        <p class="mf-price-orig">1 499 Kč</p>
+        <p><span class="mf-price-badge">UŠETŘÍŠ 1 200 Kč (80 %)</span></p>
+        <p class="mf-price-main">299 Kč</p>
+        <p class="mf-price-period">Jednorázová platba · Přístup navždy</p>
+      </div>
+
+      <a href="/checkout" class="mf-btn">ANO, CHCI PŘÍSTUP</a>
+      <p class="mf-safe">100% Bezpečná a šifrovaná platba</p>
+      <p class="mf-guarantee-note">✅ 90 dní záruky. Pokud to nefunguje, vracíme celých 299 Kč bez otázek.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ČÍM OPRAVDU JE „MAGNETICKÝ MUŽ"? ═══ -->
+<section class="mf-section">
+  <div class="mf-container">
+    <p class="mf-section-tag">O CO TU JDE</p>
+    <h2 class="mf-h2">Čím opravdu je „Magnetický Muž"?</h2>
+    <p class="mf-p">
+      „Magnetický Muž" není sbírka textů na balení ani kurz, jak předstírat, že jsi tvrdší, než ve skutečnosti jsi.
+      Je to průvodce tím, co žena u tebe zjišťuje, ještě než si stihne pomyslet, a proč u tebe ta odpověď vychází špatně.
+      Nedostaneš věty k nabiflování. Dostaneš pochopení, na co žena opravdu reaguje, a konkrétní pohyby, které to mění.
+    </p>
+    <p class="mf-p">
+      Na rozdíl od rad, které slýcháš roky („buď sebou", „buď milejší", „najdi svou vášeň"), tento materiál tě nechce měnit.
+      Ukazuje ti sedm věcí, které děláš v dobré víře, a které v její hlavě fungují přesně obráceně, než si myslíš.
+      A ukazuje, co dělat místo nich.
+    </p>
+    <p class="mf-p">
+      Propojuje to, co je známo o oxytocinu, dopaminu a mechanismech přitažlivosti, s konkrétními chováními
+      na párty, v práci a v rozhovoru ve městě. Dohromady dávají 7 Přepínačů™ — systém, který nenajdeš v příručkách
+      o balení, protože většina z nich učí přesně to, co tě eliminuje.
+    </p>
+    <p class="mf-p">
+      A ještě jedna věc, aby bylo jasno od začátku. Tohle není manipulace.
+      Není tu žádný trik, kterým bys něco dělal ženě bez jejího vědomí.
+      Je tu znalost o tom, jak přitažlivost funguje, a rozhodnutí přestat dělat věci, které ji hasí.
+    </p>
+  </div>
+</section>
+
+<!-- ═══ PROČ JESEŠ MILOÝ A ONA VYBÍRÁ JINÉHO ═══ -->
+<section class="mf-section mf-section-alt">
+  <div class="mf-container">
+    <p class="mf-section-tag">CO SE OPRAVDU DĚJE</p>
+    <h2 class="mf-h2">Proč Jsi Pro Ni Milý, Nápomocný A Rozumný, A Ona Přesto Vybírá Někoho Jiného</h2>
+
+    <p class="mf-p">
+      Znáš to. Rozhovor jde dobře, ona se směje, píše večer, říká, že se s tebou fajn baví.
+      A pak se ukáže, že po celou tu dobu ti vyprávěla o jiném chlapovi.
+    </p>
+    <p class="mf-p">
+      První myšlenka je vždycky stejná: je se mnou něco špatně.
+      Jsem příliš malý, příliš tlustý, mám málo peněz, málo sebedůvěry.
+      Takže se dáš do práce. Posilovna, lepší oblečení, více rozhovorů. A nic.
+      Další žena, stejný konec.
+    </p>
+    <p class="mf-p">
+      Pak přijde druhá myšlenka, horší než první: možná prostě to „něco" nemám.
+      Jedni mají, druzí ne, a dost. Tato myšlenka je pohodlná, protože z tebe snímá zodpovědnost.
+      Je ale také nepravdivá a stojí tě roky.
+    </p>
+
+    <div class="mf-vs-grid">
+      <div class="mf-vs-row">
+        <div class="mf-vs-wrong">
+          <p class="mf-vs-label">Ty si myslíš…</p>
+          <p>„Jsem málo atraktivní"</p>
+        </div>
+        <div class="mf-vs-right">
+          <p class="mf-vs-label">Pravda je…</p>
+          <p>Ona nehodnotí tvůj vzhled. Hodnotí to, co cítí při tobě v žaludku. A to jsou dvě úplně různé věci.</p>
+        </div>
+      </div>
+      <div class="mf-vs-row">
+        <div class="mf-vs-wrong">
+          <p class="mf-vs-label">Ty si myslíš…</p>
+          <p>„Musím být milejší a více nápomocný"</p>
+        </div>
+        <div class="mf-vs-right">
+          <p class="mf-vs-label">Pravda je…</p>
+          <p>Každá laskavost bez požádání jí říká, že se snažíš zasloužit, aby tě vybrala. A o někoho, kdo se snaží zasloužit, se nebojuje.</p>
+        </div>
+      </div>
+      <div class="mf-vs-row">
+        <div class="mf-vs-wrong">
+          <p class="mf-vs-label">Ty si myslíš…</p>
+          <p>„Musím lépe mluvit"</p>
+        </div>
+        <div class="mf-vs-right">
+          <p class="mf-vs-label">Pravda je…</p>
+          <p>Ona si nepamatuje, co jsi říkal. Pamatuje si, jestli při tobě něco cítila, nebo bylo prostě fajn.</p>
+        </div>
+      </div>
+    </div>
+
+    <p class="mf-p">
+      Rady, které slýcháš roky, dělají přesně opačnou práci, než slibují.
+      „Buď sebou" pro tebe znamená: dělej dál to, co nefunguje.
+      „Buď milejší" tě posouvá hlouběji do stejné šuplíku.
+      „Zajímej se o ni" mění rozhovor ve výslech.
+    </p>
+    <p class="mf-p">
+      Být milý není sexy. Je to pohodlné. A žena nefantazíruje o pohodlí.
+      To zní tvrdě, ale není to obvinění. Nikdo ti to neřekl, protože to říkat nahlas není populární.
+    </p>
+    <p class="mf-p">
+      A ještě jedno, abys přestal vinit sám sebe. Není to tvoje chyba.
+      Nikdo tě to neučil. Táta si nesedl a nevysvětlil.
+      Škola takový předmět neměla. Internet tě krmí buď radami pro hodné chlapce,
+      nebo texty napsanými lidmi, kteří sami nerozumí, o co jde.
+    </p>
+  </div>
+</section>
+
+<!-- ═══ PRAVÝ DŮVOD — 90 SEKUND ═══ -->
+<section class="mf-section">
+  <div class="mf-container">
+    <p class="mf-section-tag">PRAVÝ DŮVOD</p>
+    <h2 class="mf-h2">V Prvních 90 Sekundách Žena U Tebe Zjišťuje Dvě Věci. A Dělá To, Ještě Než Si Stihne Pomyslet.</h2>
+    <p class="mf-p">
+      Než to vyhodnotíš jako výmysl, podívej se na to z její strany.
+      Žena nesedí se seznamem požadavků a neodhackovává body.
+      Její mozek to dělá rychleji než vědomá myšlenka, ve dvou otázkách,
+      na které odpovídá tělem, ne hlavou.
+    </p>
+    <p class="mf-p">
+      <strong>Za prvé:</strong> děje se u tohoto chlapa něco? Je tu napětí, zvědavost,
+      pocit, že nevím, co bude za chvíli. Nebo je to předvídatelné a bezpečné jako u bratrance.
+    </p>
+    <p class="mf-p">
+      <strong>Za druhé:</strong> ví on, kdo je? Má svůj názor, své záležitosti a svůj život,
+      ve kterém je ona přídavkem, ne smyslem. Nebo se přizpůsobuje ve všem,
+      protože se bojí, že jinak zmizí.
+    </p>
+    <p class="mf-p">
+      U tebe obě odpovědi vycházejí špatně — a ne proto, že jsi špatný chlap.
+      Právě naopak. Vycházejí špatně přesně proto, že jsi dobrý chlap, který se moc snaží.
+      Snažíš se být milý, takže zmizí napětí. Snažíš se neurazit, takže zmizí tvoje hranice.
+      Snažíš se přizpůsobit, takže zmizí tvůj názor.
+    </p>
+    <p class="mf-p">
+      Ona nevidí toto úsilí jako péči. Vidí ho jako signál: tento člověk chce, abych ho vybrala.
+      A žena neprahnepřeje po někom, kdo prosí o pozornost. Prahnepřeje po někom, kdo vybírá.
+    </p>
+    <p class="mf-p">
+      A tady je jádro věci, které ti nikdo neřekl: není to otázka charakteru, ale chemie.
+      Za obě tyto odpovědi jsou zodpovědné dva hormony.
+      Dopamin, který vytváří vzrušení a myšlení na někoho, když není přítomen.
+      A oxytocin, který vytváří připoutání a chuť být blízko.
+    </p>
+    <p class="mf-p">
+      Milý chlap v ženě spouští jen klid — a klid bez vzrušení je přesně kámoš.
+      A naopak: hajzl spouští jen vzrušení bez připoutání, proto se k němu ženy vrací a nenávidí samy sebe za to.
+    </p>
+    <p class="mf-p"><strong>Magnetický muž spouští oboje naráz. A přesně to tento průvodce učí.</strong></p>
+  </div>
+</section>
+
+<!-- ═══ 7 PŘEPÍNAČŮ ═══ -->
+<section class="mf-section mf-section-alt">
+  <div class="mf-container">
+    <p class="mf-section-tag">JAK TO FUNGUJE</p>
+    <h2 class="mf-h2">7 Přepínačů™: Sedm Věcí, Které Zapneš Sám, Bez Toho, Abys Se Měnil V Někoho Jiného</h2>
+    <p class="mf-lead">
+      Protože její mozek zjišťuje dvě věci, existují konkrétní chování, která na tyto dvě věci odpovídají.
+      Ne charakter. Ne vzhled. Chování. A chování lze změnit za týden.
+    </p>
+    <p class="mf-p">
+      Je jich sedm. Každý je přepínač: buď ho zapneš, nebo ne.
+      Není tu žádná škála, žádné „trochu". A každý z nich zapneš v prvních devadesáti sekundách,
+      ještě před třetí větou.
+    </p>
+
+    <div class="mf-switch-list">
+      <div class="mf-switch-item">
+        <div class="mf-switch-num">1</div>
+        <div class="mf-switch-text">
+          <h4>Přestaneš si zasloužovat</h4>
+          <p>Dnes platíš předem: laskavost, o kterou neprosila, kompliement na dobré ráno, zpráva od tebe potřetí za sebou. Každá z nich jí říká o tobě totéž.</p>
+        </div>
+      </div>
+      <div class="mf-switch-item">
+        <div class="mf-switch-num">2</div>
+        <div class="mf-switch-text">
+          <h4>Vrátíš se ke svému názoru</h4>
+          <p>Dnes se se vším souhlasíš, aby nevznikla trapnost. To je jedna z mála věcí, které žena okamžitě zaregistruje.</p>
+        </div>
+      </div>
+      <div class="mf-switch-item">
+        <div class="mf-switch-num">3</div>
+        <div class="mf-switch-text">
+          <h4>Zavedete napětí</h4>
+          <p>Rozhovor s tebou je milý a jde přesně tak, jak očekává. Chybí v něm ta jedna sekunda, kdy neví, co řekneš dál. Tato sekunda udělá víc než hodina milého povídání.</p>
+        </div>
+      </div>
+      <div class="mf-switch-item">
+        <div class="mf-switch-num">4</div>
+        <div class="mf-switch-text">
+          <h4>Zpomalíš</h4>
+          <p>Tvoje tempo mluví o tobě víc než slova. Spěch jí říká, že se bojíš ztratit její pozornost. Klid říká, že se nebojíš.</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="background:var(--white); border:1px solid var(--border); border-radius:8px; padding:20px 24px; margin-top:24px;">
+      <p style="font-size:0.92rem; color:var(--text-mid);">
+        Zbývající tři přepínače rozhodují o tom, jestli v její hlavě zůstaneš poté, co se rozloučíte.
+        Jsou rozepsány uvnitř, spolu s tím, co přesně říct v každé ze šesti situací,
+        ve kterých se dnes blokuješ.
+      </p>
+      <p style="font-size:0.92rem; color:var(--text-mid); margin-top:10px;">
+        Žádný z nich nevyžaduje, abys předstíral hajzla.
+        Žádný nevyžaduje hrubost, texty z internetu ani hraní na nedostupného.
+        Všech sedm jsou věci, které děláš sám sebou, jen v jiném pořadí a s jiným nastavením.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 6 ČÁSTÍ ═══ -->
+<section class="mf-section">
+  <div class="mf-container">
+    <p class="mf-section-tag">CO NAJDEŠ UVNITŘ</p>
+    <h2 class="mf-h2">6 Částí. 7 Přepínačů™ Krok Za Krokem, Od „Super Kámoš" K Muži, Na Kterého Myslí Večer</h2>
+
+    <div class="mf-chapter-list">
+      <div class="mf-chapter">
+        <div class="mf-chapter-img">
+          <img src="https://images.unsplash.com/photo-1493836512294-502baa1986e2?w=400&q=75&fit=crop" alt="Matice mužské přitažlivosti" loading="lazy">
+        </div>
+        <div>
+          <p class="mf-chapter-num">ČÁST 1</p>
+          <h3 class="mf-chapter-title">Matice Mužské Přitažlivosti: Proč Děláš Všechno Správně A Právě Proto To Nefunguje</h3>
+          <p style="font-size:0.9rem;color:var(--text-mid);">
+            První krok je vidět, kde opravdu leží problém.
+            Bez toho každá technika funguje napůl, protože opravuješ špatnou věc.
+          </p>
+          <ul style="list-style:disc; padding-left:18px; margin-top:10px; font-size:0.88rem; color:var(--text-mid); display:flex; flex-direction:column; gap:6px;">
+            <li>Eliminační mechanismus — co přesně se děje v její hlavě, když jí ráno píšeš kompliement</li>
+            <li>Dvě otázky, na které odpovídá tělem — a proč „milý" je nejhorší odpověď na obě</li>
+            <li>Pokazený měřák — proč odcházíš z rozhovoru přesvědčen, že šel skvěle, a ona myslí na jiného</li>
+          </ul>
+          <div class="mf-chapter-after"><strong>Po této části</strong> přestaneš věřit, že problém je ve tvém vzhledu nebo charakteru. Vidíš černé na bílém, která konkrétní chování tě eliminují, a že zrovna to se lze odnaučit.</div>
+        </div>
+      </div>
+
+      <div class="mf-chapter">
+        <div class="mf-chapter-img">
+          <img src="https://images.unsplash.com/photo-1600603406200-5b2a104684ac?w=400&q=75&fit=crop" alt="Vizualizace mužnosti" loading="lazy">
+        </div>
+        <div>
+          <p class="mf-chapter-num">ČÁST 2</p>
+          <h3 class="mf-chapter-title">Vizualizace Mužnosti: Co Vidí, Ještě Než Proneseš První Slovo</h3>
+          <p style="font-size:0.9rem;color:var(--text-mid);">
+            Konkrétní věci ke změně v tom, jak stojíš, díváš se a pohybuješ. Bez přestrojování za někoho jiného.
+          </p>
+          <ul style="list-style:disc; padding-left:18px; margin-top:10px; font-size:0.88rem; color:var(--text-mid); display:flex; flex-direction:column; gap:6px;">
+            <li>Tři sekundy pohledu — jak dlouho trvá pohled muže, kterého si žena zapamatuje, a o kolik je kratší ten tvůj</li>
+            <li>Zabírání prostoru — proč scvrkávání se u stolu o tobě říká víc než cokoliv, co řekneš</li>
+            <li>Tempo — jedna změna ve způsobu mluvení, kterou slyší po dvou větách</li>
+          </ul>
+          <div class="mf-chapter-after"><strong>Po této části</strong> vstupuješ do místnosti jinak. Nemusíš nic říkat, aby to zabralo, a právě proto to funguje i tehdy, když ještě nevíš, co říct.</div>
+        </div>
+      </div>
+
+      <div class="mf-chapter">
+        <div class="mf-chapter-img">
+          <img src="https://images.unsplash.com/photo-1758522490286-31bf5af96d4d?w=400&q=75&fit=crop" alt="Rozhovor, po kterém chce víc" loading="lazy">
+        </div>
+        <div>
+          <p class="mf-chapter-num">ČÁST 3</p>
+          <h3 class="mf-chapter-title">Rozhovor, Po Kterém Chce Víc: Jak Přestat Vyslýchat A Začít Budovat Napětí</h3>
+          <p style="font-size:0.9rem;color:var(--text-mid);">
+            Nejde o hotové texty. Jde o to, co děláš s tím, co ona právě řekla.
+          </p>
+          <ul style="list-style:disc; padding-left:18px; margin-top:10px; font-size:0.88rem; color:var(--text-mid); display:flex; flex-direction:column; gap:6px;">
+            <li>Konec výslechu — proč série otázek je nejrychlejší způsob, jak zabít rozhovor</li>
+            <li>Věta, po které neví, jestli žertuješ — jedna sekunda nejistoty za víc než hodina souhlasení</li>
+            <li>Ticho na tvé straně — kdo ho první vyplní, ukazuje, komu víc záleží</li>
+          </ul>
+          <div class="mf-chapter-after"><strong>Po této části</strong> rozhovor přestane být testem, který musíš zvládnout. Stane se něčím, co ona chce prodlužovat, a to ona klade další otázku.</div>
+        </div>
+      </div>
+
+      <div class="mf-chapter">
+        <div class="mf-chapter-img">
+          <img src="https://images.unsplash.com/photo-1575448913281-98e9e5d3f193?w=400&q=75&fit=crop" alt="Budování napětí" loading="lazy">
+        </div>
+        <div>
+          <p class="mf-chapter-num">ČÁST 4</p>
+          <h3 class="mf-chapter-title">Napětí: Jak Zajistit, Aby Něco Cítila V Žaludku, Aniž Bys Ztratil Respekt</h3>
+          <p style="font-size:0.9rem;color:var(--text-mid);">
+            Toto je ta část, která dobrým chlapům chybí, a jediný důvod, proč hajzli vyhrávají.
+          </p>
+          <ul style="list-style:disc; padding-left:18px; margin-top:10px; font-size:0.88rem; color:var(--text-mid); display:flex; flex-direction:column; gap:6px;">
+            <li>Dopamin a oxytocin — proč jeden hormon bez druhého z tebe udělá buď kámoše, nebo hajzla</li>
+            <li>Přitahování a odsouvání — rytmus, který nelze předstírat hraním na chladného</li>
+            <li>Hranice místo vysvětlování — jedna věta, po které tě přestane považovat za záložní variantu</li>
+          </ul>
+          <div class="mf-chapter-after"><strong>Po této části</strong> uvidíš změnu, kterou nelze zaměnit s ničím jiným. Její pohled trvá déle. Stojí blíže. Dotýká se jakoby náhodou.</div>
+        </div>
+      </div>
+
+      <div class="mf-chapter">
+        <div class="mf-chapter-img">
+          <img src="https://images.unsplash.com/photo-1546795708-c962dc089798?w=400&q=75&fit=crop" alt="Zůstat v její hlavě" loading="lazy">
+        </div>
+        <div>
+          <p class="mf-chapter-num">ČÁST 5</p>
+          <h3 class="mf-chapter-title">Zůstat V Její Hlavě: Co Rozhoduje O Tom, Jestli Na Tebe Bude Myslet Večer</h3>
+          <p style="font-size:0.9rem;color:var(--text-mid);">
+            Upoutat pozornost je jedna věc. Zůstat v její hlavě po rozloučení je úplně jiná dovednost.
+          </p>
+          <ul style="list-style:disc; padding-left:18px; margin-top:10px; font-size:0.88rem; color:var(--text-mid); display:flex; flex-direction:column; gap:6px;">
+            <li>Nedokončená záležitost — proč se mozek vrací k tomu, co zůstalo otevřeno, a jak toho využít poctivě</li>
+            <li>Kdo píše první — jednoduchá zásada, která obrátí směr celého vztahu</li>
+            <li>Odchod ze zóny kamaráda — co dělat, když tě tam už zařadila, a proč upřímný rozhovor o citech je nejhorší tah</li>
+          </ul>
+          <div class="mf-chapter-after"><strong>Po této části</strong> to ona začíná iniciovat kontakt. Ne proto, že jsi jí něco udělal, ale proto, že jsi přestal dělat věci, které ji odrazovaly.</div>
+        </div>
+      </div>
+
+      <div class="mf-chapter">
+        <div class="mf-chapter-img">
+          <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=400&q=75&fit=crop" alt="Život, do kterého chce vstoupit" loading="lazy">
+        </div>
+        <div>
+          <p class="mf-chapter-num">ČÁST 6</p>
+          <h3 class="mf-chapter-title">Život, Do Kterého Chce Vstoupit: Jak Přestat Být Mužem, Který Čeká Na Ženu</h3>
+          <p style="font-size:0.9rem;color:var(--text-mid);">
+            Poslední část, bez které všechny předchozí fungují jen chvíli.
+          </p>
+          <ul style="list-style:disc; padding-left:18px; margin-top:10px; font-size:0.88rem; color:var(--text-mid); display:flex; flex-direction:column; gap:6px;">
+            <li>Máš pro ni místo, ale nemáš prázdnotu k zaplnění — rozdíl vycítí za pět minut</li>
+            <li>Chyby, kvůli kterým ztrácí zájem po dvou týdnech. Všechny po sobě</li>
+            <li>Vybírání místo být vybírán — moment, kdy ty rozhoduješ, jestli chceš pokračovat</li>
+          </ul>
+          <div class="mf-chapter-after"><strong>Po této části</strong> se nezamýšlíš nad tím, co děláš špatně. Zamýšlíš se nad tím, která z nich tě opravdu zajímá, protože poprvé máš z čeho vybírat.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BONUS -->
+    <div class="mf-bonus-box">
+      <span class="mf-bonus-tag">BONUS ZDARMA · POUZE V TÉTO NABÍDCE</span>
+      <div style="display:flex; gap:20px; align-items:flex-start; flex-wrap:wrap;">
+        <div class="mf-chapter-img" style="flex-shrink:0; width:120px; border-radius:6px; overflow:hidden;">
+          <img src="https://images.unsplash.com/photo-1758523417251-8af9cc60c8f4?w=300&q=75&fit=crop" alt="Prvních 90 Sekund" loading="lazy" style="width:100%;">
+        </div>
+        <div style="flex:1; min-width:200px;">
+          <p class="mf-bonus-value">Hodnota 299 Kč — ZDARMA</p>
+          <h3 style="font-family:var(--font); font-size:1.1rem; font-weight:700; margin-bottom:8px;">BONUSOVÁ KAPITOLA</h3>
+          <h4 style="font-weight:700; margin-bottom:10px;">Prvních 90 Sekund: Šest Situací, Ve Kterých Se Vždy Zablokuješ, Rozepsaných Větu Po Větě</h4>
+          <p style="font-size:0.88rem; color:var(--text-mid); margin-bottom:12px;">Znalost je jedna věc. Vědět, co říct v konkrétním momentu, je druhá. Tato kapitola uzavírá tuto mezeru.</p>
+          <ul style="list-style:disc; padding-left:18px; font-size:0.88rem; color:var(--text-mid); display:flex; flex-direction:column; gap:5px;">
+            <li>Žena, kterou neznáš — první věta, která nezní jako balení</li>
+            <li>Kolegyně z práce — jak se přesunout ze šuplíku „kámoš", aniž bys pokazil vztah</li>
+            <li>Skupina přátel — co dělat, když je tam, ale nemluvíte sami</li>
+          </ul>
+          <p style="font-size:0.85rem; color:var(--text-mid); margin-top:10px; font-style:italic;">Otevřeš, přečteš dvě minuty před odchodem a vstoupíš tam s připravenou první větou. Bez biflování a bez formulek.</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align:center; margin-top:40px;">
+      <a href="#mf-offer" class="mf-btn" style="max-width:420px;">ANO, CHCI PŘÍSTUP</a>
+      <p class="mf-safe">100% Bezpečná a šifrovaná platba</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 6 SITUACÍ ═══ -->
+<section class="mf-section mf-section-alt">
+  <div class="mf-container">
+    <p class="mf-section-tag">JE TO O TOBĚ?</p>
+    <h2 class="mf-h2">Těchto 6 Situací Se Stává Každému Muži, Kterého Ženy Mají Rády, Ale Nevybírají</h2>
+
+    <div class="mf-situation-list">
+      <div class="mf-situation">
+        <span class="mf-sit-icon">💬</span>
+        <p class="mf-sit-text">Píšeš jí první potřetí za sebou. Odpoví mile, po dvou hodinách, jednou větou. Ty si říkáš, že asi má hodně práce.</p>
+      </div>
+      <div class="mf-situation">
+        <span class="mf-sit-icon">🚗</span>
+        <p class="mf-sit-text">Odvezl jsi ji, pomohl při stěhování, poslouchal o jejích problémech s jiným chlapem. Ona říká, že jsi jediný normální chlap, kterého zná. A přesto vybírá toho druhého.</p>
+      </div>
+      <div class="mf-situation">
+        <span class="mf-sit-icon">🎉</span>
+        <p class="mf-sit-text">Na párty stojíš vedle, povídáte si dlouho a dobře. Pak ona odejde k chlapovi, který jí řekl tři věty, a to on ji odveze domů.</p>
+      </div>
+      <div class="mf-situation">
+        <span class="mf-sit-icon">🤝</span>
+        <p class="mf-sit-text">Se vším souhlasíš, protože nechceš zkazit náladu. Po měsíci zjistíš, že o tobě neví nic, co sama první neřekla.</p>
+      </div>
+      <div class="mf-situation">
+        <span class="mf-sit-icon">🤔</span>
+        <p class="mf-sit-text">Vidíš, jak chlap horší od tebe ve všem ohledu má úspěch, který ty nemáš. A nevíš, čím ho získal.</p>
+      </div>
+      <div class="mf-situation">
+        <span class="mf-sit-icon">😔</span>
+        <p class="mf-sit-text">Zase slyšíš „jsi skvělý kámoš" a víš přesně, co ta věta znamená, ještě než ji dokončí.</p>
+      </div>
+    </div>
+
+    <div style="background:var(--white); border:1px solid var(--border); border-radius:8px; padding:24px; margin-top:28px;">
+      <p class="mf-p">
+        Pokud poznáváš alespoň tři z těchto situací, tato stránka k tobě nepřišla náhodou.
+        Žádná z nich není o tvém charakteru a každou vypíná jeden ze sedmi přepínačů.
+      </p>
+      <p class="mf-p" style="margin-bottom:0;">
+        Pravděpodobně si teď myslíš: „Další příručka o balení, četl jsem už takové, nic z toho nevyšlo."
+        A máš pravdu, protože přesně tak to bylo pokaždé.
+        Četl jsi, že máš být sebejistý, že se máš zajímat, že máš mít vášeň.
+        Všechno znělo rozumně a nic z toho nevyplynulo.
+      </p>
+      <p class="mf-p" style="margin-bottom:0; margin-top:12px;">
+        Důvod je jednoduchý a nikdo ti ho neřekl.
+        Každá z těch rad tě nutila pracovat na <em>sobě</em>. Buď sebejistější, buď zajímavější, buď lepší verzí sebe.
+        Tedy tě tlačila ještě hlouběji do vlastní hlavy — na stejné místo, kde to nikdy nefunguje.
+        Tato kniha jde opačným směrem: ukazuje, co <em>přestat</em> dělat.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ KOLIK TĚ UŽ STÁLO ═══ -->
+<section class="mf-section">
+  <div class="mf-container">
+    <p class="mf-section-tag">CENA NEČINNOSTI</p>
+    <h2 class="mf-h2">Kolik Tě Už Stálo To, Že Jsi Byl Tím Milým?</h2>
+    <div class="mf-cost-paras">
+      <p class="mf-cost-p">
+        Sečti si to sám, bez lítosti nad sebou. Kolik bylo žen, u kterých jsi cítil, že by mohlo být něco víc,
+        a u kterých to skončilo přátelstvím? Tři? Šest? Kolik z nich si pamatuješ dnes po jménu?
+      </p>
+      <p class="mf-cost-p">
+        Sečti večery, kdy ses vracel domů a přehrával rozhovor v hlavě, hledal moment,
+        kde se to pokazilo. Sečti víkendy, kdy jsi vycházel s kamarády, utratil pár set,
+        a vracel ses přesně s tím samým, s čím jsi vycházel.
+      </p>
+      <p class="mf-cost-p">
+        A teď sečti nejdražší věc, která se nevidí v peněžence.
+        Kolikrát jsi to vzdal, ještě než jsi vůbec zkusil, protože jsi předem věděl, jak to skončí?
+      </p>
+      <p class="mf-cost-p">
+        <strong>Nejhorší na této situaci není to, že trvá. Nejhorší je to, že sama od sebe neskončí.
+        Za rok budeš na stejném místě, jen o rok starší a o několik žen dál.</strong>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ZÁRUKA ═══ -->
+<section class="mf-section mf-section-alt">
+  <div class="mf-container">
+    <p class="mf-section-tag">BEZ RIZIKA</p>
+    <h2 class="mf-h2">90 Dní, Abys To Vyzkoušel Ve Skutečných Rozhovorech. Bez Rizika.</h2>
+    <div class="mf-guarantee-box">
+      <div class="mf-guarantee-badge">
+        <span class="g-num">90</span>
+        <span class="g-lbl">DNÍ<br>ZÁRUKA</span>
+      </div>
+      <div>
+        <p class="mf-p">
+          Každý jde touto cestou svým tempem. Jeden vidí první reakci po třech dnech,
+          protože mu stačilo přestat psát první.
+          Druhý potřebuje tři týdny, protože patnáct let trénoval přesně opačný zvyk.
+          Proto je záruka dlouhá a jednoduchá.
+        </p>
+        <p class="mf-p">Máš tři plné měsíce. Přečti. Udělej cvičení z druhé části.
+        Po dobu dvou týdnů zapínej sedm přepínačů v rozhovorech, které tak jako tak vedeš.
+        Sleduj, co se mění v tom, jak ženy reagují.</p>
+        <p style="font-size:0.92rem; font-weight:700; margin-bottom:12px;">Pokud po těchto 90 dnech:</p>
+        <div class="mf-guarantee-conditions">
+          <div class="mf-guarantee-cond">Nezaznamenáš, že rozhovory se ženami vypadají jinak než dříve,</div>
+          <div class="mf-guarantee-cond">Neuvidíš ani jednu reakci, která předtím nebyla,</div>
+          <div class="mf-guarantee-cond">Nebo jednoduše usoudíš, že tento materiál není pro tebe,</div>
+        </div>
+        <p class="mf-p">…pošli jednu větu podpoře a dostaneš zpět celých 299 Kč. Bez anket a bez otázky „co konkrétně nefungovalo".</p>
+        <p class="mf-p" style="margin-bottom:0;"><strong>Materiál ti zůstane. Nemusíš nic vracet ani mazat.</strong></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CELÝ BALÍČEK — NABÍDKA ═══ -->
+<section id="mf-offer" class="mf-section" style="scroll-margin-top:24px;">
+  <div class="mf-container">
+    <p class="mf-section-tag">VŠECHNO, CO DOSTANEŠ</p>
+    <h2 class="mf-h2" style="text-align:center;">Celý Balíček V Jedné Ceně</h2>
+
+    <div class="mf-offer-box">
+      <div class="mf-offer-banner">POUZE DNES</div>
+      <ul class="mf-offer-items">
+        <li>E-kniha „Magnetický Muž", 6 částí — Všech 7 Přepínačů™, krok za krokem</li>
+        <li><strong>BONUS: Prvních 90 Sekund</strong> — Šest situací, ve kterých se vždy zablokuješ, rozepsaných větu po větě</li>
+        <li>Eliminační mechanismus — Co přesně tě vyřazuje, ještě než stihneš cokoliv říct</li>
+        <li>Odchod ze zóny kamaráda — Také tehdy, když v ní sedíš od měsíců</li>
+        <li>90denní záruka vrácení peněz — Bez otázek a bez vysvětlování</li>
+        <li>Dostupné okamžitě — Stáhni a začni číst do 2 minut</li>
+      </ul>
+
+      <div class="mf-offer-price-block">
+        <p class="mf-offer-orig">{{original_price}}</p>
+        <p><span class="mf-offer-badge">UŠETŘÍŠ {{savings}} (80 %)</span></p>
+        <p class="mf-offer-price">{{price}}</p>
+        <p class="mf-offer-period">Jednorázová platba · Přístup navždy</p>
+      </div>
+
+      <a href="/checkout" class="mf-btn">
+        ANO, CHCI PŘÍSTUP
+        <span class="mf-btn-price">Kliknutím přejdeš na bezpečnou platbu</span>
+      </a>
+      <p class="mf-safe">100% Bezpečná a šifrovaná platba</p>
+
+      <div class="mf-offer-trust">
+        <span>🔒 Bezpečná platba</span>
+        <span>⚡ Okamžité doručení</span>
+        <span>↩ 90denní záruka</span>
+      </div>
+    </div>
+
+    <div style="max-width:560px; margin:28px auto 0; background:var(--bg-alt); border:1px solid var(--border); border-radius:10px; padding:24px; text-align:center;">
+      <div class="mf-guarantee-badge" style="width:72px; height:72px; margin:0 auto 12px;">
+        <span class="g-num" style="font-size:1.6rem;">90</span>
+        <span class="g-lbl">DNÍ<br>ZÁRUKA</span>
+      </div>
+      <p style="font-size:0.9rem; color:var(--text-mid);">
+        Pamatuj. Máš 90 dní, abys vyzkoušel celý obsah.
+        Pokud z jakéhokoliv důvodu usoudíš, že to není pro tebe,
+        dostaneš zpět celých 299 Kč. Bez otázek, bez vysvětlování.
+        Materiál ti zůstane.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 5 VĚCÍ O ŽENÁCH ═══ -->
+<section class="mf-section mf-section-alt">
+  <div class="mf-container">
+    <p class="mf-section-tag">ČEHO SE DOVÍŠ</p>
+    <h2 class="mf-h2">5 Věcí O Ženách, Které Ti Nikdo Dříve Neřekl</h2>
+    <div class="mf-truths">
+      <div class="mf-truth">
+        <div class="mf-truth-num">1</div>
+        <div>
+          <p class="mf-truth-title">Ona tě nehodnotí. Hodnotí to, co při tobě cítí.</p>
+          <p class="mf-truth-body">Proto posilovna, nové oblečení a lepší práce nic nezměnily. Všechny tyto věci zlepšují to, jak vypadáš, ale ona se rozhoduje podle toho, co při tobě cítí.</p>
+        </div>
+      </div>
+      <div class="mf-truth">
+        <div class="mf-truth-num">2</div>
+        <div>
+          <p class="mf-truth-title">Ranní kompliment funguje proti tobě.</p>
+          <p class="mf-truth-body">Ne proto, že je nemilý. Proto, že jí říká, že jsi se rozhodl, ještě než si ona stihla promyslet. A pak není co dobýt.</p>
+        </div>
+      </div>
+      <div class="mf-truth">
+        <div class="mf-truth-num">3</div>
+        <div>
+          <p class="mf-truth-title">Zóna kamaráda není rozsudek, jen důsledek.</p>
+          <p class="mf-truth-body">Zařadila tě tam ne za to, kdo jsi, ale za konkrétní věci, které jsi dělal v prvních týdnech. To znamená, že jde to obrátit, ale ne rozhovorem o citech.</p>
+        </div>
+      </div>
+      <div class="mf-truth">
+        <div class="mf-truth-num">4</div>
+        <div>
+          <p class="mf-truth-title">Hajzli nevyhrávají charakterem. Vyhrávají napětím.</p>
+          <p class="mf-truth-body">Dělají jednu věc, kterou ty neděláš, a ztrácejí na tom všude jinde. Můžeš vzít jen napětí a nechat zbytek.</p>
+        </div>
+      </div>
+      <div class="mf-truth">
+        <div class="mf-truth-num">5</div>
+        <div>
+          <p class="mf-truth-title">Ticho na tvé straně je silnější než nejlepší věta.</p>
+          <p class="mf-truth-body">Kdo první vyplní trapné ticho, ukazuje, komu víc záleží. To je jedna z nejjednodušších věcí ke změně a jedna z nejrychleji viditelných.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FAQ ═══ -->
+<section class="mf-section">
+  <div class="mf-container">
+    <p class="mf-section-tag">OTÁZKY A ODPOVĚDI</p>
+    <h2 class="mf-h2">Nejčastěji Kladené Otázky</h2>
+    <div class="mf-faq">
+
+      <div class="mf-faq-item">
+        <button class="mf-faq-q" onclick="mfToggle(this)">
+          Bude to fungovat, když nejsem pohledný, vysoký ani bohatý?
+          <span class="mf-faq-icon">+</span>
+        </button>
+        <div class="mf-faq-a">
+          Ano, a to je celý smysl tohoto materiálu. Sedm přepínačů funguje na úrovni, kde vzhled, výška a peněženka nehrají roli, protože žena si odpovídá na dvě otázky, ve kterých žádná z těchto věcí nefiguruje. Fungovalo to u chlapů po čtyřicítce, u chlapů s nadváhou a u chlapů bez halíře. Vzhled otevírá dveře na dvě sekundy. Co děláš v následujících devadesáti, rozhoduje o všem ostatním.
+        </div>
+      </div>
+
+      <div class="mf-faq-item">
+        <button class="mf-faq-q" onclick="mfToggle(this)">
+          Koupil jsem už jiné příručky a nic nezafungovalo.
+          <span class="mf-faq-icon">+</span>
+        </button>
+        <div class="mf-faq-a">
+          A přesně proto tento materiál vznikl. Většina příruček tě učí být milejší, chápavější a více sebou — tedy tě tlačí hlouběji na stejné místo, kde už jsi. Tato jde opačným směrem: ukazuje, co přestat dělat. Proto je tu 90denní záruka a ne 14denní. Vyzkoušíš to v tolika rozhovorech, kolik potřebuješ.
+        </div>
+      </div>
+
+      <div class="mf-faq-item">
+        <button class="mf-faq-q" onclick="mfToggle(this)">
+          Vyžaduje to hodně času?
+          <span class="mf-faq-icon">+</span>
+        </button>
+        <div class="mf-faq-a">
+          Netrénuješ nic zvlášť. Zapínáš přepínače v rozhovorech, které tak jako tak vedeš: v práci, na párty, v obchodě. Samotný materiál přečteš za dva večery a první rozdíl obvykle vidíš v řádu dnů, protože první dva přepínače spočívají v tom, že něco PŘESTANEŠ dělat, ne začneš.
+        </div>
+      </div>
+
+      <div class="mf-faq-item">
+        <button class="mf-faq-q" onclick="mfToggle(this)">
+          Není to manipulace?
+          <span class="mf-faq-icon">+</span>
+        </button>
+        <div class="mf-faq-a">
+          Není tu ani jedna technika, kterou bys ženě dělal něco bez jejího vědomí. Je tu znalost o tom, na co žena reaguje, a rozhodnutí přestat dělat věci, které hasí její zájem. Manipulací by bylo předstírat někoho, kým nejsi. Tento materiál dělá opak: snímá z tebe roli hodného chlapce, kterou sis nasadil, protože ti někdo řekl, že tak to má být.
+        </div>
+      </div>
+
+      <div class="mf-faq-item">
+        <button class="mf-faq-q" onclick="mfToggle(this)">
+          Nenajdu to zadarmo na internetu?
+          <span class="mf-faq-icon">+</span>
+        </button>
+        <div class="mf-faq-a">
+          Najdeš spoustu obecností. Otázka zní jinak: způsobila některá z těchto rad, že se něco reálně změnilo? Protože to čteš, tak ne. Tady dostaneš sedm konkrétních věcí v konkrétním pořadí, plus rozepsané větu po větě šest situací, ve kterých se blokuješ. Netestuješ náhodné metody, jdeš po sobě.
+        </div>
+      </div>
+
+      <div class="mf-faq-item">
+        <button class="mf-faq-q" onclick="mfToggle(this)">
+          Možná to není teď správný moment?
+          <span class="mf-faq-icon">+</span>
+        </button>
+        <div class="mf-faq-a">
+          A kdy bude? Za měsíc, po dalším rozhovoru, kde se ty snažíš a ona zdvořile přikyvuje? Za rok, po dalším večeru, kdy vidíš, jak se zajímá o jiného? Tato situace neskončí sama. Nikdo ji za tebe neukončí. Změní se teprve tehdy, když změníš to, co děláš.
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ POSLEDNÍ ŠANCE ═══ -->
+<section class="mf-final mf-section-dark">
+  <div class="mf-container">
+    <h2 class="mf-h2" style="color:var(--white);">Poslední Šance, Než Zavřeš Tuto Stránku</h2>
+    <p style="color:rgba(255,255,255,0.75); font-size:1rem; margin-bottom:28px; max-width:520px; margin-left:auto; margin-right:auto;">
+      Pokud jsi dočetl až sem, tak ne ze zvědavosti. Poznal jsi sám sebe.
+    </p>
+    <p class="mf-countdown-label" style="color:rgba(255,255,255,0.6);">NABÍDKA VYPRŠÍ ZA:</p>
+    <div class="mf-countdown" style="margin-bottom:32px;">
+      <div class="mf-cd-unit"><div class="mf-cd-num" id="cd3-h">11</div><div class="mf-cd-lbl" style="color:rgba(255,255,255,0.5);">HOD</div></div>
+      <div class="mf-cd-sep" style="color:rgba(255,255,255,0.4);">:</div>
+      <div class="mf-cd-unit"><div class="mf-cd-num" id="cd3-m">58</div><div class="mf-cd-lbl" style="color:rgba(255,255,255,0.5);">MIN</div></div>
+      <div class="mf-cd-sep" style="color:rgba(255,255,255,0.4);">:</div>
+      <div class="mf-cd-unit"><div class="mf-cd-num" id="cd3-s">59</div><div class="mf-cd-lbl" style="color:rgba(255,255,255,0.5);">SEK</div></div>
+    </div>
+    <a href="#mf-offer" class="mf-btn">ANO, CHCI PŘÍSTUP</a>
+    <p class="mf-safe" style="color:rgba(255,255,255,0.5);">100% Bezpečná a šifrovaná platba</p>
+
+    <div class="mf-ps">
+      <p><strong>P.S.</strong> Jeden večer s kamarády tě stojí pár set korun a dá ti dobrý večer.
+      Tento materiál stojí 299 Kč a mění to, jak ženy na tebe reagují.
+      Rozhodnutí je na tobě. Zavřeš stránku a za týden máš další rozhovor,
+      po kterém se vracíš domů sám.
+      Nebo klikneš a za 2 minuty začínáš číst to, co změní tvůj nejbližší rozhovor.</p>
+
+      <p><strong>P.S.S.</strong> Za tři týdny stojíš na párty a mluvíš se ženou, která tě dříve přehlížela.
+      Tentokrát to ona klade další otázku.
+      Ne proto, že ses naučil text, ale proto, že jsi přestal dělat těch sedm věcí,
+      které ji dříve hasily.</p>
+
+      <p>V pondělí někdo píše první a to nejsi ty.</p>
+
+      <p>299 Kč. 90 dní záruky. Nulové riziko.
+      Jediné, co riskuješ, je další rok bytí tím milým, kterého všechny mají rády a žádná nevybírá.</p>
+
+      <p style="text-align:center; margin-top:20px;">
+        <a href="#mf-offer" class="mf-btn" style="display:inline-block; width:auto; padding:18px 40px;">Klikni sem a začni dnes</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="mf-footer">
+  <p>© 2026 Magnetický Muž &nbsp;·&nbsp;
+    <a href="#">Obchodní podmínky</a> &nbsp;·&nbsp;
+    <a href="#">Zásady ochrany soukromí</a>
+  </p>
+</footer>
+
+<!-- ═══ SCRIPTS ═══ -->
+<script>
+// Countdown — resetuje se na 12h při každém novém navštívení (jako originál)
+(function () {
+  try {
+    var KEY = 'mf_cd_end';
+    var end = localStorage.getItem(KEY);
+    if (!end || Date.now() > parseInt(end, 10)) {
+      end = Date.now() + 12 * 3600 * 1000;
+      localStorage.setItem(KEY, end);
+    }
+    end = parseInt(end, 10);
+
+    function pad(n) { return String(n).padStart(2, '0'); }
+    function update() {
+      var diff = Math.max(0, end - Date.now());
+      var h = Math.floor(diff / 3600000);
+      var m = Math.floor((diff % 3600000) / 60000);
+      var s = Math.floor((diff % 60000) / 1000);
+      var ids = [['cd-h','cd-m','cd-s'], ['cd2-h','cd2-m','cd2-s'], ['cd3-h','cd3-m','cd3-s']];
+      ids.forEach(function (g) {
+        ['h','m','s'].forEach(function (u, i) {
+          var el = document.getElementById(g[i]);
+          if (el) el.textContent = pad([h, m, s][i]);
+        });
+      });
+      var bar = document.getElementById('bar-cd');
+      if (bar) bar.textContent = pad(h) + ':' + pad(m) + ':' + pad(s);
+    }
+    update();
+    setInterval(update, 1000);
+  } catch (e) {}
+})();
+
+// FAQ toggle
+function mfToggle(btn) {
+  try {
+    var item = btn.parentElement;
+    item.classList.toggle('open');
+  } catch (e) {}
+}
+
+// Fade-in suave al hacer scroll
+(function () {
+  try {
+    var els = document.querySelectorAll('.mf-section, .mf-hero');
+    if (!window.IntersectionObserver) return;
+    var obs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.style.opacity = '1'; obs.unobserve(e.target); }
+      });
+    }, { threshold: 0.05 });
+    els.forEach(function (el) {
+      el.style.opacity = '0';
+      el.style.transition = 'opacity 0.5s ease';
+      obs.observe(el);
+    });
+  } catch (e) {}
+  // Timeout de seguridad
+  setTimeout(function () {
+    try {
+      document.querySelectorAll('.mf-section, .mf-hero').forEach(function (el) { el.style.opacity = '1'; });
+    } catch (e) {}
+  }, 2500);
+})();
+</script>
+</body>
+</html>

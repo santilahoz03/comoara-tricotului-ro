@@ -1,0 +1,1098 @@
+<style>
+    /* ===== TOKENS DE COLOR ===== */
+    :root {
+      --ct-bg:          #f6f1e7;
+      --ct-bg-alt:      #f6e9df;
+      --ct-bg-white:    #ffffff;
+      --ct-text:        #4a4238;
+      --ct-text-light:  #8a8378;
+      --ct-accent:      #b0714a;
+      --ct-accent-dark: #a8603f;
+      --ct-border:      #d8cdb8;
+      --ct-star:        #f59e0b;
+      --ct-urgent-bg:   #4a4238;
+      --ct-urgent-text: #f6e9df;
+      --ct-cta-bg:      #a8603f;
+      --ct-cta-hover:   #8c4f30;
+      --ct-cta-text:    #ffffff;
+      --ct-green:       #2e7d32;
+      --ct-green-bg:    #e8f5e9;
+      --ct-serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
+      --ct-sans:  'Lato', 'Helvetica Neue', Arial, sans-serif;
+    }
+
+    /* ===== RESET ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html {
+      scroll-behavior: smooth;
+      background: var(--ct-bg);
+      color: var(--ct-text);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .ct-pulse { animation: none !important; }
+    }
+    body {
+      font-family: var(--ct-sans);
+      color: var(--ct-text);
+      background: var(--ct-bg);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: var(--ct-accent); text-decoration: none; }
+    button { font-family: var(--ct-sans); }
+
+    /* ===== FADE-IN AL SCROLLEAR (4 capas) ===== */
+    html.js .ct-fade {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    html.js .ct-fade.ct-visible { opacity: 1; transform: none; }
+
+    /* ===== LAYOUT ===== */
+    .ct-section        { padding: 64px 16px; }
+    .ct-section--alt   { background: var(--ct-bg-alt); }
+    .ct-section--white { background: var(--ct-bg-white); }
+    .ct-section--dark  { background: var(--ct-urgent-bg); }
+    .ct-inner          { max-width: 720px; margin: 0 auto; }
+    .ct-inner--wide    { max-width: 960px; margin: 0 auto; }
+    .ct-text-center    { text-align: center; }
+
+    /* ===== TIPOGRAFÍA ===== */
+    .ct-eyebrow {
+      display: block;
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--ct-accent); margin-bottom: 10px;
+    }
+    .ct-h1 {
+      font-family: var(--ct-serif);
+      font-size: clamp(26px, 5vw, 46px);
+      line-height: 1.15; font-weight: 700;
+      color: var(--ct-text); margin-bottom: 18px;
+    }
+    .ct-h2 {
+      font-family: var(--ct-serif);
+      font-size: clamp(22px, 4vw, 36px);
+      line-height: 1.2; font-weight: 700;
+      color: var(--ct-text); margin-bottom: 16px;
+    }
+    .ct-h3 {
+      font-family: var(--ct-serif);
+      font-size: clamp(18px, 3vw, 26px);
+      line-height: 1.25; font-weight: 600;
+      color: var(--ct-text); margin-bottom: 10px;
+    }
+    .ct-lead  { font-size: 18px; line-height: 1.75; color: var(--ct-text); margin-bottom: 22px; }
+    .ct-body  { font-size: 16px; line-height: 1.7;  color: var(--ct-text); margin-bottom: 14px; }
+    .ct-small { font-size: 13px; line-height: 1.5;  color: var(--ct-text-light); }
+    .ct-accent-text { color: var(--ct-accent); }
+
+    /* ===== BARRA DE URGENCIA ===== */
+    .ct-urgency-bar {
+      position: sticky; top: 0; z-index: 999;
+      background: var(--ct-urgent-bg); color: var(--ct-urgent-text);
+      text-align: center; padding: 10px 16px;
+      font-size: 12px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase;
+    }
+    .ct-urgency-bar em { opacity: 0.65; font-style: normal; }
+
+    /* ===== HERO ===== */
+    .ct-hero { background: var(--ct-bg); padding: 52px 16px 64px; text-align: center; }
+    .ct-hero__super {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--ct-accent); margin-bottom: 14px;
+    }
+    .ct-hero__number {
+      font-family: var(--ct-serif);
+      font-size: clamp(72px, 16vw, 144px);
+      font-weight: 700; color: var(--ct-text); line-height: 1; margin-bottom: 2px;
+    }
+    .ct-hero__number span { color: var(--ct-accent); }
+    .ct-hero__sub  { font-family: var(--ct-serif); font-size: clamp(17px,3vw,26px); font-style: italic; color: var(--ct-text); margin-bottom: 6px; }
+    .ct-hero__sub2 { font-size: clamp(12px,2vw,15px); font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ct-text-light); margin-bottom: 32px; }
+
+    .ct-hero__img-wrap { max-width: 480px; margin: 0 auto 32px; }
+    .ct-hero__img { width: 100%; height: auto; border-radius: 12px; display: block; box-shadow: 0 8px 32px rgba(0,0,0,.12); }
+    .ct-img-placeholder {
+      width: 100%; aspect-ratio: 3/2;
+      background: var(--ct-bg-alt); border: 2px dashed var(--ct-border);
+      border-radius: 12px; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 8px;
+      padding: 24px;
+    }
+    .ct-img-placeholder__emoji { font-size: 52px; }
+    .ct-img-placeholder__title {
+      font-family: var(--ct-serif); font-size: 17px; font-weight: 700;
+      color: var(--ct-text); text-align: center;
+    }
+    .ct-img-placeholder__note { font-size: 11px; color: var(--ct-text-light); text-align: center; }
+
+    /* ===== BADGES ===== */
+    .ct-badges {
+      display: flex; flex-wrap: wrap; justify-content: center;
+      gap: 8px; margin-bottom: 28px;
+    }
+    .ct-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--ct-bg-white); border: 1px solid var(--ct-border);
+      border-radius: 100px; padding: 6px 14px;
+      font-size: 12px; font-weight: 700; letter-spacing: 0.03em; color: var(--ct-text);
+    }
+
+    /* ===== BOTONES CTA ===== */
+    .ct-btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      background: var(--ct-cta-bg); color: var(--ct-cta-text);
+      font-family: var(--ct-sans); font-size: 15px; font-weight: 900;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      padding: 17px 34px; border-radius: 6px; border: none;
+      cursor: pointer; text-decoration: none;
+      transition: background 0.18s, transform 0.1s; line-height: 1.2;
+    }
+    .ct-btn:hover  { background: var(--ct-cta-hover); transform: translateY(-1px); color: var(--ct-cta-text); }
+    .ct-btn:active { transform: translateY(0); }
+    .ct-btn--large { font-size: 16px; padding: 20px 44px; border-radius: 8px; width: 100%; max-width: 520px; }
+
+    @keyframes ct-pulse {
+      0%,100% { box-shadow: 0 0 0 0 rgba(168,96,63,0.42); }
+      70%      { box-shadow: 0 0 0 14px rgba(168,96,63,0); }
+    }
+    .ct-pulse { animation: ct-pulse 2.6s infinite; }
+
+    /* ===== VIDEO PLACEHOLDER ===== */
+    .ct-video-wrap { max-width: 640px; margin: 0 auto 20px; }
+    .ct-video-placeholder {
+      width: 100%; aspect-ratio: 16/9;
+      background: var(--ct-text); border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden; cursor: pointer;
+    }
+    .ct-video-placeholder::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse at center, rgba(176,113,74,.35) 0%, transparent 68%);
+    }
+    .ct-play-btn {
+      width: 68px; height: 68px;
+      background: rgba(255,255,255,.14); border: 3px solid rgba(255,255,255,.6);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      color: #fff; font-size: 26px; position: relative; z-index: 1;
+      transition: background .2s, transform .2s;
+    }
+    .ct-video-placeholder:hover .ct-play-btn { background: rgba(255,255,255,.26); transform: scale(1.08); }
+
+    /* ===== DOS GRUPOS ===== */
+    .ct-groups {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 18px; margin: 28px 0;
+    }
+    .ct-group-card {
+      background: var(--ct-bg-white); border: 1px solid var(--ct-border);
+      border-radius: 12px; padding: 22px 18px;
+    }
+    .ct-group-card--active { border-color: var(--ct-accent); background: var(--ct-bg-alt); }
+    .ct-group-card__icon  { font-size: 30px; margin-bottom: 10px; }
+    .ct-group-card__title { font-family: var(--ct-serif); font-size: 17px; font-weight: 700; margin-bottom: 10px; }
+    .ct-group-card__list  { list-style: none; }
+    .ct-group-card__list li {
+      font-size: 13px; padding: 4px 0; color: var(--ct-text);
+      display: flex; gap: 8px; align-items: flex-start;
+    }
+    .ct-group-card__list li::before { content: '·'; color: var(--ct-accent); flex-shrink: 0; font-weight: 700; }
+
+    /* ===== BARA SOCIAL PROOF ===== */
+    .ct-proof-bar {
+      background: var(--ct-text); color: var(--ct-urgent-text);
+      padding: 18px 16px;
+    }
+    .ct-proof-bar__inner {
+      max-width: 720px; margin: 0 auto;
+      display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 20px 32px;
+    }
+    .ct-proof-stat { display: flex; flex-direction: column; align-items: center; gap: 2px; }
+    .ct-proof-stat__num { font-family: var(--ct-serif); font-size: 26px; font-weight: 700; color: #f6e9df; line-height: 1; }
+    .ct-proof-stat__lbl { font-size: 10px; letter-spacing: .1em; text-transform: uppercase; opacity: .65; }
+    .ct-stars { color: var(--ct-star); font-size: 17px; letter-spacing: 2px; }
+    .ct-proof-sep { width: 1px; height: 36px; background: rgba(255,255,255,.18); }
+
+    /* ===== CAJA DE OFERTA ===== */
+    #ct-offer { scroll-margin-top: 24px; }
+    .ct-offer-box {
+      background: var(--ct-bg-white); border: 2px solid var(--ct-border);
+      border-radius: 16px; overflow: hidden; margin: 28px 0;
+      box-shadow: 0 4px 28px rgba(74,66,56,.1);
+    }
+    .ct-offer-box__hdr {
+      background: var(--ct-text); color: var(--ct-urgent-text);
+      padding: 14px 22px; text-align: center;
+    }
+    .ct-offer-box__hdr-tag { font-size: 10px; letter-spacing: .15em; text-transform: uppercase; opacity: .65; margin-bottom: 4px; }
+    .ct-offer-box__hdr-title { font-family: var(--ct-serif); font-size: 19px; font-weight: 700; color: #f6e9df; }
+    .ct-offer-box__body { padding: 26px 22px; }
+
+    .ct-price-orig   { font-size: 17px; color: var(--ct-text-light); text-decoration: line-through; }
+    .ct-price-save   { display: inline-block; background: var(--ct-green-bg); color: var(--ct-green); font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 100px; margin-left: 8px; letter-spacing: .04em; }
+    .ct-price-big    { font-family: var(--ct-serif); font-size: clamp(52px,12vw,88px); font-weight: 700; color: var(--ct-text); line-height: 1; margin-bottom: 4px; }
+    .ct-price-note   { font-size: 13px; color: var(--ct-text-light); margin-bottom: 18px; }
+
+    /* countdown */
+    .ct-countdown {
+      background: var(--ct-bg-alt); border: 1px solid var(--ct-border);
+      border-radius: 8px; padding: 11px 16px; text-align: center; margin-bottom: 14px;
+    }
+    .ct-countdown__lbl   { font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--ct-text-light); margin-bottom: 5px; }
+    .ct-countdown__timer { font-family: var(--ct-serif); font-size: 34px; font-weight: 700; color: var(--ct-text); letter-spacing: 4px; }
+    .ct-countdown__sub   { font-size: 10px; color: var(--ct-text-light); margin-top: 3px; letter-spacing: .06em; text-transform: uppercase; }
+
+    .ct-viewers { font-size: 13px; color: var(--ct-text-light); text-align: center; margin-bottom: 14px; }
+    .ct-viewers strong { color: var(--ct-accent); }
+
+    /* items */
+    .ct-items   { list-style: none; margin: 18px 0; }
+    .ct-item    { display: flex; align-items: flex-start; gap: 9px; padding: 7px 0; border-bottom: 1px solid var(--ct-border); font-size: 14px; }
+    .ct-item:last-child { border-bottom: none; }
+    .ct-item__chk  { color: var(--ct-accent); font-size: 15px; flex-shrink: 0; margin-top: 1px; }
+    .ct-item__text { color: var(--ct-text); line-height: 1.4; }
+    .ct-tag {
+      display: inline-block; background: var(--ct-bg-alt); border: 1px solid var(--ct-border);
+      border-radius: 4px; font-size: 9px; font-weight: 700; padding: 2px 6px;
+      letter-spacing: .05em; text-transform: uppercase; color: var(--ct-accent);
+      margin-left: 5px; white-space: nowrap; vertical-align: middle;
+    }
+
+    /* caja de regalos */
+    .ct-bonus-box {
+      border: 2px dashed var(--ct-accent); border-radius: 10px;
+      padding: 14px 18px; margin: 18px 0; background: var(--ct-bg-alt);
+    }
+    .ct-bonus-box__ttl { font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--ct-accent); font-weight: 700; margin-bottom: 10px; }
+    .ct-bonus-box__total { font-family: var(--ct-serif); font-size: 20px; font-weight: 700; color: var(--ct-text); text-align: center; margin-top: 10px; }
+    .ct-bonus-box__total em { color: var(--ct-accent); font-style: normal; }
+
+    /* barra de confianza mini */
+    .ct-trust-mini {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 22px; margin-top: 14px;
+    }
+    .ct-trust-mini__item { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--ct-text-light); }
+
+    /* ===== QUOTE DE DOLOR ===== */
+    .ct-pain-quote {
+      border-left: 4px solid var(--ct-accent); padding: 18px 22px;
+      background: var(--ct-bg-white); border-radius: 0 8px 8px 0; margin: 24px 0;
+    }
+    .ct-pain-quote p { font-family: var(--ct-serif); font-size: 21px; font-style: italic; color: var(--ct-text); line-height: 1.55; }
+
+    /* ===== BARRA TRUST ===== */
+    .ct-trust-bar { background: var(--ct-bg-alt); padding: 20px 16px; }
+    .ct-trust-bar__inner {
+      max-width: 720px; margin: 0 auto;
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 14px 28px;
+    }
+    .ct-trust-bar__item { display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--ct-text); }
+    .ct-trust-bar__item span:first-child { font-size: 22px; }
+
+    /* ===== CE PRIMEȘTI (full what-you-get) ===== */
+    .ct-wg-grid { display: grid; gap: 14px; margin: 28px 0; }
+    .ct-wg-item {
+      display: flex; gap: 14px; align-items: flex-start;
+      background: var(--ct-bg-white); border: 1px solid var(--ct-border);
+      border-radius: 10px; padding: 14px 18px;
+    }
+    .ct-wg-item--bonus { border-color: rgba(176,113,74,.4); }
+    .ct-wg-icon {
+      width: 42px; height: 42px; background: var(--ct-bg-alt); border: 1px solid var(--ct-border);
+      border-radius: 8px; display: flex; align-items: center; justify-content: center;
+      font-size: 20px; flex-shrink: 0;
+    }
+    .ct-wg-item--bonus .ct-wg-icon { background: #fdf3ed; border-color: rgba(176,113,74,.4); }
+    .ct-wg-content { flex: 1; min-width: 0; }
+    .ct-wg-title  { font-family: var(--ct-serif); font-size: 15px; font-weight: 700; color: var(--ct-text); margin-bottom: 3px; }
+    .ct-wg-desc   { font-size: 12px; color: var(--ct-text-light); line-height: 1.5; }
+    .ct-wg-val    { font-family: var(--ct-serif); font-size: 15px; font-weight: 700; color: var(--ct-accent); white-space: nowrap; align-self: center; }
+
+    /* ===== VALUE STACK ===== */
+    .ct-val-row {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 8px 0; border-bottom: 1px solid var(--ct-border); font-size: 14px;
+    }
+    .ct-val-row:last-child { border-bottom: none; }
+    .ct-val-row__price { color: var(--ct-text-light); text-decoration: line-through; }
+    .ct-val-total {
+      background: var(--ct-bg-alt); border: 1px solid var(--ct-border); border-radius: 8px;
+      padding: 14px 18px; display: flex; justify-content: space-between; align-items: center; margin-top: 10px;
+    }
+    .ct-val-total__lbl { font-size: 14px; font-weight: 700; }
+    .ct-val-total__price { font-family: var(--ct-serif); font-size: 22px; font-weight: 700; color: var(--ct-accent); }
+
+    /* ===== CADOURILE MARGARET ===== */
+    .ct-gifts {
+      background: var(--ct-bg-alt); border: 1px solid var(--ct-border);
+      border-radius: 12px; padding: 22px; margin: 28px 0;
+    }
+    .ct-gifts__hdr { display: flex; align-items: center; gap: 10px; margin-bottom: 18px; }
+    .ct-gifts__tag {
+      background: var(--ct-accent); color: #fff;
+      font-size: 9px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+      padding: 4px 9px; border-radius: 4px; white-space: nowrap;
+    }
+    .ct-gifts__title { font-family: var(--ct-serif); font-size: 17px; font-weight: 700; }
+    .ct-gift-item { display: flex; gap: 11px; align-items: flex-start; margin-bottom: 11px; }
+    .ct-gift-num {
+      width: 26px; height: 26px; background: var(--ct-accent); color: #fff;
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-size: 12px; font-weight: 700; flex-shrink: 0;
+    }
+    .ct-gift-text { font-size: 14px; color: var(--ct-text); padding-top: 3px; }
+    .ct-gift-text strong { display: block; font-weight: 700; }
+    .ct-gifts__footer { border-top: 1px solid var(--ct-border); margin-top: 14px; padding-top: 10px; font-size: 13px; color: var(--ct-text-light); text-align: center; }
+
+    /* ===== VIZIUNE ===== */
+    .ct-visions { display: grid; gap: 14px; margin: 28px 0; }
+    .ct-vision-card {
+      background: var(--ct-bg-white); border-left: 4px solid var(--ct-accent);
+      border-radius: 0 8px 8px 0; padding: 14px 18px;
+    }
+    .ct-vision-card__emoji { font-size: 22px; margin-bottom: 7px; }
+    .ct-vision-card__text { font-size: 15px; line-height: 1.65; color: var(--ct-text); }
+
+    /* ===== GARANȚIE ===== */
+    .ct-guarantee {
+      background: var(--ct-bg-white); border: 2px solid var(--ct-green);
+      border-radius: 12px; padding: 26px 22px; text-align: center; margin: 28px 0;
+    }
+    .ct-guarantee__badge {
+      width: 68px; height: 68px; background: var(--ct-green-bg); border: 3px solid var(--ct-green);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-size: 30px; margin: 0 auto 14px;
+    }
+    .ct-guarantee__title { font-family: var(--ct-serif); font-size: 22px; font-weight: 700; color: var(--ct-green); margin-bottom: 10px; }
+    .ct-guarantee__text { font-size: 15px; color: var(--ct-text); line-height: 1.7; }
+
+    /* ===== CE VEI CREA ===== */
+    .ct-achieve-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 28px 0;
+    }
+    .ct-achieve-card {
+      background: var(--ct-bg-white); border: 1px solid var(--ct-border);
+      border-radius: 10px; padding: 18px 14px;
+    }
+    .ct-achieve-card__icon { font-size: 26px; margin-bottom: 8px; }
+    .ct-achieve-card__text { font-size: 14px; color: var(--ct-text); line-height: 1.5; }
+
+    /* ===== MARGARET ===== */
+    .ct-margaret {
+      display: grid; grid-template-columns: auto 1fr;
+      gap: 22px; align-items: start; margin: 22px 0;
+    }
+    .ct-margaret__photo {
+      width: 96px; height: 96px; border-radius: 50%;
+      background: var(--ct-bg-alt); border: 3px solid var(--ct-border);
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden; flex-shrink: 0;
+    }
+    .ct-margaret__name  { font-family: var(--ct-serif); font-size: 21px; font-weight: 700; margin-bottom: 3px; }
+    .ct-margaret__role  { font-size: 12px; color: var(--ct-accent); font-weight: 700; letter-spacing: .04em; text-transform: uppercase; margin-bottom: 10px; }
+    .ct-margaret__body  { font-size: 15px; color: var(--ct-text); line-height: 1.7; margin-bottom: 10px; }
+
+    /* ===== FAQ ===== */
+    .ct-faq { margin: 22px 0; }
+    .ct-faq-item { border-bottom: 1px solid var(--ct-border); }
+    .ct-faq-item:first-child { border-top: 1px solid var(--ct-border); }
+    .ct-faq-q {
+      width: 100%; background: none; border: none; text-align: left;
+      padding: 17px 0; cursor: pointer;
+      display: flex; justify-content: space-between; align-items: center; gap: 10px;
+      font-size: 15px; font-weight: 700; color: var(--ct-text);
+    }
+    .ct-faq-q__arr { color: var(--ct-accent); font-size: 17px; flex-shrink: 0; transition: transform .2s; }
+    .ct-faq-item.open .ct-faq-q__arr { transform: rotate(180deg); }
+    .ct-faq-a { display: none; padding: 0 0 16px; font-size: 14px; color: var(--ct-text); line-height: 1.75; }
+    .ct-faq-item.open .ct-faq-a { display: block; }
+
+    /* ===== CTA FINAL ===== */
+    .ct-final-cta { background: var(--ct-urgent-bg); padding: 64px 16px; text-align: center; }
+    .ct-final-cta .ct-h2 { color: #f6e9df; }
+    .ct-final-cta .ct-lead { color: rgba(246,233,223,.8); }
+    .ct-final-price-big { font-family: var(--ct-serif); font-size: clamp(52px,12vw,80px); font-weight: 700; color: #f6e9df; line-height: 1; margin: 12px 0 16px; }
+    .ct-final-orig { font-size: 15px; color: rgba(246,233,223,.45); text-decoration: line-through; margin-bottom: 24px; }
+
+    /* ===== BARRA STICKY MOBILE ===== */
+    .ct-sticky-mobile {
+      display: none; position: fixed; bottom: 0; left: 0; right: 0;
+      background: var(--ct-bg-white); border-top: 1px solid var(--ct-border);
+      padding: 11px 16px; z-index: 998; box-shadow: 0 -4px 18px rgba(74,66,56,.12);
+    }
+    .ct-sticky-mobile .ct-btn { width: 100%; max-width: 100%; font-size: 13px; padding: 14px 20px; }
+    .ct-sticky-mobile__sub { font-size: 10px; color: var(--ct-text-light); text-align: center; margin-top: 5px; }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 640px) {
+      .ct-groups      { grid-template-columns: 1fr; }
+      .ct-achieve-grid{ grid-template-columns: 1fr; }
+      .ct-margaret    { grid-template-columns: 1fr; text-align: center; }
+      .ct-margaret__photo { margin: 0 auto; }
+      .ct-proof-sep   { display: none; }
+      .ct-sticky-mobile { display: block; }
+      body { padding-bottom: 76px; }
+      .ct-wg-item     { flex-wrap: wrap; }
+      .ct-wg-val      { width: 100%; margin-top: 3px; }
+    }
+    @media (max-width: 520px) {
+      .ct-section { padding: 44px 16px; }
+      .ct-btn--large { font-size: 13px; padding: 17px 20px; }
+      .ct-offer-box__body { padding: 18px 14px; }
+    }
+    @media (max-width: 380px) {
+      .ct-hero__number  { font-size: 62px; }
+      .ct-countdown__timer { font-size: 28px; }
+      .ct-price-big     { font-size: 48px; }
+    }
+  </style>
+<!-- ═══ 1 · BARĂ DE URGENȚĂ (sticky) ═══ -->
+  <div class="ct-urgency-bar" role="banner">
+    🧶 ASTĂZI <strong id="ct-day-name">MIERCURI</strong> · <strong id="ct-date-str">14 OCTOMBRIE</strong> · ECONOMISEȘTI 90% · COMOARA TRICOTULUI ✨
+  </div>
+
+  <!-- ═══ 2 · HERO ═══ -->
+  <section class="ct-hero">
+    <div class="ct-inner">
+      <p class="ct-hero__super">Colecția completă pentru tricoteze</p>
+      <div class="ct-hero__number" aria-label="5.200 plus">5.200<span>+</span></div>
+      <p class="ct-hero__sub">Tipare Premium de Tricotat</p>
+      <p class="ct-hero__sub2">și 7 Ghiduri Bonus Incluse</p>
+
+      <div class="ct-hero__img-wrap ct-fade">
+        <img src="https://files.catbox.moe/un1zn0.webp" alt="Comoara Tricotului™ – Colecția Definitivă · 5.200+ Tipare Premium de Tricotat" class="ct-hero__img" loading="eager" width="900" height="600">
+      </div>
+
+      <div class="ct-badges">
+        <span class="ct-badge">⚡ Acces Imediat</span>
+        <span class="ct-badge">♾️ Actualizări pe Viață</span>
+        <span class="ct-badge">📄 PDF-uri Gata de Utilizat</span>
+        <span class="ct-badge">🛒 Creează sau Vinde</span>
+      </div>
+
+      <a href="#ct-offer" class="ct-btn ct-btn--large ct-pulse">
+        ↓ Vreau acces imediat
+      </a>
+      <p class="ct-small" style="margin-top:12px;">Plată unică · {{original_price}} → astăzi doar <strong>{{price}}</strong></p>
+    </div>
+  </section>
+
+  <!-- ═══ 3 · VIDEO ═══ -->
+  <section class="ct-section ct-section--alt">
+    <div class="ct-inner ct-text-center">
+      <span class="ct-eyebrow">Descoperă colecția</span>
+      <h2 class="ct-h2">Descoperă cum funcționează în 2 min</h2>
+      <p class="ct-body">Privește cum arată colecția în interior — tipare, ghiduri, categorii — tot ce primești cu un singur click.</p>
+
+      <div class="ct-video-wrap">
+        <!-- ⚠ VIDEO: înlocuiești cu embed YouTube sau video propriu din Faza 9 -->
+        <div class="ct-video-placeholder" id="ct-video" role="button" tabindex="0" aria-label="Redă videoclipul de prezentare">
+          <div class="ct-play-btn" aria-hidden="true">▶</div>
+        </div>
+      </div>
+      <p class="ct-small">2 minute · fără experiență necesară · <a href="#ct-offer">accesează direct ↓</a></p>
+    </div>
+  </section>
+
+  <!-- ═══ 4 · DURERE + DOUĂ GRUPURI ═══ -->
+  <section class="ct-section">
+    <div class="ct-inner">
+      <p class="ct-lead ct-text-center ct-fade">
+        Câte proiecte neterminate ai ascunse acum? Nu e o lipsă de pricepere — pur și simplu petreci mai mult timp <strong>căutând tipare</strong> decât tricotând efectiv. Asta se termină acum.
+      </p>
+
+      <div class="ct-groups ct-fade">
+        <div class="ct-group-card">
+          <div class="ct-group-card__icon">😔</div>
+          <p class="ct-group-card__title">Tricoteza care încă mai caută</p>
+          <ul class="ct-group-card__list">
+            <li>Ore pierdute pe YouTube și Pinterest</li>
+            <li>Tipare confuze, fără măsuri clare</li>
+            <li>Lână risipită pe proiecte ratate</li>
+            <li>Sertarul plin de proiecte neterminate</li>
+            <li>Frustrarea că "eu nu sunt bună la asta"</li>
+          </ul>
+        </div>
+        <div class="ct-group-card ct-group-card--active">
+          <div class="ct-group-card__icon">✨</div>
+          <p class="ct-group-card__title">Tricoteza care deja creează</p>
+          <ul class="ct-group-card__list">
+            <li>Tiparul perfect, gata când ai nevoie</li>
+            <li>Instrucțiuni clare, pas cu pas</li>
+            <li>Proiecte care se finalizează de fapt</li>
+            <li>Cadouri lucrate manual, de neuitat</li>
+            <li>Bucuria de a vedea ce ai creat</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3 class="ct-h3 ct-text-center ct-accent-text ct-fade" style="margin-top:8px;">ÎN CARE GRUP VREI SĂ FII?</h3>
+      <p class="ct-body ct-text-center ct-fade">Nu e vorba despre talent. E vorba despre a avea tiparul perfect exact când ai nevoie de el.</p>
+
+      <div class="ct-text-center ct-fade" style="margin-top:22px;">
+        <a href="#ct-offer" class="ct-btn">↓ Vreau să fac parte din al doilea grup</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 5 · SOCIAL PROOF BAR ═══ -->
+  <div class="ct-proof-bar" aria-label="Statistici colecție">
+    <div class="ct-proof-bar__inner">
+      <div class="ct-proof-stat">
+        <div class="ct-stars" aria-label="4,9 din 5 stele">★★★★★</div>
+        <span class="ct-proof-stat__lbl">4,9 / 5</span>
+      </div>
+      <div class="ct-proof-sep" aria-hidden="true"></div>
+      <div class="ct-proof-stat">
+        <div class="ct-proof-stat__num">5.000+</div>
+        <span class="ct-proof-stat__lbl">Tricoteze cu Acces</span>
+      </div>
+      <div class="ct-proof-sep" aria-hidden="true"></div>
+      <div class="ct-proof-stat">
+        <div class="ct-proof-stat__num">5.200+</div>
+        <span class="ct-proof-stat__lbl">Tipare în Colecție</span>
+      </div>
+      <div class="ct-proof-sep" aria-hidden="true"></div>
+      <div class="ct-proof-stat">
+        <div class="ct-proof-stat__num">7</div>
+        <span class="ct-proof-stat__lbl">Ghiduri Bonus</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ 6 · OFERTA (anchor → /checkout) ═══ -->
+  <section class="ct-section ct-section--alt" id="ct-offer">
+    <div class="ct-inner">
+      <span class="ct-eyebrow ct-text-center">Oferta de astăzi</span>
+      <h2 class="ct-h2 ct-text-center">Comoara Tricotului™</h2>
+      <p class="ct-lead ct-text-center">Creează piese minunate cu 5.200+ tipare premium + 7 ghiduri bonus</p>
+
+      <div class="ct-offer-box">
+        <div class="ct-offer-box__hdr">
+          <p class="ct-offer-box__hdr-tag">⏰ Ofertă de lansare · Ultimele zile cu plată unică</p>
+          <p class="ct-offer-box__hdr-title">Comoara Tricotului™ · Colecția Completă</p>
+        </div>
+        <div class="ct-offer-box__body">
+
+          <div class="ct-text-center" style="margin-bottom:6px;">
+            <span class="ct-price-orig">{{original_price}}</span>
+            <span class="ct-price-save">-90%</span>
+          </div>
+          <p class="ct-price-big ct-text-center">{{price}}</p>
+          <p class="ct-price-note ct-text-center">Plată unică · Colecție digitală PDF · Acces imediat prin email</p>
+
+          <div class="ct-countdown">
+            <p class="ct-countdown__lbl">⏰ Prețul de azi expiră la miezul nopții</p>
+            <div class="ct-countdown__timer" id="ct-timer" aria-live="polite">00:00:00</div>
+            <p class="ct-countdown__sub">Ore &nbsp;:&nbsp; Minute &nbsp;:&nbsp; Secunde</p>
+          </div>
+
+          <p class="ct-viewers">👁 <strong id="ct-viewers-count">44</strong> persoane vizualizează acum</p>
+
+          <ul class="ct-items">
+            <li class="ct-item"><span class="ct-item__chk">✓</span><span class="ct-item__text"><strong>Biblioteca de Tipare</strong> — 5.200+ tipare premium, toate categoriile <span class="ct-tag">Principal</span></span></li>
+            <li class="ct-item"><span class="ct-item__chk">✓</span><span class="ct-item__text"><strong>Marea Bibliotecă de Împletituri</strong> — tehnici vizuale, pas cu pas</span></li>
+            <li class="ct-item"><span class="ct-item__chk">✓</span><span class="ct-item__text"><strong>Biblioteci Speciale</strong> — Pe Durată · De Vânzare · Trending</span></li>
+            <li class="ct-item"><span class="ct-item__chk">✓</span><span class="ct-item__text">Bonus 1 — <strong>Ghidul Primelor Împletituri</strong> <span class="ct-tag">Bonus</span></span></li>
+            <li class="ct-item"><span class="ct-item__chk">✓</span><span class="ct-item__text">Bonus 2 — <strong>Setul de Unelte al Tricotezei</strong> <span class="ct-tag">Bonus</span></span></li>
+            <li class="ct-item"><span class="ct-item__chk">✓</span><span class="ct-item__text">Bonus 3 — <strong>Tiparele Preferate ale Tricotezelor Noastre</strong> <span class="ct-tag">Bonus</span></span></li>
+            <li class="ct-item"><span class="ct-item__chk">✓</span><span class="ct-item__text">Bonus 4 — <strong>Tipare pentru Animale de Companie</strong> <span class="ct-tag">Bonus</span></span></li>
+            <li class="ct-item"><span class="ct-item__chk">✓</span><span class="ct-item__text">Bonus 5 — <strong>Actualizări pe Viață ale Colecției</strong> <span class="ct-tag">Bonus</span></span></li>
+            <li class="ct-item"><span class="ct-item__chk">✓</span><span class="ct-item__text">Bonus 6 — <strong>Tipare Suplimentare de Croșetat</strong> <span class="ct-tag">Bonus</span></span></li>
+            <li class="ct-item"><span class="ct-item__chk">✓</span><span class="ct-item__text">Bonus 7 — <strong>Certificatul Tricotezei</strong> <span class="ct-tag">Bonus</span></span></li>
+          </ul>
+
+          <div class="ct-bonus-box">
+            <p class="ct-bonus-box__ttl">🎁 Cadourile Elenei — Gratuite pentru cei care se alătură astăzi</p>
+            <ul class="ct-items" style="margin:0;">
+              <li class="ct-item"><span class="ct-item__chk">🎁</span><span class="ct-item__text"><strong>Planul de Tricotat al Anului</strong> — 52 de săptămâni de proiecte organizate</span></li>
+              <li class="ct-item"><span class="ct-item__chk">🎁</span><span class="ct-item__text"><strong>Lista de Cumpărături a Tricotezei</strong> — ce să ai mereu acasă</span></li>
+              <li class="ct-item"><span class="ct-item__chk">🎁</span><span class="ct-item__text"><strong>Ghidul de Cadouri Tricotate</strong> — idei pentru fiecare anotimp și ocazie</span></li>
+            </ul>
+            <p class="ct-bonus-box__total">Valoare totală declarată: <em>{{original_price}}</em> → Astăzi: <strong>{{price}}</strong></p>
+          </div>
+
+          <div class="ct-text-center" style="margin-top:22px;">
+            <a href="/checkout" class="ct-btn ct-btn--large ct-pulse">VREAU ACCES IMEDIAT</a>
+            <div class="ct-trust-mini">
+              <span class="ct-trust-mini__item">🔒 Plată Securizată</span>
+              <span class="ct-trust-mini__item">⚡ Livrare Imediată</span>
+              <span class="ct-trust-mini__item">✅ Garanție 7 Zile</span>
+            </div>
+            <p class="ct-small" style="margin-top:10px;">Mai puțin decât un ghem de lână premium — și sunt 5.200 de tipare: sub 2 bani fiecare tipar.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 7 · COSTUL DURERII ═══ -->
+  <section class="ct-section ct-section--white">
+    <div class="ct-inner">
+      <div class="ct-pain-quote ct-fade">
+        <p>"Căutarea tiparelor gratuite are și ea un preț: ore pierdute, lână risipită și încă un proiect neterminat în sertar."</p>
+      </div>
+      <p class="ct-body ct-fade">Cât de des dai de un tipar frumos online, dar instrucțiunile sunt neclare, măsurile lipsesc sau e blocat în spatele unui abonament? De câte ori ai cumpărat lână pentru un proiect care n-a ieșit cum ai visat?</p>
+      <p class="ct-body ct-fade">Cu Comoara Tricotului, ai tot ce îți trebuie organizat, verificat și gata de utilizat. O singură dată, pe viață.</p>
+    </div>
+  </section>
+
+  <!-- ═══ 8 · BARĂ TRUST ═══ -->
+  <div class="ct-trust-bar">
+    <div class="ct-trust-bar__inner">
+      <div class="ct-trust-bar__item"><span>🔒</span><span>Checkout securizat SSL</span></div>
+      <div class="ct-trust-bar__item"><span>✅</span><span>Garanție 7 zile</span></div>
+      <div class="ct-trust-bar__item"><span>💳</span><span>Card, Apple Pay, Google Pay</span></div>
+      <div class="ct-trust-bar__item"><span>⚡</span><span>Acces instant după plată</span></div>
+    </div>
+  </div>
+
+  <!-- ═══ 9 · CE PRIMEȘTI (full items) ═══ -->
+  <section class="ct-section">
+    <div class="ct-inner">
+      <span class="ct-eyebrow ct-text-center">Ce primești exact</span>
+      <h2 class="ct-h2 ct-text-center ct-fade">Iată Tot Ce Primești</h2>
+
+      <div class="ct-wg-grid ct-fade">
+        <div class="ct-wg-item">
+          <div class="ct-wg-icon">📚</div>
+          <div class="ct-wg-content">
+            <p class="ct-wg-title">Biblioteca de Tipare — 5.200+ Tipare</p>
+            <p class="ct-wg-desc">Pulovere, șosete, pături, accesorii, hăinuțe pentru copii — toate categoriile, toate nivelurile, sortate și gata de accesat.</p>
+          </div>
+          <div class="ct-wg-val">220 lei</div>
+        </div>
+        <div class="ct-wg-item">
+          <div class="ct-wg-icon">🧵</div>
+          <div class="ct-wg-content">
+            <p class="ct-wg-title">Marea Bibliotecă de Împletituri</p>
+            <p class="ct-wg-desc">Ghid vizual cu toate tehnicile — de la ochiuri simple la împletituri complexe. Scheme clare, instrucțiuni pas cu pas.</p>
+          </div>
+          <div class="ct-wg-val">90 lei</div>
+        </div>
+        <div class="ct-wg-item">
+          <div class="ct-wg-icon">⭐</div>
+          <div class="ct-wg-content">
+            <p class="ct-wg-title">Biblioteci Speciale</p>
+            <p class="ct-wg-desc"><strong>Pe Durată</strong> (1h, weekend, lunar) · <strong>De Vânzare</strong> (tipare pentru piese vandabile) · <strong>Trending</strong> (ce se poartă acum).</p>
+          </div>
+          <div class="ct-wg-val">80 lei</div>
+        </div>
+        <div class="ct-wg-item ct-wg-item--bonus">
+          <div class="ct-wg-icon">🌟</div>
+          <div class="ct-wg-content">
+            <p class="ct-wg-title">Bonus 1 · Ghidul Primelor Împletituri</p>
+            <p class="ct-wg-desc">Primele 10 tehnici esențiale explicate simplu, cu exemple vizuale. Perfect pentru început sau pentru a consolida ce știi.</p>
+          </div>
+          <div class="ct-wg-val">80 lei</div>
+        </div>
+        <div class="ct-wg-item ct-wg-item--bonus">
+          <div class="ct-wg-icon">🛠️</div>
+          <div class="ct-wg-content">
+            <p class="ct-wg-title">Bonus 2 · Setul de Unelte al Tricotezei</p>
+            <p class="ct-wg-desc">Ce andrele să alegi, ce accesorii îți fac viața mai ușoară și cum să îți organizezi colecția de lână. Ghid practic de referință.</p>
+          </div>
+          <div class="ct-wg-val">80 lei</div>
+        </div>
+        <div class="ct-wg-item ct-wg-item--bonus">
+          <div class="ct-wg-icon">❤️</div>
+          <div class="ct-wg-content">
+            <p class="ct-wg-title">Bonus 3 · Tiparele Preferate ale Tricotezelor</p>
+            <p class="ct-wg-desc">Top 50 tipare cele mai apreciate din colecție — cele mai tricotate, celebrate și postate de comunitatea noastră.</p>
+          </div>
+          <div class="ct-wg-val">70 lei</div>
+        </div>
+        <div class="ct-wg-item ct-wg-item--bonus">
+          <div class="ct-wg-icon">🐾</div>
+          <div class="ct-wg-content">
+            <p class="ct-wg-title">Bonus 4 · Tipare pentru Animale de Companie</p>
+            <p class="ct-wg-desc">Hăinuțe, pături și accesorii pentru câini și pisici. Proiecte rapide de weekend sau cadouri adorabile.</p>
+          </div>
+          <div class="ct-wg-val">60 lei</div>
+        </div>
+        <div class="ct-wg-item ct-wg-item--bonus">
+          <div class="ct-wg-icon">♾️</div>
+          <div class="ct-wg-content">
+            <p class="ct-wg-title">Bonus 5 · Actualizări pe Viață ale Colecției</p>
+            <p class="ct-wg-desc">Tipare noi se adaugă continuu. Plătești o singură dată și primești tot ce adăugăm — pentru totdeauna.</p>
+          </div>
+          <div class="ct-wg-val">80 lei</div>
+        </div>
+        <div class="ct-wg-item ct-wg-item--bonus">
+          <div class="ct-wg-icon">🪡</div>
+          <div class="ct-wg-content">
+            <p class="ct-wg-title">Bonus 6 · Tipare Suplimentare de Croșetat</p>
+            <p class="ct-wg-desc">Colecție bonus pentru croșetat — dacă mai folosești și croșeta, ai și tipare pentru asta, fără cost extra.</p>
+          </div>
+          <div class="ct-wg-val">70 lei</div>
+        </div>
+        <div class="ct-wg-item ct-wg-item--bonus">
+          <div class="ct-wg-icon">🏆</div>
+          <div class="ct-wg-content">
+            <p class="ct-wg-title">Bonus 7 · Certificatul Tricotezei</p>
+            <p class="ct-wg-desc">Certificat personalizat de completare — o amintire frumoasă și un motiv să îl afișezi cu mândrie.</p>
+          </div>
+          <div class="ct-wg-val">60 lei</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 10 · RECAPITULARE PREȚ ═══ -->
+  <section class="ct-section ct-section--alt">
+    <div class="ct-inner">
+      <h2 class="ct-h2 ct-text-center ct-fade">Valoarea totală a colecției</h2>
+
+      <div class="ct-fade">
+        <div class="ct-val-row"><span>Biblioteca de Tipare (5.200+)</span><span class="ct-val-row__price">220 lei</span></div>
+        <div class="ct-val-row"><span>Marea Bibliotecă de Împletituri</span><span class="ct-val-row__price">90 lei</span></div>
+        <div class="ct-val-row"><span>Biblioteci Speciale (Pe Durată, De Vânzare, Trending)</span><span class="ct-val-row__price">80 lei</span></div>
+        <div class="ct-val-row"><span>Bonus 1 · Ghidul Primelor Împletituri</span><span class="ct-val-row__price">80 lei</span></div>
+        <div class="ct-val-row"><span>Bonus 2 · Setul de Unelte</span><span class="ct-val-row__price">80 lei</span></div>
+        <div class="ct-val-row"><span>Bonus 3 · Tiparele Preferate</span><span class="ct-val-row__price">70 lei</span></div>
+        <div class="ct-val-row"><span>Bonus 4 · Tipare Animale</span><span class="ct-val-row__price">60 lei</span></div>
+        <div class="ct-val-row"><span>Bonus 5 · Actualizări pe Viață</span><span class="ct-val-row__price">80 lei</span></div>
+        <div class="ct-val-row"><span>Bonus 6 · Tipare Croșetat</span><span class="ct-val-row__price">70 lei</span></div>
+        <div class="ct-val-row"><span>Bonus 7 · Certificatul Tricotezei</span><span class="ct-val-row__price">60 lei</span></div>
+        <div class="ct-val-total">
+          <span class="ct-val-total__lbl">Valoare totală declarată</span>
+          <span class="ct-val-total__price">{{original_price}}</span>
+        </div>
+      </div>
+
+      <p class="ct-lead ct-text-center ct-fade" style="margin-top:22px;">
+        Astăzi plătești doar <strong>{{price}}</strong>.<br>
+        <span class="ct-small">Economisești {{savings}} — adică 90% reducere.</span>
+      </p>
+      <div class="ct-text-center ct-fade" style="margin-top:22px;">
+        <a href="#ct-offer" class="ct-btn">↓ Vreau acces la prețul de azi</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 11 · CADOURILE ELENEI ═══ -->
+  <section class="ct-section ct-section--white">
+    <div class="ct-inner">
+      <span class="ct-eyebrow ct-text-center">Numai pentru astăzi</span>
+      <h2 class="ct-h2 ct-text-center ct-fade">Cadourile de Astăzi ale Elenei</h2>
+      <p class="ct-lead ct-text-center ct-fade">Trei resurse extra pe care le adaugă gratuit pentru cei care se alătură astăzi.</p>
+
+      <div class="ct-gifts ct-fade">
+        <div class="ct-gifts__hdr">
+          <span class="ct-gifts__tag">Gratuit astăzi</span>
+          <span class="ct-gifts__title">De la Elena, cu drag</span>
+        </div>
+
+        <div class="ct-gift-item">
+          <div class="ct-gift-num">1</div>
+          <div class="ct-gift-text">
+            <strong>Planul de Tricotat al Anului</strong>
+            52 de săptămâni de proiecte organizate pe sezon și dificultate — nu mai trebuie să te gândești "ce tricoț acum?"
+          </div>
+        </div>
+        <div class="ct-gift-item">
+          <div class="ct-gift-num">2</div>
+          <div class="ct-gift-text">
+            <strong>Lista de Cumpărături a Tricotezei</strong>
+            Ce materiale, andrele și accesorii să ai mereu acasă — lista completă, o dată pentru totdeauna.
+          </div>
+        </div>
+        <div class="ct-gift-item">
+          <div class="ct-gift-num">3</div>
+          <div class="ct-gift-text">
+            <strong>Ghidul de Cadouri Tricotate</strong>
+            Idei pentru fiecare anotimp și fiecare ocazie — cu tipare recomandate din colecție pentru fiecare cadou.
+          </div>
+        </div>
+
+        <div class="ct-gifts__footer">Cadourile sunt incluse gratuit cu colecția completă · Ofertă valabilă astăzi.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 12 · VIZIUNE ═══ -->
+  <section class="ct-section ct-section--alt">
+    <div class="ct-inner">
+      <span class="ct-eyebrow ct-text-center">Cum arată viitorul tău</span>
+      <h2 class="ct-h2 ct-text-center ct-fade">Imaginează-ți cum vei fi peste 30 de zile…</h2>
+
+      <div class="ct-visions ct-fade">
+        <div class="ct-vision-card">
+          <div class="ct-vision-card__emoji">🧶</div>
+          <p class="ct-vision-card__text">Acel cardigan pe jumătate terminat este în sfârșit gata. Cel care zăcuse uitat într-un sertar luni de zile — pentru că de data aceasta ai avut instrucțiuni clare, pas cu pas, fără nicio presupunere.</p>
+        </div>
+        <div class="ct-vision-card">
+          <div class="ct-vision-card__emoji">🎁</div>
+          <p class="ct-vision-card__text">Nepoata ta despachetează cadoul pe care i l-ai făcut chiar tu. Acel zâmbet nu poate fi cumpărat din niciun magazin.</p>
+        </div>
+        <div class="ct-vision-card">
+          <div class="ct-vision-card__emoji">💰</div>
+          <p class="ct-vision-card__text">Primele tale piese s-au vândut la târgul local de artizanat, datorită secțiunii "De Vânzare". Colecția și-a recuperat prețul de multe ori.</p>
+        </div>
+        <div class="ct-vision-card">
+          <div class="ct-vision-card__emoji">☀️</div>
+          <p class="ct-vision-card__text">Dimineața de duminică: o ceașcă de ceai, andrelele în mână și tiparul perfect pe ecran. Nu e un lux — e liniștea de a ști că ai mereu ceva frumos de tricotat.</p>
+        </div>
+      </div>
+
+      <div class="ct-text-center ct-fade" style="margin-top:28px;">
+        <a href="#ct-offer" class="ct-btn">↓ Vreau să încep azi</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 13 · GARANȚIE ═══ -->
+  <section class="ct-section ct-section--white">
+    <div class="ct-inner">
+      <div class="ct-guarantee ct-fade">
+        <div class="ct-guarantee__badge">✅</div>
+        <p class="ct-guarantee__title">Garanție de 7 Zile</p>
+        <p class="ct-guarantee__text">
+          Dacă în 7 zile de la cumpărare simți că Comoara Tricotului nu e pentru tine, scrie-ne un email și îți returnăm banii integral — fără întrebări, fără birocrație.
+          <br><br>
+          Vrei să tricoți, nu să îți faci griji cu banii. De aceea garantăm fiecare achiziție.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 14 · CE VEI CREA (înlocuiește testimonialele) ═══ -->
+  <section class="ct-section ct-section--alt">
+    <div class="ct-inner">
+      <span class="ct-eyebrow ct-text-center">Primul tău pas</span>
+      <h2 class="ct-h2 ct-text-center ct-fade">Ce Vei Crea Curând 🧶</h2>
+      <p class="ct-lead ct-text-center ct-fade">Asta urmează după ce deschizi colecția:</p>
+
+      <div class="ct-achieve-grid ct-fade">
+        <div class="ct-achieve-card">
+          <div class="ct-achieve-card__icon">🧥</div>
+          <p class="ct-achieve-card__text"><strong>Primul tău pulover terminat</strong> — cu instrucțiuni clare, pas cu pas, fără ghicit</p>
+        </div>
+        <div class="ct-achieve-card">
+          <div class="ct-achieve-card__icon">🎁</div>
+          <p class="ct-achieve-card__text"><strong>Un cadou lucrat manual</strong> — de neuitat, personalizat și plin de suflet</p>
+        </div>
+        <div class="ct-achieve-card">
+          <div class="ct-achieve-card__icon">✅</div>
+          <p class="ct-achieve-card__text"><strong>Proiecte de weekend finalizate</strong> — nu mai rămân în sertar la jumătate</p>
+        </div>
+        <div class="ct-achieve-card">
+          <div class="ct-achieve-card__icon">💫</div>
+          <p class="ct-achieve-card__text"><strong>Liniștea de a ști</strong> că ai mereu tiparul potrivit, exact când ai nevoie</p>
+        </div>
+        <div class="ct-achieve-card">
+          <div class="ct-achieve-card__icon">🐾</div>
+          <p class="ct-achieve-card__text"><strong>O haină pentru animalul tău</strong> — cel mai adorabil proiect de weekend</p>
+        </div>
+        <div class="ct-achieve-card">
+          <div class="ct-achieve-card__icon">💰</div>
+          <p class="ct-achieve-card__text"><strong>Venituri din artizanat</strong> — cu tipare din secțiunea "De Vânzare", pregătite special</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 15 · DESPRE ELENA ═══ -->
+  <section class="ct-section ct-section--white">
+    <div class="ct-inner">
+      <span class="ct-eyebrow ct-text-center">Cine stă în spatele colecției?</span>
+      <h2 class="ct-h2 ct-text-center ct-fade">Cunoaște-o pe Elena</h2>
+
+      <div class="ct-margaret ct-fade">
+        <div class="ct-margaret__photo" aria-label="Elena, creatoarea colecției">
+          <img src="https://files.catbox.moe/xxokok.webp" alt="Elena, creatoarea colecției Comoara Tricotului™" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:inherit;">
+        </div>
+        <div>
+          <p class="ct-margaret__name">Elena</p>
+          <p class="ct-margaret__role">Creatoarea Colecției · Tricoteză de o viață</p>
+          <p class="ct-margaret__body">
+            Bună, eu sunt Elena 🧶 Am tricotat toată viața mea, și dacă există ceva ce toți acești ani m-au învățat, este că partea grea nu a fost niciodată tricotatul în sine — ci <strong>găsirea tiparelor care sunt bune, clare și bine explicate</strong>.
+          </p>
+          <p class="ct-margaret__body">
+            De aceea am creat această colecție: ca să ai într-un singur loc ceea ce mi-a luat ani să adun, și să poți petrece timpul pe ceea ce contează cu adevărat — să tricoți, să dăruiești și să te bucuri de fiecare împletitură.
+          </p>
+          <p class="ct-margaret__body">
+            Nimic nu mă bucură mai mult decât să văd piesele terminate pe care ni le trimit tricotezele noastre.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 16 · FAQ ═══ -->
+  <section class="ct-section ct-section--alt">
+    <div class="ct-inner">
+      <span class="ct-eyebrow ct-text-center">Ai întrebări?</span>
+      <h2 class="ct-h2 ct-text-center ct-fade">Întrebări Frecvente</h2>
+
+      <div class="ct-faq ct-fade">
+        <div class="ct-faq-item">
+          <button class="ct-faq-q" aria-expanded="false">
+            De ce să plătesc când există tipare gratuite online?
+            <span class="ct-faq-q__arr" aria-hidden="true">▾</span>
+          </button>
+          <div class="ct-faq-a">Pentru că tiparul gratuit îți ia ore să îl găsești — și la final, tot nu e exact ce ți-ai imaginat. Aici nu pierzi timp căutând printre mii de rezultate dezorganizate. Totul este verificat, organizat pe categorii, timp și nivel. Tiparul potrivit, gata în câteva secunde.</div>
+        </div>
+        <div class="ct-faq-item">
+          <button class="ct-faq-q" aria-expanded="false">
+            Cum obțin accesul după ce plătesc?
+            <span class="ct-faq-q__arr" aria-hidden="true">▾</span>
+          </button>
+          <div class="ct-faq-a">Imediat ce plata este confirmată, vei primi un email cu linkul de acces la întreaga colecție în format PDF. Dacă nu îl găsești în Inbox, verifică dosarul de Spam sau Promoții.</div>
+        </div>
+        <div class="ct-faq-item">
+          <button class="ct-faq-q" aria-expanded="false">
+            Este cu adevărat o singură plată?
+            <span class="ct-faq-q__arr" aria-hidden="true">▾</span>
+          </button>
+          <div class="ct-faq-a">Da — astăzi da. Colecția trece în curând la abonament lunar, dar toți cei care se alătură acum plătesc o singură dată și păstrează accesul pe viață, fără taxe lunare și fără costuri ascunse.</div>
+        </div>
+        <div class="ct-faq-item">
+          <button class="ct-faq-q" aria-expanded="false">
+            Am nevoie de experiență?
+            <span class="ct-faq-q__arr" aria-hidden="true">▾</span>
+          </button>
+          <div class="ct-faq-a">Nu. Există tipare pentru complet începătoare și pentru tricoteze avansate, toate sortate pe nivel de dificultate. Poți începe chiar dacă n-ai mai tricotat niciodată.</div>
+        </div>
+        <div class="ct-faq-item">
+          <button class="ct-faq-q" aria-expanded="false">
+            Pot să vând ce tricotez cu aceste tipare?
+            <span class="ct-faq-q__arr" aria-hidden="true">▾</span>
+          </button>
+          <div class="ct-faq-a">Da, poți vinde piesele terminate pe care le creezi folosind tiparele din colecție. Secțiunea "De Vânzare" este organizată special pentru asta.</div>
+        </div>
+        <div class="ct-faq-item">
+          <button class="ct-faq-q" aria-expanded="false">
+            Ce se întâmplă dacă nu e pentru mine?
+            <span class="ct-faq-q__arr" aria-hidden="true">▾</span>
+          </button>
+          <div class="ct-faq-a">Ai garanție de 7 zile. Dacă nu ești mulțumită, scrie-ne și îți returnăm banii integral — fără întrebări. Nu avem ce pierde dacă nu ești fericită cu achiziția.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 17 · CTA FINAL ═══ -->
+  <section class="ct-final-cta">
+    <div class="ct-inner ct-text-center">
+      <span class="ct-eyebrow" style="color:var(--ct-accent);">Ultima șansă</span>
+      <h2 class="ct-h2 ct-fade">5.200+ tipare. 7 ghiduri bonus. O singură plată.</h2>
+      <p class="ct-lead ct-fade">Colecția completă pentru tricoteze — organizată, verificată și gata de utilizat.</p>
+
+      <div class="ct-fade">
+        <p style="color:rgba(246,233,223,.65); font-size:15px; margin-top:28px;">Prețul de azi:</p>
+        <p class="ct-final-price-big">{{price}}</p>
+        <p class="ct-final-orig">față de {{original_price}}</p>
+        <a href="#ct-offer" class="ct-btn ct-btn--large ct-pulse">↓ VREAU ACCES IMEDIAT</a>
+      </div>
+
+      <div class="ct-trust-mini ct-fade" style="margin-top:18px; justify-content:center;">
+        <span class="ct-trust-mini__item" style="color:rgba(246,233,223,.65);">🔒 Plată Securizată</span>
+        <span class="ct-trust-mini__item" style="color:rgba(246,233,223,.65);">✅ Garanție 7 Zile</span>
+        <span class="ct-trust-mini__item" style="color:rgba(246,233,223,.65);">⚡ Acces Imediat</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ MOBILE STICKY BAR ═══ -->
+  <div class="ct-sticky-mobile" id="ct-sticky" aria-hidden="true">
+    <a href="#ct-offer" class="ct-btn">VREAU ACCES IMEDIAT · {{price}}</a>
+    <p class="ct-sticky-mobile__sub">Față de {{original_price}} · Economisești {{savings}}</p>
+  </div>
+
+  <script>
+    /* ── FAQ ACCORDION ── */
+    document.querySelectorAll('.ct-faq-q').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var item = this.closest('.ct-faq-item');
+        var wasOpen = item.classList.contains('open');
+        document.querySelectorAll('.ct-faq-item.open').forEach(function(el) {
+          el.classList.remove('open');
+          el.querySelector('.ct-faq-q').setAttribute('aria-expanded', 'false');
+        });
+        if (!wasOpen) {
+          item.classList.add('open');
+          this.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+
+    /* ── ZI + DATĂ DINAMICĂ ── */
+    (function() {
+      try {
+        var days   = ['Duminică','Luni','Marți','Miercuri','Joi','Vineri','Sâmbătă'];
+        var months = ['Ianuarie','Februarie','Martie','Aprilie','Mai','Iunie','Iulie','August','Septembrie','Octombrie','Noiembrie','Decembrie'];
+        var now  = new Date();
+        var dEl  = document.getElementById('ct-day-name');
+        var mEl  = document.getElementById('ct-date-str');
+        if (dEl) dEl.textContent = days[now.getDay()];
+        if (mEl) mEl.textContent = now.getDate() + ' ' + months[now.getMonth()].toUpperCase();
+      } catch(e) {}
+    })();
+
+    /* ── COUNTDOWN PÂNĂ LA MIEZUL NOPȚII ── */
+    (function() {
+      try {
+        function tick() {
+          var now      = new Date();
+          var midnight = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 0, 0, 0);
+          var diff     = Math.max(0, midnight - now);
+          var h  = Math.floor(diff / 3600000);
+          var m  = Math.floor((diff % 3600000) / 60000);
+          var s  = Math.floor((diff % 60000) / 1000);
+          var p  = function(n) { return n < 10 ? '0' + n : '' + n; };
+          var el = document.getElementById('ct-timer');
+          if (el) el.textContent = p(h) + ':' + p(m) + ':' + p(s);
+        }
+        tick();
+        setInterval(tick, 1000);
+      } catch(e) {}
+    })();
+
+    /* ── FLUCTUAȚIE VIZUALIZATORI ── */
+    (function() {
+      try {
+        var v = 44;
+        setInterval(function() {
+          v = Math.max(36, Math.min(58, v + (Math.random() < .5 ? 1 : -1)));
+          var el = document.getElementById('ct-viewers-count');
+          if (el) el.textContent = v;
+        }, 7000);
+      } catch(e) {}
+    })();
+
+    /* ── FADE-IN LA SCROLL (IntersectionObserver) ── */
+    (function() {
+      try {
+        if (!('IntersectionObserver' in window)) return;
+        var obs = new IntersectionObserver(function(entries) {
+          entries.forEach(function(e) {
+            if (e.isIntersecting) {
+              e.target.classList.add('ct-visible');
+              obs.unobserve(e.target);
+            }
+          });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.ct-fade').forEach(function(el) { obs.observe(el); });
+      } catch(e) {}
+    })();
+
+    /* ── ASCUNDE STICKY CÂND OFERTA E VIZIBILĂ ── */
+    (function() {
+      try {
+        var sticky = document.getElementById('ct-sticky');
+        var offer  = document.getElementById('ct-offer');
+        if (!sticky || !offer) return;
+        var obs = new IntersectionObserver(function(entries) {
+          var vis = entries[0].isIntersecting;
+          sticky.style.display = vis ? 'none' : '';
+          sticky.setAttribute('aria-hidden', vis ? 'true' : 'false');
+        }, { threshold: 0.08 });
+        obs.observe(offer);
+      } catch(e) {}
+    })();
+  </script>

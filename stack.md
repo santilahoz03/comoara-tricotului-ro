@@ -6,10 +6,10 @@
 
 | Herramienta | Función | Plan | Costo/mes | Renovación | Estado | Última vez usada |
 |---|---|---|---|---|---|---|
-| Claude | Cerebro y ejecución | Max | USD 100 | [FECHA: a confirmar] | activa | 2026-10-02 |
+| Claude | Cerebro y ejecución | Max | USD 100 | 2026-11-02 (mensual, alta 2026-10-02) | activa | 2026-10-02 |
 | kie.ai | Imagen, video y voz con IA | créditos | USD 5 (única recarga hasta ahora) | sin renovación | activa | 2026-10-02 |
 | ImpulTienda | Tienda y checkout | Plan Max, en prueba gratis (44 días al 2026-10-03) | USD 0 durante la prueba; luego USD 100 por mes (confirmado por el usuario) | ~2026-11-16 (se cobra solo al terminar la prueba) | prueba activa; decidir antes del ~16-nov si seguir | 2026-10-03 |
-| Utmify | Tracking | [PLAN] | [MONTO] | [FECHA] | todavía no | |
+| Utmify | Tracking | suscripción | USD 29 | 2026-11-12 (mensual, alta 2026-10-12) | activa; MCP de solo lectura conectado el 2026-10-12 (token en `.env`, consultas con `tools/utmify.py`) | 2026-10-12 |
 | AdsUploader | Lanzamiento de campañas | [PLAN] | [MONTO] | [FECHA] | todavía no | |
 | Procesador de pago | Cobro | Whop | por venta | — | todavía no | |
 | Dominio | Landings y entregables | anual | [MONTO/12] | [FECHA] | todavía no | |

@@ -15,3 +15,5 @@ __pycache__/
 
 # Vmake SDK (entorno aislado, instalable de nuevo)
 tools/vmake/.venv/
+
+.mcp.json

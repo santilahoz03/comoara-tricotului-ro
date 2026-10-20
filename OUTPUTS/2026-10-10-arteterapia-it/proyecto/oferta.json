@@ -1,0 +1,158 @@
+{
+  "producto": "Manuale di Arteterapia",
+  "slug": "arteterapia-it",
+  "titulo_completo": "Il Manuale Definitivo di Arteterapia · 100+ Attività Guidate + 7 Guide Bonus Incluse",
+  "idioma": "it",
+  "registro": "neutro",
+  "mercado": "IT",
+  "precio": "EUR 17,99",
+  "precio_tachado": "EUR 138",
+  "ahorro": "EUR 120",
+  "tienda": "ImpulTienda",
+  "subdominio": "",
+  "subdominio_estado": "pendiente",
+  "landing_publicada": "",
+  "dominio_entregables": "https://santilahoz03.github.io/arteterapia-it",
+  "paleta": {
+    "bg": "#FFF8F4",
+    "paper": "#F6ECFF",
+    "ink": "#4E4036",
+    "ink_soft": "#6F6258",
+    "accent": "#C9A84C",
+    "accent_dark": "#B89FE0",
+    "line": "#EDE6DC",
+    "green": "#5BAA7A",
+    "coral": "#E98B7A",
+    "red": "#C0484A"
+  },
+  "fuentes": {
+    "titulo": "Playfair Display",
+    "texto": "Inter"
+  },
+  "hub": {
+    "carpeta": "acceso",
+    "random": "wqkfq2m9xl",
+    "titulo": "Manuale di Arteterapia",
+    "subtitulo": "Il tuo percorso di arteterapia inizia qui",
+    "stats": [
+      "100+ attività guidate",
+      "7 bonus inclusi",
+      "Accesso immediato"
+    ],
+    "pasos": [
+      "Scarica il Manuale di Arteterapia e inizia dal capitolo che senti più vicino",
+      "Esplora i 7 bonus per approfondire ogni aspetto del tuo percorso",
+      "Pratica almeno un'attività al giorno per 7 giorni e osserva i cambiamenti"
+    ]
+  },
+  "entregables": [
+    {
+      "id": "core",
+      "tipo": "core",
+      "nombre": "Manuale di Arteterapia — 100+ Attività Guidate",
+      "descripcion": "Il manuale completo con oltre 100 attività di arteterapia organizzate in 7 capitoli tematici.",
+      "carpeta": "manuale-di-arteterapia-100-attivita-guid",
+      "random": "zyvl27m9ee",
+      "en_hub": true,
+      "pdf": "manuale-di-arteterapia-100-attivita-guid.pdf",
+      "fuente": "pdf-sources/manuale-di-arteterapia-100-attivita-guid.html",
+      "paginas": 0
+    },
+    {
+      "id": "bono-17-attivita-supplementari-di-arteterapia",
+      "tipo": "bono",
+      "nombre": "17 attività supplementari di arteterapia",
+      "descripcion": "17 attività extra per ampliare il tuo repertorio creativo.",
+      "carpeta": "17-attivita-supplementari-di-arteterapia",
+      "random": "uik040fbi9",
+      "en_hub": true,
+      "pdf": "17-attivita-supplementari-di-arteterapia.pdf",
+      "fuente": "pdf-sources/17-attivita-supplementari-di-arteterapia.html",
+      "paginas": 0,
+      "orden": "1/7"
+    },
+    {
+      "id": "bono-20-esercizi-per-rafforzare-l-autostima",
+      "tipo": "bono",
+      "nombre": "20 esercizi per rafforzare l'autostima",
+      "descripcion": "20 esercizi pratici per costruire fiducia in te stesso attraverso l'arte.",
+      "carpeta": "20-esercizi-per-rafforzare-l-autostima",
+      "random": "wx0jw7bkj4",
+      "en_hub": true,
+      "pdf": "20-esercizi-per-rafforzare-l-autostima.pdf",
+      "fuente": "pdf-sources/20-esercizi-per-rafforzare-l-autostima.html",
+      "paginas": 0,
+      "orden": "2/7"
+    },
+    {
+      "id": "bono-carte-di-introspezione-sulle-paure-50-do",
+      "tipo": "bono",
+      "nombre": "Carte di introspezione sulle paure — 50 domande",
+      "descripcion": "50 carte con domande e suggerimenti creativi per esplorare e trasformare le tue paure.",
+      "carpeta": "carte-di-introspezione-sulle-paure-50-do",
+      "random": "f17cd2jqgk",
+      "en_hub": true,
+      "pdf": "carte-di-introspezione-sulle-paure-50-do.pdf",
+      "fuente": "pdf-sources/carte-di-introspezione-sulle-paure-50-do.html",
+      "paginas": 0,
+      "orden": "3/7"
+    },
+    {
+      "id": "bono-superare-i-blocchi-emotivi",
+      "tipo": "bono",
+      "nombre": "Superare i blocchi emotivi",
+      "descripcion": "Guida pratica con tecniche di arteterapia per identificare e superare i blocchi emotivi.",
+      "carpeta": "superare-i-blocchi-emotivi",
+      "random": "yxzctrlwh1",
+      "en_hub": true,
+      "pdf": "superare-i-blocchi-emotivi.pdf",
+      "fuente": "pdf-sources/superare-i-blocchi-emotivi.html",
+      "paginas": 0,
+      "orden": "4/7"
+    },
+    {
+      "id": "bono-guida-all-applicazione-e-all-interpretaz",
+      "tipo": "bono",
+      "nombre": "Guida all'applicazione e all'interpretazione",
+      "descripcion": "Come facilitare sessioni di arteterapia e interpretare le opere in modo etico e professionale.",
+      "carpeta": "guida-all-applicazione-e-all-interpretaz",
+      "random": "c24j3mk47l",
+      "en_hub": true,
+      "pdf": "guida-all-applicazione-e-all-interpretaz.pdf",
+      "fuente": "pdf-sources/guida-all-applicazione-e-all-interpretaz.html",
+      "paginas": 0,
+      "orden": "5/7"
+    },
+    {
+      "id": "bono-rafforza-la-tua-fiducia-in-te",
+      "tipo": "bono",
+      "nombre": "Rafforza la tua fiducia in te",
+      "descripcion": "Esercizi creativi per costruire e mantenere la fiducia in te stesso.",
+      "carpeta": "rafforza-la-tua-fiducia-in-te",
+      "random": "kd73vraxvp",
+      "en_hub": true,
+      "pdf": "rafforza-la-tua-fiducia-in-te.pdf",
+      "fuente": "pdf-sources/rafforza-la-tua-fiducia-in-te.html",
+      "paginas": 0,
+      "orden": "6/7"
+    },
+    {
+      "id": "bono-100-attivita-supplementari-edizione-2",
+      "tipo": "bono",
+      "nombre": "100 attività supplementari — Edizione 2",
+      "descripcion": "100 attività bonus in 10 nuovi temi: natura, musica, movimento, scrittura e altro.",
+      "carpeta": "100-attivita-supplementari-edizione-2",
+      "random": "6tlm57967p",
+      "en_hub": true,
+      "pdf": "100-attivita-supplementari-edizione-2.pdf",
+      "fuente": "pdf-sources/100-attivita-supplementari-edizione-2.html",
+      "paginas": 0,
+      "orden": "7/7"
+    }
+  ],
+  "promesas": [],
+  "imagenes": [],
+  "ads_dir": "ADS/ARTETERAPIA-IT",
+  "lanzamiento": "pendiente",
+  "checklist": []
+}

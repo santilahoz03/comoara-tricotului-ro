@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Crochet para tu Hogar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FAF8F5;--paper:#FFFFFF;--ink:#2E2820;--ink-soft:#6B5F54;
+  --accent:#3D7A5A;--accent-dark:#2F5E44;--line:#C4B8AA;
+  --f-titulo:'Lora',Georgia,serif;--f-texto:'Source Sans 3',-apple-system,Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{font-family:var(--f-texto);color:var(--ink);background:var(--bg);min-height:100vh}
+.wrap{max-width:720px;margin:0 auto;padding:40px 20px 80px}
+
+.hero{text-align:center;margin-bottom:36px}
+.hero .kicker{display:inline-block;background:var(--accent);color:var(--paper);padding:5px 16px;
+  border-radius:99px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:14px}
+.hero h1{font-family:var(--f-titulo);font-size:28px;line-height:1.2;color:var(--accent-dark);margin-bottom:8px}
+.hero .sub{font-size:16px;color:var(--ink-soft);max-width:500px;margin:0 auto 20px}
+.stats{display:flex;justify-content:center;gap:24px;flex-wrap:wrap}
+.stats .s{text-align:center}
+.stats .n{display:block;font-family:var(--f-titulo);font-size:28px;font-weight:700;color:var(--accent-dark)}
+.stats .l{font-size:13px;color:var(--ink-soft)}
+
+h2{font-family:var(--f-titulo);font-size:20px;color:var(--accent-dark);margin:32px 0 14px;
+  padding-bottom:8px;border-bottom:2px solid var(--line)}
+.label{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  padding:3px 10px;border-radius:99px;margin-bottom:8px}
+.label-core{background:var(--accent);color:var(--paper)}
+.label-bonus{background:var(--paper);color:var(--accent-dark);border:1px solid var(--line)}
+
+.card{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:20px;margin-bottom:14px;
+  transition:box-shadow .15s}
+.card:hover{box-shadow:0 4px 16px rgba(0,0,0,.06)}
+.card h3{font-family:var(--f-titulo);font-size:17px;margin:0 0 4px;color:var(--ink)}
+.card .desc{font-size:14px;color:var(--ink-soft);margin-bottom:12px}
+.card .meta{font-size:13px;color:var(--ink-soft);margin-bottom:12px}
+
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:var(--paper);
+  padding:10px 22px;border-radius:8px;font-weight:600;font-size:14px;text-decoration:none;
+  transition:background .15s}
+.btn:hover{background:var(--accent-dark)}
+.btn svg{width:16px;height:16px;fill:currentColor}
+
+.steps-box{background:var(--paper);border:2px solid var(--accent);border-radius:12px;padding:24px;margin-top:32px}
+.steps-box h2{margin-top:0;border:none;padding:0}
+.steps-list{counter-reset:paso;list-style:none;padding:0;margin:14px 0 0}
+.steps-list li{counter-increment:paso;position:relative;padding:6px 0 10px 36px;font-size:15px;color:var(--ink)}
+.steps-list li::before{content:counter(paso);position:absolute;left:0;top:4px;width:24px;height:24px;
+  border-radius:50%;background:var(--accent);color:var(--paper);font-weight:700;font-size:13px;
+  display:flex;align-items:center;justify-content:center}
+
+.footer{text-align:center;margin-top:40px;padding-top:20px;border-top:1px solid var(--line);
+  font-size:12px;color:var(--ink-soft);line-height:1.6}
+
+@media(max-width:520px){
+  .hero h1{font-size:22px}
+  .stats{gap:16px}
+  .stats .n{font-size:22px}
+  .wrap{padding:24px 16px 60px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hero">
+    <span class="kicker">Bienvenida a</span>
+    <h1>Crochet para tu Hogar</h1>
+    <p class="sub">Todo lo que necesitas para transformar tu hogar con crochet hecho a mano, un rinc&oacute;n a la vez.</p>
+    <div class="stats">
+      <div class="s"><span class="n">30+</span><span class="l">patrones paso a paso</span></div>
+      <div class="s"><span class="n">6</span><span class="l">categor&iacute;as de decoraci&oacute;n</span></div>
+      <div class="s"><span class="n">4</span><span class="l">gu&iacute;as bonus incluidas</span></div>
+    </div>
+  </div>
+
+  <h2>Producto Principal</h2>
+
+  <div class="card">
+    <span class="label label-core">Producto Principal</span>
+    <h3>Crochet para tu Hogar &middot; 30 Patrones Paso a Paso</h3>
+    <p class="desc">Colecci&oacute;n completa de patrones en 6 categor&iacute;as de decoraci&oacute;n: cojines, mantas, caminos de mesa, individuales, posavasos y organizadores.</p>
+    <p class="meta">51 p&aacute;ginas &middot; PDF</p>
+    <a class="btn" href="../../crochet-para-tu-hogar/isej05ef1b/crochet-para-tu-hogar.pdf" download>
+      <svg viewBox="0 0 24 24"><path d="M12 16l-6-6h4V4h4v6h4l-6 6zm-8 4h16v-2H4v2z"/></svg>
+      Descargar PDF
+    </a>
+  </div>
+
+  <h2>Tus Bonos</h2>
+
+  <div class="card">
+    <span class="label label-bonus">Bono 1 de 4</span>
+    <h3>Glosario Ilustrado y Gu&iacute;a de Materiales</h3>
+    <p class="desc">Referencia completa: 20+ puntos, gu&iacute;a de estambres, tabla de ganchos, t&eacute;cnicas de terminaci&oacute;n y soluci&oacute;n de problemas.</p>
+    <p class="meta">20 p&aacute;ginas &middot; PDF</p>
+    <a class="btn" href="../../glosario-ilustrado-y-guia-de-materiales/j7ae3djbq1/glosario-ilustrado-y-guia-de-materiales.pdf" download>
+      <svg viewBox="0 0 24 24"><path d="M12 16l-6-6h4V4h4v6h4l-6 6zm-8 4h16v-2H4v2z"/></svg>
+      Descargar PDF
+    </a>
+  </div>
+
+  <div class="card">
+    <span class="label label-bonus">Bono 2 de 4</span>
+    <h3>Gu&iacute;a de Combinaci&oacute;n de Colores</h3>
+    <p class="desc">Teor&iacute;a del color, paletas por habitaci&oacute;n, esquemas por temporada y consejos de muestra para decoraci&oacute;n.</p>
+    <p class="meta">15 p&aacute;ginas &middot; PDF</p>
+    <a class="btn" href="../../guia-de-combinacion-de-colores/td2eaobih4/guia-de-combinacion-de-colores.pdf" download>
+      <svg viewBox="0 0 24 24"><path d="M12 16l-6-6h4V4h4v6h4l-6 6zm-8 4h16v-2H4v2z"/></svg>
+      Descargar PDF
+    </a>
+  </div>
+
+  <div class="card">
+    <span class="label label-bonus">Bono 3 de 4</span>
+    <h3>Gu&iacute;a de Decoraci&oacute;n de Interiores</h3>
+    <p class="desc">Decoraci&oacute;n por habitaci&oacute;n, capas de textura, cuidado y mantenimiento, y c&oacute;mo crear un hogar coherente.</p>
+    <p class="meta">18 p&aacute;ginas &middot; PDF</p>
+    <a class="btn" href="../../guia-de-decoracion-de-interiores/b91pttq4gt/guia-de-decoracion-de-interiores.pdf" download>
+      <svg viewBox="0 0 24 24"><path d="M12 16l-6-6h4V4h4v6h4l-6 6zm-8 4h16v-2H4v2z"/></svg>
+      Descargar PDF
+    </a>
+  </div>
+
+  <div class="card">
+    <span class="label label-bonus">Bono 4 de 4</span>
+    <h3>Programa de 4 Fines de Semana</h3>
+    <p class="desc">Plan estructurado para completar 4 proyectos de decoraci&oacute;n en 4 fines de semana, desde posavasos hasta una manta.</p>
+    <p class="meta">18 p&aacute;ginas &middot; PDF</p>
+    <a class="btn" href="../../programa-de-4-fines-de-semana/kgt2jjlxhv/programa-de-4-fines-de-semana.pdf" download>
+      <svg viewBox="0 0 24 24"><path d="M12 16l-6-6h4V4h4v6h4l-6 6zm-8 4h16v-2H4v2z"/></svg>
+      Descargar PDF
+    </a>
+  </div>
+
+  <div class="steps-box">
+    <h2>Por D&oacute;nde Empezar</h2>
+    <ol class="steps-list">
+      <li>Descarga el libro de patrones y elige tu primer proyecto</li>
+      <li>Elige una categor&iacute;a que corresponda a la habitaci&oacute;n que quieres transformar</li>
+      <li>Sigue las instrucciones paso a paso: cada patr&oacute;n incluye materiales, conteos de puntos y consejos de terminaci&oacute;n</li>
+      <li>Explora las gu&iacute;as bonus para combinaci&oacute;n de colores, ideas de decoraci&oacute;n y un plan de fin de semana</li>
+    </ol>
+  </div>
+
+  <div class="footer">
+    <p>Acceso de por vida &middot; Descarga cuando quieras</p>
+    <p>Solo para uso personal. Prohibida la reventa o redistribuci&oacute;n.</p>
+  </div>
+
+</div>
+</body>
+</html>

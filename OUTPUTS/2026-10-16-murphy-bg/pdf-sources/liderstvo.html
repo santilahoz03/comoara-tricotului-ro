@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+<meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="_shared.css">
+<style>
+/* Tarjeta de habilidad */
+.skill-card{break-inside:avoid;margin:0 0 12pt;border:1.5pt solid var(--line);border-radius:9pt;padding:13pt 15pt;background:var(--bg)}
+.skill-card .sk-icon{font-size:22pt;line-height:1;display:block;margin-bottom:5pt}
+.skill-card .sk-title{font-family:var(--f-titulo);font-size:11.5pt;font-weight:900;color:var(--accent-dark);margin-bottom:4pt}
+.skill-card .sk-body{font-size:9.5pt;color:var(--ink);line-height:1.55;margin-bottom:5pt}
+.skill-card .sk-practice{background:var(--paper);border:1pt dashed var(--accent);border-radius:6pt;padding:7pt 10pt;font-size:8.5pt;margin-top:4pt}
+.skill-card .sk-practice strong{color:var(--accent-dark)}
+/* Encabezado de capítulo */
+.chap-heading{break-before:page;background:linear-gradient(135deg,var(--accent-dark),var(--accent));color:#fff;
+  border-radius:10pt;padding:18pt 20pt 14pt;margin:0 0 14pt}
+.chap-heading .ch-num{display:inline-block;background:rgba(255,255,255,.25);color:#fff;padding:3pt 11pt;
+  border-radius:99pt;font-size:8pt;font-weight:800;letter-spacing:.12em;text-transform:uppercase;margin-bottom:8pt}
+.chap-heading h2{color:#fff;margin:0 0 4pt;font-size:20pt;font-weight:900}
+.chap-heading p{margin:0;opacity:.87;font-size:9.5pt}
+.skill-grid{display:grid;grid-template-columns:1fr 1fr;gap:9pt}
+/* Escenario de diálogo */
+.dialogue{background:var(--paper);border-radius:8pt;padding:14pt;margin:12pt 0;break-inside:avoid}
+.dialogue .d-situation{font-size:8.5pt;color:var(--ink-soft);font-style:italic;margin-bottom:8pt;text-align:center;border-bottom:1pt dashed var(--line);padding-bottom:6pt}
+.dialogue .d-wrong{background:#fff0ee;border-left:3pt solid #c0392b;padding:7pt 10pt;border-radius:0 5pt 5pt 0;margin-bottom:8pt;font-size:9pt}
+.dialogue .d-right{background:#edfaf1;border-left:3pt solid #27ae60;padding:7pt 10pt;border-radius:0 5pt 5pt 0;font-size:9pt}
+.d-label{font-weight:800;font-size:8pt;text-transform:uppercase;letter-spacing:.08em;margin-bottom:3pt}
+/* Mini quiz reflexivo */
+.reflect-box{background:var(--paper);border:2pt solid var(--accent);border-radius:9pt;padding:14pt;margin:14pt 0;break-inside:avoid}
+.reflect-box h4{margin-top:0;color:var(--accent-dark)}
+.reflect-box ol{margin:0 0 0 14pt;padding:0}
+.reflect-box li{margin-bottom:6pt;font-size:9.5pt}
+</style>
+</head>
+<body>
+
+<!-- PORTADA -->
+<div class="cover">
+  <div>
+    <span class="kicker">Книга 3 от 3</span>
+    <h1>Лидерството Започва Тук</h1>
+    <p class="sub">Практическо ръководство за деца — как да изразяват идеи, да водят с увереност и да работят в екип</p>
+  </div>
+  <div class="brand">Комплект 3 в 1 · Мърфи за Деца</div>
+</div>
+
+<!-- ИНДЕКС -->
+<div class="toc-page">
+  <h2>Съдържание</h2>
+  <ul class="toc">
+    <li><span>Глава 1 · Какво е лидерство (и кой е лидер)</span><span>3</span></li>
+    <li><span>Глава 2 · Гласът на лидера — говори с увереност</span><span>6</span></li>
+    <li><span>Глава 3 · Слушането — суперсилата на лидерите</span><span>9</span></li>
+    <li><span>Глава 4 · Решенията и отговорността</span><span>12</span></li>
+    <li><span>Глава 5 · Работа в екип</span><span>15</span></li>
+    <li><span>Глава 6 · Справяне с конфликти</span><span>18</span></li>
+    <li><span>Глава 7 · Увереност и самооценка</span><span>21</span></li>
+    <li><span>Глава 8 · Лидерят учи — умовете на лидерите</span><span>24</span></li>
+    <li><span>Глава 9 · 30 ситуации — какво би направил ти?</span><span>27</span></li>
+    <li><span>Следващата стъпка</span><span>31</span></li>
+  </ul>
+</div>
+
+<!-- ВЪВЕДЕНИЕ -->
+<div class="section-heading">
+  <div class="num">Въведение</div>
+  <h2>Лидерството е умение — не личностна черта</h2>
+  <p>Всяко дете може да стане лидер. Не е нужно да сте „роден" с него.</p>
+</div>
+
+<p>Повечето хора смятат, че лидерите се раждат такива — оживени, гръмки, уверени от раждането. Науката казва нещо различно: лидерството е набор от <strong>умения, които се учат</strong>.</p>
+<p>Тази книга не е за това да станеш „важен" или „главатар". Лидерството е способността да помогнеш на другите да направят нещо, което не биха направили сами. Лидер е и детето, което говори за другото дете, което не може да се защити — без да е „капитан на отбора".</p>
+
+<div class="callout ok">
+  <span class="t">💡 Как да ползвате тази книга</span>
+  Всяка глава завършва с практическо упражнение. Изпробвайте го тази седмица — а не „някой ден". Лидерството се изгражда с малки действия всеки ден.
+</div>
+
+<!-- ГЛАВА 1 -->
+<div class="chap-heading">
+  <div class="ch-num">Глава 1</div>
+  <h2>Какво е лидерство — и кой е лидер</h2>
+  <p>6 ключови умения, с които всичко започва</p>
+</div>
+
+<div class="skill-grid">
+<div class="skill-card">
+  <span class="sk-icon">🌟</span>
+  <div class="sk-title">Лидерство ≠ власт</div>
+  <div class="sk-body">Лидерът не е този, на когото слушат заради страха или позицията. Лидерът е този, на когото следват, защото вярват и му се доверяват.</div>
+  <div class="sk-practice"><strong>Задай си:</strong> Кого следваш — не защото трябва, а защото искаш? Защо?</div>
+</div>
+<div class="skill-card">
+  <span class="sk-icon">🤝</span>
+  <div class="sk-title">Лидерите помагат</div>
+  <div class="sk-body">Един от ключовите знаци за лидерски потенциал: детето, което помага на другото, когато никой не гледа. Не за похвала — а защото го чувства правилно.</div>
+  <div class="sk-practice"><strong>Задай си:</strong> Кога последно помогна на някой без да те питат? Как се почувства?</div>
+</div>
+<div class="skill-card">
+  <span class="sk-icon">🎯</span>
+  <div class="sk-title">Лидерите имат посока</div>
+  <div class="sk-body">Лидерят знае накъде отива. Не е нужна сложна цел — достатъчно е да каже ясно: „Искаме да направим X, защото Y."</div>
+  <div class="sk-practice"><strong>Опитай:</strong> Напиши едно нещо, което искаш да постигнеш тази седмица. Кажи го на глас пред огледало.</div>
+</div>
+<div class="skill-card">
+  <span class="sk-icon">💬</span>
+  <div class="sk-title">Лидерите говорят и слушат</div>
+  <div class="sk-body">Лидерят не само говори — слуша с истинско внимание. Хората следват тези, които ги чувстват чути.</div>
+  <div class="sk-practice"><strong>Опитай:</strong> В следващия разговор задай два въпроса преди да даваш собствено мнение.</div>
+</div>
+<div class="skill-card">
+  <span class="sk-icon">🛡️</span>
+  <div class="sk-title">Лидерите защитават другите</div>
+  <div class="sk-body">Истинският лидер застава зад тези, на които е трудно — дори когато е неудобно. Не е нужна гръмка реч — понякога е достатъчно „стой до мен".</div>
+  <div class="sk-practice"><strong>Задай си:</strong> Има ли в класа ти дете, на което е трудно? Какво можеш да направиш тази седмица?</div>
+</div>
+<div class="skill-card">
+  <span class="sk-icon">📈</span>
+  <div class="sk-title">Лидерите растат</div>
+  <div class="sk-body">Лидерите не спират да учат. Питат „Какво мога да направя по-добре?" Не „Защо всички са по-лоши от мен?"</div>
+  <div class="sk-practice"><strong>Всяка вечер:</strong> Едно нещо, което се справих добре. Едно нещо, което утре ще направя по-добре.</div>
+</div>
+</div>
+
+<!-- ГЛАВА 2 -->
+<div class="chap-heading">
+  <div class="ch-num">Глава 2</div>
+  <h2>Гласът на лидера — говори с увереност</h2>
+  <p>Как да изразяваш идеи ясно и убедително</p>
+</div>
+
+<p>Лидерите не се раждат с „добър глас". Учат се да говорят ясно — и могат да го направят всички.</p>
+
+<div class="skill-grid">
+<div class="skill-card">
+  <span class="sk-icon">🎤</span>
+  <div class="sk-title">Структурата е всичко</div>
+  <div class="sk-body">Ясната идея следва прост ред: (1) Проблемът, (2) Моят отговор, (3) Защо е добро. Три изречения. Работи навсякъде.</div>
+  <div class="sk-practice"><strong>Опитай:</strong> Обясни любимата си игра с тази структура на родителите си.</div>
+</div>
+<div class="skill-card">
+  <span class="sk-icon">👀</span>
+  <div class="sk-title">Очен контакт = доверие</div>
+  <div class="sk-body">Когато гледаш в очите, хората се чувстват чути и важни. Поглеждай всеки в стаята — не само „към стената".</div>
+  <div class="sk-practice"><strong>Тренировка:</strong> При следващото представяне в клас — поглеждай 3 различни деца по 2 секунди всяко.</div>
+</div>
+<div class="skill-card">
+  <span class="sk-icon">🔇</span>
+  <div class="sk-title">Паузата е мощна</div>
+  <div class="sk-body">Пауза от 2 секунди след важно изречение казва „Запомнете това." Говоренето без пауза не дава на слушателя да обработи.</div>
+  <div class="sk-practice"><strong>Изпробвай:</strong> Кажи едно изречение. Спри за 2 секунди. Продължи. Наблюдавай реакцията.</div>
+</div>
+<div class="skill-card">
+  <span class="sk-icon">🚶</span>
+  <div class="sk-title">Тялото говори</div>
+  <div class="sk-body">Над 50% от убеждението идва от езика на тялото — изправена стойка, спокойни ръце, без кръстосани ръце.</div>
+  <div class="sk-practice"><strong>Огледало:</strong> Стой изправен, ръце надолу, очи нагоре. Наблюдавай разликата в усещането.</div>
+</div>
+</div>
+
+<div class="callout ok">
+  <span class="t">🎯 5-минутно упражнение</span>
+  Изберете тема (любим спорт, животно, игра). Обяснете я за 1 минута на родителите. После попитайте: „Разбрахте ли? Какво не беше ясно?" Повторете 3 пъти в различни дни. Разликата ще е забележима.
+</div>
+
+<!-- ГЛАВА 3 -->
+<div class="chap-heading">
+  <div class="ch-num">Глава 3</div>
+  <h2>Слушането — суперсилата на лидерите</h2>
+  <p>Истинското слушане е рядко и мощно умение</p>
+</div>
+
+<div class="skill-grid">
+<div class="skill-card">
+  <span class="sk-icon">👂</span>
+  <div class="sk-title">Повечето хора „чакат реда си"</div>
+  <div class="sk-body">По-голямата част от хората не слушат — мислят за отговора докато другият говори. Истинското слушане = фокус върху другия, без „следващото изречение" в главата.</div>
+  <div class="sk-practice"><strong>Правило:</strong> Преди да отговориш — изчакай 2 секунди. Накратко обобщи казаното: „Значи казваш, че…"</div>
+</div>
+<div class="skill-card">
+  <span class="sk-icon">❓</span>
+  <div class="sk-title">Питай, не предполагай</div>
+  <div class="sk-body">Предположенията са корен на конфликтите. „Искаш да кажеш, че…?" е по-добре от „Знам, че ти имаш предвид…"</div>
+  <div class="sk-practice"><strong>Тази седмица:</strong> Всеки ден задай поне едно уточняващо: „Когато казваш X, имаш предвид Y или Z?"</div>
+</div>
+<div class="skill-card">
+  <span class="sk-icon">📴</span>
+  <div class="sk-title">Телефонът е враг на слушането</div>
+  <div class="sk-body">Дори телефонът до вас — изключен — намалява способността за слушане с ~20%. Слагай го в чанта или джоб при важен разговор.</div>
+  <div class="sk-practice"><strong>Правило:</strong> Когато говоря с някой — телефонът е в джоба или чантата, не на масата.</div>
+</div>
+<div class="skill-card">
+  <span class="sk-icon">🪞</span>
+  <div class="sk-title">Огледайте — не оценявайте</div>
+  <div class="sk-body">Когато слушаш лидерски — не оценявате, а „отразявате" казаното. „Чувам те", „Разбирам, защо се чувстваш така" е мощно — дори когато не сте съгласни.</div>
+  <div class="sk-practice"><strong>Упражнение:</strong> Следващия път когато приятел е ядосан — само слушай и „отразявай", без съвети, за 2 минути.</div>
+</div>
+</div>
+
+<h3>Сравнение: Пасивно vs. Активно слушане</h3>
+<table class="data" style="font-size:9pt">
+  <thead><tr><th>Ситуация</th><th>Пасивно слушане</th><th>Активно слушане (лидерско)</th></tr></thead>
+  <tbody>
+    <tr><td>Приятел разказва проблем</td><td>„Знам, при мен беше същото..."</td><td>„Как се чувстваш? Какво ти трябва от мен?"</td></tr>
+    <tr><td>Учителят обяснява</td><td>Гледаш в тетрадката си</td><td>Поглед към учителя, записваш ключови думи</td></tr>
+    <tr><td>Конфликт в групата</td><td>„Той/тя греши, ако попиташ мен..."</td><td>„Нека чуем и двете страни преди да решим."</td></tr>
+    <tr><td>Родителят нещо обяснява</td><td>„Да, да, разбрах" (без внимание)</td><td>„Значи искаш да кажеш, че…? Правилно ли разбирам?"</td></tr>
+  </tbody>
+</table>
+
+<!-- ГЛАВА 4 -->
+<div class="chap-heading">
+  <div class="ch-num">Глава 4</div>
+  <h2>Решенията и отговорността</h2>
+  <p>Как да вземаш добри решения и да поемаш последствията</p>
+</div>
+
+<div class="skill-grid">
+<div class="skill-card">
+  <span class="sk-icon">⚖️</span>
+  <div class="sk-title">Рамката „Плюс/Минус/Интересно"</div>
+  <div class="sk-body">Преди важно решение — напишете три колони: Плюс (ползи), Минус (рискове), Интересно (непредвидени последствия). 5 минути работа спестява часове съжаления.</div>
+  <div class="sk-practice"><strong>Тази седмица:</strong> Използвай тази рамка за едно решение — дори малко.</div>
+</div>
+<div class="skill-card">
+  <span class="sk-icon">⏱️</span>
+  <div class="sk-title">Добро решение навреме &gt; перфектно решение късно</div>
+  <div class="sk-body">Чакането на перфектното решение е парализа. 70% сигурност и действие е по-добро от 100% анализ без резултат — в повечето ситуации.</div>
+  <div class="sk-practice"><strong>Правило:</strong> Ако имаш 70% сигурност и последствията са обратими — действай. Ако не са — изчакай.</div>
+</div>
+<div class="skill-card">
+  <span class="sk-icon">🙋</span>
+  <div class="sk-title">„Моя грешка" е силна фраза</div>
+  <div class="sk-body">Лидерите, поемащи отговорност за грешките си, получават повече доверие — не по-малко. Самозащитата разрушава доверието.</div>
+  <div class="sk-practice"><strong>Практика:</strong> Следващия път когато сгрешиш — кажи само: „Моя грешка. Ето какво ще направя по-различно."</div>
+</div>
+<div class="skill-card">
+  <span class="sk-icon">🔍</span>
+  <div class="sk-title">Намери причината, не виновника</div>
+  <div class="sk-body">Питането „Кой е виновен?" разрушава екипа. „Защо се случи?" изгражда системи, предотвратяващи следващата грешка.</div>
+  <div class="sk-practice"><strong>Следваш:</strong> При следваш проблем в групата — питай „Как стигнахме дотук?" преди „Кой е виновен?"</div>
+</div>
+</div>
+
+<div class="checklist">
+  <h3>✅ Чеклист: Преди важно решение</h3>
+  <ul>
+    <li>Изслушах ли всички засегнати гледни точки?</li>
+    <li>Имам ли достатъчно информация (поне 70%)?</li>
+    <li>Обмислих ли Плюс/Минус/Интересно?</li>
+    <li>Мога ли да поема отговорността за последствията?</li>
+    <li>Готов ли съм да кажа „Моя грешка" ако не се получи?</li>
+    <li>Може ли решението да се обърне ако сгреша?</li>
+  </ul>
+</div>
+
+<!-- ГЛАВА 5 -->
+<div class="chap-heading">
+  <div class="ch-num">Глава 5</div>
+  <h2>Работа в екип</h2>
+  <p>Правила за ефективна съвместна работа</p>
+</div>
+
+<div class="skill-grid">
+<div class="skill-card">
+  <span class="sk-icon">🎯</span>
+  <div class="sk-title">Ясната цел е основата</div>
+  <div class="sk-body">Екипът без ясна цел се „движи" — всеки в своя посока. Преди да „почнете да работите" — отделете 5 минути да се съгласите накъде вървите.</div>
+  <div class="sk-practice"><strong>Правило:</strong> При групов проект — написвате едно изречение „Накрая ще имаме __." Всеки трябва да се съгласи с него.</div>
+</div>
+<div class="skill-card">
+  <span class="sk-icon">📋</span>
+  <div class="sk-title">Ролите трябва да са ясни</div>
+  <div class="sk-body">Когато всеки знае какво е „неговото" — нещата се вършат. Когато е неясно — или се дублира работата, или не се върши.</div>
+  <div class="sk-practice"><strong>Задача:</strong> За следващия групов проект — напишете имената и задачите на всеки в 1 минута.</div>
+</div>
+<div class="skill-card">
+  <span class="sk-icon">💪</span>
+  <div class="sk-title">Работи с различни хора</div>
+  <div class="sk-body">Екипите с различни умения и гледни точки решават проблемите по-добре. Избягването на „другите" е ограничение, не защита.</div>
+  <div class="sk-practice"><strong>Тази седмица:</strong> Поработете с ученик, с когото обикновено не работите. Научете нещо от него.</div>
+</div>
+<div class="skill-card">
+  <span class="sk-icon">🔄</span>
+  <div class="sk-title">Обратната връзка е подарък</div>
+  <div class="sk-body">Давайте и приемайте обратна връзка конструктивно: „Харесва ми X. Мисля, че Y ще стане по-добро ако Z." Никога „Всичко е грешно."</div>
+  <div class="sk-practice"><strong>Формула:</strong> За всяка критика — намерете поне едно нещо, което работи добре.</div>
+</div>
+</div>
+
+<div class="steps">
+  <li><strong>Определете целта.</strong> Един ред: „Искаме да ___." Всеки потвърждава.</li>
+  <li><strong>Разпределете ролите.</strong> Кой прави какво до кога — записано.</li>
+  <li><strong>Работете паралелно.</strong> Не чакайте другия да приключи, за да почнете вие.</li>
+  <li><strong>Обменете в средата.</strong> Кратка среща на половин път: напредък + блокажи.</li>
+  <li><strong>Финализирайте заедно.</strong> Последен преглед — всички дават мнение.</li>
+  <li><strong>Отпразнувайте.</strong> Дори малка победа заслужава признание.</li>
+</div>
+
+<!-- ГЛАВА 6 -->
+<div class="chap-heading">
+  <div class="ch-num">Глава 6</div>
+  <h2>Справяне с конфликти</h2>
+  <p>Конфликтите са нормални — важното е как ги разрешаваме</p>
+</div>
+
+<div class="dialogue">
+  <div class="d-situation">Ситуация: Двама ученици спорят кой е взел идеята за проекта.</div>
+  <div class="d-wrong">
+    <div class="d-label" style="color:#c0392b">❌ Без лидерство</div>
+    „Аз го казах пръв! Ти само ме копира. Всички го знаят."
+  </div>
+  <div class="d-right">
+    <div class="d-label" style="color:#27ae60">✅ С лидерство</div>
+    „Изглежда, че сме дошли до подобна идея. Можем ли да говорим за 2 минути как да я развием заедно?"
+  </div>
+</div>
+
+<div class="dialogue">
+  <div class="d-situation">Ситуация: Приятел е ядосан на теб за нещо, което не си направил.</div>
+  <div class="d-wrong">
+    <div class="d-label" style="color:#c0392b">❌ Реакция</div>
+    „Ти грешиш! Аз изобщо не съм! Не искам да говоря."
+  </div>
+  <div class="d-right">
+    <div class="d-label" style="color:#27ae60">✅ Отговор</div>
+    „Чувам, че си ядосан. Казвай ми какво точно те е наранило — искам да разберем заедно."
+  </div>
+</div>
+
+<div class="skill-grid">
+<div class="skill-card">
+  <span class="sk-icon">🛑</span>
+  <div class="sk-title">Правилото на паузата</div>
+  <div class="sk-body">При конфликт — и двете страни правят пауза от 3-5 минути преди да говорят. Реакцията от ярост рядко е правилната.</div>
+  <div class="sk-practice"><strong>Фраза:</strong> „Трябват ми 5 минути, след което ще говорим спокойно."</div>
+</div>
+<div class="skill-card">
+  <span class="sk-icon">🎭</span>
+  <div class="sk-title">Говори за ЧУВСТВА, не за ОБВИНЕНИЯ</div>
+  <div class="sk-body">„Чувствам се наранен, когато..." е по-добре от „Ти ме наранява, защото..." Предметът е твоето усещане, а не поведението на другия.</div>
+  <div class="sk-practice"><strong>Формула:</strong> „Когато [действие], аз се чувствам [усещане]."</div>
+</div>
+<div class="skill-card">
+  <span class="sk-icon">🤲</span>
+  <div class="sk-title">Търси „и двамата печелим"</div>
+  <div class="sk-body">Конфликтът не е игра с победители и победени. Лидерят търси решение, при което и двете страни са доволни — поне частично.</div>
+  <div class="sk-practice"><strong>Питай:</strong> „Какво би те удовлетворило? Ето какво за мен е важно. Как намираме средата?"</div>
+</div>
+<div class="skill-card">
+  <span class="sk-icon">🧑‍⚖️</span>
+  <div class="sk-title">Трета страна — само при нужда</div>
+  <div class="sk-body">Когато конфликтът не може да се реши между двамата — включете неутрална трета страна (учител, родител). Не като „съдия", а като медиатор.</div>
+  <div class="sk-practice"><strong>Критерий:</strong> Ако след две спокойни разговора няма напредък — поискайте помощ от неутрален възрастен.</div>
+</div>
+</div>
+
+<!-- ГЛАВА 7 -->
+<div class="chap-heading">
+  <div class="ch-num">Глава 7</div>
+  <h2>Увереност и самооценка</h2>
+  <p>Как да изградиш вяра в себе си — не самохвалство, а стабилност</p>
+</div>
+
+<div class="skill-grid">
+<div class="skill-card">
+  <span class="sk-icon">🏆</span>
+  <div class="sk-title">Увереността се изгражда с малки победи</div>
+  <div class="sk-body">Мозъкът изгражда увереност чрез акумулиране на доказателства: „Справих се с X, значи мога и с Y." Малките победи всеки ден са ключът.</div>
+  <div class="sk-practice"><strong>Всяка вечер:</strong> Назовете 1 нещо, с което се справихте днес. Дори малко.</div>
+</div>
+<div class="skill-card">
+  <span class="sk-icon">🪞</span>
+  <div class="sk-title">Вътрешният глас е важен</div>
+  <div class="sk-body">Как говорим за себе си в главата — „Аз съм неспособен" vs. „Сега не мога, но мога да науча" — определя колко ще опитаме.</div>
+  <div class="sk-practice"><strong>Упражнение:</strong> Следващия път чуете „Не мога" в главата — добавете „ОЩЕ". „Не мога ОЩЕ."</div>
+</div>
+<div class="skill-card">
+  <span class="sk-icon">💪</span>
+  <div class="sk-title">Увереността идва от подготовката</div>
+  <div class="sk-body">Хората, изглеждащи уверени, обикновено са добре подготвени. Увереността не е „перформанс" — е следствие от подготовка.</div>
+  <div class="sk-practice"><strong>Преди презентация:</strong> Повтори я 5 пъти на глас — дори пред огледало или плюшена играчка.</div>
+</div>
+<div class="skill-card">
+  <span class="sk-icon">❌</span>
+  <div class="sk-title">Отказите не са лично</div>
+  <div class="sk-body">Когато ни кажат „не" — това е отговор за идеята или действието в момента, не присъда за нас като личности.</div>
+  <div class="sk-practice"><strong>Мантра:</strong> „Отказаха идеята, не мен." Питай: „Какво би трябвало да е различно, за да е 'да'?"</div>
+</div>
+</div>
+
+<!-- ГЛАВА 8 -->
+<div class="chap-heading">
+  <div class="ch-num">Глава 8</div>
+  <h2>Лидерят учи — умовете на лидерите</h2>
+  <p>Мислителни навици на хора, водещи с увереност</p>
+</div>
+
+<div class="skill-grid">
+<div class="skill-card">
+  <span class="sk-icon">🧠</span>
+  <div class="sk-title">Любопитството е суперсила</div>
+  <div class="sk-body">Лидерите питат „Защо?" и „Как?" повече от другите. Любопитството е двигателят на иновациите и добрите решения.</div>
+  <div class="sk-practice"><strong>Тази седмица:</strong> Питай 5 въпроса „Защо?" за нещо, което ти изглежда очевидно.</div>
+</div>
+<div class="skill-card">
+  <span class="sk-icon">📖</span>
+  <div class="sk-title">Четенето е лидерска инвестиция</div>
+  <div class="sk-body">Хората, четящи редовно, имат по-богат речник, по-широк поглед и по-добра способност за разбиране на чуждата гледна точка.</div>
+  <div class="sk-practice"><strong>Навик:</strong> 10 минути четене преди сън — книга по избор. Без телефон.</div>
+</div>
+<div class="skill-card">
+  <span class="sk-icon">🎓</span>
+  <div class="sk-title">Учи се от всеки</div>
+  <div class="sk-body">Всеки човек знае нещо, което ти не знаеш. Лидерите не делят хората на „от кого мога да уча" и „от кого не мога" — всеки е учител в нещо.</div>
+  <div class="sk-practice"><strong>Задача:</strong> Питай някой (приятел, родител, учител): „Каква е най-полезната вещ, която знаеш?"</div>
+</div>
+<div class="skill-card">
+  <span class="sk-icon">🔄</span>
+  <div class="sk-title">Мислене за системи</div>
+  <div class="sk-body">Лидерите не само решават проблемите — питат „Защо се появяват?" Търсят да подобрят системата, не само да „потушат пожара".</div>
+  <div class="sk-practice"><strong>При проблем:</strong> Питай 5 пъти „Защо" — за да намериш корена, не само симптома.</div>
+</div>
+</div>
+
+<!-- ГЛАВА 9 -->
+<div class="chap-heading">
+  <div class="ch-num">Глава 9</div>
+  <h2>30 ситуации — какво би направил ти?</h2>
+  <p>Практически сценарии за дискусия с детето</p>
+</div>
+
+<div class="reflect-box">
+  <h4>🎯 Как да ги използвате</h4>
+  <p style="font-size:9pt;margin-bottom:10pt;">Прочетете ситуацията. Попитайте детето: „Какво би направил ти?" Изчакайте отговор. После обсъдете — няма „правилен" отговор за всяка ситуация.</p>
+  <ol>
+    <li>В групов проект само ти работиш — другите двама не правят нищо.</li>
+    <li>Приятел е говорил лошо за теб зад гърба ти. Разбираш случайно.</li>
+    <li>Учителят е направил грешка в оценката ти — в твоя полза.</li>
+    <li>Новото дете в класа седи само на обяд всеки ден.</li>
+    <li>Приятел предлага да „копирате" домашното един от друг.</li>
+    <li>Ти видя как друго дете е взело нещо на съученик.</li>
+    <li>Капитанът на отбора не те избира, въпреки че си добър играч.</li>
+    <li>Родителите ти спорят за нещо и теглят и теб.</li>
+    <li>Учителят те обвинява публично за нещо, което не си направил.</li>
+    <li>Твоята идея за групов проект е отхвърлена без обяснение.</li>
+  </ol>
+</div>
+
+<div class="reflect-box">
+  <h4>Ситуации 11–20</h4>
+  <ol start="11">
+    <li>Виждаш как по-голямо дете тормози по-малко.</li>
+    <li>Трябва да изберете кой да „остане" от вашата група — само ти можеш да го спасиш.</li>
+    <li>Обещал си на приятел нещо, но после разбираш, че не можеш да го спазиш.</li>
+    <li>Спечелваш игра заради грешка на другия — той не е забелязал.</li>
+    <li>Трябва да говориш пред целия клас за нещо, за което не си сигурен.</li>
+    <li>Приятел споделя тайна, която вероятно трябва да кажеш на родителите.</li>
+    <li>Всички в класа се смеят на шега за сметка на един от съучениците.</li>
+    <li>Трябва да изберете лидер за проекта — всички се очакват да те изберат теб.</li>
+    <li>Допускаш грешка, която „руши" груповия проект в последния момент.</li>
+    <li>Двама близки приятели скарват и искат всеки от теб да вземеш страна.</li>
+  </ol>
+</div>
+
+<div class="reflect-box">
+  <h4>Ситуации 21–30</h4>
+  <ol start="21">
+    <li>Получаваш лоша оценка, въпреки че беше труда много.</li>
+    <li>Трябва да откажеш на приятел, за да пазиш собствената си граница.</li>
+    <li>Виждаш, че учителят фаворизира едни деца пред други.</li>
+    <li>Нещо, което каза, нарани приятеля ти — дори без да искаш.</li>
+    <li>Имаш идея, за която мислиш, че е страхотна — но никой не я подкрепя.</li>
+    <li>Трябва да поправиш грешка, като признаеш публично пред класа.</li>
+    <li>Нов ученик предизвиква лидерството ти в групата.</li>
+    <li>Имаш правото да „отмъстиш" за нещо — но знаеш, че ще влоши ситуацията.</li>
+    <li>Трябва да направиш нещо, което е правилно, но непопулярно сред приятелите.</li>
+    <li>Разбираш, че лидер, на когото се доверяваш, е взел лошо решение.</li>
+  </ol>
+</div>
+
+<!-- CIERRE -->
+<div class="endcover">
+  <h2>Следващата стъпка</h2>
+  <div class="box">
+    <p style="font-size:12pt;color:var(--ink-soft);margin-bottom:12pt;">Прочели сте и трите книги от Комплект 3 в 1 — Мърфи за Деца.</p>
+    <p style="margin-bottom:10pt;"><strong>Изберете едно умение от тази книга</strong>, с което ще работите следващата седмица. Запишете го. Кажете го на глас.</p>
+    <p style="margin-bottom:10pt;">Лидерството не е дестинация — е навик, изграждан всеки ден с малки, последователни действия.</p>
+    <p style="color:var(--ink-soft);font-size:9pt;">Комплект 3 в 1 · Мърфи за Деца</p>
+  </div>
+</div>
+
+</body>
+</html>

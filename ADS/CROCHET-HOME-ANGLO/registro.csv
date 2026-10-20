@@ -1,0 +1,11 @@
+id,concepto,origen,parent,batch,archivo,audio,costo,estado
+1,A-detalle-transforma,replica,2270510290157282,2026-10-06,ADS/CROCHET-HOME/2026-10-06/1.mp4,ElevenLabs Hope,~0.15,listo
+2,B-ya-tenes-las-bases,replica,1468084078710465,2026-10-06,ADS/CROCHET-HOME/2026-10-06/2.mp4,ElevenLabs Hope,~0.10,listo
+3,A-horas-buscando-patron,replica,2270510290157282,2026-10-06,ADS/CROCHET-HOME/2026-10-06/3.mp4,ElevenLabs Hope,~0.15,listo
+4,A-lana-olvidada,replica,1648977193507443,2026-10-06,ADS/CROCHET-HOME/2026-10-06/4.mp4,ElevenLabs Hope,~0.12,listo
+5,G-lifestyle-puro,replica,2907598429590968,2026-10-06,ADS/CROCHET-HOME/2026-10-06/5.mp4,ElevenLabs Hope,~0.10,listo
+6,A-sin-tiempo-fin-de-semana,replica,2135868840302180,2026-10-06,ADS/CROCHET-HOME/2026-10-06/6.mp4,ElevenLabs Hope,~0.12,listo
+7,A-proyecto-a-medias,replica,1408197590829434,2026-10-06,ADS/CROCHET-HOME/2026-10-06/7.mp4,ElevenLabs Hope,~0.10,listo
+8,A-foto-al-grupo,replica,1031961529872138,2026-10-06,ADS/CROCHET-HOME/2026-10-06/8.mp4,ElevenLabs Hope,~0.10,listo
+9,A-tres-videos-cero-filas,replica,1073145142001297,2026-10-06,ADS/CROCHET-HOME/2026-10-06/9.mp4,ElevenLabs Hope,~0.13,listo
+10,A-patron-incomprensible,replica,1595307135568173,2026-10-06,ADS/CROCHET-HOME/2026-10-06/10.mp4,ElevenLabs Hope,~0.13,listo

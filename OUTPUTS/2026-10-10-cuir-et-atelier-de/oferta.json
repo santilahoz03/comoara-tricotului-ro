@@ -1,0 +1,203 @@
+{
+  "producto": "Leder & Werkstatt",
+  "slug": "leder-werkstatt",
+  "titulo_completo": "Meister-Schnittmusterkollektion für Leder · über 170 Professionelle Schnittmuster + 3 Bonus-Anleitungen Inklusive",
+  "idioma": "de",
+  "registro": "du-informell",
+  "mercado": "DE",
+  "precio": "17,99 €",
+  "precio_tachado": "37,99 €",
+  "ahorro": "20,00 €",
+  "tienda": "ImpulTienda",
+  "subdominio": "",
+  "subdominio_estado": "pendiente",
+  "landing_publicada": "",
+  "dominio_entregables": "https://santilahoz03.github.io/leder-werkstatt-de",
+  "paleta": {
+    "bg": "#F5EDE0",
+    "paper": "#FDF8F2",
+    "ink": "#1A0F08",
+    "ink_soft": "#5A4232",
+    "accent": "#E0A15E",
+    "accent_dark": "#B5611F",
+    "line": "#E6D5C0"
+  },
+  "fuentes": {
+    "titulo": "Playfair Display",
+    "texto": "DM Sans"
+  },
+  "hub": {
+    "carpeta": "acceso",
+    "random": "fzw7goxfd3",
+    "titulo": "Leder & Werkstatt",
+    "subtitulo": "Deine komplette Schnittmuster-Bibliothek für Lederprojekte",
+    "stats": [
+      "170+\nSchnittmuster",
+      "6\nKategorien",
+      "3\nBonus-Anleitungen"
+    ],
+    "pasos": [
+      {
+        "titulo": "Lade deine Kollektion herunter",
+        "texto": "Öffne das PDF der Meister-Schnittmusterkollektion und wähle dein erstes Projekt."
+      },
+      {
+        "titulo": "Lies den Ratgeber zur Lederwahl",
+        "texto": "Erfahre, welches Leder du für dein Projekt brauchst, bevor du einen Cent ausgibst."
+      },
+      {
+        "titulo": "Drucke dein erstes Schnittmuster",
+        "texto": "Drucke auf 100 % im Format A4. Überprüfe mit dem Kontrollquadrat und schneide zu."
+      },
+      {
+        "titulo": "Übe die Grundtechniken",
+        "texto": "Die Masterclass zeigt dir die 5 wesentlichen Techniken, Schritt für Schritt."
+      }
+    ]
+  },
+  "textos_ui": {
+    "abrir": "Öffnen",
+    "descargar": "PDF herunterladen",
+    "nueva": "In neuem Tab öffnen",
+    "paginas": "Seiten",
+    "acceso": "Lebenslanger Zugang",
+    "empezar": "Wo du anfangen solltest",
+    "bonos": "Deine Bonus-Anleitungen",
+    "principal": "Hauptprodukt",
+    "bienvenida": "Willkommen bei",
+    "herramienta": "Werkzeug",
+    "bono": "Bonus",
+    "de": "von",
+    "no_pdf": "Dein Browser kann das PDF hier nicht anzeigen.",
+    "descargalo": "Lade es mit diesem Button herunter",
+    "uso": "Nur für den persönlichen Gebrauch. Weiterverkauf und Weitergabe verboten."
+  },
+  "entregables": [
+    {
+      "id": "core",
+      "tipo": "core",
+      "nombre": "Meister-Schnittmusterkollektion für Leder",
+      "descripcion": "Über 170 professionelle Schnittmuster mit exakten Maßen, Materiallisten und Schritt-für-Schritt-Anleitung für alle Kategorien der Lederverarbeitung.",
+      "carpeta": "meister-schnittmusterkollektion",
+      "random": "pihbxzbrmj",
+      "en_hub": true,
+      "pdf": "meister-schnittmusterkollektion.pdf",
+      "fuente": "pdf-sources/core.html",
+      "paginas": 179
+    },
+    {
+      "id": "bono-ratgeber-zur-lederwahl",
+      "tipo": "bono",
+      "nombre": "Ratgeber zur Lederwahl",
+      "descripcion": "Alles über Lederarten, Gerbung und empfohlene Stärken — damit du immer das richtige Leder kaufst.",
+      "carpeta": "ratgeber-zur-lederwahl",
+      "random": "7afdfusoqo",
+      "en_hub": true,
+      "pdf": "ratgeber-zur-lederwahl.pdf",
+      "fuente": "pdf-sources/ratgeber-zur-lederwahl.html",
+      "paginas": 14,
+      "orden": "1/3"
+    },
+    {
+      "id": "bono-masterclass-leder-naehen",
+      "tipo": "bono",
+      "nombre": "Masterclass Leder nähen",
+      "descripcion": "Die 5 wesentlichen Nähtechniken für Leder, Schritt für Schritt erklärt — von der Sattlernaht bis zur Kantenveredelung.",
+      "carpeta": "masterclass-leder-naehen",
+      "random": "ejsswm16wl",
+      "en_hub": true,
+      "pdf": "masterclass-leder-naehen.pdf",
+      "fuente": "pdf-sources/masterclass-leder-naehen.html",
+      "paginas": 15,
+      "orden": "2/3"
+    },
+    {
+      "id": "bono-der-weg-des-handwerkers",
+      "tipo": "bono",
+      "nombre": "Der Weg des Handwerkers · 60 Projekte",
+      "descripcion": "60 Projekte in der richtigen Reihenfolge, vom Anfänger zum Experten — dein Lernpfad durch die gesamte Kollektion.",
+      "carpeta": "der-weg-des-handwerkers",
+      "random": "uwj4rgq10q",
+      "en_hub": true,
+      "pdf": "der-weg-des-handwerkers.pdf",
+      "fuente": "pdf-sources/der-weg-des-handwerkers.html",
+      "paginas": 19,
+      "orden": "3/3"
+    }
+  ],
+  "promesas": [
+    {
+      "promesa": "Über 170 professionelle Schnittmuster",
+      "entrega": "170 patterns (LW-001 a LW-170) en core PDF",
+      "ok": true
+    },
+    {
+      "promesa": "6 Kategorien (Taschen, Rucksäcke, Geldbörsen, Umhängetaschen, Reise, Accessoires)",
+      "entrega": "6 categorías con 40+25+30+25+20+30 = 170",
+      "ok": true
+    },
+    {
+      "promesa": "Exakte Maße und Materiallisten",
+      "entrega": "Cada pattern tiene SVG con medidas en mm + tabla de materiales",
+      "ok": true
+    },
+    {
+      "promesa": "Schritt-für-Schritt-Anleitung",
+      "entrega": "Pasos numerados en cada pattern",
+      "ok": true
+    },
+    {
+      "promesa": "Bonus 1: Ratgeber zur Lederwahl",
+      "entrega": "PDF 14 págs, 10 capítulos sobre tipos de cuero",
+      "ok": true
+    },
+    {
+      "promesa": "Bonus 2: Masterclass Leder nähen",
+      "entrega": "PDF 15 págs, 5 técnicas esenciales",
+      "ok": true
+    },
+    {
+      "promesa": "Bonus 3: Der Weg des Handwerkers · 60 Projekte",
+      "entrega": "PDF 19 págs, 60 proyectos en 5 niveles con tracker",
+      "ok": true
+    },
+    {
+      "promesa": "Preis: 17,99 EUR (statt 37,99 EUR)",
+      "entrega": "Configurado en oferta.json",
+      "ok": true
+    },
+    {
+      "promesa": "7 Tage Geld-zurück-Garantie",
+      "entrega": "En landing y checkout",
+      "ok": true
+    },
+    {
+      "promesa": "Lebenslanger Zugang",
+      "entrega": "Hub con URL permanente en GitHub Pages",
+      "ok": true
+    }
+  ],
+  "imagenes": [
+    {
+      "tipo": "hero",
+      "formato": "3:2",
+      "archivo": "mockups/1-hero-leder-werkstatt.png",
+      "uso": "checkout, producto en tienda, ads",
+      "px": "1536x1024",
+      "generado": "GPT Image 2 via kie.ai, image-to-image, 1K",
+      "taskId": "f050cca84f748ceab221f41506d9312b"
+    },
+    {
+      "tipo": "caja",
+      "formato": "1:1",
+      "archivo": "mockups/2-caja-leder-werkstatt.png",
+      "uso": "ads, landing secundaria",
+      "px": "1254x1254",
+      "generado": "GPT Image 2 via kie.ai, image-to-image, 1K",
+      "taskId": "8a55a141fa94f5325f4c7c1041102fd7"
+    }
+  ],
+  "ads_dir": "ADS/LEDER-WERKSTATT",
+  "lanzamiento": "activo · 2026-10-11",
+  "checklist": ["landing OK", "hub OK", "entregables OK", "mockups OK", "6 ads aprobados", "tienda configurada", "campaña creada y activa"]
+}

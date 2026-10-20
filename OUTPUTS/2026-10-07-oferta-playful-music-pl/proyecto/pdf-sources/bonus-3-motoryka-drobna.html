@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bonus 3 — Pakiet Motoryki Drobnej Muzycznej</title>
+<link rel="stylesheet" href="_shared.css">
+<style>
+  /* Local helpers for tracing worksheets */
+  .trace-area {
+    background: #fff;
+    border: 2px solid var(--border);
+    border-radius: 16px;
+    padding: 16px;
+    margin-top: 10px;
+  }
+  .trace-area svg {
+    display: block;
+    margin: 0 auto;
+  }
+  .worksheet-instruction {
+    font-family: var(--af);
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--teal-dark);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .worksheet-instruction .pill {
+    vertical-align: middle;
+  }
+  .match-container {
+    display: flex;
+    gap: 24px;
+    align-items: stretch;
+  }
+  .match-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .match-item {
+    background: #fff;
+    border: 2px solid var(--border);
+    border-radius: 14px;
+    padding: 12px 14px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    font-weight: 600;
+  }
+  .match-item .mi-emoji {
+    font-size: 28px;
+    line-height: 1;
+  }
+  .match-line-space {
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .match-line-space svg {
+    width: 40px;
+  }
+  .sort-targets {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+  .sort-target {
+    background: var(--cream-card);
+    border: 2px solid var(--teal);
+    border-radius: 14px;
+    padding: 14px;
+    text-align: center;
+    min-height: 60px;
+  }
+  .sort-target h3 {
+    font-size: 14px;
+    color: var(--teal-dark);
+    margin-bottom: 4px;
+  }
+  .sort-target .st-sub {
+    font-size: 11px;
+    color: var(--muted);
+  }
+  .cut-cards-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 10px;
+    margin-top: 14px;
+  }
+  .cut-card {
+    border: 2px dashed var(--muted);
+    border-radius: 12px;
+    padding: 12px 8px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    background: #fff;
+  }
+  .cut-card .cc-emoji {
+    font-size: 28px;
+    line-height: 1;
+  }
+  .cut-card .cc-label {
+    font-family: var(--df);
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--ink);
+  }
+  .scissors-label {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 12px;
+    color: var(--muted);
+    margin-bottom: 10px;
+  }
+  .measure-box {
+    border: 2px solid var(--border);
+    border-radius: 14px;
+    padding: 18px;
+    min-height: 80px;
+    background: #fff;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--muted);
+    font-size: 13px;
+    font-style: italic;
+  }
+  .ghost-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 12px;
+    border: 2px dashed var(--border);
+    border-radius: 14px;
+    margin-bottom: 14px;
+    background: var(--cream);
+  }
+  .ghost-circle {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 2px dashed var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--af);
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--muted);
+    opacity: 0.5;
+  }
+  .wave-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 18px;
+  }
+  .wave-label {
+    font-family: var(--df);
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--ink-mid);
+    width: 110px;
+    flex-shrink: 0;
+    text-align: right;
+  }
+  .rhythm-card {
+    background: #fff;
+    border: 2px solid var(--border);
+    border-radius: 14px;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+  .rhythm-beat {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: 800;
+    font-family: var(--af);
+    color: #fff;
+  }
+  .rhythm-rest {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 2px dashed var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    color: var(--muted);
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════
+     PAGE 1 — COVER
+     ═══════════════════════════════════════════ -->
+<div class="page cover">
+  <div class="cover-badge">Bonus 3 z 3</div>
+  <img src="https://files.catbox.moe/hnz9on.png" alt="Pakiet Motoryki Drobnej Muzycznej" style="width:220px;border-radius:16px;box-shadow:0 10px 30px rgba(36,29,22,.15);margin-bottom:20px">
+  <h1>🎵 Pakiet Motoryki Drobnej Muzycznej</h1>
+  <p class="subtitle">Ćwiczenia grafomotoryczne, dopasowywanie i wycinanie z muzycznym motywem — dla dzieci 3–7 lat</p>
+  <div class="rainbow-bar">
+    <span style="background:var(--n1)"></span>
+    <span style="background:var(--n2)"></span>
+    <span style="background:var(--n3)"></span>
+    <span style="background:var(--n4)"></span>
+    <span style="background:var(--n5)"></span>
+    <span style="background:var(--n6)"></span>
+  </div>
+  <p style="margin-top:24px;font-size:13px;color:var(--muted);">Zabawowa Metoda Muzyczna</p>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     PAGE 2 — WHY FINE MOTOR SKILLS MATTER
+     ═══════════════════════════════════════════ -->
+<div class="page">
+  <h2 style="text-align:center;margin-bottom:18px;">✋ Dlaczego motoryka drobna jest ważna w muzyce?</h2>
+
+  <div class="card">
+    <p style="font-size:14px;line-height:1.7;color:var(--ink-mid);">
+      Zanim Twoje dziecko zagra pierwszy akord na gitarze czy melodię na pianinie, jego palce muszą być gotowe. Motoryka drobna — czyli precyzja ruchów dłoni i palców — to fundament wszystkich umiejętności muzycznych. Te ćwiczenia przygotowują ręce malucha na prawdziwą przygodę z instrumentami! 🎹
+    </p>
+  </div>
+
+  <div class="grid-2" style="margin-top:16px;">
+    <div class="visual-card">
+      <div class="vc-emoji">🎹</div>
+      <div class="vc-label">Gra na instrumencie</div>
+      <div class="vc-sub">Silne, sprawne palce = lepsze trzymanie instrumentu i dokładniejsze uderzenia w klawisze</div>
+    </div>
+    <div class="visual-card">
+      <div class="vc-emoji">👆</div>
+      <div class="vc-label">Koordynacja palców</div>
+      <div class="vc-sub">Każdy palec musi działać niezależnie — to klucz do pianina i gitary</div>
+    </div>
+    <div class="visual-card">
+      <div class="vc-emoji">👁️</div>
+      <div class="vc-label">Koordynacja oko–ręka</div>
+      <div class="vc-sub">Patrzenie na nuty i jednoczesne granie wymaga precyzyjnej synchronizacji</div>
+    </div>
+    <div class="visual-card">
+      <div class="vc-emoji">🎼</div>
+      <div class="vc-label">Czytanie nut</div>
+      <div class="vc-sub">Rysowanie i śledzenie kształtów przygotowuje do rozpoznawania zapisu nutowego</div>
+    </div>
+  </div>
+
+  <div class="callout ok" style="margin-top:18px;">
+    <strong>🌟 Dobra wiadomość:</strong> Każda strona w tym pakiecie to zabawa, która jednocześnie wzmacnia mięśnie dłoni, poprawia precyzję i przygotowuje Twoje dziecko na przygodę z prawdziwymi instrumentami!
+  </div>
+
+  <div class="callout tip" style="margin-top:8px;">
+    <strong>💡 Wskazówka dla rodzica:</strong> Pozwól dziecku pracować w swoim tempie. Liczy się radość z rysowania, a nie perfekcyjna linia. Chwal wysiłek, nie efekt!
+  </div>
+  <div class="page-num">2</div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     PAGE 3 — TRACING 1: TREBLE CLEF
+     ═══════════════════════════════════════════ -->
+<div class="page">
+  <div class="worksheet-instruction">
+    ✏️ Narysuj klucz wiolinowy — odrysuj po linii przerywanej!
+    <span class="pill pill-teal">ŁATWY</span>
+  </div>
+
+  <div class="trace-area">
+    <svg viewBox="0 0 520 700" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-height:230mm;">
+      <!-- Treble clef 1 (red/n1) -->
+      <g transform="translate(60, 20)">
+        <path d="M 60 340 C 60 340 20 280 40 220 C 60 160 90 140 90 100 C 90 60 70 20 60 10 C 50 0 40 10 50 40 C 60 70 80 120 80 180 C 80 240 50 300 30 340 C 10 380 20 420 50 440 C 80 460 110 440 120 410 C 130 380 110 350 90 340 C 70 330 50 350 60 370"
+              fill="none" stroke="var(--n1)" stroke-width="3" stroke-dasharray="8 6" stroke-linecap="round"/>
+        <text x="40" y="480" font-family="var(--af)" font-size="14" font-weight="700" fill="var(--muted)" text-anchor="middle">1</text>
+      </g>
+      <!-- Treble clef 2 (green/n4) -->
+      <g transform="translate(220, 20)">
+        <path d="M 60 340 C 60 340 20 280 40 220 C 60 160 90 140 90 100 C 90 60 70 20 60 10 C 50 0 40 10 50 40 C 60 70 80 120 80 180 C 80 240 50 300 30 340 C 10 380 20 420 50 440 C 80 460 110 440 120 410 C 130 380 110 350 90 340 C 70 330 50 350 60 370"
+              fill="none" stroke="var(--n4)" stroke-width="3" stroke-dasharray="8 6" stroke-linecap="round"/>
+        <text x="40" y="480" font-family="var(--af)" font-size="14" font-weight="700" fill="var(--muted)" text-anchor="middle">2</text>
+      </g>
+      <!-- Treble clef 3 (blue/n5) -->
+      <g transform="translate(380, 20)">
+        <path d="M 60 340 C 60 340 20 280 40 220 C 60 160 90 140 90 100 C 90 60 70 20 60 10 C 50 0 40 10 50 40 C 60 70 80 120 80 180 C 80 240 50 300 30 340 C 10 380 20 420 50 440 C 80 460 110 440 120 410 C 130 380 110 350 90 340 C 70 330 50 350 60 370"
+              fill="none" stroke="var(--n5)" stroke-width="3" stroke-dasharray="8 6" stroke-linecap="round"/>
+        <text x="40" y="480" font-family="var(--af)" font-size="14" font-weight="700" fill="var(--muted)" text-anchor="middle">3</text>
+      </g>
+      <!-- Five staff lines as reference -->
+      <line x1="30" y1="570" x2="510" y2="570" stroke="var(--border)" stroke-width="1"/>
+      <line x1="30" y1="590" x2="510" y2="590" stroke="var(--border)" stroke-width="1"/>
+      <line x1="30" y1="610" x2="510" y2="610" stroke="var(--border)" stroke-width="1"/>
+      <line x1="30" y1="630" x2="510" y2="630" stroke="var(--border)" stroke-width="1"/>
+      <line x1="30" y1="650" x2="510" y2="650" stroke="var(--border)" stroke-width="1"/>
+      <text x="260" y="685" font-family="var(--af)" font-size="13" fill="var(--muted)" text-anchor="middle">🎼 Pięciolinia — tu żyją nuty!</text>
+    </svg>
+  </div>
+
+  <div class="callout tip" style="margin-top:10px;">
+    <strong>💡 Wskazówka:</strong> Klucz wiolinowy to symbol muzyki! Zacznij od środkowego kółka i rysuj do góry, a potem w dół z zawijasem.
+  </div>
+  <div class="page-num">3</div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     PAGE 4 — TRACING 2: MUSICAL NOTES
+     ═══════════════════════════════════════════ -->
+<div class="page">
+  <div class="worksheet-instruction">
+    ✏️ Narysuj nuty — odrysuj każdy rodzaj nuty po przerywanej linii!
+    <span class="pill pill-teal">ŁATWY</span>
+  </div>
+
+  <div class="grid-2" style="margin-top:10px;">
+    <!-- Whole note -->
+    <div class="trace-area" style="text-align:center;">
+      <p style="font-family:var(--af);font-size:13px;font-weight:700;color:var(--teal-dark);margin-bottom:8px;">Cała nuta</p>
+      <svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg" style="width:140px;">
+        <ellipse cx="80" cy="80" rx="40" ry="30" fill="none" stroke="var(--n1)" stroke-width="3" stroke-dasharray="8 6"/>
+        <ellipse cx="80" cy="80" rx="28" ry="18" fill="none" stroke="var(--n1)" stroke-width="2" stroke-dasharray="6 5" opacity="0.4"/>
+      </svg>
+      <p style="font-size:11px;color:var(--muted);margin-top:4px;">4 uderzenia 🎵</p>
+    </div>
+    <!-- Half note -->
+    <div class="trace-area" style="text-align:center;">
+      <p style="font-family:var(--af);font-size:13px;font-weight:700;color:var(--teal-dark);margin-bottom:8px;">Półnuta</p>
+      <svg viewBox="0 0 160 200" xmlns="http://www.w3.org/2000/svg" style="width:140px;">
+        <ellipse cx="70" cy="150" rx="35" ry="26" fill="none" stroke="var(--n2)" stroke-width="3" stroke-dasharray="8 6"/>
+        <line x1="105" y1="150" x2="105" y2="30" stroke="var(--n2)" stroke-width="3" stroke-dasharray="8 6" stroke-linecap="round"/>
+      </svg>
+      <p style="font-size:11px;color:var(--muted);margin-top:4px;">2 uderzenia 🎵🎵</p>
+    </div>
+    <!-- Quarter note -->
+    <div class="trace-area" style="text-align:center;">
+      <p style="font-family:var(--af);font-size:13px;font-weight:700;color:var(--teal-dark);margin-bottom:8px;">Ćwierćnuta</p>
+      <svg viewBox="0 0 160 200" xmlns="http://www.w3.org/2000/svg" style="width:140px;">
+        <ellipse cx="70" cy="150" rx="35" ry="26" fill="none" stroke="var(--n4)" stroke-width="3" stroke-dasharray="8 6"/>
+        <!-- Fill pattern (dashed circles inside) -->
+        <ellipse cx="70" cy="150" rx="25" ry="18" fill="none" stroke="var(--n4)" stroke-width="2" stroke-dasharray="5 4" opacity="0.5"/>
+        <ellipse cx="70" cy="150" rx="14" ry="10" fill="none" stroke="var(--n4)" stroke-width="2" stroke-dasharray="4 4" opacity="0.3"/>
+        <line x1="105" y1="150" x2="105" y2="30" stroke="var(--n4)" stroke-width="3" stroke-dasharray="8 6" stroke-linecap="round"/>
+      </svg>
+      <p style="font-size:11px;color:var(--muted);margin-top:4px;">1 uderzenie 🎵</p>
+    </div>
+    <!-- Eighth note -->
+    <div class="trace-area" style="text-align:center;">
+      <p style="font-family:var(--af);font-size:13px;font-weight:700;color:var(--teal-dark);margin-bottom:8px;">Ósemka</p>
+      <svg viewBox="0 0 160 200" xmlns="http://www.w3.org/2000/svg" style="width:140px;">
+        <ellipse cx="70" cy="150" rx="35" ry="26" fill="none" stroke="var(--n5)" stroke-width="3" stroke-dasharray="8 6"/>
+        <ellipse cx="70" cy="150" rx="25" ry="18" fill="none" stroke="var(--n5)" stroke-width="2" stroke-dasharray="5 4" opacity="0.5"/>
+        <ellipse cx="70" cy="150" rx="14" ry="10" fill="none" stroke="var(--n5)" stroke-width="2" stroke-dasharray="4 4" opacity="0.3"/>
+        <line x1="105" y1="150" x2="105" y2="30" stroke="var(--n5)" stroke-width="3" stroke-dasharray="8 6" stroke-linecap="round"/>
+        <!-- Flag -->
+        <path d="M 105 30 C 115 50 130 70 120 95" fill="none" stroke="var(--n5)" stroke-width="3" stroke-dasharray="8 6" stroke-linecap="round"/>
+      </svg>
+      <p style="font-size:11px;color:var(--muted);margin-top:4px;">½ uderzenia 🎶</p>
+    </div>
+  </div>
+
+  <div class="callout ok" style="margin-top:14px;">
+    <strong>🎼 Czy wiesz, że...</strong> Nuty to alfabet muzyki! Każdy kształt mówi muzykowi, jak długo trzymać dźwięk. Im ciemniejsza nuta i więcej ozdób, tym krótsza.
+  </div>
+  <div class="page-num">4</div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     PAGE 5 — TRACING 3: SOUND WAVES
+     ═══════════════════════════════════════════ -->
+<div class="page">
+  <div class="worksheet-instruction">
+    ✏️ Fale dźwiękowe — narysuj fale od lewej do prawej!
+    <span class="pill pill-gold">ŚREDNI</span>
+  </div>
+  <p style="font-size:13px;color:var(--ink-mid);margin-bottom:14px;">Dźwięk podróżuje w falach! Niskie dźwięki tworzą długie, szerokie fale. Wysokie dźwięki — krótkie i gęste. 🌊</p>
+
+  <div class="trace-area">
+    <svg viewBox="0 0 500 620" xmlns="http://www.w3.org/2000/svg" style="width:100%;">
+      <!-- Row 1: Very low sound - long waves -->
+      <text x="0" y="28" font-family="var(--af)" font-size="13" font-weight="700" fill="var(--ink-mid)">Bardzo niski dźwięk 🎵</text>
+      <path d="M 0 70 C 40 30 80 30 120 70 C 160 110 200 110 240 70 C 280 30 320 30 360 70 C 400 110 440 110 480 70"
+            fill="none" stroke="var(--n1)" stroke-width="3" stroke-dasharray="8 6" stroke-linecap="round"/>
+
+      <!-- Row 2: Low sound -->
+      <text x="0" y="158" font-family="var(--af)" font-size="13" font-weight="700" fill="var(--ink-mid)">Niski dźwięk 🔊</text>
+      <path d="M 0 200 C 30 165 60 165 90 200 C 120 235 150 235 180 200 C 210 165 240 165 270 200 C 300 235 330 235 360 200 C 390 165 420 165 450 200 C 480 235 495 235 500 220"
+            fill="none" stroke="var(--n2)" stroke-width="3" stroke-dasharray="8 6" stroke-linecap="round"/>
+
+      <!-- Row 3: Medium sound -->
+      <text x="0" y="288" font-family="var(--af)" font-size="13" font-weight="700" fill="var(--ink-mid)">Średni dźwięk 🎶</text>
+      <path d="M 0 330 C 20 305 40 305 60 330 C 80 355 100 355 120 330 C 140 305 160 305 180 330 C 200 355 220 355 240 330 C 260 305 280 305 300 330 C 320 355 340 355 360 330 C 380 305 400 305 420 330 C 440 355 460 355 480 330 C 490 318 500 318 500 330"
+            fill="none" stroke="var(--n4)" stroke-width="3" stroke-dasharray="8 6" stroke-linecap="round"/>
+
+      <!-- Row 4: High sound -->
+      <text x="0" y="418" font-family="var(--af)" font-size="13" font-weight="700" fill="var(--ink-mid)">Wysoki dźwięk 🎤</text>
+      <path d="M 0 460 C 12 445 24 445 36 460 C 48 475 60 475 72 460 C 84 445 96 445 108 460 C 120 475 132 475 144 460 C 156 445 168 445 180 460 C 192 475 204 475 216 460 C 228 445 240 445 252 460 C 264 475 276 475 288 460 C 300 445 312 445 324 460 C 336 475 348 475 360 460 C 372 445 384 445 396 460 C 408 475 420 475 432 460 C 444 445 456 445 468 460 C 480 475 492 475 500 465"
+            fill="none" stroke="var(--n5)" stroke-width="3" stroke-dasharray="8 6" stroke-linecap="round"/>
+
+      <!-- Row 5: Very high sound - double wave -->
+      <text x="0" y="538" font-family="var(--af)" font-size="13" font-weight="700" fill="var(--ink-mid)">Bardzo wysoki dźwięk! 🎶✨</text>
+      <path d="M 0 575 C 8 563 16 563 24 575 C 32 587 40 587 48 575 C 56 563 64 563 72 575 C 80 587 88 587 96 575 C 104 563 112 563 120 575 C 128 587 136 587 144 575 C 152 563 160 563 168 575 C 176 587 184 587 192 575 C 200 563 208 563 216 575 C 224 587 232 587 240 575 C 248 563 256 563 264 575 C 272 587 280 587 288 575 C 296 563 304 563 312 575 C 320 587 328 587 336 575 C 344 563 352 563 360 575 C 368 587 376 587 384 575 C 392 563 400 563 408 575 C 416 587 424 587 432 575 C 440 563 448 563 456 575 C 464 587 472 587 480 575 C 488 563 496 563 500 570"
+            fill="none" stroke="var(--n6)" stroke-width="3" stroke-dasharray="6 5" stroke-linecap="round"/>
+    </svg>
+  </div>
+
+  <div class="callout tip" style="margin-top:10px;">
+    <strong>💡 Wskazówka:</strong> Puść dziecku dźwięk niski (bęben) i wysoki (gwizdek). Niech pokaże palcem, który rysunek pasuje!
+  </div>
+  <div class="page-num">5</div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     PAGE 6 — TRACING 4: STACCATO ZIGZAGS
+     ═══════════════════════════════════════════ -->
+<div class="page">
+  <div class="worksheet-instruction">
+    ✏️ Zygzaki staccato — ostre, krótkie ruchy!
+    <span class="pill pill-gold">ŚREDNI</span>
+  </div>
+  <p style="font-size:13px;color:var(--ink-mid);margin-bottom:10px;">Staccato = krótkie, ostre dźwięki, jak kropelki deszczu na bębnie! Rysuj szybkimi ruchami ⚡</p>
+
+  <div class="trace-area">
+    <svg viewBox="0 0 500 640" xmlns="http://www.w3.org/2000/svg" style="width:100%;">
+      <!-- Row 1: Large zigzags -->
+      <text x="0" y="22" font-family="var(--af)" font-size="13" font-weight="700" fill="var(--ink-mid)">Powolne staccato 🥁</text>
+      <path d="M 0 90 L 60 40 L 120 90 L 180 40 L 240 90 L 300 40 L 360 90 L 420 40 L 480 90"
+            fill="none" stroke="var(--n1)" stroke-width="3" stroke-dasharray="8 6" stroke-linecap="round" stroke-linejoin="round"/>
+
+      <!-- Row 2: Medium zigzags -->
+      <text x="0" y="152" font-family="var(--af)" font-size="13" font-weight="700" fill="var(--ink-mid)">Średnie staccato 🎵</text>
+      <path d="M 0 215 L 40 175 L 80 215 L 120 175 L 160 215 L 200 175 L 240 215 L 280 175 L 320 215 L 360 175 L 400 215 L 440 175 L 480 215"
+            fill="none" stroke="var(--n2)" stroke-width="3" stroke-dasharray="8 6" stroke-linecap="round" stroke-linejoin="round"/>
+
+      <!-- Row 3: Small zigzags -->
+      <text x="0" y="280" font-family="var(--af)" font-size="13" font-weight="700" fill="var(--ink-mid)">Szybkie staccato 🎶</text>
+      <path d="M 0 335 L 25 305 L 50 335 L 75 305 L 100 335 L 125 305 L 150 335 L 175 305 L 200 335 L 225 305 L 250 335 L 275 305 L 300 335 L 325 305 L 350 335 L 375 305 L 400 335 L 425 305 L 450 335 L 475 305 L 500 335"
+            fill="none" stroke="var(--n4)" stroke-width="3" stroke-dasharray="8 6" stroke-linecap="round" stroke-linejoin="round"/>
+
+      <!-- Row 4: Very small and tight -->
+      <text x="0" y="400" font-family="var(--af)" font-size="13" font-weight="700" fill="var(--ink-mid)">Bardzo szybkie staccato! ⚡</text>
+      <path d="M 0 445 L 15 425 L 30 445 L 45 425 L 60 445 L 75 425 L 90 445 L 105 425 L 120 445 L 135 425 L 150 445 L 165 425 L 180 445 L 195 425 L 210 445 L 225 425 L 240 445 L 255 425 L 270 445 L 285 425 L 300 445 L 315 425 L 330 445 L 345 425 L 360 445 L 375 425 L 390 445 L 405 425 L 420 445 L 435 425 L 450 445 L 465 425 L 480 445 L 495 425 L 500 430"
+            fill="none" stroke="var(--n5)" stroke-width="3" stroke-dasharray="6 5" stroke-linecap="round" stroke-linejoin="round"/>
+
+      <!-- Row 5: Irregular rhythm zigzags -->
+      <text x="0" y="510" font-family="var(--af)" font-size="13" font-weight="700" fill="var(--ink-mid)">Staccato z akcentami! 💥🥁</text>
+      <path d="M 0 580 L 50 530 L 70 580 L 90 555 L 110 580 L 160 530 L 180 580 L 200 555 L 220 580 L 270 530 L 290 580 L 310 555 L 330 580 L 380 530 L 400 580 L 420 555 L 440 580 L 490 530 L 500 555"
+            fill="none" stroke="var(--n6)" stroke-width="3" stroke-dasharray="8 6" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
+
+  <div class="callout ok" style="margin-top:8px;">
+    <strong>🎵 Co to jest staccato?</strong> Kiedy muzyk gra staccato, każdy dźwięk jest krótki i odseparowany — jak skakanie! Przeciwieństwo to legato — płynne i połączone.
+  </div>
+  <div class="page-num">6</div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     PAGE 7 — TRACING 5: DRUM ROLL SPIRALS
+     ═══════════════════════════════════════════ -->
+<div class="page">
+  <div class="worksheet-instruction">
+    ✏️ Spirale bębniarskie — kręć od zewnątrz do środka!
+    <span class="pill pill-coral">TRUDNY</span>
+  </div>
+  <p style="font-size:13px;color:var(--ink-mid);margin-bottom:10px;">Werbel na bębnie zaczyna się głośno i kręci coraz szybciej do środka — jak spirala! 🥁🌀</p>
+
+  <div class="trace-area">
+    <svg viewBox="0 0 500 660" xmlns="http://www.w3.org/2000/svg" style="width:100%;">
+      <!-- Spiral 1 — large, red -->
+      <g transform="translate(130, 130)">
+        <path d="M 0 -100 C 55 -100 100 -55 100 0 C 100 55 55 100 0 100 C -55 100 -100 55 -100 0 C -100 -45 -65 -80 -20 -80 C 25 -80 60 -45 60 0 C 60 45 25 60 0 60 C -25 60 -50 35 -50 10 C -50 -15 -30 -35 -5 -35 C 20 -35 30 -15 30 5 C 30 20 15 30 5 30"
+              fill="none" stroke="var(--n1)" stroke-width="3" stroke-dasharray="8 6" stroke-linecap="round"/>
+        <text x="0" y="130" font-family="var(--af)" font-size="14" font-weight="700" fill="var(--muted)" text-anchor="middle">🥁 Spirala 1</text>
+      </g>
+
+      <!-- Spiral 2 — medium, green -->
+      <g transform="translate(370, 130)">
+        <path d="M 0 -100 C 55 -100 100 -55 100 0 C 100 55 55 100 0 100 C -55 100 -100 55 -100 0 C -100 -45 -65 -80 -20 -80 C 25 -80 60 -45 60 0 C 60 45 25 60 0 60 C -25 60 -50 35 -50 10 C -50 -15 -30 -35 -5 -35 C 20 -35 30 -15 30 5 C 30 20 15 30 5 30"
+              fill="none" stroke="var(--n4)" stroke-width="3" stroke-dasharray="8 6" stroke-linecap="round"/>
+        <text x="0" y="130" font-family="var(--af)" font-size="14" font-weight="700" fill="var(--muted)" text-anchor="middle">🥁 Spirala 2</text>
+      </g>
+
+      <!-- Spiral 3 — large, blue, reversed (inside-out) -->
+      <g transform="translate(130, 440)">
+        <path d="M 5 30 C 15 30 30 20 30 5 C 30 -15 20 -35 -5 -35 C -30 -35 -50 -15 -50 10 C -50 35 -25 60 0 60 C 25 60 60 45 60 0 C 60 -45 25 -80 -20 -80 C -65 -80 -100 -45 -100 0 C -100 55 -55 100 0 100 C 55 100 100 55 100 0 C 100 -55 55 -100 0 -100"
+              fill="none" stroke="var(--n5)" stroke-width="3" stroke-dasharray="8 6" stroke-linecap="round"/>
+        <text x="0" y="130" font-family="var(--af)" font-size="14" font-weight="700" fill="var(--muted)" text-anchor="middle">🌀 Spirala 3 (od środka!)</text>
+      </g>
+
+      <!-- Spiral 4 — orange, different shape -->
+      <g transform="translate(370, 440)">
+        <path d="M 0 -100 C 55 -100 100 -55 100 0 C 100 55 55 100 0 100 C -55 100 -100 55 -100 0 C -100 -45 -65 -80 -20 -80 C 25 -80 60 -45 60 0 C 60 45 25 60 0 60 C -25 60 -50 35 -50 10 C -50 -15 -30 -35 -5 -35 C 20 -35 30 -15 30 5 C 30 20 15 30 5 30"
+              fill="none" stroke="var(--n2)" stroke-width="3" stroke-dasharray="8 6" stroke-linecap="round"/>
+        <text x="0" y="130" font-family="var(--af)" font-size="14" font-weight="700" fill="var(--muted)" text-anchor="middle">🥁 Spirala 4</text>
+      </g>
+    </svg>
+  </div>
+
+  <div class="callout tip" style="margin-top:8px;">
+    <strong>💡 Wskazówka:</strong> Spirale to super trening! Wspieraj nadgarstek dziecka, jeśli się męczy. Spirala 3 idzie od środka — to dodatkowe wyzwanie! 🌟
+  </div>
+  <div class="page-num">7</div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     PAGE 8 — MATCHING 1: INSTRUMENT → SOUND
+     ═══════════════════════════════════════════ -->
+<div class="page">
+  <div class="worksheet-instruction">
+    🖍️ Dopasuj instrument do dźwięku — połącz linią!
+    <span class="pill pill-teal">ŁATWY</span>
+  </div>
+  <p style="font-size:13px;color:var(--ink-mid);margin-bottom:14px;">Każdy instrument ma swój własny głos! Narysuj linię od instrumentu do jego dźwięku. 🎵</p>
+
+  <div class="match-container">
+    <div class="match-col">
+      <div class="match-item" style="border-color:var(--n1);">
+        <span class="mi-emoji">🎹</span> Pianino
+      </div>
+      <div class="match-item" style="border-color:var(--n2);">
+        <span class="mi-emoji">🥁</span> Bęben
+      </div>
+      <div class="match-item" style="border-color:var(--n3);">
+        <span class="mi-emoji">🎸</span> Gitara
+      </div>
+      <div class="match-item" style="border-color:var(--n4);">
+        <span class="mi-emoji">🎺</span> Trąbka
+      </div>
+      <div class="match-item" style="border-color:var(--n5);">
+        <span class="mi-emoji">🎻</span> Skrzypce
+      </div>
+      <div class="match-item" style="border-color:var(--n6);">
+        <span class="mi-emoji">🪈</span> Flet
+      </div>
+    </div>
+
+    <div class="match-line-space">
+      <svg viewBox="0 0 40 480" xmlns="http://www.w3.org/2000/svg">
+        <!-- Dotted lines for visual guide -->
+        <line x1="0" y1="40" x2="40" y2="40" stroke="var(--border)" stroke-width="1.5" stroke-dasharray="4 4"/>
+        <line x1="0" y1="120" x2="40" y2="120" stroke="var(--border)" stroke-width="1.5" stroke-dasharray="4 4"/>
+        <line x1="0" y1="200" x2="40" y2="200" stroke="var(--border)" stroke-width="1.5" stroke-dasharray="4 4"/>
+        <line x1="0" y1="280" x2="40" y2="280" stroke="var(--border)" stroke-width="1.5" stroke-dasharray="4 4"/>
+        <line x1="0" y1="360" x2="40" y2="360" stroke="var(--border)" stroke-width="1.5" stroke-dasharray="4 4"/>
+        <line x1="0" y1="440" x2="40" y2="440" stroke="var(--border)" stroke-width="1.5" stroke-dasharray="4 4"/>
+      </svg>
+    </div>
+
+    <div class="match-col">
+      <div class="match-item" style="border-color:var(--n4);">
+        <span class="mi-emoji">📯</span> Tu-tu-tu!
+      </div>
+      <div class="match-item" style="border-color:var(--n1);">
+        <span class="mi-emoji">🔔</span> Ding ding!
+      </div>
+      <div class="match-item" style="border-color:var(--n6);">
+        <span class="mi-emoji">💨</span> Fiu fiu!
+      </div>
+      <div class="match-item" style="border-color:var(--n2);">
+        <span class="mi-emoji">💥</span> Bum bum!
+      </div>
+      <div class="match-item" style="border-color:var(--n3);">
+        <span class="mi-emoji">🎸</span> Brzdęk!
+      </div>
+      <div class="match-item" style="border-color:var(--n5);">
+        <span class="mi-emoji">🎻</span> Trrr!
+      </div>
+    </div>
+  </div>
+
+  <div class="callout tip" style="margin-top:14px;">
+    <strong>💡 Dla rodzica:</strong> Puść dziecku nagrania tych instrumentów na telefonie! Niech usłyszy dźwięk przed dopasowaniem — nauka przez doświadczenie! 🔊
+  </div>
+  <div class="page-num">8</div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     PAGE 9 — MATCHING 2: COLOR → NOTE NAME
+     ═══════════════════════════════════════════ -->
+<div class="page">
+  <div class="worksheet-instruction">
+    🖍️ Dopasuj kolor do nuty — połącz kółko z nazwą!
+    <span class="pill pill-teal">ŁATWY</span>
+  </div>
+  <p style="font-size:13px;color:var(--ink-mid);margin-bottom:14px;">Każda nuta ma swój kolor! Połącz kolorowe kółka z ich nazwami. 🌈🎵</p>
+
+  <div class="match-container">
+    <div class="match-col" style="align-items:center;gap:18px;">
+      <div class="note-circle la" style="width:60px;height:60px;font-size:22px;">🎵</div>
+      <div class="note-circle mi" style="width:60px;height:60px;font-size:22px;">🎵</div>
+      <div class="note-circle do" style="width:60px;height:60px;font-size:22px;">🎵</div>
+      <div class="note-circle sol" style="width:60px;height:60px;font-size:22px;">🎵</div>
+      <div class="note-circle re" style="width:60px;height:60px;font-size:22px;">🎵</div>
+      <div class="note-circle fa" style="width:60px;height:60px;font-size:22px;">🎵</div>
+    </div>
+
+    <div class="match-line-space">
+      <svg viewBox="0 0 40 500" xmlns="http://www.w3.org/2000/svg">
+        <line x1="0" y1="40" x2="40" y2="40" stroke="var(--border)" stroke-width="1.5" stroke-dasharray="4 4"/>
+        <line x1="0" y1="120" x2="40" y2="120" stroke="var(--border)" stroke-width="1.5" stroke-dasharray="4 4"/>
+        <line x1="0" y1="200" x2="40" y2="200" stroke="var(--border)" stroke-width="1.5" stroke-dasharray="4 4"/>
+        <line x1="0" y1="280" x2="40" y2="280" stroke="var(--border)" stroke-width="1.5" stroke-dasharray="4 4"/>
+        <line x1="0" y1="360" x2="40" y2="360" stroke="var(--border)" stroke-width="1.5" stroke-dasharray="4 4"/>
+        <line x1="0" y1="440" x2="40" y2="440" stroke="var(--border)" stroke-width="1.5" stroke-dasharray="4 4"/>
+      </svg>
+    </div>
+
+    <div class="match-col" style="gap:14px;">
+      <div class="match-item" style="font-family:var(--af);font-size:18px;font-weight:800;justify-content:center;">
+        Fa
+      </div>
+      <div class="match-item" style="font-family:var(--af);font-size:18px;font-weight:800;justify-content:center;">
+        Do
+      </div>
+      <div class="match-item" style="font-family:var(--af);font-size:18px;font-weight:800;justify-content:center;">
+        Sol
+      </div>
+      <div class="match-item" style="font-family:var(--af);font-size:18px;font-weight:800;justify-content:center;">
+        La
+      </div>
+      <div class="match-item" style="font-family:var(--af);font-size:18px;font-weight:800;justify-content:center;">
+        Mi
+      </div>
+      <div class="match-item" style="font-family:var(--af);font-size:18px;font-weight:800;justify-content:center;">
+        Re
+      </div>
+    </div>
+  </div>
+
+  <div class="callout ok" style="margin-top:14px;">
+    <strong>🌈 System kolorów:</strong> W Zabawowej Metodzie Muzycznej każda nuta ma stały kolor. Zapamiętanie kolorów pomoże dziecku szybciej czytać nasze kolorowe partytury!
+  </div>
+  <div class="page-num">9</div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     PAGE 10 — MATCHING 3: RHYTHM → ACTION
+     ═══════════════════════════════════════════ -->
+<div class="page">
+  <div class="worksheet-instruction">
+    🖍️ Dopasuj rytm do ruchu — który wzór pasuje do akcji?
+    <span class="pill pill-gold">ŚREDNI</span>
+  </div>
+  <p style="font-size:13px;color:var(--ink-mid);margin-bottom:14px;">Każdy rytm możesz pokazać ciałem! Połącz wzory z ruchami. 💃🕺</p>
+
+  <div class="match-container">
+    <div class="match-col" style="gap:16px;">
+      <!-- Rhythm 1: steady beat -->
+      <div class="rhythm-card">
+        <span style="font-size:12px;font-weight:700;color:var(--muted);width:100%;margin-bottom:4px;">Rytm A</span>
+        <div class="rhythm-beat" style="background:var(--n1);">ta</div>
+        <div class="rhythm-beat" style="background:var(--n1);">ta</div>
+        <div class="rhythm-beat" style="background:var(--n1);">ta</div>
+        <div class="rhythm-beat" style="background:var(--n1);">ta</div>
+      </div>
+      <!-- Rhythm 2: ta ti-ti -->
+      <div class="rhythm-card">
+        <span style="font-size:12px;font-weight:700;color:var(--muted);width:100%;margin-bottom:4px;">Rytm B</span>
+        <div class="rhythm-beat" style="background:var(--n4);width:38px;height:38px;">ta</div>
+        <div class="rhythm-beat" style="background:var(--n2);width:24px;height:24px;font-size:8px;">ti</div>
+        <div class="rhythm-beat" style="background:var(--n2);width:24px;height:24px;font-size:8px;">ti</div>
+        <div class="rhythm-beat" style="background:var(--n4);width:38px;height:38px;">ta</div>
+        <div class="rhythm-beat" style="background:var(--n2);width:24px;height:24px;font-size:8px;">ti</div>
+        <div class="rhythm-beat" style="background:var(--n2);width:24px;height:24px;font-size:8px;">ti</div>
+      </div>
+      <!-- Rhythm 3: ta ta sza ta -->
+      <div class="rhythm-card">
+        <span style="font-size:12px;font-weight:700;color:var(--muted);width:100%;margin-bottom:4px;">Rytm C</span>
+        <div class="rhythm-beat" style="background:var(--n5);">ta</div>
+        <div class="rhythm-beat" style="background:var(--n5);">ta</div>
+        <div class="rhythm-rest">🤫</div>
+        <div class="rhythm-beat" style="background:var(--n5);">ta</div>
+      </div>
+      <!-- Rhythm 4: ta-a ta-a -->
+      <div class="rhythm-card">
+        <span style="font-size:12px;font-weight:700;color:var(--muted);width:100%;margin-bottom:4px;">Rytm D</span>
+        <div class="rhythm-beat" style="background:var(--n6);width:54px;border-radius:25px;">ta-a</div>
+        <div class="rhythm-beat" style="background:var(--n6);width:54px;border-radius:25px;">ta-a</div>
+      </div>
+    </div>
+
+    <div class="match-line-space" style="width:30px;">
+      <svg viewBox="0 0 30 500" xmlns="http://www.w3.org/2000/svg">
+        <line x1="0" y1="55" x2="30" y2="55" stroke="var(--border)" stroke-width="1.5" stroke-dasharray="4 4"/>
+        <line x1="0" y1="185" x2="30" y2="185" stroke="var(--border)" stroke-width="1.5" stroke-dasharray="4 4"/>
+        <line x1="0" y1="310" x2="30" y2="310" stroke="var(--border)" stroke-width="1.5" stroke-dasharray="4 4"/>
+        <line x1="0" y1="420" x2="30" y2="420" stroke="var(--border)" stroke-width="1.5" stroke-dasharray="4 4"/>
+      </svg>
+    </div>
+
+    <div class="match-col" style="gap:16px;">
+      <div class="match-item" style="min-height:75px;border-color:var(--n6);">
+        <span class="mi-emoji">🤸</span>
+        <div><strong>Skacz na miejscu</strong><br><span style="font-size:11px;color:var(--muted);">Powolne, długie skoki</span></div>
+      </div>
+      <div class="match-item" style="min-height:75px;border-color:var(--n1);">
+        <span class="mi-emoji">👏</span>
+        <div><strong>Klaskaj w dłonie</strong><br><span style="font-size:11px;color:var(--muted);">Równo, miarowo</span></div>
+      </div>
+      <div class="match-item" style="min-height:75px;border-color:var(--n4);">
+        <span class="mi-emoji">🦶</span>
+        <div><strong>Tupaj nogami</strong><br><span style="font-size:11px;color:var(--muted);">Wolno i szybko na zmianę</span></div>
+      </div>
+      <div class="match-item" style="min-height:75px;border-color:var(--n5);">
+        <span class="mi-emoji">🖐️</span>
+        <div><strong>Uderzaj w stół</strong><br><span style="font-size:11px;color:var(--muted);">Z przerwą w środku</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout tip" style="margin-top:10px;">
+    <strong>💡 Wskazówka:</strong> Zanim dziecko połączy liniami, wyklaszczcie razem każdy rytm! Ciało pamięta lepiej niż oczy. 👏
+  </div>
+  <div class="page-num">10</div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     PAGE 11 — MATCHING 4: MUSICIAN → INSTRUMENT
+     ═══════════════════════════════════════════ -->
+<div class="page">
+  <div class="worksheet-instruction">
+    🖍️ Dopasuj muzyka do instrumentu — kto na czym gra?
+    <span class="pill pill-teal">ŁATWY</span>
+  </div>
+  <p style="font-size:13px;color:var(--ink-mid);margin-bottom:14px;">Każdy muzyk ma swój instrument! Połącz nazwę muzyka z odpowiednim instrumentem. 🎼</p>
+
+  <div class="grid-2" style="gap:20px;">
+    <div>
+      <h3 style="text-align:center;margin-bottom:12px;color:var(--teal);">👤 Muzycy</h3>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <div class="match-item" style="border-color:var(--n5);justify-content:center;">
+          <strong>Perkusista</strong>
+        </div>
+        <div class="match-item" style="border-color:var(--n1);justify-content:center;">
+          <strong>Pianista</strong>
+        </div>
+        <div class="match-item" style="border-color:var(--n3);justify-content:center;">
+          <strong>Gitarzysta</strong>
+        </div>
+        <div class="match-item" style="border-color:var(--n4);justify-content:center;">
+          <strong>Skrzypek</strong>
+        </div>
+        <div class="match-item" style="border-color:var(--n2);justify-content:center;">
+          <strong>Trębacz</strong>
+        </div>
+        <div class="match-item" style="border-color:var(--n6);justify-content:center;">
+          <strong>Flecista</strong>
+        </div>
+      </div>
+    </div>
+    <div>
+      <h3 style="text-align:center;margin-bottom:12px;color:var(--teal);">🎵 Instrumenty</h3>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <div class="match-item" style="border-color:var(--n4);justify-content:center;">
+          <span class="mi-emoji">🎻</span> Skrzypce
+        </div>
+        <div class="match-item" style="border-color:var(--n6);justify-content:center;">
+          <span class="mi-emoji">🪈</span> Flet
+        </div>
+        <div class="match-item" style="border-color:var(--n5);justify-content:center;">
+          <span class="mi-emoji">🥁</span> Bęben
+        </div>
+        <div class="match-item" style="border-color:var(--n1);justify-content:center;">
+          <span class="mi-emoji">🎹</span> Pianino
+        </div>
+        <div class="match-item" style="border-color:var(--n2);justify-content:center;">
+          <span class="mi-emoji">🎺</span> Trąbka
+        </div>
+        <div class="match-item" style="border-color:var(--n3);justify-content:center;">
+          <span class="mi-emoji">🎸</span> Gitara
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout ok" style="margin-top:14px;">
+    <strong>🎶 Ciekawostka:</strong> Nazwa muzyka pochodzi od instrumentu, na którym gra! Pianista gra na pianinie, flecista na flecie. Czy znasz inne takie nazwy?
+  </div>
+  <div class="page-num">11</div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     PAGE 12 — CUT & PLAY 1: INSTRUMENT FAMILIES
+     ═══════════════════════════════════════════ -->
+<div class="page">
+  <div class="worksheet-instruction">
+    ✂️ Rodziny instrumentów — wytnij i posortuj!
+    <span class="pill pill-gold">ŚREDNI</span>
+  </div>
+  <p style="font-size:13px;color:var(--ink-mid);margin-bottom:12px;">Wytnij karty instrumentów i wklej je (lub połóż) w odpowiedniej rodzinie! 🎵✂️</p>
+
+  <!-- Sorting targets -->
+  <div class="sort-targets">
+    <div class="sort-target">
+      <h3>🎸 Strunowe</h3>
+      <p class="st-sub">Mają struny, które drgają</p>
+      <div style="min-height:60px;border:2px dashed var(--border);border-radius:10px;margin-top:8px;"></div>
+    </div>
+    <div class="sort-target">
+      <h3>🎺 Dęte</h3>
+      <p class="st-sub">Dmuchasz, żeby zagrać</p>
+      <div style="min-height:60px;border:2px dashed var(--border);border-radius:10px;margin-top:8px;"></div>
+    </div>
+    <div class="sort-target">
+      <h3>🥁 Perkusyjne</h3>
+      <p class="st-sub">Uderzasz lub potrząsasz</p>
+      <div style="min-height:60px;border:2px dashed var(--border);border-radius:10px;margin-top:8px;"></div>
+    </div>
+  </div>
+
+  <!-- Cut-out cards -->
+  <div class="scissors-label"><span class="scissors-icon"></span> Wytnij wzdłuż linii przerywanej:</div>
+
+  <div class="cut-cards-grid">
+    <div class="cut-card">
+      <span class="cc-emoji">🎸</span>
+      <span class="cc-label">Gitara</span>
+    </div>
+    <div class="cut-card">
+      <span class="cc-emoji">🎺</span>
+      <span class="cc-label">Trąbka</span>
+    </div>
+    <div class="cut-card">
+      <span class="cc-emoji">🥁</span>
+      <span class="cc-label">Bęben</span>
+    </div>
+    <div class="cut-card">
+      <span class="cc-emoji">🎻</span>
+      <span class="cc-label">Skrzypce</span>
+    </div>
+    <div class="cut-card">
+      <span class="cc-emoji">🪈</span>
+      <span class="cc-label">Flet</span>
+    </div>
+    <div class="cut-card">
+      <span class="cc-emoji">🪇</span>
+      <span class="cc-label">Marakasy</span>
+    </div>
+    <div class="cut-card">
+      <span class="cc-emoji">🪕</span>
+      <span class="cc-label">Ukulele</span>
+    </div>
+    <div class="cut-card">
+      <span class="cc-emoji">🎷</span>
+      <span class="cc-label">Saksofon</span>
+    </div>
+    <div class="cut-card">
+      <span class="cc-emoji">🪘</span>
+      <span class="cc-label">Tamburyn</span>
+    </div>
+    <div class="cut-card">
+      <span class="cc-emoji">🎵</span>
+      <span class="cc-label">Klarnet</span>
+    </div>
+    <div class="cut-card">
+      <span class="cc-emoji">🔺</span>
+      <span class="cc-label">Trójkąt</span>
+    </div>
+    <div class="cut-card">
+      <span class="cc-emoji">🎶</span>
+      <span class="cc-label">Harfa</span>
+    </div>
+  </div>
+
+  <div class="callout tip" style="margin-top:10px;">
+    <strong>💡 Wskazówka:</strong> Dziecko może najpierw ułożyć karty bez klejenia, żeby sprawdzić. Potem wklej na pewno! Pozwól na błędy — poprawka też jest nauką. ✂️
+  </div>
+  <div class="page-num">12</div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     PAGE 13 — CUT & PLAY 2: ARRANGE NOTES IN ORDER
+     ═══════════════════════════════════════════ -->
+<div class="page">
+  <div class="worksheet-instruction">
+    ✂️ Ułóż nuty po kolei — od Do do La!
+    <span class="pill pill-gold">ŚREDNI</span>
+  </div>
+  <p style="font-size:13px;color:var(--ink-mid);margin-bottom:12px;">Wytnij kolorowe nuty i ułóż je w prawidłowej kolejności na pięciolinii! 🎵 Wzór masz poniżej. 👇</p>
+
+  <!-- Ghost reference row -->
+  <p style="font-family:var(--af);font-size:12px;font-weight:700;color:var(--muted);margin-bottom:6px;">📋 Wzór (prawidłowa kolejność):</p>
+  <div class="ghost-row">
+    <div class="ghost-circle" style="border-color:var(--n1);">Do</div>
+    <span style="color:var(--muted);font-size:18px;">→</span>
+    <div class="ghost-circle" style="border-color:var(--n2);">Re</div>
+    <span style="color:var(--muted);font-size:18px;">→</span>
+    <div class="ghost-circle" style="border-color:var(--n3);">Mi</div>
+    <span style="color:var(--muted);font-size:18px;">→</span>
+    <div class="ghost-circle" style="border-color:var(--n4);">Fa</div>
+    <span style="color:var(--muted);font-size:18px;">→</span>
+    <div class="ghost-circle" style="border-color:var(--n5);">Sol</div>
+    <span style="color:var(--muted);font-size:18px;">→</span>
+    <div class="ghost-circle" style="border-color:var(--n6);">La</div>
+  </div>
+
+  <!-- Empty staff for placement -->
+  <p style="font-family:var(--af);font-size:12px;font-weight:700;color:var(--muted);margin-bottom:6px;margin-top:14px;">🎼 Wklej tutaj nuty w dobrej kolejności:</p>
+  <div style="background:#fff;border:2px solid var(--border);border-radius:14px;padding:20px;min-height:100px;display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:18px;">
+    <div style="width:50px;height:50px;border:2px dashed var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:11px;">1</div>
+    <span style="color:var(--border);font-size:18px;">→</span>
+    <div style="width:50px;height:50px;border:2px dashed var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:11px;">2</div>
+    <span style="color:var(--border);font-size:18px;">→</span>
+    <div style="width:50px;height:50px;border:2px dashed var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:11px;">3</div>
+    <span style="color:var(--border);font-size:18px;">→</span>
+    <div style="width:50px;height:50px;border:2px dashed var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:11px;">4</div>
+    <span style="color:var(--border);font-size:18px;">→</span>
+    <div style="width:50px;height:50px;border:2px dashed var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:11px;">5</div>
+    <span style="color:var(--border);font-size:18px;">→</span>
+    <div style="width:50px;height:50px;border:2px dashed var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:11px;">6</div>
+  </div>
+
+  <!-- Cut-out cards in random order -->
+  <div class="scissors-label"><span class="scissors-icon"></span> Wytnij nuty (uwaga — są pomieszane!):</div>
+
+  <div style="display:flex;gap:14px;flex-wrap:wrap;justify-content:center;">
+    <div class="cut-border" style="padding:12px 18px;text-align:center;background:#fff;">
+      <div class="note-circle fa" style="width:56px;height:56px;font-size:20px;">Fa</div>
+    </div>
+    <div class="cut-border" style="padding:12px 18px;text-align:center;background:#fff;">
+      <div class="note-circle do" style="width:56px;height:56px;font-size:20px;">Do</div>
+    </div>
+    <div class="cut-border" style="padding:12px 18px;text-align:center;background:#fff;">
+      <div class="note-circle la" style="width:56px;height:56px;font-size:20px;">La</div>
+    </div>
+    <div class="cut-border" style="padding:12px 18px;text-align:center;background:#fff;">
+      <div class="note-circle mi" style="width:56px;height:56px;font-size:20px;">Mi</div>
+    </div>
+    <div class="cut-border" style="padding:12px 18px;text-align:center;background:#fff;">
+      <div class="note-circle sol" style="width:56px;height:56px;font-size:20px;">Sol</div>
+    </div>
+    <div class="cut-border" style="padding:12px 18px;text-align:center;background:#fff;">
+      <div class="note-circle re" style="width:56px;height:56px;font-size:20px;">Re</div>
+    </div>
+  </div>
+
+  <div class="callout ok" style="margin-top:14px;">
+    <strong>🎼 Gama muzyczna:</strong> Do-Re-Mi-Fa-Sol-La to gama — drabinka dźwięków od niskiego do wysokiego! Zaśpiewajcie ją razem! 🎶
+  </div>
+  <div class="page-num">13</div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     PAGE 14 — CUT & PLAY 3: BUILD YOUR OWN RHYTHM
+     ═══════════════════════════════════════════ -->
+<div class="page">
+  <div class="worksheet-instruction">
+    ✂️ Ułóż własny rytm — wytnij klocki i stwórz muzykę!
+    <span class="pill pill-coral">TRUDNY</span>
+  </div>
+  <p style="font-size:13px;color:var(--ink-mid);margin-bottom:12px;">Wytnij klocki rytmiczne i ułóż swój własny rytm w pustych taktach! Potem wyklaszcz to, co ułożyłeś! 👏🎵</p>
+
+  <!-- Legend -->
+  <div class="card" style="padding:12px 16px;margin-bottom:14px;">
+    <p style="font-family:var(--af);font-size:13px;font-weight:700;color:var(--teal-dark);margin-bottom:8px;">📖 Legenda klocków:</p>
+    <div style="display:flex;gap:16px;flex-wrap:wrap;align-items:center;">
+      <div style="display:flex;align-items:center;gap:6px;">
+        <div class="rhythm-beat" style="background:var(--n1);width:28px;height:28px;font-size:9px;">ta</div>
+        <span style="font-size:12px;color:var(--ink-mid);"><strong>ta</strong> = 1 klaśnięcie</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:6px;">
+        <div style="display:flex;gap:2px;">
+          <div class="rhythm-beat" style="background:var(--n2);width:22px;height:22px;font-size:8px;">ti</div>
+          <div class="rhythm-beat" style="background:var(--n2);width:22px;height:22px;font-size:8px;">ti</div>
+        </div>
+        <span style="font-size:12px;color:var(--ink-mid);"><strong>ti-ti</strong> = 2 szybkie klaśnięcia</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:6px;">
+        <div class="rhythm-rest" style="width:28px;height:28px;">🤫</div>
+        <span style="font-size:12px;color:var(--ink-mid);"><strong>sza</strong> = cisza (pauza)</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:6px;">
+        <div class="rhythm-beat" style="background:var(--n4);width:48px;height:28px;border-radius:14px;font-size:9px;">ta-a</div>
+        <span style="font-size:12px;color:var(--ink-mid);"><strong>ta-a</strong> = długie klaśnięcie</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Empty measure boxes -->
+  <p style="font-family:var(--af);font-size:12px;font-weight:700;color:var(--muted);margin-bottom:6px;">🎼 Ułóż klocki w taktach:</p>
+  <div class="measure-box">Takt 1 — włóż tu 4 klaśnięcia ✋</div>
+  <div class="measure-box">Takt 2 — ułóż swój rytm! 🎵</div>
+  <div class="measure-box">Takt 3 — wymyśl coś trudnego! 💪</div>
+
+  <!-- Cut-out rhythm blocks -->
+  <div class="scissors-label" style="margin-top:14px;"><span class="scissors-icon"></span> Wytnij klocki rytmiczne:</div>
+
+  <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center;">
+    <!-- ta blocks x6 -->
+    <div class="cut-border" style="padding:8px 12px;background:#fff;display:flex;align-items:center;gap:4px;">
+      <div class="rhythm-beat" style="background:var(--n1);width:32px;height:32px;font-size:10px;">ta</div>
+    </div>
+    <div class="cut-border" style="padding:8px 12px;background:#fff;display:flex;align-items:center;gap:4px;">
+      <div class="rhythm-beat" style="background:var(--n1);width:32px;height:32px;font-size:10px;">ta</div>
+    </div>
+    <div class="cut-border" style="padding:8px 12px;background:#fff;display:flex;align-items:center;gap:4px;">
+      <div class="rhythm-beat" style="background:var(--n1);width:32px;height:32px;font-size:10px;">ta</div>
+    </div>
+    <div class="cut-border" style="padding:8px 12px;background:#fff;display:flex;align-items:center;gap:4px;">
+      <div class="rhythm-beat" style="background:var(--n1);width:32px;height:32px;font-size:10px;">ta</div>
+    </div>
+    <div class="cut-border" style="padding:8px 12px;background:#fff;display:flex;align-items:center;gap:4px;">
+      <div class="rhythm-beat" style="background:var(--n1);width:32px;height:32px;font-size:10px;">ta</div>
+    </div>
+    <div class="cut-border" style="padding:8px 12px;background:#fff;display:flex;align-items:center;gap:4px;">
+      <div class="rhythm-beat" style="background:var(--n1);width:32px;height:32px;font-size:10px;">ta</div>
+    </div>
+    <!-- ti-ti blocks x4 -->
+    <div class="cut-border" style="padding:8px 12px;background:#fff;display:flex;align-items:center;gap:3px;">
+      <div class="rhythm-beat" style="background:var(--n2);width:24px;height:24px;font-size:8px;">ti</div>
+      <div class="rhythm-beat" style="background:var(--n2);width:24px;height:24px;font-size:8px;">ti</div>
+    </div>
+    <div class="cut-border" style="padding:8px 12px;background:#fff;display:flex;align-items:center;gap:3px;">
+      <div class="rhythm-beat" style="background:var(--n2);width:24px;height:24px;font-size:8px;">ti</div>
+      <div class="rhythm-beat" style="background:var(--n2);width:24px;height:24px;font-size:8px;">ti</div>
+    </div>
+    <div class="cut-border" style="padding:8px 12px;background:#fff;display:flex;align-items:center;gap:3px;">
+      <div class="rhythm-beat" style="background:var(--n2);width:24px;height:24px;font-size:8px;">ti</div>
+      <div class="rhythm-beat" style="background:var(--n2);width:24px;height:24px;font-size:8px;">ti</div>
+    </div>
+    <div class="cut-border" style="padding:8px 12px;background:#fff;display:flex;align-items:center;gap:3px;">
+      <div class="rhythm-beat" style="background:var(--n2);width:24px;height:24px;font-size:8px;">ti</div>
+      <div class="rhythm-beat" style="background:var(--n2);width:24px;height:24px;font-size:8px;">ti</div>
+    </div>
+    <!-- sza (rest) blocks x3 -->
+    <div class="cut-border" style="padding:8px 12px;background:#fff;display:flex;align-items:center;gap:4px;">
+      <div class="rhythm-rest" style="width:32px;height:32px;">🤫</div>
+    </div>
+    <div class="cut-border" style="padding:8px 12px;background:#fff;display:flex;align-items:center;gap:4px;">
+      <div class="rhythm-rest" style="width:32px;height:32px;">🤫</div>
+    </div>
+    <div class="cut-border" style="padding:8px 12px;background:#fff;display:flex;align-items:center;gap:4px;">
+      <div class="rhythm-rest" style="width:32px;height:32px;">🤫</div>
+    </div>
+    <!-- ta-a blocks x3 -->
+    <div class="cut-border" style="padding:8px 12px;background:#fff;display:flex;align-items:center;gap:4px;">
+      <div class="rhythm-beat" style="background:var(--n4);width:50px;height:32px;border-radius:16px;font-size:10px;">ta-a</div>
+    </div>
+    <div class="cut-border" style="padding:8px 12px;background:#fff;display:flex;align-items:center;gap:4px;">
+      <div class="rhythm-beat" style="background:var(--n4);width:50px;height:32px;border-radius:16px;font-size:10px;">ta-a</div>
+    </div>
+    <div class="cut-border" style="padding:8px 12px;background:#fff;display:flex;align-items:center;gap:4px;">
+      <div class="rhythm-beat" style="background:var(--n4);width:50px;height:32px;border-radius:16px;font-size:10px;">ta-a</div>
+    </div>
+  </div>
+
+  <div class="callout tip" style="margin-top:10px;">
+    <strong>💡 Wskazówka:</strong> Pomóż dziecku wyklaskać stworzony rytm. Jeden takt = 4 klaśnięcia. „ta" to 1, „ti-ti" to 2 szybkie, „ta-a" to 1 wolne, „sza" to cisza! 🎶
+  </div>
+  <div class="page-num">14</div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     PAGE 15 — BACK COVER / CLOSING
+     ═══════════════════════════════════════════ -->
+<div class="page back-cover">
+  <div style="font-size:56px;margin-bottom:20px;">🎵✨🎹</div>
+  <h2>Następny krok</h2>
+  <p class="bc-sub" style="margin-top:16px;font-size:16px;color:rgba(255,255,255,.85);max-width:380px;">
+    Brawo! Twoje dziecko ma teraz sprawniejsze palce, lepszą koordynację i zna podstawy muzyki.
+  </p>
+  <p class="bc-sub" style="margin-top:14px;max-width:380px;">
+    Czas na prawdziwą przygodę — wróć do Zabawowej Metody Muzycznej i zacznijcie Moduł 1! Wszystkie narzędzia są już gotowe. 🚀
+  </p>
+  <div class="rainbow-bar" style="display:flex;gap:6px;margin-top:30px;">
+    <span style="background:var(--n1);width:36px;height:8px;border-radius:4px;"></span>
+    <span style="background:var(--n2);width:36px;height:8px;border-radius:4px;"></span>
+    <span style="background:var(--n3);width:36px;height:8px;border-radius:4px;"></span>
+    <span style="background:var(--n4);width:36px;height:8px;border-radius:4px;"></span>
+    <span style="background:var(--n5);width:36px;height:8px;border-radius:4px;"></span>
+    <span style="background:var(--n6);width:36px;height:8px;border-radius:4px;"></span>
+  </div>
+  <p style="margin-top:28px;font-size:12px;color:rgba(255,255,255,.4);">Zabawowa Metoda Muzyczna</p>
+</div>
+
+</body>
+</html>

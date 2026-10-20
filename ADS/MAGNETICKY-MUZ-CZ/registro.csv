@@ -1,0 +1,19 @@
+id,concepto,origen,parent,batch,archivo,audio,costo,estado
+1,Vždy ty první — nostalgia hook,propia,,2026-10-13,2026-10-13/1.mp4,voces/ad1.wav,0,listo
+2,Plovoucí písek — metáfora arena movediza,propia,,2026-10-13,2026-10-13/2.mp4,voces/ad2.wav,0,listo
+3,Tajemství přitažlivých chlapů — contraste social,propia,,2026-10-13,2026-10-13/3.mp4,voces/ad3.wav,0,listo
+4,Prvních 90 sekund — hook ciencia,propia,,2026-10-13,2026-10-13/4.mp4,voces/ad4.wav,0,listo
+5,Zpráva na modro — dolor seen/no reply,propia,,2026-10-13,2026-10-13/5.mp4,voces/ad5.wav,0,listo
+6,Přestaň honit — reframe cazador/cazado,propia,,2026-10-13,2026-10-13/6.mp4,voces/ad6.wav,0,listo
+7,Plovoucí písek — listicle 3 věci,renovacion,2,2026-10-14,2026-10-14/7.mp4,voces/mcz07.wav,0,producido
+8,Plovoucí písek — primera persona,renovacion,2,2026-10-14,2026-10-14/8.mp4,voces/mcz08.wav,0,producido
+9,Přestaň honit — hook pregunta dos hombres,renovacion,6,2026-10-14,2026-10-14/9.mp4,voces/mcz09.wav,0,producido
+10,Prueba social — tisíce mužů,renovacion,,2026-10-14,2026-10-14/10.mp4,voces/mcz10.wav,0,producido
+11,Plovoucí písek — hook alt (čím víc ji chceš),renovacion,2,2026-10-14,2026-10-14/11.mp4,voces/mcz11.wav,0,producido
+12,Plovoucí písek — cierre alt (za kterým ona přijde),renovacion,2,2026-10-14,2026-10-14/12.mp4,voces/mcz12.wav,0,producido
+13,Objeción-respuesta: Tohle je manipulace?,renovacion,2,2026-10-17,2026-10-17/13.mp4,voces/mcz13.wav,0,producido
+14,Contraste temporal externo — Rok zpátky,renovacion,2,2026-10-17,2026-10-17/14.mp4,voces/mcz14.wav,0,producido
+15,Señales invisibles — její mozek to ví,renovacion,2,2026-10-17,2026-10-17/15.mp4,voces/mcz15.wav,0,producido
+16,No es tu físico — Není to výška,renovacion,,2026-10-17,2026-10-17/16.mp4,voces/mcz16.wav,0,producido
+17,Hook pregunta: Proč čím víc se snažíš,renovacion,2,2026-10-17,2026-10-17/17.mp4,voces/mcz17.wav,0,producido
+18,Apertura solución primero — estructura invertida MCZ-02,renovacion,2,2026-10-17,2026-10-17/18.mp4,voces/mcz18.wav,0,producido

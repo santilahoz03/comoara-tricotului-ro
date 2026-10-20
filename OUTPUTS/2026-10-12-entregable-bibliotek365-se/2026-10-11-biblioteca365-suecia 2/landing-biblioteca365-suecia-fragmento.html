@@ -1,0 +1,814 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+html { scroll-behavior: smooth; background: #fff; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+*, *::before, *::after { box-sizing: border-box; }
+
+/* ===== TICKER ===== */
+.lp-tick{background:#000;overflow:hidden;position:relative;width:100vw;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);max-width:100vw;padding:8px 0}
+.lp-tick-track{display:flex;width:max-content;column-gap:60px;animation:lp-tick-run 150s linear infinite}
+.lp-tick-item{color:#fff;font-family:'Nunito',sans-serif;font-weight:800;font-size:11px;letter-spacing:.3px;text-transform:uppercase;white-space:nowrap;margin:0}
+.lp-tick:hover .lp-tick-track{animation-play-state:paused}
+@keyframes lp-tick-run{to{transform:translateX(calc(-50% - 30px))}}
+@media (prefers-reduced-motion:reduce){.lp-tick-track{animation:none}}
+@media (min-width:750px){
+  .lp-tick{padding:11px 0}
+  .lp-tick-track{column-gap:100px}
+  .lp-tick-item{font-size:13px}
+  @keyframes lp-tick-run{to{transform:translateX(calc(-50% - 50px))}}
+}
+
+/* ===== BASE LP-PAGE ===== */
+.lp-page{--lp-navy:#16233B;--lp-green:#1FA35A;--lp-green-dark:#178048;--lp-green-soft:#EAF8EF;--lp-yellow:#FFC93C;--lp-yellow-dark:#E6A800;--lp-red:#E8395B;--lp-ink:#20242C;--lp-ink-soft:#6B7280;--lp-border:#E7E9EE;--lp-bg-alt:#F6F7F9;--lp-star:#F5A623;font-family:'Nunito',sans-serif;color:var(--lp-ink);line-height:1.5;background:#fff}
+.lp-page *{box-sizing:border-box}
+.lp-page img{max-width:100%;display:block}
+.lp-page h1,.lp-page h2,.lp-page h3,.lp-page h4{font-family:'Baloo 2',sans-serif;color:var(--lp-navy);line-height:1.2;margin:0}
+.lp-page p{margin:0}
+.lp-page section{padding:20px 0 26px}
+.lp-page .lp-alt{background:var(--lp-bg-alt)}
+.lp-page .lp-wrap{max-width:560px;margin:0 auto;padding:0 20px}
+.lp-page .lp-wrap-wide{max-width:1080px;margin:0 auto;padding:0 20px}
+.lp-page .lp-center{text-align:center}
+.lp-page .lp-hl{background:linear-gradient(135deg,var(--lp-green) 0%,var(--lp-green-dark) 65%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;display:inline-block}
+.lp-page .lp-hl-y{color:var(--lp-yellow)}
+.lp-page .lp-eyebrow{display:inline-flex;align-items:center;gap:6px;background:var(--lp-green-soft);color:var(--lp-green-dark);font-weight:800;font-size:12px;letter-spacing:.3px;padding:6px 14px;border-radius:100px;text-transform:uppercase}
+.lp-page .lp-eyebrow-dark{background:rgba(255,255,255,.12);color:#fff}
+.lp-page .lp-underline{display:block;width:70px;height:4px;margin:16px auto 0;border-radius:100px;background:linear-gradient(90deg,var(--lp-yellow),var(--lp-green))}
+.lp-page .lp-divider{display:flex;align-items:center;justify-content:center;gap:12px;max-width:560px;margin:0 auto 18px;padding:0 20px}
+.lp-page .lp-divider::before,.lp-page .lp-divider::after{content:"";flex:1;height:2px;border-radius:999px}
+.lp-page .lp-divider::before{background:linear-gradient(90deg,rgba(31,163,90,0),rgba(31,163,90,.38))}
+.lp-page .lp-divider::after{background:linear-gradient(270deg,rgba(31,163,90,0),rgba(31,163,90,.38))}
+.lp-page .lp-divider span{flex:none;width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;background:#fff;border:2px solid var(--lp-green-soft);box-shadow:0 4px 12px rgba(20,30,50,.10)}
+.lp-page .lp-btn{display:flex;align-items:center;justify-content:center;gap:8px;font-family:'Baloo 2',sans-serif;font-weight:700;font-size:17px;padding:16px;border-radius:12px;border:none;cursor:pointer;width:100%;transition:transform .12s ease,box-shadow .12s ease,background .15s ease}
+.lp-page .lp-btn-yellow{background:var(--lp-yellow);color:var(--lp-navy);box-shadow:0 6px 0 var(--lp-yellow-dark)}
+.lp-page .lp-btn-yellow:active{transform:translateY(3px);box-shadow:0 3px 0 var(--lp-yellow-dark)}
+.lp-page .lp-btn-green{background:var(--lp-green);color:#fff;font-family:'Nunito',sans-serif;font-weight:800;font-size:16px;border-radius:10px}
+.lp-page .lp-btn-green:hover{background:var(--lp-green-dark)}
+.lp-page .lp-btn:disabled{opacity:.7;cursor:default}
+.lp-page .lp-btn-note{text-align:center;font-size:12px;color:var(--lp-ink-soft);margin-top:10px}
+.lp-page .lp-hero{padding:32px 0 16px;text-align:center}
+.lp-page .lp-hero h1{font-size:26px;margin:14px 0 12px}
+.lp-page .lp-hero .lp-sub{font-size:15px;color:var(--lp-ink-soft);max-width:440px;margin:0 auto 22px}
+.lp-page .lp-hero-visual{margin-bottom:18px}
+.lp-page .lp-hero-visual img{width:auto;max-width:300px;height:auto;margin:0 auto;border-radius:14px;box-shadow:0 20px 40px rgba(20,30,50,.18)}
+.lp-page .lp-info{padding-top:0}
+.lp-page .lp-info .lp-title{font-size:23px;margin:0 0 8px}
+.lp-page .lp-rating{display:flex;align-items:center;gap:8px;font-size:13.5px;color:var(--lp-ink-soft);font-weight:700;margin-bottom:14px}
+.lp-page .lp-stars{color:var(--lp-star);letter-spacing:1px}
+.lp-page .lp-price-line{display:flex;align-items:baseline;gap:10px;margin-bottom:2px;flex-wrap:wrap}
+.lp-page .lp-price-now{font-family:'Baloo 2',sans-serif;font-size:28px;font-weight:800;color:var(--lp-ink)}
+.lp-page .lp-price-old{font-size:16px;color:#B5B9C2;text-decoration:line-through}
+.lp-page .lp-save-pill{background:var(--lp-red);color:#fff;font-weight:800;font-size:12px;padding:2px 9px;border-radius:6px}
+.lp-page .lp-price-note{font-size:12.5px;color:var(--lp-ink-soft);margin-bottom:18px}
+.lp-page .lp-desc{font-size:14.5px;color:var(--lp-ink-soft);margin-bottom:20px}
+.lp-page .lp-desc p{margin:0 0 10px}
+.lp-page .lp-desc ul{margin:0 0 10px;padding-left:18px}
+.lp-page .lp-desc b,.lp-page .lp-desc strong{color:var(--lp-navy)}
+.lp-page .lp-diff{border:2px solid var(--lp-navy);border-radius:12px;padding:16px;margin-bottom:16px}
+.lp-page .lp-diff-title{text-align:center;font-family:'Baloo 2',sans-serif;font-weight:700;font-size:13px;color:var(--lp-navy);margin-bottom:12px;letter-spacing:.3px}
+.lp-page .lp-diff-cols{display:flex;gap:10px;align-items:center}
+.lp-page .lp-diff-col{flex:1;border-radius:10px;padding:14px;text-align:center}
+.lp-page .lp-diff-col.is-normal{background:var(--lp-bg-alt)}
+.lp-page .lp-diff-col.is-offer{background:var(--lp-green-soft);border:1px solid #BEE9CC}
+.lp-page .lp-diff-col .lp-lbl{font-size:11.5px;color:var(--lp-ink-soft);font-weight:700;margin-bottom:4px}
+.lp-page .lp-diff-col .lp-amt{font-family:'Baloo 2',sans-serif;font-weight:800;font-size:16px}
+.lp-page .lp-diff-col.is-normal .lp-amt{color:#B5B9C2;text-decoration:line-through}
+.lp-page .lp-diff-col.is-offer .lp-amt{color:var(--lp-green-dark)}
+.lp-page .lp-diff-x{font-family:'Baloo 2',sans-serif;font-weight:800;color:var(--lp-red);background:#FCEAEE;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;flex:none}
+.lp-page .lp-diff-foot{background:var(--lp-bg-alt);border-radius:8px;padding:9px;text-align:center;font-size:12.5px;font-weight:700;margin-top:10px}
+.lp-page .lp-diff-foot b{color:var(--lp-green-dark)}
+.lp-page .lp-bonus-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:20px;align-items:start}
+.lp-page .lp-bonus{border:1px solid var(--lp-border);border-radius:12px;padding:12px;text-align:center;background:#fff}
+.lp-page .lp-bonus .lp-thumb{display:flex;align-items:center;justify-content:center;margin-bottom:10px}
+.lp-page .lp-bonus img{width:auto;max-width:100%;height:auto;border-radius:8px}
+.lp-page .lp-bonus .lp-name{font-size:12.5px;font-weight:700;color:var(--lp-navy);line-height:1.3}
+.lp-page .lp-bonus .lp-free-tag{font-size:10.5px;color:var(--lp-green-dark);font-weight:800;text-transform:uppercase;margin-top:4px}
+.lp-page .lp-vids-head{max-width:720px;margin:0 auto 18px;padding:0 20px;text-align:center}
+.lp-page .lp-vids-eyebrow{display:inline-block;background:#FDECA8;color:var(--lp-navy);font-weight:800;font-size:12px;letter-spacing:1px;padding:7px 16px;border-radius:999px;margin-bottom:14px}
+.lp-page .lp-vids-title{font-size:28px;margin:0 0 10px}
+.lp-page .lp-vids-sub{color:var(--lp-ink-soft);font-size:16px;line-height:1.6}
+.lp-page .lp-vids-viewport{position:relative}
+.lp-page .lp-vids-track{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding:4px 20px 18px;-ms-overflow-style:none;scrollbar-width:none}
+.lp-page .lp-vids-track::-webkit-scrollbar{display:none}
+.lp-page .lp-vid{flex:0 0 auto;width:270px;scroll-snap-align:center;border:1px solid var(--lp-border);border-radius:16px;overflow:hidden;background:#0E1626;box-shadow:0 4px 14px rgba(22,35,59,.06);position:relative;transition:transform .18s ease,box-shadow .18s ease}
+.lp-page .lp-vid:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(22,35,59,.10)}
+.lp-page .lp-vid video{display:block;width:100%;height:480px;object-fit:cover;background:#0E1626;cursor:pointer}
+.lp-page .lp-vid-label{position:absolute;left:12px;bottom:12px;z-index:3;background:rgba(255,255,255,.94);color:var(--lp-navy);font-size:13px;font-weight:800;padding:7px 14px;border-radius:999px;box-shadow:0 2px 10px rgba(0,0,0,.18);pointer-events:none}
+.lp-page .lp-vid::after{content:"";position:absolute;left:0;right:0;bottom:0;height:110px;background:linear-gradient(to bottom,rgba(0,0,0,0),rgba(0,0,0,.45));pointer-events:none;z-index:2}
+.lp-page .lp-vids-hint{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:18px;color:var(--lp-ink-soft);font-size:14px;font-weight:700}
+.lp-page .lp-vids-hint .lp-arrow-anim{display:inline-block;color:var(--lp-green);font-size:18px;animation:lp-nudge 1.4s ease-in-out infinite}
+@keyframes lp-nudge{0%,100%{transform:translateX(0)}50%{transform:translateX(6px)}}
+.lp-page .lp-testi-marquee{margin-top:22px}
+.lp-page .lp-testi-track{display:flex;gap:14px;align-items:flex-start;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding:6px 20px 8px;scrollbar-width:none}
+.lp-page .lp-testi-track::-webkit-scrollbar{display:none}
+.lp-page .lp-testi{flex:0 0 auto;width:230px;scroll-snap-align:start;background:#fff;border:1px solid var(--lp-border);border-radius:16px;padding:12px;box-shadow:0 10px 24px rgba(20,30,50,.06)}
+.lp-page .lp-testi-photo{margin-bottom:12px}
+.lp-page .lp-testi-photo img{width:100%;height:auto;border-radius:12px}
+.lp-page .lp-testi-name{font-size:14px;font-weight:800;color:var(--lp-navy);line-height:1.2;margin-bottom:5px}
+.lp-page .lp-testi-verified{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:700;color:var(--lp-ink-soft);margin-bottom:7px}
+.lp-page .lp-testi-verified svg{width:14px;height:14px;flex:none;display:block;stroke-linecap:round;stroke-linejoin:round}
+.lp-page .lp-testi .lp-stars{font-size:15px;display:block;margin-bottom:8px}
+.lp-page .lp-testi .lp-quote{font-size:13.5px;color:#333}
+.lp-page .lp-summary-visual{margin:18px 0 0}
+.lp-page .lp-summary-visual img{width:100%;max-width:100%;height:auto;margin:0 auto;border-radius:14px;box-shadow:0 16px 32px rgba(20,30,50,.16)}
+.lp-page .lp-summary-box{border:1px solid var(--lp-border);border-radius:14px;padding:20px;margin-top:20px;background:#fff}
+.lp-page .lp-summary-row{display:flex;justify-content:space-between;font-size:13.5px;padding:8px 0;border-bottom:1px dashed var(--lp-border)}
+.lp-page .lp-summary-row:last-of-type{border-bottom:none}
+.lp-page .lp-summary-row.is-total{background:var(--lp-navy);color:#fff;margin:12px -20px -20px;padding:14px 20px;border-radius:0 0 14px 14px;font-family:'Baloo 2',sans-serif;font-weight:700;font-size:16px}
+.lp-page .lp-summary-row.is-total span:last-child{color:var(--lp-yellow)}
+.lp-page .lp-guarantee{background:var(--lp-green-soft);border-radius:14px;padding:24px 20px;text-align:center;margin-top:20px}
+.lp-page .lp-guarantee .lp-ic{font-size:26px;margin-bottom:6px}
+.lp-page .lp-guarantee h4{color:var(--lp-green-dark);font-size:15px;margin-bottom:6px}
+.lp-page .lp-guarantee p{font-size:13px;color:#4B7A5C}
+.lp-page .lp-faq-item{border:1px solid var(--lp-border);border-radius:10px;margin-bottom:8px;overflow:hidden;background:#fff}
+.lp-page .lp-faq-q{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 16px;cursor:pointer;font-weight:700;font-size:14.5px;color:var(--lp-navy)}
+.lp-page .lp-faq-q .lp-plus{color:var(--lp-green-dark);font-size:18px;transition:transform .2s ease;flex:none}
+.lp-page .lp-faq-item.is-open .lp-plus{transform:rotate(45deg)}
+.lp-page .lp-faq-a{max-height:0;overflow:hidden;transition:max-height .25s ease;font-size:13.5px;color:var(--lp-ink-soft);padding:0 16px}
+.lp-page .lp-faq-item.is-open .lp-faq-a{max-height:320px;padding-bottom:14px}
+.lp-page .lp-final{text-align:center;background:#fff;padding:20px 0 40px}
+.lp-page .lp-final h2{font-size:25px;margin:14px 0 12px}
+.lp-page .lp-final .lp-sub{font-size:15px;color:var(--lp-ink-soft);max-width:440px;margin:0 auto 22px}
+.lp-page .lp-final-visual{margin-bottom:18px}
+.lp-page .lp-final-visual img{width:100%;max-width:340px;height:auto;margin:0 auto;border-radius:14px;box-shadow:0 20px 40px rgba(20,30,50,.18)}
+@media (prefers-reduced-motion:reduce){.lp-page .lp-vids-hint .lp-arrow-anim{animation:none}.lp-page .lp-vids-track{scroll-behavior:auto}}
+.lp-page button:focus-visible,.lp-page .lp-faq-q:focus-visible{outline:3px solid var(--lp-green);outline-offset:2px}
+@media (min-width:760px){
+  .lp-page .lp-wrap{max-width:760px}
+  .lp-page .lp-divider{max-width:760px}
+  .lp-page .lp-hero h1{font-size:32px}
+  .lp-page .lp-vids-title{font-size:34px}
+  .lp-page .lp-final h2{font-size:30px}
+  .lp-page .lp-vid{width:300px}
+  .lp-page .lp-vid video{height:530px}
+  .lp-page .lp-vids-track{padding-left:24px;padding-right:24px}
+  .lp-page .lp-bonus-grid{grid-template-columns:repeat(4,1fr)}
+}
+
+/* ===== HERO QUESTION ===== */
+.lp-hero-question{font-family:'Nunito',sans-serif;font-weight:900;font-size:25px;line-height:1.23;letter-spacing:-.45px;margin:7px auto 12px;color:#1f1b2e;max-width:680px}
+.lp-red{color:#e54848;font-weight:900}
+.lp-green{color:#258d62;font-weight:900}
+.lp-hl-dark{color:#1f1b2e;font-weight:900}
+.p365-promise{display:block !important;text-align:center;font-family:'Nunito',sans-serif;font-size:17px;line-height:1.45;font-weight:700;color:#494250;max-width:620px;margin:0 auto 34px !important}
+.p365-promise span{display:inline !important}
+.lp-hero .lp-hero-gallery{margin-top:20px !important}
+.lp-includes-simple{max-width:610px;margin:18px auto 4px;display:flex;flex-direction:column;gap:10px;text-align:left}
+.lp-include-row{display:flex;align-items:center;gap:9px;font-family:'Nunito',sans-serif;font-size:14.5px;line-height:1.35;font-weight:600;color:#4f4955}
+.lp-include-row strong{font-weight:900;color:#28232d}
+.lp-include-emoji{width:27px;min-width:27px;text-align:center;font-size:18px;line-height:1}
+.hero-cta-wrap{text-align:center;margin:24px auto 8px;max-width:420px;padding:0 20px}
+.hero-cta-btn{display:flex;align-items:center;justify-content:center;background:#35aa66;color:#fff;border:0;border-radius:15px;padding:17px 24px;font-family:'Nunito',sans-serif;font-weight:900;font-size:15px;line-height:1.25;cursor:pointer;box-shadow:0 8px 0 #237d49;transition:.15s ease;width:100%;text-decoration:none}
+.hero-cta-btn:hover{transform:translateY(-1px);color:#fff}
+.hero-cta-btn:active{transform:translateY(3px);box-shadow:0 4px 0 #237d49}
+@media (min-width:750px){
+  .lp-hero-question{font-size:35px;line-height:1.18;max-width:760px}
+  .p365-promise{font-size:19px;max-width:660px;margin-bottom:40px !important}
+  .lp-include-row{font-size:15px}
+}
+@media (max-width:380px){.lp-hero-question{font-size:21px}}
+
+/* ===== WHY SECTION ===== */
+.lp-why365-section{padding-top:20px !important;padding-bottom:32px !important}
+.lp-why365-intro{max-width:620px;margin:0 auto}
+.lp-why365-title{font-family:'Nunito',sans-serif;font-size:23px;line-height:1.26;font-weight:900;color:#1f1b2e;margin:12px auto 0;max-width:610px;letter-spacing:-.25px}
+.lp-why365-sub{max-width:520px;margin:10px auto 0 !important;font-family:'Nunito',sans-serif;font-size:13.4px;line-height:1.48;font-weight:700;color:#706976}
+.lp-why365-visual{position:relative;max-width:620px;margin:22px auto 0;border-radius:20px;overflow:hidden;box-shadow:0 12px 30px rgba(33,132,86,.08)}
+.lp-why365-visual::after{content:"";position:absolute;left:0;right:0;bottom:0;height:42%;background:linear-gradient(to bottom,rgba(0,0,0,0),rgba(20,20,20,.23));pointer-events:none}
+.lp-why365-visual img{width:100%;display:block;aspect-ratio:16/8.9;object-fit:cover}
+.lp-why365-tag{position:absolute;left:13px;bottom:12px;z-index:2;display:inline-flex;align-items:center;max-width:calc(100% - 26px);padding:6px 10px;border-radius:999px;font-family:'Nunito',sans-serif;font-size:11px;line-height:1.15;font-weight:900;background:rgba(240,252,244,.94);color:#197c4c;border:1px solid rgba(183,230,199,.95);box-shadow:0 4px 12px rgba(0,0,0,.13)}
+.lp-why365-cards{max-width:620px;margin:14px auto 0;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.lp-why365-card{padding:15px 12px;border-radius:18px;background:linear-gradient(145deg,#f4fbf6 0%,#eaf8ef 100%);border:1px solid #cfead9;box-shadow:0 8px 22px rgba(33,132,86,.06);text-align:left}
+.lp-why365-card-full{grid-column:1 / -1;background:linear-gradient(145deg,#effaf3 0%,#f8fcf9 100%)}
+.lp-why365-icon{width:38px;height:38px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:#fff;box-shadow:inset 0 0 0 1px #d3eadc,0 4px 12px rgba(20,30,50,.05);font-size:19px;margin-bottom:9px}
+.lp-why365-card h3{font-family:'Nunito',sans-serif !important;font-size:13.6px !important;line-height:1.18 !important;font-weight:900 !important;color:#1f1b2e !important;margin:0 0 5px !important}
+.lp-why365-card p{font-family:'Nunito',sans-serif;font-size:12.2px;line-height:1.38;font-weight:700;color:#53605a;margin:0 !important}
+.lp-why365-mini-summary{max-width:620px;margin:14px auto 0;display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.lp-why365-mini-item{min-height:70px;padding:10px 4px;border-radius:14px;border:1px solid #d5e9dd;background:#fff;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(20,30,50,.04)}
+.lp-why365-mini-item strong{font-family:'Nunito',sans-serif;font-size:18px;line-height:1;font-weight:900;color:#218456;margin-bottom:4px}
+.lp-why365-mini-item span{font-family:'Nunito',sans-serif;font-size:9.8px;line-height:1.15;font-weight:900;color:#2e2933;text-transform:uppercase}
+@media(min-width:750px){.lp-why365-title{font-size:29px}.lp-why365-sub{font-size:15px}.lp-why365-card{padding:18px 16px}.lp-why365-card h3{font-size:15px !important}.lp-why365-card p{font-size:13.5px}.lp-why365-mini-item{min-height:84px}.lp-why365-mini-item strong{font-size:22px}.lp-why365-mini-item span{font-size:11px}}
+@media(max-width:380px){.lp-why365-title{font-size:21px}.lp-why365-sub{font-size:12.8px}.lp-why365-cards{gap:8px}.lp-why365-card{padding:13px 10px}.lp-why365-icon{width:34px;height:34px;font-size:18px}.lp-why365-card h3{font-size:12.9px !important}.lp-why365-card p{font-size:11.6px}.lp-why365-mini-summary{gap:6px}.lp-why365-mini-item{min-height:64px}.lp-why365-mini-item strong{font-size:16px}.lp-why365-mini-item span{font-size:8.8px}}
+
+/* ===== VIDEOS SECTION ===== */
+.lp-vids{padding:32px 0}
+.lp-vids-mechanism{text-align:center;font-family:'Nunito',sans-serif;font-size:13px;color:#16a34a;font-weight:700;margin:16px auto 4px;max-width:360px}
+.lp-vids-price-wrap{width:100%;max-width:520px;margin:24px auto 0;padding:0 8px}
+.lp-vids-price-wrap .lp-diff{margin-bottom:0;background:#fff;box-shadow:0 10px 28px rgba(22,35,59,.08)}
+.lp-arrow-anim{display:inline-block;animation:lp-arrow-slide 1.4s ease-in-out infinite}
+@keyframes lp-arrow-slide{0%,100%{transform:translateX(0)}50%{transform:translateX(4px)}}
+.lp-vids-cta{text-align:center;margin-top:26px;padding:0 8px}
+.lp-vids-btn{display:flex;align-items:center;justify-content:center;margin:0 auto;background:#35aa66;color:#fff;border:0;border-radius:15px;padding:17px 24px;font-family:'Nunito',sans-serif;font-weight:900;font-size:14px;line-height:1.25;cursor:pointer;box-shadow:0 8px 0 #237d49;transition:.15s ease;max-width:400px;width:100%;text-decoration:none}
+.lp-vids-btn:hover{transform:translateY(-1px);color:#fff}
+.lp-vids-btn:active{transform:translateY(3px);box-shadow:0 4px 0 #237d49}
+.lp-vids-cta-note{margin-top:12px;font-family:'Nunito',sans-serif;font-size:11.5px;line-height:1.4;font-weight:700;color:#777}
+@media (min-width:750px){.lp-vids-btn{font-size:15px}}
+
+/* ===== BONUS GRID ===== */
+.lp-bonus-desc{font-family:'Nunito',sans-serif;font-size:12px;color:#666;margin:4px 0 0;line-height:1.4}
+.lp-bonus-price-row{display:flex;align-items:center;gap:8px;margin-top:6px}
+.lp-bonus-old{font-family:'Nunito',sans-serif;font-size:12px;color:#999;text-decoration:line-through}
+.lp-bonus-total{text-align:center;font-family:'Nunito',sans-serif;font-size:14px;color:#333;margin-top:20px;padding-top:16px;border-top:1px solid #eee}
+
+/* ===== MAIN OFFER SECTION ===== */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap');
+.bonos-section{font-family:'Nunito',sans-serif;background:radial-gradient(circle at top,#FAF8FF 0%,#F4EFFF 45%,#EEE7FC 100%);padding:58px 18px 64px;width:100%;box-sizing:border-box;overflow:hidden}
+.bonos-section *,.bonos-section *::before,.bonos-section *::after{box-sizing:border-box;margin:0;padding:0}
+.bonos-container{width:100%;max-width:500px;margin:0 auto;display:flex;flex-direction:column;align-items:center}
+.bonos-pill{display:inline-flex;align-items:center;justify-content:center;background:rgba(124,58,237,.09);border:1px solid rgba(124,58,237,.18);color:#6D3FD1;padding:6px 15px;border-radius:100px;font-size:10px;font-weight:900;text-transform:uppercase;letter-spacing:1.3px;margin-bottom:14px}
+.bonos-title{max-width:450px;font-size:clamp(25px,6.5vw,33px);font-weight:900;color:#1E1B25;line-height:1.15;letter-spacing:-.6px;text-align:center;margin-bottom:10px}
+.bonos-title .green{color:#16A34A}
+.bonos-sub{max-width:420px;font-size:13.5px;font-weight:600;color:#696371;text-align:center;margin-bottom:28px;line-height:1.5}
+.bonos-sub strong{color:#242028;font-weight:900}
+.bonos-mockup-panel{width:100%;padding:24px 18px 18px;margin-bottom:26px;background:radial-gradient(circle at 50% 18%,rgba(255,255,255,1) 0%,rgba(255,255,255,.30) 50%,rgba(255,255,255,0) 75%),linear-gradient(145deg,#F8F5FF 0%,#FFF9ED 100%);border:1px solid rgba(105,79,170,.12);border-radius:25px;box-shadow:0 16px 40px rgba(61,44,102,.08);text-align:center}
+.bonos-main-label{display:inline-flex;align-items:center;justify-content:center;padding:5px 11px;background:#6D4CD3;color:#FFFFFF;border-radius:100px;font-size:9px;font-weight:900;letter-spacing:.1em;text-transform:uppercase}
+.bonos-mockup-wrap{position:relative;width:min(300px,75vw);margin:13px auto 9px}
+.bonos-mockup-glow{position:absolute;inset:-30px;background:radial-gradient(ellipse at center,rgba(124,58,237,.17) 0%,transparent 68%);z-index:0}
+.bonos-mockup-img{position:relative;z-index:1;display:block;width:100%;object-fit:contain;filter:drop-shadow(0 22px 20px rgba(42,29,77,.18));animation:bonosFloat 4s ease-in-out infinite}
+@keyframes bonosFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+@media (prefers-reduced-motion:reduce){.bonos-mockup-img{animation:none}}
+.bonos-video-card{width:100%;display:flex;align-items:center;gap:13px;margin-bottom:26px;padding:14px;background:linear-gradient(135deg,#FFF7EC 0%,#FFFDF8 100%);border:1px solid #F2DCC1;border-radius:16px;box-shadow:0 6px 18px rgba(77,55,30,.05);text-align:left}
+.bonos-video-icon{width:44px;height:44px;min-width:44px;display:flex;align-items:center;justify-content:center;background:#FFE7CF;border-radius:13px;font-size:20px}
+.bonos-video-copy{flex:1}
+.bonos-video-copy strong{display:block;color:#2B2520;font-size:13.5px;line-height:1.2;font-weight:900;margin-bottom:3px}
+.bonos-video-copy span{display:block;color:#786D63;font-size:11px;line-height:1.35;font-weight:600}
+.bonos-video-free{flex-shrink:0;padding:5px 8px;background:#16A34A;border-radius:100px;color:#FFFFFF;font-size:8px;font-weight:900}
+.bonos-divider{display:flex;align-items:center;gap:10px;width:100%;margin-bottom:20px}
+.bonos-divider::before,.bonos-divider::after{content:'';flex:1;height:1px;background:rgba(124,58,237,.17)}
+.bonos-divider span{font-size:10px;font-weight:900;color:#7046CC;text-transform:uppercase;letter-spacing:.09em;white-space:nowrap}
+.bonos-list{display:flex;flex-direction:column;gap:10px;width:100%;margin-bottom:18px}
+.bono-card{display:flex;align-items:center;gap:13px;width:100%;padding:11px 12px;background:rgba(255,255,255,.92);border:1px solid rgba(105,88,141,.10);border-radius:15px;box-shadow:0 4px 15px rgba(58,44,84,.045);transition:transform .2s ease,box-shadow .2s ease}
+.bono-card:hover{transform:translateY(-2px);box-shadow:0 9px 22px rgba(83,56,134,.08)}
+.bono-img-wrap{position:relative;flex-shrink:0}
+.bono-img{width:64px;height:78px;display:block;border-radius:9px;object-fit:cover;box-shadow:0 5px 12px rgba(38,29,52,.10)}
+.bono-num-badge{position:absolute;top:-5px;left:-6px;width:20px;height:20px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:#D97706;color:#FFFFFF;font-size:9px;font-weight:900;box-shadow:0 2px 5px rgba(0,0,0,.12)}
+.bono-info{flex:1;min-width:0;text-align:left}
+.bono-info strong{display:block;margin-bottom:3px;color:#242027;font-size:12.5px;line-height:1.22;font-weight:900}
+.bono-info span{display:-webkit-box;overflow:hidden;-webkit-line-clamp:2;-webkit-box-orient:vertical;color:#716A75;font-size:10.5px;line-height:1.35;font-weight:600}
+.bono-price{flex-shrink:0;min-width:50px;text-align:right}
+.bono-precio-ref{display:block;margin-bottom:1px;color:#D14343;font-size:9.5px;font-weight:800;text-decoration:line-through}
+.bono-gratis{display:block;color:#16A34A;font-size:12px;font-weight:900}
+.bonos-valor-total{width:100%;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:13px 14px;margin-bottom:24px;background:linear-gradient(90deg,#FFF3F3 0%,#F0FDF4 100%);border:1px dashed #43A765;border-radius:14px}
+.bonos-valor-total-label{color:#4F4952;font-size:11px;line-height:1.3;font-weight:800;text-align:left}
+.bonos-valor-total-nums{display:flex;align-items:baseline;gap:7px;flex-shrink:0}
+.bonos-valor-total-tachado{color:#D54848;font-size:12px;font-weight:800;text-decoration:line-through}
+.bonos-valor-total-hoy{color:#16A34A;font-size:14px;font-weight:900}
+.bonos-footer{width:100%;display:flex;flex-direction:column;align-items:center;gap:15px;padding:24px 18px;background:#FFFFFF;border:1px solid #E6DCF6;border-radius:22px;box-shadow:0 17px 40px rgba(83,52,137,.09);text-align:center}
+.bonos-urgencia{display:inline-flex;padding:6px 12px;background:#FFF1F1;border:1px solid #FFD2D2;border-radius:100px;color:#D83D3D;font-size:10.5px;font-weight:900}
+.bonos-precio-box{width:100%}
+.bonos-precio-label{margin-bottom:3px;color:#77717C;font-size:11.5px;font-weight:700}
+.bonos-precio-tachado{margin-bottom:9px;color:#AAA4AF;font-size:15px;font-weight:800;text-decoration:line-through}
+.bonos-precio-highlight{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:7px;padding:12px;background:#EFFBF3;border:1px solid #D5F0DF;border-radius:14px}
+.bonos-precio-highlight span{color:#68626C;font-size:12px;font-weight:700}
+.bonos-precio-num{color:#1B1B1B !important;font-size:36px !important;line-height:1 !important;font-weight:900 !important;letter-spacing:-1px}
+.bonos-off{display:inline-flex;margin-top:8px;padding:4px 8px;border-radius:100px;background:#16A34A;color:#FFFFFF;font-size:9px;font-weight:900}
+.bonos-cta{width:100%;min-height:58px;display:flex;align-items:center;justify-content:center;padding:16px 15px;border:0;border-radius:50px;background:linear-gradient(180deg,#25C462 0%,#16A34A 100%);color:#FFFFFF;font-family:'Nunito',sans-serif;font-size:16px;line-height:1.15;font-weight:900;text-align:center;text-decoration:none;cursor:pointer;box-shadow:0 11px 27px rgba(22,163,74,.32);transition:transform .18s ease,box-shadow .18s ease}
+.bonos-cta:hover{transform:translateY(-2px);color:#FFFFFF;box-shadow:0 14px 32px rgba(22,163,74,.40)}
+.bonos-cta:active{transform:translateY(1px)}
+.bonos-garantia-box{width:100%;display:flex;align-items:flex-start;gap:12px;padding:14px;background:linear-gradient(180deg,#FFFFFF 0%,#F9FBF9 100%);border:1px solid #D7F0DF;border-radius:16px}
+.bonos-garantia-icon{width:39px;height:39px;min-width:39px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:#EAF8EF;border:1px solid #CDECD7;font-size:18px}
+.bonos-garantia-content{text-align:left}
+.bonos-garantia-content strong{display:block;margin-bottom:3px;color:#176333;font-size:12.5px;font-weight:900}
+.bonos-garantia-content p{color:#62676A;font-size:10.5px;line-height:1.4;font-weight:600}
+.bonos-garantia{color:#9993A0;font-size:10px;font-weight:700}
+@media (max-width:480px){
+  .bonos-section{padding:48px 13px 55px}
+  .bonos-title{font-size:28px}
+  .bonos-sub{font-size:12.5px;margin-bottom:23px}
+  .bonos-mockup-panel{padding:20px 13px 14px;border-radius:21px}
+  .bonos-mockup-wrap{width:min(285px,76vw)}
+  .bono-card{gap:10px;padding:9px}
+  .bono-img{width:57px;height:70px}
+  .bono-info strong{font-size:11px}
+  .bono-info span{font-size:9.2px}
+  .bonos-precio-num{font-size:33px !important}
+  .bonos-cta{min-height:56px;padding:15px 10px;font-size:14.5px}
+}
+
+/* ===== SUMMARY ===== */
+.lp-page .lp-summary-libros{margin:0 0 14px;padding:20px 22px;background:#F4FAF6;border:1px solid #D5E8DC;border-radius:14px}
+.lp-page .lp-summary-libros *{box-sizing:border-box}
+.lp-page .lp-sl-tit{font-size:13px;letter-spacing:1.2px;text-transform:uppercase;color:#4E9E62;font-weight:700;margin:0 0 16px;line-height:1.4}
+.lp-page .lp-sl-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 28px}
+.lp-page .lp-sl-li{display:flex;align-items:center;gap:9px;font-size:14.5px;line-height:1.5;color:#1B2A4A;font-weight:700;padding:5px 0}
+.lp-page .lp-sl-li i{flex:0 0 auto;font-style:normal;color:#4E9E62;font-size:12px;font-weight:400}
+.lp-page .lp-summary-cta{text-align:center;margin-top:20px}
+.lp-page .lp-summary-btn{background:#35aa66;color:#fff;border:0;border-radius:15px;padding:17px 24px;font-family:'Nunito',sans-serif;font-weight:900;font-size:15px;cursor:pointer;box-shadow:0 8px 0 #237d49;transition:.15s ease;max-width:400px;width:100%;text-decoration:none;display:inline-block;text-align:center}
+.lp-page .lp-summary-btn:hover{transform:translateY(-1px)}
+.lp-page .lp-summary-btn:active{transform:translateY(3px);box-shadow:0 4px 0 #237d49}
+@media(max-width:640px){.lp-page .lp-summary-libros{padding:16px}.lp-page .lp-sl-grid{grid-template-columns:1fr;gap:0}.lp-page .lp-sl-li{font-size:14px;padding:4px 0}}
+
+/* ===== OFFER ANCHOR ===== */
+#offerta-365{scroll-margin-top:24px}
+</style>
+<!-- ============ 1. TICKER ============ -->
+<div aria-label="Fördelar med Bibliotek 365" class="lp-tick">
+<div class="lp-tick-track" id="lpTickTrack">
+<p class="lp-tick-item">⚡ Omedelbar åtkomst: du får allt på e-post och kan börja direkt 📩</p>
+<p class="lp-tick-item">🎯 Slut på att leta efter idéer: öppna Bibliotek 365, välj en aktivitet och kör</p>
+<p class="lp-tick-item">📚 Bibliotek 365 · 365 aktiviteter · +5 temaguider · Instruktionsvideor</p>
+<p class="lp-tick-item">🧠 Lek, kreativitet, nyfikenhet, självständighet och nya färdigheter — utan skärmar</p>
+<p class="lp-tick-item">📥 Digital version att ladda ner och skriva ut</p>
+<p class="lp-tick-item">🛡️ 7 dagars garanti</p>
+</div>
+</div>
+<script>(function(){var t=document.getElementById('lpTickTrack');if(!t)return;var base=t.innerHTML;for(var i=0;i<9;i++){t.innerHTML+=base;}})();</script>
+
+<!-- ============ 2. HERO ============ -->
+<div class="lp-page">
+<section class="lp-hero">
+<div class="lp-wrap">
+<span class="lp-eyebrow">★ Redan vald av över 2 459 familjer</span>
+<h1 class="lp-hero-question">
+  Ditt barn <span class="lp-red">trötnar efter 5 minuter</span> och du vet inte <span class="lp-red">vad du ska hitta på?</span>
+</h1>
+<p class="p365-promise">
+  Med <span class="lp-hl-dark">Bibliotek 365</span> har du en ny, färdig aktivitet för varje dag på året: barnet <span class="lp-green">leker, skapar, utforskar och utvecklar nya färdigheter</span> utan skärmar — och du <span class="lp-green">behöver inte längre hitta på något nytt varje eftermiddag</span>.
+</p>
+<div class="lp-hero-gallery">
+<div class="lp-hero-visual">
+<img alt="Bibliotek 365 – 365 aktiviteter utan skärmar" id="lpHeroImg" src="https://files.catbox.moe/l2q9nc.png"/>
+</div>
+</div>
+<div class="lp-includes-simple">
+<div class="lp-include-row"><span class="lp-include-emoji">📘</span><span><strong>365 aktiviteter utan skärmar</strong></span></div>
+<div class="lp-include-row"><span class="lp-include-emoji">📥</span><span><strong>Digital version att ladda ner och skriva ut</strong></span></div>
+<div class="lp-include-row"><span class="lp-include-emoji">🎁</span><span><strong>5 temaguider i present</strong> för att göra varje dag ännu mer varierad</span></div>
+<div class="lp-include-row"><span class="lp-include-emoji">🎥</span><span><strong>Instruktionsvideor ingår i priset</strong></span></div>
+<div class="lp-include-row"><span class="lp-include-emoji">🛡️</span><span><strong>Nöjdhetsgaranti eller pengarna tillbaka inom 7 dagar</strong></span></div>
+<div class="lp-include-row"><span class="lp-include-emoji">⚡</span><span><strong>Omedelbar och permanent åtkomst</strong></span></div>
+</div>
+<div class="hero-cta-wrap">
+<a class="hero-cta-btn" href="#offerta-365">SE ALLT SOM INGÅR ↓</a>
+</div>
+</div>
+</section>
+<section class="lp-info">
+<div class="lp-wrap">
+<div class="lp-rating">
+<span class="lp-stars">★★★★★</span>
+4,9/5 · Över 2 459 kunder
+</div>
+</div>
+</section>
+</div>
+
+<!-- ============ 3. VARFÖR BIBLIOTEK 365 ÄR ANNORLUNDA ============ -->
+<div class="lp-page">
+<section class="lp-why365-section">
+<div aria-hidden="true" class="lp-divider"><span>✨</span></div>
+<div class="lp-wrap">
+<div class="lp-center lp-why365-intro">
+<span class="lp-eyebrow">Vad som skiljer oss</span>
+<h2 class="lp-why365-title">Varför mammor väljer <span class="lp-hl">Bibliotek 365</span></h2>
+<p class="lp-why365-sub">Det här är inte en vanlig lista med lekar: du har variation, tydlig layout och framför allt en färdig lösning för eftermiddagarna.</p>
+</div>
+<div class="lp-why365-visual">
+<img alt="Barn fokuserat på kreativ lek medan mamman tar en stund för sig själv" loading="lazy" src="https://aekpgsbqjzqntlbucbts.supabase.co/storage/v1/object/public/store-resources/d691ce91-3cb7-4254-b82b-492b31c18b6c/1791580082492_por-que-pl.webp"/>
+<div class="lp-why365-tag">Barnet utforskar. Du andas ut.</div>
+</div>
+<div class="lp-why365-cards">
+<div class="lp-why365-card">
+<div class="lp-why365-icon">📅</div>
+<h3>Idéer för hela året</h3>
+<p>365 färdiga aktiviteter så att idéerna aldrig tar slut.</p>
+</div>
+<div class="lp-why365-card">
+<div class="lp-why365-icon">🧠</div>
+<h3>Lär sig genom lek</h3>
+<p>Varje aktivitet utvecklar nyfikenhet, självständighet och koncentration.</p>
+</div>
+<div class="lp-why365-card">
+<div class="lp-why365-icon">🏠</div>
+<h3>Verkligen enkelt</h3>
+<p>Aktiviteter lätta att förbereda, med saker du oftast redan har hemma.</p>
+</div>
+<div class="lp-why365-card">
+<div class="lp-why365-icon">🎁</div>
+<h3>Mycket mer än en e-bok</h3>
+<p>Du får också 5 temaguider i present för att gå ännu längre.</p>
+</div>
+<div class="lp-why365-card lp-why365-card-full">
+<div class="lp-why365-icon">✨</div>
+<h3>Enklare dagar</h3>
+<p>Färre skärmar, mindre improvisation, fler användbara idéer — och lite mer tid för dig.</p>
+</div>
+</div>
+<div class="lp-why365-mini-summary">
+<div class="lp-why365-mini-item"><strong>365</strong><span>aktiviteter</span></div>
+<div class="lp-why365-mini-item"><strong>+5</strong><span>guider</span></div>
+<div class="lp-why365-mini-item"><strong>🎥</strong><span>videor</span></div>
+<div class="lp-why365-mini-item"><strong>⚡</strong><span>omedelbar åtkomst</span></div>
+</div>
+</div>
+</section>
+</div>
+
+<!-- ============ 4. VIDEOR ============ -->
+<div class="lp-page">
+<section class="lp-vids">
+<div aria-hidden="true" class="lp-divider"><span>🎬</span></div>
+<div class="lp-wrap-wide">
+<div class="lp-vids-head">
+<span class="lp-vids-eyebrow">INUTI BIBLIOTEK 365 ✨</span>
+<h2 class="lp-vids-title">Inte bara titta: <span class="lp-hl">prova, skapa och utforska</span></h2>
+<p class="lp-vids-sub">Se några aktiviteter från biblioteket och se hur lätt en vanlig eftermiddag förvandlas till något extraordinärt.</p>
+</div>
+<div class="lp-vids-viewport">
+<div class="lp-vids-track" id="lpVidsTrack">
+<div class="lp-vid">
+<video aria-label="Aktivitet 1" loop muted playsinline preload="metadata" src="https://aekpgsbqjzqntlbucbts.supabase.co/storage/v1/object/public/store-resources/6c27c783-e262-4256-808a-7ad9098a43ee/1788794299323_gif2.mp4"></video>
+<span class="lp-vid-label">Aktivitet 1</span>
+</div>
+<div class="lp-vid">
+<video aria-label="Aktivitet 2" loop muted playsinline preload="metadata" src="https://aekpgsbqjzqntlbucbts.supabase.co/storage/v1/object/public/store-resources/6c27c783-e262-4256-808a-7ad9098a43ee/1787797565432_gif-1.mp4"></video>
+<span class="lp-vid-label">Aktivitet 2</span>
+</div>
+<div class="lp-vid">
+<video aria-label="Aktivitet 3" loop muted playsinline preload="metadata" src="https://aekpgsbqjzqntlbucbts.supabase.co/storage/v1/object/public/store-resources/6c27c783-e262-4256-808a-7ad9098a43ee/1788794311691_gif-1-1.mp4"></video>
+<span class="lp-vid-label">Aktivitet 3</span>
+</div>
+<div class="lp-vid">
+<video aria-label="Aktivitet 4" loop muted playsinline preload="metadata" src="https://aekpgsbqjzqntlbucbts.supabase.co/storage/v1/object/public/store-resources/6c27c783-e262-4256-808a-7ad9098a43ee/1788794306354_gif-4-1.mp4"></video>
+<span class="lp-vid-label">Aktivitet 4</span>
+</div>
+</div>
+</div>
+<p class="lp-vids-mechanism">Enkelt: öppna Bibliotek 365 → välj en aktivitet → följ steg för steg → klart.</p>
+<div class="lp-vids-hint"><span>Svep för att se fler aktiviteter</span><span class="lp-arrow-anim">→</span></div>
+<div class="lp-vids-price-wrap">
+<div class="lp-diff">
+<div class="lp-diff-title">SE SKILLNADEN</div>
+<div class="lp-diff-cols">
+<div class="lp-diff-col is-normal">
+<div class="lp-lbl">TOTALT VÄRDE</div>
+<div class="lp-amt">{{original_price}}</div>
+</div>
+<div class="lp-diff-x">→</div>
+<div class="lp-diff-col is-offer">
+<div class="lp-lbl">DU BETALAR IDAG</div>
+<div class="lp-amt">{{price}}</div>
+</div>
+</div>
+<div class="lp-diff-foot">Du får <b>365 aktiviteter + 5 temaguider + instruktionsvideor</b> samlade i ett Bibliotek 365 🔥</div>
+</div>
+</div>
+<div class="lp-vids-cta">
+<a class="lp-vids-btn" href="#offerta-365">SE ALLT SOM INGÅR →</a>
+<div class="lp-vids-cta-note">📚 Bibliotek 365 · 🎁 5 temaguider · 🎥 Instruktionsvideor</div>
+</div>
+</div>
+</section>
+</div>
+
+<!-- ============ 5. BONUSGUIDER (RUTNÄT) ============ -->
+<div class="lp-page">
+<section class="lp-bonuses">
+<div aria-hidden="true" class="lp-divider"><span>🎁</span></div>
+<div class="lp-wrap">
+<div class="lp-center">
+<span class="lp-eyebrow">+5 temaguider i present</span>
+<h2 style="font-size:22px;margin-top:12px;">Ytterligare 5 områden där barnet <span class="lp-hl">växer genom lek</span></h2>
+<span class="lp-underline"></span>
+</div>
+<div class="lp-bonus-grid">
+<div class="lp-bonus">
+<div class="lp-thumb"><img alt="Lilla Kockar" loading="lazy" src="https://files.catbox.moe/swxylm.png"/></div>
+<div class="lp-name">Lilla Kockar</div>
+<p class="lp-bonus-desc"><strong>Vardagsliv och kök.</strong> Recept och enkla uppgifter där barnet deltar, följer enkla steg och ni upplever något nytt tillsammans.</p>
+<div class="lp-bonus-price-row"><span class="lp-bonus-old">9 €</span><span class="lp-free-tag">GRATIS</span></div>
+</div>
+<div class="lp-bonus">
+<div class="lp-thumb"><img alt="Jag Klarar Det Själv" loading="lazy" src="https://files.catbox.moe/pkzuvp.png"/></div>
+<div class="lp-name">Jag Klarar Det Själv</div>
+<p class="lp-bonus-desc"><strong>Självständighet.</strong> Enkla vardagsuppgifter som uppmuntrar barnet att prova, göra saker självt och som bygger självförtroende.</p>
+<div class="lp-bonus-price-row"><span class="lp-bonus-old">8 €</span><span class="lp-free-tag">GRATIS</span></div>
+</div>
+<div class="lp-bonus">
+<div class="lp-thumb"><img alt="Min Leksaksfabrik" loading="lazy" src="https://files.catbox.moe/jnz92h.png"/></div>
+<div class="lp-name">Min Leksaksfabrik</div>
+<p class="lp-bonus-desc"><strong>Kreativitet och finmotorik.</strong> Kartong, kapsyler och vanliga material förvandlade till leksaker gjorda med egna händer.</p>
+<div class="lp-bonus-price-row"><span class="lp-bonus-old">12 €</span><span class="lp-free-tag">GRATIS</span></div>
+</div>
+<div class="lp-bonus">
+<div class="lp-thumb"><img alt="Lilla Uppfinnare" loading="lazy" src="https://files.catbox.moe/xzo9ba.png"/></div>
+<div class="lp-name">Lilla Uppfinnare</div>
+<p class="lp-bonus-desc"><strong>Nyfikenhet och utforskande.</strong> Experiment och små utmaningar som uppmuntrar till att observera, prova och fråga "varför?".</p>
+<div class="lp-bonus-price-row"><span class="lp-bonus-old">10 €</span><span class="lp-free-tag">GRATIS</span></div>
+</div>
+<div class="lp-bonus">
+<div class="lp-thumb"><img alt="Tillsammans Är Det Roligare" loading="lazy" src="https://files.catbox.moe/p0ou81.png"/></div>
+<div class="lp-name">Tillsammans Är Det Roligare</div>
+<p class="lp-bonus-desc"><strong>Familjeögonblick.</strong> Lekar där ni skrattar tillsammans, samarbetar och skapar familjeminnen.</p>
+<div class="lp-bonus-price-row"><span class="lp-bonus-old">9 €</span><span class="lp-free-tag">GRATIS</span></div>
+</div>
+</div>
+<div class="lp-bonus-total">Totalt värde för 5 guider: <b>48 €</b> — idag ingår de utan extra kostnad.</div>
+</div>
+</section>
+</div>
+
+<!-- ============ 6. HELA ERBJUDANDET + PRIS + CTA (id="offerta-365") ============ -->
+<section class="bonos-section" id="offerta-365">
+<div class="bonos-container">
+<div class="bonos-pill">📚 DITT BIBLIOTEK 365</div>
+<h2 class="bonos-title"><span class="green">ETT HELT ÅR AV IDÉER, UPPTÄCKTER OCH NYA FÄRDIGHETER</span></h2>
+<p class="bonos-sub">Du köper inte en vanlig lista med lekar. Du får ett <strong>bibliotek som du öppnar så fort du hör "Mamma, jag är uttråkad!"</strong>, och i det finns något nytt att göra, prova eller utforska hela året.</p>
+
+<div class="bonos-mockup-panel">
+<div class="bonos-main-label">HJÄRTAT I BIBLIOTEK 365</div>
+<div class="bonos-mockup-wrap">
+<div class="bonos-mockup-glow"></div>
+<img alt="Bibliotek 365 – 365 aktiviteter utan skärmar" class="bonos-mockup-img" loading="lazy" src="https://files.catbox.moe/l2q9nc.png"/>
+</div>
+</div>
+
+<div class="bonos-video-card">
+<div class="bonos-video-icon">▶️</div>
+<div class="bonos-video-copy">
+<strong>+ Instruktionsvideor ingår</strong>
+<span>Du behöver inte gissa hur man gör: du ser aktiviteten i praktiken och vet direkt hur du föreslår den.</span>
+</div>
+<div class="bonos-video-free">INGÅR</div>
+</div>
+
+<div class="bonos-divider"><span>+ 5 TEMAGUIDER FÖR UTVECKLING GENOM LEK</span></div>
+<div class="bonos-list">
+<div class="bono-card">
+<div class="bono-img-wrap">
+<img alt="Lilla Kockar" class="bono-img" loading="lazy" src="https://files.catbox.moe/swxylm.png"/>
+<div class="bono-num-badge">1</div>
+</div>
+<div class="bono-info"><strong>Lilla Kockar</strong><span><strong>Vardagsliv och kök.</strong> Recept och enkla uppgifter där barnet deltar och ni upplever något nytt tillsammans.</span></div>
+<div class="bono-price"><span class="bono-precio-ref">9 €</span><span class="bono-gratis">GRATIS</span></div>
+</div>
+<div class="bono-card">
+<div class="bono-img-wrap">
+<img alt="Jag Klarar Det Själv" class="bono-img" loading="lazy" src="https://files.catbox.moe/pkzuvp.png"/>
+<div class="bono-num-badge">2</div>
+</div>
+<div class="bono-info"><strong>Jag Klarar Det Själv</strong><span><strong>Självständighet.</strong> Enkla vardagsuppgifter som uppmuntrar barnet att prova och göra saker självt.</span></div>
+<div class="bono-price"><span class="bono-precio-ref">8 €</span><span class="bono-gratis">GRATIS</span></div>
+</div>
+<div class="bono-card">
+<div class="bono-img-wrap">
+<img alt="Min Leksaksfabrik" class="bono-img" loading="lazy" src="https://files.catbox.moe/jnz92h.png"/>
+<div class="bono-num-badge">3</div>
+</div>
+<div class="bono-info"><strong>Min Leksaksfabrik</strong><span><strong>Kreativitet och finmotorik.</strong> Kartong och vanliga material förvandlade till leksaker gjorda med egna händer.</span></div>
+<div class="bono-price"><span class="bono-precio-ref">12 €</span><span class="bono-gratis">GRATIS</span></div>
+</div>
+<div class="bono-card">
+<div class="bono-img-wrap">
+<img alt="Lilla Uppfinnare" class="bono-img" loading="lazy" src="https://files.catbox.moe/xzo9ba.png"/>
+<div class="bono-num-badge">4</div>
+</div>
+<div class="bono-info"><strong>Lilla Uppfinnare</strong><span><strong>Nyfikenhet och utforskande.</strong> Experiment och utmaningar som uppmuntrar till att observera och fråga "varför?".</span></div>
+<div class="bono-price"><span class="bono-precio-ref">10 €</span><span class="bono-gratis">GRATIS</span></div>
+</div>
+<div class="bono-card">
+<div class="bono-img-wrap">
+<img alt="Tillsammans Är Det Roligare" class="bono-img" loading="lazy" src="https://files.catbox.moe/p0ou81.png"/>
+<div class="bono-num-badge">5</div>
+</div>
+<div class="bono-info"><strong>Tillsammans Är Det Roligare</strong><span><strong>Familjeögonblick.</strong> Lekar där ni skrattar tillsammans, samarbetar och skapar familjeminnen.</span></div>
+<div class="bono-price"><span class="bono-precio-ref">9 €</span><span class="bono-gratis">GRATIS</span></div>
+</div>
+</div>
+
+<div class="bonos-valor-total">
+<span class="bonos-valor-total-label">Värde på 5 guider:</span>
+<span class="bonos-valor-total-nums">
+<span class="bonos-valor-total-tachado">48 €</span>
+<span class="bonos-valor-total-hoy">GRATIS</span>
+</span>
+</div>
+
+<div class="bonos-footer">
+<div class="bonos-urgencia">🔥 SPECIALERBJUDANDE TILLGÄNGLIGT IDAG</div>
+<div class="bonos-precio-box">
+<p class="bonos-precio-label">Totalt värde om du köpte allt separat:</p>
+<p class="bonos-precio-tachado">{{original_price}}</p>
+<div class="bonos-precio-highlight">
+<span>Idag har du tillgång till allt för:</span>
+<span class="bonos-precio-num">{{price}}</span>
+</div>
+<div class="bonos-off">DU SPARAR {{savings}}</div>
+</div>
+<a class="bonos-cta" href="/checkout">JA, JAG VILL HA TILLGÅNG TILL BIBLIOTEK 365 →</a>
+<div class="bonos-garantia-box">
+<div class="bonos-garantia-icon">🛡️</div>
+<div class="bonos-garantia-content">
+<strong>Prova i 7 dagar, utan risk</strong>
+<p>Om Bibliotek 365 inte passar dig, kan du begära pengarna tillbaka.</p>
+</div>
+</div>
+<p class="bonos-garantia">⚡ Omedelbar åtkomst · 📩 Digitalt, att ladda ner och skriva ut · ♾️ Permanent åtkomst</p>
+</div>
+</div>
+</section>
+
+<!-- ============ 7. RECENSIONER ============ -->
+<div class="lp-page">
+<section class="lp-testimonios lp-alt">
+<div aria-hidden="true" class="lp-divider"><span>💬</span></div>
+<div class="lp-wrap">
+<div class="lp-center">
+<span class="lp-eyebrow">Vad familjerna säger</span>
+<h2 style="font-size:22px;margin-top:12px;">Du behöver inte göra mer för att sysselsätta dem. Det räcker med <span class="lp-hl">bättre idéer till hands</span></h2>
+<span class="lp-underline"></span>
+</div>
+</div>
+<div class="lp-testi-marquee">
+<div class="lp-testi-track">
+<div class="lp-testi">
+<div class="lp-testi-photo"><img alt="Foto: Giulia R." src="https://aekpgsbqjzqntlbucbts.supabase.co/storage/v1/object/public/store-resources/d691ce91-3cb7-4254-b82b-492b31c18b6c/1791669350616_testimonio-giulia.webp"/></div>
+<div class="lp-testi-name">Giulia R.</div>
+<span class="lp-testi-verified"><svg viewBox="0 0 20 20"><circle cx="10" cy="10" fill="#178048" r="10"></circle><path d="M5.6 10.3l2.8 2.8 6-6.1" fill="none" stroke="#fff" stroke-width="2.2"></path></svg>Verifierat köp</span>
+<span class="lp-stars">★★★★★</span>
+<p class="lp-quote">„Förut hörde jag hela tiden 'Mamma, jag är uttråkad'. Nu öppnar vi guiden, väljer en aktivitet och inom några minuter har hon något nytt att göra."</p>
+</div>
+<div class="lp-testi">
+<div class="lp-testi-photo"><img alt="Foto: Martina B." src="https://aekpgsbqjzqntlbucbts.supabase.co/storage/v1/object/public/store-resources/d691ce91-3cb7-4254-b82b-492b31c18b6c/1791669373087_testimonio-martina.webp"/></div>
+<div class="lp-testi-name">Martina B.</div>
+<span class="lp-testi-verified"><svg viewBox="0 0 20 20"><circle cx="10" cy="10" fill="#178048" r="10"></circle><path d="M5.6 10.3l2.8 2.8 6-6.1" fill="none" stroke="#fff" stroke-width="2.2"></path></svg>Verifierat köp</span>
+<span class="lp-stars">★★★★★</span>
+<p class="lp-quote">„Det bästa är att jag inte längre behöver tänka varje dag på vad jag ska föreslå. Jag har massor av färdiga idéer och en enorm börda har lyfts från mina axlar."</p>
+</div>
+<div class="lp-testi">
+<div class="lp-testi-photo"><img alt="Foto: Chiara L." src="https://aekpgsbqjzqntlbucbts.supabase.co/storage/v1/object/public/store-resources/d691ce91-3cb7-4254-b82b-492b31c18b6c/1791669403443_testimonio-chiara.webp"/></div>
+<div class="lp-testi-name">Chiara L.</div>
+<span class="lp-testi-verified"><svg viewBox="0 0 20 20"><circle cx="10" cy="10" fill="#178048" r="10"></circle><path d="M5.6 10.3l2.8 2.8 6-6.1" fill="none" stroke="#fff" stroke-width="2.2"></path></svg>Verifierat köp</span>
+<span class="lp-stars">★★★★★</span>
+<p class="lp-quote">„Min son slutade alltid med att be om telefonen. Nu har vi mycket fler alternativ och han klarar av att göra flera aktiviteter medan jag avslutar mina saker."</p>
+</div>
+<div class="lp-testi">
+<div class="lp-testi-name">Francesca M.</div>
+<span class="lp-testi-verified"><svg viewBox="0 0 20 20"><circle cx="10" cy="10" fill="#178048" r="10"></circle><path d="M5.6 10.3l2.8 2.8 6-6.1" fill="none" stroke="#fff" stroke-width="2.2"></path></svg>Verifierat köp</span>
+<span class="lp-stars">★★★★★</span>
+<p class="lp-quote">„Jag trodde att jag skulle behöva köpa massor av material, men många aktiviteter använder saker vi redan har hemma. Det gör en enorm skillnad för mig."</p>
+</div>
+<div class="lp-testi">
+<div class="lp-testi-photo"><img alt="Foto: Alessia C." src="https://aekpgsbqjzqntlbucbts.supabase.co/storage/v1/object/public/store-resources/d691ce91-3cb7-4254-b82b-492b31c18b6c/1791669439953_testimonio-alessia.webp"/></div>
+<div class="lp-testi-name">Alessia C.</div>
+<span class="lp-testi-verified"><svg viewBox="0 0 20 20"><circle cx="10" cy="10" fill="#178048" r="10"></circle><path d="M5.6 10.3l2.8 2.8 6-6.1" fill="none" stroke="#fff" stroke-width="2.2"></path></svg>Verifierat köp</span>
+<span class="lp-stars">★★★★★</span>
+<p class="lp-quote">„Jag köpte det för 365 aktiviteterna, men använder faktiskt bonusarna ofta. Det finns mycket innehåll som är användbart i många vardagssituationer."</p>
+</div>
+<div class="lp-testi is-no-photo">
+<div class="lp-testi-name">Valentina D.</div>
+<span class="lp-testi-verified"><svg viewBox="0 0 20 20"><circle cx="10" cy="10" fill="#178048" r="10"></circle><path d="M5.6 10.3l2.8 2.8 6-6.1" fill="none" stroke="#fff" stroke-width="2.2"></path></svg>Verifierat köp</span>
+<span class="lp-stars">★★★★★</span>
+<p class="lp-quote">„Vissa dagar gör vi något tillsammans, andra dagar kan min dotter leka länge på egen hand. Jag älskar att ha så många alternativ att välja bland."</p>
+</div>
+<div class="lp-testi is-no-photo">
+<div class="lp-testi-name">Elena S.</div>
+<span class="lp-testi-verified"><svg viewBox="0 0 20 20"><circle cx="10" cy="10" fill="#178048" r="10"></circle><path d="M5.6 10.3l2.8 2.8 6-6.1" fill="none" stroke="#fff" stroke-width="2.2"></path></svg>Verifierat köp</span>
+<span class="lp-stars">★★★★★</span>
+<p class="lp-quote">„Jag fick allt direkt efter köpet. Jag öppnade guiden i telefonen och samma dag gjorde vi den första aktiviteten."</p>
+</div>
+<div class="lp-testi is-no-photo">
+<div class="lp-testi-name">Federica F.</div>
+<span class="lp-testi-verified"><svg viewBox="0 0 20 20"><circle cx="10" cy="10" fill="#178048" r="10"></circle><path d="M5.6 10.3l2.8 2.8 6-6.1" fill="none" stroke="#fff" stroke-width="2.2"></path></svg>Verifierat köp</span>
+<span class="lp-stars">★★★★★</span>
+<p class="lp-quote">„Min son är 5 år och vi har redan flera favoritaktiviteter. Det bästa är att det finns hundratals fler att utforska."</p>
+</div>
+</div>
+</div>
+</section>
+</div>
+
+<!-- ============ 8. SAMMANFATTNING ============ -->
+<div class="lp-page">
+<section class="lp-summary">
+<div aria-hidden="true" class="lp-divider"><span>🧾</span></div>
+<div class="lp-wrap">
+<h2 class="lp-center" style="font-size:22px;">Allt du hittar i ditt <span class="lp-hl">Bibliotek 365</span></h2>
+<div class="lp-summary-visual">
+<img alt="Bibliotek 365 – 365 aktiviteter utan skärmar" src="https://files.catbox.moe/l2q9nc.png"/>
+</div>
+<div class="lp-summary-libros">
+<p class="lp-sl-tit">🧠 Vad barnet kan utveckla genom lek</p>
+<div class="lp-sl-grid">
+<div class="lp-sl-li"><i>✦</i> Kreativitet och fantasi</div>
+<div class="lp-sl-li"><i>✦</i> Koordination och finmotorik</div>
+<div class="lp-sl-li"><i>✦</i> Observation och utforskande</div>
+<div class="lp-sl-li"><i>✦</i> Tal och ordförråd</div>
+<div class="lp-sl-li"><i>✦</i> Självständighet och initiativ</div>
+<div class="lp-sl-li"><i>✦</i> Rörelse och utomhuslek</div>
+<div class="lp-sl-li"><i>✦</i> Familjeögonblick</div>
+<div class="lp-sl-li"></div>
+</div>
+</div>
+<div class="lp-summary-box">
+<div class="lp-summary-row"><span>📚 Bibliotek 365 — 365 aktiviteter utan skärmar</span><span>Ingår</span></div>
+<div class="lp-summary-row"><span>🎬 Instruktionsvideor</span><span>Ingår</span></div>
+<div class="lp-summary-row"><span>🎁 5 temaguider</span><span>GRATIS</span></div>
+<div class="lp-summary-row"><span>📥 Digital version att ladda ner och skriva ut</span><span>Ingår</span></div>
+<div class="lp-summary-row is-total"><span>Dagens pris</span><span>{{price}}</span></div>
+</div>
+<div class="lp-guarantee">
+<div class="lp-ic">🛡️</div>
+<h4>7 dagars garanti — utan risk</h4>
+<p>Om Bibliotek 365 inte passar dig, kan du inom 7 dagar begära full återbetalning, utan krångel.</p>
+</div>
+<div class="lp-summary-cta">
+<a class="lp-summary-btn" href="#offerta-365">JA, JAG VILL HA 365 AKTIVITETER + VIDEOR →</a>
+</div>
+</div>
+</section>
+</div>
+
+<!-- ============ 9. VANLIGA FRÅGOR ============ -->
+<div class="lp-page">
+<section class="lp-faq lp-alt">
+<div aria-hidden="true" class="lp-divider"><span>❓</span></div>
+<div class="lp-wrap">
+<div class="lp-center" style="margin-bottom:22px;">
+<span class="lp-eyebrow">Vanliga frågor</span>
+<h2 style="font-size:22px;margin-top:12px;">Allt du bör veta <span class="lp-hl">innan du börjar</span></h2>
+<span class="lp-underline"></span>
+</div>
+<div class="lp-faq-item">
+<div class="lp-faq-q"><span>För vilken ålder är aktiviteterna?</span><span class="lp-plus">+</span></div>
+<div class="lp-faq-a">De är utformade främst för barn i åldern <strong>3 till 8 år</strong>. Du hittar mycket varierande aktiviteter, så du väljer de som passar bäst för ditt barns ålder, intressen och självständighet.</div>
+</div>
+<div class="lp-faq-item">
+<div class="lp-faq-q"><span>Kan mitt barn göra aktiviteterna ensamt?</span><span class="lp-plus">+</span></div>
+<div class="lp-faq-a">Många aktiviteter är utformade för att stödja <strong>självständig lek</strong>, men det beror på barnets ålder och vald aktivitet. Vissa kräver lite hjälp i början, andra klarar barnet nästan helt på egen hand.</div>
+</div>
+<div class="lp-faq-item">
+<div class="lp-faq-q"><span>Behöver man köpa speciellt material?</span><span class="lp-plus">+</span></div>
+<div class="lp-faq-a">Nej. De flesta aktiviteterna använder <strong>enkla saker som du troligen redan har hemma</strong>: papper, kartong, koppar, behållare, färgpennor eller tuschpennor, tejp, vardagsföremål och andra lättillgängliga material.</div>
+</div>
+<div class="lp-faq-item">
+<div class="lp-faq-q"><span>Kräver aktiviteterna mycket förberedelse?</span><span class="lp-plus">+</span></div>
+<div class="lp-faq-a">Nej. Idén är just att du inte ska behöva lägga timmar på att leta efter vad du ska göra. Du kan <strong>öppna guiden, välja en aktivitet och börja</strong>. Du hittar snabba idéer, men också aktiviteter för dagar när du har lite mer tid.</div>
+</div>
+<div class="lp-faq-item">
+<div class="lp-faq-q"><span>Vad får jag exakt efter köpet?</span><span class="lp-plus">+</span></div>
+<div class="lp-faq-a">Du får <strong>Bibliotek 365</strong>: huvud-e-boken med 365 aktiviteter utan skärmar, tillgång till <strong>instruktionsvideor</strong> samt <strong>5 extra temaguider</strong> om självständighet, kreativitet, matlagning, utforskande och familjeögonblick.</div>
+</div>
+<div class="lp-faq-item">
+<div class="lp-faq-q"><span>Måste jag göra en aktivitet per dag?</span><span class="lp-plus">+</span></div>
+<div class="lp-faq-a">Nej. 365 aktiviteterna finns där för att du <strong>alltid ska ha en annan, färdig idé till hands</strong> när du behöver den. Du kan göra en per dag, återkomma till favoriter eller bara öppna guiden när det klassiska "jag är uttråkad" dyker upp.</div>
+</div>
+<div class="lp-faq-item">
+<div class="lp-faq-q"><span>Är det en tryckt bok eller digital?</span><span class="lp-plus">+</span></div>
+<div class="lp-faq-a">Det är en <strong>100% digital produkt</strong>. Du väntar inte på någon leverans. Du kan använda den på telefon, surfplatta eller dator, ladda ner den och skriva ut de sidor du vill använda.</div>
+</div>
+<div class="lp-faq-item">
+<div class="lp-faq-q"><span>Hur får jag allt efter köpet?</span><span class="lp-plus">+</span></div>
+<div class="lp-faq-a">Direkt efter köpet får du ett <strong>e-postmeddelande med tillgång till allt material</strong>. Åtkomsten är omedelbar och permanent, så du kan använda allt när du vill.</div>
+</div>
+<div class="lp-faq-item">
+<div class="lp-faq-q"><span>Mitt barn trötnar väldigt snabbt: kommer det att fungera ändå?</span><span class="lp-plus">+</span></div>
+<div class="lp-faq-a">Det är just därför det finns <strong>365 olika aktiviteter</strong>. Du är inte hänvisad till en lek och behöver inte hela tiden upprepa samma sak: du kan blanda spel, experiment, kreativa utmaningar och praktiska uppgifter så att barnet inte alltid har samma alternativ.</div>
+</div>
+<div class="lp-faq-item">
+<div class="lp-faq-q"><span>Och om det ändå inte passar oss?</span><span class="lp-plus">+</span></div>
+<div class="lp-faq-a">Ditt köp täcks av en <strong>7-dagarsgaranti</strong>. Om du under den tiden anser att materialet inte är vad du förväntade dig, kan du begära återbetalning.</div>
+</div>
+</div>
+</section>
+</div>
+
+<script>
+(function(){
+  'use strict';
+  var faqItems = document.querySelectorAll('.lp-page .lp-faq-item');
+  var toggleFaq = function(item){
+    var wasOpen = item.classList.contains('is-open');
+    Array.prototype.forEach.call(faqItems, function(i){ i.classList.remove('is-open'); });
+    if (!wasOpen) { item.classList.add('is-open'); }
+  };
+  Array.prototype.forEach.call(faqItems, function(item){
+    var q = item.querySelector('.lp-faq-q');
+    if (!q) return;
+    q.addEventListener('click', function(){ toggleFaq(item); });
+    q.addEventListener('keydown', function(e){
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleFaq(item); }
+    });
+  });
+  var track = document.getElementById('lpVidsTrack');
+  var vids = track ? track.querySelectorAll('video') : document.querySelectorAll('.lp-page .lp-vid video');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting) { entry.target.play().catch(function(){}); }
+        else { entry.target.pause(); }
+      });
+    }, { root: track || null, threshold: track ? 0.6 : 0.5 });
+    Array.prototype.forEach.call(vids, function(v){ io.observe(v); });
+  } else {
+    Array.prototype.forEach.call(vids, function(v){ v.play().catch(function(){}); });
+  }
+  Array.prototype.forEach.call(vids, function(v){
+    v.addEventListener('click', function(){
+      if (v.paused) { v.play().catch(function(){}); } else { v.pause(); }
+    });
+  });
+})();
+</script>

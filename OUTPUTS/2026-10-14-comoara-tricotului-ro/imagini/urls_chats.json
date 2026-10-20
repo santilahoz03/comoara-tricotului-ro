@@ -1,0 +1,47 @@
+{
+  "chat1": {
+    "local": "/Users/santilahoz/Desktop/Segundo Cerebro/OUTPUTS/2026-10-14-comoara-tricotului-ro/imagini/chat1.webp",
+    "catbox": "https://files.catbox.moe/fvg2lc.webp",
+    "original": "https://aekpgsbqjzqntlbucbts.supabase.co/storage/v1/object/public/store-resources/7c69ad8e-973f-41fa-a2f4-a61b11783186/1791112146093_imagen-2026-10-04-130905602.webp"
+  },
+  "chat2": {
+    "local": "/Users/santilahoz/Desktop/Segundo Cerebro/OUTPUTS/2026-10-14-comoara-tricotului-ro/imagini/chat2.webp",
+    "catbox": "https://files.catbox.moe/03rh3x.webp",
+    "original": "https://aekpgsbqjzqntlbucbts.supabase.co/storage/v1/object/public/store-resources/7c69ad8e-973f-41fa-a2f4-a61b11783186/1791112897096_imagen-2026-10-04-132136550.webp"
+  },
+  "chat3": {
+    "local": "/Users/santilahoz/Desktop/Segundo Cerebro/OUTPUTS/2026-10-14-comoara-tricotului-ro/imagini/chat3.webp",
+    "catbox": "https://files.catbox.moe/jnnfx6.webp",
+    "original": "https://aekpgsbqjzqntlbucbts.supabase.co/storage/v1/object/public/store-resources/7c69ad8e-973f-41fa-a2f4-a61b11783186/1791115793720_imagen-2026-10-04-140953500.webp"
+  },
+  "chat4": {
+    "local": "/Users/santilahoz/Desktop/Segundo Cerebro/OUTPUTS/2026-10-14-comoara-tricotului-ro/imagini/chat4.webp",
+    "catbox": "https://files.catbox.moe/csdbh5.webp",
+    "original": "https://aekpgsbqjzqntlbucbts.supabase.co/storage/v1/object/public/store-resources/7c69ad8e-973f-41fa-a2f4-a61b11783186/1791114764459_imagen-2026-10-04-135244195.webp"
+  },
+  "chat5": {
+    "local": "/Users/santilahoz/Desktop/Segundo Cerebro/OUTPUTS/2026-10-14-comoara-tricotului-ro/imagini/chat5.webp",
+    "catbox": "https://files.catbox.moe/xgssbv.webp",
+    "original": "https://aekpgsbqjzqntlbucbts.supabase.co/storage/v1/object/public/store-resources/7c69ad8e-973f-41fa-a2f4-a61b11783186/1791543059454_97dcb6cd-fac3-45f0-9ee0-894c00bf3130.webp"
+  },
+  "chat6": {
+    "local": "/Users/santilahoz/Desktop/Segundo Cerebro/OUTPUTS/2026-10-14-comoara-tricotului-ro/imagini/chat6.webp",
+    "catbox": "https://files.catbox.moe/ur3xeg.webp",
+    "original": "https://aekpgsbqjzqntlbucbts.supabase.co/storage/v1/object/public/store-resources/7c69ad8e-973f-41fa-a2f4-a61b11783186/1791542957650_164ab233-e1d6-4ed6-8383-dc787ef184e0.webp"
+  },
+  "chat7": {
+    "local": "/Users/santilahoz/Desktop/Segundo Cerebro/OUTPUTS/2026-10-14-comoara-tricotului-ro/imagini/chat7.webp",
+    "catbox": "https://files.catbox.moe/9l0581.webp",
+    "original": "https://aekpgsbqjzqntlbucbts.supabase.co/storage/v1/object/public/store-resources/7c69ad8e-973f-41fa-a2f4-a61b11783186/1791542757158_3e25aa13-5a4b-4b1d-89de-d816868cb5e6.webp"
+  },
+  "chat8": {
+    "local": "/Users/santilahoz/Desktop/Segundo Cerebro/OUTPUTS/2026-10-14-comoara-tricotului-ro/imagini/chat8.webp",
+    "catbox": "https://files.catbox.moe/3myjt9.webp",
+    "original": "https://aekpgsbqjzqntlbucbts.supabase.co/storage/v1/object/public/store-resources/7c69ad8e-973f-41fa-a2f4-a61b11783186/1791542755624_6ab294f6-54bc-4895-9be1-ca1156d5c1a6.webp"
+  },
+  "sello": {
+    "local": "/Users/santilahoz/Desktop/Segundo Cerebro/OUTPUTS/2026-10-14-comoara-tricotului-ro/imagini/sello.webp",
+    "catbox": "https://files.catbox.moe/5113ko.webp",
+    "original": "https://aekpgsbqjzqntlbucbts.supabase.co/storage/v1/object/public/store-resources/7c69ad8e-973f-41fa-a2f4-a61b11783186/1791033336659_22-sello.webp"
+  }
+}

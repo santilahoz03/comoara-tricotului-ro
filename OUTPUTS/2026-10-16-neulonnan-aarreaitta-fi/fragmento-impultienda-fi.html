@@ -1,0 +1,639 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:ital,wght@0,700;0,800;1,600&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   NEULONNAN AARREAITTA — LANDING · SUOMI
+   Clonado fiel de: comoaratricotului.impultienda.ar (RO)
+   Precios: {{price}} / {{original_price}} (80% alennus)
+   ============================================================ */
+:root {
+  --primary: #4A4238;
+  --secondary: #B0714A;
+  --black: #111111;
+  --white: #FFFFFF;
+  --cream: #F6F1E7;
+  --dark-gray: #33312E;
+  --danger: #E74C3C;
+  --shadow: 0 10px 25px rgba(0,0,0,0.06);
+  --transition: all 0.3s ease;
+}
+html { scroll-behavior: smooth; background: var(--cream); }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { margin: 0; padding: 0; }
+#landing-tejido * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+#landing-tejido { color: var(--dark-gray); background-color: var(--cream); overflow-x: hidden; font-size: 16px; line-height: 1.6; }
+#landing-tejido section { padding: 50px 20px; position: relative; }
+#landing-tejido .container { max-width: 650px; margin: 0 auto; }
+#landing-tejido .container-large { max-width: 900px; margin: 0 auto; }
+#landing-tejido h1, #landing-tejido h2, #landing-tejido h3 { font-family: 'Lora', serif; color: var(--primary); letter-spacing: -0.3px; }
+#landing-tejido h2 { font-size: 28px; text-align: center; margin-bottom: 25px; font-weight: 800; }
+#landing-tejido .dark-section { background-color: var(--primary); }
+#landing-tejido .dark-section h2 { color: var(--white); }
+/* CTA button */
+#landing-tejido .cta-button {
+  background: var(--secondary); color: var(--white); border: none;
+  padding: 18px 20px; font-size: 18px; font-family: 'Inter', sans-serif;
+  font-weight: 800; border-radius: 12px; cursor: pointer;
+  box-shadow: 0 8px 20px rgba(176,113,74,0.3);
+  display: block; margin: 20px auto; width: 100%; max-width: 400px;
+  text-decoration: none; text-align: center; text-transform: uppercase;
+  transition: var(--transition);
+}
+#landing-tejido .cta-button:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 12px 25px rgba(176,113,74,0.4); }
+#landing-tejido .pulse-big { animation: pulse-big 2s infinite; }
+@keyframes pulse-big { 0%{transform:scale(1);}50%{transform:scale(1.03);}100%{transform:scale(1);} }
+/* Chat carousel */
+#landing-tejido .chat-carousel { display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding:0 16px 12px;scroll-padding-left:16px;align-items:flex-start; }
+#landing-tejido .chat-carousel::-webkit-scrollbar { display:none; }
+#landing-tejido .chat-carousel img { flex:0 0 auto;width:calc(100vw - 52px);max-width:340px;scroll-snap-align:start;border-radius:16px;box-shadow:0 4px 16px rgba(58,58,56,.1);display:block; }
+#landing-tejido .carousel-dots { display:flex;justify-content:center;gap:6px;padding:6px 0; }
+#landing-tejido .carousel-dots i { width:7px;height:7px;border-radius:50%;background:#d9d2c9;display:inline-block;cursor:pointer; }
+#landing-tejido .carousel-dots i.on { background:var(--secondary);width:18px;border-radius:4px; }
+/* Img stack */
+#landing-tejido .img-stack { padding:0!important;line-height:0;overflow:hidden; }
+#landing-tejido .img-fade { opacity:0;transition:opacity .6s ease; }
+#landing-tejido .img-fade.visible { opacity:1; }
+/* VS card (summary) */
+#landing-tejido .vs-card { border:1.5px solid #E6D9C6;border-radius:20px;padding:22px 20px;box-shadow:0 18px 40px rgba(74,66,56,.14),0 3px 8px rgba(74,66,56,.06);background:linear-gradient(180deg,#FFFFFF,#FCF9F4); }
+#landing-tejido .vs-item { display:flex;align-items:flex-start;gap:12px;padding:9px 0;border-bottom:1px solid rgba(0,0,0,.05); }
+#landing-tejido .vs-item:last-child { border-bottom:none; }
+#landing-tejido .vs-check { flex-shrink:0;width:22px;height:22px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Ccircle cx='10' cy='10' r='10' fill='%232F7D4F'/%3E%3Cpath d='M5.5 10.3l3 3 6-6.3' fill='none' stroke='white' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center/contain;margin-top:1px; }
+#landing-tejido .vs-name { font-size:14px;font-weight:600;color:#3A3A38;line-height:1.4; }
+#landing-tejido .vs-price { font-size:13px;color:#B0714A;font-weight:700;margin-top:2px; }
+#landing-tejido .vs-total { padding:14px 0 4px;text-align:center; }
+#landing-tejido .vs-old { font-size:17px;text-decoration:line-through;color:#a89f92;font-family:'Lora',serif; }
+#landing-tejido .vs-new { font-size:32px;font-weight:800;color:#B0714A;font-family:'Lora',serif;line-height:1;margin:4px 0; }
+#landing-tejido .vs-off { font-size:13px;font-weight:700;color:#2F7D4F;text-transform:uppercase;letter-spacing:.5px; }
+/* Regalos / gifts */
+#landing-tejido .regalos-section { background:linear-gradient(180deg,#FBF8F2,#F6F1E7);padding:30px 0 0; }
+#landing-tejido .regalos-sub { text-align:center;color:#8a8378;font-size:15px;margin-top:-18px;margin-bottom:20px;font-style:italic; }
+#landing-tejido .creadora-card { display:flex;flex-direction:column;gap:16px;background:#fff;border-radius:20px;padding:22px 20px;margin:0 auto 20px;max-width:580px;box-shadow:0 8px 30px rgba(74,66,56,.1);border:1px solid rgba(0,0,0,.05); }
+@media(min-width:520px){ #landing-tejido .creadora-card{flex-direction:row;} }
+#landing-tejido .creadora-foto { flex-shrink:0;text-align:center; }
+#landing-tejido .creadora-foto img { width:90px;height:90px;border-radius:50%;object-fit:cover;object-position:center 20%;border:3px solid #F7F4EF;box-shadow:0 4px 12px rgba(58,58,56,.15); }
+#landing-tejido .creadora-body { flex:1; }
+#landing-tejido .creadora-nombre { font-family:'Lora',serif;font-size:20px;color:#3A3A38;margin-bottom:2px; }
+#landing-tejido .creadora-rol { font-size:12px;color:#B0714A;font-weight:700;letter-spacing:.8px;text-transform:uppercase;margin-bottom:10px; }
+#landing-tejido .creadora-carta { font-size:14px;color:#4a4a47;line-height:1.65;margin-bottom:8px; }
+#landing-tejido .creadora-carta p { margin-bottom:10px; }
+#landing-tejido .creadora-firma { font-family:'Lora',serif;font-style:italic;color:#B0714A;font-size:15px;font-weight:600; }
+#landing-tejido .regalos-cierre { background:#fff;border-radius:16px;padding:22px 18px;box-shadow:0 6px 22px rgba(74,66,56,.08);border:1px solid rgba(0,0,0,.05); }
+#landing-tejido .regalos-valor { font-size:14px;color:#4A4238;margin-bottom:12px;font-weight:600;text-align:center; }
+#landing-tejido .regalos-urgencia { font-size:13px;color:#8a8378;text-align:center;margin-top:10px; }
+#landing-tejido .cur-note { font-size:12.5px;color:#8a8378;text-align:center;margin:6px auto; }
+/* 30 days checklist */
+#landing-tejido .checklist-box { background:var(--white);padding:25px;border-radius:16px;box-shadow:var(--shadow);margin-bottom:20px;border-left:5px solid var(--secondary); }
+#landing-tejido .checklist-item { display:flex;align-items:flex-start;margin-bottom:15px;font-size:15px;font-weight:500; }
+#landing-tejido .checklist-item:last-child { margin-bottom:0; }
+#landing-tejido .emoji-icon { margin-right:12px;font-size:20px;flex-shrink:0; }
+/* Reviews */
+#landing-tejido .rv-sec { background:var(--white);padding:34px 0 26px;overflow-x:hidden; }
+#landing-tejido .rv-head { text-align:center;padding:0 18px;margin-bottom:16px; }
+#landing-tejido .rv-head .big { font-family:'Lora',serif;font-size:24px;font-weight:700;color:#4A4238;line-height:1.25; }
+#landing-tejido .rv-head .small { font-size:13px;color:#8a8378;font-weight:600;margin-top:6px; }
+#landing-tejido .rv-head .small b { color:#4A4238; }
+#landing-tejido .rv-wrap { position:relative; }
+#landing-tejido .rv-car { display:flex;align-items:stretch;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding:4px 16px 10px;scroll-padding-left:16px; }
+#landing-tejido .rv-car::-webkit-scrollbar { display:none; }
+#landing-tejido .rv-item { flex:0 0 auto;display:flex;flex-direction:column;width:calc(100% - 52px);max-width:340px;scroll-snap-align:start;background:#fff;border:1px solid rgba(0,0,0,.06);border-radius:16px;padding:16px 16px 14px;box-shadow:0 3px 12px rgba(58,58,56,.07); }
+#landing-tejido .rv-top { display:flex;align-items:center;gap:10px;margin-bottom:8px; }
+#landing-tejido .rv-av { width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,#C9875F,#B0714A);color:#fff;font-weight:700;font-size:15px;display:flex;align-items:center;justify-content:center;flex-shrink:0; }
+#landing-tejido .rv-name { font-weight:700;font-size:14px;color:#3A3A38;line-height:1.2; }
+#landing-tejido .rv-verify { font-size:11.5px;color:#6E7E60;font-weight:600;line-height:1.3; }
+#landing-tejido .rv-stars { margin-left:auto;color:#C57B57;font-size:13px;letter-spacing:1px;white-space:nowrap;align-self:flex-start; }
+#landing-tejido .rv-stars-big { color:#C57B57;font-size:22px;letter-spacing:2px; }
+#landing-tejido .rv-item p { font-size:14px;color:#4a4a47;line-height:1.55;margin:0; }
+#landing-tejido .rv-photo { margin-top:auto;padding-top:12px; }
+#landing-tejido .rv-img { display:block;width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:12px;background:#F7F4EF; }
+#landing-tejido .rv-hint { position:absolute;top:50%;right:8px;transform:translateY(-50%);background:rgba(58,58,56,.82);color:#fff;border-radius:30px;padding:9px 14px;font-size:12.5px;font-weight:700;display:flex;align-items:center;gap:7px;pointer-events:none;z-index:5;animation:rvHint 1.5s ease-in-out infinite;transition:opacity .4s ease;white-space:nowrap;box-shadow:0 4px 14px rgba(0,0,0,.18); }
+#landing-tejido .rv-hint.off { opacity:0; }
+@keyframes rvHint { 0%,100%{transform:translateY(-50%) translateX(0)}50%{transform:translateY(-50%) translateX(-8px)} }
+/* About Aino */
+#landing-tejido .about-title { font-family:'Lora',serif;text-align:center;color:#4A4238;font-size:24px;font-weight:700;margin:0 0 4px; }
+#landing-tejido .about-sub { text-align:center;color:#A8603F;font-size:13px;font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:16px; }
+#landing-tejido .about-card { background:#fff;border:1px solid rgba(0,0,0,.05);border-radius:18px;max-width:480px;margin:0 auto;padding:26px 22px;text-align:center;box-shadow:0 4px 16px rgba(58,58,56,.07); }
+#landing-tejido .about-card img { width:112px;height:112px;border-radius:50%;object-fit:cover;object-position:center 25%;border:3px solid #F7F4EF;box-shadow:0 4px 14px rgba(58,58,56,.15); }
+#landing-tejido .about-card b { display:block;font-family:'Lora',serif;font-size:21px;margin-top:12px;color:#3A3A38; }
+#landing-tejido .about-role { font-size:12px;color:#A8603F;font-weight:700;letter-spacing:.8px;text-transform:uppercase;margin:3px 0 12px; }
+#landing-tejido .about-card p { font-size:14.5px;color:#4a4a47;line-height:1.65;text-align:left; }
+/* FAQ */
+#landing-tejido .faq-item { margin-bottom:15px;border-radius:12px;overflow:hidden;box-shadow:var(--shadow);border:1px solid #eee; }
+#landing-tejido .faq-question { background:var(--white);padding:18px 20px;font-weight:700;font-size:15px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;color:var(--primary); }
+#landing-tejido .faq-question::after { content:'▼';font-size:12px;color:var(--secondary);transition:transform .3s ease; }
+#landing-tejido .faq-question.active::after { transform:rotate(180deg); }
+#landing-tejido .faq-answer { max-height:0;overflow:hidden;transition:max-height .3s ease-out;background:var(--cream); }
+#landing-tejido .faq-answer-content { padding:15px 20px;font-size:14px;border-top:1px solid #eee; }
+/* Final CTA */
+#landing-tejido .final-cta-section { background:linear-gradient(180deg,#FBF8F2,#F6F1E7);padding:30px 20px 40px; }
+#landing-tejido .final-cta-kicker { text-align:center;font-size:14px;color:#8a8378;margin-top:-18px;margin-bottom:20px;font-style:italic; }
+#landing-tejido .final-card { background:#fff;border-radius:20px;padding:24px 20px;box-shadow:0 8px 30px rgba(74,66,56,.1);border:1px solid rgba(0,0,0,.05);max-width:520px;margin:0 auto; }
+#landing-tejido .final-list { list-style:none;margin-bottom:18px; }
+#landing-tejido .final-list li { display:flex;align-items:flex-start;gap:10px;padding:9px 0;border-bottom:1px solid rgba(0,0,0,.05);font-size:14px;line-height:1.5; }
+#landing-tejido .final-list li:last-child { border-bottom:none; }
+#landing-tejido .final-check { color:var(--secondary);font-weight:700;font-size:16px;flex-shrink:0; }
+#landing-tejido .final-gift { background:#FFF8F0;border-radius:8px;padding:6px 10px;margin:-2px -4px; }
+#landing-tejido .final-gift-tag { display:inline-block;background:var(--secondary);color:#fff;font-size:11px;font-weight:700;padding:2px 8px;border-radius:50px;text-transform:uppercase;letter-spacing:.5px;margin-bottom:2px; }
+#landing-tejido .final-price-box { background:linear-gradient(180deg,#FBF8F2,#F6F1E7);border:1.5px solid #E6D9C6;border-radius:16px;padding:16px 20px;text-align:center;margin-bottom:18px; }
+#landing-tejido .px-cap { font-size:12px;color:#8a8378;font-weight:600;text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px; }
+#landing-tejido .px-row { display:flex;align-items:baseline;justify-content:center;gap:10px;margin:4px 0; }
+#landing-tejido .px-old { font-family:'Lora',serif;font-size:18px;text-decoration:line-through;color:#a89f92; }
+#landing-tejido .px-save { background:#E8F5EE;color:#2F7D4F;font-size:12px;font-weight:700;padding:3px 10px;border-radius:50px; }
+#landing-tejido .px-label { font-size:13px;color:#4A4238;font-weight:600;margin:4px 0; }
+#landing-tejido .px-new { font-family:'Lora',serif;font-weight:800;font-size:34px;color:#B0714A;line-height:1; }
+#landing-tejido .px-foot { font-size:12.5px;color:#8a8378;margin-top:4px; }
+#landing-tejido .final-cta-sub { display:block;font-size:13px;font-weight:600;margin-top:4px;opacity:.9; }
+#landing-tejido .final-urgency { text-align:center;font-size:13px;color:#8a8378;margin-top:14px; }
+#landing-tejido .final-pay-text { font-size:12.5px;color:#666;text-align:center;margin-top:10px;margin-bottom:0; }
+#landing-tejido .custom-payment-icons { display:flex;justify-content:center;align-items:center;gap:8px;flex-wrap:wrap;padding:12px 0; }
+/* Footer */
+#landing-tejido footer { background:var(--primary);color:#aaa;text-align:center;padding:30px 20px;font-size:13px; }
+/* Sticky CTA */
+#ct-sticky { position:fixed;bottom:0;left:0;right:0;z-index:999;background:linear-gradient(180deg,rgba(246,241,231,0) 0%,var(--cream) 30%);padding:10px 16px 14px;pointer-events:none; }
+#ct-sticky a { pointer-events:auto;display:block;background:linear-gradient(180deg,#B0714A,#94593A);color:#fff;font-weight:800;font-size:16px;letter-spacing:.3px;text-decoration:none;text-align:center;padding:16px 22px;border-radius:50px;box-shadow:0 10px 26px rgba(148,89,58,.34);text-transform:uppercase;max-width:440px;margin:0 auto;animation:pulse-big 2s infinite; }
+.hoy-data { font-weight:700;color:var(--secondary); }
+/* Oferta styles */
+#oferta { scroll-margin-top:24px; }
+#oferta .tc-stars{color:#B0714A;font-size:19px;letter-spacing:2px}
+#oferta .tc-rating{font-size:13px;color:#8a8378;margin-top:4px;font-weight:600}
+#oferta .tc-count{font-size:14px;color:#4A4238;margin-top:8px;font-weight:700}
+#oferta .tc-title{font-family:'Lora',serif;font-weight:700;font-size:23px;line-height:1.3;color:#4A4238;margin:14px auto 6px;max-width:560px;text-align:center}
+#oferta .tc-price-row{margin:18px 0 6px;display:flex;align-items:baseline;justify-content:center;gap:12px;flex-wrap:wrap}
+#oferta .tc-old{color:#a89f92;text-decoration:line-through;font-size:20px;font-family:'Lora',serif}
+#oferta .tc-new{color:#B0714A;font-weight:800;font-size:44px;font-family:'Lora',serif;line-height:1}
+#oferta .tc-micro{font-size:13.5px;color:#4A4238;margin:5px 0;font-weight:600}
+#oferta .tc-micro.soft{color:#8a8378;font-weight:500}
+#oferta .tc-urg{background:#fff;border:1px solid rgba(176,113,74,.3);border-radius:16px;padding:18px 16px;margin:20px auto 0;max-width:420px;box-shadow:0 6px 22px rgba(74,66,56,.07)}
+#oferta .tc-urg-flag{color:#B0714A;font-weight:800;font-size:14px;letter-spacing:.5px;text-transform:uppercase}
+#oferta .tc-urg-note{font-size:13.5px;color:#5a544c;line-height:1.5;margin-top:8px}
+#oferta .tc-urg-note b{color:#4A4238}
+#oferta .tc-reserve{font-size:13px;color:#8a8378;margin-top:10px}
+#oferta .tc-countdown{font-family:'Lora',serif;font-weight:800;font-size:36px;color:#4A4238;letter-spacing:2px;margin:2px 0 4px;font-variant-numeric:tabular-nums}
+#oferta .tc-live{display:flex;justify-content:center;margin-top:8px}
+#oferta .tc-live span{background:#F6F1E7;border:1px solid rgba(0,0,0,.06);border-radius:20px;padding:5px 11px;font-size:12px;color:#4A4238;font-weight:600}
+#oferta .tc-cta-wrap{padding:22px 0 6px;text-align:center}
+#oferta .tc-btn{display:block;width:100%;max-width:440px;margin:0 auto;background:linear-gradient(180deg,#B0714A,#94593A);color:#fff;font-weight:800;font-size:16px;letter-spacing:.3px;text-decoration:none;text-align:center;padding:18px 22px;border-radius:50px;box-shadow:0 10px 26px rgba(148,89,58,.34);text-transform:uppercase}
+#oferta .tc-pay{padding:22px 0 4px;text-align:center}
+#oferta .tc-pay-title{display:flex;align-items:center;justify-content:center;gap:6px;color:#666;font-size:14px;font-weight:600;margin-bottom:12px}
+#oferta .tc-pay-icons{display:flex;justify-content:center;align-items:center;gap:8px;flex-wrap:wrap}
+#oferta .tc-pay-icons img.card{height:30px;width:auto;display:block;border-radius:4px;box-shadow:0 1px 3px rgba(0,0,0,.12)}
+#oferta .tc-pay-icons .wallet{height:30px;width:47px;box-sizing:border-box;display:flex;align-items:center;justify-content:center;background:#fff;border:1px solid #d9d9d9;border-radius:4px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.12)}
+#oferta .tc-pay-icons .wallet img{width:40px;height:40px;flex-shrink:0}
+#oferta .tc-pay-text{font-size:12.5px;color:#666;margin-top:10px}
+#oferta .tc-guarantee{display:flex;align-items:center;gap:14px;background:#fff;border:1px solid rgba(0,0,0,.06);border-radius:16px;max-width:440px;margin:18px auto 0;padding:16px 20px;text-align:left}
+#oferta .tc-guarantee-ico{flex-shrink:0;width:44px;height:44px;border-radius:50%;background:#F6E9DF;display:flex;align-items:center;justify-content:center}
+#oferta .tc-guarantee b{font-family:'Lora',serif;font-size:16px;color:#4A4238}
+#oferta .tc-guarantee p{font-size:12.5px;color:#8a8378;margin-top:2px}
+#oferta .tc-loss{text-align:center;font-family:'Lora',serif;font-style:italic;font-size:14px;color:#6b6459;margin:14px auto 0;max-width:420px;line-height:1.5}
+</style>
+<div id="landing-tejido">
+
+<!-- ══ TOPBAR ══ -->
+<div id="topbar" style="position:fixed;top:0;left:0;right:0;z-index:1000;background:#B0714A;color:#fff;text-align:center;padding:10px 14px;font-size:13px;font-weight:700;line-height:1.4;box-shadow:0 2px 10px rgba(0,0,0,.15);">
+  🧶 <span id="topbar-day">TÄNÄÄN TORSTAI</span> · SÄÄSTÄT 80% · NEULONNAN AARREAITTA ✨
+</div>
+<div id="topbar-spacer" style="height:38px;"></div>
+
+<!-- ══ HERO IMAGE ══ -->
+<!-- PLACEHOLDER: korvaa fi-kuvalla (image-to-image RO hero) -->
+<section style="padding:0!important;line-height:0;overflow:hidden;position:relative;">
+  <img src="https://files.catbox.moe/kdgglt.webp"
+    alt="Pääsy yli 5 200+ premium-neulontamalliin ja luo upeita töitä" width="1152" height="2048"
+    style="width:100%;max-width:680px;height:auto;display:block;margin:0 auto;">
+  <div style="position:absolute;left:0;right:0;bottom:0;height:40px;background:linear-gradient(to bottom,rgba(246,241,231,0) 0%,#FFFFFF 100%);pointer-events:none;"></div>
+</section>
+
+<!-- ══ KYSYMYS KIVUSTA ══ -->
+<section style="background:var(--white);padding-top:10px;padding-bottom:20px;">
+  <div class="container">
+    <h2 style="font-size:26px;line-height:1.3;">Kuinka monta keskeneräistä projektia sinulla on piilossa nyt?</h2>
+    <p style="text-align:center;font-size:16px;line-height:1.5;color:var(--dark-gray);max-width:480px;margin:0 auto;">Kyse ei ole lahjattomuudesta: yksinkertaisesti käytät enemmän aikaa mallien etsimiseen kuin neulomiseen. Se loppuu nyt.</p>
+  </div>
+</section>
+
+<!-- ══ SINULLE JOS (kuva) ══ -->
+<!-- PLACEHOLDER: korvaa fi-kuvalla (image-to-image RO para-vos) -->
+<section id="social-proof-start" class="dark-section" style="padding:0;overflow:hidden;">
+  <div style="overflow:hidden;">
+    <img src="https://files.catbox.moe/13jcs8.webp"
+      alt="Tämä kokoelma on sinulle, jos..." style="width:100%;height:auto;display:block;">
+  </div>
+</section>
+
+<!-- ══ KAKSI NEULOJARYHMÄÄ ══ -->
+<section style="background:var(--white);text-align:center;padding:30px 20px;">
+  <div class="container">
+    <h2 style="font-size:22px;line-height:1.4;max-width:500px;margin:0 auto 10px;">Jokainen neuloja jakautuu kahteen ryhmään:<br>ne, jotka vielä etsivät…<br>ja ne, jotka jo luovat.</h2>
+    <p style="font-size:16px;color:var(--dark-gray);max-width:500px;margin:0 auto 10px;">Kyse ei ole lahjakkuudesta. Kyse on siitä, että sinulla on täydellinen malli juuri silloin kun tarvitset sitä, sen sijaan että tuhlaisit tunteja etsimiseen.</p>
+    <p style="color:var(--secondary);font-weight:800;font-size:18px;margin:0;">KUMPAAN RYHMÄÄN HALUAT KUULUA?</p>
+  </div>
+</section>
+
+<!-- ══ CHAT-KARUSELLI ══ -->
+<!-- PLACEHOLDER: korvaa fi-kuvakaappauksilla (image-to-image) -->
+<section style="background:var(--cream);padding:40px 0;">
+  <div class="container" style="padding:0 20px;">
+    <h2 style="font-size:22px;line-height:1.4;">Mitä neulojamme kirjoittavat meille joka päivä 💬</h2>
+  </div>
+  <div class="chat-carousel">
+    <img src="https://files.catbox.moe/m1okba.webp" alt="">
+    <img src="https://files.catbox.moe/zqrink.webp" alt="">
+    <img src="https://files.catbox.moe/h3cfg2.webp" alt="">
+    <img src="https://files.catbox.moe/kpouwc.webp" alt="">
+    <img src="https://files.catbox.moe/dfdr1a.webp" alt="">
+    <img src="https://files.catbox.moe/1shd04.webp" alt="">
+    <img src="https://files.catbox.moe/sz48ob.webp" alt="">
+    <img src="https://files.catbox.moe/2ehh6l.webp" alt="">
+  </div>
+  <div class="carousel-dots" data-for="chat-carousel"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="on"></i></div>
+  <p style="text-align:center;font-size:12px;color:#8a8378;margin-top:6px;">Pyyhkäise ➜</p>
+</section>
+
+<!-- ══ KATEGORIAT (kuvat) ══ -->
+<!-- PLACEHOLDER: korvaa fi-kuvilla (image-to-image) -->
+<section class="img-stack">
+  <img class="img-fade" src="https://files.catbox.moe/6vx8o2.webp"
+    alt="Kaikki mitä voit neuloa: puserot, kardiganit, topit, paidat, liivit, ponchot ja oversized" style="width:100%;display:block;">
+  <img class="img-fade" src="https://files.catbox.moe/o31woh.webp"
+    alt="Neulonnat vauvoille ja lapsille" style="width:100%;display:block;">
+  <img class="img-fade" src="https://files.catbox.moe/1gbuim.webp"
+    alt="Asusteet ja neulonnat kotiin" style="width:100%;display:block;">
+</section>
+
+<!-- ══ SILMUKKAKIRJASTO ══ -->
+<!-- PLACEHOLDER: korvaa fi-kuvalla (image-to-image) -->
+<section class="img-stack">
+  <img class="img-fade" src="https://files.catbox.moe/vozb15.webp"
+    alt="Suuri Silmukkakirjasto" style="width:100%;display:block;">
+</section>
+
+<!-- ══ JÄRJESTELTY ══ -->
+<!-- PLACEHOLDER: korvaa fi-kuvalla (image-to-image) -->
+<section class="img-stack">
+  <img class="img-fade" src="https://files.catbox.moe/gis5ii.webp"
+    alt="Järjestelty kuin mikään muu kokoelma" style="width:100%;display:block;">
+</section>
+
+<!-- ══ TUOTE ══ -->
+<!-- PLACEHOLDER: korvaa fi-kuvalla (image-to-image) -->
+<section class="img-stack">
+  <img src="https://files.catbox.moe/lxg4va.webp"
+    alt="Täydellinen neulontakirjastosi — Neulonnan Aarreaitta" width="1152" height="2048" style="width:100%;height:auto;display:block;">
+</section>
+
+<!-- ══ TARJOUS ══ -->
+<section id="oferta" style="background:linear-gradient(180deg,#FBF8F2,#F6F1E7);padding:34px 20px 36px;text-align:center;">
+  <div class="tc-stars" aria-label="4.9 / 5">★★★★★</div>
+  <div class="tc-rating">4,9/5 arvostelua</div>
+  <div class="tc-count">🧶 Yli <span class="tc-counter">5 000</span> neulojaa on jo päässyt sisään</div>
+  <h2 class="tc-title">Neulonnan Aarreaitta: luo upeita töitä 5 200+ premium-neulontamallilla + 7 bonusopasta</h2>
+
+  <div class="tc-price-row"><span class="tc-old">{{original_price}}</span><span class="tc-new">{{price}}</span></div>
+  <p class="tc-micro">🧶 Vähemmän kuin premium-lankakerä — ja malleja on 5 200: alle 0,003 euroa kappale</p>
+  <p class="tc-micro soft">📚 Digitaalinen PDF-kokoelma · Välitön pääsy sähköpostiin</p>
+
+  <div class="tc-urg">
+    <div class="tc-urg-flag">🔒 Viimeiset päivät kertamaksulla</div>
+    <p class="tc-urg-note">Neulonnan Aarreaitta siirtyy pian <b>kuukausitilaukkseksi</b>.<br>Kaikki, jotka liittyvät tänään, <b>maksavat kerran ja säilyttävät elinikäisen pääsyn</b>.</p>
+    <div class="tc-price-row" style="margin:8px 0 2px;"><span class="tc-old">{{original_price}}</span><span class="tc-new" style="font-size:34px;">{{price}}</span></div>
+    <div class="tc-reserve">🔥 <span class="tc-day">TORSTAIN</span> hinta vanhenee keskiyöllä</div>
+    <div class="tc-countdown" id="tc-countdown">08:00:00</div>
+    <div class="tc-live"><span>👁️ <b class="tc-viewers">42</b> henkilöä katsoo tätä juuri nyt</span></div>
+  </div>
+
+  <div class="tc-cta-wrap">
+    <a href="#oferta" data-checkout="" class="tc-btn pulse-big">KYLLÄ, HALUAN PÄÄSYN NYT</a>
+    <p class="cur-note">🔒 Suojattu korttimaksu</p>
+    <p class="tc-loss">Ilmaisten mallien etsimisellä on myös hintansa: <strong style="color:#B0714A;">menetetyt tunnit, hukattu lanka ja vielä yksi kesken jäänyt projekti pöytälaatikossa.</strong></p>
+  </div>
+
+  <div class="tc-pay">
+    <div class="tc-pay-title">
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#666" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+      Suojattu maksu
+    </div>
+    <div class="tc-pay-icons">
+      <img class="card" src="https://cdn.jsdelivr.net/npm/payment-icons@1.2.1/min/flat/visa.svg" alt="Visa">
+      <img class="card" src="https://cdn.jsdelivr.net/npm/payment-icons@1.2.1/min/flat/mastercard.svg" alt="Mastercard">
+      <img class="card" src="https://cdn.jsdelivr.net/npm/payment-icons@1.2.1/min/flat/amex.svg" alt="American Express">
+      <span class="wallet"><img src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/applepay.svg" alt="Apple Pay"></span>
+      <span class="wallet"><img src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/googlepay.svg" alt="Google Pay"></span>
+    </div>
+    <p class="tc-pay-text">Maksat millä tahansa debit- tai luottokortilla, Apple Paylla tai Google Paylla</p>
+  </div>
+
+  <div class="tc-guarantee">
+    <div class="tc-guarantee-ico">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#B0714A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"></path><path d="M9 12l2 2 4-4"></path></svg>
+    </div>
+    <div><b>7 päivän takuu</b><p>Jos se ei sovi sinulle, palautamme rahat. Ilman kysymyksiä.</p></div>
+  </div>
+
+  <script>
+  (function(){
+    var daysGen=['SUNNUNTAIN','MAANANTAIN','TIISTAIN','KESKIVIIKON','TORSTAIN','PERJANTAIN','LAUANTAIN'];
+    var daysNom=['SUNNUNTAI','MAANANTAI','TIISTAI','KESKIVIIKKO','TORSTAI','PERJANTAI','LAUANTAI'];
+    var dEls=document.querySelectorAll('#oferta .tc-day'); var topbarDay=document.getElementById('topbar-day');
+    var idx=new Date().getDay();
+    for(var i=0;i<dEls.length;i++) dEls[i].textContent=daysGen[idx];
+    if(topbarDay) topbarDay.textContent='TÄNÄÄN '+daysNom[idx];
+    var cd=document.getElementById('tc-countdown'); if(!cd) return;
+    function pad(n){return String(n).padStart(2,'0');}
+    function tick(){var now=new Date(),end=new Date(now);end.setHours(24,0,0,0);var s=Math.max(0,Math.floor((end-now)/1000));cd.textContent=pad(Math.floor(s/3600))+':'+pad(Math.floor(s%3600/60))+':'+pad(s%60);}
+    tick();setInterval(tick,1000);
+    var v=document.querySelectorAll('#oferta .tc-viewers');
+    setInterval(function(){var n=Math.max(28,41+Math.floor(Math.random()*9)-3);for(var j=0;j<v.length;j++)v[j].textContent=n;},4000);
+  })();
+  </script>
+</section>
+
+<!-- ══ BONUKSET (kuvat) ══ -->
+<!-- PLACEHOLDER: korvaa fi-kuvilla (image-to-image) -->
+<section style="background:var(--white);padding:0;overflow-x:hidden;">
+  <img src="https://files.catbox.moe/20tiut.webp" alt="Ja tänään saat eksklusiivisia lahjoja — 7 premium-bonusopasta mukana" width="1600" height="893" style="display:block;width:100%;height:auto;margin:0 auto;">
+  <img src="https://files.catbox.moe/9dijcr.webp" alt="Bonus 1 — Ensimmäisten Silmukoiden Opas" style="display:block;width:100%;height:auto;margin:0 auto;">
+  <img src="https://files.catbox.moe/t3ojex.webp" alt="Bonus 2 — Neulonnan Työkalupakki" style="display:block;width:100%;height:auto;margin:0 auto;">
+  <img src="https://files.catbox.moe/laoh5j.webp" alt="Bonus 3 — Neulojien Suosikkimallit" style="display:block;width:100%;height:auto;margin:0 auto;">
+  <img src="https://files.catbox.moe/xbvque.webp" alt="Bonus 4 — Malleja Lemmikillesi" style="display:block;width:100%;height:auto;margin:0 auto;">
+  <img src="https://files.catbox.moe/uyty0x.webp" alt="Bonus 5 — Elinikäiset Kokoelmapäivitykset" style="display:block;width:100%;height:auto;margin:0 auto;">
+  <img src="https://files.catbox.moe/j2830d.webp" alt="Bonus 6 — Lisää Virkkausmalleja" style="display:block;width:100%;height:auto;margin:0 auto;">
+  <img src="https://files.catbox.moe/c0yvdg.webp" alt="Bonus 7 — Neulontatodistus" style="display:block;width:100%;height:auto;margin:0 auto;">
+  <img src="https://files.catbox.moe/m247bo.webp" alt="7 premium-bonusopasta mukana ilmaiseksi" style="display:block;width:100%;height:auto;margin:0 auto;">
+</section>
+
+<!-- ══ KOKONAISYHTEENVETO ══ -->
+<section id="resumen" style="background:var(--white);padding-bottom:8px;">
+  <div class="container">
+    <h2 style="text-transform:uppercase;letter-spacing:.5px;">Kaikki mitä saat</h2>
+    <div class="vs-card">
+      <div class="vs-item"><span class="vs-check"></span><div><div class="vs-name">Mallikirjasto (5 200+ mallia)</div><div class="vs-price">€65</div></div></div>
+      <div class="vs-item"><span class="vs-check"></span><div><div class="vs-name">Suuri Silmukkakirjasto</div><div class="vs-price">€32</div></div></div>
+      <div class="vs-item"><span class="vs-check"></span><div><div class="vs-name">Erikoiskirjastot (Ajankäyttö · Myynti · Trendit)</div><div class="vs-price">€27</div></div></div>
+      <div class="vs-item"><span class="vs-check"></span><div><div class="vs-name">Bonus 1: Ensimmäisten Silmukoiden Opas</div><div class="vs-price">€29</div></div></div>
+      <div class="vs-item"><span class="vs-check"></span><div><div class="vs-name">Bonus 2: Neulonnan Työkalupakki</div><div class="vs-price">€29</div></div></div>
+      <div class="vs-item"><span class="vs-check"></span><div><div class="vs-name">Bonus 3: Neulojien Suosikkimallit</div><div class="vs-price">€25</div></div></div>
+      <div class="vs-item"><span class="vs-check"></span><div><div class="vs-name">Bonus 4: Malleja Lemmikillesi</div><div class="vs-price">€20</div></div></div>
+      <div class="vs-item"><span class="vs-check"></span><div><div class="vs-name">Bonus 5: Elinikäiset Kokoelmapäivitykset</div><div class="vs-price">€29</div></div></div>
+      <div class="vs-item"><span class="vs-check"></span><div><div class="vs-name">Bonus 6: Lisää Virkkausmalleja</div><div class="vs-price">€25</div></div></div>
+      <div class="vs-item"><span class="vs-check"></span><div><div class="vs-name">Bonus 7: Neulontatodistus</div><div class="vs-price">€17</div></div></div>
+      <div class="vs-total">
+        <div class="vs-old">{{original_price}}</div>
+        <div class="vs-new">{{price}}</div>
+        <div class="vs-off">SÄÄSTÄT {{savings}} — 80% ALENNUS</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ AINO + 3 LAHJAA ══ -->
+<section class="regalos-section" style="text-align:center;padding-top:14px;">
+  <div class="container-large">
+    <h2>Ja tänään Aino lisää 3 ylimääräistä lahjaa</h2>
+    <p class="regalos-sub">Vain tänään liittyville</p>
+    <div class="creadora-card">
+      <div class="creadora-foto">
+        <img src="https://files.catbox.moe/djvfk1.webp" alt="Aino neulontastudiossaan">
+      </div>
+      <div class="creadora-body">
+        <h3 class="creadora-nombre">Aino</h3>
+        <p class="creadora-rol">Oppaasi kokoelman sisällä</p>
+        <div class="creadora-carta">
+          <p>„Tiedän miltä tuntuu se pöytälaatikko täynnä kesken jääneitä projekteja ja se pieni ääni, joka sanoo <em>tämä ei ole minua varten</em>. Kukaan ei helpottanut minulle tietä — siksi lupasin helpottaa sinun tietäsi.</p>
+          <p>Nämä kolme lahjaa ovat kaikki mitä opin yrityksen ja erehdyksen kautta, jotta voisit viimeistellä aloittamasi ja lahjoittaa ylpeänä. Nähdään sisällä."</p>
+        </div>
+        <p class="creadora-firma">— Aino 🧶</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ LAHJAKUVAT (3) ══ -->
+<!-- PLACEHOLDER: korvaa fi-kuvilla (image-to-image) -->
+<section style="background:var(--white);padding:0;">
+  <img src="https://files.catbox.moe/l6ii46.webp" alt="Lahja 1 — Vuoden Neulontasuunnitelma + Materiaalijärjestelijä" style="display:block;width:100%;height:auto;margin:0 auto;">
+  <img src="https://files.catbox.moe/vdbmey.webp" alt="Lahja 2 — Virheiden Korjausopas" style="display:block;width:100%;height:auto;margin:0 auto;">
+  <img src="https://files.catbox.moe/0u831f.webp" alt="Lahja 3 — Neulottujen Lahjojen Opas" style="display:block;width:100%;height:auto;margin:0 auto;">
+  <div class="container-large" style="text-align:center;padding:20px 16px 40px;">
+    <div class="regalos-cierre">
+      <p class="regalos-valor">3 lahjan arvo: <span style="text-decoration:line-through;color:#a89f92;">€33</span> — <span style="color:var(--secondary);">ilmaiseksi vain tänään liittyville, <span class="hoy-data">torstaina, 16. lokakuuta</span></span></p>
+      <a href="#oferta" data-checkout="" class="cta-button pulse-big">KYLLÄ, HALUAN PÄÄSYN NYT</a>
+      <p class="cur-note">🔒 Suojattu korttimaksu</p>
+      <p class="regalos-urgencia">⏳ Vain tänään liittyville, <span class="hoy-data">torstaina, 16. lokakuuta</span>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ KUVITTELE 30 PÄIVÄN KULUTTUA ══ -->
+<section style="background:var(--cream);">
+  <div class="container">
+    <h2>Kuvittele millainen olet 30 päivän kuluttua…</h2>
+    <p style="text-align:center;font-size:18px;font-weight:700;color:var(--secondary);text-transform:uppercase;margin-bottom:20px;margin-top:-15px;">Sulje silmäsi hetkeksi</p>
+    <div class="checklist-box">
+      <div class="checklist-item"><span class="emoji-icon">🧶</span><span><strong>Se puolivalmis kardigan on viimein valmis.</strong> Sellainen, joka on lojunut unohtuneena pöytälaatikossa kuukausia — koska tällä kertaa sinulla oli selkeät, askel askeleelta etenevät ohjeet ilman arvailua.</span></div>
+      <div class="checklist-item"><span class="emoji-icon">🎁</span><span><strong>Lapsenlapsesi avaa sinun tekemäsi lahjan.</strong> Se hymy on jotain, mitä mikään kauppa ei voi myydä.</span></div>
+      <div class="checklist-item"><span class="emoji-icon">💰</span><span><strong>Ensimmäiset käsintehtyä kappalettasi myyty paikallisessa käsityömessussa</strong> "Myynti"-osion ansiosta. Kokoelma on maksanut itsensä takaisin moninkertaisesti.</span></div>
+    </div>
+    <p style="text-align:center;font-weight:800;font-size:17px;color:var(--primary);max-width:460px;margin:15px auto 0;">5 200 mallilla ei itsessään ole tavoite.<br>Tavoite on viimeistellä, lahjoittaa ja rakastaa jokaista aloittamaasi projektia.</p>
+  </div>
+</section>
+
+<!-- ══ TAKUU + CTA ══ -->
+<section class="dark-section" style="padding:30px 20px;">
+  <div class="container">
+    <div style="display:flex;flex-direction:column;align-items:center;background:#fff;width:100%;max-width:420px;box-sizing:border-box;padding:18px 18px 16px;text-align:center;margin:0 auto;border-radius:16px;">
+      <!-- PLACEHOLDER: korvaa fi-sinetillä (image-to-image) -->
+      <img src="https://files.catbox.moe/tl6khv.webp"
+        alt="7 päivän tyytyväisyystakuu" style="width:84px;height:84px;object-fit:cover;border-radius:50%;margin-bottom:10px;box-shadow:0 4px 12px rgba(74,66,56,.18);border:3px solid #F6E9DF;">
+      <h2 style="margin-bottom:6px;font-size:19px;line-height:1.3;color:#4A4238!important;">7 Päivää Takuu — 100% Tyytyväisyys</h2>
+      <p style="font-size:13.5px;line-height:1.5;color:#555;margin-bottom:10px;">Jos tuntuu, että Neulonnan Aarreaitta ei sovi sinulle, kirjoita meille 7 päivän kuluessa ja palautamme rahat.</p>
+      <div style="background:var(--cream);padding:6px 14px;border-radius:8px;font-weight:800;font-size:12.5px;">Ilman kysymyksiä. Ilman komplikaatioita.</div>
+    </div>
+    <a href="#oferta" data-checkout="" class="cta-button pulse-big" style="margin-top:20px;">KYLLÄ, HALUAN PÄÄSYN NYT</a>
+    <p class="cur-note" style="color:#c9bba8;">🔒 Suojattu korttimaksu</p>
+  </div>
+</section>
+
+<!-- ══ ARVOSTELUT ══ -->
+<section class="rv-sec">
+  <div class="rv-head">
+    <div class="rv-stars-big">★★★★★</div>
+    <div class="big">Mitä neulojamme sanovat</div>
+    <div class="small"><b>4,9/5</b> neulojilta, joilla on jo pääsy</div>
+  </div>
+  <div class="rv-wrap">
+    <div class="rv-car">
+      <div class="rv-item">
+        <div class="rv-top"><div class="rv-av">M</div><div><div class="rv-name">Maija L.</div><div class="rv-verify">✓ Vahvistettu ostaja · Helsinki</div></div><div class="rv-stars">★★★★★</div></div>
+        <p>Onnistuin viimein neulomaan puuseron pienelle pojalleni ja se istuu täydellisesti. Malli oli niin selkeä, että sain sen valmiiksi viikonlopussa.</p>
+        <div class="rv-photo"><img class="rv-img" loading="lazy" decoding="async" src="https://aekpgsbqjzqntlbucbts.supabase.co/storage/v1/object/public/store-resources/9f4efaaf-96b1-4d24-b0eb-bfbc78c3f479/1792093339661_rv1-resena-3a099b5b.webp" alt="Käsinneulottu pusero"></div>
+      </div>
+      <div class="rv-item">
+        <div class="rv-top"><div class="rv-av">K</div><div><div class="rv-name">Kaisa R.</div><div class="rv-verify">✓ Vahvistettu ostaja · Tampere</div></div><div class="rv-stars">★★★★★</div></div>
+        <p>Pohjoismainen peitto oli talviprojektini. Ohjeet ovat helppoja seurata ja se tuli jopa kauniimmaksi kuin kuvassa.</p>
+        <div class="rv-photo"><img class="rv-img" loading="lazy" decoding="async" src="https://aekpgsbqjzqntlbucbts.supabase.co/storage/v1/object/public/store-resources/9f4efaaf-96b1-4d24-b0eb-bfbc78c3f479/1792093344619_rv2-resena-49e72496.webp" alt="Pohjoismainen peitto neulottuna silmukka silmukalta"></div>
+      </div>
+      <div class="rv-item">
+        <div class="rv-top"><div class="rv-av">S</div><div><div class="rv-name">Sanna T.</div><div class="rv-verify">✓ Vahvistettu ostaja · Turku</div></div><div class="rv-stars">★★★★★</div></div>
+        <p>Pidän kaiken tabletilla ja neulon suoraan ruudulta. Löydän nyt mallin sekunneissa.</p>
+        <div class="rv-photo"><img class="rv-img" loading="lazy" decoding="async" src="https://aekpgsbqjzqntlbucbts.supabase.co/storage/v1/object/public/store-resources/9f4efaaf-96b1-4d24-b0eb-bfbc78c3f479/1792093350005_rv3-resena-88185391.webp" alt="Seuraava mallisi yhdellä napautuksella"></div>
+      </div>
+      <div class="rv-item">
+        <div class="rv-top"><div class="rv-av">L</div><div><div class="rv-name">Liisa H.</div><div class="rv-verify">✓ Vahvistettu ostaja · Oulu</div></div><div class="rv-stars">★★★★★</div></div>
+        <p>Ensimmäinen pitkä kardigan! Jokainen vaihe on selitetty, en koskaan jumittunut. Saan kehuja joka kerta kun pidän sitä.</p>
+        <div class="rv-photo"><img class="rv-img" loading="lazy" decoding="async" src="https://aekpgsbqjzqntlbucbts.supabase.co/storage/v1/object/public/store-resources/9f4efaaf-96b1-4d24-b0eb-bfbc78c3f479/1792093354946_rv4-resena-3faee331.webp" alt="Ensimmäinen pitkä kardigan"></div>
+      </div>
+      <div class="rv-item">
+        <div class="rv-top"><div class="rv-av">R</div><div><div class="rv-name">Riitta P.</div><div class="rv-verify">✓ Vahvistettu ostaja · Espoo</div></div><div class="rv-stars">★★★★★</div></div>
+        <p>Pidän lyhyistä projekteista hiljaisille illoille. Aloitan yhden illallisen jälkeen ja saan sen valmiiksi muutamassa illassa.</p>
+        <div class="rv-photo"><img class="rv-img" loading="lazy" decoding="async" src="https://aekpgsbqjzqntlbucbts.supabase.co/storage/v1/object/public/store-resources/9f4efaaf-96b1-4d24-b0eb-bfbc78c3f479/1792093359176_rv5-resena-b6e636da.webp" alt="Iltaneulontarituaali"></div>
+      </div>
+      <div class="rv-item">
+        <div class="rv-top"><div class="rv-av">T</div><div><div class="rv-name">Tuula M.</div><div class="rv-verify">✓ Vahvistettu ostaja · Jyväskylä</div></div><div class="rv-stars">★★★★★</div></div>
+        <p>Tein muutamia tuotteita "Myynti"-osion paikalliseen käsityömessuun ja myin melkein kaiken.</p>
+        <div class="rv-photo"><img class="rv-img" loading="lazy" decoding="async" src="https://aekpgsbqjzqntlbucbts.supabase.co/storage/v1/object/public/store-resources/9f4efaaf-96b1-4d24-b0eb-bfbc78c3f479/1792093363827_rv6-resena-25abc1e0.webp" alt="Tuotteet valmiina käsityömessuun"></div>
+      </div>
+    </div>
+    <div class="rv-hint">Pyyhkäise <span>➜</span></div>
+  </div>
+  <div class="carousel-dots" data-for="rv-car" style="margin-bottom:6px;"><i class="on"></i><i></i><i></i><i></i><i></i><i></i></div>
+  <script>
+  (function(){var c=document.querySelector('#landing-tejido .rv-car'),hn=document.querySelector('#landing-tejido .rv-hint');
+  if(c&&hn)c.addEventListener('scroll',function(){hn.classList.add('off');},{passive:true,once:true});})();
+  </script>
+</section>
+
+<!-- ══ TIETOJA AINOSTA ══ -->
+<section style="background:var(--white);padding:26px 20px 40px;">
+  <h2 class="about-title">Kuka on tämän kokoelman takana?</h2>
+  <div class="about-sub">Tutustuu häneen</div>
+  <div class="about-card">
+    <img loading="lazy" decoding="async" width="112" height="112"
+      src="https://files.catbox.moe/djvfk1.webp"
+      alt="Aino, Neulonnan Aarreaitta:n luoja">
+    <b>Aino</b>
+    <div class="about-role">Elämä puikot kädessä</div>
+    <p>Hei, olen Aino 🧶 Olen neulonut vuosia, ja jos nämä vuodet ovat opettaneet minulle jotain, on se, että vaikea osa ei koskaan ollut itse neulominen — vaan hyvien, selkeiden ja hyvin selitettyjen mallien löytäminen. Siksi loin tämän kokoelman: jotta sinulla olisi yhdessä paikassa se, mihin minulta meni vuosia kerätä, ja jotta voisit viettää aikasi siihen mikä todella merkitsee — neuloessa, lahjoituksessa ja nauttien jokaisesta silmukasta. Mikään ei ilahduta minua enemmän kuin nähdä valmiit tuotteet, joita neulojamme lähettävät meille.</p>
+  </div>
+</section>
+
+<!-- ══ USEIN KYSYTYT KYSYMYKSET ══ -->
+<section style="background:var(--cream);">
+  <div class="container">
+    <h2>Usein kysytyt kysymykset</h2>
+    <div class="faq-item"><div class="faq-question">Miksi maksaa, kun netissä on ilmaisia malleja?</div>
+    <div class="faq-answer"><div class="faq-answer-content">Koska täällä et tuhlaa tunteja tuhansien epäjärjestyksessä olevien tulosten selaamiseen — kaikki on huolella valittua, järjestetty kategorian, keston ja tason mukaan, ja valmis neulottavaksi.</div></div></div>
+
+    <div class="faq-item"><div class="faq-question">Miten saan pääsyn maksun jälkeen?</div>
+    <div class="faq-answer"><div class="faq-answer-content">Heti kun maksu on vahvistettu, saat sähköpostin, jossa on pääsy koko kokoelmaan PDF-muodossa. Tarkista myös roskapostikansio tai mainossähköpostit.</div></div></div>
+
+    <div class="faq-item"><div class="faq-question">Onko se todella kertamaksu?</div>
+    <div class="faq-answer"><div class="faq-answer-content">Kyllä — tänään on. Kokoelma siirtyy pian kuukausitilaukkseksi, mutta kaikki, jotka liittyvät nyt, maksavat kerran ja säilyttävät elinikäisen pääsyn, ilman kuukausimaksuja ja ilman piilokuluia.</div></div></div>
+
+    <div class="faq-item"><div class="faq-question">Tarvitsenko kokemusta?</div>
+    <div class="faq-answer"><div class="faq-answer-content">Ei. On malleja täysin aloittelijoille ja edistyneille neulojille, kaikki lajiteltuna tason mukaan.</div></div></div>
+
+    <div class="faq-item"><div class="faq-question">Voinko myydä näillä malleilla tekemäni tuotteet?</div>
+    <div class="faq-answer"><div class="faq-answer-content">Kyllä, voit myydä valmistamasi lopputuotteet.</div></div></div>
+
+    <div class="faq-item"><div class="faq-question">Mitä tapahtuu jos se ei sovi minulle?</div>
+    <div class="faq-answer"><div class="faq-answer-content">Sinulla on 7 päivän takuu. Jos se ei sovi, kirjoita meille ja palautamme rahat.</div></div></div>
+  </div>
+</section>
+
+<!-- ══ LOPPU-CTA ══ -->
+<section class="final-cta-section">
+  <div class="container">
+    <h2>Vielä kerran, kaikki mitä saat tänään</h2>
+    <p class="final-cta-kicker">Yksi maksu tänään — ennen kuin siirtyy kuukausitilaukkseksi</p>
+    <div class="final-card">
+      <ul class="final-list">
+        <li><span class="final-check">✓</span><span><strong>Neulonnan Aarreaitta täydellisenä</strong> — 5 200+ premium-mallia</span></li>
+        <li><span class="final-check">✓</span><span><strong>7 bonusta:</strong> Ensimmäisten Silmukoiden Opas, Neulonnan Työkalupakki, Neulojien Suosikkimallit, Malleja Lemmikillesi, Elinikäiset Kokoelmapäivitykset, Lisää Virkkausmalleja ja Neulontatodistus</span></li>
+        <li class="final-gift"><span class="final-check">🎁</span><span><span class="final-gift-tag">Vain tänään</span><br><strong>+ 3 lahjaa:</strong> Vuoden Neulontasuunnitelma, Virheiden Korjausopas ja Neulottujen Lahjojen Opas</span></li>
+        <li><span class="final-check">✓</span><span>100% digitaalinen — välitön pääsy sähköpostiin</span></li>
+        <li><span class="final-check">✓</span><span>Kertamaksu — elinikäinen pääsy</span></li>
+      </ul>
+      <div class="final-price-box">
+        <div class="px-cap">Kokonaisarvo</div>
+        <div class="px-row"><span class="px-old">{{original_price}}</span><span class="px-save">Säästät {{savings}}</span></div>
+        <div class="px-label">Tänään saat kaiken hintaan</div>
+        <div class="px-new">{{price}}</div>
+        <div class="px-foot">Kertamaksu · Elinikäinen pääsy</div>
+      </div>
+      <a href="#oferta" data-checkout="" class="cta-button pulse-big">KYLLÄ, HALUAN PÄÄSYN NYT<span class="final-cta-sub">Maksat kerran</span></a>
+      <p class="cur-note">🔒 Suojattu korttimaksu</p>
+      <div class="custom-payment-icons" style="padding-top:0;margin-bottom:22px;">
+        <img src="https://cdn.jsdelivr.net/npm/payment-icons@1.2.1/min/flat/visa.svg" alt="Visa" style="height:30px;width:auto;display:block;border-radius:4px;box-shadow:0 1px 3px rgba(0,0,0,.12);">
+        <img src="https://cdn.jsdelivr.net/npm/payment-icons@1.2.1/min/flat/mastercard.svg" alt="Mastercard" style="height:30px;width:auto;display:block;border-radius:4px;box-shadow:0 1px 3px rgba(0,0,0,.12);">
+        <img src="https://cdn.jsdelivr.net/npm/payment-icons@1.2.1/min/flat/amex.svg" alt="American Express" style="height:30px;width:auto;display:block;border-radius:4px;box-shadow:0 1px 3px rgba(0,0,0,.12);">
+        <span style="height:30px;width:47px;display:flex;align-items:center;justify-content:center;background:#fff;border:1px solid #d9d9d9;border-radius:4px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.12);"><img src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/applepay.svg" alt="Apple Pay" style="width:40px;height:40px;"></span>
+        <span style="height:30px;width:47px;display:flex;align-items:center;justify-content:center;background:#fff;border:1px solid #d9d9d9;border-radius:4px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.12);"><img src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/googlepay.svg" alt="Google Pay" style="width:40px;height:40px;"></span>
+      </div>
+      <p class="final-pay-text">🔒 Suojattu maksu kortilla, Apple Paylla tai Google Paylla</p>
+    </div>
+    <p class="final-urgency">⏳ 3 lahjaa sisältyvät vain tänään, <strong class="hoy-data">torstaina, 16. lokakuuta</strong>.</p>
+  </div>
+</section>
+
+<!-- ══ ALATUNNISTE ══ -->
+<footer>
+  <div class="container">
+    <p style="margin-bottom:5px;">© Neulonnan Aarreaitta — Kaikki oikeudet pidätetään</p>
+    <p>Digitaalinen tuote välittömällä pääsyllä maksun jälkeen.</p>
+  </div>
+</footer>
+
+</div><!-- /#landing-tejido -->
+
+<!-- ══ KIINTEÄ CTA ══ -->
+<div id="ct-sticky">
+  <a href="#oferta" data-checkout="">KYLLÄ, HALUAN PÄÄSYN NYT · {{price}}</a>
+</div>
+
+<script>
+(function(){
+  /* ── Päivä ja päivämäärä suomeksi ── */
+  var viikonpaivat=['sunnuntaina','maanantaina','tiistaina','keskiviikkona','torstaina','perjantaina','lauantaina'];
+  var kuukaudet=['tammikuuta','helmikuuta','maaliskuuta','huhtikuuta','toukokuuta','kesäkuuta','heinäkuuta','elokuuta','syyskuuta','lokakuuta','marraskuuta','joulukuuta'];
+  var az=new Date();
+  var pvStr=viikonpaivat[az.getDay()]+', '+az.getDate()+'. '+kuukaudet[az.getMonth()];
+  document.querySelectorAll('.hoy-data').forEach(function(el){el.textContent=pvStr;});
+
+  /* ── FAQ accordion ── */
+  document.querySelectorAll('.faq-question').forEach(function(q){
+    q.addEventListener('click',function(){
+      var ans=this.nextElementSibling;
+      var open=this.classList.contains('active');
+      document.querySelectorAll('.faq-question.active').forEach(function(a){
+        a.classList.remove('active');
+        a.nextElementSibling.style.maxHeight=null;
+      });
+      if(!open){
+        this.classList.add('active');
+        ans.style.maxHeight=ans.scrollHeight+'px';
+      }
+    });
+  });
+
+  /* ── Fade-in kuville scrollatessa ── */
+  var fades=document.querySelectorAll('.img-fade');
+  if('IntersectionObserver' in window){
+    var obs=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});
+    },{threshold:0.1});
+    fades.forEach(function(el){obs.observe(el);});
+  } else {
+    fades.forEach(function(el){el.classList.add('visible');});
+  }
+
+  /* ── Kiinteä CTA: piilota kun tarjous näkyy ── */
+  var sticky=document.getElementById('ct-sticky');
+  var oferta=document.getElementById('oferta');
+  if(sticky&&oferta&&'IntersectionObserver' in window){
+    var obsOffer=new IntersectionObserver(function(entries){
+      sticky.style.display=entries[0].isIntersecting?'none':'';
+    },{threshold:0.1});
+    obsOffer.observe(oferta);
+  }
+})();
+</script>

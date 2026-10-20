@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A 3 Legerősebb Kapcsoló — Első 90 Másodperc Checklist™</title>
+<style>
+@page { size: A4; margin: 14mm 16mm; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: #FBF9F5; color: #17130E; font-family: Georgia, 'Times New Roman', serif; font-size: 12px; line-height: 1.6; }
+.page-header { text-align: center; padding: 20px 0 16px; border-bottom: 2px solid #17130E; margin-bottom: 16px; }
+.brand { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: #6B5E54; margin-bottom: 6px; }
+.main-title { font-size: 22px; font-weight: bold; color: #17130E; margin-bottom: 4px; line-height: 1.2; }
+.main-sub { font-size: 12px; color: #A63A2A; font-style: italic; margin-bottom: 10px; }
+.instrucciones { background: #F3EDE5; border-left: 4px solid #A63A2A; padding: 10px 14px; font-size: 11px; color: #6B5E54; margin-bottom: 16px; }
+.instrucciones strong { color: #17130E; }
+.grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; margin-bottom: 20px; }
+.kapcsolo { border: 1px solid #E2D9CE; }
+.kapcsolo-header { background: #17130E; color: #FBF9F5; padding: 12px 14px; }
+.k-num { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: #A63A2A; margin-bottom: 4px; }
+.k-title { font-size: 14px; font-weight: bold; line-height: 1.2; margin-bottom: 2px; }
+.k-sub { font-size: 10px; color: rgba(251,249,245,0.65); font-style: italic; }
+.checklist { padding: 12px 14px; }
+.check-item { display: flex; align-items: flex-start; gap: 8px; margin-bottom: 9px; padding-bottom: 9px; border-bottom: 1px solid #E2D9CE; }
+.check-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+.checkbox { width: 14px; min-width: 14px; height: 14px; border: 1.5px solid #17130E; margin-top: 1px; display: flex; align-items: center; justify-content: center; background: #fff; }
+.check-text { flex: 1; }
+.check-title { font-size: 11px; font-weight: bold; color: #17130E; margin-bottom: 2px; }
+.check-desc { font-size: 10px; color: #6B5E54; line-height: 1.4; }
+.pontuacio { display: flex; gap: 0; margin-top: 14px; border: 1px solid #E2D9CE; }
+.pont-cell { flex: 1; text-align: center; padding: 8px 6px; border-right: 1px solid #E2D9CE; }
+.pont-cell:last-child { border-right: none; }
+.pont-num { font-size: 18px; font-weight: bold; color: #17130E; display: block; }
+.pont-label { font-size: 9px; color: #6B5E54; text-transform: uppercase; letter-spacing: 1px; display: block; margin-top: 2px; }
+.pont-0 .pont-num { color: #A63A2A; }
+.pont-3 .pont-num { color: #6B5E54; }
+.pont-6 .pont-num { color: #17130E; }
+.pont-8 .pont-num { color: #17130E; font-size: 22px; }
+.resumen { border: 1px solid #E2D9CE; margin-top: 16px; }
+.resumen-header { background: #A63A2A; color: #FBF9F5; padding: 10px 14px; font-size: 12px; font-weight: bold; letter-spacing: 1px; }
+.resumen-body { display: grid; grid-template-columns: 1fr 1fr; }
+.resumen-col { padding: 12px 14px; border-right: 1px solid #E2D9CE; }
+.resumen-col:last-child { border-right: none; }
+.resumen-col-title { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #6B5E54; margin-bottom: 8px; }
+.resumen-item { display: flex; align-items: flex-start; gap: 8px; margin-bottom: 6px; }
+.resumen-checkbox { width: 14px; min-width: 14px; height: 14px; border: 1.5px solid #17130E; background: #fff; flex-shrink: 0; margin-top: 1px; }
+.resumen-text { font-size: 11px; color: #17130E; line-height: 1.4; }
+.uso-box { margin-top: 14px; background: #17130E; color: #FBF9F5; padding: 12px 16px; font-size: 11px; line-height: 1.6; }
+.uso-title { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #A63A2A; margin-bottom: 8px; }
+footer { margin-top: 20px; padding-top: 12px; border-top: 1px solid #E2D9CE; text-align: center; font-size: 10px; color: #6B5E54; letter-spacing: 1px; }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <div class="brand">Mágneses Férfi™ · Szituációs Arzenál™</div>
+  <div class="main-title">A 3 Legerősebb Kapcsoló™</div>
+  <div class="main-sub">Első 90 Másodperc Checklist — Kinyomtatható</div>
+</div>
+
+<div class="instrucciones">
+  <strong>Hogyan használd:</strong> Olvasd el a checklisztet reggel, mielőtt egy olyan helyre mész, ahol találkozhatsz valakivel. Nem kell fejből megjegyezni mindent — de az agyad bekerül abba az állapotba, ahol ezek természetesek. Pipáld ki utólag, mi ment.
+</div>
+
+<div class="grid-3">
+
+  <!-- KAPCSOLÓ 1 -->
+  <div class="kapcsolo">
+    <div class="kapcsolo-header">
+      <div class="k-num">Kapcsoló 01</div>
+      <div class="k-title">Eliminációs Mechanizmus</div>
+      <div class="k-sub">"Nem mindenkit akarok megkapni"</div>
+    </div>
+    <div class="checklist">
+
+      <div class="check-item">
+        <div class="checkbox"></div>
+        <div class="check-text">
+          <div class="check-title">Célod az értékelés, nem az elbűvölés</div>
+          <div class="check-desc">Nem arra mész, hogy megnyerj valakit — hanem hogy megnézd, érdemes-e az időd rá.</div>
+        </div>
+      </div>
+
+      <div class="check-item">
+        <div class="checkbox"></div>
+        <div class="check-text">
+          <div class="check-title">Először te értékelsz, nem kéred az ő értékelését</div>
+          <div class="check-desc">Az első mondat ne kérdőjelez — hanem megállapít. "Ezt figyeltem meg benned."</div>
+        </div>
+      </div>
+
+      <div class="check-item">
+        <div class="checkbox"></div>
+        <div class="check-text">
+          <div class="check-title">Kényelmes lehetsz nemmel</div>
+          <div class="check-desc">Ha ő nem érdekli a párbeszédet, el tudsz menni anélkül, hogy rosszul érzed magad.</div>
+        </div>
+      </div>
+
+      <div class="check-item">
+        <div class="checkbox"></div>
+        <div class="check-text">
+          <div class="check-title">Nem minden egyes szemkontaktra mész oda</div>
+          <div class="check-desc">Válogatsz. Ez az igazi ritkaság. Mindenki, aki válogatás nélkül közeledik, olcsónak látszik.</div>
+        </div>
+      </div>
+
+      <div class="check-item">
+        <div class="checkbox"></div>
+        <div class="check-text">
+          <div class="check-title">Adsz negatív értékelést is (humorral)</div>
+          <div class="check-desc">Nem dicsér mindent — ez az egyetlen ember, akitől a dicséret is értékes lesz.</div>
+        </div>
+      </div>
+
+      <div class="check-item">
+        <div class="checkbox"></div>
+        <div class="check-text">
+          <div class="check-title">Saját véleményed van, függetlenül tőle</div>
+          <div class="check-desc">Ha ő azt mondja, tetszik a zene, és nem tetszik neked, mondod. Nem alkalmazkodsz.</div>
+        </div>
+      </div>
+
+      <div class="check-item">
+        <div class="checkbox"></div>
+        <div class="check-text">
+          <div class="check-title">Figyelsz rá — de nem csillogsz a figyelmétől</div>
+          <div class="check-desc">Ha elmegy, folytatod a napod. Ha visszajön, örülsz — de nem függ tőle a napod.</div>
+        </div>
+      </div>
+
+      <div class="check-item">
+        <div class="checkbox"></div>
+        <div class="check-text">
+          <div class="check-title">Az "igen" valóban értékes neked is</div>
+          <div class="check-desc">Csak akkor kérsz el számat, ha valóban akarod folytatni — nem reflexből, hanem döntésből.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- KAPCSOLÓ 2 -->
+  <div class="kapcsolo">
+    <div class="kapcsolo-header">
+      <div class="k-num">Kapcsoló 02</div>
+      <div class="k-title">Vizuális Jelenlét</div>
+      <div class="k-sub">"Látom, hogy látnak"</div>
+    </div>
+    <div class="checklist">
+
+      <div class="check-item">
+        <div class="checkbox"></div>
+        <div class="check-text">
+          <div class="check-title">Szegycsont felemelt, váll hátra</div>
+          <div class="check-desc">2 cm-rel magasabb szegycsont = teljesen más megjelenés. Tartsd meg egész este.</div>
+        </div>
+      </div>
+
+      <div class="check-item">
+        <div class="checkbox"></div>
+        <div class="check-text">
+          <div class="check-title">Lassabb a természetesnél</div>
+          <div class="check-desc">Ivás, fordulás, gesztikulálás — minden 20%-kal lassabb. Ez a kontroll látható jele.</div>
+        </div>
+      </div>
+
+      <div class="check-item">
+        <div class="checkbox"></div>
+        <div class="check-text">
+          <div class="check-title">Teret foglalsz, nem húzódsz be</div>
+          <div class="check-desc">Kar nem szorul a testhez. Nem préselődsz sarokba. Természetesen ott vagy a térben.</div>
+        </div>
+      </div>
+
+      <div class="check-item">
+        <div class="checkbox"></div>
+        <div class="check-text">
+          <div class="check-title">Arca nem mutat ideges elvárakozást</div>
+          <div class="check-desc">Relaxált arc, nem "na mi lesz?" arc. Lecsüngő állkapocs, nem összeszorított fogak.</div>
+        </div>
+      </div>
+
+      <div class="check-item">
+        <div class="checkbox"></div>
+        <div class="check-text">
+          <div class="check-title">Megmozdulásaid célirányosak</div>
+          <div class="check-desc">Nem tekingsz szét folyamatosan. Tudod, hová mégy, és oda mégy. Nem bolyongsz.</div>
+        </div>
+      </div>
+
+      <div class="check-item">
+        <div class="checkbox"></div>
+        <div class="check-text">
+          <div class="check-title">Öltözéked saját döntésed — nem elvárásnak felel</div>
+          <div class="check-desc">Amit viselsz, tetszik neked. Nem a többség elvárásának felel meg, hanem a saját stílusodnak.</div>
+        </div>
+      </div>
+
+      <div class="check-item">
+        <div class="checkbox"></div>
+        <div class="check-text">
+          <div class="check-title">Telefonod a zsebben, nem a kezedben</div>
+          <div class="check-desc">Folytonos telefonozás = nincs jelen. Jelenlét = vonzó. Egyszerű, de ritkán betartják.</div>
+        </div>
+      </div>
+
+      <div class="check-item">
+        <div class="checkbox"></div>
+        <div class="check-text">
+          <div class="check-title">Mosolyod ritkán jön, de valódi</div>
+          <div class="check-desc">Ne mosolyogj minden másodpercben — az értéktelen. Mosolyogj akkor, ha valami valóban megütött.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- KAPCSOLÓ 3 -->
+  <div class="kapcsolo">
+    <div class="kapcsolo-header">
+      <div class="k-num">Kapcsoló 03</div>
+      <div class="k-title">Feszültség a Beszédben</div>
+      <div class="k-sub">"A csend is mond valamit"</div>
+    </div>
+    <div class="checklist">
+
+      <div class="check-item">
+        <div class="checkbox"></div>
+        <div class="check-text">
+          <div class="check-title">Szünetek a mondatok között</div>
+          <div class="check-desc">Nem töltöd ki a csendet azonnal — hagy dolgozzon a csend. Ez feszültséget épít, nem kényelmetlenséget.</div>
+        </div>
+      </div>
+
+      <div class="check-item">
+        <div class="checkbox"></div>
+        <div class="check-text">
+          <div class="check-title">Hangod mélyen marad</div>
+          <div class="check-desc">Idegesség = magas hang. Mielőtt megszólalsz, vegyél mély lélegzetet — ez automatikusan mélyít.</div>
+        </div>
+      </div>
+
+      <div class="check-item">
+        <div class="checkbox"></div>
+        <div class="check-text">
+          <div class="check-title">Befejezetlen mondatokat használsz</div>
+          <div class="check-desc">"Valami azt mondja nekem, hogy te..." — és megállsz. Az agy kiegészíti, és ez vonzó.</div>
+        </div>
+      </div>
+
+      <div class="check-item">
+        <div class="checkbox"></div>
+        <div class="check-text">
+          <div class="check-title">Nem magyarázod meg az összes szavadat</div>
+          <div class="check-desc">Ha valamit mondasz, nem teszel hozzá "mármint arra gondoltam..." típusú mentegetőzést.</div>
+        </div>
+      </div>
+
+      <div class="check-item">
+        <div class="checkbox"></div>
+        <div class="check-text">
+          <div class="check-title">Szemkontakt a szünetek alatt is</div>
+          <div class="check-desc">A legtöbb ember elkapja a tekintetét csendben. Te nem. Ez egyedülálló és vonzó.</div>
+        </div>
+      </div>
+
+      <div class="check-item">
+        <div class="checkbox"></div>
+        <div class="check-text">
+          <div class="check-title">Nem rohanod meg a kérdéseit</div>
+          <div class="check-desc">Ha kérdez, vársz 1-2 másodpercet, mielőtt válaszolsz. Ez gondolkodót, nem reaktívat jelez.</div>
+        </div>
+      </div>
+
+      <div class="check-item">
+        <div class="checkbox"></div>
+        <div class="check-text">
+          <div class="check-title">Keveset mondasz, de pontosan</div>
+          <div class="check-desc">1 erős mondat > 5 átlagos. Ha nincs mondandód, nem beszélsz — és ez rendben van.</div>
+        </div>
+      </div>
+
+      <div class="check-item">
+        <div class="checkbox"></div>
+        <div class="check-text">
+          <div class="check-title">A nevetésed spontán, nem performatív</div>
+          <div class="check-desc">Ne nevess mindenen, hogy tetssz. Ha valami nem vicces, nem nevetsz. Ez is feszültséget épít.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<!-- PONTOZÓ -->
+<div class="resumen">
+  <div class="resumen-header">Utólagos Értékelés — Mit Csináltál Ma?</div>
+  <div class="resumen-body">
+    <div class="resumen-col">
+      <div class="resumen-col-title">Ebből csináltam (bepipálom)</div>
+      <div class="resumen-item"><div class="resumen-checkbox"></div><div class="resumen-text">Eliminációs gondolkodás volt jelen</div></div>
+      <div class="resumen-item"><div class="resumen-checkbox"></div><div class="resumen-text">Testtartás tudatos maradt</div></div>
+      <div class="resumen-item"><div class="resumen-checkbox"></div><div class="resumen-text">Csendeket megtartottam</div></div>
+      <div class="resumen-item"><div class="resumen-checkbox"></div><div class="resumen-text">Nem mentegetőztem</div></div>
+      <div class="resumen-item"><div class="resumen-checkbox"></div><div class="resumen-text">Saját véleményt mondtam</div></div>
+    </div>
+    <div class="resumen-col">
+      <div class="resumen-col-title">Amin holnap dolgozom</div>
+      <div class="resumen-item"><div class="resumen-checkbox"></div><div class="resumen-text">_________________________</div></div>
+      <div class="resumen-item"><div class="resumen-checkbox"></div><div class="resumen-text">_________________________</div></div>
+      <div class="resumen-item"><div class="resumen-checkbox"></div><div class="resumen-text">_________________________</div></div>
+      <div class="resumen-item"><div class="resumen-checkbox"></div><div class="resumen-text">Legfontosabb: _____________</div></div>
+      <div class="resumen-item"><div class="resumen-checkbox"></div><div class="resumen-text">Dátum: ___________________</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="uso-box">
+  <div class="uso-title">Az első 90 másodpercről</div>
+  A vonzalom nem az első 90 percben dől el — hanem az első 90 másodpercben. Nem azért, mert az emberek felszínesek. Hanem mert az agy gyors ítéleteket hoz arról, hogy valaki "biztonságos" vagy "érdekes". Az első 90 másodperc dönti el, hogy a barát-kategóriába kerülsz-e, vagy a "valami más" kategóriába. A 3 kapcsoló ezért az első pillanatról szól — a többi finomhangolás.
+</div>
+
+<footer>
+  Mágneses Férfi™ · Szituációs Arzenál™ · Csak vásárlóknak
+</footer>
+
+</body>
+</html>

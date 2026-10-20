@@ -1,0 +1,160 @@
+{
+  "producto": "Biblia Wykrojów",
+  "slug": "costura-en-casa-pl",
+  "titulo_completo": "Biblia Wykrojów Krawiectwa · Ponad 150 Gotowych Wykrojów + 5 Darmowych Poradników",
+  "idioma": "pl",
+  "registro": "neutro",
+  "mercado": "PL (Polonia)",
+  "precio": "17,99 €",
+  "precio_tachado": "54 €",
+  "ahorro": "36,01 € (67%)",
+  "tienda": "ImpulTienda",
+  "subdominio": "wykrojowkrawiectwa.impultienda.ar",
+  "subdominio_estado": "activo",
+  "landing_publicada": "https://wykrojowkrawiectwa.impultienda.ar/",
+  "dominio_entregables": "https://santilahoz03.github.io/costura-en-casa-pl",
+  "paleta": {
+    "bg": "#f7f0e6",
+    "paper": "#fffdf9",
+    "ink": "#2d211c",
+    "ink_soft": "#5d4a3d",
+    "accent": "#c88415",
+    "accent_dark": "#a86c10",
+    "line": "rgba(111,62,34,.10)",
+    "green": "#1f7a53",
+    "red": "#92262a"
+  },
+  "fuentes": {
+    "titulo": "Outfit",
+    "texto": "Outfit"
+  },
+  "hub": {
+    "carpeta": "acceso",
+    "random": "o3al6rn6du",
+    "titulo": "Biblia Wykrojów Krawiectwa",
+    "subtitulo": "Twój kompletny system do tworzenia własnych ubrań — od wyboru wykroju po gotowe ubranie.",
+    "stats": [
+      "156 wykrojów",
+      "5 poradników",
+      "15 dni gwarancji"
+    ],
+    "pasos": [
+      {
+        "titulo": "Pobierz materiały",
+        "desc": "Kliknij przycisk przy każdym elemencie, żeby pobrać PDF na swoje urządzenie."
+      },
+      {
+        "titulo": "Zacznij od Metody Szycia 360°",
+        "desc": "Jeśli dopiero zaczynasz — ten poradnik przeprowadzi cię przez cały proces krok po kroku."
+      },
+      {
+        "titulo": "Wybierz wykrój i szyj",
+        "desc": "Otwórz katalog, wybierz model, wydrukuj wykrój i przejdź do krojenia."
+      },
+      {
+        "titulo": "Korzystaj z narzędzi",
+        "desc": "Kalkulator tkanin pomoże ci obliczyć, ile materiału potrzebujesz na każdy projekt."
+      }
+    ]
+  },
+  "entregables": [
+    {
+      "id": "core",
+      "tipo": "core",
+      "nombre": "Biblia Wykrojów Krawiectwa",
+      "descripcion": "Kompletny katalog 156 wykrojów odzieżowych we wszystkich rozmiarach — gotowych do wydruku i użycia.",
+      "carpeta": "biblia-wykrojow-krawiectwa",
+      "random": "lwwxy7f82s",
+      "en_hub": true,
+      "pdf": "biblia-wykrojow-krawiectwa.pdf",
+      "fuente": "pdf-sources/biblia-wykrojow-krawiectwa.html",
+      "paginas": 35
+    },
+    {
+      "id": "bono-metoda-szycia-360",
+      "tipo": "bono",
+      "nombre": "Metoda Szycia 360°",
+      "descripcion": "Kompletny kurs szycia: maszyna, tkaniny, techniki, wykończenia i naprawy krok po kroku.",
+      "carpeta": "metoda-szycia-360",
+      "random": "wcy36igjf9",
+      "en_hub": true,
+      "pdf": "metoda-szycia-360.pdf",
+      "fuente": "pdf-sources/metoda-szycia-360.html",
+      "paginas": 56,
+      "orden": "1/5"
+    },
+    {
+      "id": "bono-podstawy-modelowania",
+      "tipo": "bono",
+      "nombre": "Podstawy Modelowania",
+      "descripcion": "Od miar do wykroju: bloki bazowe, toile i rozwój rozmiarów — żeby zrozumieć, jak działa wykrój od środka.",
+      "carpeta": "podstawy-modelowania",
+      "random": "l8ddoyywhc",
+      "en_hub": true,
+      "pdf": "podstawy-modelowania.pdf",
+      "fuente": "pdf-sources/podstawy-modelowania.html",
+      "paginas": 40,
+      "orden": "2/5"
+    },
+    {
+      "id": "bono-modyfikacja-wykrojow",
+      "tipo": "bono",
+      "nombre": "Modyfikacja Wykrojów",
+      "descripcion": "Jeden wykrój, wiele wersji: długości, dekolty, rękawy, zaszewki i dopasowanie do twoich miar.",
+      "carpeta": "modyfikacja-wykrojow",
+      "random": "0s00hh52uk",
+      "en_hub": true,
+      "pdf": "modyfikacja-wykrojow.pdf",
+      "fuente": "pdf-sources/modyfikacja-wykrojow.html",
+      "paginas": 61,
+      "orden": "3/5"
+    },
+    {
+      "id": "bono-maszyna-do-szycia",
+      "tipo": "bono",
+      "nombre": "Maszyna do Szycia: Obsługa i Konserwacja",
+      "descripcion": "Regulacja, naciąg, igły, czyszczenie i 15 najczęstszych problemów — rozwiązanych w domu.",
+      "carpeta": "maszyna-do-szycia",
+      "random": "ksfy45nulm",
+      "en_hub": true,
+      "pdf": "maszyna-do-szycia.pdf",
+      "fuente": "pdf-sources/maszyna-do-szycia.html",
+      "paginas": 22,
+      "orden": "4/5"
+    },
+    {
+      "id": "bono-kreatywne-projekty-krawieckie",
+      "tipo": "bono",
+      "nombre": "Kreatywne Projekty Krawieckie",
+      "descripcion": "Torebki, dekoracje, święta, kuchnia, niemowlęta i akcesoria: projekty krok po kroku.",
+      "carpeta": "kreatywne-projekty-krawieckie",
+      "random": "8wz2rvknfq",
+      "en_hub": true,
+      "pdf": "kreatywne-projekty-krawieckie.pdf",
+      "fuente": "pdf-sources/kreatywne-projekty-krawieckie.html",
+      "paginas": 56,
+      "orden": "5/5"
+    },
+    {
+      "id": "app-kalkulator-tkanin",
+      "tipo": "app",
+      "nombre": "Kalkulator Tkanin",
+      "descripcion": "Oblicz, ile materiału potrzebujesz na każdy projekt — podaj wymiary i typ ubrania.",
+      "carpeta": "kalkulator-tkanin",
+      "random": "hk4rpra2cr",
+      "en_hub": true
+    }
+  ],
+  "promesas": [],
+  "imagenes": [],
+  "ads_dir": "ADS/COSTURA-EN-CASA-PL",
+  "lanzamiento": "campaña lanzada 2026-10-09 (manual por el usuario)",
+  "checklist": [
+    "tienda configurada en ImpulTienda",
+    "entregables publicados en GitHub Pages (6 PDFs + 1 calc)",
+    "hub de entrega online con mockups",
+    "6 ads aprobados",
+    "píxel + API de Conversiones + Utmify conectados",
+    "campaña lanzada 2026-10-09"
+  ]
+}

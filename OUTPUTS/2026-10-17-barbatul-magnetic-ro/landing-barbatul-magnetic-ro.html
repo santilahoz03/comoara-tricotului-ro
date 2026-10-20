@@ -1,0 +1,1270 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>Bărbatul Magnetic — Încetează să fii invizibil</title>
+<meta name="description" content="7 comportamente care decid despre tine în primele 90 de secunde. Cum să încetezi să mai fii doar prieten și să începi să atragi femeile pe care le vrei cu adevărat.">
+<script>document.documentElement.className='js';</script>
+<style>
+/* === TOKENS === */
+:root {
+  color-scheme: light;
+  --bg:       #FBF9F5;
+  --bg-alt:   #F0EDE6;
+  --bg-card:  #F7F4EE;
+  --bg-dark:  #17130E;
+  --text:     #17130E;
+  --text-mid: #4a3f35;
+  --accent:   #A63A2A;
+  --accent-h: #8c2f22;
+  --green:    #2a9e2a;
+  --white:    #FBF9F5;
+  --border:   #ddd6cb;
+  --gold:     #c9a84c;
+  --font:     'Georgia', 'Times New Roman', serif;
+  --sans:     system-ui, -apple-system, sans-serif;
+}
+
+/* === RESET === */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; background: var(--bg); }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { background: var(--bg); color: var(--text); font-family: var(--sans); line-height: 1.65; }
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; }
+
+/* === BARRA FIJA === */
+.mf-bar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  background: var(--bg-dark); color: var(--white);
+  display: flex; align-items: center; justify-content: center;
+  gap: 16px; padding: 10px 16px;
+  font-size: 0.85rem; font-family: var(--sans);
+}
+.mf-bar-text { opacity: 0.85; }
+.mf-bar-countdown { font-weight: 700; font-variant-numeric: tabular-nums; letter-spacing: 0.03em; }
+.mf-bar-btn {
+  background: var(--accent); color: var(--white); border: none; border-radius: 4px;
+  padding: 7px 16px; font-size: 0.8rem; font-weight: 700; cursor: pointer;
+  text-decoration: none; white-space: nowrap; letter-spacing: 0.04em;
+}
+.mf-bar-btn:hover { background: var(--accent-h); }
+@media (max-width: 520px) {
+  .mf-bar { flex-wrap: wrap; gap: 8px; }
+  .mf-bar-text { display: none; }
+}
+
+/* === LAYOUT === */
+.mf-container { max-width: 720px; margin: 0 auto; padding: 0 16px; }
+.mf-section { padding: 56px 0; }
+.mf-section-alt { background: var(--bg-alt); }
+.mf-section-dark { background: var(--bg-dark); color: var(--white); }
+
+/* === HERO === */
+.mf-hero { padding: 88px 0 56px; text-align: center; }
+.mf-social-proof-bar {
+  background: var(--bg-dark); color: var(--white);
+  font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 8px 20px; display: inline-block; margin-bottom: 24px;
+  border-radius: 2px;
+}
+.mf-label {
+  font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--accent); font-weight: 700; margin-bottom: 16px;
+}
+.mf-h1 {
+  font-family: var(--font); font-size: clamp(1.7rem, 5vw, 2.6rem);
+  line-height: 1.22; color: var(--text); margin-bottom: 20px;
+  font-weight: 700;
+}
+.mf-h1 em { color: var(--accent); font-style: normal; }
+.mf-hero-sub {
+  font-size: 1.05rem; color: var(--text-mid); max-width: 600px; margin: 0 auto 24px;
+}
+.mf-stars { margin-bottom: 32px; font-size: 0.88rem; color: var(--text-mid); }
+.mf-stars span { color: var(--gold); }
+
+/* === COUNTDOWN === */
+.mf-countdown-label {
+  font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--text-mid); margin-bottom: 10px; text-align: center;
+}
+.mf-countdown {
+  display: flex; justify-content: center; gap: 8px; margin-bottom: 28px;
+}
+.mf-cd-unit { text-align: center; }
+.mf-cd-num {
+  background: var(--bg-dark); color: var(--white);
+  font-size: 2rem; font-weight: 700; font-variant-numeric: tabular-nums;
+  width: 64px; height: 64px; display: flex; align-items: center; justify-content: center;
+  border-radius: 4px;
+}
+.mf-cd-lbl { font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; margin-top: 4px; color: var(--text-mid); }
+.mf-cd-sep { font-size: 1.8rem; color: var(--text-mid); align-self: center; line-height: 1; }
+
+/* === HERO IMAGE === */
+.mf-hero-img-wrap { max-width: 340px; margin: 0 auto 32px; }
+
+/* === CTA BUTTON === */
+.mf-btn {
+  display: block; width: 100%; max-width: 480px; margin: 0 auto;
+  background: var(--accent); color: var(--white);
+  text-align: center; text-decoration: none;
+  font-size: 1.05rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+  padding: 18px 24px; border-radius: 6px; border: none; cursor: pointer;
+  transition: background 0.18s, transform 0.12s;
+  line-height: 1.3;
+}
+.mf-btn:hover { background: var(--accent-h); }
+.mf-btn:active { transform: scale(0.98); }
+.mf-btn-price { font-size: 0.8rem; opacity: 0.85; font-weight: 400; margin-top: 4px; display: block; }
+.mf-safe {
+  text-align: center; font-size: 0.78rem; color: var(--text-mid);
+  margin-top: 10px; display: flex; align-items: center; justify-content: center; gap: 6px;
+}
+.mf-safe::before { content: '🔒'; }
+
+/* === PRODUCT BOX === */
+.mf-product-box {
+  background: var(--white); border: 2px solid var(--border);
+  border-radius: 12px; padding: 36px 32px; max-width: 560px;
+  margin: 0 auto 32px; box-shadow: 0 4px 24px rgba(23,19,14,0.08);
+}
+.mf-ebook-tag {
+  background: var(--bg-dark); color: var(--white);
+  font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase;
+  padding: 4px 12px; display: inline-block; margin-bottom: 14px; border-radius: 2px;
+}
+.mf-product-title {
+  font-family: var(--font); font-size: 1.9rem; font-weight: 700;
+  color: var(--text); margin-bottom: 4px;
+}
+.mf-product-sub { font-size: 0.92rem; color: var(--text-mid); margin-bottom: 4px; }
+.mf-product-badge { font-size: 0.78rem; color: var(--text-mid); margin-bottom: 20px; font-style: italic; }
+.mf-bullets { list-style: none; margin-bottom: 24px; }
+.mf-bullets li {
+  padding: 6px 0 6px 28px; position: relative; font-size: 0.93rem;
+  border-bottom: 1px solid var(--border); color: var(--text);
+}
+.mf-bullets li:last-child { border-bottom: none; }
+.mf-bullets li::before { content: '✓'; position: absolute; left: 0; color: var(--green); font-weight: 700; }
+.mf-price-block { text-align: center; margin-bottom: 20px; }
+.mf-price-orig { font-size: 1.1rem; text-decoration: line-through; color: var(--text-mid); }
+.mf-price-badge {
+  display: inline-block; background: var(--accent); color: var(--white);
+  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+  padding: 3px 10px; border-radius: 99px; margin: 4px 0;
+}
+.mf-price-main {
+  font-family: var(--font); font-size: 4rem; font-weight: 700; color: var(--text);
+  line-height: 1;
+}
+.mf-price-period { font-size: 0.85rem; color: var(--text-mid); margin-top: 4px; }
+.mf-guarantee-note {
+  text-align: center; font-size: 0.82rem; color: var(--text-mid); margin-top: 16px;
+}
+
+/* === SECTION HEADINGS === */
+.mf-section-tag {
+  font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--accent); font-weight: 700; margin-bottom: 8px;
+}
+.mf-h2 {
+  font-family: var(--font); font-size: clamp(1.4rem, 4vw, 2rem);
+  font-weight: 700; line-height: 1.25; color: var(--text); margin-bottom: 24px;
+}
+.mf-section-dark .mf-h2 { color: var(--white); }
+/* Hero (fond deschis) — text întunecat vizibil */
+.mf-hero .mf-cd-lbl,
+.mf-hero .mf-cd-sep { color: var(--text-mid); }
+.mf-hero .mf-countdown-label { color: var(--text-mid); }
+.mf-hero .mf-stars { color: var(--text-mid); }
+.mf-hero .mf-safe { color: var(--text-mid); }
+.mf-hero .mf-lead,
+.mf-hero .mf-p { color: var(--text); }
+/* Secțiuni închise — text deschis */
+.mf-section-dark .mf-cd-lbl,
+.mf-section-dark .mf-cd-sep { color: rgba(251,249,245,0.55); }
+.mf-section-dark .mf-lead,
+.mf-section-dark .mf-p { color: rgba(251,249,245,0.85); }
+.mf-h3 {
+  font-family: var(--font); font-size: 1.2rem; font-weight: 700;
+  color: var(--text); margin-bottom: 10px;
+}
+.mf-lead { font-size: 1.05rem; color: var(--text-mid); margin-bottom: 20px; }
+.mf-p { margin-bottom: 16px; color: var(--text); }
+.mf-p:last-child { margin-bottom: 0; }
+
+/* === PROBLEM GRID === */
+.mf-vs-grid { display: flex; flex-direction: column; gap: 16px; margin: 28px 0; }
+.mf-vs-row {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+  border: 1px solid var(--border); border-radius: 8px; overflow: hidden;
+}
+.mf-vs-wrong {
+  background: #fdf4f2; padding: 14px 16px; font-size: 0.88rem;
+  border-right: 1px solid var(--border);
+}
+.mf-vs-right { background: var(--white); padding: 14px 16px; font-size: 0.88rem; }
+.mf-vs-label {
+  font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--text-mid); margin-bottom: 4px;
+}
+.mf-vs-wrong .mf-vs-label { color: var(--accent); }
+.mf-vs-right .mf-vs-label { color: var(--green); }
+@media (max-width: 520px) {
+  .mf-vs-row { grid-template-columns: 1fr; }
+  .mf-vs-wrong { border-right: none; border-bottom: 1px solid var(--border); }
+}
+
+/* === SWITCHES === */
+.mf-switch-list { display: flex; flex-direction: column; gap: 20px; margin: 24px 0; }
+.mf-switch-item { display: flex; gap: 16px; align-items: flex-start; }
+.mf-switch-num {
+  background: var(--accent); color: var(--white);
+  font-size: 1.1rem; font-weight: 700; width: 40px; height: 40px;
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.mf-switch-text h4 { font-weight: 700; margin-bottom: 4px; font-size: 1rem; }
+.mf-switch-text p { font-size: 0.9rem; color: var(--text-mid); }
+
+/* === CHAPTERS === */
+.mf-chapter-list { display: flex; flex-direction: column; gap: 32px; }
+.mf-chapter {
+  display: grid; grid-template-columns: 200px 1fr; gap: 24px; align-items: start;
+  padding-bottom: 32px; border-bottom: 1px solid var(--border);
+}
+.mf-chapter:last-child { border-bottom: none; padding-bottom: 0; }
+.mf-chapter-img {
+  border-radius: 8px; overflow: hidden; aspect-ratio: 4/3; background: var(--bg-alt);
+}
+.mf-chapter-img img { width: 100%; height: 100%; object-fit: cover; }
+.mf-chapter-num {
+  font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--accent); font-weight: 700; margin-bottom: 6px;
+}
+.mf-chapter-title { font-family: var(--font); font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; }
+.mf-chapter-after {
+  margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border);
+  font-size: 0.85rem; color: var(--text-mid);
+}
+.mf-chapter-after strong { color: var(--text); }
+@media (max-width: 520px) {
+  .mf-chapter { grid-template-columns: 1fr; }
+  .mf-chapter-img { aspect-ratio: 16/9; max-width: 100%; }
+}
+
+/* === BONUS BOX === */
+.mf-bonus-box {
+  border: 2px dashed var(--accent); border-radius: 10px;
+  padding: 28px 24px; margin-top: 32px; background: #fdf8f7;
+}
+.mf-bonus-tag {
+  background: var(--accent); color: var(--white);
+  font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase;
+  padding: 4px 14px; border-radius: 2px; display: inline-block; margin-bottom: 12px;
+}
+.mf-bonus-value { font-size: 0.82rem; color: var(--text-mid); margin-bottom: 8px; }
+
+/* === SITUATIONS === */
+.mf-situation-list { display: flex; flex-direction: column; gap: 12px; margin-top: 24px; }
+.mf-situation {
+  display: flex; gap: 14px; align-items: flex-start;
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: 8px; padding: 14px 16px;
+}
+.mf-sit-icon { font-size: 1.2rem; flex-shrink: 0; }
+.mf-sit-text { font-size: 0.92rem; color: var(--text); }
+
+/* === COST SECTION === */
+.mf-cost-paras { display: flex; flex-direction: column; gap: 16px; }
+.mf-cost-p { font-size: 1rem; color: var(--text); line-height: 1.7; }
+
+/* === GUARANTEE === */
+.mf-guarantee-box {
+  display: flex; gap: 32px; align-items: flex-start;
+  background: var(--white); border: 2px solid var(--border);
+  border-radius: 12px; padding: 32px;
+}
+.mf-guarantee-badge {
+  flex-shrink: 0; width: 90px; height: 90px; border-radius: 50%;
+  background: var(--accent); color: var(--white);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  font-weight: 700; line-height: 1.1; text-align: center;
+}
+.mf-guarantee-badge .g-num { font-size: 2rem; }
+.mf-guarantee-badge .g-lbl { font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; }
+.mf-guarantee-conditions { display: flex; flex-direction: column; gap: 10px; margin: 16px 0; }
+.mf-guarantee-cond { display: flex; gap: 10px; font-size: 0.9rem; }
+.mf-guarantee-cond::before { content: '✓'; color: var(--green); font-weight: 700; flex-shrink: 0; }
+@media (max-width: 520px) {
+  .mf-guarantee-box { flex-direction: column; align-items: center; }
+  .mf-guarantee-badge { margin-bottom: 16px; }
+}
+
+/* === OFFER SECTION === */
+.mf-offer-box {
+  background: var(--white); border: 2px solid var(--border);
+  border-radius: 12px; padding: 36px 28px; max-width: 560px;
+  margin: 0 auto; box-shadow: 0 4px 24px rgba(23,19,14,0.08);
+}
+.mf-offer-banner {
+  background: var(--accent); color: var(--white); text-align: center;
+  font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase;
+  font-weight: 700; padding: 8px; margin: -36px -28px 28px; border-radius: 10px 10px 0 0;
+}
+.mf-offer-items { list-style: none; margin-bottom: 24px; }
+.mf-offer-items li {
+  display: flex; gap: 10px; align-items: flex-start;
+  padding: 8px 0; border-bottom: 1px solid var(--border);
+  font-size: 0.92rem;
+}
+.mf-offer-items li:last-child { border-bottom: none; }
+.mf-offer-items li::before { content: '✓'; color: var(--green); font-weight: 700; flex-shrink: 0; }
+.mf-offer-price-block { text-align: center; margin-bottom: 24px; }
+.mf-offer-orig {
+  font-size: 1.1rem; text-decoration: line-through; color: var(--text-mid);
+  margin-bottom: 2px;
+}
+.mf-offer-badge {
+  display: inline-block; background: var(--accent); color: var(--white);
+  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+  padding: 3px 12px; border-radius: 99px; margin-bottom: 4px;
+}
+.mf-offer-price {
+  font-family: var(--font); font-size: 5rem; font-weight: 700; line-height: 1;
+  color: var(--text);
+}
+.mf-offer-period { font-size: 0.9rem; color: var(--text-mid); margin-top: 4px; }
+.mf-offer-trust {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 16px;
+  margin-top: 16px; font-size: 0.78rem; color: var(--text-mid);
+}
+.mf-offer-trust span { display: flex; align-items: center; gap: 5px; }
+
+/* === 5 TRUTHS === */
+.mf-truths { display: flex; flex-direction: column; gap: 0; }
+.mf-truth {
+  display: flex; gap: 20px; align-items: flex-start;
+  padding: 24px 0; border-bottom: 1px solid var(--border);
+}
+.mf-truth:last-child { border-bottom: none; }
+.mf-truth-num {
+  font-family: var(--font); font-size: 2rem; font-weight: 700;
+  color: var(--accent); flex-shrink: 0; line-height: 1;
+}
+.mf-truth-title { font-weight: 700; font-size: 1rem; margin-bottom: 6px; }
+.mf-truth-body { font-size: 0.9rem; color: var(--text-mid); }
+
+/* === FAQ === */
+.mf-faq { display: flex; flex-direction: column; gap: 0; }
+.mf-faq-item {
+  border-bottom: 1px solid var(--border); padding: 0;
+}
+.mf-faq-item:first-child { border-top: 1px solid var(--border); }
+.mf-faq-q {
+  width: 100%; text-align: left; background: none; border: none; cursor: pointer;
+  padding: 18px 0; font-size: 0.97rem; font-weight: 700; color: var(--text);
+  display: flex; justify-content: space-between; align-items: center; gap: 12px;
+}
+.mf-faq-q .mf-faq-icon { color: var(--accent); font-size: 1.2rem; flex-shrink: 0; transition: transform 0.2s; }
+.mf-faq-item.open .mf-faq-q .mf-faq-icon { transform: rotate(45deg); }
+.mf-faq-a { display: none; padding: 0 0 18px; font-size: 0.92rem; color: var(--text-mid); line-height: 1.7; }
+.mf-faq-item.open .mf-faq-a { display: block; }
+
+/* === FINAL CTA === */
+.mf-final { padding: 64px 0; text-align: center; }
+.mf-final .mf-h2 { margin-bottom: 32px; }
+.mf-ps { margin-top: 32px; max-width: 560px; margin-left: auto; margin-right: auto; }
+.mf-ps p {
+  font-size: 0.92rem; color: var(--text-mid); margin-bottom: 12px;
+  text-align: left; line-height: 1.7;
+}
+.mf-ps strong { color: var(--text); }
+
+/* === FOOTER === */
+.mf-footer {
+  background: var(--bg-dark); color: rgba(255,255,255,0.45);
+  text-align: center; padding: 20px 16px; font-size: 0.75rem;
+}
+.mf-footer a { color: rgba(255,255,255,0.55); text-decoration: none; }
+.mf-footer a:hover { color: var(--white); }
+
+/* === MOBILE === */
+@media (max-width: 520px) {
+  .mf-section { padding: 40px 0; }
+  .mf-hero { padding: 72px 0 40px; }
+  .mf-product-box { padding: 24px 16px; }
+  .mf-offer-box { padding: 28px 16px; }
+  .mf-offer-banner { margin: -28px -16px 24px; }
+  .mf-offer-price { font-size: 3.8rem; }
+  .mf-price-main { font-size: 3.2rem; }
+  .mf-cd-num { width: 52px; height: 52px; font-size: 1.6rem; }
+}
+@media (max-width: 380px) {
+  .mf-h1 { font-size: 1.5rem; }
+  .mf-h2 { font-size: 1.3rem; }
+  .mf-cd-num { width: 44px; height: 44px; font-size: 1.3rem; }
+}
+</style>
+</head>
+<body>
+
+<div class="mf-bar">
+  <span class="mf-bar-text">Oferta expiră:</span>
+  <span class="mf-bar-countdown" id="bar-cd">10:00:00</span>
+  <a href="#mf-offer" class="mf-bar-btn">VREAU ACCESUL</a>
+</div>
+
+<!-- ═══ HERO ═══ -->
+<section class="mf-hero">
+  <div class="mf-container">
+    <div style="text-align:center; margin-bottom:20px;">
+      <span class="mf-social-proof-bar">3.973 de bărbați care au încetat să mai fie doar prieteni</span>
+    </div>
+    <p class="mf-label">PENTRU BĂRBAȚII PE CARE FEMEILE ÎI PLAC, DAR NU ÎI ALEG</p>
+    <h1 class="mf-h1">
+      Încetează Să Fii Invizibil Și Începe Să Atragi Femeile Pe Care Le Vrei Cu Adevărat...
+      <em>Chiar Dacă Astăzi Mereu Se Termină Cu „Ești Un Prieten Grozav"</em>
+    </h1>
+    <p class="mf-hero-sub">
+      Nu trebuie să fii arătos, bogat sau înalt pentru a atrage femei.
+      Dacă te plac, dar aleg pe altcineva, faci 7 lucruri care te aruncă în zona de prieten
+      din mintea lor. Și de acolo nu te mai întorci.
+    </p>
+    <p class="mf-stars"><span>★★★★★</span> 4,9/5 · 3.973 de bărbați au cumpărat · bazat pe cercetări despre oxitocină și dopamină</p>
+
+    <p class="mf-countdown-label">OFERTA EXPIRĂ:</p>
+    <div class="mf-countdown">
+      <div class="mf-cd-unit"><div class="mf-cd-num" id="cd-h">10</div><div class="mf-cd-lbl">ORE</div></div>
+      <div class="mf-cd-sep">:</div>
+      <div class="mf-cd-unit"><div class="mf-cd-num" id="cd-m">00</div><div class="mf-cd-lbl">MIN</div></div>
+      <div class="mf-cd-sep">:</div>
+      <div class="mf-cd-unit"><div class="mf-cd-num" id="cd-s">00</div><div class="mf-cd-lbl">SEC</div></div>
+    </div>
+
+    <div class="mf-hero-img-wrap" style="max-width:520px;">
+      <!-- TAPA RO: reemplazar src con URL catbox una vez generada en Paso 2 -->
+      <img src="https://files.catbox.moe/zx0wea.png" alt="Bărbatul Magnetic + bonus Primele 90 de Secunde" loading="eager" style="border-radius:12px; box-shadow: 8px 8px 40px rgba(0,0,0,0.22);">
+    </div>
+
+    <a href="https://barbatul-magnetic-ro.impultienda.ar/o/barbatul-magnetic-ro" class="mf-btn">
+      DA, VREAU ACCESUL
+      <span class="mf-btn-price">Plată unică · Acces permanent</span>
+    </a>
+    <p class="mf-safe">Plată 100% sigură și criptată</p>
+  </div>
+</section>
+
+<!-- ═══ PRODUCT BOX ═══ -->
+<section class="mf-section mf-section-alt">
+  <div class="mf-container">
+    <p class="mf-countdown-label">OFERTA EXPIRĂ:</p>
+    <div class="mf-countdown" style="margin-bottom:32px;">
+      <div class="mf-cd-unit"><div class="mf-cd-num" id="cd2-h">10</div><div class="mf-cd-lbl">ORE</div></div>
+      <div class="mf-cd-sep">:</div>
+      <div class="mf-cd-unit"><div class="mf-cd-num" id="cd2-m">00</div><div class="mf-cd-lbl">MIN</div></div>
+      <div class="mf-cd-sep">:</div>
+      <div class="mf-cd-unit"><div class="mf-cd-num" id="cd2-s">00</div><div class="mf-cd-lbl">SEC</div></div>
+    </div>
+
+    <div class="mf-product-box">
+      <span class="mf-ebook-tag">E-CARTE</span>
+      <h3 class="mf-product-title">Bărbatul Magnetic</h3>
+      <p class="mf-product-sub">Cum să faci ca femeile să concureze pentru atenția ta</p>
+      <p class="mf-product-badge">Oxitocină · dopamină · psihologia atracției · Construit pe biologia atracției</p>
+
+      <ul class="mf-bullets">
+        <li>7 Comutatoare — Șapte comportamente care decid despre tine în primele 90 de secunde, înainte ca ea să apuce să gândească. Și cum să le activezi pe fiecare</li>
+        <li>Mecanismul de eliminare — ce te scoate din joc în ochii ei. De ce complimentele și favoritismele te elimină din joc, chiar dacă par o idee bună</li>
+        <li>Oxitocina și dopamina — cei doi hormoni care decid dacă ești prieten sau bărbatul la care se gândește seara</li>
+        <li>Ieșirea din zona de prieten — ce să faci când te-a plasat deja acolo și de ce conversația despre sentimente este cea mai proastă mișcare</li>
+        <li>Tensiune în loc de confort — cum să fii bărbatul la care se întâmplă ceva, fără să pierzi respectul</li>
+        <li><strong>BONUS: Primele 90 de Secunde</strong> — Șase situații în care te blochezi mereu, descrise propoziție cu propoziție</li>
+        <li>Garanție de returnare a banilor 90 de zile. Fără întrebări și fără explicații</li>
+        <li>Disponibil imediat. Descarcă și începe să citești în 2 minute</li>
+      </ul>
+
+      <div class="mf-price-block">
+        <p class="mf-price-orig">399 RON</p>
+        <p><span class="mf-price-badge">ECONOMISEȘTI 320 RON (80%)</span></p>
+        <p class="mf-price-main">79 RON</p>
+        <p class="mf-price-period">Plată unică · Acces permanent</p>
+      </div>
+
+      <a href="https://barbatul-magnetic-ro.impultienda.ar/o/barbatul-magnetic-ro" class="mf-btn">DA, VREAU ACCESUL</a>
+      <p class="mf-safe">Plată 100% sigură și criptată</p>
+      <p class="mf-guarantee-note">✅ Garanție 90 de zile. Dacă nu funcționează, îți returnăm toți cei 79 RON fără întrebări.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ DESPRE CE E VORBA ═══ -->
+<section class="mf-section">
+  <div class="mf-container">
+    <p class="mf-section-tag">DESPRE CE E VORBA</p>
+    <h2 class="mf-h2">Ce Este Cu Adevărat „Bărbatul Magnetic"?</h2>
+    <p class="mf-p">
+      „Bărbatul Magnetic" nu este o colecție de replici de seducție și nici un curs despre
+      cum să pretinzi că ești mai dur decât ești în realitate. Este un ghid despre ce stabilește
+      o femeie despre tine înainte de a apuca să gândească, și de ce la tine acel răspuns iese greșit.
+      Nu primești propoziții de memorat. Primești înțelegerea la ce răspunde cu adevărat o femeie
+      și mișcările concrete care schimbă asta.
+    </p>
+    <p class="mf-p">
+      Spre deosebire de sfaturile pe care le auzi de ani de zile („fii tu însuți", „fii mai amabil",
+      „găsește-ți pasiunea"), acest material nu vrea să te schimbe. Îți arată șapte lucruri pe care
+      le faci cu bună credință și care în mintea ei funcționează exact invers față de ce crezi.
+      Și îți arată ce să faci în loc.
+    </p>
+    <p class="mf-p">
+      Conectează ceea ce se știe despre oxitocină, dopamină și mecanismele atracției cu comportamente
+      concrete la petreceri, la serviciu și în conversații pe stradă. Împreună formează cele
+      7 Comutatoare — un sistem pe care nu îl vei găsi în manualele de cucerit, pentru că
+      majoritatea lor predau exact ceea ce te elimină.
+    </p>
+    <p class="mf-p">
+      Și încă un lucru, ca să fie clar de la început. Aceasta nu este manipulare.
+      Nu există niciun truc prin care să faci ceva unei femei fără știrea ei.
+      Există cunoașterea despre cum funcționează atracția și decizia de a înceta să faci
+      lucrurile care o sting.
+    </p>
+  </div>
+</section>
+
+<!-- ═══ CE SE ÎNTÂMPLĂ DE FAPT ═══ -->
+<section class="mf-section mf-section-alt">
+  <div class="mf-container">
+    <p class="mf-section-tag">CE SE ÎNTÂMPLĂ DE FAPT</p>
+    <h2 class="mf-h2">De Ce Ești Amabil, Util Și Rezonabil Pentru Ea, Iar Ea Tot Alege Pe Altcineva</h2>
+
+    <p class="mf-p">
+      Știi cum e. Conversația merge bine, ea râde, îți scrie seara, spune că se simte bine cu tine.
+      Și apoi se dovedește că tot timpul îți povestea despre alt bărbat.
+    </p>
+    <p class="mf-p">
+      Primul gând e mereu același: e ceva în neregulă cu mine.
+      Sunt prea mic, prea gras, am prea puțini bani, prea puțină încredere în mine.
+      Așa că te apuci de treabă. Sală, haine mai bune, mai multe conversații. Și nimic.
+      Altă femeie, același final.
+    </p>
+    <p class="mf-p">
+      Apoi vine al doilea gând, mai rău decât primul: poate pur și simplu nu am acel „ceva".
+      Unii au, alții nu, atât. Acest gând e confortabil pentru că îți ia responsabilitatea.
+      Dar e și fals și îți costă ani.
+    </p>
+
+    <div class="mf-vs-grid">
+      <div class="mf-vs-row">
+        <div class="mf-vs-wrong">
+          <p class="mf-vs-label">Tu crezi…</p>
+          <p>„Nu sunt suficient de atractiv"</p>
+        </div>
+        <div class="mf-vs-right">
+          <p class="mf-vs-label">Realitatea e…</p>
+          <p>Nu îți evaluează aspectul. Evaluează ce simte în stomac când e cu tine. Sunt două lucruri complet diferite.</p>
+        </div>
+      </div>
+      <div class="mf-vs-row">
+        <div class="mf-vs-wrong">
+          <p class="mf-vs-label">Tu crezi…</p>
+          <p>„Trebuie să fiu mai amabil și mai util"</p>
+        </div>
+        <div class="mf-vs-right">
+          <p class="mf-vs-label">Realitatea e…</p>
+          <p>Fiecare favoare nesolicitat îi spune că te străduiești să meriti să te aleagă. Iar pentru cineva care se străduiește să merite, nu luptă nimeni.</p>
+        </div>
+      </div>
+      <div class="mf-vs-row">
+        <div class="mf-vs-wrong">
+          <p class="mf-vs-label">Tu crezi…</p>
+          <p>„Trebuie să comunic mai bine"</p>
+        </div>
+        <div class="mf-vs-right">
+          <p class="mf-vs-label">Realitatea e…</p>
+          <p>Nu își amintește ce ai spus. Își amintește dacă a simțit ceva cu tine sau a fost pur și simplu ok.</p>
+        </div>
+      </div>
+    </div>
+
+    <p class="mf-p">
+      Sfaturile pe care le auzi de ani de zile fac exact munca opusă față de ce promit.
+      „Fii tu însuți" înseamnă pentru tine: continuă să faci ce nu funcționează.
+      „Fii mai amabil" te împinge mai adânc în același sertar.
+      „Interesează-te de ea" transformă conversația într-un interogatoriu.
+    </p>
+    <p class="mf-p">
+      A fi amabil nu e sexy. E confortabil. Și o femeie nu fantazează la confort.
+      Sună dur, dar nu e o acuzație. Nimeni nu ți-a spus-o pentru că a o spune cu voce tare nu e popular.
+    </p>
+    <p class="mf-p">
+      Și încă ceva, ca să încetezi să te învinuiești. Nu e vina ta.
+      Nimeni nu te-a învățat asta. Tatăl tău nu s-a așezat și nu a explicat.
+      Școala nu a avut un astfel de curs. Internetul te hrănește fie cu sfaturi pentru băieți drăguți,
+      fie cu texte scrise de oameni care ei înșiși nu înțeleg despre ce e vorba.
+    </p>
+  </div>
+</section>
+
+<!-- ═══ ADEVĂRATUL MOTIV — 90 SECUNDE ═══ -->
+<section class="mf-section">
+  <div class="mf-container">
+    <p class="mf-section-tag">ADEVĂRATUL MOTIV</p>
+    <h2 class="mf-h2">În Primele 90 De Secunde O Femeie Stabilește Două Lucruri Despre Tine. Și Face Asta Înainte De A Apuca Să Gândească.</h2>
+    <p class="mf-p">
+      Înainte să cataloghezi asta ca o invenție, privește din perspectiva ei.
+      O femeie nu stă cu o listă de cerințe bifând puncte.
+      Creierul ei face asta mai repede decât un gând conștient, în două întrebări,
+      la care răspunde cu corpul, nu cu capul.
+    </p>
+    <p class="mf-p">
+      <strong>Prima:</strong> se întâmplă ceva la acest bărbat? Există tensiune, curiozitate,
+      sentimentul că nu știu ce urmează peste un minut. Sau e previzibil și sigur ca un văr.
+    </p>
+    <p class="mf-p">
+      <strong>A doua:</strong> știe el cine este? Are o opinie proprie, treburile lui și viața lui,
+      în care ea e un plus, nu un scop. Sau se adaptează la tot pentru că îi e teamă că altfel dispare.
+    </p>
+    <p class="mf-p">
+      La tine ambele răspunsuri ies greșit — și nu pentru că ești un bărbat rău.
+      Dimpotrivă. Ies greșit exact pentru că ești un bărbat bun care se străduiește prea mult.
+      Te străduiești să fii amabil, deci dispare tensiunea. Te străduiești să nu ofensezi, deci dispar limitele tale.
+      Te străduiești să te adaptezi, deci dispare opinia ta.
+    </p>
+    <p class="mf-p">
+      Ea nu vede acest efort ca grijă. Îl vede ca semnal: acest om vrea să fiu aleasă de mine.
+      Iar o femeie nu tânjește după cineva care cere atenție. Tânjește după cineva care alege.
+    </p>
+    <p class="mf-p">
+      Și aici e miezul lucrului pe care nimeni nu ți l-a spus: nu e o chestiune de caracter, ci de chimie.
+      Pentru ambele răspunsuri sunt responsabili doi hormoni.
+      Dopamina, care creează excitație și gânduri la cineva când nu e prezent.
+      Oxitocina, care creează atașament și dorința de a fi aproape.
+    </p>
+    <p class="mf-p">
+      Bărbatul amabil declanșează în femeie doar liniște — și liniștea fără excitație e exact prietenul.
+      Dimpotrivă, nemernicul declanșează doar excitație fără atașament, de aceea femeile se întorc la el
+      și se urăsc pe ele pentru asta.
+    </p>
+    <p class="mf-p"><strong>Bărbatul magnetic declanșează ambele deodată. Exact asta predă acest ghid.</strong></p>
+  </div>
+</section>
+
+<!-- ═══ 7 COMUTATOARE ═══ -->
+<section class="mf-section mf-section-alt">
+  <div class="mf-container">
+    <p class="mf-section-tag">CUM FUNCȚIONEAZĂ</p>
+    <h2 class="mf-h2">7 Comutatoare: Șapte Lucruri Pe Care Le Activezi Tu, Fără Să Devii Altcineva</h2>
+    <p class="mf-lead">
+      Deoarece creierul ei verifică două lucruri, există comportamente concrete care răspund la aceste
+      două lucruri. Nu caracter. Nu aspect. Comportament. Iar comportamentul se poate schimba într-o săptămână.
+    </p>
+    <p class="mf-p">
+      Sunt șapte. Fiecare e un comutator: fie îl activezi, fie nu.
+      Nu există scară, nu există „puțin". Activezi fiecare în primele nouăzeci de secunde,
+      înainte de a treia propoziție.
+    </p>
+
+    <div class="mf-switch-list">
+      <div class="mf-switch-item">
+        <div class="mf-switch-num">1</div>
+        <div class="mf-switch-text">
+          <h4>Încetezi să meriti</h4>
+          <p>Astăzi plătești în avans: o favoare nesolicitat, un compliment de dimineață, un mesaj de la tine a treia oară la rând. Fiecare îi spune același lucru despre tine.</p>
+        </div>
+      </div>
+      <div class="mf-switch-item">
+        <div class="mf-switch-num">2</div>
+        <div class="mf-switch-text">
+          <h4>Revii la opinia ta</h4>
+          <p>Astăzi ești de acord cu tot ca să nu fie stânjeneală. Acesta e unul dintre puținele lucruri pe care o femeie le observă imediat.</p>
+        </div>
+      </div>
+      <div class="mf-switch-item">
+        <div class="mf-switch-num">3</div>
+        <div class="mf-switch-text">
+          <h4>Creezi tensiune</h4>
+          <p>Conversația cu tine e plăcută și merge exact cum se așteaptă. Îi lipsește acea secundă în care nu știe ce vei spune mai departe. Acea secundă face mai mult decât o oră de vorbă plăcută.</p>
+        </div>
+      </div>
+      <div class="mf-switch-item">
+        <div class="mf-switch-num">4</div>
+        <div class="mf-switch-text">
+          <h4>Te miști mai lent</h4>
+          <p>Ritmul tău spune mai mult despre tine decât cuvintele. Graba îi spune că îți e teamă să nu îi pierzi atenția. Calmul îi spune că nu îți e teamă.</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="background:var(--white); border:1px solid var(--border); border-radius:8px; padding:20px 24px; margin-top:24px;">
+      <p style="font-size:0.92rem; color:var(--text-mid);">
+        Celelalte trei comutatoare decid dacă rămâi în mintea ei după ce v-ați despărțit.
+        Sunt detaliate înăuntru, împreună cu exact ce să spui în cele șase situații
+        în care te blochezi astăzi.
+      </p>
+      <p style="font-size:0.92rem; color:var(--text-mid); margin-top:10px;">
+        Niciunul nu îți cere să joci rolul nemernicului.
+        Niciunul nu îți cere grosolănie, replici de pe internet sau să te prefaci inaccesibil.
+        Toate cele șapte sunt lucruri pe care le faci cu tine însuți, doar în altă ordine și cu altă setare.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 6 CAPITOLE ═══ -->
+<section class="mf-section">
+  <div class="mf-container">
+    <p class="mf-section-tag">CE GĂSEȘTI ÎNĂUNTRU</p>
+    <h2 class="mf-h2">6 Capitole. 7 Comutatoare Pas Cu Pas, De La „Prieten Grozav" La Gândurile De Seară</h2>
+
+    <div class="mf-chapter-list">
+      <div class="mf-chapter">
+        <div class="mf-chapter-img">
+          <img src="https://images.unsplash.com/photo-1493836512294-502baa1986e2?w=400&q=75&fit=crop" alt="Matricea atracției masculine" loading="lazy">
+        </div>
+        <div>
+          <p class="mf-chapter-num">CAPITOLUL 1</p>
+          <h3 class="mf-chapter-title">Matricea Atracției Masculine: De Ce Faci Tot Ce Trebuie, Și Tocmai De Aceea Nu Funcționează</h3>
+          <p style="font-size:0.9rem;color:var(--text-mid);">
+            Primul pas este să vezi unde se află cu adevărat problema.
+            Fără asta, orice tehnică funcționează pe jumătate, pentru că repari lucrul greșit.
+          </p>
+          <ul style="list-style:disc; padding-left:18px; margin-top:10px; font-size:0.88rem; color:var(--text-mid); display:flex; flex-direction:column; gap:6px;">
+            <li>Mecanismul de eliminare — exact ce se întâmplă în mintea ei când îi trimiți un compliment dimineața</li>
+            <li>Două întrebări la care răspunde cu corpul — și de ce „amabilul" e cel mai prost răspuns la amândouă</li>
+            <li>Indicatorul greșit — de ce pleci din conversație convins că a mers excelent, iar ea se gândește la altcineva</li>
+          </ul>
+          <div class="mf-chapter-after"><strong>După acest capitol</strong> încetezi să crezi că problema e în aspectul sau caracterul tău. Vezi alb-negru care comportamente concrete te elimină și că exact asta se poate schimba.</div>
+        </div>
+      </div>
+
+      <div class="mf-chapter">
+        <div class="mf-chapter-img">
+          <img src="https://images.unsplash.com/photo-1600603406200-5b2a104684ac?w=400&q=75&fit=crop" alt="Vizualizarea masculinității" loading="lazy">
+        </div>
+        <div>
+          <p class="mf-chapter-num">CAPITOLUL 2</p>
+          <h3 class="mf-chapter-title">Vizualizarea Masculinității: Ce Vede Ea Înainte De A Spune Primul Cuvânt</h3>
+          <p style="font-size:0.9rem;color:var(--text-mid);">
+            Schimbări concrete în cum stai, privești și te miști. Fără să te prefaci că ești altcineva.
+          </p>
+          <ul style="list-style:disc; padding-left:18px; margin-top:10px; font-size:0.88rem; color:var(--text-mid); display:flex; flex-direction:column; gap:6px;">
+            <li>Trei secunde de privire — cât durează privirea bărbatului pe care femeia îl memorează și cu cât mai scurtă e a ta</li>
+            <li>A ocupa spațiu — de ce a te strânge la masă trădează mai mult despre tine decât orice spui</li>
+            <li>Ritmul — o singură schimbare în modul de vorbire pe care o aude după două propoziții</li>
+          </ul>
+          <div class="mf-chapter-after"><strong>După acest capitol</strong> intri diferit în cameră. Nu trebuie să spui nimic pentru ca să aibă efect, și tocmai de aceea funcționează chiar și când nu știi ce să spui.</div>
+        </div>
+      </div>
+
+      <div class="mf-chapter">
+        <div class="mf-chapter-img">
+          <img src="https://images.unsplash.com/photo-1758522490286-31bf5af96d4d?w=400&q=75&fit=crop" alt="Conversație după care vrea mai mult" loading="lazy">
+        </div>
+        <div>
+          <p class="mf-chapter-num">CAPITOLUL 3</p>
+          <h3 class="mf-chapter-title">Conversația După Care Vrea Mai Mult: Cum Să Oprești Interogatoriul Și Să Construiești Tensiune</h3>
+          <p style="font-size:0.9rem;color:var(--text-mid);">
+            Nu e vorba de replici pregătite. E vorba de ce faci cu ce tocmai a spus ea.
+          </p>
+          <ul style="list-style:disc; padding-left:18px; margin-top:10px; font-size:0.88rem; color:var(--text-mid); display:flex; flex-direction:column; gap:6px;">
+            <li>Sfârșitul interogatoriului — de ce o serie de întrebări ucide conversația cel mai rapid</li>
+            <li>Propoziția după care nu știe dacă glumești — o secundă de incertitudine face mai mult decât o oră de aprobări</li>
+            <li>Tăcerea din partea ta — cel care umple primul tăcerea inconfortabilă arată cui îi pasă mai mult</li>
+          </ul>
+          <div class="mf-chapter-after"><strong>După acest capitol</strong> conversația încetează să mai fie un test pe care trebuie să îl treci. Devine ceva pe care ea vrea să îl continue, și ea pune următoarea întrebare.</div>
+        </div>
+      </div>
+
+      <div class="mf-chapter">
+        <div class="mf-chapter-img">
+          <img src="https://images.unsplash.com/photo-1575448913281-98e9e5d3f193?w=400&q=75&fit=crop" alt="Tensiunea" loading="lazy">
+        </div>
+        <div>
+          <p class="mf-chapter-num">CAPITOLUL 4</p>
+          <h3 class="mf-chapter-title">Tensiunea: Cum Să Faci Să Simtă Ceva În Stomac, Fără Să Pierzi Respectul</h3>
+          <p style="font-size:0.9rem;color:var(--text-mid);">
+            Aceasta e partea care lipsește din băieții drăguți și singurul motiv pentru care nemernicii câștigă.
+          </p>
+          <ul style="list-style:disc; padding-left:18px; margin-top:10px; font-size:0.88rem; color:var(--text-mid); display:flex; flex-direction:column; gap:6px;">
+            <li>Dopamina și oxitocina — de ce un hormon fără celălalt te face prieten sau nemernic</li>
+            <li>Atracție și respingere — un ritm care nu poate fi jucat cu răceală calculată</li>
+            <li>Limite fără explicații — o propoziție după care încetează să te mai vadă ca opțiune de rezervă</li>
+          </ul>
+          <div class="mf-chapter-after"><strong>După acest capitol</strong> vei vedea o schimbare care nu poate fi confundată cu nimic altceva. Privirea ei durează mai mult. Stă mai aproape. Te atinge din întâmplare.</div>
+        </div>
+      </div>
+
+      <div class="mf-chapter">
+        <div class="mf-chapter-img">
+          <img src="https://images.unsplash.com/photo-1546795708-c962dc089798?w=400&q=75&fit=crop" alt="Să rămâi în mintea ei" loading="lazy">
+        </div>
+        <div>
+          <p class="mf-chapter-num">CAPITOLUL 5</p>
+          <h3 class="mf-chapter-title">Să Rămâi În Mintea Ei: Ce Decide Dacă Se Gândește La Tine Seara</h3>
+          <p style="font-size:0.9rem;color:var(--text-mid);">
+            A capta atenția e un lucru. A rămâne în mintea ei după ce v-ați despărțit e o altă abilitate complet diferită.
+          </p>
+          <ul style="list-style:disc; padding-left:18px; margin-top:10px; font-size:0.88rem; color:var(--text-mid); display:flex; flex-direction:column; gap:6px;">
+            <li>Afacere neterminată — de ce creierul revine la ce a rămas deschis și cum să folosești asta onest</li>
+            <li>Cine scrie primul — un principiu simplu care inversează întreaga direcție a relației</li>
+            <li>Ieșirea din zona de prieten — ce să faci dacă te-a plasat deja acolo și de ce conversația sinceră despre sentimente e cea mai proastă mișcare</li>
+          </ul>
+          <div class="mf-chapter-after"><strong>După acest capitol</strong> ea începe să inițieze contactul. Nu pentru că ai făcut ceva pentru ea, ci pentru că ai încetat să faci lucrurile care o rețineau.</div>
+        </div>
+      </div>
+
+      <div class="mf-chapter">
+        <div class="mf-chapter-img">
+          <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=400&q=75&fit=crop" alt="Viața în care vrea să intre" loading="lazy">
+        </div>
+        <div>
+          <p class="mf-chapter-num">CAPITOLUL 6</p>
+          <h3 class="mf-chapter-title">Viața În Care Vrea Să Intre: Cum Să Încetezi Să Fii Bărbatul Care Așteaptă O Femeie</h3>
+          <p style="font-size:0.9rem;color:var(--text-mid);">
+            Ultima parte fără de care toate celelalte funcționează doar pentru o vreme.
+          </p>
+          <ul style="list-style:disc; padding-left:18px; margin-top:10px; font-size:0.88rem; color:var(--text-mid); display:flex; flex-direction:column; gap:6px;">
+            <li>Are loc la tine, dar nu există un gol de umplut — diferența o simte în cinci minute</li>
+            <li>Greșelile care îi fac să piardă interesul după două săptămâni. Una după alta</li>
+            <li>A alege în loc să fii ales — momentul în care tu decizi dacă vrei să continui</li>
+          </ul>
+          <div class="mf-chapter-after"><strong>După acest capitol</strong> nu te mai gândești la ce faci greșit. Te gândești la care femeie te interesează cu adevărat, pentru că e prima oară când ai din ce alege.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BONUS -->
+    <div class="mf-bonus-box">
+      <span class="mf-bonus-tag">BONUS GRATUIT · DOAR ÎN ACEASTĂ OFERTĂ</span>
+      <div style="display:flex; gap:20px; align-items:flex-start; flex-wrap:wrap;">
+        <div class="mf-chapter-img" style="flex-shrink:0; width:120px; border-radius:6px; overflow:hidden;">
+          <img src="https://images.unsplash.com/photo-1758523417251-8af9cc60c8f4?w=300&q=75&fit=crop" alt="Primele 90 de Secunde" loading="lazy" style="width:100%;">
+        </div>
+        <div style="flex:1; min-width:200px;">
+          <p class="mf-bonus-value">Valoare 79 RON — GRATUIT</p>
+          <h3 style="font-family:var(--font); font-size:1.1rem; font-weight:700; margin-bottom:8px;">CAPITOL BONUS</h3>
+          <h4 style="font-weight:700; margin-bottom:10px;">Primele 90 de Secunde: Șase Situații În Care Te Blochezi Mereu, Descrise Propoziție Cu Propoziție</h4>
+          <p style="font-size:0.88rem; color:var(--text-mid); margin-bottom:12px;">Cunoașterea e un lucru. A ști ce să spui într-un moment concret e altul. Acest capitol închide această distanță.</p>
+          <ul style="list-style:disc; padding-left:18px; font-size:0.88rem; color:var(--text-mid); display:flex; flex-direction:column; gap:5px;">
+            <li>Femeia pe care nu o cunoști — prima propoziție care nu sună a cucerit</li>
+            <li>Colega de serviciu — cum ieși din sertarul „prieten" fără să strici relația</li>
+            <li>Grupul de prieteni — ce faci dacă e acolo, dar nu sunteți singuri</li>
+          </ul>
+          <p style="font-size:0.85rem; color:var(--text-mid); margin-top:10px; font-style:italic;">Deschizi, citești două minute înainte de a pleca, și intri acolo cu prima propoziție deja pregătită. Fără memorare și fără formule.</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align:center; margin-top:40px;">
+      <a href="https://barbatul-magnetic-ro.impultienda.ar/o/barbatul-magnetic-ro" class="mf-btn" style="max-width:420px;">DA, VREAU ACCESUL</a>
+      <p class="mf-safe">Plată 100% sigură și criptată</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 6 SITUAȚII ═══ -->
+<section class="mf-section mf-section-alt">
+  <div class="mf-container">
+    <p class="mf-section-tag">O RECUNOȘTI?</p>
+    <h2 class="mf-h2">Aceste 6 Situații Li Se Întâmplă Tuturor Bărbaților Pe Care Femeile Îi Plac, Dar Nu Îi Aleg</h2>
+
+    <div class="mf-situation-list">
+      <div class="mf-situation">
+        <span class="mf-sit-icon">💬</span>
+        <p class="mf-sit-text">Îi scrii tu primul a treia oară la rând. Răspunde amabil, după două ore, într-o singură propoziție. Îți spui că probabil are mult de lucru.</p>
+      </div>
+      <div class="mf-situation">
+        <span class="mf-sit-icon">🚗</span>
+        <p class="mf-sit-text">Ai dus-o, ai ajutat-o la mutare, ai ascultat problemele cu un alt bărbat. Spune că ești singurul bărbat normal pe care îl cunoaște. Totuși îl alege pe celălalt.</p>
+      </div>
+      <div class="mf-situation">
+        <span class="mf-sit-icon">🎉</span>
+        <p class="mf-sit-text">La petrecere ești lângă ea, v-ați vorbit mult și bine. Apoi se duce la bărbatul care i-a spus trei propoziții, și acela o duce acasă.</p>
+      </div>
+      <div class="mf-situation">
+        <span class="mf-sit-icon">🤝</span>
+        <p class="mf-sit-text">Ești de acord cu tot pentru că nu vrei să strici atmosfera. O lună mai târziu îți dai seama că nu știe nimic despre tine pe care ea să nu fi spus prima.</p>
+      </div>
+      <div class="mf-situation">
+        <span class="mf-sit-icon">🤔</span>
+        <p class="mf-sit-text">Îl vezi pe un bărbat mai slab decât tine în orice privință reușind ceea ce tu nu reușești. Și nu înțelegi cu ce a obținut-o.</p>
+      </div>
+      <div class="mf-situation">
+        <span class="mf-sit-icon">😔</span>
+        <p class="mf-sit-text">Auzi din nou „ești un prieten grozav" și știi exact ce înseamnă acea propoziție înainte să o termine.</p>
+      </div>
+    </div>
+
+    <div style="background:var(--white); border:1px solid var(--border); border-radius:8px; padding:24px; margin-top:28px;">
+      <p class="mf-p">
+        Dacă te recunoști în cel puțin trei dintre aceste situații, această pagină nu a ajuns la tine întâmplător.
+        Niciuna nu e despre caracterul tău, și fiecare e dezactivată de unul dintre cele șapte comutatoare.
+      </p>
+      <p class="mf-p" style="margin-bottom:0;">
+        Probabil te gândești acum: „Iar un ghid de cucerit, am mai citit, nu a ieșit nimic."
+        Și ai dreptate, pentru că exact așa a fost de fiecare dată.
+        Ai citit să fii încrezător, să fii interesat, să fii pasionat.
+        Totul suna rezonabil și nu a urmat nimic.
+      </p>
+      <p class="mf-p" style="margin-bottom:0; margin-top:12px;">
+        Motivul e simplu și nimeni nu ți l-a spus.
+        Fiecare sfat te-a forțat să <em>lucrezi la tine</em>. Să fii mai încrezător, mai interesant, o versiune mai bună a ta.
+        Deci te-a împins și mai adânc în propria minte — exact în locul unde nu funcționează niciodată.
+        Această carte merge în direcția opusă: îți arată ce trebuie <em>să oprești</em>.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ COSTUL INACȚIUNII ═══ -->
+<section class="mf-section">
+  <div class="mf-container">
+    <p class="mf-section-tag">COSTUL INACȚIUNII</p>
+    <h2 class="mf-h2">Cât Te-A Costat Deja Să Fii Atât De Amabil?</h2>
+    <div class="mf-cost-paras">
+      <p class="mf-cost-p">
+        Aduni fără milă față de tine. Câte femei au fost, la care simțeai că ar putea fi ceva mai mult,
+        și care s-au terminat în prietenie? Trei? Șase? Câte îți amintești azi pe nume?
+      </p>
+      <p class="mf-cost-p">
+        Aduni serile în care pe drumul spre casă ai redat conversația în minte,
+        căutând momentul în care s-a stricat. Aduni weekendurile în care ai ieșit cu prietenii,
+        ai cheltuit câteva sute de lei, și te-ai întors exact cu ce ai plecat.
+      </p>
+      <p class="mf-cost-p">
+        Acum adună cel mai scump lucru, cel care nu se vede în portofel.
+        De câte ori ai renunțat înainte de a încerca, pentru că știai dinainte cum se termină?
+      </p>
+      <p class="mf-cost-p">
+        <strong>Cel mai rău în această situație nu e că durează. Cel mai rău e că nu se termină de la sine.
+        Peste un an vei fi în același loc, doar cu un an mai în vârstă și cu câteva femei mai puțin.</strong>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ GARANȚIE ═══ -->
+<section class="mf-section mf-section-alt">
+  <div class="mf-container">
+    <p class="mf-section-tag">FĂRĂ RISC</p>
+    <h2 class="mf-h2">90 De Zile Să Încerci În Conversații Reale. Fără Risc.</h2>
+    <div class="mf-guarantee-box">
+      <div class="mf-guarantee-badge">
+        <span class="g-num">90</span>
+        <span class="g-lbl">ZILE<br>GARANȚIE</span>
+      </div>
+      <div>
+        <p class="mf-p">
+          Fiecare face acest drum în ritmul lui. Unul vede prima reacție după trei zile,
+          pentru că a fost suficient să oprească el să scrie primul.
+          Altul are nevoie de trei săptămâni, pentru că a exersat exact obiceiul opus timp de cincisprezece ani.
+          De aceea garanția e lungă și simplă.
+        </p>
+        <p class="mf-p">Ai trei luni întregi. Citește. Fă exercițiile din a doua parte.
+        Două săptămâni activează cele șapte comutatoare în conversațiile pe care le-ai fi purtat oricum.
+        Urmărește ce se schimbă în reacțiile femeilor.</p>
+        <p style="font-size:0.92rem; font-weight:700; margin-bottom:12px;">Dacă după aceste 90 de zile:</p>
+        <div class="mf-guarantee-conditions">
+          <div class="mf-guarantee-cond">Nu observi că conversațiile cu femeile arată diferit față de înainte,</div>
+          <div class="mf-guarantee-cond">Nu vezi nicio reacție care nu exista înainte,</div>
+          <div class="mf-guarantee-cond">Sau pur și simplu consideri că acest material nu e pentru tine,</div>
+        </div>
+        <p class="mf-p">…trimite o propoziție la support și primești toți cei 79 RON înapoi. Fără întrebări și fără „ce anume nu a funcționat".</p>
+        <p class="mf-p" style="margin-bottom:0;"><strong>Materialul rămâne la tine. Nu trebuie să returnezi sau să ștergi nimic.</strong></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PACHET COMPLET — OFERTĂ ═══ -->
+<section id="mf-offer" class="mf-section" style="scroll-margin-top: 24px;">
+  <div class="mf-container">
+    <p class="mf-section-tag">TOT CE PRIMEȘTI</p>
+    <h2 class="mf-h2" style="text-align:center;">Pachet Complet La Un Singur Preț</h2>
+
+    <div class="mf-offer-box">
+      <div class="mf-offer-banner">DOAR AZI</div>
+      <ul class="mf-offer-items">
+        <li>E-carte „Bărbatul Magnetic", 6 capitole — Toate cele 7 Comutatoare, pas cu pas</li>
+        <li><strong>BONUS: Primele 90 de Secunde</strong> — Șase situații în care te blochezi mereu, descrise propoziție cu propoziție</li>
+        <li>Mecanismul de eliminare — Exact ce te elimină înainte de a putea spune ceva</li>
+        <li>Ieșirea din zona de prieten — Chiar dacă ești acolo de luni de zile</li>
+        <li>Garanție de returnare a banilor 90 de zile — Fără întrebări și fără explicații</li>
+        <li>Disponibil imediat — Descarcă și începe să citești în 2 minute</li>
+      </ul>
+
+      <div class="mf-offer-price-block">
+        <p class="mf-offer-orig">399 RON</p>
+        <p><span class="mf-offer-badge">ECONOMISEȘTI 320 RON (80%)</span></p>
+        <p class="mf-offer-price">79 RON</p>
+        <p class="mf-offer-period">Plată unică · Acces permanent</p>
+      </div>
+
+      <a href="https://barbatul-magnetic-ro.impultienda.ar/o/barbatul-magnetic-ro" class="mf-btn">
+        DA, VREAU ACCESUL
+        <span class="mf-btn-price">Un clic te duce la pagina de plată securizată</span>
+      </a>
+      <p class="mf-safe">Plată 100% sigură și criptată</p>
+
+      <div class="mf-offer-trust">
+        <span>🔒 Plată securizată</span>
+        <span>⚡ Livrare instantanee</span>
+        <span>↩ Garanție 90 zile</span>
+      </div>
+    </div>
+
+    <div style="max-width:560px; margin:28px auto 0; background:var(--bg-alt); border:1px solid var(--border); border-radius:10px; padding:24px; text-align:center;">
+      <div class="mf-guarantee-badge" style="width:72px; height:72px; margin:0 auto 12px;">
+        <span class="g-num" style="font-size:1.6rem;">90</span>
+        <span class="g-lbl">ZILE<br>GARANȚIE</span>
+      </div>
+      <p style="font-size:0.9rem; color:var(--text-mid);">
+        Amintește-ți. Ai 90 de zile să încerci întregul conținut.
+        Dacă din orice motiv consideri că nu e pentru tine,
+        primești toți cei 79 RON înapoi. Fără întrebări și fără explicații.
+        Materialul rămâne la tine.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 5 ADEVĂRURI DESPRE FEMEI ═══ -->
+<section class="mf-section mf-section-alt">
+  <div class="mf-container">
+    <p class="mf-section-tag">CE VEI AFLA</p>
+    <h2 class="mf-h2">5 Adevăruri Despre Femei Pe Care Nimeni Nu Ți Le-A Spus Până Acum</h2>
+    <div class="mf-truths">
+      <div class="mf-truth">
+        <div class="mf-truth-num">1</div>
+        <div>
+          <p class="mf-truth-title">Nu te evaluează pe tine. Evaluează ce simte când e cu tine.</p>
+          <p class="mf-truth-body">De aceea sala, hainele noi și serviciul mai bun nu au schimbat nimic. Toate acestea îți îmbunătățesc aspectul, dar ea decide după ce simte când ești tu cu ea.</p>
+        </div>
+      </div>
+      <div class="mf-truth">
+        <div class="mf-truth-num">2</div>
+        <div>
+          <p class="mf-truth-title">Complimentul de dimineață lucrează împotriva ta.</p>
+          <p class="mf-truth-body">Nu pentru că e nepoliticos. Pentru că îi spune că tu ai decis deja, înainte ca ea să fi apucat să gândească. Și atunci nu mai e nimic de cucerit.</p>
+        </div>
+      </div>
+      <div class="mf-truth">
+        <div class="mf-truth-num">3</div>
+        <div>
+          <p class="mf-truth-title">Zona de prieten nu e o condamnare, e o consecință.</p>
+          <p class="mf-truth-body">Te-a plasat acolo nu pentru cine ești, ci pentru comportamente concrete pe care le-ai avut în primele săptămâni. Înseamnă că se poate inversa, dar nu cu o conversație despre sentimente.</p>
+        </div>
+      </div>
+      <div class="mf-truth">
+        <div class="mf-truth-num">4</div>
+        <div>
+          <p class="mf-truth-title">Nemernicii nu câștigă cu caracter. Câștigă cu tensiune.</p>
+          <p class="mf-truth-body">Fac un singur lucru pe care tu nu îl faci, și pierd în rest peste tot. Poți lua doar tensiunea și lăsa restul.</p>
+        </div>
+      </div>
+      <div class="mf-truth">
+        <div class="mf-truth-num">5</div>
+        <div>
+          <p class="mf-truth-title">Tăcerea din partea ta e mai puternică decât cea mai bună propoziție.</p>
+          <p class="mf-truth-body">Cel care umple primul tăcerea inconfortabilă arată cui îi pasă mai mult. Acesta e unul dintre lucrurile cel mai ușor de schimbat și dintre cele mai rapid vizibile.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ÎNTREBĂRI FRECVENTE ═══ -->
+<section class="mf-section">
+  <div class="mf-container">
+    <p class="mf-section-tag">ÎNTREBĂRI ȘI RĂSPUNSURI</p>
+    <h2 class="mf-h2">Întrebări Frecvente</h2>
+    <div class="mf-faq">
+
+      <div class="mf-faq-item">
+        <button class="mf-faq-q" onclick="mfToggle(this)">
+          Va funcționa dacă nu sunt arătos, înalt sau bogat?
+          <span class="mf-faq-icon">+</span>
+        </button>
+        <div class="mf-faq-a">
+          Da, și asta e esența întregului material. Cele șapte comutatoare funcționează la nivelul la care aspectul, înălțimea și portofelul nu joacă niciun rol, pentru că o femeie răspunde la două întrebări în care niciunul nu apare. A funcționat pentru bărbați de peste patruzeci de ani, pentru bărbați supraponderali și pentru bărbați fără un ban. Aspectul deschide ușa pentru două secunde. Ceea ce faci în următoarele nouăzeci decide tot restul.
+        </div>
+      </div>
+
+      <div class="mf-faq-item">
+        <button class="mf-faq-q" onclick="mfToggle(this)">
+          Am mai cumpărat ghiduri și nimic nu a funcționat.
+          <span class="mf-faq-icon">+</span>
+        </button>
+        <div class="mf-faq-a">
+          Și exact de aceea a fost creat acest material. Majoritatea ghidurilor te învață să fii mai amabil, mai înțelegător și mai mult tu însuți — deci te împing mai adânc acolo unde ești deja. Acesta merge în direcția opusă: îți arată ce trebuie să oprești. De aceea garanția e de 90 de zile și nu de 14. Îl încerci în atâtea conversații câte ai nevoie.
+        </div>
+      </div>
+
+      <div class="mf-faq-item">
+        <button class="mf-faq-q" onclick="mfToggle(this)">
+          Necesită mult timp?
+          <span class="mf-faq-icon">+</span>
+        </button>
+        <div class="mf-faq-a">
+          Nu exersezi nimic separat. Activezi comutatoarele în conversațiile pe care le-ai purta oricum: la serviciu, la petrecere, în magazin. Materialul în sine îl citești în două seri, iar prima diferență o vezi de obicei după câteva zile, pentru că primele două comutatoare constau în a OPRI ceva, nu în a începe.
+        </div>
+      </div>
+
+      <div class="mf-faq-item">
+        <button class="mf-faq-q" onclick="mfToggle(this)">
+          Nu e manipulare asta?
+          <span class="mf-faq-icon">+</span>
+        </button>
+        <div class="mf-faq-a">
+          Nu există nicio tehnică prin care să faci ceva unei femei fără știrea ei. Există cunoaștere despre ce îi trezește interesul unei femei și decizia de a opri lucrurile care îl sting. Manipulare ar fi să te prefaci că ești altcineva. Acest material face opusul: îndepărtează un rol de băiat bun pe care l-ai asumat pentru că cineva ți-a spus că așa trebuie.
+        </div>
+      </div>
+
+      <div class="mf-faq-item">
+        <button class="mf-faq-q" onclick="mfToggle(this)">
+          Nu găsesc asta gratuit pe internet?
+          <span class="mf-faq-icon">+</span>
+        </button>
+        <div class="mf-faq-a">
+          Găsești o mulțime de generalități. Întrebarea e alta: a produs vreunul dintre acele sfaturi o schimbare reală? Pentru că citești asta, nu. Aici primești șapte lucruri concrete în ordine concretă, plus în șase situații descrise propoziție cu propoziție în care te blochezi. Nu testezi metode aleatorii una după alta, mergi pe un drum.
+        </div>
+      </div>
+
+      <div class="mf-faq-item">
+        <button class="mf-faq-q" onclick="mfToggle(this)">
+          Poate că acum nu e cel mai bun moment?
+          <span class="mf-faq-icon">+</span>
+        </button>
+        <div class="mf-faq-a">
+          Când va fi? Peste o lună, după o altă conversație în care tu te străduiești și ea aprobă politicos? Peste un an, după o altă seară în care o vezi interesată de altcineva? Această situație nu se termină de la sine. Nimeni nu o închide în locul tău. Se schimbă numai când schimbi ce faci.
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ULTIMA ȘANSĂ ═══ -->
+<section class="mf-final" style="background:var(--bg); padding:56px 0; text-align:center;">
+  <div class="mf-container">
+    <h2 class="mf-h2">Ultima Șansă Înainte De A Închide Această Pagină</h2>
+    <p style="color:var(--text-mid); font-size:1rem; margin-bottom:28px; max-width:520px; margin-left:auto; margin-right:auto;">
+      Dacă ai citit până aici, nu ai făcut-o din curiozitate. Te-ai recunoscut.
+    </p>
+    <p class="mf-countdown-label">OFERTA EXPIRĂ:</p>
+    <div class="mf-countdown" style="margin-bottom:32px;">
+      <div class="mf-cd-unit"><div class="mf-cd-num" id="cd3-h">10</div><div class="mf-cd-lbl">ORE</div></div>
+      <div class="mf-cd-sep">:</div>
+      <div class="mf-cd-unit"><div class="mf-cd-num" id="cd3-m">00</div><div class="mf-cd-lbl">MIN</div></div>
+      <div class="mf-cd-sep">:</div>
+      <div class="mf-cd-unit"><div class="mf-cd-num" id="cd3-s">00</div><div class="mf-cd-lbl">SEC</div></div>
+    </div>
+    <a href="https://barbatul-magnetic-ro.impultienda.ar/o/barbatul-magnetic-ro" class="mf-btn">DA, VREAU ACCESUL</a>
+    <p class="mf-safe">Plată 100% sigură și criptată</p>
+
+    <div class="mf-ps">
+      <p><strong>P.S.</strong> O seară cu prietenii te costă câteva sute de lei și îți dă o seară bună.
+      Acest material costă 79 RON și schimbă cum reacționează femeile la tine.
+      Decizia e a ta. Închizi pagina și peste o săptămână vei mai avea o conversație
+      după care te întorci singur acasă.
+      Sau dai clic și în 2 minute începi să citești ce schimbă cea mai apropiată conversație a ta.</p>
+
+      <p><strong>P.P.S.</strong> Peste trei săptămâni ești la o petrecere și vorbești cu o femeie
+      care înainte se uita prin tine.
+      De data asta ea pune următoarea întrebare.
+      Nu pentru că ai memorat un text, ci pentru că ai oprit cele șapte lucruri
+      care îi stingeau interesul înainte.</p>
+
+      <p>Luni cineva scrie primul — și acela nu vei fi tu.</p>
+
+      <p>79 RON. Garanție 90 de zile. Zero risc.
+      Singurul lucru pe care îl riști e încă un an să fii bărbatul amabil pe care toți îl iubesc, dar nimeni nu îl alege.</p>
+
+      <p style="text-align:center; margin-top:20px;">
+        <a href="https://barbatul-magnetic-ro.impultienda.ar/o/barbatul-magnetic-ro" class="mf-btn" style="display:inline-block; width:auto; padding:18px 40px;">Dă clic și începe azi</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="mf-footer">
+  <p>© 2026 Bărbatul Magnetic &nbsp;·&nbsp;
+    <a href="#">Termeni și condiții</a> &nbsp;·&nbsp;
+    <a href="#">Politică de confidențialitate</a>
+  </p>
+</footer>
+
+<!-- ═══ SCRIPTS ═══ -->
+<script>
+// Countdown — reset 12h la fiecare vizitator (ca originalul)
+(function () {
+  try {
+    var KEY = 'mf_cd_end';
+    var end = localStorage.getItem(KEY);
+    if (!end || Date.now() > parseInt(end, 10)) {
+      end = Date.now() + 12 * 3600 * 1000;
+      localStorage.setItem(KEY, end);
+    }
+    end = parseInt(end, 10);
+
+    function pad(n) { return String(n).padStart(2, '0'); }
+    function update() {
+      var diff = Math.max(0, end - Date.now());
+      var h = Math.floor(diff / 3600000);
+      var m = Math.floor((diff % 3600000) / 60000);
+      var s = Math.floor((diff % 60000) / 1000);
+      var ids = [['cd-h','cd-m','cd-s'], ['cd2-h','cd2-m','cd2-s'], ['cd3-h','cd3-m','cd3-s']];
+      ids.forEach(function (g) {
+        ['h','m','s'].forEach(function (u, i) {
+          var el = document.getElementById(g[i]);
+          if (el) el.textContent = pad([h, m, s][i]);
+        });
+      });
+      var bar = document.getElementById('bar-cd');
+      if (bar) bar.textContent = pad(h) + ':' + pad(m) + ':' + pad(s);
+    }
+    update();
+    setInterval(update, 1000);
+  } catch (e) {}
+})();
+
+// FAQ toggle
+function mfToggle(btn) {
+  try {
+    var item = btn.parentElement;
+    item.classList.toggle('open');
+  } catch (e) {}
+}
+
+// Fade-in la scroll
+(function () {
+  try {
+    var els = document.querySelectorAll('.mf-section, .mf-hero');
+    if (!window.IntersectionObserver) return;
+    var obs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.style.opacity = '1'; obs.unobserve(e.target); }
+      });
+    }, { threshold: 0.05 });
+    els.forEach(function (el) {
+      el.style.opacity = '0';
+      el.style.transition = 'opacity 0.5s ease';
+      obs.observe(el);
+    });
+  } catch (e) {}
+  // Fallback de siguranță
+  setTimeout(function () {
+    try {
+      document.querySelectorAll('.mf-section, .mf-hero').forEach(function (el) { el.style.opacity = '1'; });
+    } catch (e) {}
+  }, 2500);
+})();
+</script>
+
+</body>
+</html>

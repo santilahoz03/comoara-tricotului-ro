@@ -1,0 +1,7 @@
+id,concepto,origen,parent,batch,archivo,audio,costo,estado
+ad1,Der Anfänger,original,,2026-10-10,ad1-principiante-de-v2.mp4,ElevenLabs,0,aprobado
+ad2,Erstes Projekt,original,,2026-10-10,ad2-primer-proyecto-de.mp4,ElevenLabs,0,aprobado
+ad3,Verschwendung,original,,2026-10-10,ad3-desperdicio-de.mp4,ElevenLabs,0,aprobado
+ad4,Schlafende Schnittmuster,original,,2026-10-10,ad4-dormidas-de.mp4,ElevenLabs,0,aprobado
+ad5,Demo/Walkthrough,original,,2026-10-10,ad5-demo-de.mp4,ElevenLabs,0,aprobado
+ad6,Geschenk,original,,2026-10-10,ad6-regalo-de.mp4,ElevenLabs,0,aprobado

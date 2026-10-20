@@ -1,0 +1,671 @@
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;family=Poppins:wght@400;500;600;700;800;900&amp;family=Space+Grotesk:wght@400;500;600;700&amp;family=Space+Mono:wght@400;700&amp;family=Nunito:wght@400;500;600;700;800;900&amp;family=Bungee&amp;family=Chakra+Petch:wght@400;500;600;700&amp;display=swap" rel="preload"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;family=Poppins:wght@400;500;600;700;800;900&amp;family=Space+Grotesk:wght@400;500;600;700&amp;family=Space+Mono:wght@400;700&amp;family=Nunito:wght@400;500;600;700;800;900&amp;family=Bungee&amp;family=Chakra+Petch:wght@400;500;600;700&amp;display=swap" media="print" onload="this.media='all'" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;family=Poppins:wght@400;500;600;700;800;900&amp;family=Space+Grotesk:wght@400;500;600;700&amp;family=Space+Mono:wght@400;700&amp;family=Nunito:wght@400;500;600;700;800;900&amp;family=Bungee&amp;family=Chakra+Petch:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
+.block-text,.block-image,.block-button-wrapper,.block-divider{display:block;margin-left:auto;margin-right:auto;max-width:min(100%,64rem);padding-left:1rem;padding-right:1rem}.block-button-wrapper{text-align:center}.block-divider-space{height:1.5rem}.block-divider-dot{display:flex;justify-content:center;padding-top:.75rem;padding-bottom:.75rem}.block-divider-dot-inner{display:inline-block;width:.5rem;height:.5rem;border-radius:9999px;background-color:currentColor;opacity:.4}.block-divider-line{border-top-width:1px;border-color:currentColor;opacity:.2}.block-carousel{display:block;margin-left:auto;margin-right:auto;max-width:min(100%,64rem);padding-left:1rem;padding-right:1rem}.block-carousel-mask{overflow:hidden;-webkit-mask-image:linear-gradient(to right,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(to right,transparent,#000 8%,#000 92%,transparent)}.block-carousel-track{display:flex;width:max-content;will-change:transform}.block-carousel-track img{width:auto;flex:0 0 auto;object-fit:cover}.block-carousel-mask:hover .block-carousel-track{animation-play-state:paused}.block-video{display:block;margin-left:auto;margin-right:auto;max-width:min(100%,48rem);padding-left:1rem;padding-right:1rem}.block-video-frame{position:relative;width:100%;aspect-ratio:16 / 9;border-radius:16px;overflow:hidden;background:#000}.block-video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}.block-video-file{width:100%;border-radius:16px;background:#000;aspect-ratio:16 / 9;display:block}.block-video-vertical{max-width:min(100%,22rem)}.block-video-vertical .block-video-frame,.block-video-vertical .block-video-file{aspect-ratio:9 / 16}.block-carousel-empty{padding:12px;background:#f3f4f6;border:1px dashed #d1d5db;border-radius:8px;text-align:center;color:#9ca3af;font-size:12px}@keyframes block-carousel-scroll{0%{transform:translate(0)}to{transform:translate(-50%)}}.block-countdown,.block-stock{display:block;margin-left:auto;margin-right:auto;max-width:min(100%,64rem);padding-left:1rem;padding-right:1rem;text-align:center;font-weight:600}.block-countdown-text{margin-right:.45rem}.block-countdown-timer{display:inline-block;font-variant-numeric:tabular-nums;font-weight:700;background:#111827;color:#fff;padding:.1rem .5rem;border-radius:6px}.block-countdown-text-top{display:block;margin-right:0;margin-bottom:5px}.block-countdown-boxes-row{display:flex;justify-content:center;align-items:center;gap:8px}.block-countdown-box{color:#fff;border-radius:10px;padding:7px 10px 5px;min-width:58px;display:flex;flex-direction:column;align-items:center}.block-countdown-box-num{font-size:22px;font-weight:800;line-height:1.1;font-variant-numeric:tabular-nums}.block-countdown-box-label{font-size:10px;opacity:.75;text-transform:uppercase;letter-spacing:.06em}.block-countdown-boxes-sep{font-size:20px;font-weight:800;opacity:.5}.block-countdown-banner{color:#fff;padding-top:10px;padding-bottom:10px}.block-countdown-timer-banner{background:#ffffff2e}.block-countdown-bar,.block-stock-bar{height:8px;max-width:340px;margin:8px auto 0;background:#00000014;border-radius:9999px;overflow:hidden}.block-stock-bar-row{display:flex;align-items:center;justify-content:center;gap:8px;max-width:340px;margin:8px auto 0}.block-stock-bar-row .block-stock-bar{flex:1;min-width:0;margin:0;max-width:none}.block-stock-bar-count{flex-shrink:0;font-size:12px;font-weight:800;font-variant-numeric:tabular-nums;transition:color .6s ease}.block-countdown-banner .block-countdown-bar{background:#ffffff40}.block-countdown-bar>span,.block-stock-bar>span{display:block;height:100%;border-radius:inherit;transition:width .8s ease,background-color .6s ease}.block-stock-badge{display:inline-flex;align-items:center;gap:7px;background:#fff;border:1px solid #e5e7eb;border-radius:9999px;padding:6px 14px;box-shadow:0 1px 3px #0000000f}.block-stock-dot{width:8px;height:8px;border-radius:9999px;flex-shrink:0;animation:block-stock-pulse 1.6s ease-in-out infinite}@keyframes block-stock-pulse{0%,to{transform:scale(1);opacity:1}50%{transform:scale(1.35);opacity:.55}}
+.impu-legal-overlay{position:fixed;inset:0;background:#000000b3;display:none;z-index:2147483000;padding:26px 14px;overflow-y:auto}.impu-legal-overlay:target{display:block}.impu-legal-box{background:#fff;color:#1f2937;max-width:640px;margin:24px auto;border-radius:16px;padding:34px 28px 30px;box-shadow:0 24px 70px #00000073;position:relative;text-align:left}.impu-legal-box h2{font-size:22px;font-weight:900;text-align:center;margin:0 0 20px;color:#111827}.impu-legal-box p{font-size:13.5px;line-height:1.7;margin:0 0 12px;color:#374151}.impu-legal-box strong{color:#111827}.impu-legal-box a{color:#2563eb;font-weight:700;text-decoration:none}.impu-legal-close{position:absolute;top:10px;right:16px;font-size:30px;line-height:1;color:#9ca3af;text-decoration:none;font-weight:700}
+</style>
+<style>html{scroll-behavior:smooth;background:#1A0F08}body{background:#1A0F08}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}</style>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700;1,900&display=swap');
+.lwbar,.lwbar *{box-sizing:border-box}
+.lwbar{position:sticky;top:0;z-index:50;background:#1A0F08;border-bottom:1px dashed rgba(200,114,42,.55);color:#F5EDE0;font-family:'DM Sans',sans-serif;overflow:hidden}
+.lwbar__track{display:flex;width:max-content;animation:lwbar-mv 36s linear infinite}
+.lwbar__it{display:flex;align-items:center;gap:10px;padding:10px 26px;font-size:12.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap}
+.lwbar__it b{color:#E0A15E}
+.lwbar__it i{font-style:normal;color:#C8722A}
+@keyframes lwbar-mv{to{transform:translateX(-50%)}}
+/* ===== shared ===== */
+.lw-anim .lw-rv{opacity:0;transform:translateY(26px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
+.lw-anim .lw-rv.is-in{opacity:1;transform:none}
+.lw-cta{position:relative;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;gap:10px;width:100%;max-width:460px;padding:19px 26px;border-radius:12px;border:0;cursor:pointer;background:linear-gradient(180deg,#D6823A,#B5611F);color:#FFF8EF;font-family:'DM Sans',sans-serif;font-weight:800;font-size:16.5px;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;box-shadow:0 14px 30px rgba(200,114,42,.35),inset 0 1px 0 rgba(255,255,255,.25);transition:transform .2s,box-shadow .2s}
+.lw-cta::after{content:"";position:absolute;inset:5px;border:1.5px dashed rgba(255,248,239,.45);border-radius:8px;pointer-events:none}
+.lw-cta:hover{transform:translateY(-2px);box-shadow:0 18px 36px rgba(200,114,42,.45),inset 0 1px 0 rgba(255,255,255,.25)}
+.lw-cta::before{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.45),transparent);transform:skewX(-20deg);animation:lw-shine 3.4s ease-in-out infinite}
+@keyframes lw-shine{0%,60%{left:-60%}100%{left:130%}}
+.lw-k{display:inline-flex;align-items:center;gap:10px;margin:0 0 12px;font-family:'DM Sans',sans-serif;font-size:12.5px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:#C8722A}
+.lw-k::before,.lw-k::after{content:"";width:26px;height:0;border-top:1.5px dashed currentColor}
+@keyframes lw-stitch{to{background-position:24px 0}}
+@media(prefers-reduced-motion:reduce){.lwbar__track,.lw-cta::before{animation:none}.lw-anim .lw-rv{opacity:1;transform:none}}
+</style>
+<div class="lwbar" role="status">
+<div class="lwbar__track">
+<span class="lwbar__it"><i>✦</i>Einführungspreis</span><span class="lwbar__it"><i>✦</i><b>170+</b> professionelle Leder-Schnittmuster</span><span class="lwbar__it"><i>✦</i>PDF · zu Hause oder im Copyshop drucken</span><span class="lwbar__it"><i>✦</i><b>Kommerzielle Lizenz</b> inklusive</span><span class="lwbar__it"><i>✦</i>Sofortiger Download</span>
+<span class="lwbar__it"><i>✦</i>Einführungspreis</span><span class="lwbar__it"><i>✦</i><b>170+</b> professionelle Leder-Schnittmuster</span><span class="lwbar__it"><i>✦</i>PDF · zu Hause oder im Copyshop drucken</span><span class="lwbar__it"><i>✦</i><b>Kommerzielle Lizenz</b> inklusive</span><span class="lwbar__it"><i>✦</i>Sofortiger Download</span>
+</div>
+</div>
+<script>
+window.LW_END = window.LW_END || "";
+(function(){
+ if(window.__lwCore) return; window.__lwCore=true;
+ function reveal(){
+ if(!('IntersectionObserver' in window)) return;
+ document.documentElement.classList.add('lw-anim');
+ var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('is-in');io.unobserve(e.target)}})},{threshold:.12});
+ document.querySelectorAll('.lw-rv').forEach(function(el){io.observe(el)});
+ }
+ function timers(){
+ var end=window.LW_END?Date.parse(window.LW_END):NaN;
+ var wraps=document.querySelectorAll('[data-lw-timer-wrap]');
+ if(isNaN(end)||end<=Date.now()){wraps.forEach(function(w){w.style.display='none'});return}
+ function pad(n){return String(n).padStart(2,'0')}
+ function tick(){var d=Math.max(0,end-Date.now()),s=Math.floor(d/1000);
+ var D=Math.floor(s/86400),H=Math.floor(s%86400/3600),M=Math.floor(s%3600/60),S=s%60;
+ document.querySelectorAll('[data-lw-d]').forEach(function(e){e.textContent=pad(D)});
+ document.querySelectorAll('[data-lw-h]').forEach(function(e){e.textContent=pad(H)});
+ document.querySelectorAll('[data-lw-m]').forEach(function(e){e.textContent=pad(M)});
+ document.querySelectorAll('[data-lw-s]').forEach(function(e){e.textContent=pad(S)});
+ if(d<=0)wraps.forEach(function(w){w.style.display='none'})}
+ tick();setInterval(tick,1000);
+ }
+ function init(){reveal();timers()}
+ if(document.readyState!=='loading')init();else document.addEventListener('DOMContentLoaded',init);
+})();
+</script>
+<!-- ============ BLOCK 2 · HERO (VIDEO BELOW THE HEADLINE) ============ -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,800;0,900;1,800;1,900&display=swap');
+.lwhero,.lwhero *{box-sizing:border-box}
+.lwhero{position:relative;overflow:hidden;background:radial-gradient(55% 45% at 85% 15%,rgba(200,114,42,.22),transparent 70%),radial-gradient(45% 40% at 0% 100%,rgba(122,59,30,.35),transparent 70%),#1A0F08;padding:56px 16px 72px;font-family:'DM Sans',sans-serif;color:#F5EDE0}
+.lwhero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(245,237,224,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(245,237,224,.035) 1px,transparent 1px);background-size:44px 44px;-webkit-mask-image:linear-gradient(180deg,#000,transparent 85%);mask-image:linear-gradient(180deg,#000,transparent 85%);pointer-events:none}
+.lwhero__in{position:relative;max-width:860px;margin:0 auto;text-align:center}
+.lwhero__t{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(40px,6.4vw,72px);line-height:1.02;margin:0 0 20px;letter-spacing:-.01em}
+.lwhero__t em{display:block;font-style:italic;color:#E0A15E}
+.lwhero__s{margin:0 auto;max-width:600px;font-size:17.5px;line-height:1.7;color:rgba(245,237,224,.82)}
+.lwhero__s b{color:#fff}
+.lwhero__img{position:relative;width:100%;max-width:640px;margin:34px auto 30px}
+.lwhero__frame{position:relative;aspect-ratio:16/9;border-radius:18px;overflow:hidden;background:linear-gradient(145deg,#4A3020,#241510);box-shadow:0 34px 70px rgba(0,0,0,.55)}
+.lwhero__frame::after{content:"";position:absolute;inset:10px;border:1.5px dashed rgba(245,237,224,.35);border-radius:12px;pointer-events:none;z-index:2}
+.lwhero__frame video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.lwhero__frame video[src=""]{display:none}
+.lwhero__ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;padding:20px;text-align:center;font-size:12.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(245,237,224,.5)}
+.lwhero__ph b{font-size:38px;color:#E0A15E}
+.lwhero__frame video:not([src=""])+.lwhero__ph{display:none}
+.lwhero__tag{position:absolute;left:-16px;bottom:26px;z-index:3;background:#F5EDE0;color:#1A0F08;border-radius:12px;padding:12px 16px;box-shadow:0 16px 30px rgba(0,0,0,.4);animation:lw-float 4.5s ease-in-out infinite;text-align:left}
+.lwhero__tag b{display:block;font-family:'Playfair Display',serif;font-size:26px;line-height:1;color:#B5611F}
+.lwhero__tag small{font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+.lwhero__ruler{position:absolute;right:-12px;top:26px;z-index:3;writing-mode:vertical-rl;background:#E0A15E;color:#1A0F08;font-size:11px;font-weight:800;letter-spacing:.2em;padding:14px 7px;border-radius:6px;box-shadow:0 10px 22px rgba(0,0,0,.35);background-image:repeating-linear-gradient(180deg,rgba(26,15,8,.55) 0 1px,transparent 1px 8px);background-size:6px 100%;background-repeat:no-repeat;background-position:left}
+@keyframes lw-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.lwhero__rate{display:flex;align-items:center;justify-content:center;gap:10px;margin:0 0 20px;font-size:14px;color:rgba(245,237,224,.75)}
+.lwhero__rate b{color:#E0A15E;letter-spacing:2px;font-size:16px}
+.lwhero__chips{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin:0 0 28px}
+.lwhero__chips span{display:inline-flex;align-items:center;gap:7px;padding:8px 13px;border-radius:8px;border:1px dashed rgba(224,161,94,.55);background:rgba(245,237,224,.04);font-size:13.5px;font-weight:700}
+.lwhero__micro{margin:12px 0 0;font-size:13px;color:rgba(245,237,224,.6)}
+@media(max-width:600px){.lwhero__tag{left:-6px;bottom:14px;padding:9px 12px}.lwhero__tag b{font-size:21px}.lwhero__ruler{right:-4px;top:14px;padding:10px 6px;font-size:10px}}
+@media(prefers-reduced-motion:reduce){.lwhero__tag{animation:none}}
+</style>
+<section class="lwhero">
+<div class="lwhero__in">
+<div class="lw-rv">
+<p class="lw-k">Professionelle Leder-Schnittmusterkollektion</p>
+<h1 class="lwhero__t">Hör auf zu raten. <em>Arbeite nach Schnittmuster.</em></h1>
+<p class="lwhero__s"><b>Über 170 professionelle Leder-Schnittmuster</b> mit exakten Maßen, Materialliste und Schritt-für-Schritt-Anleitung. Jeder Schnitt hat seinen Grund.</p>
+</div>
+<div class="lwhero__img lw-rv">
+<div class="lwhero__frame">
+<video autoplay="" loop="" muted="" playsinline="" preload="metadata" src="https://aekpgsbqjzqntlbucbts.supabase.co/storage/v1/object/public/store-resources/c9cb5dcf-995e-4808-92f4-bc28806fa3eb/1790635350140_bos-sochi-pindown-io-1790635261.mp4"></video>
+<div class="lwhero__ph"><b>▶</b>Hauptvideo · 16:9</div>
+</div>
+<div class="lwhero__tag"><b>170+</b><small>Leder-Schnittmuster</small></div>
+<div class="lwhero__ruler">MM · ZOLL</div>
+</div>
+<div class="lw-rv">
+<div class="lwhero__rate"><b>★★★★★</b><span>4,9/5 — 1 284 Bewertungen</span></div>
+<div class="lwhero__chips"><span>📐 170+ Schnittmuster</span><span>📏 mm + Zoll</span><span>✂️ PDF</span><span>⚡ Sofortiger Download</span></div>
+<a class="lw-cta" href="#lw-offer">ZUM ANGEBOT ↓</a>
+<p class="lwhero__micro">Einmalzahlung · Kommerzielle Lizenz inklusive · Lebenslanger Zugang</p>
+</div>
+</div>
+</section>
+<!-- ============ BLOCK 3 · HOW IT WORKS (4 STEPS) ============ -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,800;0,900;1,800&display=swap');
+.lwhow,.lwhow *{box-sizing:border-box}
+.lwhow{background:#F5EDE0;padding:72px 16px;font-family:'DM Sans',sans-serif;color:#1A0F08}
+.lwhow__in{max-width:1120px;margin:0 auto}
+.lwhow__head{text-align:center;margin-bottom:36px}
+.lwhow__t{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(32px,5vw,52px);line-height:1.05;margin:0}
+.lwhow__t em{font-style:italic;color:#B5611F}
+.lwhow__img{position:relative;aspect-ratio:21/9;border-radius:20px;overflow:hidden;background:linear-gradient(145deg,#4A3020,#241510);margin-bottom:26px;box-shadow:0 20px 44px rgba(26,15,8,.22)}
+.lwhow__img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.lwhow__img img[src=""]{display:none}
+.lwhow__ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:20px;text-align:center;font-size:12.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:rgba(245,237,224,.55)}
+.lwhow__img img:not([src=""])+.lwhow__ph{display:none}
+.lwhow__grid{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.lwhow__grid::before{content:"";position:absolute;left:8%;right:8%;top:34px;height:2px;background:repeating-linear-gradient(90deg,#C8722A 0 12px,transparent 12px 24px);animation:lw-stitch 1.4s linear infinite;z-index:0}
+.lwhow__c{position:relative;z-index:1;background:#FDF8F2;border-radius:18px;padding:22px 20px;border:1px solid #E6D5C0;box-shadow:0 8px 22px rgba(26,15,8,.06);transition:transform .25s}
+.lwhow__c:hover{transform:translateY(-4px)}
+.lwhow__n{display:flex;align-items:center;justify-content:center;width:48px;height:48px;margin-bottom:14px;border-radius:50%;background:#1A0F08;color:#E0A15E;font-family:'Playfair Display',serif;font-size:19px;font-weight:900;box-shadow:0 0 0 6px #F5EDE0}
+.lwhow__h{margin:0 0 6px;font-family:'Playfair Display',serif;font-size:22px;font-weight:800}
+.lwhow__p{margin:0;font-size:14.5px;line-height:1.6;color:#5A4232}
+@media(max-width:900px){.lwhow__grid{grid-template-columns:1fr 1fr}.lwhow__grid::before{display:none}.lwhow__img{aspect-ratio:16/10}}
+@media(max-width:520px){.lwhow__grid{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){.lwhow__grid::before{animation:none}}
+</style>
+<section class="lwhow">
+<div class="lwhow__in">
+<div class="lwhow__head lw-rv"><p class="lw-k">So funktioniert es</p><h2 class="lwhow__t">Vom Klick zum <em>fertigen Projekt.</em></h2></div>
+<div class="lwhow__img lw-rv"><img alt="Schnittmuster ausgedruckt, Leder angezeichnet, Teile zugeschnitten, fertiges Portemonnaie" loading="lazy" src="https://aekpgsbqjzqntlbucbts.supabase.co/storage/v1/object/public/store-resources/c9cb5dcf-995e-4808-92f4-bc28806fa3eb/1790636334256_imagen-de-chatgpt-28-sept-2026-07-58-43-p-m.webp"/><span class="lwhow__ph">Panoramabild · Schnittmuster ausgedruckt → Leder angezeichnet → Teile zugeschnitten → fertiges Portemonnaie · 21:9</span></div>
+<div class="lwhow__grid">
+<div class="lwhow__c lw-rv"><div class="lwhow__n">01</div><h3 class="lwhow__h">Kaufen</h3><p class="lwhow__p">Sichere Zahlung. Sofortiger Zugang zu deiner gesamten Schnittmuster-Bibliothek.</p></div>
+<div class="lwhow__c lw-rv"><div class="lwhow__n">02</div><h3 class="lwhow__h">Auswählen</h3><p class="lwhow__p">Durchstöbere die übersichtliche Bibliothek. Wähle dein Projekt. Lies die Materialliste.</p></div>
+<div class="lwhow__c lw-rv"><div class="lwhow__n">03</div><h3 class="lwhow__h">Drucken</h3><p class="lwhow__p">Drucke auf 100 % im Format A4 oder A1. Überprüfe mit dem Kontrollquadrat für den Maßstab.</p></div>
+<div class="lwhow__c lw-rv"><div class="lwhow__n">04</div><h3 class="lwhow__h">Anfertigen</h3><p class="lwhow__p">Folge den markierten Teilen und der Schritt-für-Schritt-Anleitung. Zuschneiden, nähen, veredeln.</p></div>
+</div>
+</div>
+</section>
+<!-- ============ BLOCK 4 · WHAT'S INCLUDED (4 CARDS WITH IMAGES) ============ -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,800;0,900;1,800&display=swap');
+.lwinc,.lwinc *{box-sizing:border-box}
+.lwinc{background:#1A0F08;padding:76px 16px;font-family:'DM Sans',sans-serif;color:#F5EDE0}
+.lwinc__in{max-width:1120px;margin:0 auto}
+.lwinc__head{text-align:center;margin-bottom:38px}
+.lwinc__t{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(32px,5vw,52px);line-height:1.05;margin:0 0 12px}
+.lwinc__t em{display:block;font-style:italic;color:#E0A15E}
+.lwinc__s{margin:0 auto;max-width:560px;font-size:16px;line-height:1.65;color:rgba(245,237,224,.72)}
+.lwinc__grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.lwinc__c{position:relative;display:grid;grid-template-columns:200px 1fr;background:#241510;border-radius:20px;overflow:hidden;border:1px solid rgba(224,161,94,.2);transition:transform .3s,border-color .3s,box-shadow .3s}
+.lwinc__c:hover{transform:translateY(-5px);border-color:rgba(224,161,94,.6);box-shadow:0 22px 44px rgba(0,0,0,.45)}
+.lwinc__c--core{grid-column:1/-1;grid-template-columns:1fr 1fr;border:1.5px solid #C8722A}
+.lwinc__img{position:relative;min-height:220px;background:linear-gradient(145deg,#4A3020,#1A0F08);overflow:hidden}
+.lwinc__c--core .lwinc__img{aspect-ratio:4/3;min-height:0}
+.lwinc__img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s}
+.lwinc__c:hover .lwinc__img img{transform:scale(1.05)}
+.lwinc__img img[src=""]{display:none}
+.lwinc__ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:16px;text-align:center;font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:rgba(245,237,224,.5)}
+.lwinc__img img:not([src=""])+.lwinc__ph{display:none}
+.lwinc__b{padding:24px 22px}
+.lwinc__tag{display:inline-block;margin-bottom:10px;font-size:11.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#1A0F08;background:#E0A15E;padding:5px 11px;border-radius:50px}
+.lwinc__c--core .lwinc__tag{background:#C8722A;color:#FFF8EF}
+.lwinc__h{margin:0 0 8px;font-family:'Playfair Display',serif;font-size:24px;font-weight:800;line-height:1.15;color:#fff}
+.lwinc__c--core .lwinc__h{font-size:clamp(26px,3.4vw,32px)}
+.lwinc__p{margin:0 0 14px;font-size:14.5px;line-height:1.6;color:rgba(245,237,224,.75)}
+.lwinc__l{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.lwinc__l li{display:flex;gap:9px;font-size:14px;line-height:1.5;color:rgba(245,237,224,.88)}
+.lwinc__l li::before{content:"✓";flex-shrink:0;color:#E0A15E;font-weight:800}
+.lwinc__v{display:flex;align-items:center;gap:10px;margin-top:14px;padding-top:12px;border-top:1px dashed rgba(224,161,94,.35)}
+.lwinc__v s{font-weight:700;color:rgba(245,237,224,.5);text-decoration-color:#C8722A;text-decoration-thickness:2px}
+.lwinc__v span{font-size:11.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#fff;background:#3E8E5A;padding:4px 11px;border-radius:50px}
+.lwinc__pills{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:26px}
+.lwinc__pill{display:flex;align-items:center;gap:12px;padding:16px;border-radius:14px;border:1px dashed rgba(224,161,94,.45);background:rgba(245,237,224,.03)}
+.lwinc__pill i{font-style:normal;font-size:24px}
+.lwinc__pill b{display:block;font-size:15px;color:#fff}
+.lwinc__pill small{font-size:13px;color:rgba(245,237,224,.65)}
+@media(max-width:900px){.lwinc__grid{grid-template-columns:1fr}.lwinc__c--core{grid-template-columns:1fr}.lwinc__pills{grid-template-columns:1fr}}
+@media(max-width:560px){.lwinc__c{grid-template-columns:1fr}.lwinc__img{min-height:0;aspect-ratio:1/1}}
+</style>
+<section class="lwinc">
+<div class="lwinc__in">
+<div class="lwinc__head lw-rv"><p class="lw-k">Was enthalten ist</p><h2 class="lwinc__t">Alles, was du brauchst. <em>Nichts Überflüssiges.</em></h2><p class="lwinc__s">Ein einziger Kauf. Sofortiger Zugang. Ein komplettes System, um vom ersten Tag an professionelle Lederwaren herzustellen.</p></div>
+<div class="lwinc__grid">
+<div class="lwinc__c lwinc__c--core lw-rv">
+<div class="lwinc__img"><img alt="Meister-Schnittmusterkollektion für Leder" loading="lazy" src="https://files.catbox.moe/s6q0up.png"/><span class="lwinc__ph">Mockup · Schnittmuster-Bibliothek auf Tablet + ausgedruckte Blätter · 4:3</span></div>
+<div class="lwinc__b"><span class="lwinc__tag">Hauptprodukt</span><h3 class="lwinc__h">Meister-Schnittmusterkollektion für Leder</h3><p class="lwinc__p">Über 170 professionelle Leder-Schnittmuster in allen großen Kategorien, druckfertig und zum Zuschneiden bereit.</p>
+<ul class="lwinc__l"><li>Taschen, Rucksäcke, Geldbörsen, Aktentaschen, Reisetaschen, Totes und vieles mehr</li><li>Exakte Maße in mm und Zoll auf jedem Teil</li><li>Vollständige Materialliste pro Projekt (Reißverschlüsse, Nieten, Lederstärke)</li><li>PDF — zu Hause oder im Copyshop drucken</li><li>Formate A4 + A1 + Letter — kompatibel mit jedem Heimdrucker</li></ul></div>
+</div>
+<div class="lwinc__c lw-rv">
+<div class="lwinc__img"><img alt="Kommerzielle Lizenz" loading="lazy" src="https://files.catbox.moe/qbec3d.png"/><span class="lwinc__ph">Bild · fertige Artikel zum Verkauf · 1:1</span></div>
+<div class="lwinc__b"><span class="lwinc__tag">Inklusive</span><h3 class="lwinc__h">Kommerzielle Lizenz</h3><p class="lwinc__p">Fertige und verkaufe in völliger Freiheit. Ohne Lizenzgebühren, ohne Einschränkungen und ohne zusätzliche Kosten, für immer.</p>
+<ul class="lwinc__l"><li>Verkaufe deine Kreationen auf Märkten, in sozialen Medien oder in deinem Laden</li><li>Keine Provision auf Verkäufe, keine Lizenzgebühren</li><li>Unbegrenzte Produktion — keine Mengenbegrenzung</li></ul></div>
+</div>
+<div class="lwinc__c lw-rv">
+<div class="lwinc__img"><img alt="Ratgeber zur Lederwahl" loading="lazy" src="https://files.catbox.moe/l898fs.png"/><span class="lwinc__ph">Mockup · Bonus 1 · Ratgeber zur Lederwahl · 1:1</span></div>
+<div class="lwinc__b"><span class="lwinc__tag">Bonus Nr. 1</span><h3 class="lwinc__h">Ratgeber zur Lederwahl</h3><p class="lwinc__p">Hör auf, das falsche Leder zu kaufen. Du wirst genau wissen, was du wählen musst, bevor du einen einzigen Euro ausgibst.</p>
+<ul class="lwinc__l"><li>Vollnarbenleder, pflanzliche Gerbung, Chromgerbung — klar erklärt</li><li>Empfohlene Stärken in mm je nach Projekttyp</li><li>Praktische Tipps für den Einkauf in der Gerberei und online</li></ul>
+<div class="lwinc__v"><s>Wert 19 €</s><span>Heute gratis</span></div></div>
+</div>
+<div class="lwinc__c lw-rv" style="grid-column:1/-1">
+<div class="lwinc__img"><img alt="Masterclass Leder nähen" loading="lazy" src="https://files.catbox.moe/va84db.png"/><span class="lwinc__ph">Mockup · Bonus 2 · Masterclass Leder nähen · 1:1</span></div>
+<div class="lwinc__b"><span class="lwinc__tag">Bonus Nr. 2</span><h3 class="lwinc__h">Masterclass Leder nähen</h3><p class="lwinc__p">Die 5 wesentlichen Techniken, die jeder Lederer beherrschen muss, Schritt für Schritt erklärt.</p>
+<ul class="lwinc__l"><li>Sattlernaht, Überwendlingsnaht, Rückstich und Kantenveredelung</li><li>Werkzeuge und Garntypen für jede Technik</li><li>Die häufigsten Fehler und wie du sie vermeidest</li><li>Eine Schritt-für-Schritt-Methode für ein sauberes, professionelles Ergebnis, jedes Mal</li></ul>
+<div class="lwinc__v"><s>Wert 24 €</s><span>Heute gratis</span></div></div>
+</div>
+</div>
+<div class="lwinc__pills lw-rv">
+<div class="lwinc__pill"><i>📥</i><div><b>Sofortiger Download</b><small>Greife sofort nach der Zahlung auf alles zu</small></div></div>
+<div class="lwinc__pill"><i>🔓</i><div><b>Lebenslanger Zugang</b><small>Einmal herunterladen, für immer nutzen</small></div></div>
+<div class="lwinc__pill"><i>✅</i><div><b>Einmalzahlung</b><small>Ohne Abo und ohne versteckte Kosten</small></div></div>
+</div>
+</div>
+</section>
+<!-- ============ BLOCK 5 · SEE WHAT'S INSIDE (3 ROWS) ============ -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,800;0,900;1,800&display=swap');
+.lwin,.lwin *{box-sizing:border-box}
+.lwin{background:#FDF8F2;padding:76px 16px;font-family:'DM Sans',sans-serif;color:#1A0F08}
+.lwin__in{max-width:1080px;margin:0 auto}
+.lwin__head{text-align:center;margin-bottom:44px}
+.lwin__t{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(32px,5vw,50px);line-height:1.05;margin:0 0 12px}
+.lwin__t em{font-style:italic;color:#B5611F}
+.lwin__s{margin:0 auto;max-width:640px;font-size:16px;line-height:1.7;color:#5A4232}
+.lwin__row{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center;margin-bottom:44px}
+.lwin__row:last-child{margin-bottom:0}
+.lwin__row:nth-child(even) .lwin__img{order:2}
+.lwin__img{position:relative;aspect-ratio:4/3;border-radius:18px;overflow:hidden;background:#EDE3D4;background-image:linear-gradient(rgba(26,15,8,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(26,15,8,.06) 1px,transparent 1px);background-size:22px 22px;box-shadow:0 18px 40px rgba(26,15,8,.16)}
+.lwin__img::after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.35) 45%,transparent 60%);transform:translateX(-100%);animation:lwin-gl 6s ease-in-out infinite;pointer-events:none}
+@keyframes lwin-gl{0%,60%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
+.lwin__img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.lwin__img img[src=""]{display:none}
+.lwin__ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:20px;text-align:center;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#8A6A52}
+.lwin__img img:not([src=""])+.lwin__ph{display:none}
+.lwin__tag{display:inline-block;margin-bottom:10px;font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#B5611F}
+.lwin__h{margin:0 0 12px;font-family:'Playfair Display',serif;font-size:clamp(24px,3.2vw,32px);font-weight:800;line-height:1.15}
+.lwin__p{margin:0;font-size:16px;line-height:1.7;color:#5A4232}
+@media(max-width:820px){.lwin__row{grid-template-columns:1fr;gap:20px}.lwin__row:nth-child(even) .lwin__img{order:0}}
+@media(prefers-reduced-motion:reduce){.lwin__img::after{animation:none}}
+</style>
+<section class="lwin">
+<div class="lwin__in">
+<div class="lwin__head lw-rv"><p class="lw-k">Schau dir an, was drin steckt</p><h2 class="lwin__t">Echte Schnittmuster. <em>Echte Maße.</em></h2><p class="lwin__s">Jedes Schnittmuster ist mit der Genauigkeit einer technischen Zeichnung entworfen: exakte Maße in mm, markierte Teile und vollständige Materiallisten. Das findest du, wenn du deine Bibliothek öffnest.</p></div>
+<div class="lwin__rows">
+<div class="lwin__row lw-rv">
+<div class="lwin__img"><img alt="Schnittmuster Portemonnaie mit Maßen in mm" loading="lazy" src="https://files.catbox.moe/5eriph.png"/><span class="lwin__ph">Bild · Schnittmuster Portemonnaie mit Maßen in mm · 4:3</span></div>
+<div><span class="lwin__tag">Schnittmuster-Detail</span><h3 class="lwin__h">Exakte Maße auf jedem Teil</h3><p class="lwin__p">Jedes Teil des Schnittmusters trägt seine Maße in mm und Zoll, direkt auf der Seite gedruckt. Kein Raten. Kein zweimaliges Messen. Beim ersten Schnitt richtig.</p></div>
+</div>
+<div class="lwin__row lw-rv">
+<div class="lwin__img"><img alt="Schnittmuster Rucksack mit Materialliste" loading="lazy" src="https://files.catbox.moe/1q4e54.png"/><span class="lwin__ph">Bild · Schnittmuster Rucksack + Materialliste · 4:3</span></div>
+<div><span class="lwin__tag">Materialliste</span><h3 class="lwin__h">Jedes Detail aufgelistet, bevor du schneidest</h3><p class="lwin__p">Lederstärke, Reißverschlusslänge, Nietengröße, Garntyp… alle Materialangaben werden für jedes Projekt mitgeliefert. Bestelle genau das, was du brauchst.</p></div>
+</div>
+<div class="lwin__row lw-rv">
+<div class="lwin__img"><img alt="Verschiedene Schnittmusterblätter auf einer Werkbank" loading="lazy" src="https://files.catbox.moe/qz8f82.png"/><span class="lwin__ph">Bild · verschiedene Schnittmuster auf einer Werkbank · 4:3</span></div>
+<div><span class="lwin__tag">Komplette Bibliothek</span><h3 class="lwin__h">Über 170 Schnittmuster, alle Kategorien enthalten</h3><p class="lwin__p">Taschen, Rucksäcke, Handtaschen, Aktentaschen, Reisetaschen, Accessoires… nach Kategorie geordnet, damit du in Sekunden findest, was du suchst, nicht in Stunden.</p></div>
+</div>
+</div>
+</div>
+</section>
+<!-- ============ BLOCK 6 · FULL BREAKDOWN (6 CATEGORIES WITH IMAGES) ============ -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,800;0,900;1,800&display=swap');
+.lwcat,.lwcat *{box-sizing:border-box}
+.lwcat{background:#241510;padding:76px 16px;font-family:'DM Sans',sans-serif;color:#F5EDE0}
+.lwcat__in{max-width:1120px;margin:0 auto}
+.lwcat__head{text-align:center;margin-bottom:38px}
+.lwcat__t{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(30px,4.8vw,48px);line-height:1.08;margin:0 0 12px}
+.lwcat__t em{font-style:italic;color:#E0A15E}
+.lwcat__s{margin:0 auto;max-width:560px;font-size:16px;line-height:1.65;color:rgba(245,237,224,.72)}
+.lwcat__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.lwcat__c{position:relative;border-radius:18px;overflow:hidden;background:#1A0F08;border:1px solid rgba(224,161,94,.2);transition:transform .3s,border-color .3s}
+.lwcat__c:hover{transform:translateY(-6px);border-color:rgba(224,161,94,.6)}
+.lwcat__img{position:relative;aspect-ratio:4/3;background:linear-gradient(145deg,#4A3020,#1A0F08);overflow:hidden}
+.lwcat__img::after{content:"";position:absolute;left:0;right:0;bottom:0;height:55%;background:linear-gradient(transparent,rgba(26,15,8,.92));pointer-events:none}
+.lwcat__img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s}
+.lwcat__c:hover .lwcat__img img{transform:scale(1.06)}
+.lwcat__img img[src=""]{display:none}
+.lwcat__ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:16px;text-align:center;font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:rgba(245,237,224,.45)}
+.lwcat__img img:not([src=""])+.lwcat__ph{display:none}
+.lwcat__n{position:absolute;left:18px;bottom:12px;z-index:2;font-family:'Playfair Display',serif;font-size:44px;font-weight:900;line-height:1;color:#E0A15E}
+.lwcat__b{padding:14px 18px 20px}
+.lwcat__h{margin:0 0 4px;font-family:'Playfair Display',serif;font-size:21px;font-weight:800;color:#fff}
+.lwcat__p{margin:0;font-size:14px;line-height:1.5;color:rgba(245,237,224,.65)}
+@media(max-width:900px){.lwcat__grid{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.lwcat__grid{grid-template-columns:1fr}}
+</style>
+<section class="lwcat">
+<div class="lwcat__in">
+<div class="lwcat__head lw-rv"><p class="lw-k">Die komplette Übersicht</p><h2 class="lwcat__t">Über 170 Schnittmuster. 6 Kategorien. <em>Eine Bibliothek.</em></h2><p class="lwcat__s">Das ist genau das, was du in der Kollektion findest, übersichtlich sortiert für schnellen Zugriff.</p></div>
+<div class="lwcat__grid">
+<div class="lwcat__c lw-rv"><div class="lwcat__img"><img alt="Taschen und Handtaschen" loading="lazy" src="https://aekpgsbqjzqntlbucbts.supabase.co/storage/v1/object/public/store-resources/c9cb5dcf-995e-4808-92f4-bc28806fa3eb/1790636733919_imagen-de-chatgpt-28-sept-2026-08-05-20-p-m.webp"/><span class="lwcat__ph">Foto · Leder-Tote-Bag · 4:3</span><span class="lwcat__n">40+</span></div><div class="lwcat__b"><h3 class="lwcat__h">Taschen und Handtaschen</h3><p class="lwcat__p">Tote, strukturiert, weich, Mini, Markttaschen</p></div></div>
+<div class="lwcat__c lw-rv"><div class="lwcat__img"><img alt="Rucksäcke" loading="lazy" src="https://aekpgsbqjzqntlbucbts.supabase.co/storage/v1/object/public/store-resources/c9cb5dcf-995e-4808-92f4-bc28806fa3eb/1790636762642_imagen-de-chatgpt-28-sept-2026-08-05-54-p-m.webp"/><span class="lwcat__ph">Foto · Leder-Rucksack · 4:3</span><span class="lwcat__n">25+</span></div><div class="lwcat__b"><h3 class="lwcat__h">Rucksäcke</h3><p class="lwcat__p">Urban, Laptop, Trekking, Mini, Klassisch</p></div></div>
+<div class="lwcat__c lw-rv"><div class="lwcat__img"><img alt="Geldbörsen und Kartenetuis" loading="lazy" src="https://aekpgsbqjzqntlbucbts.supabase.co/storage/v1/object/public/store-resources/c9cb5dcf-995e-4808-92f4-bc28806fa3eb/1790636813854_imagen-de-chatgpt-28-sept-2026-08-06-38-p-m.webp"/><span class="lwcat__ph">Foto · Leder-Geldbörsen · 4:3</span><span class="lwcat__n">30+</span></div><div class="lwcat__b"><h3 class="lwcat__h">Geldbörsen und Kartenetuis</h3><p class="lwcat__p">Zweifach, dreifach, Slim, mit Reißverschluss, mit Druckknopf</p></div></div>
+<div class="lwcat__c lw-rv"><div class="lwcat__img"><img alt="Umhängetaschen und Crossbody" loading="lazy" src="https://aekpgsbqjzqntlbucbts.supabase.co/storage/v1/object/public/store-resources/c9cb5dcf-995e-4808-92f4-bc28806fa3eb/1790636850854_imagen-de-chatgpt-28-sept-2026-08-07-14-p-m.webp"/><span class="lwcat__ph">Foto · Leder-Umhängetasche · 4:3</span><span class="lwcat__n">25+</span></div><div class="lwcat__b"><h3 class="lwcat__h">Umhängetaschen und Crossbody</h3><p class="lwcat__p">Satteltasche, Aktentasche, Sling, Messenger-Stil</p></div></div>
+<div class="lwcat__c lw-rv"><div class="lwcat__img"><img alt="Reisetaschen und Weekender" loading="lazy" src="https://aekpgsbqjzqntlbucbts.supabase.co/storage/v1/object/public/store-resources/c9cb5dcf-995e-4808-92f4-bc28806fa3eb/1790636879545_imagen-de-chatgpt-28-sept-2026-08-07-49-p-m.webp"/><span class="lwcat__ph">Foto · Wochenend-Tasche · 4:3</span><span class="lwcat__n">20+</span></div><div class="lwcat__b"><h3 class="lwcat__h">Reise und Weekender</h3><p class="lwcat__p">Wochenendtasche, Sporttasche, Kulturbeutel, Kleidersack</p></div></div>
+<div class="lwcat__c lw-rv"><div class="lwcat__img"><img alt="Accessoires" loading="lazy" src="https://aekpgsbqjzqntlbucbts.supabase.co/storage/v1/object/public/store-resources/c9cb5dcf-995e-4808-92f4-bc28806fa3eb/1790637026993_imagen-de-chatgpt-28-sept-2026-08-10-18-p-m.webp"/><span class="lwcat__ph">Foto · Leder-Accessoires · 4:3</span><span class="lwcat__n">30+</span></div><div class="lwcat__b"><h3 class="lwcat__h">Accessoires</h3><p class="lwcat__p">Reisepasshülle, Schlüsselanhänger, Gürtel, Kofferanhänger</p></div></div>
+</div>
+</div>
+</section>
+<!-- ============ BLOCK 7 · WHY WE'RE DIFFERENT (COMPARISON TABLE) ============ -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,800;0,900;1,800&display=swap');
+.lwcmp,.lwcmp *{box-sizing:border-box}
+.lwcmp{background:#F5EDE0;padding:76px 16px;font-family:'DM Sans',sans-serif;color:#1A0F08}
+.lwcmp__in{max-width:900px;margin:0 auto}
+.lwcmp__head{text-align:center;margin-bottom:34px}
+.lwcmp__t{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(30px,4.8vw,48px);line-height:1.08;margin:0 0 12px}
+.lwcmp__t em{font-style:italic;color:#B5611F}
+.lwcmp__s{margin:0 auto;max-width:600px;font-size:16px;line-height:1.65;color:#5A4232}
+.lwcmp__tb{border-radius:20px;overflow:hidden;background:#FDF8F2;border:1px solid #E6D5C0;box-shadow:0 18px 40px rgba(26,15,8,.12)}
+.lwcmp__r{display:grid;grid-template-columns:1.2fr 1fr 1.2fr;border-bottom:1px solid #EFE3D2}
+.lwcmp__r:last-child{border-bottom:0}
+.lwcmp__r>div{padding:14px 16px;font-size:14.5px;line-height:1.45}
+.lwcmp__r>div:first-child{font-weight:800}
+.lwcmp__r>div:nth-child(2){color:#9A8270}
+.lwcmp__r>div:nth-child(2)::before{content:"✗ ";color:#C0413D;font-weight:800}
+.lwcmp__r>div:last-child{background:#1A0F08;color:#F5EDE0;font-weight:700}
+.lwcmp__r>div:last-child::before{content:"✓ ";color:#E0A15E;font-weight:800}
+.lwcmp__r--h>div{font-size:12px!important;font-weight:800!important;letter-spacing:.12em;text-transform:uppercase;color:#7A5A44!important}
+.lwcmp__r--h>div::before{content:""!important}
+.lwcmp__r--h>div:last-child{color:#E0A15E!important}
+.lwcmp__cta{text-align:center;margin-top:30px}
+@media(max-width:620px){.lwcmp__r{grid-template-columns:1fr 1fr}.lwcmp__r>div:first-child{grid-column:1/-1;padding-bottom:4px;background:#F5EDE0}.lwcmp__r--h>div:first-child{display:none}}
+</style>
+<section class="lwcmp">
+<div class="lwcmp__in">
+<div class="lwcmp__head lw-rv"><p class="lw-k">Was uns unterscheidet</p><h2 class="lwcmp__t">Schnittmuster entworfen wie <em>echte technische Zeichnungen</em></h2><p class="lwcmp__s">Jedes Schnittmuster dieser Kollektion wurde nach professionellen Standards gezeichnet. Sieh dir den Unterschied zu anderen Angeboten an.</p></div>
+<div class="lwcmp__tb lw-rv">
+<div class="lwcmp__r lwcmp__r--h"><div>Merkmal</div><div>Andere Schnittmuster</div><div>Unsere Kollektion</div></div>
+<div class="lwcmp__r"><div>Maße auf jedem Teil</div><div>Fehlen oder ungenau</div><div>mm + Zoll auf jedem Teil</div></div>
+<div class="lwcmp__r"><div>Kontrollquadrat für den Maßstab</div><div>Nicht enthalten</div><div>20 mm / 1 Zoll Quadrat auf jedem Blatt</div></div>
+<div class="lwcmp__r"><div>Materialliste pro Projekt</div><div>Nicht enthalten</div><div>Reißverschlüsse, Nieten und Lederstärke</div></div>
+<div class="lwcmp__r"><div>Druckformate A4 + A1</div><div>Nur ein Format</div><div>Beide enthalten, mit Montageanleitung</div></div>
+<div class="lwcmp__r"><div>Markierte Teile</div><div>Allgemeine Formen</div><div>System G1, G1a, G1b — null Verwirrung</div></div>
+<div class="lwcmp__r"><div>Schritt-für-Schritt-Montage</div><div>Selbst herausfinden</div><div>Nummerierte Schritte für jedes Projekt</div></div>
+<div class="lwcmp__r"><div>Einfaches Drucken</div><div>Ungefährer Maßstab</div><div>PDF: zu Hause oder im Copyshop drucken</div></div>
+<div class="lwcmp__r"><div>Kommerzielle Lizenz</div><div>Nur für den persönlichen Gebrauch</div><div>Fertige und verkaufe frei, ohne Lizenzgebühren</div></div>
+</div>
+<div class="lwcmp__cta lw-rv"><a class="lw-cta" href="#lw-offer">ZUM ANGEBOT ↓</a></div>
+</div>
+</section>
+<!-- ============ BLOCK 8 · WAS DU ERREICHEN WIRST ============ -->
+<style>
+.lwach,.lwach *{box-sizing:border-box}
+.lwach{background:#1A0F08;padding:72px 16px;font-family:'DM Sans',sans-serif;color:#F5EDE0}
+.lwach__in{max-width:1080px;margin:0 auto}
+.lwach__head{text-align:center;margin-bottom:44px}
+.lwach__t{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(32px,5vw,50px);line-height:1.05;margin:0}
+.lwach__t em{font-style:italic;color:#E0A15E}
+.lwach__s{margin:12px auto 0;max-width:600px;font-size:16px;line-height:1.65;color:rgba(245,237,224,.75)}
+.lwach__g{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.lwach__c{position:relative;background:#241510;border:1px solid rgba(224,161,94,.2);border-radius:18px;padding:30px 24px;transition:transform .3s,border-color .3s}
+.lwach__c:hover{transform:translateY(-4px);border-color:rgba(224,161,94,.5)}
+.lwach__ic{width:48px;height:48px;border-radius:12px;background:linear-gradient(180deg,#D6823A,#B5611F);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:16px;box-shadow:0 8px 18px rgba(200,114,42,.3)}
+.lwach__ct{font-family:'Playfair Display',serif;font-weight:900;font-size:20px;margin:0 0 8px;color:#F5EDE0}
+.lwach__cp{margin:0;font-size:14.5px;line-height:1.65;color:rgba(245,237,224,.72)}
+@media(max-width:600px){.lwach__g{grid-template-columns:1fr}}
+</style>
+<section class="lwach">
+ <div class="lwach__in">
+ <div class="lwach__head lw-rv">
+ <p class="lw-k">Was du erreichen wirst</p>
+ <h2 class="lwach__t">Mit dieser Kollektion <em>kannst du.</em></h2>
+ <p class="lwach__s">Das ändert sich, wenn du professionelle Schnittmuster mit exakten Maßen, Materialliste und Schritt-für-Schritt-Anleitung hast.</p>
+ </div>
+ <div class="lwach__g">
+ <div class="lwach__c lw-rv">
+ <div class="lwach__ic">✂️</div>
+ <h3 class="lwach__ct">Präzise zuschneiden vom ersten Tag an</h3>
+ <p class="lwach__cp">Jedes Teil trägt die exakten Maße in mm und Zoll. Kein Raten, kein verschwendetes Leder. Beim ersten Schnitt richtig.</p>
+ </div>
+ <div class="lwach__c lw-rv">
+ <div class="lwach__ic">📋</div>
+ <h3 class="lwach__ct">Genau wissen, was du kaufen musst</h3>
+ <p class="lwach__cp">Vollständige Materialliste für jedes Projekt: Lederstärke, Reißverschlüsse, Nieten, Garn. Du bestellst nur, was du brauchst, ohne Verschwendung.</p>
+ </div>
+ <div class="lwach__c lw-rv">
+ <div class="lwach__ic">🏷️</div>
+ <h3 class="lwach__ct">Verkaufe deine Kreationen frei</h3>
+ <p class="lwach__cp">Die kommerzielle Lizenz ist inklusive. Fertige Lederwaren an und verkaufe sie auf Märkten, online oder in deinem Laden — ohne Lizenzgebühren, für immer.</p>
+ </div>
+ <div class="lwach__c lw-rv">
+ <div class="lwach__ic">🖨️</div>
+ <h3 class="lwach__ct">Drucken und sofort loslegen</h3>
+ <p class="lwach__cp">PDF in den Formaten A4, A1 und Letter. Drucke zu Hause oder im Copyshop, überprüfe mit dem Kontrollquadrat und du bist bereit zum Zuschneiden.</p>
+ </div>
+ </div>
+ </div>
+</section>
+<!-- ============ BLOCK 9 · OFFER BOX ============ -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,800;0,900;1,800&display=swap');
+.lwof,.lwof *{box-sizing:border-box}
+.lwof{position:relative;background:linear-gradient(180deg,#1A0F08 0%,#241510 100%);padding:40px 16px 72px;font-family:'DM Sans',sans-serif;color:#1A0F08}
+.lwof__card{position:relative;max-width:640px;margin:0 auto;background:#FDF8F2;border-radius:22px;padding:40px 28px 30px;box-shadow:0 30px 70px rgba(0,0,0,.5)}
+.lwof__card::before{content:"";position:absolute;inset:10px;border:2px dashed rgba(200,114,42,.55);border-radius:15px;pointer-events:none}
+.lwof__flag{position:absolute;top:-16px;left:50%;transform:translateX(-50%);background:#C8722A;color:#FFF8EF;font-size:12.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:9px 18px;border-radius:50px;white-space:nowrap;box-shadow:0 10px 22px rgba(200,114,42,.4)}
+.lwof__name{margin:0 0 4px;text-align:center;font-family:'Playfair Display',serif;font-size:clamp(26px,4.4vw,34px);font-weight:900}
+.lwof__sub{margin:0 0 20px;text-align:center;font-size:14.5px;color:#7A5A44}
+.lwof__img{position:relative;max-width:300px;margin:0 auto 22px;aspect-ratio:1/1;border-radius:16px;overflow:hidden;background:linear-gradient(145deg,#4A3020,#241510)}
+.lwof__img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.lwof__img img[src=""]{display:none}
+.lwof__ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:18px;text-align:center;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:rgba(245,237,224,.55)}
+.lwof__img img:not([src=""])+.lwof__ph{display:none}
+.lwof__l{list-style:none;margin:0 0 22px;padding:0;display:flex;flex-direction:column;gap:11px}
+.lwof__l li{display:flex;gap:11px;align-items:flex-start;font-size:15px;line-height:1.5;color:#3A2618}
+.lwof__l li i{flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#C8722A;color:#fff;font-style:normal;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.lwof__l li b{color:#1A0F08}
+.lwof__l li.bo i{background:#1A0F08;color:#E0A15E}
+.lwof__l li.bo s{color:#9A8270;text-decoration-color:#C8722A;margin-left:4px}
+.lwof__l li.bo em{font-style:normal;font-size:11px;font-weight:800;letter-spacing:.06em;color:#fff;background:#3E8E5A;padding:2px 8px;border-radius:50px;margin-left:4px}
+.lwof__pr{display:flex;align-items:baseline;justify-content:center;gap:14px;flex-wrap:wrap;padding-top:18px;border-top:1.5px dashed #E6D5C0}
+.lwof__pr s{font-size:20px;font-weight:700;color:#9A8270;text-decoration-color:#C8722A;text-decoration-thickness:2px}
+.lwof__pr b{font-family:'Playfair Display',serif;font-size:clamp(46px,9vw,60px);font-weight:900;line-height:1;color:#B5611F}
+.lwof__save{display:table;margin:10px auto 18px;background:#EAF3EC;color:#2F7A4A;font-size:13.5px;font-weight:800;padding:6px 14px;border-radius:50px}
+.lwof__cd{display:flex;justify-content:center;gap:8px;margin:0 0 18px}
+.lwof__cd div{min-width:58px;text-align:center;background:#1A0F08;border-radius:10px;padding:7px 8px}
+.lwof__cd b{display:block;font-family:'Playfair Display',serif;font-size:22px;color:#E0A15E;font-variant-numeric:tabular-nums}
+.lwof__cd small{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(245,237,224,.65)}
+.lwof .lw-cta{max-width:none;width:100%}
+.lwof__sec{margin:14px 0 0;text-align:center;font-size:13px;color:#7A5A44}
+</style>
+<section class="lwof" id="lw-offer" style="padding-top:72px;scroll-margin-top:24px">
+<div class="lwof__card lw-rv">
+<span class="lwof__flag">🚀 Einführungspreis</span>
+<h2 class="lwof__name">Meister-Schnittmusterkollektion für Leder</h2>
+<p class="lwof__sub">Über 170 professionelle Schnittmuster — Taschen, Rucksäcke, Geldbörsen und vieles mehr</p>
+<div class="lwof__img"><img alt="Meister-Schnittmusterkollektion für Leder" loading="lazy" src="https://files.catbox.moe/1htsrh.png"/><span class="lwof__ph">Mockup · komplette Kollektion · 1:1</span></div>
+<ul class="lwof__l">
+<li><i>✓</i><span>Eine klare Schritt-für-Schritt-Methode — <b>keine Erfahrung nötig</b></span></li>
+<li><i>✓</i><span><b>Exakte Maße in mm und Zoll</b> auf jedem Teil</span></li>
+<li><i>✓</i><span>Vollständige Materialliste pro Projekt (Reißverschlüsse, Nieten, Lederstärke)</span></li>
+<li><i>✓</i><span><b>PDF-Dateien</b> — zu Hause oder im Copyshop drucken</span></li>
+<li><i>✓</i><span>Formate A4 + A1 + Letter — kompatibel mit jedem Heimdrucker</span></li>
+<li class="bo"><i>🎁</i><span><b>Bonus Nr. 1:</b> Ratgeber zur Lederwahl <s>19 €</s><em>GRATIS</em></span></li>
+<li class="bo"><i>🎁</i><span><b>Bonus Nr. 2:</b> Masterclass Leder nähen (5 wesentliche Techniken) <s>24 €</s><em>GRATIS</em></span></li>
+<li><i>✓</i><span><b>Kommerzielle Lizenz</b> — fertige und verkaufe frei, ohne Lizenzgebühren</span></li>
+<li><i>✓</i><span>Sofortiger Zugang nach dem Kauf — alles sofort herunterladen</span></li>
+</ul>
+<div class="lwof__pr"><s>{{original_price}}</s><b>{{price}}</b></div>
+<span class="lwof__save">Du sparst {{savings}}</span>
+<div class="lwof__cd" data-lw-timer-wrap=""><div><b data-lw-d="">00</b><small>Tage</small></div><div><b data-lw-h="">00</b><small>Std</small></div><div><b data-lw-m="">00</b><small>Min</small></div><div><b data-lw-s="">00</b><small>Sek</small></div></div>
+<button class="lw-cta" data-checkout="">ICH WILL MEINEN ZUGANG JETZT →</button>
+<p class="lwof__sec">🔒 100 % sichere Zahlung · Einmalzahlung</p>
+</div>
+</section>
+<!-- ============ BLOCK 9B · GARANTIE 7 TAGE ============ -->
+<style>
+.lwgar,.lwgar *{box-sizing:border-box}
+.lwgar{background:#241510;padding:0 16px 72px;font-family:'DM Sans',sans-serif;color:#F5EDE0}
+.lwgar__card{position:relative;max-width:640px;margin:0 auto;display:flex;align-items:center;gap:22px;background:rgba(245,237,224,.04);border:1.5px dashed rgba(224,161,94,.55);border-radius:22px;padding:28px 26px}
+.lwgar__seal{flex-shrink:0;width:96px;height:96px;border-radius:50%;background:linear-gradient(180deg,#D6823A,#B5611F);display:flex;flex-direction:column;align-items:center;justify-content:center;color:#FFF8EF;box-shadow:0 14px 30px rgba(200,114,42,.35);position:relative}
+.lwgar__seal::after{content:"";position:absolute;inset:5px;border:1.5px dashed rgba(255,248,239,.5);border-radius:50%}
+.lwgar__seal b{font-family:'Playfair Display',serif;font-size:30px;font-weight:900;line-height:1}
+.lwgar__seal small{font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+.lwgar__t{margin:0 0 8px;font-family:'Playfair Display',serif;font-size:clamp(22px,3.6vw,28px);font-weight:900;line-height:1.15}
+.lwgar__t em{font-style:italic;color:#E0A15E}
+.lwgar__p{margin:0;font-size:15px;line-height:1.7;color:rgba(245,237,224,.82)}
+.lwgar__p b{color:#fff}
+@media(max-width:600px){.lwgar__card{flex-direction:column;text-align:center;padding:26px 20px}}
+</style>
+<section class="lwgar" id="lw-garantie">
+<div class="lwgar__card lw-rv">
+<div class="lwgar__seal"><b>7</b><small>Tage</small></div>
+<div>
+<p class="lw-k">🛡️ Null Risiko</p>
+<h2 class="lwgar__t">Zufriedenheitsgarantie <em>7 Tage</em></h2>
+<p class="lwgar__p">Wenn dich die Kollektion innerhalb von 7 Tagen nicht überzeugt, <b>erstatten wir dir 100 % deines Kaufpreises</b>, ohne Wenn und Aber. Schreib uns einfach.</p>
+</div>
+</div>
+</section>
+<!-- ============ BLOCK 10 · MEET THE CREATOR (THOMAS WEBER) ============ -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,800;0,900;1,700;1,800&display=swap');
+.lwme,.lwme *{box-sizing:border-box}
+.lwme{position:relative;overflow:hidden;background:radial-gradient(50% 60% at 15% 40%,rgba(200,114,42,.22),transparent 70%),#1A0F08;padding:84px 16px;font-family:'DM Sans',sans-serif;color:#F5EDE0}
+.lwme__in{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:center}
+.lwme__ph{position:relative;max-width:440px;width:100%;justify-self:center}
+.lwme__fr{position:relative;aspect-ratio:4/5;border-radius:18px;overflow:hidden;background:linear-gradient(145deg,#4A3020,#241510);box-shadow:0 34px 70px rgba(0,0,0,.55)}
+.lwme__fr::after{content:"";position:absolute;inset:10px;border:1.5px dashed rgba(245,237,224,.4);border-radius:12px;pointer-events:none;z-index:2}
+.lwme__fr img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
+.lwme__fr img[src=""]{display:none}
+.lwme__fr span{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:24px;text-align:center;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(245,237,224,.5)}
+.lwme__fr img:not([src=""])+span{display:none}
+.lwme__badge{position:absolute;right:-18px;bottom:34px;z-index:3;background:#F5EDE0;color:#1A0F08;border-radius:12px;padding:12px 16px;box-shadow:0 16px 30px rgba(0,0,0,.45);animation:lwme-fl 4.5s ease-in-out infinite}
+.lwme__badge b{display:block;font-family:'Playfair Display',serif;font-size:24px;line-height:1;color:#B5611F}
+.lwme__badge small{font-size:10.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+@keyframes lwme-fl{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.lwme__k{display:inline-flex;align-items:center;gap:10px;margin:0 0 12px;font-size:12.5px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:#C8722A}
+.lwme__k::before{content:"";width:26px;border-top:1.5px dashed currentColor}
+.lwme__t{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(34px,5vw,54px);line-height:1.04;margin:0 0 6px}
+.lwme__role{margin:0 0 22px;font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(18px,2.4vw,22px);color:#E0A15E}
+.lwme__p{margin:0 0 16px;font-size:16.5px;line-height:1.75;color:rgba(245,237,224,.82)}
+.lwme__p b{color:#fff}
+.lwme__q{position:relative;margin:24px 0;padding:20px 22px 20px 56px;border-radius:14px;background:rgba(245,237,224,.05);border:1px dashed rgba(224,161,94,.5);font-family:'Playfair Display',serif;font-style:italic;font-size:19px;line-height:1.5;color:#fff}
+.lwme__q::before{content:""";position:absolute;left:16px;top:2px;font-size:58px;color:#C8722A;font-style:normal}
+.lwme__st{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:0 0 26px}
+.lwme__st div{padding:14px 10px;border-radius:12px;background:#241510;border:1px solid rgba(224,161,94,.22);text-align:center}
+.lwme__st b{display:block;font-family:'Playfair Display',serif;font-size:26px;color:#E0A15E;line-height:1.1}
+.lwme__st small{font-size:12px;font-weight:700;color:rgba(245,237,224,.7)}
+.lwme__sig{font-family:'Playfair Display',serif;font-style:italic;font-size:26px;color:#E0A15E}
+.lwme .lw-cta{margin-top:22px;max-width:420px}
+@media(max-width:880px){.lwme__in{grid-template-columns:1fr;gap:36px}.lwme__txt{text-align:center}.lwme__k{justify-content:center}.lwme__q{text-align:left}.lwme__ph{max-width:340px}.lwme__badge{right:-6px}}
+@media(max-width:420px){.lwme__st small{font-size:11px}.lwme__st b{font-size:22px}}
+@media(prefers-reduced-motion:reduce){.lwme__badge{animation:none}}
+</style>
+<section class="lwme">
+<div class="lwme__in">
+<div class="lwme__ph lw-rv">
+<div class="lwme__fr">
+<img alt="Thomas Weber, Lederhandwerker und Schöpfer der Kollektion" loading="lazy" src="https://files.catbox.moe/676tgj.png"/>
+<span>Foto · Thomas Weber in seiner Werkstatt · 4:5</span>
+</div>
+<div class="lwme__badge"><b>25+</b><small>Jahre an der Werkbank</small></div>
+</div>
+<div class="lwme__txt lw-rv">
+<p class="lwme__k">Lerne den Macher kennen</p>
+<h2 class="lwme__t">Thomas Weber</h2>
+<p class="lwme__role">Lederhandwerker und Schöpfer der Kollektion</p>
+<p class="lwme__p">Thomas hat <b>über 25 Jahre</b> damit verbracht, Leder von Hand zu schneiden, zu nähen und zu veredeln. Er hat das Handwerk auf die harte Tour gelernt: Leder ruiniert mit ungenauen Schnittmustern, zweimal gemessen und Teile zusammengesetzt, die nie passten.</p>
+<p class="lwme__p">Deshalb begann er, seine eigenen Schnittmuster zu zeichnen: <b>jedes Teil vermessen, jedes Element markiert, jedes Material aufgelistet</b> vor dem ersten Schnitt. Diese Kollektion ist die Bibliothek seiner Werkstatt — dieselben Schnittmuster, die er an seiner Werkbank benutzt, jetzt so aufbereitet, dass auch du damit arbeiten kannst.</p>
+<blockquote class="lwme__q">Ein gutes Schnittmuster macht den ganzen Unterschied zwischen verschwendetem Leder und etwas, das du stolz verkaufen kannst.</blockquote>
+<div class="lwme__st">
+<div><b>25+</b><small>Jahre Erfahrung</small></div>
+<div><b>170+</b><small>gezeichnete Schnittmuster</small></div>
+<div><b>1 280+</b><small>betreute Handwerker</small></div>
+</div>
+<div class="lwme__sig">— Thomas Weber</div>
+<a class="lw-cta" href="#lw-offer">Mit Thomas' Schnittmustern arbeiten ↓</a>
+</div>
+</div>
+</section>
+<!-- ============ BLOCK 11 · FAQ ============ -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,800;0,900;1,800&display=swap');
+.lwfaq,.lwfaq *{box-sizing:border-box}
+.lwfaq{background:#FDF8F2;padding:72px 16px;font-family:'DM Sans',sans-serif;color:#1A0F08}
+.lwfaq__in{max-width:780px;margin:0 auto}
+.lwfaq__head{text-align:center;margin-bottom:30px}
+.lwfaq__t{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(32px,5vw,50px);line-height:1.05;margin:0}
+.lwfaq__t em{font-style:italic;color:#B5611F}
+.lwfaq__it{border:1px solid #E6D5C0;border-radius:14px;margin-bottom:10px;overflow:hidden;background:#F5EDE0;transition:border-color .2s,box-shadow .2s,background .2s}
+.lwfaq__it.is-open{border-color:#C8722A;background:#fff;box-shadow:0 10px 24px rgba(26,15,8,.08)}
+.lwfaq__q{width:100%;display:flex;justify-content:space-between;align-items:center;gap:14px;padding:18px 20px;background:none;border:0;cursor:pointer;text-align:left;font-family:inherit;font-size:16px;font-weight:700;color:#1A0F08;line-height:1.4}
+.lwfaq__q span{flex-shrink:0;width:28px;height:28px;border-radius:50%;background:#1A0F08;color:#E0A15E;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:700;transition:transform .3s,background .3s}
+.lwfaq__it.is-open .lwfaq__q span{transform:rotate(45deg);background:#C8722A;color:#fff}
+.lwfaq__a{max-height:0;overflow:hidden;transition:max-height .35s ease}
+.lwfaq__it.is-open .lwfaq__a{max-height:360px}
+.lwfaq__a p{margin:0;padding:0 20px 18px;font-size:15px;line-height:1.7;color:#5A4232}
+</style>
+<section class="lwfaq" id="lwfaq">
+<div class="lwfaq__in">
+<div class="lwfaq__head lw-rv"><p class="lw-k">FAQ</p><h2 class="lwfaq__t">Häufig gestellte <em>Fragen.</em></h2></div>
+<div class="lwfaq__it is-open"><button aria-expanded="true" class="lwfaq__q" type="button">Kann ich verkaufen, was ich mit diesen Schnittmustern herstelle?<span>+</span></button><div class="lwfaq__a"><p>Ja. Eine kommerzielle Lizenz ist bei jedem Kauf enthalten. Du kannst fertige Lederwaren herstellen und verkaufen — auf Märkten, in sozialen Medien oder in deinem Laden — ohne Lizenzgebühren und ohne Einschränkungen. Du behältst 100 % deiner Einnahmen.</p></div></div>
+<div class="lwfaq__it"><button aria-expanded="false" class="lwfaq__q" type="button">Brauche ich Erfahrung, um diese Schnittmuster zu verwenden?<span>+</span></button><div class="lwfaq__a"><p>Keine Erfahrung nötig. Jedes Schnittmuster enthält eine klare Schritt-für-Schritt-Methode, markierte Teile und eine vollständige Materialliste. Die beiden Bonus-Anleitungen (Ratgeber zur Lederwahl und Masterclass Leder nähen) decken alles ab, was du brauchst, um von Null zu starten.</p></div></div>
+<div class="lwfaq__it"><button aria-expanded="false" class="lwfaq__q" type="button">Welche Dateiformate sind enthalten?<span>+</span></button><div class="lwfaq__a"><p>Alle Schnittmuster werden als PDF geliefert. Drucke sie zu Hause oder im Copyshop: Die Formate A4 und Letter funktionieren mit jedem Heimdrucker, und A1 ist fertig für einen Copyshop oder eine Druckerei.</p></div></div>
+<div class="lwfaq__it"><button aria-expanded="false" class="lwfaq__q" type="button">Wie erhalte ich die Dateien nach dem Kauf?<span>+</span></button><div class="lwfaq__a"><p>Direkt nach dem Kauf erhältst du eine E-Mail mit dem Link zum Herunterladen deiner Dateien. Alles ist sofort verfügbar: keine Wartezeit, kein Versand. Es ist ein 100 % digitales Produkt.</p></div></div>
+<div class="lwfaq__it"><button aria-expanded="false" class="lwfaq__q" type="button">Haben die Schnittmuster Maßangaben?<span>+</span></button><div class="lwfaq__a"><p>Ja, jedes Teil der Schnittmuster trägt seine exakten Maße in Millimetern und Zoll. Jedes Blatt hat außerdem ein Kontrollquadrat (20 mm / 1 Zoll), um zu überprüfen, ob der Druck korrekt ist, bevor du Leder zuschneidest.</p></div></div>
+<div class="lwfaq__it"><button aria-expanded="false" class="lwfaq__q" type="button">Welchen Drucker brauche ich?<span>+</span></button><div class="lwfaq__a"><p>Jeder Heimdrucker reicht aus. Die Formate A4 und Letter sind zum Drucken zu Hause gedacht: Drucke auf 100 % und setze die Blätter bei Bedarf zusammen. Für große Teile ist das Format A1 für einen Copyshop oder eine Druckerei enthalten.</p></div></div>
+<div class="lwfaq__it"><button aria-expanded="false" class="lwfaq__q" type="button">Wie viele Schnittmuster sind genau enthalten?<span>+</span></button><div class="lwfaq__a"><p>Über 170 Schnittmuster in allen großen Kategorien der Lederverarbeitung: Taschen, Rucksäcke, Geldbörsen, Reisetaschen, Umhängetaschen, Kartenetuis, Reisepasshüllen und vieles mehr. Die Bibliothek ist nach Kategorien sortiert, um sich schnell zurechtzufinden.</p></div></div>
+<div class="lwfaq__it"><button aria-expanded="false" class="lwfaq__q" type="button">Ist es eine Einmalzahlung?<span>+</span></button><div class="lwfaq__a"><p>Ja. Du zahlst einmal und die Bibliothek gehört dir für immer. Ohne Abo, ohne überraschende Abbuchungen, ohne versteckte Kosten.</p></div></div>
+<div class="lwfaq__it"><button aria-expanded="false" class="lwfaq__q" type="button">Was ist, wenn mich die Kollektion nicht überzeugt?<span>+</span></button><div class="lwfaq__a"><p>Du hast eine 7-Tage-Zufriedenheitsgarantie. Wenn dich die Kollektion innerhalb von 7 Tagen nicht überzeugt, erstatten wir dir 100 % deines Kaufpreises, ohne Wenn und Aber. Schreib uns einfach.</p></div></div>
+</div>
+</section>
+<script>
+(function(){
+ var root=document.getElementById('lwfaq');if(!root)return;
+ root.querySelectorAll('.lwfaq__q').forEach(function(b){
+ b.addEventListener('click',function(){
+ var it=b.parentNode,open=it.classList.contains('is-open');
+ root.querySelectorAll('.lwfaq__it.is-open').forEach(function(o){o.classList.remove('is-open');o.querySelector('.lwfaq__q').setAttribute('aria-expanded','false')});
+ if(!open){it.classList.add('is-open');b.setAttribute('aria-expanded','true')}
+ });
+ });
+})();
+</script>
+<!-- ============ BLOCK 12 · FINAL CTA + MOBILE STICKY BAR ============ -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,800;0,900;1,800;1,900&display=swap');
+.lwfin,.lwfin *{box-sizing:border-box}
+.lwfin{position:relative;overflow:hidden;background:radial-gradient(60% 60% at 50% 100%,rgba(200,114,42,.35),transparent 70%),#1A0F08;padding:84px 16px 96px;font-family:'DM Sans',sans-serif;color:#F5EDE0;text-align:center}
+.lwfin::before{content:"";position:absolute;inset:18px;border:2px dashed rgba(224,161,94,.35);border-radius:24px;pointer-events:none}
+.lwfin__in{position:relative;max-width:720px;margin:0 auto}
+.lwfin__t{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(34px,5.6vw,58px);line-height:1.05;margin:0 0 16px}
+.lwfin__t em{display:block;font-style:italic;color:#E0A15E}
+.lwfin__p{margin:0 0 28px;font-size:17px;line-height:1.65;color:rgba(245,237,224,.8)}
+.lwfin__chips{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin:0 0 30px}
+.lwfin__chips span{font-size:13px;font-weight:700;padding:7px 12px;border-radius:8px;border:1px dashed rgba(224,161,94,.5)}
+.lwfin__m{margin:12px 0 0;font-size:13px;color:rgba(245,237,224,.6)}
+.lwsticky{position:fixed;left:0;right:0;bottom:0;z-index:60;display:none;align-items:center;gap:12px;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:rgba(26,15,8,.97);border-top:1px dashed rgba(224,161,94,.55);box-shadow:0 -8px 24px rgba(0,0,0,.35);font-family:'DM Sans',sans-serif;transform:translateY(110%);transition:transform .3s}
+.lwsticky.is-on{transform:none}
+.lwsticky__p{display:flex;flex-direction:column;line-height:1.15}
+.lwsticky__p s{font-size:12px;color:rgba(245,237,224,.5)}
+.lwsticky__p b{font-family:'Playfair Display',serif;font-size:21px;color:#E0A15E}
+.lwsticky .lw-cta{flex:1;padding:14px 12px;font-size:14px}
+@media(max-width:720px){.lwsticky{display:flex}}
+</style>
+<section class="lwfin">
+<div class="lwfin__in">
+<h2 class="lwfin__t lw-rv">Dein nächstes Projekt <em>beginnt mit einem Schnittmuster.</em></h2>
+<p class="lwfin__p lw-rv">Hör auf, Leder zu verschwenden, indem du Maße schätzt. Hol dir über 170 professionelle Schnittmuster mit exakten Maßen, Materiallisten und kommerzieller Lizenz — und schneide richtig, vom ersten Mal an.</p>
+<div class="lwfin__chips lw-rv"><span>170+ Schnittmuster</span><span>mm + Zoll</span><span>PDF</span><span>A4 · A1 · Letter</span><span>2 Bonus-Anleitungen</span><span>Kommerzielle Lizenz</span></div>
+<a class="lw-cta" href="#lw-offer">ICH WILL MEINEN ZUGANG JETZT →</a>
+<p class="lwfin__m">🔒 Sicherer Kauf · Sofortiger Download · Lebenslanger Zugang</p>
+</div>
+</section>
+<div class="lwsticky" id="lwSticky">
+<div class="lwsticky__p"><s>{{original_price}}</s><b>{{price}}</b></div>
+<a class="lw-cta" href="#lw-offer">Schnittmuster sichern ↓</a>
+</div>
+<script>
+(function(){
+ var s=document.getElementById('lwSticky');if(!s)return;
+ function vis(id){var el=document.getElementById(id);if(!el)return false;var r=el.getBoundingClientRect();return r.top<window.innerHeight&&r.bottom>0}
+ function on(){s.classList.toggle('is-on',window.scrollY>650&&!vis('lw-offer'))}
+ window.addEventListener('scroll',on,{passive:true});on();
+})();
+</script> <script>(function() {
+ var STORAGE_KEY = 'impultienda_countdown_end'
+ var endTime
+ try { endTime = sessionStorage.getItem(STORAGE_KEY) } catch(e) {}
+ if (!endTime || parseInt(endTime) <= Date.now()) {
+ var randomMinutes = 9 + Math.floor(Math.random() * 5)
+ var randomSeconds = Math.floor(Math.random() * 60)
+ var totalMs = (randomMinutes * 60 + randomSeconds) * 1000
+ endTime = String(Date.now() + totalMs)
+ try { sessionStorage.setItem(STORAGE_KEY, endTime) } catch(e) {}
+ }
+ var minutesEl = document.getElementById('countdown-minutes')
+ var secondsEl = document.getElementById('countdown-seconds')
+ if (!minutesEl || !secondsEl) return
+ function updateCountdown() {
+ var now = Date.now()
+ var end = parseInt(endTime)
+ var remaining = Math.max(0, end - now)
+ if (remaining <= 0) {
+ var newMinutes = 9 + Math.floor(Math.random() * 5)
+ var newSeconds = Math.floor(Math.random() * 60)
+ endTime = String(Date.now() + (newMinutes * 60 + newSeconds) * 1000)
+ try { sessionStorage.setItem(STORAGE_KEY, endTime) } catch(e) {}
+ remaining = (newMinutes * 60 + newSeconds) * 1000
+ }
+ var totalSeconds = Math.floor(remaining / 1000)
+ var minutes = Math.floor(totalSeconds / 60)
+ var seconds = totalSeconds % 60
+ minutesEl.textContent = String(minutes).padStart(2, '0')
+ secondsEl.textContent = String(seconds).padStart(2, '0')
+ }
+ updateCountdown()
+ setInterval(updateCountdown, 1000)
+})()
+</script>

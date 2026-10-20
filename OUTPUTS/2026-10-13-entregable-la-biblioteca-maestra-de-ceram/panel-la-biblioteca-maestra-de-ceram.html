@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Panel · La Biblioteca Maestra de Cerámica</title>
+<style>
+/* PANEL DE ENTREGA (uso interno, archivo LOCAL: no se publica).
+   Todo lo que necesitás para cargar la oferta en la tienda y en Ads Manager,
+   en un solo HTML que abre sin conexión. Paleta = la de la landing. */
+:root{--bg:#ffffff;--paper:#fdf8f2;--ink:#121212;--ink-soft:#555555;--accent:#c8722a;--accent-dark:#1a0f08;--line:#e7e1da}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--bg);color:var(--ink)}
+body{font-family:-apple-system,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.5;font-size:15px}
+.wrap{max-width:1100px;margin:0 auto;padding:0 16px 60px}
+header{background:linear-gradient(150deg,var(--accent-dark),var(--accent));color:var(--paper);padding:26px 0 22px;margin-bottom:22px}
+header small{opacity:.85;letter-spacing:.1em;text-transform:uppercase;font-weight:700;font-size:12px}
+header h1{font-size:clamp(24px,4vw,34px);line-height:1.15;margin:4px 0 14px;font-family:Georgia,serif}
+.kv{display:flex;flex-wrap:wrap;gap:10px;align-items:stretch}
+.chip{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.35);border-radius:12px;padding:10px 12px;display:flex;gap:10px;align-items:center;flex:1 1 320px;min-width:0}
+.chip .lbl{font-size:11px;text-transform:uppercase;letter-spacing:.08em;opacity:.85;display:block}
+.chip .val{font-weight:800;word-break:break-word}
+.chip > div{flex:1;min-width:0}
+nav{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line);padding:10px 0;margin-bottom:18px;display:flex;gap:8px;overflow-x:auto}
+nav a{white-space:nowrap;text-decoration:none;color:var(--accent-dark);font-weight:700;font-size:13px;background:var(--paper);border:1px solid var(--line);padding:6px 11px;border-radius:99px}
+section{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:18px;margin-bottom:18px}
+section h2{font-family:Georgia,serif;font-size:21px;margin-bottom:12px;display:flex;gap:10px;align-items:center}
+section h2 .n{background:var(--accent);color:var(--paper);border-radius:8px;min-width:30px;height:30px;display:inline-flex;align-items:center;justify-content:center;font-size:15px;font-family:inherit}
+table{width:100%;border-collapse:collapse}
+td,th{text-align:left;padding:9px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-soft)}
+.url{font-family:ui-monospace,Menlo,monospace;font-size:13px;word-break:break-all}
+.cp{border:1px solid var(--accent);background:var(--bg);color:var(--accent-dark);border-radius:8px;padding:5px 10px;font-weight:700;font-size:12px;cursor:pointer;white-space:nowrap}
+header .cp{background:var(--paper)}
+.cp.ok{background:var(--accent);color:var(--paper)}
+.hub{border:2px solid var(--accent);border-radius:12px;padding:12px;margin-bottom:12px;background:var(--bg)}
+.hub b{display:block;margin-bottom:4px}
+pre{background:#1e1e1e;color:#eee;border-radius:10px;padding:12px;max-height:320px;overflow:auto;font-size:12px;white-space:pre-wrap;word-break:break-all}
+.imgs{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
+.img{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--bg);display:flex;flex-direction:column}
+.img img{width:100%;display:block;background:#fff}
+.img div{padding:8px;display:grid;gap:6px;font-size:13px}
+.ok{color:#2f7d4f;font-weight:800}
+.pend{color:#a86a00;font-weight:800}
+.bad{color:#a13a2f;font-weight:800}
+ol.check{padding-left:22px;display:grid;gap:6px}
+.nota{background:var(--bg);border-left:4px solid var(--accent);padding:10px 12px;border-radius:0 8px 8px 0;margin-top:10px;color:var(--ink-soft)}
+.foot{color:var(--ink-soft);font-size:12px;text-align:center}
+@media (max-width:600px){section{padding:14px 10px}td,th{padding:8px 4px}th{font-size:11px}.cp{padding:5px 7px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap" style="padding-bottom:0">
+    <small>Panel de entrega · 2026-10-13</small>
+    <h1>La Biblioteca Maestra de Cerámica</h1>
+    <div class="kv">
+      <div class="chip" id="nom-completo"><div><span class="lbl">Título completo (checkout, mockups, producto)</span><span class="val" id="t-titulo">La Biblioteca Maestra de Cerámica · 150+ Plantillas Profesionales Listas Para Imprimir + 3 Guías Bonus Incluidas</span></div><button class="cp" data-target="t-titulo">Copiar</button></div>
+      <div class="chip"><div><span class="lbl">Subdominio de la tienda · ⏳ pendiente</span><span class="val" id="t-sub">sin configurar</span></div><button class="cp" data-target="t-sub">Copiar</button></div>
+      <div class="chip"><div><span class="lbl">URL del hub (entrega)</span><span class="val url" id="t-hub">docs/acceso/vhi10b8wx4/</span></div><button class="cp" data-target="t-hub">Copiar</button></div>
+    </div>
+  </div>
+</header>
+<div class="wrap">
+  <nav>
+    <a href="#s1">1 · Oferta</a><a href="#s2">2 · Landing</a><a href="#s3">3 · Entregables</a>
+    <a href="#s4">4 · Imágenes</a><a href="#s5">5 · Ads</a><a href="#s6">6 · Lanzamiento</a><a href="#s7">7 · Antes de pautar</a>
+  </nav>
+  <section id="s1"><h2><span class="n">1</span>La oferta</h2><table><tr><th>Producto</th><td>La Biblioteca Maestra de Cerámica</td><td><button class="cp" data-copy="La Biblioteca Maestra de Cerámica">Copiar</button></td></tr><tr><th>Título completo</th><td>La Biblioteca Maestra de Cerámica · 150+ Plantillas Profesionales Listas Para Imprimir + 3 Guías Bonus Incluidas</td><td><button class="cp" data-copy="La Biblioteca Maestra de Cerámica · 150+ Plantillas Profesionales Listas Para Imprimir + 3 Guías Bonus Incluidas">Copiar</button></td></tr><tr><th>Precio</th><td>MXN 219</td><td><button class="cp" data-copy="MXN 219">Copiar</button></td></tr><tr><th>Precio tachado</th><td>MXN 999</td><td><button class="cp" data-copy="MXN 999">Copiar</button></td></tr><tr><th>Ahorro</th><td>MXN 780 (78%)</td><td><button class="cp" data-copy="MXN 780 (78%)">Copiar</button></td></tr><tr><th>Mercado</th><td>MX / LATAM</td><td><button class="cp" data-copy="MX / LATAM">Copiar</button></td></tr><tr><th>Idioma / registro</th><td>es / neutro</td><td><button class="cp" data-copy="es / neutro">Copiar</button></td></tr><tr><th>Tienda</th><td>ImpulTienda</td><td><button class="cp" data-copy="ImpulTienda">Copiar</button></td></tr><tr><th>Landing publicada</th><td>—</td><td></td></tr><tr><th>Subdominio</th><td> (⏳ pendiente)</td><td><button class="cp" data-copy=" (⏳ pendiente)">Copiar</button></td></tr></table></section>
+  <section id="s2"><h2><span class="n">2</span>Landing — código para pegar</h2><p class="pend">Falta "landing_variante" en oferta.json: la versión de la landing con las imágenes hosteadas (no en base64).</p></section>
+  <section id="s3"><h2><span class="n">3</span>Entregables</h2><div class="hub"><b>HUB — la única URL que va en la entrega del producto principal</b><span class="url">docs/acceso/vhi10b8wx4/</span> <button class="cp" data-copy="docs/acceso/vhi10b8wx4/">Copiar</button></div><table><tr><th>Entregable</th><th>Tipo</th><th>URL</th><th></th></tr><tr><td><b>Biblioteca Maestra de Plantillas de Cerámica</b> · 163 págs</td><td>core</td><td class='url'>biblioteca-maestra-de-plantillas-de-cera/bxuzv6jaeh/</td><td><button class="cp" data-copy="biblioteca-maestra-de-plantillas-de-cera/bxuzv6jaeh/">Copiar</button></td></tr><tr><td><b>Manual de Construcción a Mano</b> · 16 págs</td><td>bono</td><td class='url'>manual-de-construccion-a-mano/2r9bvqhh6o/</td><td><button class="cp" data-copy="manual-de-construccion-a-mano/2r9bvqhh6o/">Copiar</button></td></tr><tr><td><b>Planificador de Proyectos del Ceramista</b> · 14 págs</td><td>bono</td><td class='url'>planificador-de-proyectos-del-ceramista/vylj5vt65j/</td><td><button class="cp" data-copy="planificador-de-proyectos-del-ceramista/vylj5vt65j/">Copiar</button></td></tr><tr><td><b>Registro de Horneado y Seguimiento del Horno</b> · 10 págs</td><td>bono</td><td class='url'>registro-de-horneado-y-seguimiento-del-h/1kuaexm3u1/</td><td><button class="cp" data-copy="registro-de-horneado-y-seguimiento-del-h/1kuaexm3u1/">Copiar</button></td></tr><tr><td><b>Licencia Comercial para Artesanos</b> · 8 págs</td><td>bono</td><td class='url'>licencia-comercial-para-artesanos/1f77j7mt6e/</td><td><button class="cp" data-copy="licencia-comercial-para-artesanos/1f77j7mt6e/">Copiar</button></td></tr></table><p class="nota">Verificá que todo dé 200 con <code>python verificar.py --online</code> antes de cargar el hub en la tienda. Las OTOs llevan su propia URL en su propio producto.</p></section>
+  <section id="s4"><h2><span class="n">4</span>Imágenes y mockups</h2><p class="pend">Todavía no hay mockups ni imágenes (mockups/1-hero-*.png, 2-bonos-*.png).</p></section>
+  <section id="s5"><h2><span class="n">5</span>Ads</h2><p><span class="url">/Users/santilahoz/Desktop/Segundo Cerebro/OUTPUTS/2026-10-13-entregable-la-biblioteca-maestra-de-ceram/ADS/CLAY-BLUEPRINTS-MX/2026-10-13</span> <button class="cp" data-copy="/Users/santilahoz/Desktop/Segundo Cerebro/OUTPUTS/2026-10-13-entregable-la-biblioteca-maestra-de-ceram/ADS/CLAY-BLUEPRINTS-MX/2026-10-13">Copiar ruta</button> <a href="file:///Users/santilahoz/Desktop/Segundo%20Cerebro/OUTPUTS/2026-10-13-entregable-la-biblioteca-maestra-de-ceram/ADS/CLAY-BLUEPRINTS-MX/2026-10-13">Abrir carpeta</a></p><p class="bad">La carpeta no existe.</p></section>
+  <section id="s6"><h2><span class="n">6</span>Lanzamiento</h2><p class="pend">⏳ Pendiente: se completa cuando se lanza (cuenta, campaña, conjunto, presupuesto, píxel, página).</p></section>
+  <section id="s7"><h2><span class="n">7</span>Antes de pautar</h2><ol class="check"><li>Todas las URLs de entregables dan 200 (verificar.py --online)</li><li>Grep de contactos y de keys vacío</li><li>Cantidades del core y nombres de bonos = landing</li><li>Mockup hero 3:2 fondo blanco cargado en el checkout</li><li>Producto principal con título completo y entrega = link al hub</li><li>OTOs cargadas en sus productos con su propia URL</li><li>Compra de prueba: el mail llega con UN link al hub y el hub abre</li></ol></section>
+  <p class="foot">Archivo local de uso interno. No lo publiques.</p>
+</div>
+<script>
+async function copiar(txt, btn) {
+  try { await navigator.clipboard.writeText(txt); }
+  catch (e) { const t = document.createElement("textarea"); t.value = txt; document.body.append(t); t.select(); document.execCommand("copy"); t.remove(); }
+  const prev = btn.textContent; btn.textContent = "¡Copiado!"; btn.classList.add("ok");
+  setTimeout(() => { btn.textContent = prev; btn.classList.remove("ok"); }, 1400);
+}
+document.addEventListener("click", e => {
+  const b = e.target.closest(".cp"); if (!b) return;
+  const txt = b.dataset.copy ?? document.getElementById(b.dataset.target)?.textContent ?? "";
+  copiar(txt, b);
+});
+</script>
+</body>
+</html>

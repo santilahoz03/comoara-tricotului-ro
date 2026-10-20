@@ -1,0 +1,7 @@
+id,concepto,origen,parent,batch,archivo,audio,costo_usd,estado,card
+g1,Vuosikausia,produccion-propia,,2026-10-16,ADS/NEULONNAN-AARREAITTA-FI/2026-10-16/1.mp4,work/neulonnan-fi-g1/voz-norm.wav,0.13,listo,si
+g2,Minuutteja hukkaan,produccion-propia,,2026-10-16,ADS/NEULONNAN-AARREAITTA-FI/2026-10-16/2.mp4,work/neulonnan-fi-g2/voz-norm.wav,0.11,listo,no
+g3,5200 mallia,produccion-propia,,2026-10-16,ADS/NEULONNAN-AARREAITTA-FI/2026-10-16/3.mp4,work/neulonnan-fi-g3/voz-norm.wav,0.11,listo,si
+g4,Kesken jaaneet projektit,produccion-propia,,2026-10-16,ADS/NEULONNAN-AARREAITTA-FI/2026-10-16/4.mp4,work/neulonnan-fi-g4/voz-norm.wav,0.11,listo,no
+g5,Viikonlopussa valmis,produccion-propia,,2026-10-16,ADS/NEULONNAN-AARREAITTA-FI/2026-10-16/5.mp4,work/neulonnan-fi-g5/voz-norm.wav,0.11,listo,no
+g6,En tiennyt etta taman voi neuloa,produccion-propia,,2026-10-16,ADS/NEULONNAN-AARREAITTA-FI/2026-10-16/6.mp4,work/neulonnan-fi-g6/voz-norm.wav,0.10,listo,no

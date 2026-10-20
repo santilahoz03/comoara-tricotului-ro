@@ -1,0 +1,33 @@
+{
+  "nombre": "Zabawowa Metoda Muzyczna",
+  "mercado": "PL",
+  "idioma": "pl",
+  "moneda": "EUR",
+  "precio": 17.99,
+  "producto_principal": {
+    "titulo": "Zabawowa Metoda Muzyczna",
+    "archivo": "zabawowa-metoda-muzyczna.pdf",
+    "paginas": "180+"
+  },
+  "bonuses": [
+    {
+      "numero": 1,
+      "titulo": "Tygodniowy Planer Lekcji",
+      "archivo": "bonus-1-tygodniowy-planer-lekcji.pdf",
+      "paginas": 12
+    },
+    {
+      "numero": 2,
+      "titulo": "Kolorowe Karty Rytmu",
+      "archivo": "bonus-2-kolorowe-karty-rytmu.pdf",
+      "paginas": 15
+    },
+    {
+      "numero": 3,
+      "titulo": "Pakiet Motoryki Drobnej Muzycznej",
+      "archivo": "bonus-3-pakiet-motoryki-drobnej.pdf",
+      "paginas": 15
+    }
+  ],
+  "hub_url": "https://santilahoz03.github.io/playful-music-pl/acceso/e6sdnnry5u/"
+}

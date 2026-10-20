@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vonzó Profil™ — Mágneses Férfi</title>
+<style>
+:root {
+  --bg: #FBF9F5;
+  --ink: #17130E;
+  --accent: #A63A2A;
+  --muted: #6B5E54;
+  --line: #E2D9CE;
+  --bg-alt: #F2EDE5;
+  --page: #FFFFFF;
+  --success: #37CA37;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 15px;
+  line-height: 1.8;
+}
+.page {
+  background: var(--page);
+  width: 210mm;
+  min-height: 297mm;
+  margin: 0 auto 24px;
+  padding: 22mm 20mm 20mm;
+}
+@media print {
+  body { background: white; }
+  .page { width: 100%; margin: 0; padding: 18mm 17mm 15mm; page-break-after: always; }
+  .page:last-child { page-break-after: avoid; }
+}
+h1 { font-family: Georgia, serif; font-size: 28px; font-weight: 700; color: var(--ink); margin-bottom: 8px; }
+h2 { font-family: Georgia, serif; font-size: 19px; font-weight: 700; color: var(--ink); margin-top: 30px; margin-bottom: 12px; }
+h3 { font-family: Georgia, serif; font-size: 15px; font-weight: 700; color: var(--accent); margin-top: 22px; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.05em; }
+p { margin-bottom: 12px; }
+.brand { font-family: Georgia, serif; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-bottom: 16px; }
+.subtitle { font-size: 16px; color: var(--muted); margin-bottom: 28px; font-style: italic; }
+.divider { border: none; border-top: 1px solid var(--line); margin: 24px 0; }
+.insight {
+  background: var(--bg-alt);
+  border-left: 3px solid var(--accent);
+  padding: 12px 18px;
+  margin: 18px 0;
+  font-style: italic;
+}
+.insight p { margin: 0; }
+.section-num {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  font-family: Georgia, serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 3px 10px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+.checklist-item {
+  border-bottom: 1px solid var(--line);
+  padding: 14px 0;
+  display: grid;
+  grid-template-columns: 28px 1fr auto;
+  gap: 10px;
+  align-items: start;
+}
+.checklist-item:last-child { border-bottom: none; }
+.item-num {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--accent);
+  padding-top: 2px;
+}
+.item-body {}
+.item-body strong { display: block; font-size: 15px; color: var(--ink); margin-bottom: 4px; }
+.item-body p { font-size: 14px; color: var(--muted); margin: 0; line-height: 1.6; }
+.check-badge {
+  width: 22px;
+  height: 22px;
+  border: 2px solid var(--line);
+  border-radius: 4px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.step-list { margin: 12px 0 12px 20px; }
+.step-list li { margin-bottom: 10px; font-size: 15px; }
+.step-list li strong { color: var(--accent); }
+.rule-box {
+  border: 1px solid var(--line);
+  padding: 14px 18px;
+  margin: 18px 0;
+  background: var(--bg-alt);
+}
+.rule-box .rule-title { font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); margin-bottom: 8px; }
+.rule-box p { margin: 0; font-size: 15px; }
+.footer { border-top: 1px solid var(--line); padding-top: 12px; margin-top: auto; font-size: 11px; color: var(--muted); text-align: center; letter-spacing: 0.06em; }
+.page-cover {
+  display: flex; flex-direction: column; justify-content: flex-end;
+  min-height: 297mm; background: var(--ink); color: #FBF9F5;
+  padding: 0 24mm 28mm;
+}
+.cover-title { font-family: Georgia, serif; font-size: 34px; font-weight: 700; color: #FBF9F5; margin-bottom: 14px; line-height: 1.2; }
+.cover-sub { font-size: 16px; color: rgba(251,249,245,0.7); margin-bottom: 28px; font-style: italic; }
+.cover-brand { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(251,249,245,0.4); margin-bottom: auto; padding-top: 32mm; }
+.tag-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
+.tag { background: rgba(166,58,42,0.85); color: #fff; font-size: 11px; padding: 4px 12px; letter-spacing: 0.08em; text-transform: uppercase; }
+.cover-footer { font-size: 11px; color: rgba(251,249,245,0.35); letter-spacing: 0.06em; }
+.template-box {
+  background: var(--bg-alt);
+  border: 1px dashed var(--line);
+  padding: 14px 18px;
+  margin: 14px 0;
+  font-size: 14px;
+}
+.template-box .tpl-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 6px; }
+.template-box p { margin: 0; font-style: italic; color: var(--ink); line-height: 1.7; }
+</style>
+</head>
+<body>
+
+<!-- BORÍTÓ -->
+<div class="page page-cover">
+  <div class="cover-brand">Mágneses Férfi™ · OTO4</div>
+  <div class="tag-row">
+    <span class="tag">Fotók — 12 pont</span>
+    <span class="tag">Bio — 8 pont</span>
+    <span class="tag">Első üzenetek — 10 pont</span>
+  </div>
+  <div class="cover-title">Vonzó Profil™</div>
+  <div class="cover-sub">Társkereső profil checklist — lépésről lépésre,<br>az első képtől az első találkozóig.</div>
+  <div class="cover-footer">Csak vásárlóknak · Ne továbbítsd</div>
+</div>
+
+<!-- BEVEZETÉS -->
+<div class="page">
+  <div class="brand">Vonzó Profil™ · Bevezetés</div>
+  <h1>Miért nem hoz matcheket a legtöbb profil</h1>
+  <p class="subtitle">Nem az arc a probléma. A profil az.</p>
+
+  <p>A társkereső alkalmazásokon az első döntés 2 másodperc alatt születik. Nem olvassák el a bio-dat, nem nézik meg az összes képedet, nem értékelik a humorodat. Az első kép alapján döntenek.</p>
+
+  <p>A legtöbb férfi profilja három hibából áll: rossz főkép (stúdiófotó, csoport, rossz megvilágítás), értelmetlen bio ("szeretem az utazást, jó ételt és humort"), és nem tudja, mikor kell találkozót javasolni.</p>
+
+  <div class="insight">
+    <p>„A profil nem önéletrajz. Marketing anyag. A kérdés nem 'mi vagyok?', hanem 'mit közvetít ez a kép és ez a szöveg, még mielőtt bárkit érdekelne, ki vagyok?'"</p>
+  </div>
+
+  <p>Ez a checklist 30 pontból áll, három részre bontva. Menj végig minden ponton. Ha valamelyik "NEM"-re válaszolsz, az a profil egy gyenge pontja — szükségszerűen javíts rajta.</p>
+
+  <h2>A három rész</h2>
+  <ol class="step-list">
+    <li><strong>Fotók (12 pont):</strong> Melyik képeket, milyen sorrendben, mit kerülj el.</li>
+    <li><strong>Bemutatkozás / Bio (8 pont):</strong> Mit írj, mit ne, és hogyan épül fel egy működő bio.</li>
+    <li><strong>Első üzenetek (10 pont):</strong> Mit írj, mit kerülj, mikor javasold a találkozót — 3 konkrét templatel.</li>
+  </ol>
+
+  <hr class="divider">
+  <p style="font-size: 13px; color: var(--muted);">A checklist platformfüggetlen: Tinder, Bumble és Hinge mind működik vele. Hinge-en a promptok is relevánsak — azokat az Első üzenetek részben érintjük.</p>
+
+  <div class="footer">Mágneses Férfi™ · Vonzó Profil™ · Csak vásárlóknak</div>
+</div>
+
+<!-- FOTÓK -->
+<div class="page">
+  <div class="brand">Vonzó Profil™ · 1. rész</div>
+  <div class="section-num">1. rész</div>
+  <h1>Fotók</h1>
+  <p class="subtitle">12 kérdés, amely megmutatja, hol vérzik a profilod.</p>
+
+  <div class="checklist-item">
+    <div class="item-num">1</div>
+    <div class="item-body">
+      <strong>A főkép természetes fényben készült?</strong>
+      <p>Természetes fény (kültéri vagy ablak melletti) jobban nézz ki, mint stúdióvilágítás. Ha belső térben készült, legyen lágy, egyenletes fény. Kerüld a mennyezeti lámpa árnyékolását.</p>
+    </div>
+    <div class="check-badge"></div>
+  </div>
+
+  <div class="checklist-item">
+    <div class="item-num">2</div>
+    <div class="item-body">
+      <strong>Az arckifejezés: határozott de nem erőltetett?</strong>
+      <p>A legjobb arckifejezés: enyhe, természetes mosoly — nem nevetés, nem komoly arc. A szájszélek felhúzva, de a testtartás laza. Kerüld a "minek vagyok itt" kifejezést és a túl erőltetett vigyort egyaránt.</p>
+    </div>
+    <div class="check-badge"></div>
+  </div>
+
+  <div class="checklist-item">
+    <div class="item-num">3</div>
+    <div class="item-body">
+      <strong>A főképen egyedül vagy?</strong>
+      <p>Csoportképek mint főkép biztosan rossz döntés — nem tudni, ki vagy. Ha van csoportkép a profiledon (akár javasolt a 6. pontban), az soha ne legyen az első.</p>
+    </div>
+    <div class="check-badge"></div>
+  </div>
+
+  <div class="checklist-item">
+    <div class="item-num">4</div>
+    <div class="item-body">
+      <strong>A főkép háttere nem az otthonod fala / fürdőszobatükröd?</strong>
+      <p>Kültéri háttér (épület, természet, utca) vagy semleges belső tér sokkal jobban teljesít. A fürdőszobai tükrös selfie azonnali értékcsökkentő.</p>
+    </div>
+    <div class="check-badge"></div>
+  </div>
+
+  <div class="checklist-item">
+    <div class="item-num">5</div>
+    <div class="item-body">
+      <strong>A főkép "laza" és nem pózolt?</strong>
+      <p>A "lökéskép" (ahol te csinálsz valamit, és mellesleg jól nézel ki) felülmúlja a szándékosan fényképezős képet. Ha lehet, kérd meg valakit, hogy fotózzon egy természetes pillanatban.</p>
+    </div>
+    <div class="check-badge"></div>
+  </div>
+
+  <div class="checklist-item">
+    <div class="item-num">6</div>
+    <div class="item-body">
+      <strong>5-7 képed van, és van közöttük aktivitáskép?</strong>
+      <p>Az aktivitáskép téged mozgásban mutat: sport, kirándulás, főzés, alkotás — bármi, ami mond valamit az életedről. Minimum 1-2 ilyen kép legyen.</p>
+    </div>
+    <div class="check-badge"></div>
+  </div>
+
+  <div class="checklist-item">
+    <div class="item-num">7</div>
+    <div class="item-body">
+      <strong>Van legalább egy természetes társasági kontextusú képed?</strong>
+      <p>Nem bulizós kép — hanem: vacsora barátokkal, verseny résztvevőjeként, csapatban egy projekten. Ez jelzi, hogy van szociális életed, és befogadnak mások.</p>
+    </div>
+    <div class="check-badge"></div>
+  </div>
+
+  <div class="checklist-item">
+    <div class="item-num">8</div>
+    <div class="item-body">
+      <strong>Van közeli arckép (portrait) is?</strong>
+      <p>Legalább egy kép, ahol az arcod jól látható közelről. Ez bizalmat épít — nem csak messziről ismeri meg, aki swipel.</p>
+    </div>
+    <div class="check-badge"></div>
+  </div>
+
+  <div class="checklist-item">
+    <div class="item-num">9</div>
+    <div class="item-body">
+      <strong>Nincsenek rács-képeid, trollos szövegű képeid, szűrős képeid?</strong>
+      <p>Snapchat-szűrők, Photoshop, rácsos Instagram-kollázs, "vicces" feliratok a képen — mind értékcsökkentők. A profil az, ami vagy, nem egy meme.</p>
+    </div>
+    <div class="check-badge"></div>
+  </div>
+
+  <div class="checklist-item">
+    <div class="item-num">10</div>
+    <div class="item-body">
+      <strong>Nincsenek régi képeid (3+ évnél idősebb)?</strong>
+      <p>Ha az arcod és az alakod azóta változott, félre vezeted az elvárásokat a találkozón. A képeknek a jelenlegi valóságodat kell mutatniuk.</p>
+    </div>
+    <div class="check-badge"></div>
+  </div>
+
+  <div class="checklist-item">
+    <div class="item-num">11</div>
+    <div class="item-body">
+      <strong>A képek sorrendje logikus: legjobb → aktivitás → társasági → közeli?</strong>
+      <p>Az első kép a kapu. Ha bemennek, az 5-7 kép együtt mesél el egy természetes, hiteles személyt. A sorrend számít.</p>
+    </div>
+    <div class="check-badge"></div>
+  </div>
+
+  <div class="checklist-item">
+    <div class="item-num">12</div>
+    <div class="item-body">
+      <strong>Ha 2 hete nem nőnek a matcheid, az első képet frissítetted?</strong>
+      <p>Az algoritmus az aktivitást jutalmazza. Új főkép = újabb exponálás. Tarts tartalékban 2-3 különböző főképet, és rotáld őket.</p>
+    </div>
+    <div class="check-badge"></div>
+  </div>
+
+  <div class="footer">Mágneses Férfi™ · Vonzó Profil™ · Csak vásárlóknak</div>
+</div>
+
+<!-- BIO -->
+<div class="page">
+  <div class="brand">Vonzó Profil™ · 2. rész</div>
+  <div class="section-num">2. rész</div>
+  <h1>Bemutatkozás (Bio)</h1>
+  <p class="subtitle">8 kérdés. A bio az, ahol a legtöbb férfi unalmassá válik.</p>
+
+  <div class="checklist-item">
+    <div class="item-num">1</div>
+    <div class="item-body">
+      <strong>A bio nem hosszabb 3 sornál?</strong>
+      <p>Senki nem olvassa el a hárombekezdéses önéletrajzot. 2-3 sor, maximum 4. Kevesebb szó = fontosabbá válik minden szó.</p>
+    </div>
+    <div class="check-badge"></div>
+  </div>
+
+  <div class="checklist-item">
+    <div class="item-num">2</div>
+    <div class="item-body">
+      <strong>Az első mondat egy specifikus állítás vagy konkrét kép — nem bemutatkozás?</strong>
+      <p>"Legutóbb egy félresikerült túrán kénytelen voltam a kutyával megosztani a szendvicsemet" sokkal jobban indít, mint "Péter vagyok, 31, Budapest."</p>
+    </div>
+    <div class="check-badge"></div>
+  </div>
+
+  <div class="checklist-item">
+    <div class="item-num">3</div>
+    <div class="item-body">
+      <strong>Nincsenek benne klisék? ("utazás", "jó étel", "humor", "szeretek nevetni")</strong>
+      <p>Ezeket mindenki írja. Egy klisé a bio-ban = a bio nem dolgozik a vonzerőért. Minden állításod specifikus, ami csak rád igaz.</p>
+    </div>
+    <div class="check-badge"></div>
+  </div>
+
+  <div class="checklist-item">
+    <div class="item-num">4</div>
+    <div class="item-body">
+      <strong>Nincsenek kérvényező mondatok? ("keresem azt, aki...", "remélem, megtalálom a...")</strong>
+      <p>A kérvényező hangnem elfogadóra vár és szükségletet kommunikál. A bio a jellemedet kommunikálja, nem a szükségleteidet.</p>
+    </div>
+    <div class="check-badge"></div>
+  </div>
+
+  <div class="checklist-item">
+    <div class="item-num">5</div>
+    <div class="item-body">
+      <strong>Van benne egy vélemény, preferencia vagy állítás, amely polarizál?</strong>
+      <p>"Reggel fut az agyam, este kávé nélkül nem ember vagyok" — ez kellemesebben polarizál, mint "szeretek kávézni". A gyenge állítások gyenge párbeszédet generálnak.</p>
+    </div>
+    <div class="check-badge"></div>
+  </div>
+
+  <div class="checklist-item">
+    <div class="item-num">6</div>
+    <div class="item-body">
+      <strong>A zárás nyitott — nem kérdez, de invitál?</strong>
+      <p>"Ha te is tudod, melyik városrészben a legjobb ramen, írj." — ez nem kérdés, de megnyit egy kaput. Egy sima kérdéses zárás ("Mit gondolsz?") gyengébb.</p>
+    </div>
+    <div class="check-badge"></div>
+  </div>
+
+  <div class="checklist-item">
+    <div class="item-num">7</div>
+    <div class="item-body">
+      <strong>Nincs benne romantikus szándéknyilatkozat?</strong>
+      <p>"Komoly kapcsolatot keresek" — ez informatív, de csökkenti a vonzerőt, mert szükséglet-jelzés. Ha komoly kapcsolatot keresel, az a találkozón kiderül. A bio-ban nem kell.</p>
+    </div>
+    <div class="check-badge"></div>
+  </div>
+
+  <div class="checklist-item">
+    <div class="item-num">8</div>
+    <div class="item-body">
+      <strong>Hangosan elolvasva természetesen hangzik, nem "leírt"?</strong>
+      <p>A legjobb teszt: hangosan olvasd fel. Ha monológnak hangzik, amit írnál, nem amit mondanál — írd újra. A bio az írásbeli hangod.</p>
+    </div>
+    <div class="check-badge"></div>
+  </div>
+
+  <div class="insight">
+    <p>„A bio feladata nem az, hogy elmagyarázza, ki vagy. Az, hogy azt a személyt hívja elő, aki szívesen írna neked."</p>
+  </div>
+
+  <div class="footer">Mágneses Férfi™ · Vonzó Profil™ · Csak vásárlóknak</div>
+</div>
+
+<!-- ELSŐ ÜZENETEK -->
+<div class="page">
+  <div class="brand">Vonzó Profil™ · 3. rész</div>
+  <div class="section-num">3. rész</div>
+  <h1>Első üzenetek</h1>
+  <p class="subtitle">10 kérdés, 3 template — az első szótól a találkozóig.</p>
+
+  <h2>A 3 alapelv mielőtt belenézel a checklibe</h2>
+  <ol class="step-list">
+    <li><strong>Ne dicsérj — reagálj.</strong> "Szia, jól nézel ki" → halott. "Láttam, hogy mászó — te is mindig kiakadsz azon a 6B-n, ami papíron egyszerűnek tűnik?" → élő.</li>
+    <li><strong>Az első üzenet a profilára vonatkozik, nem rád.</strong> Olvass el a bio-ját vagy nézd meg a képeit mielőtt írsz.</li>
+    <li><strong>3-5 üzenetváltás után találkozó. Nem több.</strong> A chat soha nem váltja ki a személyes találkozót — és minél több chat, annál több ideje van kételkedni.</li>
+  </ol>
+
+  <h2>3 működő template</h2>
+
+  <div class="template-box">
+    <div class="tpl-label">Template 1 — Profilra reagáló</div>
+    <p>"Látom, [konkrét dolog a profilból]. Nálunk is [rövid, személyes kapcsolódás]. [Egy laza kérdés vagy állítás, ami folytatásra vár.]"<br><br>
+    Példa: "Látom, te is ott voltál ennél a meetup-nál — nálunk is elkezdtük ezt a témát, de soha nem lett belőle semmi. Mi volt a legérdekesebb rész neked?"</p>
+  </div>
+
+  <div class="template-box">
+    <div class="tpl-label">Template 2 — Véleményt kérő (Hinge-hez jó)</div>
+    <p>"[Konkrét véleményt vagy preferenciát igénylő kérdés, ami a profiljából következik] — ez az a típusú kérdés, amin meglepően sokat lehet vitatkozni."<br><br>
+    Példa: "A profilodban van az a kép a ramen-nel — neked is az a kérdés, hogy Japánban tanuld meg csinálni, vagy elég a Budapest verzió? Mert ez közel kettészakítja az embereket."</p>
+  </div>
+
+  <div class="template-box">
+    <div class="tpl-label">Template 3 — Direkt, találkozó-orientált</div>
+    <p>"[Egy konkrét megfigyelés a profilból]. Ha [kontextus, ahol találkozhatnátok, természetesen], érdekel?"<br><br>
+    Példa: "Látom te is kávézós vagy. Pénteken a [hely]-ben leszek — ha eszedbe jut erre járni, szívesen veszem a [konkrét kérdés a profilodból] kérdésre adott választ személyesen."</p>
+  </div>
+
+  <h2>Checklist — 10 pont</h2>
+
+  <div class="checklist-item">
+    <div class="item-num">1</div>
+    <div class="item-body"><strong>Megnézted a profilját mielőtt írtál?</strong><p>Legalább az első képet és a bio-t. Ha van kép specifikus helyzetben vagy aktivitásban, az az első üzenet alapja.</p></div>
+    <div class="check-badge"></div>
+  </div>
+
+  <div class="checklist-item">
+    <div class="item-num">2</div>
+    <div class="item-body"><strong>Az első üzenet nem "Szia" vagy "Hello, hogy vagy?"?</strong><p>Az üdvözlő kérdés 90%-ban nem kap érdemi választ, mert nem kínál semmit a párbeszédnek.</p></div>
+    <div class="check-badge"></div>
+  </div>
+
+  <div class="checklist-item">
+    <div class="item-num">3</div>
+    <div class="item-body"><strong>Nem dicsérted az arcát vagy a megjelenését?</strong><p>A fizikai bókkal nyitó üzenet gyenge kapcsolódást teremt és a külsőre helyezi a figyelmet ahelyett, hogy az értékeidre.</p></div>
+    <div class="check-badge"></div>
+  </div>
+
+  <div class="checklist-item">
+    <div class="item-num">4</div>
+    <div class="item-body"><strong>Az üzeneted max 2-3 sor?</strong><p>Az első üzenet nem esszé. Ha 4 sornál több, rövidítsd le. A rövidség azt kommunikálja, hogy nem izzadtál érte.</p></div>
+    <div class="check-badge"></div>
+  </div>
+
+  <div class="checklist-item">
+    <div class="item-num">5</div>
+    <div class="item-body"><strong>Minden üzenetedben csak egy kérdés van (ha van kérdés)?</strong><p>Több kérdés egyszerre = nyomás. Egy kérdés = egy természetes párbeszéd folytatása.</p></div>
+    <div class="check-badge"></div>
+  </div>
+
+  <div class="checklist-item">
+    <div class="item-num">6</div>
+    <div class="item-body"><strong>Ha 48 órán belül nem válaszolt, nem írsz újra?</strong><p>A "még mindig itt vagyok" üzenet nem vonzó. Nem válasz = nem érdekli, vagy nagyon elfoglalt. Mindkét esetben továbblépés.</p></div>
+    <div class="check-badge"></div>
+  </div>
+
+  <div class="checklist-item">
+    <div class="item-num">7</div>
+    <div class="item-body"><strong>A találkozó javaslatot 3-5 üzenetváltás után küldted — nem hamarabb, nem sokkal később?</strong><p>Hamarabb = nincs kontextus, furán hangzik. Sokkal később = vég nélküli chat, ami soha nem lesz találkozó.</p></div>
+    <div class="check-badge"></div>
+  </div>
+
+  <div class="checklist-item">
+    <div class="item-num">8</div>
+    <div class="item-body"><strong>A találkozó javaslatodnak van konkrét helyszíne és időpontja?</strong><p>"Találkozzunk valamikor!" = halott. "Szerdán este 19:00-ra a [konkrét hely]-be mész?" = döntési lehetőség, nem lebegő szándék.</p></div>
+    <div class="check-badge"></div>
+  </div>
+
+  <div class="checklist-item">
+    <div class="item-num">9</div>
+    <div class="item-body"><strong>Telefonszámot adtál a találkozó megerősítésekor?</strong><p>A findlkozó visszaigazoláshoz célszerű kilépni az appból. "A részletekre SMS-ben is elérhetsz: [szám]" — ez konkrét és bizalmat mutat.</p></div>
+    <div class="check-badge"></div>
+  </div>
+
+  <div class="checklist-item">
+    <div class="item-num">10</div>
+    <div class="item-body"><strong>Ha visszautasítja a találkozót, nem érdeklődsz miért?</strong><p>A "miért nem?" kérdés kérvényező. Egy udvarias "Értem, ha megváltozik, jelezd" — és továbblépés.</p></div>
+    <div class="check-badge"></div>
+  </div>
+
+  <div class="footer">Mágneses Férfi™ · Vonzó Profil™ · Csak vásárlóknak</div>
+</div>
+
+</body>
+</html>

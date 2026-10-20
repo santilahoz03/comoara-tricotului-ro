@@ -1,0 +1,820 @@
+/* ── Magnetický Muž · Shared PDF Styles ── */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;500;600&display=swap');
+
+:root {
+  --bg: #FBF9F5;
+  --ink: #17130E;
+  --accent: #A63A2A;
+  --success: #37CA37;
+  --bg-alt: #F2EDE5;
+  --muted: #6B5E54;
+  --line: #E2D9CE;
+  --page: #FFFFFF;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+/* ── PDF page wrapper ── */
+.page {
+  background: var(--page);
+  width: 210mm;
+  min-height: 297mm;
+  margin: 0 auto 24px;
+  padding: 22mm 20mm 20mm;
+  position: relative;
+}
+
+@media print {
+  body { background: white; }
+  .page {
+    width: 100%;
+    margin: 0;
+    padding: 18mm 17mm 15mm;
+    page-break-after: always;
+  }
+  .page:last-child { page-break-after: avoid; }
+}
+
+/* ── Cover ── */
+.cover {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 297mm;
+  background: var(--ink);
+  color: #FBF9F5;
+  position: relative;
+  overflow: hidden;
+}
+
+.cover-bg-img {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  opacity: 0.45;
+  z-index: 0;
+}
+
+.cover-gradient {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 72%;
+  background: linear-gradient(to top, rgba(23,19,14,0.96) 0%, rgba(23,19,14,0.55) 55%, transparent 100%);
+  z-index: 1;
+}
+
+.cover .brand {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 32px;
+}
+
+.cover h1 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 52px;
+  font-weight: 700;
+  line-height: 1.1;
+  color: #FBF9F5;
+  margin-bottom: 12px;
+}
+
+.cover .subtitle {
+  font-size: 18px;
+  color: #BEB3A8;
+  font-style: italic;
+  margin-bottom: 40px;
+}
+
+.cover .switches-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 48px;
+}
+
+.cover .switch-pill {
+  background: rgba(166,58,42,0.25);
+  border: 1px solid var(--accent);
+  color: #E8C4BB;
+  font-size: 11px;
+  padding: 4px 12px;
+  border-radius: 99px;
+  letter-spacing: 0.05em;
+}
+
+.cover .cover-footer {
+  font-size: 12px;
+  color: #6B5E54;
+  border-top: 1px solid #2E2924;
+  padding-top: 16px;
+}
+
+/* ── Chapter opener ── */
+.chapter-header {
+  margin-bottom: 32px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid var(--line);
+}
+
+.chapter-num {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.chapter-num::before {
+  content: '';
+  display: block;
+  width: 28px;
+  height: 2px;
+  background: var(--accent);
+  flex-shrink: 0;
+}
+
+.chapter-header h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--ink);
+  margin-bottom: 10px;
+}
+
+.chapter-header .chapter-lead {
+  font-size: 16px;
+  color: var(--muted);
+  font-style: italic;
+  line-height: 1.6;
+}
+
+/* ── Body text ── */
+p {
+  margin-bottom: 16px;
+  color: var(--ink);
+}
+
+strong { font-weight: 600; }
+
+/* ── Section heading ── */
+h3 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 19px;
+  font-weight: 600;
+  margin: 36px 0 13px;
+  color: var(--ink);
+}
+
+h4 {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 24px 0 8px;
+}
+
+/* ── Pull quote / insight box ── */
+.insight {
+  background: var(--bg-alt);
+  border-left: 4px solid var(--accent);
+  padding: 24px 28px;
+  margin: 32px 0;
+  border-radius: 0 8px 8px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.insight::before {
+  content: '\201C';
+  position: absolute;
+  top: -20px;
+  right: 14px;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 110px;
+  color: var(--accent);
+  opacity: 0.09;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.insight p {
+  font-size: 19px;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  color: var(--ink);
+  line-height: 1.5;
+  margin: 0;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Přepínač (switch) block ── */
+.switch-block {
+  background: var(--bg-alt);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 0 22px 18px;
+  margin: 32px 0;
+  border-top: none;
+  overflow: hidden;
+  box-shadow: 0 3px 16px rgba(23,19,14,0.08);
+}
+
+.switch-block .switch-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: var(--ink);
+  margin: 0 -22px;
+  padding: 14px 22px 5px;
+  display: block;
+}
+
+.switch-block .switch-name {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 19px;
+  font-weight: 700;
+  color: #F5F0E8;
+  background: var(--ink);
+  margin: 0 -22px 18px;
+  padding: 3px 22px 16px;
+  display: block;
+}
+
+.switch-block p {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.switch-block p:last-child { margin-bottom: 0; }
+
+/* ── Bullet list ── */
+ul.check {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0;
+}
+
+ul.check li {
+  padding-left: 24px;
+  position: relative;
+  margin-bottom: 10px;
+  font-size: 14.5px;
+  color: var(--ink);
+}
+
+ul.check li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--success);
+  font-weight: 700;
+}
+
+ul.dash {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0;
+}
+
+ul.dash li {
+  padding-left: 20px;
+  position: relative;
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: var(--ink);
+}
+
+ul.dash li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--muted);
+}
+
+/* ── Example dialogue box ── */
+.dialog-box {
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 24px 0;
+  box-shadow: 0 2px 10px rgba(23,19,14,0.06);
+}
+
+.dialog-box .dialog-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  background: var(--bg-alt);
+  padding: 10px 20px;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 0;
+}
+
+.dialog-box .dialog-label:not(:first-child) {
+  border-top: 1px solid var(--line);
+}
+
+.dialog-line {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  gap: 14px;
+  align-items: start;
+  padding: 11px 20px;
+  border-bottom: 1px solid var(--line);
+}
+
+.dialog-line:last-child { border-bottom: none; }
+
+.dialog-line .who {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+  padding-top: 3px;
+  line-height: 1.4;
+}
+
+.dialog-line .what {
+  font-size: 13.5px;
+  color: var(--ink);
+  border-left: none;
+  padding-left: 0;
+  line-height: 1.65;
+}
+
+/* ── Warning / "nedělej to" box ── */
+.warning-box {
+  background: #A63A2A0D;
+  border: 1px solid #A63A2A40;
+  border-left: 4px solid var(--accent);
+  border-radius: 0 8px 8px 0;
+  padding: 16px 18px;
+  margin: 24px 0;
+}
+
+.warning-box .warning-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.warning-box .warning-label::before {
+  content: '✕';
+  font-size: 11px;
+  font-weight: 900;
+}
+
+.warning-box p {
+  font-size: 14px;
+  margin: 0;
+  color: var(--ink);
+}
+
+/* ── Section divider ── */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 32px 0;
+  color: var(--accent);
+  font-size: 10px;
+  letter-spacing: 0.32em;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--line);
+}
+
+/* ── Page footer ── */
+.page-footer {
+  position: absolute;
+  bottom: 14mm;
+  left: 20mm;
+  right: 20mm;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 10px;
+  color: var(--muted);
+  border-top: 1px solid var(--line);
+  padding-top: 6px;
+}
+
+/* ── Table of contents ── */
+.toc-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 8px 0;
+  border-bottom: 1px dotted var(--line);
+  font-size: 14px;
+}
+
+.toc-item .toc-title { color: var(--ink); }
+.toc-item .toc-num { color: var(--muted); font-size: 12px; }
+.toc-section {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--accent);
+  margin: 20px 0 8px;
+}
+
+/* ── Situace block (bonus) ── */
+.situace-block {
+  margin: 36px 0;
+}
+
+.situace-block .situace-num {
+  display: inline-block;
+  background: var(--accent);
+  color: white;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 99px;
+  letter-spacing: 0.06em;
+  margin-bottom: 10px;
+}
+
+.situace-block h3 {
+  margin-top: 0;
+  font-size: 20px;
+}
+
+.situace-block .context {
+  background: var(--bg-alt);
+  border-radius: 6px;
+  padding: 12px 16px;
+  font-size: 13px;
+  color: var(--muted);
+  font-style: italic;
+  margin-bottom: 16px;
+  border-left: 3px solid var(--line);
+}
+
+.step {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 14px;
+  align-items: flex-start;
+}
+
+.step .step-n {
+  flex-shrink: 0;
+  width: 26px;
+  height: 26px;
+  background: var(--accent);
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  margin-top: 2px;
+}
+
+.step .step-body { flex: 1; }
+
+.step .step-say {
+  font-size: 14px;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+
+.step .step-why {
+  font-size: 12px;
+  color: var(--muted);
+  font-style: italic;
+}
+
+/* ── Chapter splash page (full-page image opener, magazine style) ── */
+.page.chapter-splash {
+  padding: 0;
+  background: var(--ink);
+  overflow: hidden;
+}
+.chapter-splash-img {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  opacity: 0.78;
+  z-index: 0;
+}
+.chapter-splash-overlay {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 0 24mm 26mm;
+  background: linear-gradient(to top, rgba(23,19,14,0.94) 0%, rgba(23,19,14,0.55) 50%, transparent 100%);
+  z-index: 2;
+  min-height: 55%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.chapter-splash-overlay .chapter-num {
+  display: block;
+  color: var(--accent);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.chapter-splash-overlay .chapter-num::before {
+  display: none;
+}
+.chapter-splash-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 1.15;
+  color: #FBF9F5;
+  margin: 0 0 12px;
+}
+.chapter-splash-lead {
+  font-size: 15px;
+  color: rgba(251,249,245,0.68);
+  font-style: italic;
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* ── Situace banner (top-of-page image for bonus) ── */
+.situace-banner {
+  width: 100%;
+  height: 72mm;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 22px;
+  position: relative;
+}
+.situace-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+.situace-banner::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 35%;
+  background: linear-gradient(to top, var(--page) 0%, transparent 100%);
+}
+
+/* ── Switch summary grid ── */
+.switch-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin: 24px 0;
+}
+.switch-card {
+  background: var(--bg-alt);
+  border-radius: 10px;
+  padding: 18px;
+  border-top: none;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(23,19,14,0.07);
+}
+.switch-card.wide {
+  grid-column: 1 / -1;
+}
+.switch-card .card-img {
+  width: calc(100% + 36px);
+  margin: -18px -18px 14px;
+  height: 68px;
+  overflow: hidden;
+  border-radius: 10px 10px 0 0;
+}
+.switch-card .card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 25%;
+  display: block;
+}
+.switch-card .card-num {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 42px;
+  font-weight: 700;
+  color: var(--accent);
+  opacity: 0.2;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.switch-card .card-name {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 6px;
+  line-height: 1.3;
+}
+.switch-card .card-body {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+/* ══ BRAND LAYER — elevates perceived value ══ */
+
+/* ── Winner / "přepínač zapnutý" dialog line ── */
+.dialog-line.winner {
+  background: #EBF5EE;
+  border-bottom-color: #BEE0CA;
+}
+
+.dialog-line.winner .who {
+  color: #2A7A50;
+  font-weight: 800;
+}
+
+.dialog-line.winner .what {
+  color: #1A4A31;
+}
+
+/* ── TOC grid ── */
+.toc-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 24px 0 18px;
+}
+
+.toc-card {
+  background: var(--bg-alt);
+  border-radius: 8px;
+  padding: 16px 18px;
+  border-top: 3px solid var(--accent);
+  position: relative;
+  overflow: hidden;
+}
+
+.toc-card::after {
+  content: '';
+  position: absolute;
+  top: -8px;
+  right: -6px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--accent);
+  opacity: 0.05;
+}
+
+.toc-card .toc-num-big {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--accent);
+  opacity: 0.18;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.toc-card .toc-section-name {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 5px;
+  line-height: 1.3;
+}
+
+.toc-card .toc-sub {
+  font-size: 11px;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+/* ── CTA box (dark brand, end of documents) ── */
+.cta-box {
+  text-align: center;
+  margin-top: 48px;
+  padding: 36px 28px;
+  background: var(--ink);
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-box::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--accent);
+}
+
+.cta-box .cta-eyebrow {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+
+.cta-box .cta-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: #F5F0E8;
+  margin-bottom: 10px;
+  line-height: 1.25;
+}
+
+.cta-box .cta-body {
+  font-size: 14px;
+  color: rgba(245,240,232,0.6);
+  margin: 0;
+}
+
+/* ── Step element redesign (bonus) ── */
+.step .step-say {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 6px;
+}
+
+.step .step-why {
+  font-size: 13.5px;
+  color: var(--ink);
+  font-style: italic;
+  line-height: 1.6;
+  background: var(--bg-alt);
+  padding: 10px 14px;
+  border-radius: 6px;
+  border-left: 3px solid var(--line);
+  margin-top: 6px;
+  display: block;
+}
+
+/* ── Situace context (scene setting) ── */
+.situace-block .context {
+  position: relative;
+  background: #17130E08;
+  border-radius: 0 6px 6px 0;
+  padding: 20px 16px 14px;
+  margin-bottom: 16px;
+  border-left: 3px solid var(--ink);
+}
+
+.situace-block .context::before {
+  content: 'SCENĂ';
+  position: absolute;
+  top: 6px;
+  left: 16px;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--muted);
+  opacity: 0.7;
+}

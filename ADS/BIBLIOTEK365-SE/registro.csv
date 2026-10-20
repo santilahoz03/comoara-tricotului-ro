@@ -1,0 +1,7 @@
+id,concepto,origen,parent,batch,archivo,audio,costo_usd,estado
+1,replica-v1,V1-47s-polaco-copy-a,,2026-10-12,ADS/BIBLIOTEK365-SE/2026-10-12/1.mp4,ElevenLabs-Sarah-sv,1.06,listo
+2,replica-v2,V2-64s-polaco-culpa,,2026-10-12,ADS/BIBLIOTEK365-SE/2026-10-12/2.mp4,ElevenLabs-Sarah-sv,0.22,listo
+3,replica-v3,V3-42s-polaco-5min,,2026-10-12,ADS/BIBLIOTEK365-SE/2026-10-12/3.mp4,ElevenLabs-Sarah-sv,0.14,listo
+4,replica-v4,V4-82s-polaco-etapa,,2026-10-12,ADS/BIBLIOTEK365-SE/2026-10-12/4.mp4,ElevenLabs-Sarah-sv,0.27,listo
+5,replica-v5,V5-56s-polaco-cerebro,,2026-10-12,ADS/BIBLIOTEK365-SE/2026-10-12/5.mp4,ElevenLabs-Sarah-sv,0.18,listo
+6,replica-v6,V6-62s-polaco-cerebro2,,2026-10-12,ADS/BIBLIOTEK365-SE/2026-10-12/6.mp4,ElevenLabs-Sarah-sv,0.21,listo

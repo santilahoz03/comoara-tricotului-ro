@@ -1,0 +1,11 @@
+id,concepto,origen,parent,batch,archivo,audio,costo,estado
+1,curiosity-social-proof,vid_1 (EN cards/activities),arsenal-neurokids,2026-10-05,ADS/NEUROMICUTI/2026-10-05/1.mp4,Ana Maria,vmake+elevenlabs,listo
+2,anti-screens,vid_0 (EN book on table),arsenal-neurokids,2026-10-05,ADS/NEUROMICUTI/2026-10-05/2.mp4,Ana Maria,vmake+elevenlabs,listo
+3,specific-pain-homework,vid_8 (ES kid at table),arsenal-neurokids,2026-10-05,ADS/NEUROMICUTI/2026-10-05/3.mp4,Anca,vmake+elevenlabs,listo
+4,pattern-interrupt,vid_15 (ES kids at play table),arsenal-neurokids,2026-10-05,ADS/NEUROMICUTI/2026-10-05/4.mp4,Ana Maria,vmake+elevenlabs,listo
+5,discovery-word-of-mouth,vid_11 (EN activity book pages),arsenal-neurokids,2026-10-05,ADS/NEUROMICUTI/2026-10-05/5.mp4,Anca,vmake+elevenlabs,listo
+6,authority-teacher,vid_12 (EN focus book),arsenal-neurokids,2026-10-05,ADS/NEUROMICUTI/2026-10-05/6.mp4,Ana Maria,vmake+elevenlabs,listo
+7,secret-revelation-focus,vid_9 (DE book showcase),arsenal-neurokids,2026-10-05,ADS/NEUROMICUTI/2026-10-05/7.mp4,Eva,vmake+elevenlabs,listo
+8,frustration-homework,vid_7 (EN kid frustrated),arsenal-neurokids,2026-10-05,ADS/NEUROMICUTI/2026-10-05/8.mp4,Ana Maria,vmake+elevenlabs,listo
+9,emotional-storytelling-teacher,vid_3 (DE parents obsessed),arsenal-neurokids,2026-10-05,ADS/NEUROMICUTI/2026-10-05/9.mp4,Anca,vmake+elevenlabs,listo
+10,reframe-solution,vid_13 (EN activities/pom-poms),arsenal-neurokids,2026-10-05,ADS/NEUROMICUTI/2026-10-05/10.mp4,Ana Maria,vmake+elevenlabs,listo

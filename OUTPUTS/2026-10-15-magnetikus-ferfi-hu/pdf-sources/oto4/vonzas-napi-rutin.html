@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vonzás Napi Rutin™ — Mágneses Férfi</title>
+<style>
+:root {
+  --bg: #FBF9F5;
+  --ink: #17130E;
+  --accent: #A63A2A;
+  --muted: #6B5E54;
+  --line: #E2D9CE;
+  --bg-alt: #F2EDE5;
+  --page: #FFFFFF;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 15px;
+  line-height: 1.8;
+}
+.page {
+  background: var(--page);
+  width: 210mm;
+  min-height: 297mm;
+  margin: 0 auto 24px;
+  padding: 22mm 20mm 20mm;
+}
+@media print {
+  body { background: white; }
+  .page { width: 100%; margin: 0; padding: 18mm 17mm 15mm; page-break-after: always; }
+  .page:last-child { page-break-after: avoid; }
+}
+h1 { font-family: Georgia, serif; font-size: 27px; font-weight: 700; color: var(--ink); margin-bottom: 8px; }
+h2 { font-family: Georgia, serif; font-size: 19px; font-weight: 700; color: var(--ink); margin-top: 30px; margin-bottom: 12px; }
+h3 { font-family: Georgia, serif; font-size: 15px; font-weight: 700; color: var(--accent); margin-top: 22px; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.05em; }
+p { margin-bottom: 12px; }
+.brand { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-bottom: 16px; }
+.subtitle { font-size: 16px; color: var(--muted); margin-bottom: 28px; font-style: italic; }
+.divider { border: none; border-top: 1px solid var(--line); margin: 24px 0; }
+.insight {
+  background: var(--bg-alt);
+  border-left: 3px solid var(--accent);
+  padding: 12px 18px;
+  margin: 18px 0;
+  font-style: italic;
+}
+.insight p { margin: 0; }
+.section-num {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 3px 10px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+.step-list { margin: 12px 0 12px 20px; }
+.step-list li { margin-bottom: 10px; }
+.step-list li strong { color: var(--accent); }
+.check-list { list-style: none; margin: 12px 0; padding: 0; }
+.check-list li { padding-left: 22px; position: relative; margin-bottom: 8px; font-size: 14px; }
+.check-list li::before { content: "→"; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
+.rule-box {
+  border: 1px solid var(--line);
+  padding: 14px 18px;
+  margin: 18px 0;
+  background: var(--bg-alt);
+}
+.rule-box .rule-title { font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); margin-bottom: 8px; }
+.rule-box p { margin: 0; font-size: 15px; }
+.footer { border-top: 1px solid var(--line); padding-top: 12px; margin-top: auto; font-size: 11px; color: var(--muted); text-align: center; letter-spacing: 0.06em; }
+.page-cover {
+  display: flex; flex-direction: column; justify-content: flex-end;
+  min-height: 297mm; background: var(--ink); color: #FBF9F5;
+  padding: 0 24mm 28mm;
+}
+.cover-title { font-family: Georgia, serif; font-size: 33px; font-weight: 700; color: #FBF9F5; margin-bottom: 14px; line-height: 1.2; }
+.cover-sub { font-size: 16px; color: rgba(251,249,245,0.7); margin-bottom: 28px; font-style: italic; }
+.cover-brand { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(251,249,245,0.4); margin-bottom: auto; padding-top: 32mm; }
+.tag-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
+.tag { background: rgba(166,58,42,0.85); color: #fff; font-size: 11px; padding: 4px 12px; letter-spacing: 0.08em; text-transform: uppercase; }
+.cover-footer { font-size: 11px; color: rgba(251,249,245,0.35); letter-spacing: 0.06em; }
+.time-block {
+  display: flex;
+  gap: 16px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--line);
+}
+.time-block:last-child { border-bottom: none; }
+.time-label {
+  flex-shrink: 0;
+  width: 70px;
+  text-align: right;
+  padding-top: 2px;
+}
+.time-label .time { font-size: 22px; font-weight: 700; color: var(--accent); font-family: Georgia, serif; display: block; line-height: 1; }
+.time-label .unit { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); }
+.time-content h3 { margin-top: 0; margin-bottom: 6px; font-size: 15px; color: var(--ink); text-transform: none; letter-spacing: 0; }
+.time-content p { margin: 0; font-size: 14px; color: var(--muted); }
+.time-content ul { margin: 6px 0 0 18px; font-size: 14px; }
+.time-content ul li { margin-bottom: 4px; }
+.week-grid { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 14px; }
+.week-grid th { background: var(--bg-alt); text-align: left; padding: 8px 12px; border-bottom: 2px solid var(--line); font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
+.week-grid td { padding: 8px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+.week-grid tr:last-child td { border-bottom: none; }
+.week-grid td:first-child { font-weight: 700; color: var(--accent); white-space: nowrap; }
+.question-list { counter-reset: q; list-style: none; padding: 0; margin: 14px 0; }
+.question-list li { counter-increment: q; padding: 10px 0 10px 36px; position: relative; border-bottom: 1px solid var(--line); font-size: 14px; }
+.question-list li:last-child { border-bottom: none; }
+.question-list li::before { content: counter(q); position: absolute; left: 0; top: 10px; width: 24px; height: 24px; background: var(--accent); color: #fff; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+</style>
+</head>
+<body>
+
+<!-- BORÍTÓ -->
+<div class="page page-cover">
+  <div class="cover-brand">Mágneses Férfi™ · OTO4</div>
+  <div class="tag-row">
+    <span class="tag">Reggeli rutin — 5 perc</span>
+    <span class="tag">Esti rutin — 7 perc</span>
+    <span class="tag">Heti felülvizsgálat</span>
+    <span class="tag">30 napos terv</span>
+  </div>
+  <div class="cover-title">Vonzás Napi Rutin™</div>
+  <div class="cover-sub">Napi 15 perc — hogy a Kapcsolók ne egyszeri tudás,<br>hanem a személyiséged alapértelmezett módja legyenek.</div>
+  <div class="cover-footer">Csak vásárlóknak · Ne továbbítsd</div>
+</div>
+
+<!-- BEVEZETÉS -->
+<div class="page">
+  <div class="brand">Vonzás Napi Rutin™ · Bevezetés</div>
+  <h1>A Kapcsolókat nem egyszer tanulod meg</h1>
+  <p class="subtitle">Azok az emberek, akiknek "automatikusan megy" — egy nap sem szüntek meg figyelni rájuk.</p>
+
+  <p>A 7 Kapcsoló™ elsajátítása két szakaszból áll. Az első szakasz tudás: megtudod, mi az a 7 dolog, és miért működik. Ez az ebook hozza el.</p>
+
+  <p>A második szakasz integráció: a kapcsolók beépülnek az automatizmusaidba, és már nem kell "bekapcsolni" őket — egyszerűen ott vannak. Ezt a napi rutinnal éred el.</p>
+
+  <div class="insight">
+    <p>„A probléma az, hogy az emberek elolvassák, megértik, és aztán visszacsinálnak mindent, mert az agyuk alapértelmezettje a régi viselkedés. A rutin az, ami az alapértelmezést lecseréli."</p>
+  </div>
+
+  <p>A napi rutin 3 részből áll:</p>
+  <ol class="step-list">
+    <li><strong>Reggeli rutin (5 perc):</strong> Online kontaktok kezelése + mentális beállítás a napra.</li>
+    <li><strong>Esti rutin (7 perc):</strong> A nap szituációinak feldolgozása + üzenetek küldése/megválaszolása.</li>
+    <li><strong>Heti felülvizsgálat (3 perc):</strong> 5 kérdés, amelyek megmutatják, hol tart a fejlődés.</li>
+  </ol>
+
+  <p>Végül: a <strong>30 napos terv</strong>, amely megmutatja, mit érdemes az első 30 napban konkrétan csinálni, hétről hétre lebontva.</p>
+
+  <hr class="divider">
+  <p style="font-size: 13px; color: var(--muted);">A rutin nem az egyetlen dolog, amit csinálsz. Az egy csatorna, ahol a figyelmed visszatér arra, ami számít. Napi 15 perc elvégezve következetesen sokkal többet ér, mint havonkénti 2 órás "sesszió".</p>
+
+  <div class="footer">Mágneses Férfi™ · Vonzás Napi Rutin™ · Csak vásárlóknak</div>
+</div>
+
+<!-- REGGELI RUTIN -->
+<div class="page">
+  <div class="brand">Vonzás Napi Rutin™ · Reggeli</div>
+
+  <div class="section-num">Reggeli rutin</div>
+  <h1>5 perc reggel</h1>
+  <p class="subtitle">Mielőtt belekezdesz a napba — ez az az 5 perc, ami meghatározza az alapállapotot.</p>
+
+  <div class="time-block">
+    <div class="time-label">
+      <span class="time">2</span>
+      <span class="unit">perc</span>
+    </div>
+    <div class="time-content">
+      <h3>Online kommunikáció gyors átnézése</h3>
+      <p>Nyiss meg minden aktív konverzációt (app, DM). Ne válaszolj most részletesen — csak nézd meg, mi érkezett. Ha valaki reagált, vagy kérdezett, jelöld meg mentálisan, hogy este válasz megy.</p>
+      <ul>
+        <li>Ha valaki találkozóra reagált: konfirmálj röviden ("Rendben, jövök")</li>
+        <li>Ha valaki nem reagált 48+ óra után: töröld a konverzációt a fejedből — nem foglalkozik veled most</li>
+        <li>Nem válaszolsz azonnal részletesen — az este rutin dolga</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="time-block">
+    <div class="time-label">
+      <span class="time">2</span>
+      <span class="unit">perc</span>
+    </div>
+    <div class="time-content">
+      <h3>Mentális beállítás — a nap "alapállása"</h3>
+      <p>Ez nem meditáció és nem vizualizáció. Ez egy konkrét gondolat, amit felállítasz:</p>
+      <ul>
+        <li><em>"Van párhuzamos lehetőség — nincs egyetlen, aki eldönti a napomat."</em></li>
+        <li><em>"Ma olyan szituációkba kerülhetek, ahol a Kapcsolók relevánsak — figyelem őket."</em></li>
+        <li>Ha éppen jó állapotban vagy, elég ez a 2 mondat. Ha stresszes a nap, szánj rá 2 percet.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="time-block">
+    <div class="time-label">
+      <span class="time">1</span>
+      <span class="unit">perc</span>
+    </div>
+    <div class="time-content">
+      <h3>Swipe / app aktívitás (opcionális)</h3>
+      <p>Ha van 1 perced: 10-15 swipe. Ha nincs: kihagyhatod. Az algoritmus az aktivitást jutalmazza, de a reggeli swipe nem kötelező — inkább az esti üzenetváltás a fontosabb.</p>
+    </div>
+  </div>
+
+  <div class="rule-box">
+    <div class="rule-title">A reggeli rutin szabálya</div>
+    <p>A reggeli átnézés célja az, hogy <strong>ne foglaljon el mentálisan a nap folyamán</strong>. Ha reggel megnézted és feldolgoztad, nem kell visszatérned hozzá a nap közben. Az online világ este jön — reggel csak áttekintés.</p>
+  </div>
+
+  <h2>Konfigurálás: értesítések kezelése</h2>
+  <p>Az állandó értesítés szünkösségi viselkedést vált ki: minden csöngésnél az agyad "fontos?" kérdést tesz fel. Ezért:</p>
+  <ul class="check-list">
+    <li>Kapcsold ki a push-értesítéseket a társkereső appon munkaidőben.</li>
+    <li>A reggeli és esti rutin MAGA az ellenőrzés — azon kívül nem nyitod meg az appot.</li>
+    <li>Ha fontos egyeztetés van (találkozó, időpont megerősítés), az telefonon legyen — ne az appon.</li>
+  </ul>
+
+  <div class="footer">Mágneses Férfi™ · Vonzás Napi Rutin™ · Csak vásárlóknak</div>
+</div>
+
+<!-- ESTI RUTIN -->
+<div class="page">
+  <div class="brand">Vonzás Napi Rutin™ · Este</div>
+
+  <div class="section-num">Esti rutin</div>
+  <h1>7 perc este</h1>
+  <p class="subtitle">A nap visszacsatolása és az üzenetváltások kezelése — este az aktív rész.</p>
+
+  <div class="time-block">
+    <div class="time-label">
+      <span class="time">3</span>
+      <span class="unit">perc</span>
+    </div>
+    <div class="time-content">
+      <h3>A nap szituációinak gyors átnézése</h3>
+      <p>Nem elemzés — kérdések:</p>
+      <ul>
+        <li>Volt-e ma olyan szituáció, ahol egy nővel kommunikáltam? (Akár munkahelyen, akár offline).</li>
+        <li>Melyik kapcsolót "használtam" — és hogyan ment? Pl.: "ma megvártam, amíg ő kezdi a témát" (4. kapcsoló).</li>
+        <li>Volt-e olyan pillanat, ahol visszaestem régi mintába? Mit csináltam volna másképp?</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="time-block">
+    <div class="time-label">
+      <span class="time">3</span>
+      <span class="unit">perc</span>
+    </div>
+    <div class="time-content">
+      <h3>Online kommunikáció — aktív üzenetváltás</h3>
+      <p>Ez a nap aktív online időszaka:</p>
+      <ul>
+        <li>Nyitott konverzációkra válasz — konkrétan, rövidek, de tartalmasak.</li>
+        <li>Ha egy matchnek még nem írtál nyitó üzenetet: most az ideje.</li>
+        <li>Ha van 4-nél kevesebb aktív konverzáció: swipe és nyitó üzenet 1-2 új matchnek.</li>
+        <li>Ha valaki találkozót utasított vissza: töröld, köszönd meg magadban, következő.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="time-block">
+    <div class="time-label">
+      <span class="time">1</span>
+      <span class="unit">perc</span>
+    </div>
+    <div class="time-content">
+      <h3>A nap Kapcsolói — gyors lista</h3>
+      <p>Ez a rész a fejlődés nyomon követése. Minden este tedd fel: <em>"Melyik kapcsolót aktiváltam ma?"</em> Nem kell mindent — egy is elég. Ha valamelyik tudatosan bekapcsolt: mentsd el az emlékezetedbe.</p>
+    </div>
+  </div>
+
+  <h2>Mit NEM csinálsz este</h2>
+  <ul class="check-list">
+    <li>Nem nyitod meg az appot vacsora után, majd megint lefekvés előtt — az már nem rutin, az rabság.</li>
+    <li>Nem töltesz több mint 7 percet az online résszel. Ha 7 percen belül nem oldható meg, nem érdemes ma este megoldani.</li>
+    <li>Nem válaszolsz dübörgő, hosszú üzenettel, ha ő röviden reagált — kövesd a hőmérőjét.</li>
+    <li>Nem ellenőrzöd, hogy a mai üzeneted megérkezett-e, elolvasták-e. Küldöd, és kész.</li>
+  </ul>
+
+  <div class="insight">
+    <p>„Az este rutin azért 7 perc, mert ha több kell, valami nem stimmel: vagy túl sok energiát fektetsz online interakciókba ahelyett, hogy személyesen lépnél előre, vagy túl kevés a valódi lehetőséged."</p>
+  </div>
+
+  <div class="footer">Mágneses Férfi™ · Vonzás Napi Rutin™ · Csak vásárlóknak</div>
+</div>
+
+<!-- HETI + 30 NAPOS TERV -->
+<div class="page">
+  <div class="brand">Vonzás Napi Rutin™ · Heti + 30 napos terv</div>
+
+  <div class="section-num">Heti felülvizsgálat</div>
+  <h1>3 perc vasárnap este</h1>
+  <p class="subtitle">5 kérdés, amelyek megmutatják, hol tartasz.</p>
+
+  <ul class="question-list">
+    <li>Megvan a Heti Kontakt Kvóta? (3 online konverzáció + 2 offline kontakt + 1 ütemezett találkozó)</li>
+    <li>Volt-e olyan szituáció, ahol egy kapcsoló tudatosan bekapcsolt — és mi volt az eredmény?</li>
+    <li>Volt-e visszaesés régi mintába? Mi volt a kiváltó ok — és mit teszek máshogy jövő héten?</li>
+    <li>Mi a jövő hét egy offline lehetősége, amit már ma be tudok ütemezni?</li>
+    <li>Aktív-e a 4 online konverzáció? Ha nem, mit teszek a hét elején?</li>
+  </ul>
+
+  <div class="rule-box">
+    <div class="rule-title">A heti felülvizsgálat szabálya</div>
+    <p>Nem önkritika, nem számadás. <strong>Mérés és beállítás.</strong> Egy autó mögé nézünk, nem ítélkezünk. Ha a hét nem sikerült, az adat — nem kudarc.</p>
+  </div>
+
+  <hr class="divider">
+
+  <div class="section-num">Bónusz</div>
+  <h1>A 30 napos terv</h1>
+  <p class="subtitle">Az első hónap céljai és akciópontjai — hétről hétre.</p>
+
+  <table class="week-grid">
+    <thead>
+      <tr>
+        <th>Hét</th>
+        <th>Fókusz</th>
+        <th>Konkrét cél</th>
+        <th>Mutatószám</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1. hét<br><small style="color:var(--muted); font-weight:400;">1–7. nap</small></td>
+        <td>Alapstruktúra</td>
+        <td>Napi rutin bevezetése. Profil audit (Vonzó Profil™ checklist). 4 aktív konverzáció elindítása online.</td>
+        <td>4 aktív konverzáció</td>
+      </tr>
+      <tr>
+        <td>2. hét<br><small style="color:var(--muted); font-weight:400;">8–14. nap</small></td>
+        <td>Offline aktiválás</td>
+        <td>Egy ismétlődő offline közeg azonosítása és belépés (Befolyási Kör™ 1. stratégia). Legalább 2 offline kontakt a héten.</td>
+        <td>1 ismétlődő közeg</td>
+      </tr>
+      <tr>
+        <td>3. hét<br><small style="color:var(--muted); font-weight:400;">15–21. nap</small></td>
+        <td>Első találkozók</td>
+        <td>Legalább 1 találkozó megvalósítva (akár kávé, akár közös program). Kapcsolók megfigyelése valódi helyzetben.</td>
+        <td>1 megvalósult találkozó</td>
+      </tr>
+      <tr>
+        <td>4. hét<br><small style="color:var(--muted); font-weight:400;">22–30. nap</small></td>
+        <td>Fenntartás + finomítás</td>
+        <td>Heti Kontakt Kvóta teljes. Szükséges: mi az, ami természetesen megy már — és mi az, ami még tudatos erőfeszítés?</td>
+        <td>Kvóta 4/4 héten</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Heti célok részletezve</h2>
+
+  <h3>1. hét — Az alapok</h3>
+  <ul class="check-list">
+    <li>Végezd el a Vonzó Profil™ teljes checklistjét. Javítsd, ami "NEM"-et kapott.</li>
+    <li>Indítsd el a napi reggeli + esti rutint — első 7 napban minden nap.</li>
+    <li>Swipe 30-50 profilt naponta, amíg el nem éred a 4 aktív konverzációt.</li>
+    <li>Heti felülvizsgálat: megvan a 4 konverzáció? Hogy ment a rutin?</li>
+  </ul>
+
+  <h3>2. hét — Offline bekapcsolódás</h3>
+  <ul class="check-list">
+    <li>Olvasd el a Befolyási Kör™ anyagot, azonosítsd a meglévő és új közegeket.</li>
+    <li>Lépj be legalább egy ismétlődő offline közegbe (első alkalom).</li>
+    <li>Alkalmazd a "jelenlét és figyelés" elvét — ne törekedj ismerkedésre, csak légy ott jól.</li>
+    <li>Heti felülvizsgálat: volt offline kontakt? Mi a benyomás a közegről?</li>
+  </ul>
+
+  <h3>3. hét — Első valós találkozók</h3>
+  <ul class="check-list">
+    <li>Ha van online konverzáció 5+ üzenetváltással: javasold a találkozót.</li>
+    <li>A találkozón figyelj arra, melyik kapcsoló megy természetesen, és melyiknél kell magadra figyelni.</li>
+    <li>Este rutin: dokumentáld (fejben elég), mi ment, mi nem.</li>
+    <li>Heti felülvizsgálat: megvalósult-e a találkozó? Mit tanultál?</li>
+  </ul>
+
+  <h3>4. hét — Rendszer fenntartása</h3>
+  <ul class="check-list">
+    <li>A napi rutin már nem tudatos — automatizmus. Ha még nem, addig folytasd, amíg az lesz.</li>
+    <li>Azonosítsd: melyik kapcsoló megy már biztosan? Melyik igényel még figyelmet?</li>
+    <li>Tűzz ki egy konkrét célt a következő hónapra az alapján, ami a 4 hétből kiderült.</li>
+  </ul>
+
+  <div class="footer">Mágneses Férfi™ · Vonzás Napi Rutin™ · Csak vásárlóknak</div>
+</div>
+
+</body>
+</html>

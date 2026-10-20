@@ -1,0 +1,1322 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Kreativa Akvarellakademien</title>
+<style>html,body{margin:0;padding:0;background:#FBF7F2;}*{box-sizing:border-box}</style>
+</head>
+<body>
+<!-- NOTA: imágenes desde kaching.lat son placeholder — re-subir a catbox.moe antes de publicar -->
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+.acu-root,.acu-root *,.acu-root *::before,.acu-root *::after{box-sizing:border-box;margin:0;padding:0}
+
+.acu-banner-top {
+  width: 100%;
+  background: #1a1a1a;
+  color: #fff;
+  text-align: center;
+  padding: 12px 16px;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  font-family: inherit;
+}
+.acu-banner-top strong { font-weight: 700; }
+
+.acu-root {
+  --crema:     #FBF7F2;
+  --terracota: #C2705A;
+  --marron:    #2E1F17;
+  --gris:      #7A6258;
+}
+
+.acu-root {
+  font-family: 'Lato', sans-serif;
+  background: var(--crema);
+  color: var(--marron);
+  overflow-x: clip;
+  line-height: 1.5;
+}
+.acu-root img { max-width: 100%; height: auto; }
+.acu-root button { font: inherit; cursor: pointer; }
+.acu-root a { text-decoration: none; }
+
+/* HERO */
+.acu-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.acu-hero__text {
+  text-align: center;
+  padding: 52px 24px 28px;
+  max-width: 620px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+.acu-hero__badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 15px;
+  border-radius: 999px;
+  background: #F3E3DC;
+  color: var(--terracota);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+.acu-hero__benefits {
+  width: 100%;
+  max-width: 410px;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  font-size: 12.5px;
+  color: var(--gris);
+}
+.acu-hero__title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 46px;
+  font-weight: 300;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+.acu-hero__title em {
+  font-style: italic;
+  color: var(--terracota);
+}
+.acu-hero__sub {
+  font-size: 16px;
+  color: var(--gris);
+  max-width: 500px;
+  line-height: 1.65;
+}
+.acu-trust {
+  font-size: 13px;
+  color: var(--gris);
+  letter-spacing: 0.01em;
+}
+.acu-hero__button {
+  display: inline-block;
+  background: var(--marron);
+  color: #fff;
+  padding: 16px 32px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  margin-top: 8px;
+}
+.acu-hero__button:hover { background: #1a120d; }
+.acu-hero__image { width: 100%; max-width: 600px; padding: 0 16px 0; }
+.acu-hero__image img { width: 100%; border-radius: 16px; display: block; }
+
+/* OBJECIONES */
+.acu-objeciones {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 72px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.acu-objeciones__cuerpo { max-width: 600px; }
+.acu-objeciones__titulo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 36px;
+  font-weight: 300;
+  line-height: 1.15;
+  margin-bottom: 20px;
+}
+.acu-objeciones__titulo em { font-style: italic; color: var(--terracota); }
+.acu-objeciones__cuerpo p {
+  color: var(--gris);
+  font-size: 15px;
+  line-height: 1.75;
+  margin-bottom: 12px;
+}
+.acu-acento {
+  font-size: 16px !important;
+  color: var(--marron) !important;
+  font-weight: 400;
+  border-left: 3px solid var(--terracota);
+  padding-left: 16px;
+  margin-top: 20px !important;
+}
+.acu-tarjetas {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.acu-tarjeta {
+  background: #fff;
+  border: 1px solid #EADDD6;
+  border-radius: 16px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.acu-tarjeta__problema {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #9B4B3B;
+}
+.acu-tarjeta__solucion {
+  font-size: 13.5px;
+  color: var(--gris);
+  line-height: 1.6;
+}
+
+/* MÉTODO */
+.acu-metodo {
+  background: #fff;
+  padding: 72px 24px;
+}
+.acu-metodo__grid {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+.acu-metodo__eyebrow {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--terracota);
+  margin-bottom: 12px;
+}
+.acu-metodo__titulo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 40px;
+  font-weight: 300;
+  line-height: 1.15;
+  margin-bottom: 20px;
+}
+.acu-metodo__titulo em { font-style: italic; color: var(--terracota); }
+.acu-metodo__sub { font-size: 15px; color: var(--gris); line-height: 1.75; margin-bottom: 20px; }
+.acu-metodo__lista {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--gris);
+}
+.acu-metodo__video-wrap {
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+.acu-metodo__video-wrap video {
+  display: block;
+  width: 100%;
+  border-radius: 16px;
+}
+.acu-metodo__pasos {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+.acu-paso {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  text-align: center;
+}
+.acu-paso__num {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--terracota);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.acu-paso__texto {
+  font-size: 11.5px;
+  color: var(--gris);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* GALERÍA */
+.acu-galeria { padding: 72px 0; overflow: hidden; }
+.acu-galeria__header {
+  max-width: 860px;
+  margin: 0 auto 32px;
+  padding: 0 24px;
+  text-align: center;
+}
+.acu-galeria__titulo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 34px;
+  font-weight: 300;
+  line-height: 1.2;
+}
+.acu-carrusel-wrap { position: relative; }
+.acu-carrusel-track-outer {
+  overflow: hidden;
+  padding: 0 24px;
+}
+.acu-carrusel-track {
+  display: flex;
+  gap: 16px;
+  transition: transform 0.3s ease;
+  will-change: transform;
+}
+.acu-carrusel-item {
+  flex: 0 0 calc(25% - 12px);
+  min-width: 200px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.acu-carrusel-item img {
+  display: block;
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+}
+.acu-carrusel-controles {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 20px;
+  padding: 0 24px;
+}
+.acu-carrusel-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid #EADDD6;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--marron);
+}
+.acu-carrusel-btn svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2; }
+.acu-carrusel-dots { display: flex; gap: 6px; }
+.acu-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  border: none;
+  background: #EADDD6;
+  padding: 0;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.acu-dot.acu-active { background: var(--terracota); }
+
+/* BIBLIOTECA */
+.acu-biblioteca { padding: 72px 24px; }
+.acu-biblioteca__header {
+  max-width: 660px;
+  margin: 0 auto 48px;
+  text-align: center;
+}
+.acu-biblioteca__titulo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 40px;
+  font-weight: 300;
+  line-height: 1.15;
+  margin-bottom: 16px;
+}
+.acu-biblioteca__titulo em { font-style: italic; color: var(--terracota); }
+.acu-biblioteca__sub { font-size: 15px; color: var(--gris); line-height: 1.7; }
+.acu-biblioteca__grid {
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.acu-libro {
+  background: #fff;
+  border: 1px solid #EADDD6;
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: relative;
+}
+.acu-libro__num {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--terracota);
+}
+.acu-libro__nombre {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--marron);
+}
+.acu-libro__desc { font-size: 13.5px; color: var(--gris); line-height: 1.65; }
+.acu-libro__badge-video {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--terracota);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+.acu-libro__badge-video svg {
+  width: 14px;
+  height: 14px;
+  fill: var(--terracota);
+}
+
+/* RESUMEN */
+.acu-resumen { background: #fff; padding: 72px 24px; }
+.acu-resumen__inner { max-width: 760px; margin: 0 auto; }
+.acu-resumen__head { text-align: center; margin-bottom: 40px; }
+.acu-resumen__eyebrow {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--terracota);
+  background: #F3E3DC;
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 999px;
+  margin-bottom: 14px;
+}
+.acu-resumen__titulo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 40px;
+  font-weight: 300;
+  line-height: 1.15;
+}
+.acu-resumen__titulo em { font-style: italic; color: var(--terracota); }
+.acu-ficha {
+  background: var(--crema);
+  border: 1px solid #EADDD6;
+  border-radius: 20px;
+  overflow: hidden;
+}
+.acu-ficha__barra { height: 4px; background: linear-gradient(90deg, var(--terracota), #F2C4CE); }
+.acu-ficha__grupo { padding: 24px 28px; border-bottom: 1px solid #EADDD6; }
+.acu-ficha__grupo:last-child { border-bottom: none; }
+.acu-ficha__grupo-titulo {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--terracota);
+  margin-bottom: 16px;
+}
+.acu-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.acu-item:last-child { margin-bottom: 0; }
+.acu-item__check {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #C2705A;
+  flex-shrink: 0;
+  margin-top: 2px;
+  position: relative;
+}
+.acu-item__check::after {
+  content: '';
+  position: absolute;
+  left: 5px; top: 3px;
+  width: 8px; height: 5px;
+  border-left: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  transform: rotate(-45deg);
+}
+.acu-item__nombre {
+  font-size: 14px;
+  color: var(--marron);
+  font-weight: 600;
+  line-height: 1.5;
+}
+.acu-item__nombre small {
+  display: block;
+  font-weight: 400;
+  color: var(--gris);
+  font-size: 13px;
+  margin-top: 2px;
+}
+.acu-guias {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 20px;
+}
+
+/* Bokmärken */
+.acu-ficha__grupo--marcapaginas .acu-marcapaginas {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+.acu-marcapaginas__imagen {
+  position: relative;
+  width: 120px;
+  flex-shrink: 0;
+}
+.acu-marcapaginas__imagen img {
+  width: 100%;
+  border-radius: 10px;
+  display: block;
+}
+.acu-marcapaginas__badge {
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--terracota);
+  color: #fff;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+.acu-marcapaginas__titulo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 400;
+  margin-bottom: 8px;
+}
+.acu-marcapaginas__texto { font-size: 13.5px; color: var(--gris); line-height: 1.65; margin-bottom: 10px; }
+.acu-marcapaginas__lista { display: flex; flex-direction: column; gap: 4px; }
+.acu-marcapaginas__detalle {
+  font-size: 12.5px;
+  color: var(--gris);
+  padding-left: 14px;
+  position: relative;
+}
+.acu-marcapaginas__detalle::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--terracota);
+}
+
+/* Bonus gift */
+.acu-ficha__grupo--bonus .acu-bonus__thumb {
+  width: 100px;
+  flex-shrink: 0;
+}
+.acu-ficha__grupo--bonus .acu-bonus__thumb img {
+  width: 100%;
+  border-radius: 10px;
+  display: block;
+}
+.acu-ficha__grupo--bonus .acu-bonus__thumb figcaption {
+  text-align: center;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--terracota);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-top: 4px;
+}
+
+/* Garantías / badges */
+.acu-garantias {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: #EADDD6;
+  margin-top: 0;
+}
+.acu-garantia {
+  background: var(--crema);
+  padding: 16px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.acu-garantia b { font-size: 14px; color: var(--marron); }
+.acu-garantia span { font-size: 12.5px; color: var(--gris); }
+
+/* OFFER SECTION */
+#offer {
+  background: var(--crema);
+  padding: 28px 0 0;
+  scroll-margin-top: 24px;
+}
+.acu-offer-wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 24px 72px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+.acu-offer__media img {
+  width: 100%;
+  border-radius: 18px;
+  display: block;
+}
+.acu-valoracion {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #444;
+  margin-bottom: 16px;
+}
+.acu-valoracion__estrellas {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+.acu-valoracion__estrella {
+  width: 14px; height: 14px;
+  fill: #F5A623;
+}
+.acu-valoracion__numero { font-weight: 700; color: #222; }
+.acu-valoracion__texto { color: #888; font-size: 13px; }
+.acu-offer__titulo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+.acu-offer__price {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+.acu-offer__price-old {
+  font-size: 18px;
+  color: var(--terracota);
+  text-decoration: line-through;
+  font-weight: 400;
+}
+.acu-offer__price-new {
+  font-size: 38px;
+  font-weight: 700;
+  color: var(--marron);
+}
+.acu-offer__badge {
+  display: inline-block;
+  background: #5C7764;
+  color: #fff;
+  border-radius: 40px;
+  font-size: 12px;
+  padding: 5px 12px;
+}
+.acu-offer-box {
+  max-width: 100%;
+  margin: 16px 0;
+  padding: 20px 20px 16px;
+  border-radius: 18px;
+  border: 1px solid #F2C4CE;
+  background: linear-gradient(180deg, #FFFAF8 0%, #FFF1F5 100%);
+  text-align: center;
+  box-shadow: 0 10px 28px rgba(46,31,23,0.08);
+}
+.acu-offer-box__badge {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #7A3B4A;
+}
+.ref-ac-cta {
+  display: block;
+  width: 100%;
+  max-width: 460px;
+  padding: 19px 26px;
+  box-sizing: border-box;
+  background: #15803D;
+  color: #fff;
+  text-decoration: none;
+  text-align: center;
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  line-height: 1.3;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(21,128,61,.30);
+  transition: transform .12s ease, box-shadow .12s ease, background .12s ease;
+  margin: 20px 0 10px;
+}
+.ref-ac-cta:hover { background: #126A33; box-shadow: 0 9px 24px rgba(21,128,61,.36); transform: translateY(-2px); }
+.ref-ac-cta:active { transform: translateY(0); box-shadow: 0 4px 12px rgba(21,128,61,.30); }
+.ref-ac-cta-sub {
+  font-size: 13px;
+  color: #6F7A73;
+  text-align: center;
+}
+
+/* TESTIMONIOS */
+.acu-testimonios { padding: 72px 24px; }
+.acu-testimonios__header {
+  max-width: 660px;
+  margin: 0 auto 48px;
+  text-align: center;
+}
+.acu-testimonios__titulo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 40px;
+  font-weight: 300;
+  line-height: 1.15;
+  margin-bottom: 12px;
+}
+.acu-testimonios__titulo em { font-style: italic; color: var(--terracota); }
+.acu-testimonios__sub { font-size: 14px; color: var(--gris); }
+.acu-testimonios__grid {
+  max-width: 960px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.acu-testimonio {
+  background: #fff;
+  border: 1px solid #EADDD6;
+  border-radius: 18px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.acu-testimonio--grande {
+  grid-column: span 1;
+}
+.acu-testimonio__foto {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+.acu-testimonio__body { display: flex; flex-direction: column; gap: 8px; }
+.acu-testimonio__estrellas { color: #F5A623; font-size: 14px; letter-spacing: 2px; }
+.acu-testimonio__cita { font-size: 14px; color: var(--marron); line-height: 1.7; font-style: italic; }
+.acu-testimonio__nombre { font-size: 12.5px; font-weight: 700; color: var(--gris); text-transform: uppercase; letter-spacing: 0.06em; }
+
+/* FAQ */
+.acu-faq { padding: 72px 24px; background: #fff; }
+.acu-faq__header { max-width: 660px; margin: 0 auto 40px; text-align: center; }
+.acu-faq__titulo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 40px;
+  font-weight: 300;
+  line-height: 1.15;
+}
+.acu-faq__titulo em { font-style: italic; color: var(--terracota); }
+.acu-faq__lista {
+  max-width: 700px;
+  margin: 0 auto;
+  list-style: none;
+}
+.acu-faq__item { border-bottom: 1px solid #EADDD6; }
+.acu-faq__pregunta {
+  width: 100%;
+  background: none;
+  border: none;
+  text-align: left;
+  padding: 22px 0;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--marron);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  cursor: pointer;
+}
+.acu-faq__chevron { flex-shrink: 0; transition: transform 0.2s; }
+.acu-faq__chevron svg { width: 18px; height: 18px; stroke: var(--terracota); fill: none; stroke-width: 2; }
+.acu-faq__respuesta { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+.acu-faq__respuesta-inner {
+  padding: 0 0 24px;
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--gris);
+  font-weight: 300;
+  max-width: 600px;
+}
+.acu-faq__item.acu-open .acu-faq__respuesta { max-height: 400px; }
+.acu-faq__item.acu-open .acu-faq__chevron { transform: rotate(180deg); }
+
+/* FOOTER */
+.acu-footer {
+  padding: 36px 20px;
+  text-align: center;
+  border-top: 1px solid #EADDD6;
+  font-size: 12px;
+  color: var(--gris);
+}
+.acu-footer p { margin: 10px 0; }
+
+/* RESPONSIVE */
+@media (max-width: 750px) {
+  .acu-hero__title { font-size: 34px; overflow-wrap: anywhere; }
+  .acu-tarjetas { grid-template-columns: 1fr; }
+  .acu-metodo__grid { grid-template-columns: 1fr; gap: 32px; }
+  .acu-metodo__pasos { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .acu-biblioteca__grid { grid-template-columns: 1fr 1fr; }
+  .acu-guias { grid-template-columns: 1fr; }
+  .acu-offer-wrap { grid-template-columns: 1fr; gap: 28px; padding: 28px 20px 48px; }
+  .acu-offer__titulo { font-size: 26px; }
+  .acu-offer__price-new { font-size: 34px; }
+  .acu-testimonios__grid { grid-template-columns: 1fr; }
+  .acu-marcapaginas { flex-direction: column; }
+  .acu-garantias { grid-template-columns: 1fr; }
+}
+@media (max-width: 520px) {
+  .acu-biblioteca__grid { grid-template-columns: 1fr; }
+  .acu-carrusel-item { flex: 0 0 calc(80% - 12px); }
+}
+@media (max-width: 380px) {
+  .acu-hero__title { font-size: 30px; }
+  .acu-galeria__titulo { font-size: 26px; }
+  .ref-ac-cta { font-size: 13.5px; padding: 16px 14px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .acu-root * { animation: none !important; transition: none !important; }
+  html { scroll-behavior: auto !important; }
+}
+</style>
+<html style="scroll-behavior:smooth">
+
+<div class="acu-root">
+
+<!-- BARRA URGENCIA -->
+<div class="acu-banner-top">
+  🔥 <strong>Kampanjpris under begränsad tid</strong> — Hela 8-i-1-paketet
+</div>
+
+<!-- HERO -->
+<section class="acu-hero">
+  <div class="acu-hero__text">
+    <p class="acu-hero__badge">🎨 Kreativa Akvarellakademien</p>
+    <h1 class="acu-hero__title">Skapa vackra akvareller<br/>
+      <em>även om du aldrig har målat förut.</em>
+    </h1>
+    <p class="acu-hero__sub">Lär dig måla som en expert på bara 7 dagar, med över 200 steg-för-steg-projekt och videolektioner.</p>
+    <p class="acu-trust">🌸 Perfekt för nybörjare • Gå i din egen takt • Livstidsåtkomst</p>
+    <a class="acu-hero__button" href="#offer">SE HELA PAKETET</a>
+  </div>
+  <div class="acu-hero__image">
+    <!-- re-subir a catbox: 1nu4sm.webp -->
+    <img alt="Akvarellprojekt" loading="eager" src="https://www.kaching.lat/img/muveszet/1nu4sm.webp"/>
+  </div>
+</section>
+
+<!-- OBJECIONES -->
+<section aria-labelledby="acu-obj-titulo" class="acu-objeciones">
+  <div class="acu-objeciones__cuerpo">
+    <h2 class="acu-objeciones__titulo" id="acu-obj-titulo">Känner du att du saknar<br/><em>talang för att måla?</em></h2>
+    <p>De flesta slutar inte med akvarellmålning för att de saknar kreativitet.</p>
+    <p>Det beror på att de försöker lära sig på egen hand.</p>
+    <p>De hoppar från en handledningsvideo till en annan, köper onödiga verktyg och blir besvikna när resultatet inte ser ut som de tänkt sig.</p>
+    <p class="acu-acento">Det goda nytt är att akvarellmålning inte kräver medfödd talang.<br/>Det är en färdighet som kan läras steg för steg.</p>
+  </div>
+  <div class="acu-tarjetas">
+    <div class="acu-tarjeta">
+      <div class="acu-tarjeta__contenido">
+        <p class="acu-tarjeta__problema">❌ Du vet inte var du ska börja</p>
+        <p class="acu-tarjeta__solucion">✔️ Från det allra första penseldraket vet du exakt vad du ska göra.</p>
+      </div>
+    </div>
+    <div class="acu-tarjeta">
+      <div class="acu-tarjeta__contenido">
+        <p class="acu-tarjeta__problema">❌ Dina akvareller blir aldrig som du tänkt dig</p>
+        <p class="acu-tarjeta__solucion">✔️ Följ guidade projekt speciellt utformade för nybörjare.</p>
+      </div>
+    </div>
+    <div class="acu-tarjeta">
+      <div class="acu-tarjeta__contenido">
+        <p class="acu-tarjeta__problema">❌ Du förlorar dig bland alla olika läromaterial</p>
+        <p class="acu-tarjeta__solucion">✔️ Allt är organiserat: du behöver bara följa nästa steg.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MÉTODO -->
+<section aria-labelledby="acu-metodo-titulo" class="acu-metodo">
+  <div class="acu-metodo__grid">
+    <div class="acu-metodo__texto">
+      <span class="acu-metodo__eyebrow">Metoden</span>
+      <h2 class="acu-metodo__titulo" id="acu-metodo-titulo">Att måla är enklare<br/>
+        <em>än du tror.</em>
+      </h2>
+      <p class="acu-metodo__sub">Många tror att målning kräver talang. Verkligheten är mycket enklare: om du får tydliga instruktioner behöver du bara följa stegen och njuta av att skapa.</p>
+      <ul class="acu-metodo__lista">
+        <li>🌸 Perfekt för nybörjare</li>
+        <li>🌸 Ingen tidigare erfarenhet krävs</li>
+        <li>🌸 Lär dig i din egen takt</li>
+      </ul>
+    </div>
+    <div class="acu-metodo__visual">
+      <div class="acu-metodo__video-wrap">
+        <!-- re-subir a catbox: grrss8.mp4 -->
+        <video aria-label="Akvarellmålning steg för steg" autoplay loop muted playsinline preload="metadata" src="https://www.kaching.lat/img/muveszet/grrss8.mp4"></video>
+      </div>
+      <div class="acu-metodo__pasos">
+        <div class="acu-paso">
+          <div class="acu-paso__num">1</div>
+          <span class="acu-paso__texto">Grundskiss</span>
+        </div>
+        <div class="acu-paso">
+          <div class="acu-paso__num">2</div>
+          <span class="acu-paso__texto">Första färglagren</span>
+        </div>
+        <div class="acu-paso">
+          <div class="acu-paso__num">3</div>
+          <span class="acu-paso__texto">Detaljer och djup</span>
+        </div>
+        <div class="acu-paso">
+          <div class="acu-paso__num">4</div>
+          <span class="acu-paso__texto">Färdigt konstverk</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERÍA -->
+<section aria-label="Projektgalleri" class="acu-galeria">
+  <div class="acu-galeria__header">
+    <h2 class="acu-galeria__titulo">🎨 Över 200 projekt steg för steg<br/>för att lära dig akvarellmålning från grunden</h2>
+  </div>
+  <div class="acu-carrusel-wrap">
+    <div class="acu-carrusel-track-outer">
+      <div class="acu-carrusel-track" id="acu-track">
+        <!-- re-subir a catbox: imágenes de galería -->
+        <div class="acu-carrusel-item"><img alt="Akvarellprojekt" loading="lazy" src="https://www.kaching.lat/img/muveszet/v2l0mo.webp"/></div>
+        <div class="acu-carrusel-item"><img alt="Akvarellprojekt" loading="lazy" src="https://www.kaching.lat/img/muveszet/m0gy90.webp"/></div>
+        <div class="acu-carrusel-item"><img alt="Akvarellprojekt" loading="lazy" src="https://www.kaching.lat/img/muveszet/93i4dq.webp"/></div>
+        <div class="acu-carrusel-item"><img alt="Akvarellprojekt" loading="lazy" src="https://www.kaching.lat/img/muveszet/fc4lea.webp"/></div>
+        <div class="acu-carrusel-item"><img alt="Akvarellprojekt" loading="lazy" src="https://www.kaching.lat/img/muveszet/0sgsye.webp"/></div>
+        <div class="acu-carrusel-item"><img alt="Akvarellprojekt" loading="lazy" src="https://www.kaching.lat/img/muveszet/k03lmu.webp"/></div>
+        <div class="acu-carrusel-item"><img alt="Akvarellprojekt" loading="lazy" src="https://www.kaching.lat/img/muveszet/llie1h.webp"/></div>
+        <div class="acu-carrusel-item"><img alt="Akvarellprojekt" loading="lazy" src="https://www.kaching.lat/img/muveszet/7gsp2v.webp"/></div>
+        <div class="acu-carrusel-item"><img alt="Akvarellprojekt" loading="lazy" src="https://www.kaching.lat/img/muveszet/79wor3.webp"/></div>
+        <div class="acu-carrusel-item"><img alt="Akvarellprojekt" loading="lazy" src="https://www.kaching.lat/img/muveszet/ip6y3w.webp"/></div>
+        <div class="acu-carrusel-item"><img alt="Akvarellprojekt" loading="lazy" src="https://www.kaching.lat/img/muveszet/dogyxu.webp"/></div>
+      </div>
+    </div>
+    <div class="acu-carrusel-controles">
+      <button aria-label="Föregående" class="acu-carrusel-btn" id="acu-prev">
+        <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg>
+      </button>
+      <div class="acu-carrusel-dots" id="acu-dots">
+        <button aria-label="Sida 1" class="acu-dot acu-active"></button>
+        <button aria-label="Sida 2" class="acu-dot"></button>
+        <button aria-label="Sida 3" class="acu-dot"></button>
+        <button aria-label="Sida 4" class="acu-dot"></button>
+      </div>
+      <button aria-label="Nästa" class="acu-carrusel-btn" id="acu-next">
+        <svg viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"></polyline></svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- GUÍAS / BIBLIOTECA -->
+<section aria-labelledby="acu-bib-titulo" class="acu-biblioteca">
+  <div class="acu-biblioteca__header">
+    <h2 class="acu-biblioteca__titulo" id="acu-bib-titulo">Allt det här<br/><em>ingår också</em></h2>
+    <p class="acu-biblioteca__sub">Utöver de 200+ guidade projekten steg för steg får du studiematerial som stöder dig i varje fas av lärande, övning och skapande.</p>
+  </div>
+  <div class="acu-biblioteca__grid">
+    <div class="acu-libro">
+      <span class="acu-libro__num">01. studiematerial</span>
+      <p class="acu-libro__nombre">Akvarellguide</p>
+      <p class="acu-libro__desc">Lär dig de viktigaste grunderna för att komma igång med självförtroende.</p>
+    </div>
+    <div class="acu-libro">
+      <span class="acu-libro__num">02. studiematerial</span>
+      <p class="acu-libro__nombre">Akvarell för avkoppling</p>
+      <p class="acu-libro__desc">Övningar och projekt som hjälper dig att koppla av och njuta av stunden.</p>
+    </div>
+    <div class="acu-libro">
+      <span class="acu-libro__num">03. studiematerial</span>
+      <p class="acu-libro__nombre">Färgkombinationer</p>
+      <p class="acu-libro__desc">Utforska färdiga färgblandningar och harmoniska färgpar, utan extra planerande.</p>
+    </div>
+    <div class="acu-libro">
+      <span class="acu-libro__num">04. studiematerial</span>
+      <p class="acu-libro__nombre">Vanliga akvarellmisstag</p>
+      <p class="acu-libro__desc">Undvik de misstag som bromsar de flesta nybörjares framsteg.</p>
+    </div>
+    <div class="acu-libro">
+      <span class="acu-libro__num">05. studiematerial</span>
+      <p class="acu-libro__nombre">Dekoration med akvarell</p>
+      <p class="acu-libro__desc">Förvandla dina verk till unika bilder, gratulationskort och dekorationer.</p>
+    </div>
+    <div class="acu-libro">
+      <span class="acu-libro__num">06. studiematerial</span>
+      <p class="acu-libro__nombre">Guide till grundläggande verktyg</p>
+      <p class="acu-libro__desc">Allt du behöver för att komma igång, utan onödiga utgifter.</p>
+    </div>
+    <div class="acu-libro">
+      <span class="acu-libro__num">07. studiematerial</span>
+      <p class="acu-libro__nombre">Videolektioner steg för steg</p>
+      <p class="acu-libro__desc">Mer än 30 lektioner där du ser varje teknik i praktiken, i din egen takt, så många gånger du vill.</p>
+      <span class="acu-libro__badge-video">
+        <svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"></polygon></svg>Video
+      </span>
+    </div>
+  </div>
+</section>
+
+<!-- RESUMEN DEL PAQUETE -->
+<section aria-labelledby="acu-resumen-titulo" class="acu-resumen">
+  <div class="acu-resumen__inner">
+    <div class="acu-resumen__head">
+      <span class="acu-resumen__eyebrow">Översikt av ditt paket</span>
+      <h2 class="acu-resumen__titulo" id="acu-resumen-titulo">Allt du<em> får idag</em></h2>
+    </div>
+    <div class="acu-ficha">
+      <div class="acu-ficha__barra"></div>
+
+      <div class="acu-ficha__grupo acu-g-metodo">
+        <p class="acu-ficha__grupo-titulo">Metoden</p>
+        <div class="acu-item">
+          <span class="acu-item__check"></span>
+          <p class="acu-item__nombre">Mer än 200 projekt steg för steg<small>Varje projekt inkluderar en skiss, färgpalett och exakt lagerordning.</small></p>
+        </div>
+        <div class="acu-item">
+          <span class="acu-item__check"></span>
+          <p class="acu-item__nombre">Mer än 30 videolektioner<small>Varje teknik i praktiken, i din egen takt, så många gånger du behöver.</small></p>
+        </div>
+      </div>
+
+      <div class="acu-ficha__grupo acu-g-guias">
+        <p class="acu-ficha__grupo-titulo">De 6 guiderna</p>
+        <div class="acu-guias">
+          <div class="acu-item">
+            <span class="acu-item__check"></span>
+            <p class="acu-item__nombre">Akvarellguide</p>
+          </div>
+          <div class="acu-item">
+            <span class="acu-item__check"></span>
+            <p class="acu-item__nombre">Akvarell för avkoppling</p>
+          </div>
+          <div class="acu-item">
+            <span class="acu-item__check"></span>
+            <p class="acu-item__nombre">Färgkombinationer</p>
+          </div>
+          <div class="acu-item">
+            <span class="acu-item__check"></span>
+            <p class="acu-item__nombre">Vanliga akvarellmisstag</p>
+          </div>
+          <div class="acu-item">
+            <span class="acu-item__check"></span>
+            <p class="acu-item__nombre">Dekoration med akvarell</p>
+          </div>
+          <div class="acu-item">
+            <span class="acu-item__check"></span>
+            <p class="acu-item__nombre">Guide till grundläggande verktyg</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="acu-ficha__grupo acu-ficha__grupo--marcapaginas">
+        <p class="acu-ficha__grupo-titulo">Ny guide i paketet</p>
+        <div class="acu-marcapaginas">
+          <figure class="acu-marcapaginas__imagen">
+            <!-- re-subir a catbox: ys8i6q.webp -->
+            <img alt="Akvarellbokmärken" loading="lazy" src="https://www.kaching.lat/img/muveszet/ys8i6q.webp"/>
+            <span class="acu-marcapaginas__badge">Ingår i paketet</span>
+          </figure>
+          <div class="acu-marcapaginas__contenido">
+            <h3 class="acu-marcapaginas__titulo">Akvarellbokmärken</h3>
+            <p class="acu-marcapaginas__texto">Kreativa miniprojekt för att öva akvarell: skapa unika bokmärken för eget bruk, som gåvor eller minnen.</p>
+            <div class="acu-marcapaginas__lista">
+              <div class="acu-marcapaginas__detalle">Mallar redo att skriva ut och måla</div>
+              <div class="acu-marcapaginas__detalle">Guidade projekt steg för steg</div>
+              <div class="acu-marcapaginas__detalle">Skisser, lager, färger och slutresultat</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="acu-ficha__grupo acu-ficha__grupo--bonus">
+        <p class="acu-ficha__grupo-titulo">🎁 Dagens gåva</p>
+        <div class="acu-item">
+          <span class="acu-item__check"></span>
+          <figure class="acu-bonus__thumb">
+            <!-- re-subir a catbox: 8gzl4x.webp -->
+            <img alt="Världsresande samling" height="1254" loading="lazy" src="https://www.kaching.lat/img/muveszet/8gzl4x.webp" width="1254"/>
+            <figcaption>Ingår gratis idag</figcaption>
+          </figure>
+          <p class="acu-item__nombre">Världsresande samling · Måla efter nummer<small>23 resmål med förritade skisser och numrerade ytor. Börja måla utan att behöva rita en enda linje.</small></p>
+        </div>
+      </div>
+
+      <div class="acu-garantias">
+        <div class="acu-garantia">
+          <b>Direkt</b>
+          <span>Levereras via e-post efter bekräftad betalning</span>
+        </div>
+        <div class="acu-garantia">
+          <b>För alltid</b>
+          <span>Engångsbetalning, ingen förnyelse</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SECCIÓN DE OFERTA / CHECKOUT -->
+<section id="offer" scroll-margin-top="24px">
+  <div class="acu-offer-wrap">
+    <div class="acu-offer__media">
+      <!-- re-subir a catbox: h5km20.webp (tiene texto HU → image-to-image a SE si se quiere) -->
+      <img alt="Kreativa Akvarellakademien™ – Komplett paket" loading="lazy" src="https://www.kaching.lat/img/muveszet/h5km20.webp"/>
+    </div>
+    <div class="acu-offer__info">
+      <div class="acu-valoracion">
+        <div aria-label="4,9 av 5 stjärnor" class="acu-valoracion__estrellas">
+          <svg class="acu-valoracion__estrella" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"></polygon></svg>
+          <svg class="acu-valoracion__estrella" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"></polygon></svg>
+          <svg class="acu-valoracion__estrella" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"></polygon></svg>
+          <svg class="acu-valoracion__estrella" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"></polygon></svg>
+          <svg class="acu-valoracion__estrella" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"></polygon></svg>
+        </div>
+        <span class="acu-valoracion__numero">4,9</span>
+        <span class="acu-valoracion__texto">Omdömen från referensens kunder</span>
+      </div>
+
+      <h2 class="acu-offer__titulo">Kreativa Akvarellakademien™ – Komplett paket (projekt, videolektioner och extra studiematerial)</h2>
+
+      <div class="acu-offer__price">
+        <span class="acu-offer__price-old"><del>{{original_price}}</del></span>
+        <span class="acu-offer__price-new">{{price}}</span>
+      </div>
+      <span class="acu-offer__badge">50% rabatt | Begränsat erbjudande</span>
+
+      <div class="acu-offer-box">
+        <div class="acu-offer-box__badge">🔥 Specialerbjudande under begränsad tid</div>
+      </div>
+
+      <a class="ref-ac-cta" href="/checkout" data-checkout>JA, JAG VILL HA TILLGÅNG TILL HELA PAKETET</a>
+      <p class="ref-ac-cta-sub">🔒 Säker betalning · Omedelbar åtkomst</p>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIOS (fotos de referencia, texto en sueco) -->
+<section aria-labelledby="acu-test-titulo" class="acu-testimonios">
+  <div class="acu-testimonios__header">
+    <h2 class="acu-testimonios__titulo" id="acu-test-titulo">Det säger de som<br/><em>redan har börjat måla.</em></h2>
+    <p class="acu-testimonios__sub">Omdömen från referensens kunder, fritt översatta till svenska.</p>
+  </div>
+  <div class="acu-testimonios__grid">
+
+    <div class="acu-testimonio acu-testimonio--grande">
+      <img alt="Elev" class="acu-testimonio__foto" loading="lazy" src="https://www.kaching.lat/img/muveszet/qvpdvc.webp"/>
+      <div class="acu-testimonio__body">
+        <div class="acu-testimonio__estrellas">★★★★★</div>
+        <p class="acu-testimonio__cita">„Jag trodde aldrig att jag skulle kunna lära mig måla vid min ålder. Idag avslutar jag varje projekt och känner en stolthet som jag inte upplevt på år."</p>
+        <span class="acu-testimonio__nombre">Maja · Sverige</span>
+      </div>
+    </div>
+
+    <div class="acu-testimonio">
+      <img alt="Elev" class="acu-testimonio__foto" loading="lazy" src="https://www.kaching.lat/img/muveszet/197cfk.webp"/>
+      <div class="acu-testimonio__body">
+        <div class="acu-testimonio__estrellas">★★★★★</div>
+        <p class="acu-testimonio__cita">„Metoden är så tydlig att jag aldrig känt mig besviken. Målandet har blivit min favoritdel av dagen."</p>
+        <span class="acu-testimonio__nombre">Anna · Sverige</span>
+      </div>
+    </div>
+
+    <div class="acu-testimonio">
+      <img alt="Elev" class="acu-testimonio__foto" loading="lazy" src="https://www.kaching.lat/img/muveszet/f683ev.webp"/>
+      <div class="acu-testimonio__body">
+        <div class="acu-testimonio__estrellas">★★★★★</div>
+        <p class="acu-testimonio__cita">„Jag ville lära mig i flera år men sköt alltid upp det. Nu vet jag att jag bara behövde rätt metod."</p>
+        <span class="acu-testimonio__nombre">Linnea · Sverige</span>
+      </div>
+    </div>
+
+    <div class="acu-testimonio">
+      <img alt="Elev" class="acu-testimonio__foto" loading="lazy" src="https://www.kaching.lat/img/muveszet/v8jg0e.webp"/>
+      <div class="acu-testimonio__body">
+        <div class="acu-testimonio__estrellas">★★★★★</div>
+        <p class="acu-testimonio__cita">„Mina akvareller blev mycket bättre än jag väntade mig. Jag rekommenderar det till alla som vill börja."</p>
+        <span class="acu-testimonio__nombre">Frida · Sverige</span>
+      </div>
+    </div>
+
+    <div class="acu-testimonio">
+      <img alt="Elev" class="acu-testimonio__foto" loading="lazy" src="https://www.kaching.lat/img/muveszet/glh799.webp"/>
+      <div class="acu-testimonio__body">
+        <div class="acu-testimonio__estrellas">★★★★★</div>
+        <p class="acu-testimonio__cita">„Jag gav mig själv den här kursen i present och det var det bästa beslutet. Under målandet kopplar jag helt av från jobbet."</p>
+        <span class="acu-testimonio__nombre">Sofia · Sverige</span>
+      </div>
+    </div>
+
+    <div class="acu-testimonio">
+      <img alt="Elev" class="acu-testimonio__foto" loading="lazy" src="https://www.kaching.lat/img/muveszet/i6ts38.webp"/>
+      <div class="acu-testimonio__body">
+        <div class="acu-testimonio__estrellas">★★★★★</div>
+        <p class="acu-testimonio__cita">„Jag trodde att jag saknade talang. Nu pryder mina egna tavlor mitt hem, och det är ovärderligt."</p>
+        <span class="acu-testimonio__nombre">Astrid · Sverige</span>
+      </div>
+    </div>
+
+    <div class="acu-testimonio acu-testimonio--grande">
+      <img alt="Elev" class="acu-testimonio__foto" loading="lazy" src="https://www.kaching.lat/img/muveszet/tk93mh.webp"/>
+      <div class="acu-testimonio__body">
+        <div class="acu-testimonio__estrellas">★★★★★</div>
+        <p class="acu-testimonio__cita">„Varje projekt förklaras så väl att det känns som om någon sitter bredvid mig och vägleder. Precis vad jag behövde."</p>
+        <span class="acu-testimonio__nombre">Karin · Sverige</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FAQ -->
+<section aria-labelledby="acu-faq-titulo" class="acu-faq">
+  <div class="acu-faq__header">
+    <h2 class="acu-faq__titulo" id="acu-faq-titulo">Vanliga <em>frågor</em></h2>
+  </div>
+  <ul class="acu-faq__lista">
+    <li class="acu-faq__item">
+      <button aria-expanded="false" class="acu-faq__pregunta">Vilket format får jag materialet i?<span class="acu-faq__chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></span></button>
+      <div class="acu-faq__respuesta">
+        <p class="acu-faq__respuesta-inner">Allt innehåll är digitalt: du får PDF-filer av hög kvalitet, optimerade för läsning på skärm och utskrift, samt mer än 30 videolektioner byggda från grunden. Du kan nå dem från telefon, surfplatta eller dator.</p>
+      </div>
+    </li>
+    <li class="acu-faq__item">
+      <button aria-expanded="false" class="acu-faq__pregunta">Hur får jag materialet efter köpet?<span class="acu-faq__chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></span></button>
+      <div class="acu-faq__respuesta">
+        <p class="acu-faq__respuesta-inner">Efter bekräftat köp får du direkt ett e-postmeddelande med åtkomst till allt material. Ingen väntan. På mindre än 5 minuter kan du börja måla.</p>
+      </div>
+    </li>
+    <li class="acu-faq__item">
+      <button aria-expanded="false" class="acu-faq__pregunta">Behöver jag kunna rita eller ha tidigare erfarenhet?<span class="acu-faq__chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></span></button>
+      <div class="acu-faq__respuesta">
+        <p class="acu-faq__respuesta-inner">Nej. Akademin är speciellt utformad för dem som aldrig har målat förut. Varje projekt börjar från grunden och vägleder dig steg för steg, så att du känner dig trygg från den allra första dagen.</p>
+      </div>
+    </li>
+    <li class="acu-faq__item">
+      <button aria-expanded="false" class="acu-faq__pregunta">Vilka verktyg behöver jag för att komma igång?<span class="acu-faq__chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></span></button>
+      <div class="acu-faq__respuesta">
+        <p class="acu-faq__respuesta-inner">Du behöver bara grundläggande akvarellfärger, en rund pensel, akvarellpapper och vatten. Verktyggsguiden i paketet visar exakt vad du bör köpa, utan onödiga utgifter.</p>
+      </div>
+    </li>
+    <li class="acu-faq__item">
+      <button aria-expanded="false" class="acu-faq__pregunta">Hur länge har jag åtkomst till innehållet?<span class="acu-faq__chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></span></button>
+      <div class="acu-faq__respuesta">
+        <p class="acu-faq__respuesta-inner">Åtkomsten är livslång. Du köper en gång och materialet är ditt utan tidsbegränsning. Du kan gå i din egen takt, återvända till projekten när som helst och nå dem från vilken enhet som helst.</p>
+      </div>
+    </li>
+    <li class="acu-faq__item">
+      <button aria-expanded="false" class="acu-faq__pregunta">Är det samma som att söka idéer på Pinterest eller YouTube?<span class="acu-faq__chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></span></button>
+      <div class="acu-faq__respuesta">
+        <p class="acu-faq__respuesta-inner">Nej. Pinterest och YouTube erbjuder splittrad inspiration, utan system och gradvis progression. Akademin är en strukturerad metod: varje projekt leder dig till nästa nivå, utan att du behöver söka eller bestämma vad du ska lära dig.</p>
+      </div>
+    </li>
+  </ul>
+</section>
+
+<!-- FOOTER -->
+<footer class="acu-footer">
+  <p>Allmänna villkor · Integritetspolicy · Återbetalningsvillkor</p>
+  <p>© 2026 Kreativa Akvarellakademien. Alla rättigheter förbehållna.</p>
+</footer>
+
+</div><!-- /acu-root -->
+
+<script>
+(()=>{
+  const root = document.querySelector('.acu-root');
+  if (!root) return;
+
+  // FAQ accordion
+  root.querySelectorAll('.acu-faq__pregunta').forEach(b => b.addEventListener('click', () => {
+    const li = b.closest('.acu-faq__item');
+    const open = li.classList.toggle('acu-open');
+    b.setAttribute('aria-expanded', String(open));
+  }));
+
+  // Carousel
+  const track = root.querySelector('.acu-carrusel-track');
+  const outer = root.querySelector('.acu-carrusel-track-outer');
+  const dotWrap = root.querySelector('#acu-dots');
+  if (!track || !outer || !dotWrap) return;
+
+  const items = [...track.children];
+  let page = 0, visible = 1, pages = items.length;
+
+  function show(p) {
+    page = (p + pages) % pages;
+    const ix = Math.min(page * visible, items.length - visible);
+    track.style.transform = 'translateX(-' + (items[ix].offsetLeft - items[0].offsetLeft) + 'px)';
+    [...dotWrap.children].forEach((d, i) => {
+      d.classList.toggle('acu-active', i === page);
+      d.setAttribute('aria-current', String(i === page));
+    });
+  }
+
+  function layout() {
+    visible = Math.max(1, Math.floor((outer.clientWidth - 48) / (items[0].offsetWidth + 16)));
+    pages = Math.ceil(items.length / visible);
+    dotWrap.replaceChildren();
+    for (let i = 0; i < pages; i++) {
+      const d = document.createElement('button');
+      d.className = 'acu-dot';
+      d.setAttribute('aria-label', 'Sida ' + (i + 1));
+      d.addEventListener('click', () => show(i));
+      dotWrap.append(d);
+    }
+    show(Math.min(page, pages - 1));
+  }
+
+  root.querySelector('#acu-prev')?.addEventListener('click', () => show(page - 1));
+  root.querySelector('#acu-next')?.addEventListener('click', () => show(page + 1));
+  window.addEventListener('resize', layout);
+  layout();
+})();
+</script>
+
+</body>
+</html>

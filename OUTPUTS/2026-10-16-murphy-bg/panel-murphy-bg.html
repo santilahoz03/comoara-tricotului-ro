@@ -1,0 +1,1483 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Panel · Мърфи за Деца</title>
+<style>
+/* PANEL DE ENTREGA (uso interno, archivo LOCAL: no se publica).
+   Todo lo que necesitás para cargar la oferta en la tienda y en Ads Manager,
+   en un solo HTML que abre sin conexión. Paleta = la de la landing. */
+:root{--bg:#ffffff;--paper:#f8fafc;--ink:#1c3a5e;--ink-soft:#718096;--accent:#ff6b35;--accent-dark:#e8551f;--line:#e2e8f0}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--bg);color:var(--ink)}
+body{font-family:-apple-system,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.5;font-size:15px}
+.wrap{max-width:1100px;margin:0 auto;padding:0 16px 60px}
+header{background:linear-gradient(150deg,var(--accent-dark),var(--accent));color:var(--paper);padding:26px 0 22px;margin-bottom:22px}
+header small{opacity:.85;letter-spacing:.1em;text-transform:uppercase;font-weight:700;font-size:12px}
+header h1{font-size:clamp(24px,4vw,34px);line-height:1.15;margin:4px 0 14px;font-family:Georgia,serif}
+.kv{display:flex;flex-wrap:wrap;gap:10px;align-items:stretch}
+.chip{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.35);border-radius:12px;padding:10px 12px;display:flex;gap:10px;align-items:center;flex:1 1 320px;min-width:0}
+.chip .lbl{font-size:11px;text-transform:uppercase;letter-spacing:.08em;opacity:.85;display:block}
+.chip .val{font-weight:800;word-break:break-word}
+.chip > div{flex:1;min-width:0}
+nav{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line);padding:10px 0;margin-bottom:18px;display:flex;gap:8px;overflow-x:auto}
+nav a{white-space:nowrap;text-decoration:none;color:var(--accent-dark);font-weight:700;font-size:13px;background:var(--paper);border:1px solid var(--line);padding:6px 11px;border-radius:99px}
+section{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:18px;margin-bottom:18px}
+section h2{font-family:Georgia,serif;font-size:21px;margin-bottom:12px;display:flex;gap:10px;align-items:center}
+section h2 .n{background:var(--accent);color:var(--paper);border-radius:8px;min-width:30px;height:30px;display:inline-flex;align-items:center;justify-content:center;font-size:15px;font-family:inherit}
+table{width:100%;border-collapse:collapse}
+td,th{text-align:left;padding:9px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-soft)}
+.url{font-family:ui-monospace,Menlo,monospace;font-size:13px;word-break:break-all}
+.cp{border:1px solid var(--accent);background:var(--bg);color:var(--accent-dark);border-radius:8px;padding:5px 10px;font-weight:700;font-size:12px;cursor:pointer;white-space:nowrap}
+header .cp{background:var(--paper)}
+.cp.ok{background:var(--accent);color:var(--paper)}
+.hub{border:2px solid var(--accent);border-radius:12px;padding:12px;margin-bottom:12px;background:var(--bg)}
+.hub b{display:block;margin-bottom:4px}
+pre{background:#1e1e1e;color:#eee;border-radius:10px;padding:12px;max-height:320px;overflow:auto;font-size:12px;white-space:pre-wrap;word-break:break-all}
+.imgs{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
+.img{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--bg);display:flex;flex-direction:column}
+.img img{width:100%;display:block;background:#fff}
+.img div{padding:8px;display:grid;gap:6px;font-size:13px}
+.ok{color:#2f7d4f;font-weight:800}
+.pend{color:#a86a00;font-weight:800}
+.bad{color:#a13a2f;font-weight:800}
+ol.check{padding-left:22px;display:grid;gap:6px}
+.nota{background:var(--bg);border-left:4px solid var(--accent);padding:10px 12px;border-radius:0 8px 8px 0;margin-top:10px;color:var(--ink-soft)}
+.foot{color:var(--ink-soft);font-size:12px;text-align:center}
+@media (max-width:600px){section{padding:14px 10px}td,th{padding:8px 4px}th{font-size:11px}.cp{padding:5px 7px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap" style="padding-bottom:0">
+    <small>Panel de entrega · 2026-10-16</small>
+    <h1>Мърфи за Деца</h1>
+    <div class="kv">
+      <div class="chip" id="nom-completo"><div><span class="lbl">Título completo (checkout, mockups, producto)</span><span class="val" id="t-titulo">Комплект 3 в 1 — Законът на Мърфи за Деца + Голямата Книга на Защо + Лидерството Започва Тук</span></div><button class="cp" data-target="t-titulo">Copiar</button></div>
+      <div class="chip"><div><span class="lbl">Subdominio de la tienda · ⏳ pendiente</span><span class="val" id="t-sub">sin configurar</span></div><button class="cp" data-target="t-sub">Copiar</button></div>
+      <div class="chip"><div><span class="lbl">URL del hub (entrega)</span><span class="val url" id="t-hub">https://santilahoz03.github.io/entregas/acceso/mox0yx2pon/</span></div><button class="cp" data-target="t-hub">Copiar</button></div>
+    </div>
+  </div>
+</header>
+<div class="wrap">
+  <nav>
+    <a href="#s1">1 · Oferta</a><a href="#s2">2 · Landing</a><a href="#s3">3 · Entregables</a>
+    <a href="#s4">4 · Imágenes</a><a href="#s5">5 · Ads</a><a href="#s6">6 · Lanzamiento</a><a href="#s7">7 · Antes de pautar</a>
+  </nav>
+  <section id="s1"><h2><span class="n">1</span>La oferta</h2><table><tr><th>Producto</th><td>Мърфи за Деца</td><td><button class="cp" data-copy="Мърфи за Деца">Copiar</button></td></tr><tr><th>Título completo</th><td>Комплект 3 в 1 — Законът на Мърфи за Деца + Голямата Книга на Защо + Лидерството Започва Тук</td><td><button class="cp" data-copy="Комплект 3 в 1 — Законът на Мърфи за Деца + Голямата Книга на Защо + Лидерството Започва Тук">Copiar</button></td></tr><tr><th>Precio</th><td>EUR 14,99</td><td><button class="cp" data-copy="EUR 14,99">Copiar</button></td></tr><tr><th>Precio tachado</th><td>EUR 74,99</td><td><button class="cp" data-copy="EUR 74,99">Copiar</button></td></tr><tr><th>Ahorro</th><td>EUR 60</td><td><button class="cp" data-copy="EUR 60">Copiar</button></td></tr><tr><th>Mercado</th><td>BG</td><td><button class="cp" data-copy="BG">Copiar</button></td></tr><tr><th>Idioma / registro</th><td>bg / neutro</td><td><button class="cp" data-copy="bg / neutro">Copiar</button></td></tr><tr><th>Tienda</th><td>ImpulTienda</td><td><button class="cp" data-copy="ImpulTienda">Copiar</button></td></tr><tr><th>Landing publicada</th><td>—</td><td></td></tr><tr><th>Subdominio</th><td> (⏳ pendiente)</td><td><button class="cp" data-copy=" (⏳ pendiente)">Copiar</button></td></tr></table></section>
+  <section id="s2"><h2><span class="n">2</span>Landing — código para pegar</h2><p>landing-murphy-bg-fragmento.html · 53 KB <button class="cp" data-target="landing-code">Copiar HTML</button></p><pre id="landing-code">&lt;link rel=&quot;preconnect&quot; href=&quot;https://fonts.googleapis.com&quot;&gt;
+&lt;link rel=&quot;preconnect&quot; href=&quot;https://fonts.gstatic.com&quot; crossorigin&gt;
+&lt;link href=&quot;https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;0,900;1,700&amp;family=Nunito+Sans:wght@400;600;700&amp;display=swap&quot; rel=&quot;stylesheet&quot;&gt;
+&lt;style&gt;
+/* ===== RESET &amp; BASE ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html {
+  scroll-behavior: smooth;
+  background: #ffffff;
+  color: #242833;
+  font-family: &#x27;Nunito Sans&#x27;, &#x27;Nunito&#x27;, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { background: #ffffff; overflow-x: hidden; }
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; text-decoration: none; }
+
+/* ===== CSS VARIABLES ===== */
+:root {
+  --ml-bg: #ffffff;
+  --ml-bg-alt: #f3f3f3;
+  --ml-bg-blue-light: #eaf6ff;
+  --ml-bg-cream: #fffaf0;
+  --ml-bg-yellow-light: #fffbea;
+  --ml-navy: #1c3a5e;
+  --ml-navy-dark: #123055;
+  --ml-text: #242833;
+  --ml-text-secondary: #5f6b82;
+  --ml-accent: #334fb4;
+  --ml-orange: #ff6b35;
+  --ml-orange-dark: #e8551f;
+  --ml-red: #ff4d5e;
+  --ml-green: #2fae66;
+  --ml-green-dark: #279257;
+  --ml-gold: #ffc93c;
+  --ml-gold-alt: #ffb04d;
+  --ml-border: #cfd6e8;
+  --ml-border-light: #dbe9f5;
+}
+
+/* ===== TOP MARQUEE BAR ===== */
+.ml-marquee-bar {
+  background: var(--ml-navy);
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 9px 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.ml-marquee-inner {
+  display: inline-block;
+  animation: ml-marquee 28s linear infinite;
+}
+.ml-marquee-inner span {
+  display: inline-block;
+  padding: 0 32px;
+}
+.ml-marquee-inner span::before { content: &#x27;·&#x27;; margin-right: 32px; opacity: 0.5; }
+.ml-marquee-inner span:first-child::before { content: none; margin: 0; }
+@keyframes ml-marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ===== COUNTDOWN BAR ===== */
+.ml-countdown-bar {
+  background: var(--ml-orange);
+  color: #ffffff;
+  text-align: center;
+  padding: 10px 16px;
+  font-size: 14px;
+  font-weight: 700;
+}
+.ml-countdown-bar .ml-timer {
+  font-size: 18px;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ===== STICKY TOP BAR (mobile) ===== */
+.ml-sticky-bar {
+  display: none;
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  background: var(--ml-orange);
+  z-index: 1000;
+  padding: 12px 16px;
+  text-align: center;
+}
+.ml-sticky-bar a {
+  display: block;
+  color: #fff;
+  font-weight: 900;
+  font-size: 15px;
+  letter-spacing: 0.04em;
+}
+@media (max-width: 520px) { .ml-sticky-bar { display: block; } }
+
+/* ===== HERO SECTION ===== */
+.ml-hero {
+  background: var(--ml-bg);
+  text-align: center;
+  padding: 32px 20px 0;
+  max-width: 860px;
+  margin: 0 auto;
+}
+.ml-hero-pills {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+.ml-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--ml-navy);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  border-radius: 100px;
+}
+.ml-pill.ml-pill-gold {
+  background: var(--ml-gold);
+  color: var(--ml-navy-dark);
+}
+.ml-headline {
+  font-family: &#x27;Nunito&#x27;, sans-serif;
+  font-size: clamp(26px, 5vw, 46px);
+  font-weight: 900;
+  line-height: 1.15;
+  color: var(--ml-navy);
+  margin-bottom: 16px;
+}
+.ml-headline .hl-orange { color: var(--ml-orange); }
+.ml-headline .hl-blue  { color: var(--ml-accent); }
+.ml-subheadline {
+  font-size: clamp(15px, 2.5vw, 18px);
+  color: var(--ml-text-secondary);
+  max-width: 640px;
+  margin: 0 auto 28px;
+  line-height: 1.6;
+}
+.ml-subheadline strong { color: var(--ml-navy); }
+
+/* Book covers display */
+.ml-books-wrap {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 0;
+  margin: 0 auto 28px;
+  max-width: 520px;
+}
+.ml-book-badge-3in1 {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+.ml-badge-3in1-ring {
+  background: linear-gradient(135deg, var(--ml-gold), var(--ml-gold-alt));
+  color: var(--ml-navy-dark);
+  font-family: &#x27;Nunito&#x27;, sans-serif;
+  font-weight: 900;
+  font-size: 22px;
+  width: 80px; height: 80px;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  border: 3px solid #fff;
+  box-shadow: 0 4px 16px rgba(255,193,60,.5);
+}
+.ml-badge-3in1-ring span { font-size: 10px; font-weight: 700; letter-spacing: 0.04em; }
+.ml-badge-offer-tag {
+  background: var(--ml-orange);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+.ml-book-img {
+  width: 160px;
+  border-radius: 6px;
+  box-shadow: 0 8px 24px rgba(28,58,94,.2);
+  transition: transform .2s;
+}
+.ml-book-img:hover { transform: translateY(-4px); }
+.ml-book-img.ml-book-main {
+  width: 190px;
+  position: relative;
+  z-index: 5;
+  margin: 0 -20px;
+}
+.ml-bonus-badge {
+  position: absolute;
+  top: 12px; right: -12px;
+  background: var(--ml-green);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 800;
+  padding: 4px 8px;
+  border-radius: 4px;
+  border: 2px solid #fff;
+  z-index: 20;
+  white-space: nowrap;
+}
+
+/* Feature bullets */
+.ml-features {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 20px;
+  max-width: 640px;
+  margin: 0 auto 28px;
+  text-align: left;
+}
+.ml-feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--ml-text);
+  line-height: 1.45;
+}
+.ml-feature-item .ml-fi-icon {
+  font-size: 18px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+@media (max-width: 520px) {
+  .ml-features { grid-template-columns: 1fr; }
+}
+
+/* ===== MINI OFFER BOX (hero) ===== */
+.ml-mini-offer {
+  background: var(--ml-bg);
+  border: 2px solid var(--ml-border);
+  border-radius: 16px;
+  padding: 20px 24px;
+  max-width: 440px;
+  margin: 0 auto 32px;
+  text-align: center;
+}
+.ml-offer-tag-strip {
+  background: var(--ml-red);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 4px;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+.ml-price-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 6px;
+  flex-wrap: wrap;
+}
+.ml-price-main {
+  font-family: &#x27;Nunito&#x27;, sans-serif;
+  font-size: 44px;
+  font-weight: 900;
+  color: var(--ml-navy);
+  line-height: 1;
+}
+.ml-price-original {
+  font-size: 18px;
+  color: var(--ml-text-secondary);
+  text-decoration: line-through;
+}
+.ml-savings-pill {
+  background: var(--ml-red);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 800;
+  padding: 3px 10px;
+  border-radius: 100px;
+}
+.ml-price-note {
+  font-size: 13px;
+  color: var(--ml-text-secondary);
+  margin-bottom: 14px;
+}
+.ml-btn-primary {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--ml-orange), var(--ml-orange-dark));
+  color: #fff;
+  font-family: &#x27;Nunito&#x27;, sans-serif;
+  font-size: clamp(15px, 2.5vw, 18px);
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  padding: 16px 32px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 4px 16px rgba(255,107,53,.4);
+  transition: transform .15s, box-shadow .15s;
+  text-decoration: none;
+}
+.ml-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(255,107,53,.5);
+}
+.ml-trust-row {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+  font-size: 12px;
+  color: var(--ml-text-secondary);
+}
+.ml-trust-row span { display: flex; align-items: center; gap: 4px; }
+
+/* ===== REVIEW MARQUEE ===== */
+.ml-reviews-marquee {
+  background: var(--ml-bg-alt);
+  padding: 16px 0;
+  overflow: hidden;
+  white-space: nowrap;
+  margin: 0;
+}
+.ml-reviews-inner {
+  display: inline-block;
+  animation: ml-reviews-scroll 40s linear infinite;
+}
+.ml-review-card {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #fff;
+  border: 1px solid var(--ml-border-light);
+  border-radius: 100px;
+  padding: 8px 18px;
+  margin: 0 10px;
+  font-size: 13px;
+  color: var(--ml-text);
+  white-space: nowrap;
+}
+.ml-review-stars { color: var(--ml-gold); font-size: 13px; }
+.ml-review-author { color: var(--ml-text-secondary); font-size: 12px; }
+@keyframes ml-reviews-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ===== SECTION WRAPPER ===== */
+.ml-section {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 56px 20px;
+}
+.ml-section-title {
+  font-family: &#x27;Nunito&#x27;, sans-serif;
+  font-size: clamp(22px, 4vw, 32px);
+  font-weight: 900;
+  color: var(--ml-navy);
+  text-align: center;
+  margin-bottom: 8px;
+  line-height: 1.25;
+}
+.ml-section-subtitle {
+  text-align: center;
+  color: var(--ml-text-secondary);
+  font-size: clamp(14px, 2vw, 16px);
+  max-width: 600px;
+  margin: 0 auto 36px;
+}
+.ml-section-eyebrow {
+  text-align: center;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ml-orange);
+  margin-bottom: 8px;
+}
+
+/* ===== SOCIAL PROOF STATS ===== */
+.ml-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 32px;
+}
+.ml-stat-card {
+  background: var(--ml-bg-blue-light);
+  border: 1px solid var(--ml-border-light);
+  border-radius: 12px;
+  padding: 20px 12px;
+  text-align: center;
+}
+.ml-stat-num {
+  font-family: &#x27;Nunito&#x27;, sans-serif;
+  font-size: 28px;
+  font-weight: 900;
+  color: var(--ml-navy);
+  line-height: 1;
+  display: block;
+}
+.ml-stat-label {
+  font-size: 12px;
+  color: var(--ml-text-secondary);
+  margin-top: 4px;
+}
+@media (max-width: 600px) {
+  .ml-stats-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ===== PAIN POINTS ===== */
+.ml-pains-bg {
+  background: var(--ml-bg-cream);
+}
+.ml-pains-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 36px;
+}
+.ml-pain-card {
+  background: #fff;
+  border: 1px solid var(--ml-border);
+  border-left: 4px solid var(--ml-red);
+  border-radius: 10px;
+  padding: 20px;
+}
+.ml-pain-emoji { font-size: 26px; margin-bottom: 8px; }
+.ml-pain-title {
+  font-weight: 800;
+  color: var(--ml-navy);
+  font-size: 15px;
+  margin-bottom: 6px;
+}
+.ml-pain-desc { font-size: 14px; color: var(--ml-text-secondary); line-height: 1.5; }
+@media (max-width: 600px) { .ml-pains-grid { grid-template-columns: 1fr; } }
+
+/* ===== WHAT&#x27;S INCLUDED ===== */
+.ml-books-list { display: flex; flex-direction: column; gap: 28px; margin-top: 36px; }
+.ml-book-card {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  background: var(--ml-bg-blue-light);
+  border: 1px solid var(--ml-border-light);
+  border-radius: 14px;
+  padding: 24px;
+}
+.ml-book-card-img { width: 100px; flex-shrink: 0; border-radius: 6px; box-shadow: 0 4px 12px rgba(28,58,94,.15); }
+.ml-book-card-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 100px;
+  margin-bottom: 8px;
+}
+.ml-tag-main { background: var(--ml-navy); color: #fff; }
+.ml-tag-free { background: var(--ml-green); color: #fff; }
+.ml-book-card-title {
+  font-family: &#x27;Nunito&#x27;, sans-serif;
+  font-size: 18px;
+  font-weight: 900;
+  color: var(--ml-navy);
+  margin-bottom: 10px;
+}
+.ml-book-card-bullets { list-style: none; padding: 0; }
+.ml-book-card-bullets li {
+  font-size: 14px;
+  color: var(--ml-text);
+  padding: 3px 0;
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  line-height: 1.45;
+}
+.ml-book-card-bullets li::before { content: none; }
+@media (max-width: 520px) {
+  .ml-book-card { flex-direction: column; }
+  .ml-book-card-img { width: 80px; }
+}
+
+/* ===== HOW TO GET IT ===== */
+.ml-delivery-box {
+  background: linear-gradient(135deg, var(--ml-navy), var(--ml-navy-dark));
+  color: #fff;
+  border-radius: 16px;
+  padding: 36px 32px;
+  text-align: center;
+  margin-top: 36px;
+}
+.ml-delivery-icon { font-size: 48px; margin-bottom: 12px; }
+.ml-delivery-title {
+  font-family: &#x27;Nunito&#x27;, sans-serif;
+  font-size: 22px;
+  font-weight: 900;
+  margin-bottom: 12px;
+}
+.ml-delivery-text { font-size: 15px; opacity: 0.9; line-height: 1.6; max-width: 480px; margin: 0 auto; }
+
+/* ===== WHAT IT BUILDS ===== */
+.ml-pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 36px;
+}
+.ml-pillar-card {
+  background: var(--ml-bg);
+  border: 1px solid var(--ml-border);
+  border-radius: 14px;
+  padding: 28px 20px;
+  text-align: center;
+  box-shadow: 0 2px 12px rgba(28,58,94,.06);
+}
+.ml-pillar-img { width: 80px; height: 80px; object-fit: cover; border-radius: 50%; margin: 0 auto 14px; }
+.ml-pillar-subtitle {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ml-orange);
+  margin-bottom: 6px;
+}
+.ml-pillar-title {
+  font-family: &#x27;Nunito&#x27;, sans-serif;
+  font-size: 17px;
+  font-weight: 900;
+  color: var(--ml-navy);
+  margin-bottom: 10px;
+}
+.ml-pillar-book { font-size: 12px; color: var(--ml-text-secondary); font-style: italic; margin-bottom: 10px; }
+.ml-pillar-desc { font-size: 13px; color: var(--ml-text); line-height: 1.5; }
+@media (max-width: 640px) { .ml-pillars-grid { grid-template-columns: 1fr; } }
+
+/* ===== THE PROMISE ===== */
+.ml-promise-bg { background: var(--ml-bg-blue-light); }
+.ml-promise-checks {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 24px;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.ml-promise-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 15px;
+  color: var(--ml-text);
+}
+.ml-check-icon { color: var(--ml-green); font-size: 18px; flex-shrink: 0; font-weight: 900; }
+
+/* ===== INSIDE THE 3-IN-1 ===== */
+.ml-inside-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 24px;
+  margin-top: 28px;
+  max-width: 680px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.ml-inside-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--ml-text);
+  line-height: 1.45;
+}
+.ml-inside-check { color: var(--ml-green); font-weight: 900; flex-shrink: 0; margin-top: 1px; }
+@media (max-width: 520px) { .ml-inside-grid { grid-template-columns: 1fr; } }
+
+/* ===== WHO IT&#x27;S FOR ===== */
+.ml-for-bg { background: var(--ml-bg-cream); }
+.ml-for-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  align-items: center;
+  margin-top: 32px;
+}
+.ml-for-img { border-radius: 14px; box-shadow: 0 8px 24px rgba(28,58,94,.12); }
+.ml-for-list { list-style: none; padding: 0; }
+.ml-for-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14px;
+  padding: 5px 0;
+  color: var(--ml-text);
+}
+.ml-for-list li .ml-fi-icon { font-size: 20px; flex-shrink: 0; }
+.ml-for-gifts {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--ml-border);
+  font-size: 13px;
+  color: var(--ml-text-secondary);
+}
+@media (max-width: 640px) { .ml-for-grid { grid-template-columns: 1fr; } }
+
+/* ===== COMPARISON TABLE ===== */
+.ml-comparison-wrap { overflow-x: auto; margin-top: 32px; }
+.ml-comparison-table {
+  width: 100%;
+  min-width: 560px;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 16px rgba(28,58,94,.08);
+}
+.ml-comparison-table th {
+  background: var(--ml-navy);
+  color: #fff;
+  padding: 14px 16px;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-align: center;
+}
+.ml-comparison-table th:first-child { text-align: left; background: var(--ml-navy-dark); }
+.ml-comparison-table tr:nth-child(even) { background: var(--ml-bg-blue-light); }
+.ml-comparison-table td {
+  padding: 12px 16px;
+  font-size: 14px;
+  color: var(--ml-text);
+  border-top: 1px solid var(--ml-border-light);
+  text-align: center;
+}
+.ml-comparison-table td:first-child { text-align: left; font-weight: 600; }
+.ml-check-green { color: var(--ml-green); font-size: 18px; font-weight: 900; }
+.ml-cross-red { color: var(--ml-red); font-size: 18px; font-weight: 900; }
+.ml-sometimes { color: var(--ml-gold-alt); font-size: 13px; font-weight: 700; }
+
+/* ===== RESULTS STATS ===== */
+.ml-results-bg { background: var(--ml-navy); }
+.ml-results-title { color: #fff; }
+.ml-results-subtitle { color: rgba(255,255,255,.75); }
+.ml-results-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 36px;
+}
+.ml-result-card {
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.15);
+  border-radius: 14px;
+  padding: 28px 20px;
+  text-align: center;
+}
+.ml-result-pct {
+  font-family: &#x27;Nunito&#x27;, sans-serif;
+  font-size: 56px;
+  font-weight: 900;
+  color: var(--ml-gold);
+  line-height: 1;
+  display: block;
+  margin-bottom: 8px;
+}
+.ml-result-desc { font-size: 14px; color: rgba(255,255,255,.85); line-height: 1.5; }
+@media (max-width: 600px) { .ml-results-grid { grid-template-columns: 1fr; } }
+
+/* ===== WHAT YOUR CHILD WILL ACHIEVE (replaces testimonials) ===== */
+.ml-achieve-bg { background: var(--ml-bg-yellow-light); }
+.ml-achieve-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 32px;
+}
+.ml-achieve-card {
+  background: #fff;
+  border: 1px solid var(--ml-border);
+  border-radius: 12px;
+  padding: 20px 18px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+.ml-achieve-icon { font-size: 30px; flex-shrink: 0; }
+.ml-achieve-text {
+  font-size: 14px;
+  color: var(--ml-text);
+  line-height: 1.55;
+}
+.ml-achieve-text strong { color: var(--ml-navy); font-weight: 800; }
+@media (max-width: 520px) { .ml-achieve-grid { grid-template-columns: 1fr; } }
+
+/* ===== GUARANTEE ===== */
+.ml-guarantee-box {
+  background: #fff;
+  border: 2px solid var(--ml-green);
+  border-radius: 16px;
+  padding: 36px 32px;
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+.ml-guarantee-num {
+  font-family: &#x27;Nunito&#x27;, sans-serif;
+  font-size: 72px;
+  font-weight: 900;
+  color: var(--ml-green);
+  line-height: 1;
+  display: block;
+}
+.ml-guarantee-label {
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ml-green);
+  margin-bottom: 16px;
+}
+.ml-guarantee-title {
+  font-family: &#x27;Nunito&#x27;, sans-serif;
+  font-size: 22px;
+  font-weight: 900;
+  color: var(--ml-navy);
+  margin-bottom: 12px;
+}
+.ml-guarantee-text { font-size: 15px; color: var(--ml-text-secondary); line-height: 1.6; }
+
+/* ===== FINAL OFFER (anchor section) ===== */
+.ml-offer-section {
+  background: var(--ml-bg);
+  scroll-margin-top: 24px;
+}
+.ml-offer-box {
+  background: linear-gradient(160deg, var(--ml-navy), var(--ml-navy-dark));
+  border-radius: 20px;
+  padding: 40px 32px;
+  text-align: center;
+  color: #fff;
+  max-width: 580px;
+  margin: 0 auto;
+}
+.ml-offer-box .ml-offer-tagline {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ml-gold);
+  margin-bottom: 12px;
+}
+.ml-offer-box .ml-offer-title {
+  font-family: &#x27;Nunito&#x27;, sans-serif;
+  font-size: 26px;
+  font-weight: 900;
+  line-height: 1.25;
+  margin-bottom: 24px;
+  color: #fff;
+}
+.ml-offer-price-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+.ml-offer-price-main {
+  font-family: &#x27;Nunito&#x27;, sans-serif;
+  font-size: 64px;
+  font-weight: 900;
+  color: #fff;
+  line-height: 1;
+}
+.ml-offer-price-orig {
+  font-size: 22px;
+  color: rgba(255,255,255,.55);
+  text-decoration: line-through;
+}
+.ml-offer-savings {
+  background: var(--ml-red);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 800;
+  padding: 4px 12px;
+  border-radius: 100px;
+}
+.ml-offer-note {
+  font-size: 13px;
+  color: rgba(255,255,255,.7);
+  margin-bottom: 20px;
+}
+.ml-btn-offer {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--ml-orange), var(--ml-orange-dark));
+  color: #fff;
+  font-family: &#x27;Nunito&#x27;, sans-serif;
+  font-size: clamp(16px, 2.5vw, 20px);
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  padding: 18px 40px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(255,107,53,.5);
+  transition: transform .15s, box-shadow .15s;
+  text-decoration: none;
+  width: 100%;
+  text-align: center;
+}
+.ml-btn-offer:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(255,107,53,.6); }
+.ml-offer-trust-row {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 14px;
+  flex-wrap: wrap;
+  font-size: 13px;
+  color: rgba(255,255,255,.75);
+}
+.ml-offer-trust-row span { display: flex; align-items: center; gap: 5px; }
+
+/* ===== FAQ ===== */
+.ml-faq-bg { background: var(--ml-bg-alt); }
+.ml-faq-list { margin-top: 32px; display: flex; flex-direction: column; gap: 0; }
+.ml-faq-item {
+  border-bottom: 1px solid var(--ml-border);
+  background: #fff;
+}
+.ml-faq-item:first-child { border-radius: 12px 12px 0 0; border-top: 1px solid var(--ml-border); }
+.ml-faq-item:last-child { border-radius: 0 0 12px 12px; }
+.ml-faq-q {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 20px;
+  cursor: pointer;
+  font-weight: 700;
+  color: var(--ml-navy);
+  font-size: 15px;
+  list-style: none;
+  gap: 12px;
+}
+.ml-faq-q::after { content: &#x27;+&#x27;; font-size: 22px; font-weight: 400; flex-shrink: 0; color: var(--ml-orange); }
+.ml-faq-item[open] .ml-faq-q::after { content: &#x27;−&#x27;; }
+.ml-faq-a { padding: 0 20px 18px; font-size: 14px; color: var(--ml-text-secondary); line-height: 1.65; }
+
+/* ===== FOOTER ===== */
+.ml-footer {
+  background: var(--ml-navy-dark);
+  color: rgba(255,255,255,.65);
+  text-align: center;
+  padding: 28px 20px;
+  font-size: 12px;
+}
+.ml-footer a { color: rgba(255,255,255,.55); text-decoration: underline; margin: 0 8px; }
+.ml-footer-title {
+  color: #fff;
+  font-weight: 800;
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+@media (max-width: 380px) {
+  .ml-price-main { font-size: 36px; }
+  .ml-offer-price-main { font-size: 48px; }
+  .ml-offer-price-orig { font-size: 18px; }
+  .ml-btn-primary, .ml-btn-offer { font-size: 14px; padding: 16px 18px; }
+  .ml-hero-books img { width: 80px; }
+  .ml-section { padding: 40px 16px; }
+  .ml-offer-box { padding: 28px 16px; }
+  .ml-book-card-img { width: 64px; }
+}
+&lt;/style&gt;
+&lt;!-- 1. TOP MARQUEE BAR --&gt;
+&lt;div class=&quot;ml-marquee-bar&quot; aria-hidden=&quot;true&quot;&gt;
+  &lt;div class=&quot;ml-marquee-inner&quot;&gt;
+    &lt;span&gt;🧠 РЕАЛНИ УМЕНИЯ ЗА ДЕЦА&lt;/span&gt;
+    &lt;span&gt;🎁 САМО ДНЕС — КУПИ 1, ВЗЕМИ 3&lt;/span&gt;
+    &lt;span&gt;📩 НЕЗАБАВНА ДОСТАВКА ПО ИМЕЙЛ&lt;/span&gt;
+    &lt;span&gt;🌎 ДИГИТАЛНА ДОСТАВКА НАВСЯКЪДЕ&lt;/span&gt;
+    &lt;span&gt;🧠 РЕАЛНИ УМЕНИЯ ЗА ДЕЦА&lt;/span&gt;
+    &lt;span&gt;🎁 САМО ДНЕС — КУПИ 1, ВЗЕМИ 3&lt;/span&gt;
+    &lt;span&gt;📩 НЕЗАБАВНА ДОСТАВКА ПО ИМЕЙЛ&lt;/span&gt;
+    &lt;span&gt;🌎 ДИГИТАЛНА ДОСТАВКА НАВСЯКЪДЕ&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- 2. COUNTDOWN BAR --&gt;
+&lt;div class=&quot;ml-countdown-bar&quot;&gt;
+  ⏳ Ограничена оферта · изтича след&amp;nbsp;&lt;span class=&quot;ml-timer&quot; id=&quot;ml-timer&quot;&gt;10:00&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;!-- STICKY MOBILE BAR --&gt;
+&lt;div class=&quot;ml-sticky-bar&quot;&gt;
+  &lt;a href=&quot;#ml-offer&quot;&gt;ВЗЕМИ 3-ТЕ КНИГИ — {{price}} →&lt;/a&gt;
+&lt;/div&gt;
+
+&lt;!-- 3. HERO SECTION --&gt;
+&lt;section class=&quot;ml-hero&quot;&gt;
+  &lt;div class=&quot;ml-hero-pills&quot;&gt;
+    &lt;span class=&quot;ml-pill&quot;&gt;⭐ БЕСТСЕЛЪР&lt;/span&gt;
+    &lt;span class=&quot;ml-pill ml-pill-gold&quot;&gt;📩 НЕЗАБАВНА ДОСТАВКА&lt;/span&gt;
+  &lt;/div&gt;
+
+  &lt;h1 class=&quot;ml-headline&quot;&gt;
+    Отгледай дете, което &lt;span class=&quot;hl-orange&quot;&gt;мисли по-ясно,&lt;/span&gt;&lt;br&gt;
+    &lt;span class=&quot;hl-blue&quot;&gt;справя се по-бързо&lt;/span&gt; и води с увереност
+  &lt;/h1&gt;
+  &lt;p class=&quot;ml-subheadline&quot;&gt;
+    Книгата, която учи детето ти на неща, &lt;strong&gt;които училището не винаги покрива&lt;/strong&gt; — как всъщност работи реалният свят, преди животът да го научи по трудния начин.
+  &lt;/p&gt;
+
+  &lt;!-- Book Covers --&gt;
+  &lt;div class=&quot;ml-books-wrap&quot;&gt;
+    &lt;img class=&quot;ml-book-img&quot; src=&quot;https://files.catbox.moe/5kt1l1.png&quot; alt=&quot;Голямата Книга на Защо&quot; loading=&quot;eager&quot;&gt;
+    &lt;div style=&quot;position:relative&quot;&gt;
+      &lt;div class=&quot;ml-book-badge-3in1&quot;&gt;
+        &lt;div class=&quot;ml-badge-3in1-ring&quot;&gt;3 в 1&lt;span&gt;КУПИ 1&lt;/span&gt;&lt;span&gt;ВЗЕМИ 3&lt;/span&gt;&lt;/div&gt;
+        &lt;div class=&quot;ml-badge-offer-tag&quot;&gt;САМО ДНЕС&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;img class=&quot;ml-book-img ml-book-main&quot; src=&quot;https://files.catbox.moe/w306bw.png&quot; alt=&quot;Законът на Мърфи за Деца&quot; loading=&quot;eager&quot;&gt;
+    &lt;/div&gt;
+    &lt;div style=&quot;position:relative&quot;&gt;
+      &lt;span class=&quot;ml-bonus-badge&quot;&gt;+2 ПОДАРЪКА&lt;/span&gt;
+      &lt;img class=&quot;ml-book-img&quot; src=&quot;https://files.catbox.moe/oh212q.png&quot; alt=&quot;Лидерството Започва Тук&quot; loading=&quot;eager&quot;&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;!-- Feature Bullets --&gt;
+  &lt;div class=&quot;ml-features&quot;&gt;
+    &lt;div class=&quot;ml-feature-item&quot;&gt;
+      &lt;span class=&quot;ml-fi-icon&quot;&gt;📚&lt;/span&gt;
+      &lt;span&gt;Пълноцветен комикс формат — детето го взима само, без да го молиш.&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;ml-feature-item&quot;&gt;
+      &lt;span class=&quot;ml-fi-icon&quot;&gt;🧩&lt;/span&gt;
+      &lt;span&gt;Почти 100 реални жизнени урока: грешки, причина и следствие, лидерство.&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;ml-feature-item&quot;&gt;
+      &lt;span class=&quot;ml-fi-icon&quot;&gt;💪&lt;/span&gt;
+      &lt;span&gt;Изгражда емоционалната устойчивост, която формира характера преди 12-годишна възраст.&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;ml-feature-item&quot;&gt;
+      &lt;span class=&quot;ml-fi-icon&quot;&gt;🧠&lt;/span&gt;
+      &lt;span&gt;3 книги с 1 покупка: комплектът, който отглежда дете, което знае повече и води.&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;!-- Mini Offer --&gt;
+  &lt;div class=&quot;ml-mini-offer&quot;&gt;
+    &lt;span class=&quot;ml-offer-tag-strip&quot;&gt;🔥 Само няколко остават на тази цена&lt;/span&gt;
+    &lt;div class=&quot;ml-price-row&quot;&gt;
+      &lt;span class=&quot;ml-price-main&quot;&gt;{{price}}&lt;/span&gt;
+      &lt;span class=&quot;ml-price-original&quot;&gt;{{original_price}}&lt;/span&gt;
+      &lt;span class=&quot;ml-savings-pill&quot;&gt;-80%&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;p class=&quot;ml-price-note&quot;&gt;🔒 100% сигурно и защитено плащане&lt;/p&gt;
+    &lt;a href=&quot;#ml-offer&quot; class=&quot;ml-btn-primary&quot;&gt;ВЗЕМИ 3-ТЕ СИ КНИГИ →&lt;/a&gt;
+    &lt;div class=&quot;ml-trust-row&quot;&gt;
+      &lt;span&gt;📩 Получаваш ги за секунди по имейл.&lt;/span&gt;
+      &lt;span&gt;🛡️ 30-дневна гаранция&lt;/span&gt;
+      &lt;span&gt;⭐ 4.9/5 · 3 400+ семейства&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;!-- 4. REVIEW MARQUEE --&gt;
+&lt;div class=&quot;ml-reviews-marquee&quot; aria-hidden=&quot;true&quot;&gt;
+  &lt;div class=&quot;ml-reviews-inner&quot;&gt;
+    &lt;div class=&quot;ml-review-card&quot;&gt;&lt;span class=&quot;ml-review-stars&quot;&gt;★★★★★&lt;/span&gt; &lt;span&gt;&quot;Синът ми вече не се разпада при всяка грешка.&quot;&lt;/span&gt; &lt;span class=&quot;ml-review-author&quot;&gt;Мария П. · България 🇧🇬&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;ml-review-card&quot;&gt;&lt;span class=&quot;ml-review-stars&quot;&gt;★★★★★&lt;/span&gt; &lt;span&gt;&quot;Три невероятни книги пристигнаха за минути.&quot;&lt;/span&gt; &lt;span class=&quot;ml-review-author&quot;&gt;Георги Н. · България 🇧🇬&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;ml-review-card&quot;&gt;&lt;span class=&quot;ml-review-stars&quot;&gt;★★★★★&lt;/span&gt; &lt;span&gt;&quot;Дъщеря ми вече говори пред класа без страх.&quot;&lt;/span&gt; &lt;span class=&quot;ml-review-author&quot;&gt;Елена С. · България 🇧🇬&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;ml-review-card&quot;&gt;&lt;span class=&quot;ml-review-stars&quot;&gt;★★★★★&lt;/span&gt; &lt;span&gt;&quot;Четем я всяка вечер вместо да гледаме телефони.&quot;&lt;/span&gt; &lt;span class=&quot;ml-review-author&quot;&gt;Стефан И. · България 🇧🇬&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;ml-review-card&quot;&gt;&lt;span class=&quot;ml-review-stars&quot;&gt;★★★★★&lt;/span&gt; &lt;span&gt;&quot;Детето ми не спира да задава въпроси.&quot;&lt;/span&gt; &lt;span class=&quot;ml-review-author&quot;&gt;Кристина В. · България 🇧🇬&lt;/span&gt;&lt;/div&gt;
+    &lt;!-- duplicate for seamless loop --&gt;
+    &lt;div class=&quot;ml-review-card&quot;&gt;&lt;span class=&quot;ml-review-stars&quot;&gt;★★★★★&lt;/span&gt; &lt;span&gt;&quot;Синът ми вече не се разпада при всяка грешка.&quot;&lt;/span&gt; &lt;span class=&quot;ml-review-author&quot;&gt;Мария П. · България 🇧🇬&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;ml-review-card&quot;&gt;&lt;span class=&quot;ml-review-stars&quot;&gt;★★★★★&lt;/span&gt; &lt;span&gt;&quot;Три невероятни книги пристигнаха за минути.&quot;&lt;/span&gt; &lt;span class=&quot;ml-review-author&quot;&gt;Георги Н. · България 🇧🇬&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;ml-review-card&quot;&gt;&lt;span class=&quot;ml-review-stars&quot;&gt;★★★★★&lt;/span&gt; &lt;span&gt;&quot;Дъщеря ми вече говори пред класа без страх.&quot;&lt;/span&gt; &lt;span class=&quot;ml-review-author&quot;&gt;Елена С. · България 🇧🇬&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;ml-review-card&quot;&gt;&lt;span class=&quot;ml-review-stars&quot;&gt;★★★★★&lt;/span&gt; &lt;span&gt;&quot;Четем я всяка вечер вместо да гледаме телефони.&quot;&lt;/span&gt; &lt;span class=&quot;ml-review-author&quot;&gt;Стефан И. · България 🇧🇬&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;ml-review-card&quot;&gt;&lt;span class=&quot;ml-review-stars&quot;&gt;★★★★★&lt;/span&gt; &lt;span&gt;&quot;Детето ми не спира да задава въпроси.&quot;&lt;/span&gt; &lt;span class=&quot;ml-review-author&quot;&gt;Кристина В. · България 🇧🇬&lt;/span&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- 5. SOCIAL PROOF STATS --&gt;
+&lt;section class=&quot;ml-section&quot;&gt;
+  &lt;div class=&quot;ml-stats-grid&quot;&gt;
+    &lt;div class=&quot;ml-stat-card&quot;&gt;
+      &lt;span class=&quot;ml-stat-num&quot;&gt;4.9★&lt;/span&gt;
+      &lt;div class=&quot;ml-stat-label&quot;&gt;Средна оценка&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;ml-stat-card&quot;&gt;
+      &lt;span class=&quot;ml-stat-num&quot;&gt;3 400+&lt;/span&gt;
+      &lt;div class=&quot;ml-stat-label&quot;&gt;Семейства по света&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;ml-stat-card&quot;&gt;
+      &lt;span class=&quot;ml-stat-num&quot;&gt;1 950+&lt;/span&gt;
+      &lt;div class=&quot;ml-stat-label&quot;&gt;Потвърдени отзиви&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;ml-stat-card&quot;&gt;
+      &lt;span class=&quot;ml-stat-num&quot;&gt;30 дни&lt;/span&gt;
+      &lt;div class=&quot;ml-stat-label&quot;&gt;Гаранция без въпроси&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;!-- 6. PAIN POINTS --&gt;
+&lt;div class=&quot;ml-pains-bg&quot;&gt;
+  &lt;section class=&quot;ml-section&quot;&gt;
+    &lt;div class=&quot;ml-section-eyebrow&quot;&gt;Познато ли ти е?&lt;/div&gt;
+    &lt;h2 class=&quot;ml-section-title&quot;&gt;Прави ли детето ти това?&lt;/h2&gt;
+    &lt;p class=&quot;ml-section-subtitle&quot;&gt;Децата са любопитни, но училището не винаги учи как работи реалният свят. Като родители, понякога не знаем откъде да започнем.&lt;/p&gt;
+    &lt;div class=&quot;ml-pains-grid&quot;&gt;
+      &lt;div class=&quot;ml-pain-card&quot;&gt;
+        &lt;div class=&quot;ml-pain-emoji&quot;&gt;😟&lt;/div&gt;
+        &lt;div class=&quot;ml-pain-title&quot;&gt;Разпада се при всяка грешка&lt;/div&gt;
+        &lt;div class=&quot;ml-pain-desc&quot;&gt;Дори малкото нещо се превръща в истинска криза. Изграждането на устойчивост е невъзможно, когато всяка грешка е катастрофа.&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;ml-pain-card&quot;&gt;
+        &lt;div class=&quot;ml-pain-emoji&quot;&gt;📱&lt;/div&gt;
+        &lt;div class=&quot;ml-pain-title&quot;&gt;&quot;Само още пет минути&quot; (за десети път)&lt;/div&gt;
+        &lt;div class=&quot;ml-pain-desc&quot;&gt;Залепено за екрана, откъснато от реалния свят. Ученето на самоконтрол изглежда като изгубена битка.&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;ml-pain-card&quot;&gt;
+        &lt;div class=&quot;ml-pain-emoji&quot;&gt;🤷&lt;/div&gt;
+        &lt;div class=&quot;ml-pain-title&quot;&gt;Не прави нищо, докато не го помолиш десет пъти&lt;/div&gt;
+        &lt;div class=&quot;ml-pain-desc&quot;&gt;Казал си го дузина пъти. &quot;Веднага&quot; — и нищо не се случва.&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;ml-pain-card&quot;&gt;
+        &lt;div class=&quot;ml-pain-emoji&quot;&gt;😞&lt;/div&gt;
+        &lt;div class=&quot;ml-pain-title&quot;&gt;Се отказва, щом стане трудно&lt;/div&gt;
+        &lt;div class=&quot;ml-pain-desc&quot;&gt;При първото препятствие замразява или се отказва. Не можеш да научиш на упоритост с викане.&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+&lt;/div&gt;
+
+&lt;!-- 7. WHAT&#x27;S INCLUDED --&gt;
+&lt;section class=&quot;ml-section&quot;&gt;
+  &lt;div class=&quot;ml-section-eyebrow&quot;&gt;Какво е в твоя комплект 3 в 1&lt;/div&gt;
+  &lt;h2 class=&quot;ml-section-title&quot;&gt;Плати 1, вземи 3 · 2 безплатни 🎁&lt;/h2&gt;
+  &lt;p class=&quot;ml-section-subtitle&quot;&gt;Всичко е дигитално, в PDF — пристига незабавно в пощата ти.&lt;/p&gt;
+
+  &lt;div class=&quot;ml-books-list&quot;&gt;
+    &lt;div class=&quot;ml-book-card&quot;&gt;
+      &lt;img class=&quot;ml-book-card-img&quot; src=&quot;https://files.catbox.moe/w306bw.png&quot; alt=&quot;Законът на Мърфи за Деца&quot;&gt;
+      &lt;div&gt;
+        &lt;span class=&quot;ml-book-card-tag ml-tag-main&quot;&gt;Главна книга&lt;/span&gt;
+        &lt;span style=&quot;font-size:12px;color:var(--ml-text-secondary);display:inline-block;margin-left:8px;vertical-align:middle;&quot;&gt;Стойност: &lt;strong style=&quot;color:var(--ml-navy)&quot;&gt;EUR 27&lt;/strong&gt;&lt;/span&gt;
+        &lt;div class=&quot;ml-book-card-title&quot;&gt;Законът на Мърфи за Деца&lt;/div&gt;
+        &lt;ul class=&quot;ml-book-card-bullets&quot;&gt;
+          &lt;li&gt;❌ Защо се случват грешки и как да се учиш от тях.&lt;/li&gt;
+          &lt;li&gt;🛠️ Решаване на проблеми, вместо да се отказваш.&lt;/li&gt;
+          &lt;li&gt;🔁 Причина и следствие — с ситуации, познати на децата.&lt;/li&gt;
+          &lt;li&gt;😄 Че е нормално да грешиш, когато нещата не вървят по план.&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;ml-book-card&quot;&gt;
+      &lt;img class=&quot;ml-book-card-img&quot; src=&quot;https://files.catbox.moe/5kt1l1.png&quot; alt=&quot;Голямата Книга на Защо&quot;&gt;
+      &lt;div&gt;
+        &lt;span class=&quot;ml-book-card-tag ml-tag-free&quot;&gt;Подарък 1 · Безплатно&lt;/span&gt;
+        &lt;span style=&quot;font-size:12px;color:var(--ml-text-secondary);display:inline-block;margin-left:8px;vertical-align:middle;&quot;&gt;Стойност: &lt;strong style=&quot;color:var(--ml-green)&quot;&gt;EUR 27&lt;/strong&gt;&lt;/span&gt;
+        &lt;div class=&quot;ml-book-card-title&quot;&gt;Голямата Книга на Защо&lt;/div&gt;
+        &lt;ul class=&quot;ml-book-card-bullets&quot;&gt;
+          &lt;li&gt;🧠 6 свята + 3 000+ илюстрации в комикс формат.&lt;/li&gt;
+          &lt;li&gt;🫀 Човешкото тяло · 🦊 Животни · 🌱 Растения&lt;/li&gt;
+          &lt;li&gt;🚀 Космос · 🔭 Астрономия · 🌍 География&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;ml-book-card&quot;&gt;
+      &lt;img class=&quot;ml-book-card-img&quot; src=&quot;https://files.catbox.moe/oh212q.png&quot; alt=&quot;Лидерството Започва Тук&quot;&gt;
+      &lt;div&gt;
+        &lt;span class=&quot;ml-book-card-tag ml-tag-free&quot;&gt;Подарък 2 · Безплатно&lt;/span&gt;
+        &lt;span style=&quot;font-size:12px;color:var(--ml-text-secondary);display:inline-block;margin-left:8px;vertical-align:middle;&quot;&gt;Стойност: &lt;strong style=&quot;color:var(--ml-green)&quot;&gt;EUR 21&lt;/strong&gt;&lt;/span&gt;
+        &lt;div class=&quot;ml-book-card-title&quot;&gt;Лидерството Започва Тук&lt;/div&gt;
+        &lt;ul class=&quot;ml-book-card-bullets&quot;&gt;
+          &lt;li&gt;💬 Изразяване на идеи и активно слушане.&lt;/li&gt;
+          &lt;li&gt;🤝 Работа в екип за решаване на проблеми.&lt;/li&gt;
+          &lt;li&gt;🔥 Увереност да говориш пред хора.&lt;/li&gt;
+          &lt;li&gt;❤️ Емпатия и работа в екип.&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;!-- 8. HOW TO GET IT --&gt;
+&lt;section class=&quot;ml-section&quot; style=&quot;padding-top:0&quot;&gt;
+  &lt;div class=&quot;ml-delivery-box&quot;&gt;
+    &lt;div class=&quot;ml-delivery-icon&quot;&gt;📩&lt;/div&gt;
+    &lt;div class=&quot;ml-delivery-title&quot;&gt;Как да ги получа?&lt;/div&gt;
+    &lt;div class=&quot;ml-delivery-text&quot;&gt;В момента, в който купиш, всичките 3 PDF книги пристигат в пощата ти незабавно. Отпечатай ги у дома или чети на всеки екран — компютър, таблет или телефон. Без куриер, без чакане.&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;!-- 9. WHAT IT BUILDS --&gt;
+&lt;section class=&quot;ml-section&quot;&gt;
+  &lt;div class=&quot;ml-section-eyebrow&quot;&gt;Какво изгражда&lt;/div&gt;
+  &lt;h2 class=&quot;ml-section-title&quot;&gt;3 умения, които училището не винаги учи&lt;/h2&gt;
+  &lt;div class=&quot;ml-pillars-grid&quot;&gt;
+    &lt;div class=&quot;ml-pillar-card&quot;&gt;
+      &lt;img class=&quot;ml-pillar-img&quot; src=&quot;https://files.catbox.moe/mivm95.png&quot; alt=&quot;Емоции&quot;&gt;
+      &lt;div class=&quot;ml-pillar-subtitle&quot;&gt;Емоции&lt;/div&gt;
+      &lt;div class=&quot;ml-pillar-title&quot;&gt;Справяне с разочарованието&lt;/div&gt;
+      &lt;div class=&quot;ml-pillar-book&quot;&gt;Законът на Мърфи за Деца&lt;/div&gt;
+      &lt;div class=&quot;ml-pillar-desc&quot;&gt;Ползва хумор, за да покаже, че грешките са част от ученето. Децата решават проблеми вместо да се отказват.&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;ml-pillar-card&quot;&gt;
+      &lt;img class=&quot;ml-pillar-img&quot; src=&quot;https://files.catbox.moe/4l9wfr.png&quot; alt=&quot;Знание&quot;&gt;
+      &lt;div class=&quot;ml-pillar-subtitle&quot;&gt;Знание&lt;/div&gt;
+      &lt;div class=&quot;ml-pillar-title&quot;&gt;Да знае повече от съучениците си&lt;/div&gt;
+      &lt;div class=&quot;ml-pillar-book&quot;&gt;Голямата Книга на Защо&lt;/div&gt;
+      &lt;div class=&quot;ml-pillar-desc&quot;&gt;Отговаря на хиляди въпроси &quot;защо&quot; в 6 свята с над 3 000 илюстрации в стил комикс.&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;ml-pillar-card&quot;&gt;
+      &lt;img class=&quot;ml-pillar-img&quot; src=&quot;https://files.catbox.moe/wrwjqh.png&quot; alt=&quot;Лидерство&quot;&gt;
+      &lt;div class=&quot;ml-pillar-subtitle&quot;&gt;Лидерство&lt;/div&gt;
+      &lt;div class=&quot;ml-pillar-title&quot;&gt;Да води и общува с увереност&lt;/div&gt;
+      &lt;div class=&quot;ml-pillar-book&quot;&gt;Лидерството Започва Тук&lt;/div&gt;
+      &lt;div class=&quot;ml-pillar-desc&quot;&gt;Изгражда увереността да говори, да работи в екип и да проявява емпатия.&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;!-- 10. THE PROMISE --&gt;
+&lt;div class=&quot;ml-promise-bg&quot;&gt;
+  &lt;section class=&quot;ml-section&quot;&gt;
+    &lt;div class=&quot;ml-section-eyebrow&quot;&gt;Нашето обещание&lt;/div&gt;
+    &lt;h2 class=&quot;ml-section-title&quot;&gt;Помагаме на детето ти да разбере как всъщност работи животът&lt;/h2&gt;
+    &lt;p class=&quot;ml-section-subtitle&quot;&gt;Децата са любопитни — но училището не винаги учи как работи реалният свят. Те правят грешки, се разочароват и не винаги разбират защо нещата се случват.&lt;/p&gt;
+    &lt;p style=&quot;text-align:center;margin-bottom:20px;color:var(--ml-text);font-size:15px;&quot;&gt;Като родители, ние искаме децата ни да:&lt;/p&gt;
+    &lt;div class=&quot;ml-promise-checks&quot;&gt;
+      &lt;div class=&quot;ml-promise-item&quot;&gt;&lt;span class=&quot;ml-check-icon&quot;&gt;✔&lt;/span&gt; Мислят самостоятелно&lt;/div&gt;
+      &lt;div class=&quot;ml-promise-item&quot;&gt;&lt;span class=&quot;ml-check-icon&quot;&gt;✔&lt;/span&gt; Учат се от грешките&lt;/div&gt;
+      &lt;div class=&quot;ml-promise-item&quot;&gt;&lt;span class=&quot;ml-check-icon&quot;&gt;✔&lt;/span&gt; Остават любопитни вместо обезкуражени&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+&lt;/div&gt;
+
+&lt;!-- 11. INSIDE THE 3-IN-1 --&gt;
+&lt;section class=&quot;ml-section&quot;&gt;
+  &lt;div class=&quot;ml-section-eyebrow&quot;&gt;Вътре в комплекта 3 в 1&lt;/div&gt;
+  &lt;h2 class=&quot;ml-section-title&quot;&gt;Какво ще научи детето ти?&lt;/h2&gt;
+  &lt;div class=&quot;ml-inside-grid&quot;&gt;
+    &lt;div class=&quot;ml-inside-item&quot;&gt;&lt;span class=&quot;ml-inside-check&quot;&gt;✔&lt;/span&gt; Справяне с разочарованието и учене от грешките.&lt;/div&gt;
+    &lt;div class=&quot;ml-inside-item&quot;&gt;&lt;span class=&quot;ml-inside-check&quot;&gt;✔&lt;/span&gt; Логическо мислене, което помага по всеки предмет.&lt;/div&gt;
+    &lt;div class=&quot;ml-inside-item&quot;&gt;&lt;span class=&quot;ml-inside-check&quot;&gt;✔&lt;/span&gt; По-добри въпроси и реални отговори.&lt;/div&gt;
+    &lt;div class=&quot;ml-inside-item&quot;&gt;&lt;span class=&quot;ml-inside-check&quot;&gt;✔&lt;/span&gt; Как работи светът в 6 основни области.&lt;/div&gt;
+    &lt;div class=&quot;ml-inside-item&quot;&gt;&lt;span class=&quot;ml-inside-check&quot;&gt;✔&lt;/span&gt; Изразяване на идеи и лидерство с увереност.&lt;/div&gt;
+    &lt;div class=&quot;ml-inside-item&quot;&gt;&lt;span class=&quot;ml-inside-check&quot;&gt;✔&lt;/span&gt; Характер и самоувереност, изградени върху реални знания.&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;!-- 12. WHO IT&#x27;S FOR --&gt;
+&lt;div class=&quot;ml-for-bg&quot;&gt;
+  &lt;section class=&quot;ml-section&quot;&gt;
+    &lt;div class=&quot;ml-section-eyebrow&quot;&gt;За кого е то&lt;/div&gt;
+    &lt;h2 class=&quot;ml-section-title&quot;&gt;Подаръкът, който победи всяка играчка&lt;/h2&gt;
+    &lt;div class=&quot;ml-for-grid&quot;&gt;
+      &lt;img class=&quot;ml-for-img&quot; src=&quot;https://files.catbox.moe/h8z3dv.png&quot; alt=&quot;Семейство чете заедно&quot;&gt;
+      &lt;div&gt;
+        &lt;ul class=&quot;ml-for-list&quot;&gt;
+          &lt;li&gt;&lt;span class=&quot;ml-fi-icon&quot;&gt;👶&lt;/span&gt; Деца от 6 до 12 години&lt;/li&gt;
+          &lt;li&gt;&lt;span class=&quot;ml-fi-icon&quot;&gt;👨‍👩‍👧&lt;/span&gt; Родители, които ценят ученето извън класната стая&lt;/li&gt;
+          &lt;li&gt;&lt;span class=&quot;ml-fi-icon&quot;&gt;🏠&lt;/span&gt; Семейства, учещи у дома&lt;/li&gt;
+          &lt;li&gt;&lt;span class=&quot;ml-fi-icon&quot;&gt;🍎&lt;/span&gt; Учители и педагози&lt;/li&gt;
+          &lt;li&gt;&lt;span class=&quot;ml-fi-icon&quot;&gt;👴&lt;/span&gt; Баби и дядовци, търсещи подарък с истинска стойност&lt;/li&gt;
+        &lt;/ul&gt;
+        &lt;div class=&quot;ml-for-gifts&quot;&gt;
+          🎁 Перфектен за: рождени дни, началото на учебната година, празници, семейно четене
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+&lt;/div&gt;
+
+&lt;!-- 13. COMPARISON TABLE --&gt;
+&lt;section class=&quot;ml-section&quot;&gt;
+  &lt;div class=&quot;ml-section-eyebrow&quot;&gt;Разликата&lt;/div&gt;
+  &lt;h2 class=&quot;ml-section-title&quot;&gt;Защо това не е &quot;просто поредната книга&quot;&lt;/h2&gt;
+  &lt;div class=&quot;ml-comparison-wrap&quot;&gt;
+    &lt;table class=&quot;ml-comparison-table&quot;&gt;
+      &lt;thead&gt;
+        &lt;tr&gt;
+          &lt;th&gt;&lt;/th&gt;
+          &lt;th&gt;Комплектът 3 в 1&lt;/th&gt;
+          &lt;th&gt;Обикновени книги&lt;/th&gt;
+        &lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;&lt;td&gt;Учи реални жизнени умения&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;ml-check-green&quot;&gt;✓&lt;/span&gt;&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;ml-cross-red&quot;&gt;✗&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;Изгражда любопитство вместо страх от грешки&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;ml-check-green&quot;&gt;✓&lt;/span&gt;&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;ml-sometimes&quot;&gt;Понякога&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;Изгражда емоционална устойчивост&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;ml-check-green&quot;&gt;✓&lt;/span&gt;&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;ml-sometimes&quot;&gt;Рядко&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;Детето го взима само, без да го молиш&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;ml-check-green&quot;&gt;✓&lt;/span&gt;&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;ml-sometimes&quot;&gt;Зависи&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;Комикс формат, хумор, който ги кача&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;ml-check-green&quot;&gt;✓&lt;/span&gt;&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;ml-cross-red&quot;&gt;✗&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;Расте с детето (полезно на 6, 9 и 12 години)&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;ml-check-green&quot;&gt;✓&lt;/span&gt;&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;ml-cross-red&quot;&gt;✗&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;Включва 2 безплатни книги&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;ml-check-green&quot;&gt;✓&lt;/span&gt;&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;ml-cross-red&quot;&gt;✗&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;!-- 14. RESULTS STATS --&gt;
+&lt;div class=&quot;ml-results-bg&quot;&gt;
+  &lt;section class=&quot;ml-section&quot;&gt;
+    &lt;div class=&quot;ml-section-eyebrow&quot; style=&quot;color:var(--ml-gold)&quot;&gt;Въз основа на проучване сред читателите&lt;/div&gt;
+    &lt;h2 class=&quot;ml-section-title ml-results-title&quot;&gt;Какво докладват семействата&lt;/h2&gt;
+    &lt;div class=&quot;ml-results-grid&quot;&gt;
+      &lt;div class=&quot;ml-result-card&quot;&gt;
+        &lt;span class=&quot;ml-result-pct&quot;&gt;92%&lt;/span&gt;
+        &lt;div class=&quot;ml-result-desc&quot;&gt;видяха подобрение в самомотивацията на детето си&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;ml-result-card&quot;&gt;
+        &lt;span class=&quot;ml-result-pct&quot;&gt;88%&lt;/span&gt;
+        &lt;div class=&quot;ml-result-desc&quot;&gt;забелязаха по-малко истерии и по-малко разочарование&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;ml-result-card&quot;&gt;
+        &lt;span class=&quot;ml-result-pct&quot;&gt;85%&lt;/span&gt;
+        &lt;div class=&quot;ml-result-desc&quot;&gt;казват, че детето им е започнало да върши задачи без да го молят&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+&lt;/div&gt;
+
+&lt;!-- 15. WHAT YOUR CHILD WILL ACHIEVE (replaces testimonials) --&gt;
+&lt;div class=&quot;ml-achieve-bg&quot;&gt;
+  &lt;section class=&quot;ml-section&quot;&gt;
+    &lt;div class=&quot;ml-section-eyebrow&quot;&gt;Какво ще постигне детето ти&lt;/div&gt;
+    &lt;h2 class=&quot;ml-section-title&quot;&gt;Резултати, забелязани от родители&lt;/h2&gt;
+    &lt;p class=&quot;ml-section-subtitle&quot;&gt;Дигитален формат. Четири умения. Едно четене.&lt;/p&gt;
+    &lt;div class=&quot;ml-achieve-grid&quot;&gt;
+      &lt;div class=&quot;ml-achieve-card&quot;&gt;
+        &lt;span class=&quot;ml-achieve-icon&quot;&gt;🧠&lt;/span&gt;
+        &lt;div class=&quot;ml-achieve-text&quot;&gt;&lt;strong&gt;Спира да се разпада при грешки&lt;/strong&gt; — разбира, че грешките са нормални и решава проблемите вместо да се предава.&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;ml-achieve-card&quot;&gt;
+        &lt;span class=&quot;ml-achieve-icon&quot;&gt;🔥&lt;/span&gt;
+        &lt;div class=&quot;ml-achieve-text&quot;&gt;&lt;strong&gt;Взима книгата само&lt;/strong&gt; — комикс форматът е толкова ангажиращ, че детето я чете без да го молиш.&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;ml-achieve-card&quot;&gt;
+        &lt;span class=&quot;ml-achieve-icon&quot;&gt;💬&lt;/span&gt;
+        &lt;div class=&quot;ml-achieve-text&quot;&gt;&lt;strong&gt;Говори по-уверено&lt;/strong&gt; — пред класа, в екип, с приятели. Увереността идва от знанието.&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;ml-achieve-card&quot;&gt;
+        &lt;span class=&quot;ml-achieve-icon&quot;&gt;🌍&lt;/span&gt;
+        &lt;div class=&quot;ml-achieve-text&quot;&gt;&lt;strong&gt;Задава повече въпроси&lt;/strong&gt; — любопитството се включва, когато има 3 000+ илюстрации и 6 свята за изследване.&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;ml-achieve-card&quot;&gt;
+        &lt;span class=&quot;ml-achieve-icon&quot;&gt;🤝&lt;/span&gt;
+        &lt;div class=&quot;ml-achieve-text&quot;&gt;&lt;strong&gt;Работи по-добре в екип&lt;/strong&gt; — лидерските принципи са прости, практични и веднага приложими.&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;ml-achieve-card&quot;&gt;
+        &lt;span class=&quot;ml-achieve-icon&quot;&gt;🛠️&lt;/span&gt;
+        &lt;div class=&quot;ml-achieve-text&quot;&gt;&lt;strong&gt;Не се отказва при препятствия&lt;/strong&gt; — учи се как причините и следствията работят, преди животът да го покаже по трудния начин.&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+&lt;/div&gt;
+
+&lt;!-- 16. GUARANTEE --&gt;
+&lt;section class=&quot;ml-section&quot;&gt;
+  &lt;div class=&quot;ml-guarantee-box&quot;&gt;
+    &lt;span class=&quot;ml-guarantee-num&quot;&gt;30&lt;/span&gt;
+    &lt;div class=&quot;ml-guarantee-label&quot;&gt;30-дневна гаранция без риск&lt;/div&gt;
+    &lt;div class=&quot;ml-guarantee-title&quot;&gt;Ако не е за вас — ви връщаме парите&lt;/div&gt;
+    &lt;div class=&quot;ml-guarantee-text&quot;&gt;Ако детето ти не обича тези книги, ще ти върнем 100% от сумата в рамките на 30 дни. Без усложнения, без неудобни въпроси.&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;!-- 17. FINAL OFFER CTA (anchor) --&gt;
+&lt;section id=&quot;ml-offer&quot; class=&quot;ml-offer-section ml-section&quot;&gt;
+  &lt;div class=&quot;ml-offer-box&quot;&gt;
+    &lt;div class=&quot;ml-offer-tagline&quot;&gt;⏰ Оферта с ограничено времетраене&lt;/div&gt;
+    &lt;div class=&quot;ml-offer-title&quot;&gt;Подари на детето си мъдростта, която издържа цял живот&lt;/div&gt;
+    &lt;p style=&quot;font-size:14px;color:rgba(255,255,255,.7);margin-bottom:20px;&quot;&gt;Уроците, които ти научи по трудния начин — те могат да ги научат, преди изобщо да им потрябват.&lt;/p&gt;
+    &lt;div class=&quot;ml-offer-price-row&quot;&gt;
+      &lt;span class=&quot;ml-offer-price-main&quot;&gt;{{price}}&lt;/span&gt;
+      &lt;span class=&quot;ml-offer-price-orig&quot;&gt;{{original_price}}&lt;/span&gt;
+      &lt;span class=&quot;ml-offer-savings&quot;&gt;-80%&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;ml-offer-note&quot;&gt;3 PDF книги · незабавна доставка по имейл · {{savings}} спестявания · обща стойност EUR 75&lt;/div&gt;
+    &lt;a href=&quot;/checkout&quot; class=&quot;ml-btn-offer&quot;&gt;ВЗЕМИ 3-ТЕ КНИГИ — {{price}} →&lt;/a&gt;
+    &lt;div class=&quot;ml-offer-trust-row&quot;&gt;
+      &lt;span&gt;🛡️ 30-дневна гаранция&lt;/span&gt;
+      &lt;span&gt;📩 Незабавна доставка&lt;/span&gt;
+      &lt;span&gt;🔒 Сигурно плащане&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;!-- 18. FAQ --&gt;
+&lt;div class=&quot;ml-faq-bg&quot;&gt;
+  &lt;section class=&quot;ml-section&quot;&gt;
+    &lt;h2 class=&quot;ml-section-title&quot;&gt;Често задавани въпроси&lt;/h2&gt;
+    &lt;div class=&quot;ml-faq-list&quot;&gt;
+      &lt;details class=&quot;ml-faq-item&quot;&gt;
+        &lt;summary class=&quot;ml-faq-q&quot;&gt;Какво е включено в офертата?&lt;/summary&gt;
+        &lt;div class=&quot;ml-faq-a&quot;&gt;Купуваш 1 книга и получаваш 3: Законът на Мърфи за Деца (главна книга) + Голямата Книга на Защо (подарък 1) + Лидерството Започва Тук (подарък 2). Всичките три са дигитални.&lt;/div&gt;
+      &lt;/details&gt;
+      &lt;details class=&quot;ml-faq-item&quot;&gt;
+        &lt;summary class=&quot;ml-faq-q&quot;&gt;Как ги получавам?&lt;/summary&gt;
+        &lt;div class=&quot;ml-faq-a&quot;&gt;В момента, в който завършиш покупката, ще получиш имейл с всичките 3 PDF книги, незабавно. Отпечатай ги у дома или чети на всеки екран — компютър, таблет или телефон. Без куриер, без чакане.&lt;/div&gt;
+      &lt;/details&gt;
+      &lt;details class=&quot;ml-faq-item&quot;&gt;
+        &lt;summary class=&quot;ml-faq-q&quot;&gt;Физически или дигитални са?&lt;/summary&gt;
+        &lt;div class=&quot;ml-faq-a&quot;&gt;100% дигитални. Предназначени за четене на екран или принтиране, без зависимост от международна поща — затова пристигат навсякъде по света незабавно.&lt;/div&gt;
+      &lt;/details&gt;
+      &lt;details class=&quot;ml-faq-item&quot;&gt;
+        &lt;summary class=&quot;ml-faq-q&quot;&gt;За каква възраст са?&lt;/summary&gt;
+        &lt;div class=&quot;ml-faq-a&quot;&gt;Най-подходящи за деца от 6 до 12 години. По-малките харесват илюстрациите; по-големите се свързват по-дълбоко с жизнените уроци.&lt;/div&gt;
+      &lt;/details&gt;
+      &lt;details class=&quot;ml-faq-item&quot;&gt;
+        &lt;summary class=&quot;ml-faq-q&quot;&gt;Детето ми не обича да чете — ще проработи ли?&lt;/summary&gt;
+        &lt;div class=&quot;ml-faq-a&quot;&gt;Да — и точно това е нещото, което изненадва родителите. Книгата е 100% комикс формат, без тежки текстови страници. Деца, които отказват романи, я взимат сами, защото изглежда като забавление, не като домашна работа.&lt;/div&gt;
+      &lt;/details&gt;
+      &lt;details class=&quot;ml-faq-item&quot;&gt;
+        &lt;summary class=&quot;ml-faq-q&quot;&gt;Ами ако не им хареса?&lt;/summary&gt;
+        &lt;div class=&quot;ml-faq-a&quot;&gt;Имаш 30-дневна гаранция. Ако не си доволен, просто се свържи с нас и ще ти върнем 100% от сумата без усложнения.&lt;/div&gt;
+      &lt;/details&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+&lt;/div&gt;
+
+&lt;!-- 19. FOOTER --&gt;
+&lt;footer class=&quot;ml-footer&quot;&gt;
+  &lt;div class=&quot;ml-footer-title&quot;&gt;Мърфи за Деца · Дигитални книги&lt;/div&gt;
+  &lt;p&gt;Дигитален продукт · Незабавна доставка по имейл · Сигурно плащане&lt;/p&gt;
+  &lt;p style=&quot;margin-top:8px&quot;&gt;
+    &lt;a href=&quot;/pages/terms&quot;&gt;Условия&lt;/a&gt;
+    &lt;a href=&quot;/pages/privacy&quot;&gt;Поверителност&lt;/a&gt;
+    &lt;a href=&quot;/pages/contact&quot;&gt;Контакт&lt;/a&gt;
+  &lt;/p&gt;
+&lt;/footer&gt;
+
+&lt;!-- COUNTDOWN SCRIPT --&gt;
+&lt;script&gt;
+(function () {
+  var KEY = &#x27;ml_timer_end&#x27;;
+  var MINS = 10;
+  try {
+    var stored = localStorage.getItem(KEY);
+    var end = stored ? parseInt(stored, 10) : null;
+    if (!end || end &lt; Date.now()) {
+      end = Date.now() + MINS * 60 * 1000;
+      localStorage.setItem(KEY, end);
+    }
+  } catch (e) {
+    end = Date.now() + MINS * 60 * 1000;
+  }
+  var el = document.getElementById(&#x27;ml-timer&#x27;);
+  function tick() {
+    var diff = Math.max(0, end - Date.now());
+    var m = Math.floor(diff / 60000);
+    var s = Math.floor((diff % 60000) / 1000);
+    el.textContent = (m &lt; 10 ? &#x27;0&#x27; : &#x27;&#x27;) + m + &#x27;:&#x27; + (s &lt; 10 ? &#x27;0&#x27; : &#x27;&#x27;) + s;
+    if (diff &gt; 0) setTimeout(tick, 1000);
+  }
+  tick();
+})();
+&lt;/script&gt;
+</pre></section>
+  <section id="s3"><h2><span class="n">3</span>Entregables</h2><div class="hub"><b>HUB — la única URL que va en la entrega del producto principal</b><span class="url">https://santilahoz03.github.io/entregas/acceso/mox0yx2pon/</span> <button class="cp" data-copy="https://santilahoz03.github.io/entregas/acceso/mox0yx2pon/">Copiar</button></div><table><tr><th>Entregable</th><th>Tipo</th><th>URL</th><th></th></tr><tr><td><b>Законът на Мърфи за Деца</b> · 26 págs</td><td>bono</td><td class='url'>https://santilahoz03.github.io/entregas/murphy/q0tyfq97rd/</td><td><button class="cp" data-copy="https://santilahoz03.github.io/entregas/murphy/q0tyfq97rd/">Copiar</button></td></tr><tr><td><b>Голямата Книга на Защо</b> · 17 págs</td><td>bono</td><td class='url'>https://santilahoz03.github.io/entregas/golqma-kniga/dsibo1wg4p/</td><td><button class="cp" data-copy="https://santilahoz03.github.io/entregas/golqma-kniga/dsibo1wg4p/">Copiar</button></td></tr><tr><td><b>Лидерството Започва Тук</b> · 17 págs</td><td>bono</td><td class='url'>https://santilahoz03.github.io/entregas/liderstvo/glpsgedamb/</td><td><button class="cp" data-copy="https://santilahoz03.github.io/entregas/liderstvo/glpsgedamb/">Copiar</button></td></tr></table><p class="nota">Verificá que todo dé 200 con <code>python verificar.py --online</code> antes de cargar el hub en la tienda. Las OTOs llevan su propia URL en su propio producto.</p></section>
+  <section id="s4"><h2><span class="n">4</span>Imágenes y mockups</h2><div class="imgs"><div class="img"><div><b></b><span class="pend">sin URL pública todavía</span></div></div><div class="img"><div><b></b><span class="pend">sin URL pública todavía</span></div></div><div class="img"><div><b></b><span class="pend">sin URL pública todavía</span></div></div><div class="img"><div><b></b><span class="pend">sin URL pública todavía</span></div></div><div class="img"><div><b></b><span class="pend">sin URL pública todavía</span></div></div></div></section>
+  <section id="s5"><h2><span class="n">5</span>Ads</h2><p><span class="url">/Users/santilahoz/Desktop/Segundo Cerebro/OUTPUTS/2026-10-16-murphy-bg/ADS/murphy-bg</span> <button class="cp" data-copy="/Users/santilahoz/Desktop/Segundo Cerebro/OUTPUTS/2026-10-16-murphy-bg/ADS/murphy-bg">Copiar ruta</button> <a href="file:///Users/santilahoz/Desktop/Segundo%20Cerebro/OUTPUTS/2026-10-16-murphy-bg/ADS/murphy-bg">Abrir carpeta</a></p><p class="bad">La carpeta no existe.</p></section>
+  <section id="s6"><h2><span class="n">6</span>Lanzamiento</h2><p class="pend">⏳ Pendiente: se completa cuando se lanza (cuenta, campaña, conjunto, presupuesto, píxel, página).</p></section>
+  <section id="s7"><h2><span class="n">7</span>Antes de pautar</h2><h3>Auditoría de promesas</h3><table><tr><th>Promesa de la landing</th><th>Qué hay en la entrega</th><th></th></tr><tr><td>Законът на Мърфи за Деца — комикс формат, 100+ жизнени урока</td><td>murphy.pdf</td><td><span class="ok">✓</span></td></tr><tr><td>Голямата Книга на Защо — 6 свята, 200+ факта и илюстрации</td><td>golqma-kniga.pdf</td><td><span class="ok">✓</span></td></tr><tr><td>Лидерството Започва Тук — умения, екип, увереност</td><td>liderstvo.pdf</td><td><span class="ok">✓</span></td></tr><tr><td>PDF, незабавна доставка по имейл</td><td>hub GitHub Pages</td><td><span class="ok">✓</span></td></tr><tr><td>30-дневна гаранция</td><td>promesa de servicio</td><td><span class="ok">✓</span></td></tr></table><br><ol class="check"><li>Todas las URLs de entregables dan 200 (verificar.py --online)</li><li>Grep de contactos y de keys vacío</li><li>Cantidades del core y nombres de bonos = landing</li><li>Mockup hero 3:2 fondo blanco cargado en el checkout</li><li>Producto principal con título completo y entrega = link al hub</li><li>OTOs cargadas en sus productos con su propia URL</li><li>Compra de prueba: el mail llega con UN link al hub y el hub abre</li></ol></section>
+  <p class="foot">Archivo local de uso interno. No lo publiques.</p>
+</div>
+<script>
+async function copiar(txt, btn) {
+  try { await navigator.clipboard.writeText(txt); }
+  catch (e) { const t = document.createElement("textarea"); t.value = txt; document.body.append(t); t.select(); document.execCommand("copy"); t.remove(); }
+  const prev = btn.textContent; btn.textContent = "¡Copiado!"; btn.classList.add("ok");
+  setTimeout(() => { btn.textContent = prev; btn.classList.remove("ok"); }, 1400);
+}
+document.addEventListener("click", e => {
+  const b = e.target.closest(".cp"); if (!b) return;
+  const txt = b.dataset.copy ?? document.getElementById(b.dataset.target)?.textContent ?? "";
+  copiar(txt, b);
+});
+</script>
+</body>
+</html>

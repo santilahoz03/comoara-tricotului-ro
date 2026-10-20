@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=540">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{--bg:#FBF9F5;--ink:#17130E;--accent:#A63A2A;--bg-alt:#F2EDE5;--muted:#6B5E54;}
+body{width:540px;height:960px;background:var(--bg);font-family:'Georgia',serif;overflow:hidden;}
+.wrap{width:540px;height:960px;display:flex;flex-direction:column;align-items:center;padding:32px 28px 28px;}
+.badge-off{background:var(--accent);color:#fff;font-size:22px;font-weight:700;
+  font-family:'Arial',sans-serif;padding:10px 28px;border-radius:40px;letter-spacing:.04em;margin-bottom:20px;}
+.product-title{font-size:28px;font-weight:700;color:var(--ink);text-align:center;line-height:1.2;margin-bottom:8px;}
+.tm{font-size:16px;vertical-align:super;}
+.sub{font-size:13px;color:var(--muted);text-align:center;margin-bottom:14px;font-family:'Arial',sans-serif;}
+.telegram-pill{background:#1A6E9B;color:#fff;font-size:12px;font-weight:700;border-radius:20px;
+  padding:5px 14px;font-family:'Arial',sans-serif;margin-bottom:20px;display:inline-block;}
+.mockup{width:100%;background:var(--bg-alt);border:2px solid var(--accent);border-radius:12px;
+  padding:18px 20px;margin-bottom:20px;}
+.mockup-label{font-size:11px;font-weight:700;color:var(--accent);letter-spacing:.1em;
+  font-family:'Arial',sans-serif;margin-bottom:10px;text-transform:uppercase;}
+.check-item{display:flex;align-items:flex-start;gap:10px;margin-bottom:10px;font-family:'Arial',sans-serif;}
+.check-item:last-child{margin-bottom:0;}
+.chk{width:20px;height:20px;background:var(--accent);border-radius:4px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;margin-top:1px;}
+.chk::after{content:'✓';color:#fff;font-size:13px;font-weight:700;}
+.chk-text{font-size:14px;color:var(--ink);line-height:1.35;}
+.price-wrap{width:100%;background:var(--ink);border-radius:12px;padding:20px;
+  text-align:center;margin-bottom:20px;}
+.orig{font-size:20px;color:rgba(255,255,255,.5);font-family:'Arial',sans-serif;
+  text-decoration:line-through;margin-bottom:4px;}
+.new-price{font-size:52px;font-weight:700;color:#fff;line-height:1;font-family:'Georgia',serif;}
+.save-pill{background:var(--accent);color:#fff;font-size:13px;font-weight:700;
+  border-radius:20px;padding:5px 16px;display:inline-block;margin-top:8px;font-family:'Arial',sans-serif;}
+.cta{width:100%;background:var(--accent);color:#fff;font-size:18px;font-weight:700;
+  border-radius:10px;padding:18px;text-align:center;font-family:'Arial',sans-serif;letter-spacing:.03em;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="badge-off">50% SLEVA</div>
+  <div class="product-title">Živá Mapa Terénu<span class="tm">™</span></div>
+  <div class="sub">Kompletní OTO 2 — snížená cena, pouze jednou</div>
+  <div class="telegram-pill">✓ Bez Telegram skupiny</div>
+
+  <div class="mockup">
+    <div class="mockup-label">Co dostaneš</div>
+    <div class="check-item"><div class="chk"></div><div class="chk-text">4 terény a jak je číst za 0–20 minut</div></div>
+    <div class="check-item"><div class="chk"></div><div class="chk-text">8 SOS scénářů — co přesně dělat</div></div>
+    <div class="check-item"><div class="chk"></div><div class="chk-text">Osobní Přepínač Audit — kde jsi teď</div></div>
+    <div class="check-item"><div class="chk"></div><div class="chk-text">Zásobník 62 otázek pro přirozený tok</div></div>
+  </div>
+
+  <div class="price-wrap">
+    <div class="orig">997 Kč</div>
+    <div class="new-price">497 Kč</div>
+    <div class="save-pill">Ušetříš 500 Kč</div>
+  </div>
+
+  <div class="cta">ANO, CHCI ZA 497 KČ →</div>
+</div>
+</body>
+</html>

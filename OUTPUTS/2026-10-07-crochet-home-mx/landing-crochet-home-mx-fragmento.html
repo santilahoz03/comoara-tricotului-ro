@@ -1,0 +1,552 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+html{scroll-behavior:smooth;background:#FAF8F5}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+.chp-landing,.chp-landing *{box-sizing:border-box}.chp-landing{--chp-cream:#FAF8F5;--chp-charcoal:#2E2820;--chp-brown:#6B5F54;--chp-beige:#C4B8AA;--chp-green:#3D7A5A;--chp-green-dark:#2F5E44;--chp-white:#FFF;font-family:Inter,Arial,sans-serif;color:var(--chp-charcoal);background:var(--chp-cream)}.chp-landing img{max-width:100%;display:block}.chp-landing h1,.chp-landing h2,.chp-landing h3{font-family:"Playfair Display",Georgia,serif;color:var(--chp-charcoal);line-height:1.2;margin:0}.chp-landing p{margin:0}.chp-wrap{max-width:760px;margin:0 auto;padding:0 20px}.chp-wrap-wide{max-width:1120px;margin:0 auto;padding:0 20px}.chp-section{padding:38px 0}.chp-section--alt{background:#FFF}.chp-eyebrow{display:inline-block;color:var(--chp-green);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:12px}.chp-title{text-align:center;font-size:28px;margin-bottom:12px}.chp-sub{text-align:center;color:var(--chp-brown);font-size:15px;line-height:1.6}.chp-btn{display:inline-flex;align-items:center;justify-content:center;width:100%;padding:17px 20px;border:0;border-radius:50px;background:var(--chp-green);color:#fff;font:700 15px Inter,Arial,sans-serif;text-decoration:none;cursor:pointer}.chp-btn:hover{background:var(--chp-green-dark)}.chp-rule{width:56px;height:2px;border:0;background:var(--chp-brown);margin:20px auto 28px}@media(min-width:760px){.chp-title{font-size:36px}.chp-section{padding:56px 0}}
+</style>
+<script>document.documentElement.classList.add('js')</script>
+<!-- ===== 01 · BANNER ===== -->
+<section class="chp-banner" aria-label="Beneficios">
+  <div class="chp-banner__viewport">
+    <div class="chp-banner__track">
+      <span>🧶 30 patrones explicados paso a paso</span>
+      <span>🏡 Ideas para transformar tus espacios</span>
+      <span>📩 Acceso inmediato por email</span>
+      <span aria-hidden="true">🧶 30 patrones explicados paso a paso</span>
+      <span aria-hidden="true">🏡 Ideas para transformar tus espacios</span>
+      <span aria-hidden="true">📩 Acceso inmediato por email</span>
+    </div>
+  </div>
+</section>
+<style>
+  .chp-banner{width:100%;overflow:hidden;background:#2e2820;color:#faf8f5;border-bottom:1px solid rgba(196,184,170,.35);font-family:Inter,Arial,sans-serif}
+  .chp-banner__viewport{width:100%;overflow:hidden}
+  .chp-banner__track{display:flex;width:max-content;align-items:center;gap:28px;padding:10px 0;white-space:nowrap;animation:chp-banner-scroll 32s linear infinite;will-change:transform}
+  .chp-banner__track span{display:inline-flex;align-items:center;font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+  .chp-banner__track span::after{content:"•";margin-left:28px;color:#c4b8aa}
+  .chp-banner:hover .chp-banner__track{animation-play-state:paused}
+  @keyframes chp-banner-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  @media(prefers-reduced-motion:reduce){.chp-banner__track{width:100%;justify-content:center;flex-wrap:wrap;gap:8px 18px;white-space:normal;animation:none}.chp-banner__track span::after{display:none}}
+  @media(min-width:760px){.chp-banner__track{gap:52px;padding:12px 0;animation-duration:42s}.chp-banner__track span{font-size:12px}.chp-banner__track span::after{margin-left:52px}}
+</style>
+
+<!-- ===== 02 · HERO ===== -->
+<section class="chp-landing chp-section chp-hero">
+  <div class="chp-wrap">
+    <span class="chp-hero__pill">★ 30 patrones + 4 bonos en una sola compra</span>
+    <h1 class="chp-title">Transforma tu Hogar, un Rincón a la Vez</h1>
+    <p class="chp-sub">Con tus propias manos, sin gastar una fortuna.</p>
+    <img class="chp-hero__image" src="https://files.catbox.moe/1htdze.png" alt="Crochet para tu Hogar">
+    <p class="chp-hero__social-proof"><span aria-hidden="true">★★★★★</span> <strong>4.9/5</strong> · Más de 3,500 clientes</p>
+    <h2 class="chp-hero__product-title">Crochet para tu Hogar</h2>
+    <a class="chp-btn" href="#chp-offer">Ver la Colección ↓</a>
+    <p class="chp-hero__note">Acceso inmediato por email · Pago seguro</p>
+  </div>
+</section>
+<style>
+.chp-hero{text-align:center}
+.chp-hero__pill{display:inline-block;margin:0 auto 18px;padding:8px 14px;border-radius:999px;background:#EFE8DE;color:var(--chp-brown);font:700 12px/1 Inter,Arial,sans-serif;letter-spacing:.04em}
+.chp-hero__image{width:100%;max-width:540px;margin:28px auto 18px;border-radius:12px;box-shadow:0 12px 30px rgba(46,40,32,.12)}
+.chp-hero__social-proof{margin:0 auto 12px;color:var(--chp-brown);font-size:13px;letter-spacing:.02em}
+.chp-hero__social-proof span{color:#F5A623;letter-spacing:.08em;font-size:16px}
+.chp-hero__product-title{margin:0 auto 18px;color:var(--chp-charcoal);font:700 clamp(22px,4vw,30px)/1.25 Inter,Arial,sans-serif}
+.chp-hero__note{font-size:12px;color:var(--chp-brown);margin-top:12px}
+</style>
+
+<!-- ===== 03 · PAIN POINTS ===== -->
+<style>
+  .chp-dolores{--chp-cream:#FAF8F5;--chp-charcoal:#2E2820;--chp-brown:#6B5F54;--chp-beige:#C4B8AA;--chp-green:#3D7A5A;width:100%;background:var(--chp-cream);padding:38px 0 40px;font-family:inherit;color:var(--chp-charcoal)}
+  .chp-dolores *{box-sizing:border-box}
+  .chp-dolores-marquee{width:100%;overflow:hidden;position:relative;cursor:grab;touch-action:pan-y;user-select:none;-webkit-mask-image:linear-gradient(to right,transparent 0,black 40px,black calc(100% - 40px),transparent 100%);mask-image:linear-gradient(to right,transparent 0,black 40px,black calc(100% - 40px),transparent 100%)}
+  .chp-dolores-marquee.is-dragging{cursor:grabbing}
+  .chp-dolores-marquee__track{display:flex;width:max-content;animation:none}
+  .chp-dolores-marquee__item{flex:0 0 auto;width:220px;height:290px;margin-right:10px;border-radius:2px;overflow:hidden;background:var(--chp-beige)}
+  .chp-dolores-marquee__item img{width:100%;height:100%;object-fit:cover;display:block}
+  @media(max-width:640px){.chp-dolores-marquee__item{width:150px;height:200px}}
+  .chp-dolores-content{max-width:760px;margin:0 auto;padding:0 20px}
+  .chp-dolores-title{font-family:'Playfair Display',serif;font-weight:600;font-size:28px;line-height:1.2;margin:38px 0 12px;color:var(--chp-charcoal);text-align:center}
+  .chp-dolores-rule{width:56px;height:2px;background:var(--chp-brown);border:none;margin:20px auto 28px}
+  .chp-dolores-cards{display:flex;flex-direction:column;gap:12px}
+  .chp-dolores-card{background:var(--chp-cream);border:1px solid var(--chp-beige);border-radius:10px;padding:18px}
+  .js .chp-dolores-card{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+  .js .chp-dolores-card.chp-is-visible{opacity:1;transform:translateY(0)}
+  .chp-dolores-card p{margin:0;font-size:13px;line-height:1.55;color:var(--chp-brown)}
+  @media(max-width:480px){.chp-dolores-card{padding:18px 18px;border-radius:8px}.chp-dolores-card p{font-size:16px;line-height:1.5}}
+  @media(prefers-reduced-motion:reduce){.chp-dolores-card{opacity:1;transform:none;transition:none}}
+  .chp-dolores-bridge{margin:32px auto 0;padding-top:24px;border-top:1px solid var(--chp-beige);text-align:center;max-width:640px;padding-left:20px;padding-right:20px}
+  .chp-dolores-bridge p{font-family:'Playfair Display',serif;font-style:italic;font-weight:500;line-height:1.4;margin:0 0 10px;color:var(--chp-charcoal)}
+  .chp-dolores-bridge p strong{font-weight:700}
+  .chp-dolores-bridge p:nth-child(1){font-size:22px}
+  .chp-dolores-bridge p:nth-child(2){font-size:20px}
+  .chp-dolores-bridge p:nth-child(3){font-size:15px;font-style:normal;font-weight:500;color:var(--chp-brown);margin-top:6px;margin-bottom:0}
+  .chp-dolores-bridge-rule{width:56px;height:2px;background:var(--chp-brown);border:none;margin:28px auto 0}
+  .chp-spacer{height:32px}
+</style>
+<section class="chp-dolores">
+  <div class="chp-dolores-marquee" aria-hidden="true">
+    <div class="chp-dolores-marquee__track">
+      <div class="chp-dolores-marquee__item"><img src="https://files.catbox.moe/hi6ayj.png" alt="Guía de patrones 1" loading="lazy"></div>
+      <div class="chp-dolores-marquee__item"><img src="https://files.catbox.moe/tpv7tn.png" alt="Guía de patrones 2" loading="lazy"></div>
+      <div class="chp-dolores-marquee__item"><img src="https://files.catbox.moe/wzqe4p.png" alt="Guía de patrones 3" loading="lazy"></div>
+      <div class="chp-dolores-marquee__item"><img src="https://files.catbox.moe/sqneyc.png" alt="Guía de patrones 4" loading="lazy"></div>
+      <div class="chp-dolores-marquee__item"><img src="https://files.catbox.moe/syksjd.png" alt="Guía de patrones 5" loading="lazy"></div>
+      <div class="chp-dolores-marquee__item"><img src="https://files.catbox.moe/hi6ayj.png" alt="Guía de patrones 1" loading="lazy"></div>
+      <div class="chp-dolores-marquee__item"><img src="https://files.catbox.moe/tpv7tn.png" alt="Guía de patrones 2" loading="lazy"></div>
+      <div class="chp-dolores-marquee__item"><img src="https://files.catbox.moe/wzqe4p.png" alt="Guía de patrones 3" loading="lazy"></div>
+      <div class="chp-dolores-marquee__item"><img src="https://files.catbox.moe/sqneyc.png" alt="Guía de patrones 4" loading="lazy"></div>
+      <div class="chp-dolores-marquee__item"><img src="https://files.catbox.moe/syksjd.png" alt="Guía de patrones 5" loading="lazy"></div>
+    </div>
+  </div>
+
+  <div class="chp-dolores-content">
+    <h2 class="chp-dolores-title">¿Te suena familiar alguna de estas?</h2>
+    <hr class="chp-dolores-rule">
+    <div class="chp-dolores-cards">
+      <div class="chp-dolores-card" data-chp-reveal><p>Tienes un proyecto a medio terminar guardado en un cajón desde hace meses.</p></div>
+      <div class="chp-dolores-card" data-chp-reveal><p>Viste el precio de una pieza de crochet hecha a mano en una tienda y no lo podías creer.</p></div>
+      <div class="chp-dolores-card" data-chp-reveal><p>Sabes que podrías hacerlo tú misma, pero nunca encontraste un patrón que realmente te ayudara a lograrlo.</p></div>
+      <div class="chp-dolores-card" data-chp-reveal><p>Sueñas con que alguien te pregunte "¿Dónde lo compraste?" y poder decir "¡Lo hice yo misma!"</p></div>
+    </div>
+  </div>
+
+  <div class="chp-spacer"></div>
+
+  <div class="chp-dolores-bridge">
+    <p>Ya conoces lo básico del crochet.</p>
+    <p>Solo necesitabas <strong>patrones claros</strong> para seguir.</p>
+    <p>Aquí encontrarás instrucciones que te guían en cada paso.</p>
+    <hr class="chp-dolores-bridge-rule">
+  </div>
+
+  <div class="chp-spacer"></div>
+
+  <div class="chp-dolores-marquee chp-dolores-marquee--reverse" aria-hidden="true">
+    <div class="chp-dolores-marquee__track">
+      <div class="chp-dolores-marquee__item"><img src="https://files.catbox.moe/xoryf6.webp" alt="" loading="lazy"></div>
+      <div class="chp-dolores-marquee__item"><img src="https://files.catbox.moe/4vgqce.webp" alt="" loading="lazy"></div>
+      <div class="chp-dolores-marquee__item"><img src="https://files.catbox.moe/nlqhlk.webp" alt="" loading="lazy"></div>
+      <div class="chp-dolores-marquee__item"><img src="https://files.catbox.moe/5rwbgx.webp" alt="" loading="lazy"></div>
+      <div class="chp-dolores-marquee__item"><img src="https://files.catbox.moe/naab56.webp" alt="" loading="lazy"></div>
+      <div class="chp-dolores-marquee__item"><img src="https://files.catbox.moe/85gum9.webp" alt="" loading="lazy"></div>
+      <div class="chp-dolores-marquee__item"><img src="https://files.catbox.moe/ckr2n4.webp" alt="" loading="lazy"></div>
+      <div class="chp-dolores-marquee__item"><img src="https://files.catbox.moe/xoryf6.webp" alt="" loading="lazy"></div>
+      <div class="chp-dolores-marquee__item"><img src="https://files.catbox.moe/4vgqce.webp" alt="" loading="lazy"></div>
+      <div class="chp-dolores-marquee__item"><img src="https://files.catbox.moe/nlqhlk.webp" alt="" loading="lazy"></div>
+      <div class="chp-dolores-marquee__item"><img src="https://files.catbox.moe/5rwbgx.webp" alt="" loading="lazy"></div>
+      <div class="chp-dolores-marquee__item"><img src="https://files.catbox.moe/naab56.webp" alt="" loading="lazy"></div>
+      <div class="chp-dolores-marquee__item"><img src="https://files.catbox.moe/85gum9.webp" alt="" loading="lazy"></div>
+      <div class="chp-dolores-marquee__item"><img src="https://files.catbox.moe/ckr2n4.webp" alt="" loading="lazy"></div>
+    </div>
+  </div>
+  <div class="chp-spacer"></div>
+</section>
+<script>
+(function () {
+  function bindCarousels() {
+    var carousels = document.querySelectorAll('.chp-dolores-marquee');
+    carousels.forEach(function (carousel) {
+    var track = carousel.querySelector('.chp-dolores-marquee__track');
+    if (!track || carousel.dataset.chpSwipeBound) return;
+    carousel.dataset.chpSwipeBound = 'true';
+    var reverse = carousel.classList.contains('chp-dolores-marquee--reverse');
+    var dragging = false;
+    var startX = 0;
+    var startOffset = 0;
+    var offset = reverse ? -(track.getBoundingClientRect().width / 2) : 0;
+    var lastFrame = performance.now();
+    var speed = reverse ? 34 : -40;
+    function halfWidth() { return track.getBoundingClientRect().width / 2; }
+    function normalize() {
+      var half = halfWidth();
+      if (!half) return;
+      if (!reverse && offset <= -half) offset += half;
+      if (reverse && offset >= 0) offset -= half;
+    }
+    function render() { track.style.transform = 'translate3d(' + offset + 'px,0,0)'; }
+    function animate(now) {
+      var elapsed = Math.min(now - lastFrame, 50);
+      lastFrame = now;
+      if (!dragging) { offset += speed * (elapsed / 1000); normalize(); render(); }
+      window.requestAnimationFrame(animate);
+    }
+    function onPointerDown(event) { dragging = true; startX = event.clientX; startOffset = offset; carousel.classList.add('is-dragging'); carousel.setPointerCapture(event.pointerId); }
+    function onPointerMove(event) { if (!dragging) return; offset = startOffset + (event.clientX - startX); normalize(); render(); }
+    function onPointerUp(event) { if (!dragging) return; dragging = false; carousel.classList.remove('is-dragging'); if (carousel.hasPointerCapture(event.pointerId)) carousel.releasePointerCapture(event.pointerId); }
+    carousel.addEventListener('pointerdown', onPointerDown);
+    carousel.addEventListener('pointermove', onPointerMove);
+    carousel.addEventListener('pointerup', onPointerUp);
+    carousel.addEventListener('pointercancel', onPointerUp);
+    render();
+    window.requestAnimationFrame(animate);
+    });
+  }
+  if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', bindCarousels); } else { bindCarousels(); }
+}());
+</script>
+<script>
+(function () {
+  var root = document.querySelector('.chp-dolores');
+  if (!root) return;
+  var cards = root.querySelectorAll('.chp-dolores-card[data-chp-reveal]');
+  function showAll() { cards.forEach(function (c) { c.classList.add('chp-is-visible'); }); }
+  var safety = window.setTimeout(showAll, 2500);
+  try {
+    if (!('IntersectionObserver' in window)) { showAll(); clearTimeout(safety); return; }
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        var card = entry.target;
+        var index = Array.prototype.indexOf.call(cards, card);
+        window.setTimeout(function () { card.classList.add('chp-is-visible'); }, (index % 4) * 100);
+        observer.unobserve(card);
+      });
+    }, { threshold: 0.2, rootMargin: '0px 0px -40px 0px' });
+    cards.forEach(function (card) { observer.observe(card); });
+  } catch (e) { showAll(); clearTimeout(safety); }
+}());
+</script>
+
+<!-- ===== 04 · BENEFITS GRID ===== -->
+<section class="chp-landing chp-section chp-benefits-grid" aria-labelledby="chp-benefits-grid-title">
+  <div class="chp-wrap">
+    <h2 id="chp-benefits-grid-title" class="chp-title">Con Crochet para tu Hogar podrás:</h2>
+    <hr class="chp-rule">
+    <div class="chp-benefits-grid__items">
+      <article class="chp-benefits-grid__card"><div class="chp-benefits-grid__media" role="button" tabindex="0" data-chp-lightbox-trigger><img src="https://files.catbox.moe/ac1o0l.webp" alt="Manta de crochet terminada" loading="lazy" width="900" height="900"></div><strong>VER TU HOGAR TRANSFORMADO</strong></article>
+      <article class="chp-benefits-grid__card"><div class="chp-benefits-grid__media" role="button" tabindex="0" data-chp-lightbox-trigger><img src="https://files.catbox.moe/sj74ct.webp" alt="Un rincón del hogar decorado con creaciones de crochet" loading="lazy" width="900" height="900"></div><strong>DECIR "LO HICE YO MISMA"</strong></article>
+      <article class="chp-benefits-grid__card"><div class="chp-benefits-grid__media" role="button" tabindex="0" data-chp-lightbox-trigger><img src="https://files.catbox.moe/s58iyy.webp" alt="Proyecto de crochet terminado" loading="lazy" width="900" height="900"></div><strong>TERMINAR UN PROYECTO</strong></article>
+      <article class="chp-benefits-grid__card"><div class="chp-benefits-grid__media" role="button" tabindex="0" data-chp-lightbox-trigger><img src="https://files.catbox.moe/t75n95.webp" alt="Manos trabajando en una creación de crochet" loading="lazy" width="900" height="900"></div><strong>SEGUIR CADA PATRÓN PASO A PASO</strong></article>
+      <article class="chp-benefits-grid__card"><div class="chp-benefits-grid__media" role="button" tabindex="0" data-chp-lightbox-trigger><img src="https://files.catbox.moe/3gsg1r.webp" alt="Cojín de crochet" loading="lazy" width="900" height="900"></div><strong>COMPLETARLO EN UN FIN DE SEMANA</strong></article>
+      <article class="chp-benefits-grid__card"><div class="chp-benefits-grid__media" role="button" tabindex="0" data-chp-lightbox-trigger><img data-chp-asset="pattern" src="https://files.catbox.moe/ow7ymo.webp" alt="Patrón de crochet" loading="eager" width="900" height="900"></div><strong>USAR ESTAMBRE QUE ENCUENTRAS EN TU MERCERÍA</strong></article>
+    </div>
+    <div class="chp-benefits-lightbox" data-chp-lightbox aria-hidden="true">
+      <button class="chp-benefits-lightbox__backdrop" type="button" data-chp-lightbox-close aria-label="Cerrar imagen ampliada"></button>
+      <div class="chp-benefits-lightbox__dialog" role="dialog" aria-modal="true" aria-label="Imagen ampliada">
+        <button class="chp-benefits-lightbox__close" type="button" data-chp-lightbox-close aria-label="Cerrar imagen ampliada">×</button>
+        <img class="chp-benefits-lightbox__image" data-chp-lightbox-image alt="">
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+  .chp-benefits-grid{text-align:center;background:var(--chp-cream,#FAF8F5)}
+  .chp-benefits-grid__items{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+  .chp-benefits-grid__card{overflow:hidden;border:1px solid var(--chp-beige,#C4B8AA);border-radius:10px;background:var(--chp-cream,#FAF8F5)}
+  .chp-benefits-grid__media{position:relative;aspect-ratio:1/1;overflow:hidden;cursor:zoom-in}.chp-benefits-grid__media img{display:block;width:100%;height:100%;object-fit:cover}
+  .chp-benefits-lightbox{position:fixed;inset:0;z-index:2000;display:flex;align-items:center;justify-content:center;padding:20px;visibility:hidden;opacity:0;pointer-events:none;transition:opacity .2s ease}.chp-benefits-lightbox[aria-hidden="false"]{visibility:visible;opacity:1;pointer-events:auto}.chp-benefits-lightbox__backdrop{position:absolute;inset:0;border:0;background:rgba(46,40,32,.78);cursor:zoom-out}.chp-benefits-lightbox__dialog{position:relative;z-index:1;max-width:min(92vw,900px);max-height:90vh}.chp-benefits-lightbox__image{display:block;max-width:92vw;max-height:86vh;width:auto;height:auto;object-fit:contain;border-radius:10px;box-shadow:0 18px 60px rgba(0,0,0,.3);background:#fff}.chp-benefits-lightbox__close{position:absolute;top:-14px;right:-14px;width:38px;height:38px;border:0;border-radius:50%;background:#fff;color:var(--chp-charcoal,#2E2820);font:700 26px/1 Arial,sans-serif;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.2)}body.chp-benefits-lightbox-open{overflow:hidden}@media(prefers-reduced-motion:reduce){.chp-benefits-lightbox{transition:none}}
+  .chp-benefits-grid__card strong{display:flex;align-items:center;justify-content:center;min-height:62px;padding:10px 8px;color:var(--chp-charcoal,#2E2820);font:700 12px/1.25 Inter,Arial,sans-serif;letter-spacing:.02em}
+  @media(max-width:520px){.chp-benefits-grid__card strong{font-size:10px;min-height:58px;padding:9px 6px}}
+</style>
+<script>
+(function () {
+  var root = document.querySelector('.chp-benefits-grid');
+  if (!root || root.dataset.chpLightboxBound) return;
+  root.dataset.chpLightboxBound = 'true';
+  var lightbox = root.querySelector('[data-chp-lightbox]');
+  var enlarged = root.querySelector('[data-chp-lightbox-image]');
+  var triggers = root.querySelectorAll('[data-chp-lightbox-trigger]');
+  function close() { lightbox.setAttribute('aria-hidden', 'true'); document.body.classList.remove('chp-benefits-lightbox-open'); enlarged.removeAttribute('src'); }
+  function open(trigger) { var image = trigger.querySelector('img'); if (!image) return; enlarged.src = image.currentSrc || image.src; enlarged.alt = image.alt || ''; lightbox.setAttribute('aria-hidden', 'false'); document.body.classList.add('chp-benefits-lightbox-open'); }
+  triggers.forEach(function (trigger) {
+    trigger.addEventListener('click', function () { open(trigger); });
+    trigger.addEventListener('keydown', function (event) { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); open(trigger); } });
+  });
+  root.querySelectorAll('[data-chp-lightbox-close]').forEach(function (button) { button.addEventListener('click', close); });
+  document.addEventListener('keydown', function (event) { if (event.key === 'Escape' && lightbox.getAttribute('aria-hidden') === 'false') close(); });
+}());
+</script>
+
+<!-- ===== 05 · WHAT'S INCLUDED ===== -->
+<section class="chp-landing chp-section chp-section--alt">
+  <div class="chp-wrap">
+    <span class="chp-eyebrow">Todo en una sola colección</span>
+    <h2 class="chp-title">Una colección para transformar tus espacios</h2><hr class="chp-rule">
+    <div class="chp-grid">
+      <article><b>30 patrones paso a paso</b><p>Proyectos de crochet explicados con claridad, para que trabajes sin frustrarte.</p></article>
+      <article><b>Materiales y medidas</b><p>Cantidades, diagramas e instrucciones completas en español.</p></article>
+    </div>
+  </div>
+</section>
+<style>.chp-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.chp-grid article{padding:18px;border:1px solid var(--chp-beige);border-radius:10px;background:var(--chp-cream)}.chp-grid b{display:block;margin-bottom:8px;font-size:15px}.chp-grid p{color:var(--chp-brown);font-size:13px;line-height:1.55}@media(max-width:520px){.chp-grid{grid-template-columns:1fr}}</style>
+
+<!-- ===== 06 · CATEGORIES ===== -->
+<section class="chp-landing chp-section chp-section--alt chp-categorias">
+  <div class="chp-wrap chp-categorias__head">
+    <h2 class="chp-title">Qué incluye la colección</h2>
+    <p class="chp-sub">30 patrones en 6 categorías</p>
+    <hr class="chp-rule">
+  </div>
+  <div class="chp-categorias__grid">
+    <article class="chp-categorias__card"><img src="https://files.catbox.moe/3gsg1r.webp" alt="Cojines de crochet" loading="lazy" width="900" height="900"><h3>Cojines</h3></article>
+    <article class="chp-categorias__card"><img src="https://files.catbox.moe/ac1o0l.webp" alt="Mantas de crochet" loading="lazy" width="900" height="900"><h3>Mantas</h3></article>
+    <article class="chp-categorias__card"><img src="https://files.catbox.moe/4vgqce.webp" alt="Caminos de mesa" loading="lazy" width="900" height="900"><h3>Caminos de Mesa</h3></article>
+    <article class="chp-categorias__card"><img src="https://files.catbox.moe/nlqhlk.webp" alt="Individuales" loading="lazy" width="900" height="900"><h3>Individuales</h3></article>
+    <article class="chp-categorias__card"><img src="https://files.catbox.moe/d52sqj.webp" alt="Posavasos" loading="lazy" width="900" height="900"><h3>Posavasos</h3></article>
+    <article class="chp-categorias__card"><img src="https://files.catbox.moe/ej5yxg.webp" alt="Canastas y organizadores" loading="lazy" width="900" height="900"><h3>Organizadores</h3></article>
+  </div>
+  <p class="chp-categorias__bridge">Comienza por el rincón de tu hogar que más ganas tengas de redecorar.</p>
+</section>
+<style>
+  .chp-categorias__head{text-align:center}
+  .chp-categorias__head .chp-sub{margin:0 auto}
+  .chp-categorias__grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;width:min(760px,calc(100% - 32px));margin:0 auto}
+  .chp-categorias__bridge{max-width:680px;margin:58px auto 0 !important;padding:0 20px;color:var(--chp-brown);font-family:"Playfair Display",Georgia,serif;font-size:clamp(20px,4vw,28px);font-style:italic;line-height:1.35;text-align:center}
+  .chp-categorias__card{overflow:hidden;border:1px solid var(--chp-beige);border-radius:10px;background:var(--chp-cream);text-align:center}
+  .chp-categorias__card img{display:block;width:100%;height:240px;object-fit:cover;object-position:center}
+  .chp-categorias__card h3{margin:0;padding:12px 8px 14px;color:var(--chp-charcoal);font-family:Inter,Arial,sans-serif;font-size:clamp(14px,2.2vw,20px);font-weight:700;line-height:1.15}
+  @media(max-width:520px){.chp-categorias{padding-top:42px;padding-bottom:42px}.chp-categorias__grid{gap:10px;width:calc(100% - 24px)}.chp-categorias__card{border-radius:8px}.chp-categorias__card img{height:150px}.chp-categorias__card h3{padding:10px 5px 12px;font-size:14px}}
+</style>
+
+<!-- ===== 07 · BONUSES ===== -->
+<section class="chp-landing chp-section chp-section--alt chp-bonuses">
+  <div class="chp-wrap chp-bonuses__head">
+    <span class="chp-eyebrow">Más allá del contenido principal</span>
+    <h2 class="chp-title">4 bonos para crear con más confianza</h2>
+    <hr class="chp-rule">
+  </div>
+  <div class="chp-bonuses__carousel" role="region" aria-label="Bonos incluidos">
+    <div class="chp-bonuses__track">
+      <article class="chp-bonuses__card">
+        <div class="chp-bonuses__image-wrap"><img class="chp-bonuses__image" src="https://files.catbox.moe/6d88t6.png" alt="Guía de Combinación de Colores" loading="lazy" width="640" height="800"></div>
+        <div class="chp-bonuses__card-content"><span class="chp-bonuses__mark" aria-hidden="true">✦</span><h3>Guía de Combinación de Colores</h3><div class="chp-bonuses__value"><s>$7</s><span>Incluido</span></div></div>
+      </article>
+      <article class="chp-bonuses__card">
+        <div class="chp-bonuses__image-wrap"><img class="chp-bonuses__image" src="https://files.catbox.moe/x82wit.png" alt="Programa de 4 Fines de Semana" loading="lazy" width="640" height="800"></div>
+        <div class="chp-bonuses__card-content"><span class="chp-bonuses__mark" aria-hidden="true">✦</span><h3>Programa de 4 Fines de Semana</h3><div class="chp-bonuses__value"><s>$8</s><span>Incluido</span></div></div>
+      </article>
+      <article class="chp-bonuses__card">
+        <div class="chp-bonuses__image-wrap"><img class="chp-bonuses__image" src="https://files.catbox.moe/dj7x5y.png" alt="Guía de Decoración de Interiores" loading="lazy" width="640" height="800"></div>
+        <div class="chp-bonuses__card-content"><span class="chp-bonuses__mark" aria-hidden="true">✦</span><h3>Guía de Decoración de Interiores</h3><div class="chp-bonuses__value"><s>$7</s><span>Incluido</span></div></div>
+      </article>
+      <article class="chp-bonuses__card">
+        <div class="chp-bonuses__image-wrap"><img class="chp-bonuses__image" src="https://files.catbox.moe/gvehnf.png" alt="Glosario Ilustrado y Guía de Materiales" loading="lazy" width="640" height="800"></div>
+        <div class="chp-bonuses__card-content"><span class="chp-bonuses__mark" aria-hidden="true">✦</span><h3>Glosario Ilustrado y Guía de Materiales</h3><div class="chp-bonuses__value"><s>$8</s><span>Incluido</span></div></div>
+      </article>
+    </div>
+  </div>
+</section>
+<style>
+  .chp-bonuses__head{text-align:center}
+  .chp-bonuses__head .chp-eyebrow{display:block}
+  .chp-bonuses__head .chp-sub{max-width:560px;margin:0 auto}
+  .chp-bonuses__carousel{width:100%;overflow-x:auto;overflow-y:hidden;padding:0 20px 12px;scrollbar-width:thin;scrollbar-color:var(--chp-beige) transparent;-webkit-overflow-scrolling:touch;scroll-snap-type:x proximity}
+  .chp-bonuses__track{display:flex;gap:14px;width:max-content;margin:0 auto}
+  .chp-bonuses__card{flex:0 0 178px;overflow:hidden;border:1px solid var(--chp-beige);border-radius:12px;background:var(--chp-cream);scroll-snap-align:start;text-align:center}
+  .chp-bonuses__image-wrap{aspect-ratio:4/5;overflow:hidden;background:var(--chp-beige)}
+  .chp-bonuses__image{display:block;width:100%;height:100%;object-fit:cover}
+  .chp-bonuses__card-content{padding:14px 12px 16px}
+  .chp-bonuses__mark{display:block;margin-bottom:6px;color:var(--chp-green);font-size:18px;line-height:1}
+  .chp-bonuses__card h3{margin:0;color:var(--chp-charcoal);font-family:Inter,Arial,sans-serif;font-size:13px;font-weight:700;line-height:1.35}
+  .chp-bonuses__value{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:9px}
+  .chp-bonuses__value s{color:#a99f95;font-size:12px}
+  .chp-bonuses__value span{display:inline-block;padding:4px 8px;border-radius:999px;background:var(--chp-green);color:#fff;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.04em}
+  @media(min-width:760px){.chp-bonuses__carousel{padding-right:32px;padding-left:32px}.chp-bonuses__track{gap:18px}.chp-bonuses__card{flex-basis:208px}}
+</style>
+
+<!-- ===== 08 · PROMISE & PROOF ===== -->
+<section class="chp-landing chp-section">
+  <div class="chp-wrap">
+    <span class="chp-eyebrow">Redescubre la alegría de crear</span>
+    <h2 class="chp-title">Crea algo que realmente quieras presumir</h2><hr class="chp-rule">
+  </div>
+  <div class="chp-trust">
+    <p><b>✓ Patrones claros:</b> cada proyecto está explicado paso a paso.</p>
+    <p><b>✓ Materiales fáciles de encontrar:</b> estambre y materiales disponibles en cualquier mercería.</p>
+    <p><b>✓ A tu propio ritmo:</b> proyectos diseñados para completarse en uno o dos fines de semana.</p>
+    <p><b>✓ Acceso inmediato:</b> recibe tus materiales por email justo después del pago.</p>
+  </div>
+</section>
+<style>
+.chp-trust{max-width:560px;margin:34px auto 0;border:1px solid var(--chp-beige);border-radius:12px;background:#fff;padding:22px}.chp-trust p{padding:13px 0;border-bottom:1px solid #EDE8E1;color:var(--chp-brown);font-size:14px;line-height:1.55}.chp-trust p:last-child{border-bottom:0;padding-bottom:0}.chp-trust b{color:var(--chp-charcoal)}
+</style>
+
+<!-- ===== 09 · OFFER ===== -->
+<section class="chp-landing chp-section chp-value-grid" id="chp-offer" style="scroll-margin-top:24px" aria-labelledby="chp-value-grid-title">
+  <div class="chp-wrap">
+    <span class="chp-eyebrow">Crochet para tu Hogar</span>
+    <h2 id="chp-value-grid-title" class="chp-title">Empieza a transformar tu hogar hoy</h2>
+    <hr class="chp-rule">
+    <div class="chp-value-grid__offer">
+      <p class="chp-value-grid__access">Con Crochet para tu Hogar recibes 30+ proyectos y 4 bonos gratis.</p>
+      <s>{{original_price}}</s><strong>{{price}}</strong>
+      <p class="chp-value-grid__note">Acceso inmediato por email. Sin costos de envío.</p>
+      <a class="chp-btn" href="/checkout">Quiero Transformar mi Hogar</a>
+    </div>
+  </div>
+</section>
+<style>
+  .chp-value-grid{text-align:center;background:var(--chp-cream,#FAF8F5)}
+  .chp-value-grid__offer{max-width:460px;margin:0 auto;padding:24px 20px;border:1px solid var(--chp-beige,#C4B8AA);border-radius:12px;background:#fff}
+  .chp-value-grid__access{margin:0 0 18px;color:var(--chp-brown,#6B5F54);font-size:14px;line-height:1.5}
+  .chp-value-grid__offer s{display:block;color:#B0A396;font-size:16px;margin-bottom:8px}
+  .chp-value-grid__offer>strong{display:block;color:var(--chp-charcoal,#2E2820);font:600 42px/1 "Playfair Display",Georgia,serif}
+  .chp-value-grid__note{margin:14px 0 20px;color:var(--chp-brown,#6B5F54);font-size:13px;line-height:1.5}
+  .chp-value-grid__offer .chp-btn{display:block;text-align:center;text-decoration:none}
+</style>
+
+<!-- ===== 10 · TESTIMONIALS ===== -->
+<section class="chp-testimonials" aria-labelledby="chp-testimonials-title">
+  <div class="chp-testimonials__intro">
+    <p class="chp-testimonials__eyebrow">Crochet para tu Hogar</p>
+    <h2 id="chp-testimonials-title">Lo que dicen quienes ya transformaron su hogar</h2>
+  </div>
+  <div class="chp-testimonials__viewport" role="region" aria-label="Opiniones de clientes">
+    <div class="chp-testimonials__track">
+      <article class="chp-testimonial-card">
+        <div class="chp-testimonial-card__media"><img class="chp-testimonial-card__image" src="https://files.catbox.moe/7h4rxq.webp" alt="Un rincón de la sala con una creación de crochet" loading="eager" width="1122" height="1402"></div>
+        <div class="chp-testimonial-card__body">
+          <div class="chp-testimonial-card__meta"><div><p class="chp-testimonial-card__name">Sofía</p><p class="chp-testimonial-card__location">Monterrey, MX</p></div><span class="chp-testimonial-card__verified">✓ Compra Verificada</span></div>
+          <div class="chp-testimonial-card__stars" aria-label="5 estrellas">★★★★★</div>
+          <p class="chp-testimonial-card__quote">"Solo sé lo básico de crochet. [...] El problema no era mi nivel, sino los patrones que encontraba: estaban mal explicados. Estos son clarísimos."</p>
+        </div>
+      </article>
+      <article class="chp-testimonial-card">
+        <div class="chp-testimonial-card__media"><img class="chp-testimonial-card__image" src="https://files.catbox.moe/oxjc1j.webp" alt="Cojín de crochet en una sala" loading="lazy" width="1122" height="1402"></div>
+        <div class="chp-testimonial-card__body">
+          <div class="chp-testimonial-card__meta"><div><p class="chp-testimonial-card__name">Lucía</p><p class="chp-testimonial-card__location">Guadalajara, MX</p></div><span class="chp-testimonial-card__verified">✓ Compra Verificada</span></div>
+          <div class="chp-testimonial-card__stars" aria-label="5 estrellas">★★★★★</div>
+          <p class="chp-testimonial-card__quote">"Dudé mucho antes de comprar, porque ya había comprado PDFs que resultaron inútiles. [...] Terminé el cojín en dos días y quedó exactamente como quería."</p>
+        </div>
+      </article>
+      <article class="chp-testimonial-card">
+        <div class="chp-testimonial-card__media"><img class="chp-testimonial-card__image" src="https://files.catbox.moe/sjsb67.webp" alt="Manos trabajando en una creación de crochet" loading="lazy" width="1122" height="1402"></div>
+        <div class="chp-testimonial-card__body">
+          <div class="chp-testimonial-card__meta"><div><p class="chp-testimonial-card__name">Valeria</p><p class="chp-testimonial-card__location">Puebla, MX</p></div><span class="chp-testimonial-card__verified">✓ Compra Verificada</span></div>
+          <div class="chp-testimonial-card__stars" aria-label="5 estrellas">★★★★★</div>
+          <p class="chp-testimonial-card__quote">"Ya no pierdo tiempo buscando patrones en internet. Sé exactamente qué crear cada fin de semana."</p>
+        </div>
+      </article>
+      <article class="chp-testimonial-card">
+        <div class="chp-testimonial-card__media"><img class="chp-testimonial-card__image" src="https://files.catbox.moe/2ic1dw.webp" alt="Sala acogedora con una creación de crochet" loading="lazy" width="1122" height="1402"></div>
+        <div class="chp-testimonial-card__body">
+          <div class="chp-testimonial-card__meta"><div><p class="chp-testimonial-card__name">Andrea D.</p><p class="chp-testimonial-card__location">CDMX, MX</p></div><span class="chp-testimonial-card__verified">✓ Compra Verificada</span></div>
+          <div class="chp-testimonial-card__stars" aria-label="5 estrellas">★★★★★</div>
+          <p class="chp-testimonial-card__quote">"Mi sala se ve completamente diferente — solo bastó un cojín para el sillón, hecho en un domingo."</p>
+        </div>
+      </article>
+      <article class="chp-testimonial-card">
+        <div class="chp-testimonial-card__media"><img class="chp-testimonial-card__image" src="https://files.catbox.moe/o7zikd.webp" alt="Creación de crochet en tonos claros" loading="lazy" width="1122" height="1402"></div>
+        <div class="chp-testimonial-card__body">
+          <div class="chp-testimonial-card__meta"><div><p class="chp-testimonial-card__name">Mariana R.</p><p class="chp-testimonial-card__location">Querétaro, MX</p></div><span class="chp-testimonial-card__verified">✓ Compra Verificada</span></div>
+          <div class="chp-testimonial-card__stars" aria-label="5 estrellas">★★★★★</div>
+          <p class="chp-testimonial-card__quote">"Por fin encontré proyectos que puedo terminar sin frustrarme — y que se ven increíbles en mi casa."</p>
+        </div>
+      </article>
+      <article class="chp-testimonial-card">
+        <div class="chp-testimonial-card__media"><img class="chp-testimonial-card__image" src="https://files.catbox.moe/bvb48f.webp" alt="Creaciones de crochet en un ambiente luminoso" loading="lazy" width="1122" height="1402"></div>
+        <div class="chp-testimonial-card__body">
+          <div class="chp-testimonial-card__meta"><div><p class="chp-testimonial-card__name">Daniela M.</p><p class="chp-testimonial-card__location">León, MX</p></div><span class="chp-testimonial-card__verified">✓ Compra Verificada</span></div>
+          <div class="chp-testimonial-card__stars" aria-label="5 estrellas">★★★★★</div>
+          <p class="chp-testimonial-card__quote">"Me encantó poder elegir qué hacer e ir a mi ritmo, con instrucciones que siempre son claras."</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+<style>
+  .chp-testimonials{--chp-cream:#FAF8F5;--chp-charcoal:#2E2820;--chp-brown:#6B5F54;--chp-beige:#C4B8AA;--chp-green:#3D7A5A;background:var(--chp-cream);color:var(--chp-charcoal);padding:48px 0 52px;font-family:Inter,Arial,sans-serif;overflow:hidden}
+  .chp-testimonials *,.chp-testimonials *::before,.chp-testimonials *::after{box-sizing:border-box}
+  .chp-testimonials__intro{padding:0 24px 28px;text-align:center}
+  .chp-testimonials__eyebrow{margin:0 0 10px;color:var(--chp-brown);font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase}
+  .chp-testimonials__intro h2{max-width:520px;margin:0 auto;color:var(--chp-charcoal);font-family:"Playfair Display",serif;font-size:clamp(27px,7vw,38px);font-weight:600;line-height:1.16}
+  .chp-testimonials__viewport{padding:0 20px}
+  .chp-testimonials__track{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;width:100%;max-width:900px;margin:0 auto}
+  .chp-testimonial-card{overflow:hidden;background:#fff;border:1px solid var(--chp-beige);border-radius:10px;box-shadow:0 6px 18px rgba(46,40,32,.06)}
+  .chp-testimonial-card__media{aspect-ratio:1/1;overflow:hidden}.chp-testimonial-card__media img{display:block;width:100%;height:100%;object-fit:cover}
+  .chp-testimonial-card__body{min-height:0;padding:14px 12px 16px;background:#fff}
+  .chp-testimonial-card__meta{display:block;min-width:0}
+  .chp-testimonial-card__name{margin:0;color:var(--chp-charcoal);font-family:"Playfair Display",serif;font-size:16px;font-weight:700;line-height:1.15}
+  .chp-testimonial-card__location{margin:4px 0 0;color:var(--chp-brown);font-size:11px;line-height:1.25}
+  .chp-testimonial-card__verified{display:inline-flex;max-width:100%;margin-top:8px;padding:4px 6px;border:1px solid rgba(61,122,90,.24);border-radius:999px;color:var(--chp-green);font-size:9px;font-weight:600;line-height:1.15;white-space:normal}
+  .chp-testimonial-card__stars{margin-top:10px;color:var(--chp-brown);font-size:14px;letter-spacing:1px;line-height:1}
+  .chp-testimonial-card__quote{margin:10px 0 0;color:var(--chp-charcoal);font-size:12px;line-height:1.45}
+  @media(max-width:520px){.chp-testimonials{padding:38px 0 42px}.chp-testimonials__track{gap:10px}.chp-testimonial-card__body{padding:12px 10px 14px}.chp-testimonial-card__name{font-size:14px}.chp-testimonial-card__verified{font-size:8px}.chp-testimonial-card__quote{font-size:11px}}
+</style>
+
+<!-- ===== 11 · SUMMARY & GUARANTEE ===== -->
+<section class="chp-landing chp-section chp-section--alt">
+  <div class="chp-wrap">
+    <span class="chp-eyebrow">Antes de empezar</span>
+    <h2 class="chp-title">Lo que te llevas hoy</h2><hr class="chp-rule">
+    <div class="chp-summary">
+      <p>✓ 30+ patrones de crochet en PDF con instrucciones paso a paso</p>
+      <p>✓ Glosario y guía de materiales, guía de decoración, programa de 4 fines de semana y guía de combinación de colores</p>
+      <div><b>Precio de hoy</b><strong>{{price}}</strong></div>
+    </div>
+    <div class="chp-guarantee"><b>Garantía de Devolución de 7 Días</b><p>Si no es lo que esperabas, te devolvemos el 100% — sin preguntas.</p></div>
+  </div>
+</section>
+<style>.chp-summary{border:1px solid var(--chp-beige);border-radius:10px;background:#fff;padding:20px}.chp-summary p{padding:10px 0;border-bottom:1px solid #EDE8E1;color:var(--chp-brown);font-size:14px}.chp-summary div{display:flex;justify-content:space-between;align-items:center;margin-top:16px}.chp-summary strong{font:600 24px "Playfair Display",Georgia,serif}.chp-guarantee{margin-top:18px;padding:20px;text-align:center;background:#EEF7F0;border-radius:10px;color:var(--chp-green-dark)}.chp-guarantee p{margin-top:6px;color:var(--chp-brown);font-size:13px}</style>
+
+<!-- ===== 12 · FAQ ===== -->
+<section class="chp-landing chp-section">
+  <div class="chp-wrap">
+    <span class="chp-eyebrow">Crochet para tu Hogar</span><h2 class="chp-title">Preguntas Frecuentes</h2><hr class="chp-rule">
+    <div class="chp-faq">
+      <details><summary>¿Cuándo y cómo recibo la colección?</summary><p>Justo después del pago, recibes un email con un enlace de descarga. Acceso inmediato, sin esperas.</p></details>
+      <details><summary>¿Necesito experiencia en crochet?</summary><p>No. Los proyectos están diseñados tanto para principiantes como para nivel intermedio. Aunque estés empezando, los patrones detallados te guían paso a paso.</p></details>
+      <details><summary>¿Qué incluye exactamente?</summary><p>30+ patrones de crochet en PDF con instrucciones paso a paso y 4 bonos para acompañarte en tus proyectos.</p></details>
+      <details><summary>¿Los materiales son fáciles de encontrar?</summary><p>Sí. Todos los proyectos usan estambre y materiales que encuentras en cualquier mercería o tienda de manualidades.</p></details>
+      <details><summary>¿Cuánto tarda cada proyecto?</summary><p>Cada proyecto está diseñado para completarse en 1 o 2 fines de semana. El programa incluido te ayuda a planificar por cuáles empezar.</p></details>
+      <details><summary>¿Y si no me gusta la colección?</summary><p>Tienes una garantía de devolución de 7 días. Si no es lo que esperabas, te devolvemos el 100% — sin preguntas.</p></details>
+      <details><summary>¿Cómo puedo pagar?</summary><p>Con tarjeta de crédito o débito, a través de un sistema de pago 100% seguro.</p></details>
+    </div>
+  </div>
+</section>
+<style>.chp-faq details{border-top:1px solid var(--chp-beige);padding:16px 0}.chp-faq details:last-child{border-bottom:1px solid var(--chp-beige)}.chp-faq summary{cursor:pointer;font-weight:600;color:var(--chp-charcoal);list-style:none;display:flex;justify-content:space-between}.chp-faq summary::-webkit-details-marker{display:none}.chp-faq summary:after{content:"+";color:var(--chp-green);font-size:20px}.chp-faq details[open] summary:after{content:"−"}.chp-faq p{padding-top:12px;color:var(--chp-brown);font-size:14px;line-height:1.65}</style>
+
+<!-- ===== 13 · FINAL CTA + FLOATING BAR ===== -->
+<section class="chp-landing chp-section chp-final" id="chp-final-cta">
+  <div class="chp-wrap chp-final__intro">
+    <h2 class="chp-title">Dale un nuevo look a tu hogar este fin de semana.</h2>
+    <img class="chp-final__image" src="https://files.catbox.moe/6q9hce.webp" alt="Ideas para transformar tu hogar con proyectos de crochet" loading="lazy" width="900" height="1200">
+    <p class="chp-sub">Ya tienes muchas ideas guardadas en Pinterest.</p>
+    <p class="chp-final__format">Ahora necesitas patrones claros para hacerlas realidad.</p>
+    <a class="chp-btn" href="#chp-offer">Obtener la Colección ↓</a>
+    <p class="chp-hero__note">Pago seguro · Garantía de 7 días</p>
+  </div>
+</section>
+<style>
+  .chp-final__intro{text-align:center}
+  .chp-final__intro .chp-btn{background:linear-gradient(100deg,var(--chp-green) 0%,var(--chp-brown) 100%);transition:filter .2s ease,transform .2s ease;margin-top:6px}
+  .chp-final__intro .chp-btn:hover{background:linear-gradient(100deg,var(--chp-brown) 0%,var(--chp-green) 100%);filter:brightness(1.04);transform:translateY(-1px)}
+  .chp-final__intro .chp-sub{margin:0 auto 28px !important}
+  .chp-final__format{margin:30px auto 32px !important;color:var(--chp-brown);font-family:"Playfair Display",Georgia,serif;font-size:clamp(20px,4vw,28px);font-style:italic;line-height:1.35}
+  .chp-final__intro .chp-hero__note{margin-top:18px}
+  .chp-final__image{display:block;width:min(100%,430px);height:auto;margin:28px auto 46px;border-radius:12px}
+</style>
+
+<!-- Floating bottom bar -->
+<div class="chp-floating-cta" data-chp-floating-cta aria-hidden="true">
+  <a class="chp-btn chp-floating-cta__button" href="#chp-offer">
+    <span>Quiero la Colección</span>
+    <strong>{{price}}</strong>
+  </a>
+</div>
+<style>
+  .chp-floating-cta{position:fixed;left:50%;right:auto;bottom:16px;z-index:1000;width:min(420px,calc(100vw - 32px));opacity:0;visibility:hidden;transform:translate(-50%,18px);pointer-events:none;transition:opacity .22s ease,transform .22s ease,visibility .22s ease}
+  .chp-floating-cta[data-visible="true"]{opacity:1;visibility:visible;transform:translate(-50%,0);pointer-events:auto}
+  .chp-floating-cta__button{width:100%;gap:12px;padding:14px 20px;background:#3D7A5A;color:#fff;border:1px solid rgba(255,255,255,.35);box-shadow:0 8px 24px rgba(46,40,32,.22)}
+  .chp-floating-cta__button:hover{background:#2F5E44}
+  .chp-floating-cta__button strong{white-space:nowrap;font-size:15px}
+  @media(max-width:520px){.chp-floating-cta{bottom:12px;width:calc(100vw - 24px)}}
+  @media(prefers-reduced-motion:reduce){.chp-floating-cta{transition:none}}
+  @media(max-width:380px){.chp-wrap,.chp-wrap-wide{padding:0 16px}.chp-title{font-size:24px}.chp-sub{font-size:14px}.chp-btn{font-size:14px;padding:15px 16px}.chp-section{padding:30px 0}}
+</style>
+<script>
+  (function () {
+    var floatingCta = document.querySelector('[data-chp-floating-cta]');
+    var collectionSection = document.querySelector('.chp-categorias');
+    if (!floatingCta || !collectionSection || floatingCta.dataset.chpBound) return;
+    floatingCta.dataset.chpBound = 'true';
+    function updateVisibility() {
+      floatingCta.dataset.visible = collectionSection.getBoundingClientRect().bottom <= 0 ? 'true' : 'false';
+      floatingCta.setAttribute('aria-hidden', floatingCta.dataset.visible !== 'true');
+    }
+    window.addEventListener('scroll', updateVisibility, { passive: true });
+    window.addEventListener('resize', updateVisibility);
+    updateVisibility();
+  }());
+</script>

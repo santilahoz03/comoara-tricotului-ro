@@ -1,0 +1,997 @@
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,400,0..100;0,9..144,500,0..100;0,9..144,600,0..100;0,9..144,700,0..100;1,9..144,400,0..100;1,9..144,500,0..100&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
+img, svg, video, canvas, iframe { max-width: 100%; }
+img, video { height: auto; }
+
+  :root {
+    --paper:        oklch(98.5% 0.008 110);
+    --paper-warm:   oklch(96.8% 0.012 80);
+    --paper-deep:   oklch(94.2% 0.018 95);
+    --linen:        oklch(91.5% 0.020 90);
+    --sage:         oklch(52% 0.055 145);
+    --sage-deep:    oklch(38% 0.045 145);
+    --sage-soft:    oklch(72% 0.045 145);
+    --sage-wash:    oklch(94% 0.020 145);
+    --terracotta:        oklch(58% 0.130 35);
+    --terracotta-deep:   oklch(48% 0.140 32);
+    --terracotta-soft:   oklch(85% 0.060 40);
+    --blush:        oklch(88% 0.035 25);
+    --blush-soft:   oklch(94% 0.020 25);
+    --ink:          oklch(22% 0.012 145);
+    --ink-soft:     oklch(38% 0.018 145);
+    --ink-mute:     oklch(55% 0.015 145);
+    --gold:         oklch(72% 0.115 80);
+    --ok:           oklch(58% 0.085 150);
+    --r-sm: 6px; --r: 12px; --r-lg: 20px; --r-xl: 28px;
+    --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+    --ease-out-expo:  cubic-bezier(0.16, 1, 0.3, 1);
+    --t-xs:13px; --t-sm:15px; --t-base:17px; --t-lg:20px; --t-xl:26px;
+    --t-2xl:34px; --t-3xl:46px; --t-4xl:62px; --t-5xl:84px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-font-smoothing: antialiased; }
+  html { scroll-behavior: smooth; overflow-x: clip; max-width: 100%; background-color: var(--paper); }
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: var(--t-base); line-height: 1.55; color: var(--ink);
+    background-color: var(--paper);
+    background-image: radial-gradient(circle at 1px 1px, oklch(58% 0.045 145 / 0.06) 1px, transparent 0);
+    background-size: 24px 24px; overflow-x: clip; max-width: 100%; position: relative;
+  }
+  .serif, h1, h2, h3, .display { font-family: 'Fraunces', Georgia, serif; font-weight: 500; letter-spacing: -0.015em; line-height: 1.08; }
+  h1 { font-size: var(--t-4xl); font-weight: 400; }
+  h2 { font-size: var(--t-3xl); font-weight: 500; }
+  h3 { font-size: var(--t-xl); font-weight: 500; line-height: 1.25; }
+  p { max-width: 62ch; text-wrap: pretty; }
+  h1, h2, h3 { text-wrap: balance; }
+  .hero-sub, .section-intro p, .chat-intro p, .catalog-intro p, .bonus-intro p, .problem-intro p, .how-intro p, .final p, .po-subtitle, .pain p, .why-card p, .how-step p { text-wrap: balance; }
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; display: block; }
+  img, video, svg { max-width: 100%; }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 28px; }
+  .wrap-narrow { max-width: 760px; margin: 0 auto; padding: 0 28px; }
+  .announce { background: var(--sage-deep); color: var(--paper); text-align: center; padding: 11px 16px; font-size: var(--t-xs); letter-spacing: 0.04em; font-weight: 500; overflow: hidden; }
+  .announce-text { display: inline-flex; align-items: center; gap: 12px; flex-wrap: wrap; justify-content: center; }
+  .announce-item { white-space: nowrap; }
+  .announce-dot { color: var(--terracotta-soft); font-weight: 700; }
+  @media (max-width: 420px) { .announce { font-size: 12px; padding: 11px 12px; } .announce-text { gap: 8px; } }
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; background: var(--terracotta); color: var(--paper); padding: 18px 34px; font-size: var(--t-base); font-weight: 600; font-family: 'Inter', sans-serif; border: none; border-radius: 50px; cursor: pointer; letter-spacing: 0.01em; transition: transform 0.4s var(--ease-out-quart), background-color 0.3s var(--ease-out-quart), box-shadow 0.4s var(--ease-out-quart); box-shadow: 0 4px 16px oklch(58% 0.130 35 / 0.25); }
+  .btn:hover { background: var(--terracotta-deep); transform: translateY(-2px); box-shadow: 0 8px 22px oklch(58% 0.130 35 / 0.32); }
+  .btn .arrow { transition: transform 0.4s var(--ease-out-quart); }
+  .btn:hover .arrow { transform: translateX(4px); }
+  a:focus-visible, .btn:focus-visible, button:focus-visible { outline: 3px solid var(--sage); outline-offset: 3px; }
+  .hero { padding: 32px 0 40px; position: relative; text-align: center; }
+  .hero .wrap { max-width: 720px; }
+  .hero-pill { display: inline-flex; align-items: center; gap: 8px; padding: 8px 18px; background: var(--blush-soft); border: 1px solid oklch(85% 0.040 25); color: var(--terracotta-deep); border-radius: 50px; font-size: var(--t-xs); letter-spacing: 0.18em; text-transform: uppercase; font-weight: 700; margin-bottom: 22px; max-width: 100%; flex-wrap: wrap; justify-content: center; }
+  .hero-pill-dot { color: var(--terracotta); opacity: 0.6; }
+  .hero-h1 { font-family: 'Fraunces', serif; font-weight: 500; line-height: 1.1; font-size: clamp(34px, 5.5vw, 56px); letter-spacing: -0.018em; margin: 0 auto 22px; max-width: 18ch; text-wrap: balance; font-variation-settings: "opsz" 36, "SOFT" 30; }
+  .desktop-br { display: inline; }
+  @media (max-width: 580px) { .desktop-br { display: none; } .hero-h1 { max-width: 14ch; } }
+  .hero-h1 .accent { font-style: italic; font-weight: 500; color: var(--terracotta-deep); font-variation-settings: "opsz" 24, "SOFT" 30; letter-spacing: -0.005em; }
+  .hero-sub { font-size: var(--t-base); line-height: 1.55; color: var(--ink-soft); margin: 0 auto 28px; max-width: 50ch; }
+  .hero-sub-highlight { color: var(--ink); font-weight: 600; position: relative; display: inline-block; white-space: normal; }
+  .hero-sub-highlight::after { content: ''; position: absolute; left: 0; right: 0; bottom: -2px; height: 8px; background: linear-gradient(180deg, transparent 50%, oklch(85% 0.060 35 / 0.55) 50%); z-index: -1; transform: skewX(-8deg); }
+  .hero-trust { display: inline-flex; align-items: center; gap: 14px; margin: 0 auto 30px; padding: 10px 16px 10px 12px; background: var(--paper-warm); border: 1px solid var(--linen); border-radius: 50px; }
+  .hero-avatars { display: flex; align-items: center; }
+  .hero-avatar { width: 32px; height: 32px; border-radius: 50%; border: 2px solid var(--paper-warm); background: var(--sage-wash); position: relative; overflow: hidden; }
+  .hero-avatar + .hero-avatar { margin-left: -10px; }
+  .hero-avatar-1 { background: linear-gradient(135deg, oklch(82% 0.045 30), oklch(72% 0.060 25)); }
+  .hero-avatar-2 { background: linear-gradient(135deg, oklch(82% 0.040 80), oklch(72% 0.055 70)); }
+  .hero-avatar-3 { background: linear-gradient(135deg, oklch(82% 0.040 145), oklch(72% 0.045 140)); }
+  .hero-trust-body { text-align: left; line-height: 1.2; }
+  .hero-trust-stars { color: var(--gold); letter-spacing: 1.5px; font-size: 13px; margin-bottom: 2px; }
+  .hero-trust-caption { font-size: var(--t-xs); color: var(--ink-soft); }
+  .hero-trust-caption strong { color: var(--ink); font-weight: 600; }
+  .hero-media-wrap { position: relative; max-width: 380px; margin: 0 auto 32px; padding: 14px 14px 18px; background: var(--paper); border-radius: 28px; box-shadow: 0 1px 0 oklch(95% 0.020 80), 0 30px 60px -30px oklch(38% 0.045 145 / 0.28); }
+  .hero-media-wrap::before { content: ''; position: absolute; inset: -6px; background: linear-gradient(135deg, var(--sage-wash), var(--blush-soft)); border-radius: 32px; z-index: -1; opacity: 0.7; }
+  .hero-media { aspect-ratio: 9 / 16; border-radius: 18px; overflow: hidden; background: var(--paper-warm); box-shadow: 0 4px 12px -4px oklch(38% 0.045 145 / 0.18); position: relative; }
+  .hero-media img, .hero-media video { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .hero-pill-instant { position: absolute; top: -14px; left: -8px; z-index: 4; background: var(--terracotta); color: var(--paper); padding: 9px 16px; border-radius: 50px; font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.04em; box-shadow: 0 8px 20px -6px oklch(58% 0.130 35 / 0.45); transform: rotate(-4deg); white-space: nowrap; }
+  .hero-badge { position: absolute; z-index: 3; }
+  .hero-badge-patterns { bottom: -16px; right: -16px; width: 96px; height: 96px; border-radius: 50%; background: var(--sage-wash); border: 2px solid var(--sage-soft); box-shadow: 0 14px 26px -10px oklch(38% 0.045 145 / 0.32); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; transform: rotate(8deg); }
+  .hero-badge-num { font-family: 'Fraunces', serif; font-size: 26px; font-weight: 500; color: var(--sage-deep); line-height: 1; font-variation-settings: "opsz" 144; }
+  .hero-badge-label { font-size: 10px; letter-spacing: 0.10em; text-transform: uppercase; color: var(--sage-deep); line-height: 1.2; font-weight: 700; }
+  .hero-cta-wrap { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+  .hero-btn { padding: 18px 32px; font-size: var(--t-base); }
+  .hero-cta-meta { display: inline-flex; align-items: center; gap: 8px; font-size: var(--t-sm); color: var(--ink-soft); }
+  .hero-cta-meta svg { color: var(--sage); }
+  .section { padding: 72px 0; }
+  .section-sage { background: var(--sage-wash); }
+  .section-warm { background: var(--paper-warm); }
+  .eyebrow { display: inline-block; font-size: var(--t-xs); letter-spacing: 0.22em; text-transform: uppercase; color: var(--sage); font-weight: 600; margin-bottom: 20px; }
+  .eyebrow.center { display: block; text-align: center; }
+  .section h2 { font-size: clamp(30px, 4vw, 50px); }
+  .section-intro { text-align: center; max-width: 760px; margin: 0 auto 44px; }
+  .section-intro h2 { margin-bottom: 16px; }
+  .section-intro p { font-size: var(--t-base); color: var(--ink-soft); margin: 0 auto; max-width: 58ch; }
+  .section-intro h2 em { font-style: italic; color: var(--terracotta-deep); font-variation-settings: "opsz" 144; }
+  .problem-section { background: var(--paper); }
+  .problem-intro { text-align: center; max-width: 680px; margin: 0 auto 48px; }
+  .problem-intro h2 { font-size: clamp(32px, 4.2vw, 50px); }
+  .problem-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; max-width: 1080px; margin: 0 auto; }
+  .pain { text-align: center; padding: 8px 4px; }
+  .pain-icon { display: inline-flex; align-items: center; justify-content: center; width: 64px; height: 64px; border-radius: 50%; background: var(--paper-warm); border: 1px solid var(--linen); color: var(--sage-deep); margin-bottom: 20px; }
+  .pain h3 { font-family: 'Fraunces', serif; font-size: var(--t-lg); font-weight: 500; margin-bottom: 10px; line-height: 1.25; }
+  .pain p { font-size: var(--t-sm); color: var(--ink-soft); margin: 0 auto; max-width: 26ch; line-height: 1.5; }
+  .problem-bridge { display: flex; align-items: center; justify-content: center; gap: 18px; margin-top: 56px; flex-wrap: nowrap; }
+  .problem-bridge p { font-family: 'Fraunces', serif; font-style: italic; font-size: var(--t-lg); color: var(--sage-deep); margin: 0; font-variation-settings: "opsz" 144; }
+  .bridge-line { flex: 0 1 56px; min-width: 0; height: 1px; background: var(--sage-soft); }
+  .why-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; max-width: 980px; margin: 0 auto; }
+  .why-card { background: var(--paper); border: 1px solid var(--linen); border-radius: var(--r-lg); padding: 36px 32px; position: relative; transition: transform 0.5s var(--ease-out-quart), box-shadow 0.5s var(--ease-out-quart); }
+  .why-card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px -20px oklch(38% 0.045 145 / 0.2); }
+  .why-num { font-family: 'Fraunces', serif; font-style: italic; font-weight: 400; font-size: 44px; line-height: 1; color: var(--terracotta); margin-bottom: 18px; font-variation-settings: "opsz" 144; }
+  .why-card h3 { font-family: 'Fraunces', serif; font-size: var(--t-xl); font-weight: 500; margin-bottom: 12px; line-height: 1.25; }
+  .why-card p { color: var(--ink-soft); font-size: var(--t-sm); line-height: 1.6; margin: 0; max-width: 46ch; }
+  .who-section { background: var(--paper); }
+  .who-tabs { display: flex; justify-content: center; gap: 8px; margin-bottom: 56px; flex-wrap: wrap; }
+  .who-tab { display: inline-flex; align-items: center; gap: 10px; background: var(--paper-warm); border: 1px solid var(--linen); color: var(--ink-soft); padding: 14px 22px; border-radius: 50px; cursor: pointer; font-family: 'Inter', sans-serif; font-size: var(--t-sm); font-weight: 500; letter-spacing: 0.02em; transition: background 0.3s var(--ease-out-quart), color 0.3s var(--ease-out-quart), border-color 0.3s var(--ease-out-quart); }
+  .who-tab:hover { color: var(--sage-deep); border-color: var(--sage-soft); }
+  .who-tab.is-active { background: var(--sage-deep); color: var(--paper); border-color: var(--sage-deep); }
+  .who-tab-icon { flex-shrink: 0; }
+  .who-panels { position: relative; max-width: 1080px; margin: 0 auto; }
+  .who-panel { display: none; animation: fadeIn 0.6s var(--ease-out-quart); }
+  .who-panel.is-active { display: block; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+  .who-content { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+  .who-text h3 { font-family: 'Fraunces', serif; font-size: clamp(28px, 3.4vw, 40px); font-weight: 500; line-height: 1.2; margin-bottom: 18px; color: var(--ink); }
+  .who-text > p { font-size: var(--t-lg); color: var(--ink-soft); line-height: 1.6; margin-bottom: 24px; max-width: 44ch; }
+  .who-list { list-style: none; margin: 0; padding: 0; }
+  .who-list li { padding: 11px 0 11px 28px; color: var(--ink); font-size: var(--t-sm); border-bottom: 1px solid var(--linen); position: relative; }
+  .who-list li:last-child { border-bottom: none; }
+  .who-list li::before { content: ''; position: absolute; left: 0; top: 18px; width: 14px; height: 1px; background: var(--terracotta); }
+  .who-image-slot { aspect-ratio: 4 / 5; background: var(--paper-warm); border: 1px solid var(--linen); border-radius: var(--r-lg); overflow: hidden; position: relative; max-width: 420px; margin: 0 auto; }
+  .who-image-slot img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .step-label { display: inline-flex; align-items: center; gap: 8px; font-size: var(--t-xs); letter-spacing: 0.18em; text-transform: uppercase; color: var(--sage); font-weight: 600; margin-bottom: 14px; }
+  .step-label::before { content: ''; width: 24px; height: 1px; background: var(--sage-soft); }
+  .how-section { background: var(--paper); }
+  .how-intro { text-align: center; max-width: 760px; margin: 0 auto 64px; }
+  .how-eyebrow { display: inline-block; font-size: var(--t-xs); letter-spacing: 0.18em; text-transform: uppercase; color: var(--terracotta-deep); font-weight: 700; background: var(--blush-soft); padding: 8px 16px; border-radius: 50px; margin-bottom: 22px; }
+  .how-intro h2 { font-size: clamp(32px, 4.2vw, 50px); }
+  .how-intro h2 em { font-style: italic; color: var(--terracotta-deep); font-variation-settings: "opsz" 144; }
+  .how-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-bottom: 40px; position: relative; }
+  .how-steps::before { content: ''; position: absolute; top: 56px; left: 16%; right: 16%; height: 2px; background-image: radial-gradient(circle, var(--sage) 1.5px, transparent 1.5px); background-size: 12px 2px; background-repeat: repeat-x; z-index: 0; opacity: 0.5; }
+  .how-step { background: var(--paper-warm); border: 1px solid var(--linen); border-radius: var(--r-lg); padding: 40px 28px 32px; text-align: center; position: relative; z-index: 1; transition: transform 0.5s var(--ease-out-quart), box-shadow 0.5s var(--ease-out-quart); }
+  .how-step:hover { transform: translateY(-4px); box-shadow: 0 20px 40px -20px oklch(38% 0.045 145 / 0.2); }
+  .how-step-num { position: absolute; top: -18px; left: 50%; transform: translateX(-50%); width: 44px; height: 44px; background: var(--terracotta); color: var(--paper); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Fraunces', serif; font-size: 22px; font-weight: 600; line-height: 1; box-shadow: 0 6px 14px oklch(58% 0.130 35 / 0.32); border: 3px solid var(--paper); }
+  .how-step-icon { display: inline-flex; align-items: center; justify-content: center; width: 64px; height: 64px; background: var(--paper); border: 1px solid var(--linen); border-radius: 50%; color: var(--sage-deep); margin: 8px auto 22px; }
+  .how-step h3 { font-family: 'Fraunces', serif; font-size: var(--t-xl); font-weight: 500; margin-bottom: 12px; color: var(--ink); }
+  .how-step p { font-size: var(--t-sm); color: var(--ink-soft); line-height: 1.55; margin: 0 auto; max-width: 32ch; }
+  .how-cta { text-align: center; }
+  .catalog-section { padding: 72px 0 60px; background: var(--paper); overflow: hidden; }
+  .catalog-intro { text-align: center; max-width: 760px; margin: 0 auto 48px; }
+  .catalog-intro h2 { font-size: clamp(34px, 4.4vw, 54px); }
+  .catalog-intro h2 em { font-style: italic; color: var(--terracotta-deep); font-variation-settings: "opsz" 144; }
+  .catalog-intro p { font-size: var(--t-lg); color: var(--ink-soft); margin: 22px auto 0; max-width: 60ch; }
+  .catalog-carousel { position: relative; margin-bottom: 36px; }
+  .catalog-track { display: flex; gap: 24px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 12px 28px 32px; scrollbar-width: none; -ms-overflow-style: none; scroll-padding: 28px; }
+  .catalog-track::-webkit-scrollbar { display: none; }
+  .catalog-track::before, .catalog-track::after { content: ''; flex: 0 0 max(0px, calc((100vw - 1180px) / 2 - 24px)); }
+  .catalog-card { flex: 0 0 260px; background: var(--paper); border-radius: var(--r-lg); overflow: hidden; scroll-snap-align: start; transition: transform 0.6s var(--ease-out-expo), box-shadow 0.6s var(--ease-out-expo); display: flex; flex-direction: column; position: relative; }
+  .catalog-card:hover { transform: translateY(-6px); box-shadow: 0 24px 50px -24px oklch(38% 0.045 145 / 0.28); }
+  .catalog-media { aspect-ratio: 1 / 1; background: var(--paper-warm); overflow: hidden; position: relative; border-radius: var(--r-lg); border: 1px solid var(--linen); }
+  .catalog-media img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 1.4s var(--ease-out-expo); }
+  .catalog-card:hover .catalog-media img { transform: scale(1.05); }
+  .catalog-pricepill { position: absolute; left: 50%; bottom: 16px; transform: translateX(-50%); background: var(--sage-deep); color: var(--paper); padding: 9px 16px; border-radius: 50px; font-size: var(--t-xs); letter-spacing: 0.08em; text-transform: uppercase; font-weight: 700; font-family: 'Inter', sans-serif; box-shadow: 0 6px 16px oklch(20% 0.012 145 / 0.3); white-space: nowrap; z-index: 2; }
+  .catalog-pricepill--alt { background: var(--terracotta-deep); }
+  .catalog-body { padding: 18px 8px 6px; flex: 1; display: flex; flex-direction: column; align-items: center; text-align: center; }
+  .catalog-body h3 { font-family: 'Fraunces', serif; font-size: var(--t-xl); font-weight: 600; line-height: 1.2; color: var(--ink); margin: 0; }
+  .catalog-controls { display: flex; justify-content: center; gap: 12px; }
+  .catalog-arrow { width: 48px; height: 48px; background: var(--paper); border: 1px solid var(--linen); color: var(--sage-deep); border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.3s var(--ease-out-quart), color 0.3s, border-color 0.3s, transform 0.3s; }
+  .catalog-arrow:hover { background: var(--sage-deep); color: var(--paper); border-color: var(--sage-deep); transform: translateY(-2px); }
+  .catalog-arrow[disabled] { opacity: 0.35; cursor: not-allowed; transform: none !important; background: var(--paper); color: var(--ink-mute); border-color: var(--linen); }
+  .catalog-footnote { text-align: center; font-size: var(--t-xs); color: var(--ink-mute); max-width: 66ch; margin: 28px auto 0; line-height: 1.6; letter-spacing: 0.01em; }
+  .bonus-section { background: var(--paper); padding: 72px 0; position: relative; }
+  .bonus-section::before { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 60px; height: 1px; background: var(--sage-soft); }
+  .bonus-intro { text-align: center; max-width: 760px; margin: 0 auto 56px; }
+  .bonus-pill { display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; border-radius: 50px; background: var(--blush-soft); color: var(--terracotta-deep); font-size: var(--t-xs); font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 22px; }
+  .bonus-intro h2 { font-size: clamp(30px, 4vw, 46px); margin-bottom: 14px; }
+  .bonus-intro h2 em { font-style: italic; color: var(--terracotta-deep); font-variation-settings: "opsz" 144; }
+  .bonus-intro p { font-size: var(--t-base); color: var(--ink-soft); margin: 0 auto; max-width: 54ch; }
+  .bonus-list { display: flex; flex-direction: column; gap: 96px; max-width: 1080px; margin: 0 auto; }
+  .bonus-row { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; position: relative; }
+  .bonus-row:nth-child(even) .bonus-image { order: 2; }
+  .bonus-image { aspect-ratio: 1 / 1; border-radius: var(--r-lg); overflow: hidden; background: var(--paper-warm); border: 1px solid var(--linen); position: relative; }
+  .bonus-num-tag { position: absolute; top: 16px; left: 16px; z-index: 3; background: var(--terracotta); color: var(--paper); padding: 8px 16px; border-radius: 50px; font-family: 'Inter', sans-serif; font-size: var(--t-xs); font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; box-shadow: 0 6px 16px oklch(58% 0.130 35 / 0.32); transform: rotate(-3deg); }
+  .bonus-image img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 1.2s var(--ease-out-expo); }
+  .bonus-row:hover .bonus-image img { transform: scale(1.03); }
+  .bonus-body h3 { font-family: 'Fraunces', serif; font-size: clamp(26px, 2.8vw, 36px); font-weight: 500; line-height: 1.15; margin-bottom: 14px; color: var(--ink); letter-spacing: -0.01em; }
+  .bonus-body h3 em { font-style: italic; color: var(--sage-deep); font-variation-settings: "opsz" 144; }
+  .bonus-body .lede { font-size: var(--t-base); color: var(--ink-soft); line-height: 1.6; margin-bottom: 22px; max-width: 46ch; }
+  .bonus-meta { display: flex; align-items: center; gap: 18px; padding-top: 20px; border-top: 1px solid var(--linen); flex-wrap: wrap; }
+  .bonus-free { display: inline-flex; align-items: center; gap: 8px; background: oklch(85% 0.090 145); color: oklch(28% 0.085 145); padding: 6px 14px; border-radius: 50px; font-size: var(--t-xs); font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; }
+  .bonus-value { font-size: var(--t-sm); color: var(--ink-soft); }
+  .bonus-value s { margin-right: 4px; text-decoration-thickness: 1.5px; }
+  .bonus-value strong { color: var(--ink); font-family: 'Fraunces', serif; font-weight: 500; }
+  .po-offer { background: radial-gradient(ellipse at 20% 0%, var(--blush-soft) 0%, transparent 60%), radial-gradient(ellipse at 80% 100%, var(--sage-wash) 0%, transparent 55%), var(--paper-warm); padding: 60px 20px 80px; position: relative; overflow: hidden; }
+  .po-offer > * { position: relative; z-index: 1; }
+  .po-top { max-width: 480px; margin: 0 auto 32px; text-align: center; }
+  .po-pill-stack { display: flex; flex-direction: column; align-items: center; gap: 0; margin-bottom: 18px; }
+  .po-pill { display: inline-block; padding: 10px 24px; border-radius: 12px; font-family: 'Inter', sans-serif; font-weight: 800; letter-spacing: 0.08em; font-size: 18px; }
+  .po-pill-yellow { background: oklch(78% 0.150 75); color: var(--ink); box-shadow: 0 3px 0 oklch(60% 0.130 70); }
+  .po-pill-script { font-family: 'Fraunces', serif; font-style: italic; font-weight: 500; font-size: 28px; color: var(--terracotta-deep); margin-top: 8px; font-variation-settings: "opsz" 144; }
+  .po-subtitle { font-size: var(--t-base); color: var(--ink-soft); margin-bottom: 26px; }
+  .po-timer-card { border: 2px dashed var(--terracotta); border-radius: var(--r-lg); padding: 18px 22px; background: var(--paper); display: inline-block; }
+  .po-timer-label { display: inline-flex; align-items: center; gap: 6px; font-size: var(--t-xs); letter-spacing: 0.12em; text-transform: uppercase; color: var(--terracotta-deep); font-weight: 700; margin-bottom: 12px; }
+  .po-timer-clock { display: flex; align-items: stretch; justify-content: center; gap: 6px; }
+  .po-timer-unit { background: var(--paper); border: 1px solid var(--linen); border-radius: var(--r); padding: 10px 14px 8px; min-width: 66px; display: flex; flex-direction: column; align-items: center; box-shadow: 0 2px 0 var(--linen); }
+  .po-timer-num { font-family: 'Fraunces', serif; font-size: 28px; font-weight: 600; color: var(--ink); line-height: 1; font-variant-numeric: tabular-nums; letter-spacing: -0.02em; }
+  .po-timer-lbl { font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-mute); margin-top: 6px; font-weight: 700; }
+  .po-timer-sep { align-self: center; font-family: 'Fraunces', serif; font-size: 24px; color: var(--terracotta); font-weight: 600; margin-top: -10px; }
+  .po-card { max-width: 460px; margin: 0 auto; background: var(--paper); border: 3px solid var(--terracotta); border-radius: 24px; padding: 40px 28px 28px; text-align: center; position: relative; box-shadow: 0 20px 60px -20px oklch(58% 0.130 35 / 0.3); }
+  .po-launch-tag { position: absolute; top: -16px; left: 50%; transform: translateX(-50%); background: oklch(78% 0.150 75); color: var(--ink); padding: 8px 22px; border-radius: 50px; font-family: 'Inter', sans-serif; font-weight: 800; font-size: var(--t-xs); letter-spacing: 0.12em; box-shadow: 0 3px 0 oklch(60% 0.130 70); white-space: nowrap; }
+  .po-product-name { font-family: 'Fraunces', serif; font-size: clamp(28px, 6vw, 36px); font-weight: 700; color: var(--terracotta-deep); line-height: 1; letter-spacing: 0.02em; margin: 12px 0 6px; text-transform: uppercase; }
+  .po-product-bundle { font-size: var(--t-xs); letter-spacing: 0.20em; text-transform: uppercase; color: var(--ink-mute); font-weight: 600; margin-bottom: 22px; }
+  .po-price-row { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 4px; }
+  .po-price-was { font-family: 'Fraunces', serif; font-size: var(--t-xl); color: var(--ink-mute); text-decoration: line-through; text-decoration-thickness: 1.5px; }
+  .po-price-save { background: oklch(85% 0.090 145); color: oklch(35% 0.085 145); padding: 4px 10px; border-radius: 6px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 11px; letter-spacing: 0.1em; }
+  .po-price-now { font-family: 'Fraunces', serif; font-size: 84px; font-weight: 700; color: var(--ink); line-height: 1; letter-spacing: -0.04em; margin: 4px 0 4px; }
+  .po-price-meta { font-size: var(--t-xs); color: var(--ink-mute); margin-bottom: 24px; }
+  .po-checklist { list-style: none; margin: 0 0 20px; padding: 18px 16px; background: var(--paper-warm); border-radius: var(--r-lg); text-align: left; }
+  .po-checklist li { display: grid; grid-template-columns: auto auto 1fr; align-items: start; gap: 8px; padding: 8px 0; font-size: var(--t-sm); color: var(--ink); line-height: 1.5; }
+  .po-check { color: oklch(58% 0.130 150); font-weight: 700; font-size: 16px; line-height: 1.4; }
+  .po-emoji { font-size: 16px; line-height: 1.4; }
+  .po-li-text { line-height: 1.45; }
+  .po-li-text em { font-style: italic; font-family: 'Fraunces', serif; color: var(--ink-soft); font-variation-settings: "opsz" 144; font-weight: 400; }
+  .po-checklist li strong { color: var(--ink); font-weight: 700; }
+  .po-li-highlight { margin-top: 6px; padding: 10px 12px !important; background: oklch(85% 0.090 145); border-radius: var(--r); border: 1px solid oklch(72% 0.110 150); }
+  .po-li-highlight strong { color: oklch(28% 0.085 145); }
+  .po-li-highlight .po-check { color: oklch(40% 0.110 150); }
+  .po-bonuses { border: 2px dashed oklch(78% 0.150 75); background: oklch(98% 0.040 75 / 0.7); border-radius: var(--r-lg); padding: 14px 16px; display: flex; align-items: center; gap: 14px; margin-bottom: 22px; text-align: left; }
+  .po-bonuses-icon { width: 50px; height: 50px; background: var(--paper); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--terracotta-deep); flex-shrink: 0; border: 1px solid oklch(82% 0.080 65); }
+  .po-bonuses-title { font-family: 'Inter', sans-serif; font-weight: 800; font-size: var(--t-xs); letter-spacing: 0.06em; color: var(--ink); line-height: 1.2; margin-bottom: 6px; }
+  .po-bonuses-meta { display: flex; align-items: center; gap: 8px; font-size: var(--t-xs); }
+  .po-bonuses-meta s { color: var(--ink-mute); text-decoration-thickness: 1px; }
+  .po-bonuses-today { background: oklch(60% 0.130 150); color: var(--paper); padding: 4px 8px; border-radius: 4px; font-weight: 800; letter-spacing: 0.06em; font-size: 10px; }
+  .po-btn { display: flex; flex-direction: column; align-items: center; gap: 4px; background: oklch(58% 0.130 150); color: var(--paper); padding: 18px 20px; border-radius: var(--r-lg); text-decoration: none; box-shadow: 0 4px 0 oklch(45% 0.110 150), 0 12px 24px -6px oklch(58% 0.130 150 / 0.4); transition: transform 0.3s var(--ease-out-quart), box-shadow 0.3s var(--ease-out-quart), background-color 0.3s; cursor: pointer; }
+  .po-btn:hover { background: oklch(52% 0.140 150); transform: translateY(-2px); box-shadow: 0 6px 0 oklch(45% 0.110 150), 0 14px 28px -6px oklch(58% 0.130 150 / 0.5); }
+  .po-btn:active { transform: translateY(2px); box-shadow: 0 2px 0 oklch(45% 0.110 150), 0 8px 16px -4px oklch(58% 0.130 150 / 0.4); }
+  .po-btn-main { font-family: 'Inter', sans-serif; font-weight: 800; font-size: 18px; letter-spacing: 0.02em; }
+  .po-btn-sub { font-size: 11px; letter-spacing: 0.06em; opacity: 0.85; font-weight: 500; }
+  .chat-section { background: var(--paper-warm); }
+  .chat-intro { text-align: center; max-width: 760px; margin: 0 auto 56px; }
+  .chat-intro h2 em { font-style: italic; color: var(--terracotta-deep); font-variation-settings: "opsz" 144; }
+  .chat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1180px; margin: 0 auto; }
+  .chat-card { background: var(--paper); border-radius: var(--r-lg); overflow: hidden; box-shadow: 0 20px 40px -20px oklch(38% 0.045 145 / 0.2); display: flex; flex-direction: column; border: 1px solid var(--linen); }
+  .chat-header { display: flex; align-items: center; gap: 12px; padding: 14px 16px; background: oklch(35% 0.085 150); color: var(--paper); }
+  .chat-avatar { width: 42px; height: 42px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--paper); font-family: 'Fraunces', serif; font-size: 18px; font-weight: 600; flex-shrink: 0; }
+  .chat-avatar-1 { background: linear-gradient(135deg, oklch(70% 0.090 30), oklch(58% 0.130 35)); }
+  .chat-avatar-2 { background: linear-gradient(135deg, oklch(70% 0.080 80), oklch(58% 0.110 70)); }
+  .chat-avatar-3 { background: linear-gradient(135deg, oklch(70% 0.070 145), oklch(52% 0.055 145)); }
+  .chat-meta { flex: 1; min-width: 0; }
+  .chat-name { font-weight: 600; font-size: var(--t-sm); color: var(--paper); margin-bottom: 2px; }
+  .chat-status { font-size: 11px; color: oklch(85% 0.040 150); display: flex; align-items: center; gap: 6px; }
+  .chat-online-dot { width: 7px; height: 7px; background: oklch(75% 0.180 145); border-radius: 50%; }
+  .chat-header-icons { display: flex; align-items: center; gap: 14px; color: oklch(78% 0.030 150); opacity: 0.85; }
+  .chat-date-sep { text-align: center; margin: 4px 0 10px; }
+  .chat-date-sep span { display: inline-block; background: oklch(88% 0.025 75 / 0.9); color: oklch(40% 0.020 145); padding: 4px 12px; border-radius: 50px; font-size: 10px; letter-spacing: 0.16em; font-weight: 700; box-shadow: 0 1px 2px oklch(20% 0.012 145 / 0.08); }
+  .chat-body { flex: 1; background: radial-gradient(ellipse 200px 80px at 30% 20%, oklch(94% 0.020 145 / 0.6), transparent), radial-gradient(ellipse 200px 100px at 70% 70%, oklch(92% 0.030 75 / 0.4), transparent), oklch(96% 0.015 75); padding: 18px 14px; display: flex; flex-direction: column; gap: 6px; min-height: 300px; }
+  .chat-bubble { max-width: 85%; padding: 9px 12px; border-radius: 12px; font-size: var(--t-sm); line-height: 1.4; position: relative; word-wrap: break-word; }
+  .chat-bubble p { margin: 0; color: var(--ink); font-size: var(--t-sm); line-height: 1.4; }
+  .chat-bubble-in { background: var(--paper); align-self: flex-start; border-top-left-radius: 4px; box-shadow: 0 1px 2px oklch(20% 0.012 145 / 0.1); }
+  .chat-bubble-out { background: oklch(86% 0.075 145); align-self: flex-end; border-top-right-radius: 4px; box-shadow: 0 1px 2px oklch(20% 0.012 145 / 0.1); }
+  .chat-time { display: block; font-size: 10px; color: var(--ink-mute); margin-top: 3px; text-align: right; }
+  .chat-checks { color: oklch(55% 0.140 235); font-weight: 700; margin-left: 4px; }
+  .chat-bubble-img { padding: 5px; max-width: 70%; }
+  .chat-photo { aspect-ratio: 4/5; background: repeating-linear-gradient(45deg, oklch(92% 0.020 75) 0 16px, oklch(88% 0.025 70) 16px 17px); border-radius: 8px; margin-bottom: 4px; position: relative; overflow: hidden; }
+  .chat-photo img { width: 100%; height: 100%; object-fit: cover; border-radius: 8px; display: block; }
+  .chat-footer { padding: 12px 16px; background: var(--paper); border-top: 1px solid var(--linen); text-align: center; }
+  .chat-location { font-size: var(--t-xs); color: var(--ink-soft); letter-spacing: 0.02em; }
+  .guarantee { text-align: center; max-width: 720px; margin: 0 auto; }
+  .guarantee-seal { display: inline-flex; align-items: center; justify-content: center; width: 110px; height: 110px; background: var(--paper); border: 2px solid var(--sage); border-radius: 50%; margin-bottom: 32px; color: var(--sage-deep); }
+  .guarantee h2 { margin-bottom: 20px; }
+  .guarantee p { font-size: var(--t-lg); color: var(--ink-soft); margin: 0 auto 16px; line-height: 1.65; }
+  .faq { max-width: 800px; margin: 0 auto; }
+  .faq-item { border-bottom: 1px solid var(--linen); }
+  .faq-q { width: 100%; background: none; border: none; padding: 28px 0; text-align: left; font-family: 'Fraunces', serif; font-size: var(--t-lg); font-weight: 500; color: var(--ink); cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 24px; transition: color 0.3s var(--ease-out-quart); }
+  .faq-q:hover { color: var(--sage-deep); }
+  .faq-q .plus { width: 28px; height: 28px; border-radius: 50%; border: 1px solid var(--sage-soft); color: var(--sage); display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: transform 0.4s var(--ease-out-quart), background 0.3s, color 0.3s; font-size: 16px; line-height: 1; }
+  .faq-item.open .faq-q .plus { transform: rotate(45deg); background: var(--sage); color: var(--paper); border-color: var(--sage); }
+  .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.5s var(--ease-out-expo); }
+  .faq-a-inner { padding: 0 0 28px; color: var(--ink-soft); line-height: 1.65; max-width: 64ch; }
+  .faq-item.open .faq-a { max-height: 520px; }
+  .final { text-align: center; padding: 120px 0; }
+  .final h2 { font-size: clamp(34px, 4.5vw, 60px); max-width: 18ch; margin: 0 auto 24px; }
+  .final h2 em { color: var(--terracotta-deep); font-style: italic; font-variation-settings: "opsz" 144; }
+  .final p { font-size: var(--t-lg); color: var(--ink-soft); max-width: 540px; margin: 0 auto 40px; }
+  footer { background: var(--sage-deep); color: oklch(82% 0.020 145); padding: 48px 0 28px; text-align: center; font-size: var(--t-sm); }
+  .footer-brand { font-family: 'Fraunces', serif; font-size: var(--t-xl); font-weight: 500; color: var(--paper); margin-bottom: 6px; letter-spacing: 0.01em; }
+  .footer-tag { font-size: var(--t-sm); color: oklch(75% 0.025 145); margin: 0 auto 24px; font-style: italic; font-family: 'Fraunces', serif; }
+  .footer-disc { font-size: 11.5px; color: oklch(70% 0.020 145); line-height: 1.6; max-width: 680px; margin: 0 auto 16px; }
+  .footer-links { display: flex; gap: 8px 18px; justify-content: center; flex-wrap: wrap; margin-bottom: 16px; }
+  .footer-links a { color: oklch(85% 0.020 145); text-decoration: underline; font-size: var(--t-xs); }
+  footer .copy { color: oklch(65% 0.020 145); font-size: var(--t-xs); }
+  @media (max-width: 920px) {
+    .hero { padding: 24px 0 32px; }
+    .po-offer { padding: 56px 16px 72px; }
+    .po-card { padding: 32px 22px 22px; }
+    .po-price-now { font-size: 68px; }
+    .po-timer-unit { min-width: 58px; padding: 8px 10px 6px; }
+    .po-timer-num { font-size: 22px; }
+    .po-bonuses { flex-direction: column; text-align: center; gap: 10px; padding: 16px; }
+    .po-bonuses-meta { justify-content: center; }
+    .how-steps { grid-template-columns: 1fr; gap: 48px; max-width: 420px; margin-left: auto; margin-right: auto; position: relative; }
+    .how-steps::before { content: ''; display: block; position: absolute; top: 24px; bottom: 24px; left: 50%; transform: translateX(-50%); width: 2px; height: auto; background-image: radial-gradient(circle, var(--sage) 1.5px, transparent 1.5px); background-size: 2px 12px; background-repeat: repeat-y; z-index: 0; opacity: 0.5; }
+    .chat-grid { grid-template-columns: 1fr; max-width: 480px; }
+    .bonus-list { gap: 28px; max-width: 460px; }
+    .bonus-row { grid-template-columns: 1fr; gap: 0; background: var(--paper-warm); border: 1px solid var(--linen); border-radius: var(--r-lg); overflow: hidden; }
+    .bonus-row:nth-child(even) .bonus-image { order: 0; }
+    .bonus-image { border-radius: 0; border: none; border-bottom: 1px solid var(--linen); aspect-ratio: 1 / 1; }
+    .bonus-body { padding: 20px 20px 22px; }
+    .bonus-body h3 { font-size: 22px; margin-bottom: 10px; }
+    .bonus-body .lede { font-size: 14px; margin-bottom: 16px; }
+    .bonus-meta { padding-top: 14px; gap: 12px; }
+    .bonus-section { padding: 56px 0; }
+    .bonus-intro { margin-bottom: 36px; }
+    .problem-grid { grid-template-columns: repeat(2, 1fr); gap: 36px 24px; }
+    .why-grid { grid-template-columns: 1fr; }
+    .problem-bridge { margin-top: 50px; }
+    .who-content { grid-template-columns: 1fr; gap: 32px; }
+    .who-image-slot { aspect-ratio: 1/1; max-width: 320px; }
+    .who-tabs { gap: 6px; flex-wrap: nowrap; justify-content: center; margin-bottom: 36px; }
+    .who-tab { padding: 10px 14px; font-size: 13px; gap: 6px; letter-spacing: 0; }
+    .who-tab-icon { width: 14px; height: 14px; }
+    .who-tab-icon svg { width: 14px; height: 14px; }
+    .catalog-section { padding: 72px 0 60px; }
+    .catalog-track { padding: 12px 22px 32px; }
+    .catalog-card { flex-basis: 280px; }
+    .catalog-track::before, .catalog-track::after { flex-basis: 0; }
+    .section { padding: 48px 0; }
+    .final { padding: 48px 0; }
+  }
+  @media (max-width: 580px) {
+    body { font-size: 16px; }
+    .wrap, .wrap-narrow { padding: 0 22px; }
+    h1 { font-size: 38px; }
+    h2 { font-size: 30px; }
+    .btn { width: 100%; }
+    .problem-grid { grid-template-columns: 1fr; gap: 22px; max-width: 460px; }
+    .pain { text-align: left; display: grid; grid-template-columns: 44px 1fr; grid-template-rows: auto auto; column-gap: 16px; row-gap: 4px; align-items: start; padding: 14px 0; }
+    .pain-icon { grid-row: 1 / 3; grid-column: 1; margin: 0; width: 44px; height: 44px; align-self: center; }
+    .pain h3 { grid-column: 2; grid-row: 1; margin: 0; font-size: 17px; line-height: 1.25; }
+    .pain p { grid-column: 2; grid-row: 2; max-width: none; font-size: 14px; line-height: 1.5; margin: 0; color: var(--ink-soft); }
+    .why-card { padding: 28px 24px; }
+  }
+  @media (max-width: 520px) {
+    .wrap, .wrap-narrow { padding: 0 16px; }
+    h1 { font-size: 32px; }
+    h2 { font-size: 26px; }
+    .po-btn-main { font-size: 16px; }
+    .hero-badge-patterns { right: -4px; bottom: -8px; width: 80px; height: 80px; }
+    .hero-badge-num { font-size: 22px; }
+    .hero-badge-label { font-size: 9px; }
+    .who-tabs { flex-wrap: wrap; }
+  }
+  .reveal { opacity: 1; transform: none; }
+  .js .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.8s var(--ease-out-quart), transform 0.8s var(--ease-out-quart); }
+  .js .reveal.in { opacity: 1; transform: translateY(0); }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; } .reveal { opacity: 1; transform: none; } }
+  #bfh-offer { scroll-margin-top: 24px; }
+</style>
+<script>document.documentElement.classList.add('js');</script>
+<!-- ANNOUNCEMENT -->
+<div class="announce">
+<span class="announce-text">
+<span class="announce-item">🦴 100+ Hundeleckerli-Rezepte</span>
+<span class="announce-dot">·</span>
+<span class="announce-item">Sofortzugang</span>
+</span>
+</div>
+<!-- HERO -->
+<header class="hero">
+<div class="wrap">
+<div class="hero-pill reveal">
+<span>Backen</span><span class="hero-pill-dot">·</span>
+<span>Kalkulieren</span><span class="hero-pill-dot">·</span>
+<span>Verkaufen</span><span class="hero-pill-dot">·</span>
+<span>Wiederholen</span>
+</div>
+<h1 class="hero-h1 reveal">
+      Back dich zu
+      <span class="accent">deinem ersten Verkauf</span>,
+      <br class="desktop-br"/>
+      eine kleine Charge nach der anderen.
+    </h1>
+<p class="hero-sub reveal">
+      Hol dir <span class="hero-sub-highlight">100+ backfertige Leckerli-Rezepte</span> und fang heute Abend an. Backen, kalkulieren, verkaufen. Kein Laden, keine Erfahrung nötig.
+    </p>
+<div class="hero-trust reveal">
+<div class="hero-avatars">
+<div class="hero-avatar hero-avatar-1"><img alt="Zufriedene Kundin" height="32" loading="lazy" src="https://files.catbox.moe/gx0cr0.webp" style="width:100%;height:100%;object-fit:cover;display:block;" width="32"/></div>
+<div class="hero-avatar hero-avatar-2"><img alt="Zufriedene Kundin" height="32" loading="lazy" src="https://files.catbox.moe/7xfj4s.webp" style="width:100%;height:100%;object-fit:cover;display:block;" width="32"/></div>
+<div class="hero-avatar hero-avatar-3"><img alt="Zufriedene Kundin" height="32" loading="lazy" src="https://files.catbox.moe/xmvijz.webp" style="width:100%;height:100%;object-fit:cover;display:block;" width="32"/></div>
+</div>
+<div class="hero-trust-body">
+<div class="hero-trust-stars">★★★★★</div>
+<div class="hero-trust-caption"><strong>4,9 / 5</strong> · Von über 2.800 Frauen weltweit vertraut</div>
+</div>
+</div>
+<div class="hero-media-wrap reveal">
+<span class="hero-pill-instant">✨ Sofortzugang!</span>
+<div class="hero-media">
+<video aria-label="Video: Hausgemachte Hundeleckerlis" autoplay="" loop="" muted="" playsinline="" poster="https://files.catbox.moe/mq3m01.webp" preload="metadata" src="https://files.catbox.moe/4zbbl4.mp4"></video>
+</div>
+<div class="hero-badge hero-badge-patterns">
+<span class="hero-badge-num">100+</span>
+<span class="hero-badge-label">Rezepte</span>
+</div>
+</div>
+<div class="hero-cta-wrap reveal">
+<a class="btn hero-btn" href="#bfh-offer">Die Barkery von Zuhause Methode™ entdecken <span class="arrow">→</span></a>
+<div class="hero-cta-meta">
+<svg fill="none" height="14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="14"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
+        Sofortzugang · Kein Abo
+      </div>
+</div>
+</div>
+</header>
+<!-- PROBLEM -->
+<section class="section problem-section">
+<div class="wrap">
+<div class="problem-intro reveal">
+<span class="eyebrow center">Warum das, warum jetzt</span>
+<h2>Kommt dir das bekannt vor?</h2>
+</div>
+<div class="problem-grid reveal">
+<div class="pain">
+<div aria-hidden="true" class="pain-icon"><svg fill="none" height="28" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 24 24" width="28"><circle cx="12" cy="12" r="10"></circle><path d="M8 15s1.5 2 4 2 4-2 4-2"></path><line x1="9" x2="9.01" y1="9" y2="9"></line><line x1="15" x2="15.01" y1="9" y2="9"></line></svg></div>
+<h3>Du bist begeistert, dann blockierst du</h3>
+<p>Du liebst die Idee, dann häufen sich Preisgestaltung, Vorschriften, Fotos und Verpackung, und du redest es dir wieder aus.</p>
+</div>
+<div class="pain">
+<div aria-hidden="true" class="pain-icon"><svg fill="none" height="28" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 24 24" width="28"><path d="M9.5 9a2.5 2.5 0 0 1 5 .3c0 1.7-2.5 2-2.5 3.7"></path><line x1="12" x2="12.01" y1="17" y2="17"></line><circle cx="12" cy="12" r="10"></circle></svg></div>
+<h3>Du bist dir nicht sicher, ob das überhaupt erlaubt ist</h3>
+<p>Du fragst dich, ob du eine Genehmigung brauchst, eine Großküche, ein angemeldetes Gewerbe. Also machst du nie den ersten Schritt.</p>
+</div>
+<div class="pain">
+<div aria-hidden="true" class="pain-icon"><svg fill="none" height="28" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 24 24" width="28"><rect height="20" rx="2" width="16" x="4" y="2"></rect><line x1="8" x2="16" y1="7" y2="7"></line><line x1="8" x2="16" y1="11" y2="11"></line><line x1="8" x2="12" y1="15" y2="15"></line></svg></div>
+<h3>Du kannst backen. Du bist nur keine „Geschäftsfrau.“</h3>
+<p>Einem Rezept zu folgen ist einfach. Preise kalkulieren, posten und verkaufen fühlt sich wie eine ganz andere Welt an.</p>
+</div>
+<div class="pain">
+<div aria-hidden="true" class="pain-icon"><svg fill="none" height="28" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 24 24" width="28"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"></path></svg></div>
+<h3>Du hast Angst, dass niemand kauft</h3>
+<p>Die eigentliche Angst war nie das Backen. Es ist, etwas anzubieten und nichts zurückzuhören.</p>
+</div>
+</div>
+<div class="problem-bridge reveal">
+<span class="bridge-line"></span>
+<p>Hier ist der Punkt: Es ging nie ums Backen.</p>
+<span class="bridge-line"></span>
+</div>
+</div>
+</section>
+<!-- WHY IT WORKS -->
+<section class="section section-sage">
+<div class="wrap">
+<div class="section-intro reveal">
+<span class="eyebrow">Warum hausgemachte Hundeleckerlis, warum jetzt</span>
+<h2>Menschen geben Geld für ihre Hunde aus <em>sowieso.</em></h2>
+<p>Es ist kein Zufall, dass über 2.800 Frauen dies in den letzten zwölf Monaten ausprobiert haben. Hausgemachte Hundeleckerlis vereinen vier Dinge, die kaum ein anderer Nebenverdienst gleichzeitig bietet.</p>
+</div>
+<div class="why-grid reveal">
+<article class="why-card">
+<div class="why-num">i.</div>
+<h3>Du hast die Küche schon</h3>
+<p>Ein normaler Backofen, alltägliche Zutaten, ein ausgedrucktes Rezept. Keine teure Ausrüstung und keine große Investition, die du verlieren könntest.</p>
+</article>
+<article class="why-card">
+<div class="why-num">ii.</div>
+<h3>Die Käufer sind schon da</h3>
+<p>Leckerlis, Pupcakes, Gotcha-Day-Boxen, Geburtstagstorten. Für eine Hundemama ist ihr Hund Familie, und sie zahlt gerne für alles, was seinen Tag schöner macht.</p>
+</article>
+<article class="why-card">
+<div class="why-num">iii.</div>
+<h3>Hausgemacht gewinnt durch Vertrauen</h3>
+<p>Einfache Zutaten, die Besitzer kennen, keine Füllstoffe, keine seltsamen Namen, die niemand aussprechen kann. Ein klares Etikett und eine hübsche Box — deshalb wählt sie deine statt der aus dem Regal.</p>
+</article>
+<article class="why-card">
+<div class="why-num">iv.</div>
+<h3>Die Marge bleibt bei dir</h3>
+<p>Eine Leckerli-Box, die für fünfzehn bis vierzig Euro verkauft wird, kostet dich ein paar Euro für Mehl, Erdnussbutter und Kürbis. Im Moment stecken die großen Marken diese Differenz ein. Aus deiner Küche gehört sie dir.</p>
+</article>
+</div>
+</div>
+</section>
+<!-- WHO IT'S FOR (TABS) -->
+<section class="section who-section">
+<div class="wrap">
+<div class="section-intro reveal">
+<span class="eyebrow">Wer fängt damit an</span>
+<h2>Drei Typen von Menschen, die hiermit anfangen.</h2>
+<p>Du musst keine Bäckerin sein. Du brauchst kein Geschäft. Wähle die Beschreibung, die am besten zu dir passt.</p>
+</div>
+<div aria-label="Für wen ist das" class="who-tabs reveal" role="tablist">
+<button aria-selected="true" class="who-tab is-active" data-target="who-income" role="tab">
+<svg class="who-tab-icon" fill="none" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 24 24" width="18"><path d="M18 7c0-5.333-8-5.333-8 0"></path><path d="M10 7v14"></path><path d="M6 21h12"></path><path d="M6 13h10"></path></svg>
+<span>Für Einkommen</span>
+</button>
+<button aria-selected="false" class="who-tab" data-target="who-dogs" role="tab">
+<svg class="who-tab-icon" fill="none" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 24 24" width="18"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7z"></path><circle cx="12" cy="9" r="2.5"></circle></svg>
+<span>Für Hundeliebhaber</span>
+</button>
+<button aria-selected="false" class="who-tab" data-target="who-project" role="tab">
+<svg class="who-tab-icon" fill="none" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 24 24" width="18"><path d="M12 20a8 8 0 1 0-8-8"></path><path d="M12 12l4-2M4 12H2M6 6 4.5 4.5"></path></svg>
+<span>Für einen Neuanfang</span>
+</button>
+</div>
+<div class="who-panels reveal">
+<div class="who-panel is-active" id="who-income" role="tabpanel">
+<div class="who-content">
+<div class="who-text">
+<span class="step-label">Die, die etwas Eigenes möchte</span>
+<h3>Du möchtest ein kleines Einkommen, das wirklich dir gehört.</h3>
+<p>Taschengeld, Spritgeld, ein bisschen Luft zum Atmen. Etwas Flexibles, das du von zu Hause machen kannst, kein Strukturvertrieb und kein weiterer stressiger Job.</p>
+<ul class="who-list">
+<li>Ein Preisrechner, damit du nie zu wenig verlangst</li>
+<li>Kopier-und-einfügen-Posts zum Verkaufen in lokalen Gruppen</li>
+<li>Deine erste kleine Charge Boxen kann das Kit bereits bezahlen</li>
+</ul>
+</div>
+<div class="who-visual">
+<div class="who-image-slot">
+<img alt="Hausgemachte Hundeleckerli-Boxen zum Verkauf verpacken" src="https://files.catbox.moe/5l3dd1.webp"/>
+</div>
+</div>
+</div>
+</div>
+<div class="who-panel" id="who-dogs" role="tabpanel">
+<div class="who-content">
+<div class="who-text">
+<span class="step-label">Die, die alles für Hunde machen würde</span>
+<h3>Du liebst Hunde, und du würdest gerne dafür bezahlt werden.</h3>
+<p>Du möchtest etwas machen, das Hundebesitzer wirklich gerne kaufen — etwas, das ihrem Hund den Tag versüßt.</p>
+<ul class="who-list">
+<li>100+ Rezepte für jeden Leckerli-Typ</li>
+<li>Zutaten-Sicherheitshinweise in jedem Rezept</li>
+<li>Geburtstagsboxen und Geschenksets, die Besitzer stolz zeigen</li>
+</ul>
+</div>
+<div class="who-visual">
+<div class="who-image-slot">
+<img alt="Hund neben einer hausgemachten Geburtstagstorte" src="https://files.catbox.moe/h8nqkw.webp"/>
+</div>
+</div>
+</div>
+</div>
+<div class="who-panel" id="who-project" role="tabpanel">
+<div class="who-content">
+<div class="who-text">
+<span class="step-label">Die, die ein eigenes Projekt möchte</span>
+<h3>Du möchtest etwas Sinnvolles, das du selbst aufbauen kannst.</h3>
+<p>Vielleicht sind die Kinder groß geworden, oder du bist in Rente gegangen, und du möchtest etwas Kleines, Lohnenswertes in deinem eigenen Tempo aufbauen. Es ist nicht zu spät.</p>
+<ul class="who-list">
+<li>Einfache, anfängerfreundliche Rezepte</li>
+<li>Ein Produktionsplaner, um den Überblick zu behalten</li>
+<li>Ein Saisonkalender, damit du immer weißt, was du backen sollst</li>
+</ul>
+</div>
+<div class="who-visual">
+<div class="who-image-slot">
+<img alt="Hobbybäckerin mit einem Blech Hundekekse" src="https://files.catbox.moe/2y397r.webp"/>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- HOW IT WORKS = THE MECHANISM -->
+<section class="section how-section">
+<div class="wrap">
+<div class="how-intro reveal">
+<span class="how-eyebrow">🦴 Einfach wie 1, 2, 3</span>
+<h2>Von deinem Ofen zu deiner <em>ersten Bestellung</em>, an einem Wochenende.</h2>
+</div>
+<div class="how-steps reveal">
+<div class="how-step">
+<div class="how-step-num">1</div>
+<div class="how-step-icon"><svg fill="none" height="34" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 24 24" width="34"><path d="M4 11V4a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v7M6 15h12M6 19h12"></path><rect height="8" rx="1" width="8" x="8" y="13"></rect></svg></div>
+<h3>Backen</h3>
+<p>Wähle ein Anfängerrezept und backe eine kleine Charge in deinem normalen Backofen. Wenn du einem Rezept folgen kannst, machst du das hier schon.</p>
+</div>
+<div class="how-step">
+<div class="how-step-num">2</div>
+<div class="how-step-icon"><svg fill="none" height="34" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 24 24" width="34"><rect height="20" rx="2" width="16" x="4" y="2"></rect><line x1="8" x2="16" y1="7" y2="7"></line><line x1="8" x2="10" y1="12" y2="12"></line><line x1="8" x2="10" y1="16" y2="16"></line><line x1="14" x2="16" y1="12" y2="16"></line></svg></div>
+<h3>Kalkulieren</h3>
+<p>Gib deine Zutaten- und Verpackungskosten in den Rechner ein und erhalte in Minuten einen fairen Preis. Kein Raten, kein Kopfrechnen, kein Unterbieten.</p>
+</div>
+<div class="how-step">
+<div class="how-step-num">3</div>
+<div class="how-step-icon"><svg fill="none" height="34" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 24 24" width="34"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><path d="M3 6h18M16 10a4 4 0 0 1-8 0"></path></svg></div>
+<h3>Verkaufen</h3>
+<p>Verpacken, etikettieren und mit den fertigen Textvorlagen posten. Ein klares Etikett und ein schönes Foto sorgen dafür, dass Fremde gerne bestellen. Nächstes Wochenende einfach wiederholen.</p>
+</div>
+</div>
+<div class="how-cta reveal">
+<a class="btn" href="#bfh-offer">Jetzt Zugang sichern <span class="arrow">→</span></a>
+</div>
+</div>
+</section>
+<!-- CATALOG -->
+<section class="catalog-section">
+<div class="wrap">
+<div class="catalog-intro reveal">
+<span class="eyebrow">Was Hobbybäckerinnen verkaufen</span>
+<h2>Vom Leckerli-Beutel zur <em>Geburtstagsbox.</em></h2>
+<p>Das Kit deckt jeden Leckerli-Typ ab, sortiert nach dem, was du machen möchtest. Hier ist die ungefähre Preisspanne, für die sie sich typischerweise verkaufen.</p>
+</div>
+</div>
+<div aria-label="Hundeleckerli-Kategorien" class="catalog-carousel reveal">
+<div class="catalog-track">
+<article class="catalog-card">
+<div class="catalog-media">
+<img alt="Beutel mit hausgemachten Hundekeksen" src="https://files.catbox.moe/aj9kiu.webp"/>
+<span class="catalog-pricepill">Verkauft sich für €7–€15</span>
+</div>
+<div class="catalog-body"><h3>Leckerli-Beutel</h3></div>
+</article>
+<article class="catalog-card">
+<div class="catalog-media">
+<img alt="Pupcakes-Box" src="https://files.catbox.moe/cum6g8.webp"/>
+<span class="catalog-pricepill">Verkauft sich für €15–€30</span>
+</div>
+<div class="catalog-body"><h3>Pupcake-Boxen</h3></div>
+</article>
+<article class="catalog-card">
+<div class="catalog-media">
+<img alt="Hausgemachte Hunde-Geburtstagstorte" src="https://files.catbox.moe/7ujc80.webp"/>
+<span class="catalog-pricepill">Verkauft sich für €25–€40</span>
+</div>
+<div class="catalog-body"><h3>Hunde-Geburtstagstorten</h3></div>
+</article>
+<article class="catalog-card">
+<div class="catalog-media">
+<img alt="Individuelle Hundeleckerli-Geschenkbox" src="https://files.catbox.moe/bhpx5e.webp"/>
+<span class="catalog-pricepill">Verkauft sich für €15–€40</span>
+</div>
+<div class="catalog-body"><h3>Individuelle Leckerli-Boxen</h3></div>
+</article>
+<article class="catalog-card">
+<div class="catalog-media">
+<img alt="Feiertags-Hundeleckerli-Paket" src="https://files.catbox.moe/7y2oj9.webp"/>
+<span class="catalog-pricepill">Verkauft sich für €13–€35</span>
+</div>
+<div class="catalog-body"><h3>Feiertagspakete</h3></div>
+</article>
+<article class="catalog-card">
+<div class="catalog-media">
+<img alt="Gefrorene Hundeleckerlis" src="https://files.catbox.moe/y73mud.webp"/>
+<span class="catalog-pricepill catalog-pricepill--alt">Sommerverkaufsschlager</span>
+</div>
+<div class="catalog-body"><h3>Gefrorene Leckerlis</h3></div>
+</article>
+</div>
+<div class="catalog-controls">
+<button aria-label="Zurück" class="catalog-arrow catalog-prev"><svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24" width="20"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+<button aria-label="Weiter" class="catalog-arrow catalog-next"><svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24" width="20"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+</div>
+</div>
+<div class="wrap">
+<p class="catalog-footnote reveal">Die Preisspannen sind Beispiele für übliche Angebotspreise hausgemachter Leckerlis, keine Ergebnisgarantie. Was du verdienst, hängt von deinen Zutaten, der Verpackung, dem Standort und deiner Verkaufsweise ab.</p>
+</div>
+</section>
+<!-- BONUS STACK -->
+<section class="bonus-section" id="bonuses">
+<div class="wrap">
+<div class="bonus-intro reveal">
+<span class="bonus-pill">🎁 Bestelle heute, bekomme diese gratis</span>
+<h2>3 Deluxe-Boni, <em>€107 Wert</em>, gratis zu deiner Bestellung.</h2>
+<p>Die Rezepte bringen dich zum Backen. Diese drei lösen, was die meisten wirklich aufhält: Kalkulation, Vertrauen und Verkaufen. Und du bekommst noch 5 weitere Boni obendrauf.</p>
+</div>
+<div class="bonus-list">
+<article class="bonus-row reveal">
+<div class="bonus-image">
+<span class="bonus-num-tag">Bonus 1</span>
+<img alt="Dein Erster 500-€-Leitfaden" src="https://files.catbox.moe/jsbhrj.png"/>
+</div>
+<div class="bonus-body">
+<span class="step-label">Von der ersten Charge zu den ersten Bestellungen</span>
+<h3>Dein Erster <em>€500</em> Leitfaden</h3>
+<p class="lede">Der genaue Fahrplan zu deinen ersten Verkäufen. Was du posten, sagen und wem du es anbieten sollst — und in welcher Reihenfolge. Damit du nie raten musst, was als Nächstes kommt.</p>
+<div class="bonus-meta">
+<span class="bonus-free"><svg fill="none" height="14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewbox="0 0 24 24" width="14"><polyline points="20 6 9 17 4 12"></polyline></svg>Gratis dabei</span>
+<span class="bonus-value"><s>€39</s> <strong>Heute gratis</strong></span>
+</div>
+</div>
+</article>
+<article class="bonus-row reveal">
+<div class="bonus-image">
+<span class="bonus-num-tag">Bonus 2</span>
+<img alt="TruePrice Gewinnrechner" src="https://files.catbox.moe/b7pseg.png"/>
+</div>
+<div class="bonus-body">
+<span class="step-label">Kalkuliere deine Leckerlis mit Sicherheit</span>
+<h3>TruePrice™ <em>Gewinn</em> Rechner</h3>
+<p class="lede">Kalkuliert eine Charge in drei Klicks. Zutaten, Verpackung und eine faire Marge eingeben und einen Preis erhalten, den du vertreten kannst. Kein Raten mehr, kein schlechtes Gewissen beim Preis.</p>
+<div class="bonus-meta">
+<span class="bonus-free"><svg fill="none" height="14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewbox="0 0 24 24" width="14"><polyline points="20 6 9 17 4 12"></polyline></svg>Gratis dabei</span>
+<span class="bonus-value"><s>€39</s> <strong>Heute gratis</strong></span>
+</div>
+</div>
+</article>
+<article class="bonus-row reveal">
+<div class="bonus-image">
+<span class="bonus-num-tag">Bonus 3</span>
+<img alt="Das Barkery Showcase Kit" src="https://files.catbox.moe/piscum.png"/>
+</div>
+<div class="bonus-body">
+<span class="step-label">Verpacken. Fotografieren. Verkaufen.</span>
+<h3>Das Barkery <em>Showcase</em> Kit</h3>
+<p class="lede">Die visuelle Hälfte des Verkaufens: Verpackungsideen, klare Zutatenetiketten und einfache Handyfotos, die Fremde zum Bestellen einladen. Niemand kauft bei „irgendeiner Person.“ So wirst du zur vertrauenswürdigen Anbieterin.</p>
+<div class="bonus-meta">
+<span class="bonus-free"><svg fill="none" height="14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewbox="0 0 24 24" width="14"><polyline points="20 6 9 17 4 12"></polyline></svg>Gratis dabei</span>
+<span class="bonus-value"><s>€29</s> <strong>Heute gratis</strong></span>
+</div>
+</div>
+</article>
+</div>
+<p class="catalog-footnote reveal" style="margin-top:40px">Plus 5 weitere drin: Hunde-Geburtstagsbox-Starterplan, Saisonaler Verkaufskalender, Zutaten-Sicherheits-Checkliste, Lokale Verkaufspost-Vorlagen und ein einfacher Bestelltracker.</p>
+</div>
+</section>
+<!-- MEGA OFFER -->
+<section class="po-offer" id="bfh-offer">
+<div class="po-top reveal">
+<div class="po-pill-stack">
+<span class="po-pill po-pill-yellow">SONDERANGEBOT</span>
+<span class="po-pill-script">nur heute</span>
+</div>
+<p class="po-subtitle">Einmalzahlung. Lebenslanger Zugang.</p>
+<div class="po-timer-card">
+<div class="po-timer-label">
+<svg fill="none" height="14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="14"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+        Dieses Angebot endet in
+      </div>
+<div class="po-timer-clock" id="megaCountdown">
+<div class="po-timer-unit"><span class="po-timer-num" data-cd="hours">00</span><span class="po-timer-lbl">Stunden</span></div>
+<div class="po-timer-sep">:</div>
+<div class="po-timer-unit"><span class="po-timer-num" data-cd="minutes">00</span><span class="po-timer-lbl">Minuten</span></div>
+<div class="po-timer-sep">:</div>
+<div class="po-timer-unit"><span class="po-timer-num" data-cd="seconds">00</span><span class="po-timer-lbl">Sekunden</span></div>
+</div>
+</div>
+</div>
+<div class="po-card reveal">
+<div class="po-launch-tag">★ STARTANGEBOT ★</div>
+<h3 class="po-product-name">BARKERY<br/>FROM HOME</h3>
+<p class="po-product-bundle">Das Backen-Kalkulieren-Verkaufen Starterkit</p>
+<div class="po-price-row">
+<span class="po-price-was">€89</span>
+<span class="po-price-save">SPARE 80%</span>
+</div>
+<div class="po-price-now">€17,99</div>
+<p class="po-price-meta">Einmalzahlung · EUR · Sofortiger Download</p>
+<ul class="po-checklist">
+<li><span class="po-check">✓</span><span class="po-emoji">🦴</span><span class="po-li-text"><strong>100+ Hausgemachte Hundeleckerli-Rezepte</strong> · jeder Leckerli-Typ, alltägliche Zutaten, Sicherheitshinweise</span></li>
+<li><span class="po-check">✓</span><span class="po-emoji">🎯</span><span class="po-li-text"><strong>Dein Erster 500-€-Leitfaden</strong> · deine ersten lokalen Bestellungen, Schritt für Schritt</span></li>
+<li><span class="po-check">✓</span><span class="po-emoji">🧮</span><span class="po-li-text">TruePrice™ Gewinnrechner</span></li>
+<li><span class="po-check">✓</span><span class="po-emoji">📦</span><span class="po-li-text">Das Barkery Showcase Kit · Verpackung, Etiketten &amp; Fotos</span></li>
+<li><span class="po-check">✓</span><span class="po-emoji">🎂</span><span class="po-li-text">Hunde-Geburtstagsbox-Starterplan</span></li>
+<li><span class="po-check">✓</span><span class="po-emoji">📅</span><span class="po-li-text">Saisonaler Verkaufskalender</span></li>
+<li><span class="po-check">✓</span><span class="po-emoji">✅</span><span class="po-li-text">Zutaten-Sicherheits-Checkliste</span></li>
+<li><span class="po-check">✓</span><span class="po-emoji">📣</span><span class="po-li-text">Lokale Verkaufspost-Vorlagen <em>+ Bestelltracker</em></span></li>
+<li class="po-li-highlight"><span class="po-check">✓</span><span class="po-emoji">🚀</span><span class="po-li-text"><strong>LEBENSLANGER Zugang</strong> · läuft nie ab</span></li>
+</ul>
+<div class="po-bonuses">
+<div class="po-bonuses-icon"><svg fill="none" height="30" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24" width="30"><polyline points="20 12 20 22 4 22 4 12"></polyline><rect height="5" width="20" x="2" y="7"></rect><line x1="12" x2="12" y1="22" y2="7"></line><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"></path><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"></path></svg></div>
+<div class="po-bonuses-text">
+<div class="po-bonuses-title">ALLE 8 VERKAUFS-BONI<br/>GRATIS DABEI</div>
+<div class="po-bonuses-meta"><s>Wert: €149</s><span class="po-bonuses-today">HEUTE: GRATIS</span></div>
+</div>
+</div>
+<a class="po-btn" href="javascript:void(0)" onclick="goToCheckout(event)">
+<span class="po-btn-main">JETZT ZUGANG SICHERN — €17,99</span>
+<span class="po-btn-sub">Sicherer Checkout · Sofortige digitale Lieferung</span>
+</a>
+</div>
+</section>
+<!-- WAS DU ERREICHEN WIRST -->
+<section class="section chat-section">
+<div class="wrap">
+<div class="chat-intro reveal">
+<span class="how-eyebrow">🎯 Nach dem Kit</span>
+<h2>Was du erreichen <em>wirst</em></h2>
+<p>Das Kit gibt dir alles, was du brauchst, um von der ersten Charge zum ersten Verkauf zu kommen.</p>
+</div>
+<div class="chat-grid reveal" style="grid-template-columns: repeat(3, 1fr);">
+<div class="chat-card" style="padding: 28px 24px; display: flex; flex-direction: column; gap: 16px;">
+<div style="width: 48px; height: 48px; border-radius: 50%; background: var(--sage-wash); display: grid; place-items: center; font-size: 24px;">🦴</div>
+<h3 style="font-size: var(--t-lg);">Deine ersten Leckerlis backen</h3>
+<p style="color: var(--ink-soft); font-size: var(--t-sm);">100+ einfache Rezepte, die du mit normalen Zutaten aus deiner Küche backen kannst. Kein Profi-Equipment nötig.</p>
+</div>
+<div class="chat-card" style="padding: 28px 24px; display: flex; flex-direction: column; gap: 16px;">
+<div style="width: 48px; height: 48px; border-radius: 50%; background: var(--blush-soft); display: grid; place-items: center; font-size: 24px;">🧮</div>
+<h3 style="font-size: var(--t-lg);">Faire Preise kalkulieren</h3>
+<p style="color: var(--ink-soft); font-size: var(--t-sm);">Der TruePrice™ Rechner zeigt dir genau, was deine Leckerlis kosten und was du verlangen sollst. Kein Raten, kein schlechtes Gewissen.</p>
+</div>
+<div class="chat-card" style="padding: 28px 24px; display: flex; flex-direction: column; gap: 16px;">
+<div style="width: 48px; height: 48px; border-radius: 50%; background: var(--sage-wash); display: grid; place-items: center; font-size: 24px;">📦</div>
+<h3 style="font-size: var(--t-lg);">Verpacken und verkaufen</h3>
+<p style="color: var(--ink-soft); font-size: var(--t-sm);">Verpackungsideen, Etikettenvorlagen und fertige Posts zum Kopieren. Alles, um deine erste Bestellung zu bekommen.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- GUARANTEE -->
+<section class="section section-sage">
+<div class="wrap">
+<div class="guarantee reveal">
+<div class="guarantee-seal"><svg fill="none" height="48" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24" width="48"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline points="9 12 11 14 15 10"></polyline></svg></div>
+<span class="eyebrow center">Eine ehrliche, unkomplizierte Garantie</span>
+<h2>7 Tage. Keine Fragen. Kein Aufwand.</h2>
+<p>Wir wissen genau, was du denkst: „Wenn ich nur eine Geburtstagsbox verkaufen könnte, wüsste ich, dass das funktioniert.“ Mehr verlangen wir nicht. Teste das komplette Kit 7 Tage lang. Backe eine kleine Charge. Biete eine Box an. Die Rezepte, der faire Preis und die genauen Worte zum Posten sind schon für dich fertig. Wenn es nicht zu deinem Leben passt, schreib uns innerhalb von 7 Tagen und wir erstatten dir den vollen Betrag. Was du heruntergeladen hast, behältst du. Wir trennen uns als Freunde.</p>
+</div>
+</div>
+</section>
+<!-- FAQ -->
+<section class="section">
+<div class="wrap-narrow">
+<div class="section-intro reveal">
+<span class="eyebrow">Häufig gefragt</span>
+<h2>Die ehrlichen Fragen, beantwortet.</h2>
+</div>
+<div class="faq reveal">
+<div class="faq-item">
+<button class="faq-q">Brauche ich eine Genehmigung oder eine Großküche? <span class="plus">+</span></button>
+<div class="faq-a"><div class="faq-a-inner">In Deutschland fallen hausgemachte Hundeleckerlis unter das Futtermittelrecht und nicht unter das Lebensmittelrecht — sie haben also eigene Vorschriften. Bevor du verkaufst, meldest du dich bei deinem örtlichen Veterinäramt als Futtermittelunternehmer an. Es gibt keine Ausnahme für Kleinmengen oder Hobbybacken. Die meisten fangen trotzdem in der eigenen Küche an. Das Kit zeigt dir, wie du Leckerlis herstellst, etikettierst und präsentierst; die Anmeldung machst du selbst, und dein Veterinäramt ist die richtige Anlaufstelle.</div></div>
+</div>
+<div class="faq-item">
+<button class="faq-q">Ich bin keine „Geschäftsfrau“ und habe noch nie etwas verkauft. <span class="plus">+</span></button>
+<div class="faq-a"><div class="faq-a-inner">Musst du auch nicht. Das ist ein kleines, lokales, verschenkbares Produkt mit fertigen Verkaufstexten zum Kopieren. Wenn du einem Rezept folgen kannst, kannst du mit einer kleinen Charge anfangen.</div></div>
+</div>
+<div class="faq-item">
+<button class="faq-q">Am Preis scheitere ich immer. <span class="plus">+</span></button>
+<div class="faq-a"><div class="faq-a-inner">Genau dafür gibt es den Preisrechner: Zutatenkosten, Verpackung und eine einfache Marge, damit du einen fairen Preis verlangst, ohne zu raten oder Geld zu verlieren.</div></div>
+</div>
+<div class="faq-item">
+<button class="faq-q">Was ist, wenn niemand kauft? <span class="plus">+</span></button>
+<div class="faq-a"><div class="faq-a-inner">Hundebesitzer kaufen ständig Leckerlis, Pupcakes und Geburtstagsboxen. Das Kit zeigt dir, wie du mit klaren Zutaten, Etiketten und einfachen Fotos Vertrauen aufbaust, damit Fremde sich beim Bestellen wohlfühlen. Fang klein und risikoarm an. Die Ergebnisse hängen von deinem Einsatz, deiner Gegend und deiner Verkaufsweise ab.</div></div>
+</div>
+<div class="faq-item">
+<button class="faq-q">Ist das nur ein weiteres Rezept-E-Book? <span class="plus">+</span></button>
+<div class="faq-a"><div class="faq-a-inner">Nein. Rezepte sind nur der Anfang. Die Backen-Kalkulieren-Verkaufen-Methode und die acht Boni geben dir die Kalkulations-, Verpackungs- und Verkaufsschritte, die Leckerlis tatsächlich in Bestellungen verwandeln.</div></div>
+</div>
+<div class="faq-item">
+<button class="faq-q">Wie unterscheidet sich der Verkauf von Hundeleckerlis vom Verkauf menschlicher Backwaren? <span class="plus">+</span></button>
+<div class="faq-a"><div class="faq-a-inner">Hundeleckerlis werden als kleine Geschenke gekauft: Geburtstage, Gotcha-Days, „einfach so.“ Menschen kaufen nach Anlass, die Präsentation zählt mehr als Perfektion, und eine kleine lokale Bäckerin mit klaren Zutaten kann absolut mit dem Supermarktregal mithalten. In Deutschland fallen sie unter das Futtermittelrecht, das eigene Vorschriften hat — getrennt von der Lebensmittelproduktion.</div></div>
+</div>
+<div class="faq-item">
+<button class="faq-q">Was ist, wenn ein Hund Allergien oder eine Erkrankung hat? <span class="plus">+</span></button>
+<div class="faq-a"><div class="faq-a-inner">Das Kit ist zum Leckerli-Machen da, nicht für medizinische Beratung. Es enthält eine Zutaten-Sicherheits-Checkliste, aber überprüfe immer die Zutaten und konsultiere bei Allergien, Erkrankungen oder Spezialdiäten einen Tierarzt.</div></div>
+</div>
+<div class="faq-item">
+<button class="faq-q">Bin ich zu alt, oder ist es zu spät? <span class="plus">+</span></button>
+<div class="faq-a"><div class="faq-a-inner">Nein. Viele Menschen fangen später im Leben etwas Kleines an. Der ganze Sinn des Kits ist es, die erste Charge und den ersten Verkauf einfach zu machen, egal welche Erfahrung du hast.</div></div>
+</div>
+<div class="faq-item">
+<button class="faq-q">Ist es wirklich eine einmalige Zahlung? <span class="plus">+</span></button>
+<div class="faq-a"><div class="faq-a-inner">Ja. 17,99 Euro, einmal, mit lebenslangem Zugang. Kein Abo und keine wiederkehrenden Gebühren.</div></div>
+</div>
+</div>
+</div>
+</section>
+<!-- FINAL CTA -->
+<section class="final section-warm">
+<div class="wrap-narrow">
+<div class="reveal">
+<span class="eyebrow">Noch etwas</span>
+<h2>Heute Abend, statt zu lange nachzudenken, <em>back eine Charge</em>. Oder auch nur ein Keks.</h2>
+<p>Wir sehen immer wieder dasselbe Muster bei den Frauen, die mit diesem Kit die besten Ergebnisse erzielen: Sie sind nicht die besten Bäckerinnen und keine „Geschäftsfrauen.“ Sie sind einfach diejenigen, die noch am selben Tag den ersten Schritt machen. Eine Charge, ein fairer Preis, ein Post. Dieser Button ist der Anfang. Eine Zahlung, sofortiger Zugang, und eine kleine Bestellung könnte das ganze Kit bezahlen.</p>
+<a class="btn" href="#bfh-offer">Ja, ich bin dabei für €17,99 <span class="arrow">→</span></a>
+</div>
+</div>
+</section>
+<!-- FOOTER -->
+<footer>
+<div class="wrap">
+<h4 class="footer-brand">🦴 Barkery von Zuhause</h4>
+<p class="footer-tag">Backen. Kalkulieren. Verkaufen. Aus deiner eigenen Küche.</p>
+<p class="footer-disc">Kein Ersatz für tierärztliche Beratung. Überprüfe immer die Zutaten und konsultiere einen Tierarzt bei Allergien, Erkrankungen oder besonderen Ernährungsbedürfnissen. Dieses Produkt bietet nur Rezepte und Anleitungen und garantiert weder Einkommen noch Ergebnisse; der Verdienst hängt von deinem Einsatz, deinem Markt und deiner Verkaufsweise ab. In Deutschland fallen hausgemachte Hundeleckerlis unter das Futtermittelrecht und müssen beim örtlichen Veterinäramt angemeldet werden, bevor du verkaufst. Informiere dich bei deinem Veterinäramt. Diese Seite ist kein Teil von Facebook, Instagram, WhatsApp oder Meta Platforms, Inc. und wird von diesen nicht unterstützt.</p>
+<div class="footer-links"><a href="#bfh-offer">Rückgaberichtlinie</a></div>
+<div class="copy">© 2026 Barkery von Zuhause · Digitales Produkt · Sofortzugang nach dem Kauf</div>
+</div>
+</footer>
+<script>
+  // FAQ accordion
+  document.querySelectorAll('.faq-item').forEach(item => {
+    const btn = item.querySelector('.faq-q');
+    btn.addEventListener('click', () => {
+      const open = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!open) item.classList.add('open');
+    });
+  });
+  // Who it's for — tabs
+  document.querySelectorAll('.who-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      const target = tab.dataset.target;
+      document.querySelectorAll('.who-tab').forEach(t => { t.classList.remove('is-active'); t.setAttribute('aria-selected', 'false'); });
+      tab.classList.add('is-active'); tab.setAttribute('aria-selected', 'true');
+      document.querySelectorAll('.who-panel').forEach(p => p.classList.remove('is-active'));
+      const panel = document.getElementById(target);
+      if (panel) panel.classList.add('is-active');
+    });
+  });
+  // Catalog carousel
+  (function () {
+    const track = document.querySelector('.catalog-track');
+    const prev = document.querySelector('.catalog-prev');
+    const next = document.querySelector('.catalog-next');
+    if (!track || !prev || !next) return;
+    const scrollByCard = (dir) => {
+      const card = track.querySelector('.catalog-card');
+      if (!card) return;
+      const cardWidth = card.getBoundingClientRect().width;
+      const gap = parseFloat(getComputedStyle(track).gap) || 24;
+      track.scrollBy({ left: dir * (cardWidth + gap), behavior: 'smooth' });
+    };
+    prev.addEventListener('click', () => scrollByCard(-1));
+    next.addEventListener('click', () => scrollByCard(1));
+    const updateArrows = () => {
+      const maxScroll = track.scrollWidth - track.clientWidth - 4;
+      prev.toggleAttribute('disabled', track.scrollLeft <= 4);
+      next.toggleAttribute('disabled', track.scrollLeft >= maxScroll);
+    };
+    track.addEventListener('scroll', updateArrows, { passive: true });
+    window.addEventListener('resize', updateArrows);
+    updateArrows();
+  })();
+  // Countdown — evergreen 15h cycle (AGUS: atalo a un deadline real si querés urgencia honesta)
+  (function () {
+    const el = document.getElementById('megaCountdown');
+    if (!el) return;
+    const nums = { hours: el.querySelector('[data-cd="hours"]'), minutes: el.querySelector('[data-cd="minutes"]'), seconds: el.querySelector('[data-cd="seconds"]') };
+    const STORAGE_KEY = 'dtb_countdown_target';
+    const CYCLE_MS = 15 * 60 * 60 * 1000;
+    function getTarget() {
+      let t = 0; try { t = parseInt(localStorage.getItem(STORAGE_KEY) || '0', 10); } catch(e) {}
+      const now = Date.now();
+      if (!t || t <= now) { t = now + CYCLE_MS; try { localStorage.setItem(STORAGE_KEY, t); } catch (e) {} }
+      return t;
+    }
+    let target = getTarget();
+    function pad(n) { return n < 10 ? '0' + n : '' + n; }
+    function tick() {
+      const diff = target - Date.now();
+      if (diff <= 0) { target = Date.now() + CYCLE_MS; try { localStorage.setItem(STORAGE_KEY, target); } catch (e) {} return; }
+      const s = Math.floor(diff / 1000);
+      if (nums.hours) nums.hours.textContent = pad(Math.floor(s / 3600));
+      if (nums.minutes) nums.minutes.textContent = pad(Math.floor((s % 3600) / 60));
+      if (nums.seconds) nums.seconds.textContent = pad(s % 60);
+    }
+    tick(); setInterval(tick, 1000);
+  })();
+  // Reveal on scroll (with 2.5s safety timeout)
+  try {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+    setTimeout(function(){ document.querySelectorAll('.reveal:not(.in)').forEach(function(el){ el.classList.add('in'); }); }, 2500);
+  } catch(e) { document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('in'); }); }
+</script>
+<!-- SMART CHECKOUT + UTM CAPTURE -->
+<script>
+(function() {
+  var UTM_KEYS = ['utm_source','utm_medium','utm_campaign','utm_term','utm_content','utm_id','sck','src','xcod'];
+  (function() { var p = new URLSearchParams(window.location.search); UTM_KEYS.forEach(function(k){ if (p.get(k)) try { sessionStorage.setItem(k, p.get(k)); } catch(e) {} }); })();
+  function getUTMs() {
+    var params = {}, p = new URLSearchParams(window.location.search);
+    UTM_KEYS.forEach(function(k){ if (p.get(k)) params[k] = p.get(k); });
+    UTM_KEYS.forEach(function(k){ if (!params[k]) { var m = document.cookie.match(new RegExp('(?:^|; )' + k + '=([^;]*)')); if (m) params[k] = decodeURIComponent(m[1]); } });
+    UTM_KEYS.forEach(function(k){ if (!params[k]) try { var v = sessionStorage.getItem(k); if (v) params[k] = v; } catch(e) {} });
+    return params;
+  }
+  window.goToCheckout = function(e) {
+    if (e && e.preventDefault) e.preventDefault();
+    try { if (typeof fbq === 'function') fbq('track', 'InitiateCheckout', { value: 17.99, currency: 'EUR' }); } catch(err) {}
+    if (window._goCheckoutFired) return;
+    window._goCheckoutFired = true;
+    var base = "/checkout";  /* URL de checkout: se actualiza en Fase 7 */
+    var utms = getUTMs();
+    var extra = Object.keys(utms).map(function(k){ return encodeURIComponent(k) + '=' + encodeURIComponent(utms[k]); }).join('&');
+    if (extra) base += (base.indexOf('?') === -1 ? '?' : '&') + extra;
+    window.location.href = base;
+  };
+})();
+</script>

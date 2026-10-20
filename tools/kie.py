@@ -13,7 +13,7 @@ Uso:
   python3 tools/kie.py video --prompt "..." --salida work/x/clip.mp4 [--duracion 4] [--modelo veo3_lite] [--img URL]
 
 Referencias de costo MEDIDAS (verificá las tuyas con `saldo`, los precios de tabla fallan hasta 10x):
-  imagen 1K ≈ USD 0,06 · clip Veo barato 8 s 720p ≈ USD 3.
+  imagen 1K ≈ USD 0,03 · clip Veo barato 8 s 720p ≈ USD 3.
 Los modelos cambian: antes de una tanda grande, revisá el catálogo de kie.ai por un tier más barato.
 Los archivos de kie viven ~14 días: descargá siempre el resultado (este script lo hace).
 """

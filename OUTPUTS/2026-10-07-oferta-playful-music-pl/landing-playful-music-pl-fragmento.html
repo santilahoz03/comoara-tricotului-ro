@@ -1,0 +1,826 @@
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,600;0,700;0,800;0,900;1,500;1,600&amp;family=Baloo+2:wght@700;800&amp;family=Karla:wght@400;500;600;700;800&amp;display=swap" media="print" onload="this.media='all'" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,600;0,700;0,800;0,900;1,500;1,600&amp;family=Baloo+2:wght@700;800&amp;family=Karla:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn-pulse{animation:none!important}}
+:root{
+  /* ── Brand tokens — Playful Notes ─────────────────────────── */
+  --ink:#241D16;--ink-mid:#4A3F33;--muted:#8C8172;
+  --darkbg:#B8471F;--darkbg2:#9E3B19;
+  --cream:#FBF3E6;--cream-card:#FFFDF8;--cream-deep:#F2E4CB;--border:#E7DAC0;
+  --teal:#2E6E68;--teal-dark:#1E4C48;--teal-lt:#DCEDE9;
+  --coral:#F0592C;--coral-lt:#FCE1D6;
+  --gold:#F0B93D;--gold-lt:#FCEDC9;
+  /* Rainbow note scale — Do Re Mi Fa Sol La (the product's own color-note system) */
+  --n1:#E5533A;--n2:#EF8C2C;--n3:#EFC13F;--n4:#4FA37B;--n5:#4A90C4;--n6:#F28A6B;
+  --df:'Fraunces',serif;--af:'Baloo 2',sans-serif;--bf:'Karla',sans-serif;
+  --s0:0 1px 4px rgba(36,29,22,.06);
+  --s1:0 4px 16px rgba(36,29,22,.10),0 1px 4px rgba(36,29,22,.05);
+  --s2:0 10px 30px rgba(36,29,22,.12),0 2px 8px rgba(36,29,22,.05);
+  --s3:0 22px 54px rgba(36,29,22,.16);
+  --scta:0 10px 28px rgba(46,110,104,.35);
+  --r1:10px;--r2:16px;--r3:24px;--r4:32px;--rf:999px;
+}
+html,body{background:var(--cream);color:var(--ink);font-family:var(--bf);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{font-family:var(--df);font-weight:800;line-height:1.12;letter-spacing:-.01em}
+h1{font-size:clamp(30px,6.2vw,48px)}
+h2{font-size:clamp(23px,4.4vw,36px)}
+h3{font-size:clamp(16px,2.4vw,19px)}
+.accent-word{font-family:var(--af);font-weight:800;font-style:normal;background:linear-gradient(92deg,var(--n1) 0%,var(--n2) 22%,var(--n3) 42%,var(--n4) 62%,var(--n5) 80%,var(--n6) 100%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;padding:0 2px}
+.the-word{font-style:italic;font-weight:500;color:var(--ink-mid)}
+.cmp-sec .the-word,.off-sec .the-word,.fin-sec .the-word{color:rgba(255,255,255,.72)}
+p{line-height:1.7}
+.wrap{max-width:740px;margin:0 auto;padding:0 18px}
+sec{display:block;padding:68px 0}
+.tc{text-align:center}
+
+/* URGENCY BAR */
+.ub{background:linear-gradient(90deg,var(--darkbg),var(--darkbg2));padding:9px 16px;display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap}
+.ut{font-family:var(--df);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.78)}
+.utimer{font-family:var(--df);font-size:13px;font-weight:800;color:var(--gold);background:rgba(240,185,61,.15);padding:3px 12px;border-radius:var(--rf);border:1px solid rgba(240,185,61,.32)}
+
+/* EYEBROW */
+.ey{display:inline-flex;align-items:center;gap:7px;font-family:var(--df);font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--teal);margin-bottom:10px}
+.ey::before,.ey::after{content:'';width:16px;height:2px;background:var(--teal);border-radius:2px}
+
+/* BTN */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:linear-gradient(135deg,var(--coral) 0%,#F0A22E 100%);color:#fff!important;font-family:var(--df);font-size:17px;font-weight:700;padding:18px 34px;border-radius:var(--rf);border:none;cursor:pointer;box-shadow:0 14px 34px rgba(240,89,44,.38),0 3px 10px rgba(240,89,44,.22);transition:transform .16s,box-shadow .16s,background .16s;line-height:1;text-decoration:none}
+.btn:hover{transform:translateY(-3px) scale(1.015);box-shadow:0 20px 46px rgba(240,89,44,.46),0 4px 14px rgba(240,89,44,.28);background:linear-gradient(135deg,#E24E22 0%,#E4931E 100%)}
+.btn:active{transform:scale(.98)}
+.btn-full{width:100%}
+.arr{transition:transform .18s}
+.btn:hover .arr{transform:translateX(4px)}
+@keyframes btnPulse{0%{box-shadow:0 14px 34px rgba(240,89,44,.38),0 0 0 0 rgba(240,89,44,.38)}70%{box-shadow:0 14px 34px rgba(240,89,44,.38),0 0 0 15px rgba(240,89,44,0)}100%{box-shadow:0 14px 34px rgba(240,89,44,.38),0 0 0 0 rgba(240,89,44,0)}}
+.btn-pulse{animation:btnPulse 2.6s ease-in-out infinite}
+.btn-pulse:hover{animation-play-state:paused}
+@media(prefers-reduced-motion:reduce){.btn-pulse{animation:none}}
+
+/* RAINBOW BADGE */
+.rb{display:flex;align-items:center;justify-content:center;font-family:var(--df);font-weight:800;color:#fff;flex-shrink:0}
+.rb1{background:var(--n1)}.rb2{background:var(--n2)}.rb3{background:var(--n3);color:#4A3200}.rb4{background:var(--n4)}.rb5{background:var(--n5)}.rb6{background:var(--n6)}
+
+/* HERO */
+.hero{padding:52px 0 64px;background:radial-gradient(ellipse 70% 50% at 88% 6%,rgba(46,110,104,.10) 0%,transparent 60%),radial-gradient(ellipse 55% 55% at 2% 94%,rgba(240,89,44,.08) 0%,transparent 65%),var(--cream)}
+.hgrid{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:center}
+@media(max-width:680px){.hgrid{grid-template-columns:1fr;gap:26px}}
+.hbadge{display:inline-flex;align-items:center;gap:7px;background:var(--gold-lt);border:1.5px solid rgba(240,185,61,.55);color:#5A4310;font-family:var(--df);font-size:11px;font-weight:700;padding:5px 12px;border-radius:var(--rf);letter-spacing:.05em;text-transform:uppercase;margin-bottom:12px}
+.hage{display:inline-flex;align-items:center;background:var(--teal-lt);border:1.5px solid var(--teal);color:var(--teal-dark);font-family:var(--df);font-size:11px;font-weight:700;padding:4px 12px;border-radius:var(--rf);letter-spacing:.03em;text-transform:uppercase;margin-bottom:10px;margin-left:6px}
+.hsub{margin-top:14px;font-size:clamp(15px,2.4vw,17px);color:var(--muted);max-width:440px}
+.hpills{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}
+.hpill{display:flex;align-items:center;gap:5px;font-size:11.5px;font-weight:600;color:var(--ink-mid);background:var(--cream-card);border:1px solid var(--border);padding:5px 11px;border-radius:var(--rf);box-shadow:var(--s0)}
+.hcta{margin-top:22px}
+.hrating{margin-top:16px;display:flex;align-items:center;gap:7px;font-size:13.5px;color:var(--muted)}
+.stars{color:var(--gold);letter-spacing:1px}
+.hvisual{position:relative;padding-bottom:16px}
+.hph{position:relative;aspect-ratio:1/1;border-radius:var(--r3);box-shadow:var(--s3),0 0 0 6px rgba(46,110,104,.07);overflow:hidden;background:linear-gradient(135deg,var(--teal-lt),var(--gold-lt));display:flex;align-items:center;justify-content:center;text-align:center;flex-direction:column;gap:10px;padding:24px}
+.hph .note{font-size:56px}
+.hph .lbl{font-family:var(--df);font-weight:700;color:var(--teal-dark);font-size:14px;max-width:220px}
+.hfb1{position:absolute;bottom:0;left:-8px;background:#fff;border-radius:var(--r2);padding:10px 14px;box-shadow:var(--s1);border:1.5px solid var(--border);display:flex;align-items:center;gap:9px;font-family:var(--df)}
+.hfb1 .n{font-size:22px;font-weight:800;color:var(--teal);line-height:1}
+.hfb1 .l{font-size:10px;font-weight:700;color:var(--muted);line-height:1.3}
+.hfb2{position:absolute;top:-8px;right:-8px;background:var(--coral);border-radius:var(--r1);padding:8px 12px;box-shadow:var(--s1);color:#fff;font-family:var(--df);font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.05em}
+.hvframe{position:relative;background:#fff;padding:10px;border-radius:var(--r3);box-shadow:var(--s3),0 0 0 1px rgba(36,29,22,.05)}
+.hvvideo{width:100%;aspect-ratio:1/1;object-fit:cover;display:block;border-radius:calc(var(--r3) - 8px);box-shadow:inset 0 0 0 1px rgba(0,0,0,.10),inset 0 2px 10px rgba(0,0,0,.12)}
+.hvcta{margin-top:18px;text-align:center}
+.hvcta .btn{width:100%;max-width:400px}
+
+/* MARQUEE CAROUSEL */
+.marquee-sec{background:var(--cream);padding:34px 0 40px;overflow:hidden}
+.marquee-track{display:flex;width:max-content;animation:marquee-scroll 48s linear infinite}
+.marquee-track:hover{animation-play-state:paused}
+.marquee-group{display:flex;gap:16px;padding:0 8px}
+.marquee-group img{height:340px;width:auto;border-radius:var(--r3);box-shadow:var(--s2);flex-shrink:0}
+@keyframes marquee-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media(max-width:680px){.marquee-group img{height:230px}.marquee-track{animation-duration:34s}}
+@media(prefers-reduced-motion:reduce){.marquee-track{animation:none}}
+
+/* STATS STRIP */
+.strip{background:linear-gradient(120deg,var(--darkbg),var(--darkbg2));padding:34px 0}
+.sgrid{display:grid;grid-template-columns:repeat(3,1fr);text-align:center}
+.sitem{padding:6px 12px;border-right:1px solid rgba(255,255,255,.1)}
+.sitem:last-child{border-right:none}
+.snum{font-family:var(--df);font-size:clamp(23px,5.2vw,34px);font-weight:800;color:var(--gold);display:block;line-height:1}
+.slbl{font-size:11px;color:rgba(255,255,255,.62);font-weight:600;margin-top:4px;display:block;line-height:1.3}
+
+/* PROBLEM */
+.prob-sec{background:var(--cream-card);padding:68px 0}
+.xlist{list-style:none;display:flex;flex-direction:column;gap:11px;margin-top:26px}
+.xlist li{display:flex;align-items:flex-start;gap:12px;background:var(--cream);border:1.5px solid var(--border);border-radius:var(--r2);padding:16px 18px;font-size:15px;line-height:1.55;box-shadow:var(--s0)}
+.xmark{flex-shrink:0;width:22px;height:22px;border-radius:50%;background:var(--coral-lt);border:1.5px solid #F3C1AC;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:var(--coral);margin-top:1px}
+.callout{margin-top:26px;background:linear-gradient(135deg,var(--teal-lt),var(--gold-lt));border:1.5px solid var(--teal);border-radius:var(--r2);padding:20px 22px;text-align:center;font-size:16px;color:var(--ink-mid);line-height:1.6}
+.callout strong{color:var(--teal-dark)}
+
+/* SOLUTION */
+.sol-sec{background:var(--cream);padding:68px 0}
+.solvis{border-radius:var(--r3);overflow:hidden;box-shadow:var(--s2);margin-bottom:26px;aspect-ratio:16/8}
+.cklist{list-style:none;display:flex;flex-direction:column;gap:13px;margin-top:26px}
+.cklist li{display:flex;align-items:flex-start;gap:12px;font-size:15.5px;line-height:1.5}
+.ck{flex-shrink:0;width:22px;height:22px;border-radius:50%;background:var(--teal);display:flex;align-items:center;justify-content:center;color:#fff;font-size:11px;font-weight:800;margin-top:2px}
+
+/* INSIDE */
+.inside-sec{background:var(--cream-card);padding:68px 0}
+.modlist{list-style:none;display:flex;flex-direction:column;gap:11px;margin-top:26px}
+.mod{display:flex;gap:14px;align-items:flex-start;background:var(--cream);border:1.5px solid var(--border);border-radius:var(--r2);padding:16px 17px;box-shadow:var(--s0)}
+.mod .rb{width:34px;height:34px;border-radius:10px;font-size:14px}
+.mod h3{font-size:15px}
+.mod p{font-size:13px;color:var(--muted);margin-top:2px;line-height:1.5}
+
+/* COMPARE */
+.cmp-sec{background:linear-gradient(160deg,var(--darkbg),var(--darkbg2));padding:68px 0}
+.cmp-sec h2{color:#fff}
+.cmp-sec h2 em{font-style:normal;color:var(--gold)}
+.cgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:26px}
+@media(max-width:480px){.cgrid{grid-template-columns:1fr 1fr;gap:8px}}
+.ccol{border-radius:var(--r3);padding:20px 16px}
+.ccol.bef{background:rgba(255,255,255,.06);border:1.5px solid rgba(255,255,255,.1)}
+.ccol.aft{background:var(--teal);border:1.5px solid rgba(255,255,255,.16)}
+.clbl{font-family:var(--df);font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:4px 12px;border-radius:var(--rf);display:inline-block;margin-bottom:14px}
+.ccol.bef .clbl{background:rgba(255,255,255,.1);color:rgba(255,255,255,.5)}
+.ccol.aft .clbl{background:var(--gold);color:var(--ink)}
+.clist{list-style:none;display:flex;flex-direction:column;gap:7px}
+.clist li{display:flex;align-items:flex-start;gap:8px;font-size:13.5px;line-height:1.45}
+.ccol.bef .clist li{color:rgba(255,255,255,.56)}
+.ccol.aft .clist li{color:#fff}
+.ci{flex-shrink:0;width:17px;height:17px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:800;margin-top:1px}
+.ccol.bef .ci{background:rgba(255,255,255,.1);color:rgba(255,255,255,.35)}
+.ccol.aft .ci{background:rgba(255,255,255,.22);color:#fff}
+
+/* REVIEWS */
+.rev-sec{background:var(--cream-card);padding:68px 0}
+.rstack{display:flex;flex-direction:column;gap:14px;margin-top:26px}
+.rcard{background:#fff;border:1.5px solid var(--border);border-radius:var(--r2);padding:22px 20px;box-shadow:var(--s0)}
+.rhead{display:flex;align-items:center;gap:10px}
+.av{width:40px;height:40px;border-radius:11px;font-size:16px}
+.rname{font-family:var(--df);font-weight:700;font-size:14px}
+.rmeta{font-size:11px;color:var(--muted);margin-top:1px}
+.rstars{margin-left:auto;font-size:13px;color:var(--gold);letter-spacing:1px}
+.rbody{margin-top:10px;font-size:14.5px;color:var(--ink-mid);line-height:1.65;font-style:italic}
+.rbody::before{content:'"'}
+.rbody::after{content:'"'}
+.rver{margin-top:8px;font-size:11px;color:var(--teal);font-weight:700;display:flex;align-items:center;gap:3px}
+
+/* OFFER */
+.off-sec{background:linear-gradient(160deg,var(--darkbg),var(--darkbg2));padding:72px 0}
+.off-head{text-align:center;margin-bottom:6px}
+.off-head h2{color:#fff}
+.off-head p{color:rgba(255,255,255,.65);margin-top:8px;font-size:14.5px;max-width:440px;margin-left:auto;margin-right:auto}
+.cdwrap{margin-top:8px 0 30px;text-align:center}
+.cdlbl{font-size:12.5px;font-weight:600;color:rgba(255,255,255,.5);margin-bottom:8px}
+.cd{display:flex;gap:6px;justify-content:center;align-items:flex-end}
+.cdu{text-align:center}
+.cdbox{background:rgba(255,255,255,.12);color:#fff;border-radius:var(--r1);padding:10px 14px;font-family:var(--df);font-size:clamp(22px,6vw,30px);font-weight:800;min-width:52px;display:block;font-variant-numeric:tabular-nums;line-height:1}
+.cdl{font-size:9px;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.45);margin-top:4px;display:block}
+.cdsep{font-size:24px;font-weight:700;color:rgba(255,255,255,.3);margin-bottom:14px}
+.ocard{max-width:460px;margin:24px auto 0;background:var(--cream-card);border:2px solid var(--teal-lt);border-radius:var(--r4);padding:36px 28px;box-shadow:var(--s3),0 0 0 6px rgba(46,110,104,.08);text-align:center}
+.otbadge{display:inline-block;background:var(--gold);color:var(--ink);font-family:var(--df);font-size:10.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:5px 16px;border-radius:var(--rf);margin-bottom:18px}
+.oimg{border-radius:var(--r2);overflow:hidden;margin:0 auto 20px;max-width:280px;aspect-ratio:4/3}
+.olist{list-style:none;background:var(--cream);border:1.5px solid var(--border);border-radius:var(--r2);padding:20px 22px;text-align:left;display:flex;flex-direction:column;gap:10px}
+.olist li{display:flex;align-items:center;gap:9px;font-size:14.5px;font-weight:500;color:var(--ink-mid)}
+.olist li::before{content:'';width:18px;height:18px;border-radius:50%;background:var(--teal);flex-shrink:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3E%3Cpath d='M13.3 4.3a1 1 0 010 1.4l-6 6a1 1 0 01-1.4 0l-3-3a1 1 0 011.4-1.4L6.5 9.6l5.4-5.3a1 1 0 011.4 0z'/%3E%3C/svg%3E");background-size:11px;background-repeat:no-repeat;background-position:center}
+.pblock{margin-top:26px}
+.pwas{font-size:14px;color:var(--muted)}
+.pwas span{text-decoration:line-through;color:var(--coral);font-weight:700}
+.phero{display:flex;align-items:baseline;justify-content:center;flex-wrap:wrap;gap:6px;margin:6px 0 3px}
+.ptag{font-family:var(--df);font-size:clamp(38px,11vw,74px);font-weight:800;color:var(--teal);line-height:1.05}
+.punit{font-size:12px;color:var(--muted);margin-top:3px}
+.spill{display:inline-block;background:var(--teal-lt);border:1.5px solid var(--teal);color:var(--teal-dark);font-family:var(--df);font-size:12.5px;font-weight:700;padding:4px 16px;border-radius:var(--rf);margin-top:8px}
+.octa{margin-top:26px}
+.pays{margin-top:10px;font-size:11.5px;color:var(--muted);display:flex;flex-wrap:wrap;justify-content:center;gap:12px}
+
+/* BONUSES */
+.bon-sec{background:var(--cream-deep);padding:68px 0}
+.bonhl{background:linear-gradient(120deg,var(--darkbg),var(--darkbg2));border-radius:var(--r3);padding:26px;text-align:center;margin-bottom:26px;box-shadow:var(--scta)}
+.bonhl h3{font-family:var(--df);font-size:clamp(18px,3.4vw,23px);font-weight:800;color:#fff;line-height:1.2}
+.bonhl p{font-size:13px;color:rgba(255,255,255,.7);margin-top:5px}
+.bgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:480px){.bgrid{grid-template-columns:1fr}}
+.bcard{background:var(--cream-card);border:1.5px solid var(--border);border-radius:var(--r2);overflow:hidden;box-shadow:var(--s1)}
+.bvis{aspect-ratio:16/10}
+.bbody{padding:13px}
+.btag{display:inline-block;background:var(--teal);color:#fff;font-family:var(--df);font-size:10px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;padding:2px 8px;border-radius:4px}
+.bbody h3{font-family:var(--df);font-size:13px;margin-top:7px;line-height:1.3;font-weight:700}
+.bbody .bdesc{font-size:12px;color:var(--muted);margin-top:3px;line-height:1.45}
+.bfree{font-size:12px;font-weight:800;color:var(--teal);margin-top:6px;display:block}
+
+/* VIDEO PREVIEW */
+.vid-sec{background:var(--cream-deep);padding:68px 0}
+.vidwrap{max-width:480px;margin:26px auto 0;border-radius:var(--r3);overflow:hidden;box-shadow:var(--s3),0 0 0 6px rgba(46,110,104,.08);background:#000}
+.vid{width:100%;height:auto;display:block}
+
+/* POST-OFFER PHOTO REVIEWS */
+.prev-sec{background:var(--cream);padding:68px 0}
+.phrev{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:26px}
+@media(max-width:768px){.phrev{grid-template-columns:1fr;max-width:460px;margin-left:auto;margin-right:auto}}
+.pr{background:#fff;border:1.5px solid var(--border);border-radius:var(--r2);overflow:hidden;box-shadow:var(--s1);display:flex;flex-direction:column;text-align:center}
+.phimg{padding:28px 20px 18px;display:flex;flex-direction:column;align-items:center;gap:10px;background:linear-gradient(135deg,var(--teal-lt),var(--gold-lt))}
+.phimg .e{font-size:38px;line-height:1}
+.phimg .phname{font-family:var(--df);font-size:13px;font-weight:700;color:var(--teal-dark)}
+.phimg .phloc{font-size:11px;color:var(--muted)}
+.prbody{padding:18px 20px;display:flex;flex-direction:column;justify-content:center;gap:8px;flex:1}
+.prstars{color:var(--gold);font-size:13px;letter-spacing:1px}
+.prtext{font-size:14px;color:var(--ink-mid);line-height:1.6;font-style:italic}
+.prtext::before{content:'"'}
+.prtext::after{content:'"'}
+.prauthor{font-family:var(--df);font-size:12px;font-weight:700;color:var(--teal)}
+
+/* EXPERT */
+.exp-sec{background:var(--cream-deep);padding:68px 0}
+.expinner{background:var(--cream-card);border:1.5px solid var(--border);border-radius:var(--r4);padding:36px 30px;box-shadow:var(--s2)}
+.expgrid{display:grid;grid-template-columns:1fr;gap:22px;align-items:start}
+@media(min-width:580px){.expgrid{grid-template-columns:132px 1fr}}
+.expphw{text-align:center}
+.expph{width:124px;height:124px;border-radius:50%;margin:0 auto;border:3px solid var(--teal);box-shadow:var(--s2);display:block;object-fit:cover;background:linear-gradient(135deg,var(--teal-lt),var(--gold-lt))}
+.expname{font-family:var(--df);font-size:19px;font-weight:800;color:var(--ink);margin-top:12px}
+.exprole{font-size:11.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--teal);margin-top:3px}
+.expbody{color:var(--muted);font-size:15px;line-height:1.75}
+.expbody strong{color:var(--ink);font-weight:700}
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}
+.chip{display:inline-block;background:var(--teal-lt);border:1px solid var(--teal);color:var(--teal-dark);font-family:var(--df);font-size:12px;font-weight:700;padding:4px 11px;border-radius:var(--rf)}
+
+/* METHOD */
+.meth-sec{background:var(--cream-card);padding:68px 0}
+.mgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:26px}
+@media(max-width:520px){.mgrid{grid-template-columns:1fr}}
+.mcard{background:var(--cream);border:1.5px solid var(--border);border-radius:var(--r2);padding:18px 16px;box-shadow:var(--s0);display:flex;flex-direction:column;gap:8px}
+.micon{width:40px;height:40px;border-radius:var(--r1);display:flex;align-items:center;justify-content:center;font-size:19px}
+.mcard h3{font-size:14.5px;font-weight:700;line-height:1.3}
+.mcard p{font-size:13px;color:var(--muted);line-height:1.55}
+
+/* SUMMARY */
+.sum-sec{background:var(--cream-card);padding:68px 0}
+.sumcard{background:linear-gradient(135deg,var(--cream),var(--cream-deep));border:2px solid var(--border);border-radius:var(--r4);padding:36px 28px;text-align:center;box-shadow:var(--s2)}
+.sumlist{list-style:none;display:flex;flex-direction:column;gap:10px;margin:22px 0;text-align:left}
+.sumlist li{display:flex;align-items:center;gap:10px;font-size:14.5px;color:var(--ink-mid);font-weight:500}
+.sumlist li::before{content:'';width:18px;height:18px;border-radius:50%;background:var(--teal);flex-shrink:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3E%3Cpath d='M13.3 4.3a1 1 0 010 1.4l-6 6a1 1 0 01-1.4 0l-3-3a1 1 0 011.4-1.4L6.5 9.6l5.4-5.3a1 1 0 011.4 0z'/%3E%3C/svg%3E");background-size:11px;background-repeat:no-repeat;background-position:center}
+
+/* FAQ */
+.faq-sec{background:var(--cream);padding:68px 0}
+.faqlist{display:flex;flex-direction:column;gap:10px;margin-top:30px}
+.faqitem{background:var(--cream-card);border:1.5px solid var(--border);border-radius:var(--r2);overflow:hidden;box-shadow:var(--s0)}
+.faqitem[open]{border-color:var(--teal)}
+.faqitem summary{font-family:var(--df);font-weight:700;font-size:15px;padding:18px 20px;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:10px;color:var(--ink)}
+.faqitem summary::-webkit-details-marker{display:none}
+.faqchev{width:24px;height:24px;border-radius:50%;background:var(--teal-lt);border:1.5px solid var(--teal);display:flex;align-items:center;justify-content:center;color:var(--teal);font-size:17px;flex-shrink:0;transition:transform .2s,background .2s}
+.faqitem[open] .faqchev{transform:rotate(45deg);background:var(--teal);color:#fff}
+.faqans{padding:14px 18px 16px;font-size:14px;color:var(--muted);line-height:1.7;border-top:1px solid var(--border)}
+
+/* FINAL */
+.fin-sec{background:var(--teal);padding:78px 0;text-align:center;position:relative;overflow:hidden}
+.fin-sec::before{content:'';position:absolute;top:-70px;right:-70px;width:280px;height:280px;background:rgba(255,255,255,.05);border-radius:50%}
+.finq{font-family:var(--df);font-size:clamp(24px,4.8vw,40px);font-weight:800;color:#fff;max-width:540px;margin:0 auto;line-height:1.16}
+.finq em{font-style:normal;color:var(--gold)}
+.finsub{margin-top:14px;font-size:clamp(15px,3vw,18px);color:rgba(255,255,255,.82);max-width:440px;margin-left:auto;margin-right:auto}
+.fin-sec .btn{background:linear-gradient(135deg,var(--gold) 0%,#F2CE6B 100%);color:var(--ink)!important;box-shadow:0 14px 38px rgba(0,0,0,.22);margin-top:26px;font-size:16px;flex-wrap:wrap}
+.fin-sec .btn:hover{background:linear-gradient(135deg,#F5C853 0%,#F7DB8A 100%)}
+@keyframes btnPulseGold{0%{box-shadow:0 14px 38px rgba(0,0,0,.22),0 0 0 0 rgba(240,185,61,.55)}70%{box-shadow:0 14px 38px rgba(0,0,0,.22),0 0 0 16px rgba(240,185,61,0)}100%{box-shadow:0 14px 38px rgba(0,0,0,.22),0 0 0 0 rgba(240,185,61,0)}}
+.fin-sec .btn.btn-pulse{animation:btnPulseGold 2.6s ease-in-out infinite}
+.finsub2{margin-top:12px;font-size:12px;color:rgba(255,255,255,.55)}
+
+/* FOOTER */
+footer{padding:24px 18px;text-align:center;font-size:11.5px;color:var(--muted);border-top:1px solid var(--border);background:var(--cream)}
+
+/* STICKY */
+.sticky{display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;padding:10px 16px 14px;background:rgba(251,243,230,.97);backdrop-filter:blur(10px);border-top:1px solid var(--border);box-shadow:0 -6px 24px rgba(36,29,22,.09)}
+.sticky .inn{max-width:440px;margin:0 auto;display:flex;flex-direction:column;gap:5px}
+.stprice{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:8px;font-size:12.5px}
+.stwas{text-decoration:line-through;color:var(--muted)}
+.stnow{font-family:var(--df);font-size:18px;font-weight:800;color:var(--ink)}
+.stpill{background:var(--teal);color:#fff;font-family:var(--df);font-size:10px;font-weight:800;padding:2px 9px;border-radius:var(--rf)}
+.stbtn{display:block;width:100%;background:linear-gradient(135deg,var(--coral) 0%,#F0A22E 100%);color:#fff!important;font-family:var(--df);font-size:14.5px;font-weight:700;padding:14px;border-radius:var(--rf);text-align:center;border:none;cursor:pointer;box-shadow:0 10px 26px rgba(240,89,44,.4);text-decoration:none;animation:btnPulse 2.6s ease-in-out infinite}
+@media(prefers-reduced-motion:reduce){.stbtn{animation:none}}
+@media(max-width:768px){.sticky{display:none}body{padding-bottom:88px}}
+
+/* SOCIAL PROOF POPUP */
+.spp{position:fixed;bottom:22px;left:14px;z-index:8888;background:#fff;border-radius:13px;padding:10px 14px 10px 12px;box-shadow:0 4px 22px rgba(36,29,22,.14);display:flex;align-items:center;gap:10px;max-width:270px;width:calc(100vw - 28px);border-left:3px solid var(--teal);transform:translateY(18px);opacity:0;transition:opacity .38s,transform .38s;pointer-events:none}
+.spp.vis{opacity:1;transform:translateY(0)}
+.spav{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,var(--teal-lt),var(--gold-lt));display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.spc{flex:1;min-width:0}
+.spn{font-family:var(--df);font-size:12px;font-weight:800;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.spt{font-size:11px;color:var(--muted);margin-top:1px;line-height:1.3}
+.spt strong{color:var(--teal);font-weight:700}
+.sptm{font-size:10px;color:var(--muted);margin-top:2px;display:flex;align-items:center;gap:3px}
+.sptm::before{content:'✓';color:var(--teal);font-weight:800;font-size:9px}
+.spx{position:absolute;top:5px;right:7px;background:none;border:none;cursor:pointer;font-size:13px;color:var(--muted);line-height:1;padding:0;pointer-events:auto}
+@media(max-width:768px){.spp{bottom:100px;max-width:246px}}
+
+/* ANIM */
+@keyframes fup{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+.fu{animation:fup .5s ease both}
+.d1{animation-delay:.07s}.d2{animation-delay:.14s}.d3{animation-delay:.21s}.d4{animation-delay:.28s}
+html.js [data-r]{opacity:0;transform:translateY(14px);transition:opacity .45s ease,transform .45s ease}
+html.js [data-r].vis{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.fu,html.js [data-r]{animation:none!important;opacity:1!important;transform:none!important;transition:none!important}}
+@media(max-width:380px){h1{font-size:28px}.ptag{font-size:48px}}
+.rr{display:flex;align-items:center;justify-content:center;gap:7px;font-size:13px;color:var(--muted);font-weight:500}
+.mt12{margin-top:12px}.mt16{margin-top:16px}.mt20{margin-top:20px}.mt24{margin-top:24px}
+
+.ut,.utimer,.ey,.hbadge,.hage,.otbadge,.clbl,.btag,.bfree,.stpill,.chip,.faqchev{font-family:var(--bf)}
+.btn,.stbtn{font-family:var(--bf);font-weight:800;letter-spacing:.01em}
+</style>
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', 'REPLACE_WITH_PIXEL_ID');
+fbq('track', 'PageView');
+</script>
+<!-- URGENCY BAR -->
+<div class="ub">
+<span class="ut">🎵 Oferta tygodnia premierowego</span>
+<div class="utimer" id="urgencyTimer">15:00</div>
+</div>
+<!-- ══ HERO ══ -->
+<section class="hero">
+<div class="wrap">
+<div class="hgrid">
+<div>
+<span class="hbadge fu">Dla nauczycieli, rodzin edukujących w domu i rodziców</span>
+<span class="hage fu">Dzieci w wieku 3–7 lat</span>
+<h1 class="fu d1"><span class="the-word">Ta</span> Metoda Muzyczna <span class="accent-word">Zabawowa</span>: Utrzymaj Dzieci Zmotywowane w 100% i Zachwycone Muzyką — Bez Potrzeby Umiejętności Gry na Instrumencie</h1>
+<p class="hsub fu d2">180+ gotowych do druku stron aktywności muzycznych, gier i system kolorowych nut, który pozwala dzieciom grać prawdziwą muzykę bez czytania nut. Zero przygotowań. Dyplom muzyczny zbędny.</p>
+<div class="hpills fu d3">
+<span class="hpill">🔒 Bezpieczna płatność</span>
+<span class="hpill">📩 Natychmiastowy dostęp</span>
+<span class="hpill">📵 Bez subskrypcji</span>
+</div>
+<div class="hrating fu d4" style="margin-top:22px">
+<span class="stars">★★★★★</span>
+<span>4,9/5 · 5 000+ nauczycieli i rodzin</span>
+</div>
+<div class="hcta fu d4"><a href="#pmpl-offer" class="btn btn-pulse">🎶 CHCĘ ZABAWOWĄ METODĘ MUZYCZNĄ ↓</a></div>
+</div>
+<div class="hvisual fu d2">
+<div class="hvframe">
+<video autoplay="" class="hvvideo" loop="" muted="" playsinline="" preload="auto">
+<source src="https://aekpgsbqjzqntlbucbts.supabase.co/storage/v1/object/public/store-resources/918840c4-a9c3-439e-a7d3-ab7c26ca9258/1789553436860_hero-tpmm-1.mp4" type="video/mp4"/>
+</video>
+</div>
+<div class="hfb2">180+ stron</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ══ STATS ══ -->
+<div class="strip">
+<div class="wrap">
+<div class="sgrid">
+<div class="sitem"><span class="snum">180+</span><span class="slbl">Stron do druku</span></div>
+<div class="sitem"><span class="snum">4,9★</span><span class="slbl">Średnia ocena</span></div>
+<div class="sitem"><span class="snum">5 000+</span><span class="slbl">Nauczycieli i rodzin</span></div>
+</div>
+</div>
+</div>
+<!-- ══ MARQUEE CAROUSEL ══ -->
+<div class="marquee-sec">
+<div class="marquee-track">
+<div class="marquee-group">
+<img alt="Podgląd aktywności i kart pracy" decoding="async" loading="lazy" src="https://files.catbox.moe/5ry2yj.png"/>
+<img alt="Podgląd gier do druku i loterii dźwiękowej" decoding="async" loading="lazy" src="https://files.catbox.moe/68ddg7.png"/>
+<img alt="Podgląd ilustrowanych partytur w kolorach" decoding="async" loading="lazy" src="https://files.catbox.moe/k6fglw.png"/>
+<img alt="Podgląd kart muzycznych i zeszytu aktywności" decoding="async" loading="lazy" src="https://files.catbox.moe/16fyw8.png"/>
+</div>
+<div aria-hidden="true" class="marquee-group">
+<img alt="" decoding="async" loading="lazy" src="https://files.catbox.moe/5ry2yj.png"/>
+<img alt="" decoding="async" loading="lazy" src="https://files.catbox.moe/68ddg7.png"/>
+<img alt="" decoding="async" loading="lazy" src="https://files.catbox.moe/k6fglw.png"/>
+<img alt="" decoding="async" loading="lazy" src="https://files.catbox.moe/16fyw8.png"/>
+</div>
+</div>
+</div>
+<!-- ══ PROBLEM ══ -->
+<section class="prob-sec">
+<div class="wrap">
+<div class="tc" data-r="">
+<div class="ey">Brzmi znajomo?</div>
+<h2>Przygotowanie lekcji muzyki nie powinno zabierać Ci całego tygodnia. 🎵</h2>
+</div>
+<ul class="xlist mt20">
+<li data-r=""><span class="xmark">✕</span><span>Spędzasz godziny na szukaniu pomysłów na Pintereście i YouTube, które <strong>potem nie działają z prawdziwymi dziećmi.</strong></span></li>
+<li data-r=""><span class="xmark">✕</span><span>Dzieci <strong>tracą zainteresowanie w pięć minut</strong> a klasa zamienia się w chaos.</span></li>
+<li data-r=""><span class="xmark">✕</span><span>Czujesz, że potrzebujesz <strong>dyplomu muzycznego</strong> tylko po to, żeby poprowadzić prostą aktywność.</span></li>
+<li data-r=""><span class="xmark">✕</span><span>Kończysz na <strong>improwizowanie tylko po to, żeby zapełnić lekcję</strong>, bez prawdziwej nauki.</span></li>
+</ul>
+<div class="callout mt24" data-r="">
+      To zupełnie normalne — <strong>i ma rozwiązanie.</strong><br/>
+      Dzieci nie potrzebują muzyka jako nauczyciela. Potrzebują jasnej i zabawnej ścieżki. <strong>To jest dokładnie to, co oferuje Ci Zabawowa Metoda Muzyczna.</strong>
+</div>
+</div>
+</section>
+<!-- ══ SOLUTION ══ -->
+<section class="sol-sec">
+<div class="wrap">
+<img alt="Zaangażowane dzieci bawiące się przy drukowanych aktywnościach Zabawowej Metody Muzycznej" class="solvis" data-r="" decoding="async" height="600" loading="lazy" src="https://files.catbox.moe/ppnhto.webp" style="width:100%;object-fit:cover" width="1200"/>
+<div class="tc" data-r="">
+<div class="ey">Prawdziwe rezultaty</div>
+<h2>Oto jak wygląda lekcja muzyki z Metodą</h2>
+</div>
+<ul class="cklist">
+<li data-r=""><span class="ck">✓</span><span>Przychodzisz <strong>wiedząc dokładnie, co robić, krok po kroku</strong> — bez przygotowywania czegokolwiek wieczorem wcześniej.</span></li>
+<li data-r=""><span class="ck">✓</span><span>Dzieci <strong>są zaangażowane od pierwszej aktywności</strong>, za każdym razem.</span></li>
+<li data-r=""><span class="ck">✓</span><span>Masz <strong>piękne i gotowe materiały wizualne</strong> które przyciągają ich uwagę.</span></li>
+<li data-r=""><span class="ck">✓</span><span>Kończysz <strong>na czas</strong>, bez niczego do przygotowania na następną lekcję.</span></li>
+<li data-r=""><span class="ck">✓</span><span>Dzieci <strong>grają naprawdę prawdziwe nuty</strong> — dzięki metodzie kolorowych nut, bez potrzeby teorii.</span></li>
+</ul>
+</div>
+</section>
+<!-- ══ INSIDE ══ -->
+<section class="inside-sec">
+<div class="wrap">
+<div class="tc" data-r="">
+<div class="ey">Co zawiera</div>
+<h2>5 modułów, <span style="color:var(--teal)">180+ stron</span>, gotowych do druku już dziś</h2>
+</div>
+<ul class="modlist">
+<li class="mod" data-r=""><span class="rb rb1">01</span><div><h3>Powitanie i przewodnik</h3><p>Krótki przewodnik, porady dotyczące druku i sugerowany program 4-tygodniowy — dzięki temu nigdy nie zapytasz "a co teraz?".</p></div></li>
+<li class="mod" data-r=""><span class="rb rb2">02</span><div><h3>Ćwiczenia praktyczne (+30 kart)</h3><p>Karty do ćwiczeń grafomotorycznych, dopasowywania i kreatywności, które rozwijają motorykę drobną podczas nauki podstaw muzyki.</p></div></li>
+<li class="mod" data-r=""><span class="rb rb3">03</span><div><h3>Karty muzyczne</h3><p>Instrumenty, dźwięki i akcje — idealne do szybkich gier, pamięci wzrokowej i rozpoznawania dźwięków.</p></div></li>
+<li class="mod" data-r=""><span class="rb rb4">04</span><div><h3>Gry do druku</h3><p>Plansze do gier, memory i loteria dźwiękowa — używaj jako nagrody lub aktywności grupowej.</p></div></li>
+<li class="mod" data-r=""><span class="rb rb5">05</span><div><h3>Ilustrowane partytury</h3><p>Metoda kolorowych nut: dzieci grają prawdziwe nuty na dowolnym instrumencie, kojarząc kolory — zero teorii muzycznej.</p></div></li>
+<li class="mod" data-r=""><span class="rb rb6">🏆</span><div><h3>Dyplom ukończenia</h3><p>Drukowalny dyplom na uczczenie osiągnięcia — mały moment, który dla dziecka znaczy tak wiele.</p></div></li>
+</ul>
+</div>
+</section>
+<!-- ══ COMPARE ══ -->
+<section class="cmp-sec">
+<div class="wrap">
+<div class="tc" data-r=""><h2>Przed i po <span class="the-word">Ta</span> Metoda Muzyczna <span class="accent-word">Zabawowa</span></h2></div>
+<div class="cgrid">
+<div class="ccol bef" data-r="">
+<div class="clbl">Bez Metody</div>
+<ul class="clist">
+<li><span class="ci" style="background:rgba(255,255,255,.1);color:rgba(255,255,255,.38)">✕</span>Stracone godziny na szukanie na Pintereście</li>
+<li><span class="ci" style="background:rgba(255,255,255,.1);color:rgba(255,255,255,.38)">✕</span>Dzieci rozkojarzone po kilku minutach</li>
+<li><span class="ci" style="background:rgba(255,255,255,.1);color:rgba(255,255,255,.38)">✕</span>Poczucie nieprzygotowania do nauczania muzyki</li>
+<li><span class="ci" style="background:rgba(255,255,255,.1);color:rgba(255,255,255,.38)">✕</span>Improwizowanie, żeby zapełnić czas</li>
+<li><span class="ci" style="background:rgba(255,255,255,.1);color:rgba(255,255,255,.38)">✕</span>Brak widocznych postępów</li>
+<li><span class="ci" style="background:rgba(255,255,255,.1);color:rgba(255,255,255,.38)">✕</span>Ty, wyczerpana co tydzień</li>
+</ul>
+</div>
+<div class="ccol aft" data-r="">
+<div class="clbl">Z Metodą</div>
+<ul class="clist">
+<li><span class="ci" style="background:rgba(255,255,255,.22);color:#fff">✓</span>Lekcja gotowa w kilka minut</li>
+<li><span class="ci" style="background:rgba(255,255,255,.22);color:#fff">✓</span>Dzieci zaangażowane od pierwszej chwili</li>
+<li><span class="ci" style="background:rgba(255,255,255,.22);color:#fff">✓</span>Zero doświadczenia muzycznego</li>
+<li><span class="ci" style="background:rgba(255,255,255,.22);color:#fff">✓</span>Jasna ścieżka, krok po kroku</li>
+<li><span class="ci" style="background:rgba(255,255,255,.22);color:#fff">✓</span>Prawdziwy certyfikat jako rezultat</li>
+<li><span class="ci" style="background:rgba(255,255,255,.22);color:#fff">✓</span>Ty, spokojna i pewna siebie</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- ══ REVIEWS ══ -->
+<section class="rev-sec">
+<div class="wrap">
+<div class="tc" data-r="">
+<div class="ey">Prawdziwe historie</div>
+<h2>Co mówią <span style="color:var(--teal)">nauczycieli i rodziców</span> 🎶</h2>
+<div class="rr mt12"><span class="stars">★★★★★</span><span>4,9/5 · 5 000+ rodzin</span></div>
+</div>
+<div class="rstack mt20">
+<div class="rcard" data-r="">
+<div class="rhead"><div class="av rb rb1">K</div><div><div class="rname">Katarzyna W.</div><div class="rmeta">Nauczycielka przedszkolna · Warszawa</div></div><div class="rstars">★★★★★</div></div>
+<p class="rbody">Wcześniej spędzałam godziny na szukaniu w internecie. Teraz otwieram zestaw, wybieram aktywność i gotowe. Dzieci są w pełni zaangażowane.</p>
+<div class="rver">✓ Zakup zweryfikowany</div>
+</div>
+<div class="rcard" data-r="">
+<div class="rhead"><div class="av rb rb5">M</div><div><div class="rname">Marta K.</div><div class="rmeta">Mama edukująca w domu · Kraków</div></div><div class="rstars">★★★★★</div></div>
+<p class="rbody">Myślałam, że brak umiejętności gry na instrumencie będzie problemem. Myliłam się — instrukcje są tak jasne, że każdy może poprowadzić zajęcia.</p>
+<div class="rver">✓ Zakup zweryfikowany</div>
+</div>
+<div class="rcard" data-r="">
+<div class="rhead"><div class="av rb rb4">A</div><div><div class="rname">Anna S.</div><div class="rmeta">Muzykoterapeutka · Wrocław</div></div><div class="rstars">★★★★★</div></div>
+<p class="rbody">Używam kart rytmu z moimi pacjentami i poziom więzi, jaki osiągamy, jest niesamowity. Dopracowane w każdym detalu, naprawdę skuteczne.</p>
+<div class="rver">✓ Zakup zweryfikowany</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ══ OFFER ══ -->
+<section class="off-sec" id="pmpl-offer" style="scroll-margin-top:24px">
+<div class="wrap">
+<div class="off-head" data-r="">
+<span class="otbadge">🎵 Oferta premierowa — tylko dziś</span>
+<h2>Wprowadź prawdziwe doświadczenie muzyczne do swoich lekcji —<br/><span style="color:var(--gold)">od dziś</span></h2>
+<p>Jednorazowa płatność. Natychmiastowy dostęp. Dyplom muzyczny zbędny.</p>
+</div>
+<div class="cdwrap" data-r="">
+<p class="cdlbl">Ta oferta kończy się za:</p>
+<div class="cd">
+<div class="cdu"><span class="cdbox" id="cd-h">02</span><span class="cdl">godz.</span></div>
+<span class="cdsep">:</span>
+<div class="cdu"><span class="cdbox" id="cd-m">47</span><span class="cdl">min</span></div>
+<span class="cdsep">:</span>
+<div class="cdu"><span class="cdbox" id="cd-s">31</span><span class="cdl">sek.</span></div>
+</div>
+</div>
+<div class="ocard" data-r="">
+<span class="otbadge">⭐ Kompletny pakiet · 3 darmowe bonusy w zestawie</span>
+<div class="oimg"><img alt="Zabawowa Metoda Muzyczna — Kompletny pakiet" decoding="async" loading="lazy" src="https://files.catbox.moe/uhu2d6.png" style="width:100%;height:100%;object-fit:cover"/></div>
+<ul class="olist">
+<li>180+ stron do druku (dzieci w wieku 3–7 lat)</li>
+<li>Aktywności, karty, gry i ilustrowane partytury</li>
+<li>Metoda kolorowych nut — graj bez czytania partytur</li>
+<li>BONUS #1 — Tygodniowy planer lekcji</li>
+<li>BONUS #2 — Kolorowe karty rytmu</li>
+<li>BONUS #3 — Pakiet motoryki drobnej muzycznej</li>
+<li>Dożywotni dostęp · Bez subskrypcji</li>
+</ul>
+<div class="pblock">
+<div class="pwas">Wartość łączna: <span id="priceWasDisplay">{{original_price}}</span></div>
+<div class="phero">
+<span class="ptag" id="priceNowDisplay">{{price}}</span>
+</div>
+<div class="punit">Jednorazowa płatność · Bez subskrypcji</div>
+<span class="spill" id="savingsDisplay">💸 Oszczędzasz {{savings}} dziś</span>
+</div>
+<div class="octa">
+<a class="btn btn-full btn-pulse" href="/checkout">🎶 CHCĘ ZABAWOWĄ METODĘ MUZYCZNĄ <span class="arr">→</span></a>
+</div>
+<div class="pays">
+<span>💳 100% bezpieczna płatność</span>
+<span>📥 Natychmiastowy dostęp</span>
+<span>🔒 Bez subskrypcji</span>
+</div>
+</div>
+</div>
+</section>
+<!-- ══ BONUSES ══ -->
+<section class="bon-sec">
+<div class="wrap">
+<div class="bonhl" data-r="">
+<h3>🎁 Dziś otrzymujesz 3 bonusy gratis</h3>
+<p>Dodatkowe narzędzia — całkowicie za darmo przy zakupie</p>
+</div>
+<div class="bgrid">
+<div class="bcard" data-r="">
+<div class="bvis"><img alt="Tygodniowy planer lekcji" decoding="async" loading="lazy" src="https://files.catbox.moe/d5nbaj.png" style="width:100%;height:100%;object-fit:cover"/></div>
+<div class="bbody"><span class="btag">BONUS #1</span><h3>Tygodniowy planer lekcji</h3><p class="bdesc">Gotowe mini-plany, które pomagają rotować aktywności w ciągu tygodnia — dzięki temu zawsze wiesz, co dalej.</p><span class="bfree">GRATIS DZIŚ <span style="opacity:.55;font-weight:600;text-decoration:line-through;margin-left:4px">Wartość 15 €</span></span></div>
+</div>
+<div class="bcard" data-r="">
+<div class="bvis"><img alt="Kolorowe karty rytmu" decoding="async" loading="lazy" src="https://files.catbox.moe/yreh13.png" style="width:100%;height:100%;object-fit:cover"/></div>
+<div class="bbody"><span class="btag">BONUS #2</span><h3>Kolorowe karty rytmu</h3><p class="bdesc">Dodatkowe karty do ćwiczenia rytmu z wyraźnymi wizualnymi wskazówkami do klaskania, odmierzania tempa i pewnego rozpoznawania sekwencji.</p><span class="bfree">GRATIS DZIŚ <span style="opacity:.55;font-weight:600;text-decoration:line-through;margin-left:4px">Wartość 9 €</span></span></div>
+</div>
+<div class="bcard" data-r="" style="grid-column:1/-1;max-width:340px;margin:0 auto">
+<div class="bvis"><img alt="Pakiet motoryki drobnej muzycznej" decoding="async" loading="lazy" src="https://files.catbox.moe/hnz9on.png" style="width:100%;height:100%;object-fit:cover"/></div>
+<div class="bbody"><span class="btag">BONUS #3</span><h3>Pakiet motoryki drobnej muzycznej</h3><p class="bdesc">Dodatkowe karty do ćwiczeń grafomotorycznych, dopasowywania i wytnij-i-graj, które wzmacniają koordynację i sprawiają, że lekcja muzyki jest jeszcze bardziej zabawna.</p><span class="bfree">GRATIS DZIŚ <span style="opacity:.55;font-weight:600;text-decoration:line-through;margin-left:4px">Wartość 9 €</span></span></div>
+</div>
+</div>
+</div>
+</section>
+<!-- ══ VIDEO PREVIEW ══ -->
+<section class="vid-sec">
+<div class="wrap">
+<div class="tc" data-r="">
+<div class="ey">Zajrzyj do środka</div>
+<h2>Oto jak wygląda <span style="color:var(--teal)">zawartość</span> 🎬</h2>
+</div>
+<div class="vidwrap" data-r="">
+<video autoplay="" class="vid" loop="" muted="" playsinline="" preload="auto">
+<source src="https://aekpgsbqjzqntlbucbts.supabase.co/storage/v1/object/public/store-resources/e20a8f62-d723-4d36-b300-a8ad4b4da629/1790332515075_mockups-4.mp4" type="video/mp4"/>
+</video>
+</div>
+</div>
+</section>
+<!-- ══ POST-OFFER PHOTO REVIEWS ══ -->
+<section class="prev-sec">
+<div class="wrap">
+<div class="tc" data-r="">
+<div class="ey">Prawdziwe rezultaty</div>
+<h2>Rodziny, które to <span style="color:var(--teal)">już doświadczają</span> 🎶</h2>
+</div>
+<div class="phrev">
+<div class="pr" data-r="">
+<div class="phimg"><span class="e">🎼</span><span class="phname">Joanna M.</span><span class="phloc">Gdańsk</span></div>
+<div class="prbody"><div class="prstars">★★★★★</div><p class="prtext">Moja córka prosi o te aktywności każdego dnia. Nigdy wcześniej nie widziałam jej tak zmotywowanej.</p></div>
+</div>
+<div class="pr" data-r="">
+<div class="phimg" style="background:linear-gradient(135deg,var(--coral-lt),var(--gold-lt))"><span class="e">🎨</span><span class="phname">Agnieszka F.</span><span class="phloc">Poznań</span></div>
+<div class="prbody"><div class="prstars">★★★★★</div><p class="prtext">Najlepszy zakup dla mojej klasy w tym roku. Dzieci przeszły od nudzenia się do proszenia o lekcję muzyki.</p></div>
+</div>
+<div class="pr" data-r="">
+<div class="phimg"><span class="e">🎵</span><span class="phname">Ewa M.</span><span class="phloc">Łódź</span></div>
+<div class="prbody"><div class="prstars">★★★★★</div><p class="prtext">W kilka dni mój syn przeszedł od frustracji do spokoju, skupienia i prawdziwego entuzjazmu do nauki.</p></div>
+</div>
+</div>
+</div>
+</section>
+<!-- ══ EXPERT ══ -->
+<section class="exp-sec">
+<div class="wrap">
+<div class="tc" data-r="" style="margin-bottom:22px">
+<div class="ey">Kto za tym stoi</div>
+<h2>Zespół stojący za <span class="the-word">Ta</span> Metoda Muzyczna <span class="accent-word">Zabawowa</span></h2>
+</div>
+<div class="expinner" data-r="">
+<div class="expgrid">
+<div class="expphw">
+<img alt="Zespół Little Notes Co." class="expph" decoding="async" loading="lazy" src="https://files.catbox.moe/wfp50n.png"/>
+<div class="expname">Zespół Little Notes Co.</div>
+<div class="exprole">Edukacja przedszkolna<br/>i Muzyczna</div>
+</div>
+<div>
+<p class="expbody">Zabawowa Metoda Muzyczna narodziła się z prawdziwego pytania: <strong>"Jak wprowadzić muzykę do moich zajęć bez dyplomu muzycznego i bez wrażenia, że to obowiązek?"</strong><br/><br/>Współpracując z nauczycielkami wychowania przedszkolnego i muzykoterapeutami, zbudowaliśmy każdą stronę wokół jednej idei: <strong>mniej teorii, więcej działania.</strong> Dzieci nie uczą się muzyki przez długie tłumaczenia — uczą się grając, bawiąc się i eksperymentując. Ponad 5 000 rodzin już z tego korzysta.</p>
+<div class="chips mt16">
+<span class="chip">Edukacja przedszkolna</span>
+<span class="chip">Nauka przez zabawę</span>
+<span class="chip">Czytanie nut kolorami</span>
+<span class="chip">Motoryka drobna</span>
+<span class="chip">Oparte na muzykoterapii</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ══ METHOD ══ -->
+<section class="meth-sec">
+<div class="wrap">
+<div class="tc" data-r="">
+<div class="ey">Metoda</div>
+<h2>Zaprojektowane pod kątem tego, jak dzieci<br/>naprawdę uczą się muzyki</h2>
+<p class="mt12" style="color:var(--muted);max-width:500px;margin-left:auto;margin-right:auto">Każda strona Zabawowej Metody Muzycznej przekształca abstrakcyjną ideę muzyczną — nutę, rytm — w coś, co małe dziecko może zobaczyć, dotknąć i użyć do zabawy od razu.</p>
+</div>
+<div class="mgrid">
+<div class="mcard" data-r=""><div class="micon rb rb1">🎨</div><h3>Czytanie nut kolorami</h3><p>Dzieci grają prawdziwe nuty powiązane z kolorami — bez solfeżu, bez teorii.</p></div>
+<div class="mcard" data-r=""><div class="micon rb rb2">🖨️</div><h3>Drukuj w swoim tempie</h3><p>Nie musisz drukować wszystkich 180+ stron na raz. Wydrukuj tylko to, czego użyjesz dziś.</p></div>
+<div class="mcard" data-r=""><div class="micon rb rb3">🎧</div><h3>Nauka wielozmysłowa</h3><p>Karty, karty pracy, gry i partytury angażują wzrok, dotyk i słuch.</p></div>
+<div class="mcard" data-r=""><div class="micon rb rb4">🥁</div><h3>Bez instrumentu? Żaden problem</h3><p>Użyj przedmiotów domowych, klaskania lub dowolnego zabawkowego instrumentu, żeby zacząć już dziś.</p></div>
+<div class="mcard" data-r=""><div class="micon rb rb5">📅</div><h3>Sugerowany program 4-tygodniowy</h3><p>Gotowy harmonogram, dzięki któremu nigdy nie zapytasz "a co teraz?".</p></div>
+<div class="mcard" data-r=""><div class="micon rb rb6">🏆</div><h3>Dyplom ukończenia</h3><p>Uczcij osiągnięcie drukowalnym dyplomem, który dziecko zachowa na pamiątkę.</p></div>
+</div>
+</div>
+</section>
+<!-- ══ SUMMARY ══ -->
+<section class="sum-sec">
+<div class="wrap">
+<div class="sumcard" data-r="">
+<div class="ey" style="justify-content:center">Twój pakiet Zabawowa Metoda Muzyczna</div>
+<h2 style="margin-top:8px">Wszystko, co Twoje dziecko otrzymuje <span style="color:var(--teal)">dziś</span></h2>
+<ul class="sumlist">
+<li>180+ stron do druku w 5 modułach</li>
+<li>Metoda kolorowych nut — graj bez czytania nut</li>
+<li>BONUS #1 — Tygodniowy planer lekcji</li>
+<li>BONUS #2 — Kolorowe karty rytmu</li>
+<li>BONUS #3 — Pakiet motoryki drobnej muzycznej</li>
+<li>Dożywotni dostęp · Bez subskrypcji</li>
+</ul>
+<div class="mt12" style="font-size:14.5px;color:var(--muted)">To wszystko za jedyne <strong id="summaryNow" style="color:var(--teal);font-family:var(--df);font-size:21px">{{price}}</strong> <span id="summaryWas" style="text-decoration:line-through;color:var(--coral)">{{original_price}}</span></div>
+<div class="mt20">
+<a class="btn btn-full btn-pulse" href="#pmpl-offer" style="max-width:420px;margin:0 auto;display:flex">🎶 CHCĘ ZABAWOWĄ METODĘ MUZYCZNĄ <span class="arr">↓</span></a>
+</div>
+<div class="mt12" style="font-size:12px;color:var(--muted)">🔒 Bezpieczna płatność · 📩 Natychmiastowy dostęp</div>
+</div>
+</div>
+</section>
+<!-- ══ FAQ ══ -->
+<section class="faq-sec">
+<div class="wrap">
+<div class="tc" data-r="">
+<div class="ey">Masz pytania?</div>
+<h2>Pytania <span style="color:var(--teal)">najczęstsze</span></h2>
+</div>
+<div class="faqlist mt24" data-r="">
+<details class="faqitem" open="">
+<summary>💳 Czy to miesięczna subskrypcja? <span class="faqchev">+</span></summary>
+<div class="faqans">Nie. To jednorazowa płatność w wysokości {{price}}. Masz dożywotni dostęp do wszystkich materiałów i przyszłych aktualizacji.</div>
+</details>
+<details class="faqitem">
+<summary>📄 W jakim formacie jest materiał? <span class="faqchev">+</span></summary>
+<div class="faqans">Jest w 100% cyfrowy — PDF w wysokiej rozdzielczości. Możesz go przeglądać na ekranie lub wydrukować w domu lub w dowolnej drukarni.</div>
+</details>
+<details class="faqitem">
+<summary>🔒 Czy płatność jest bezpieczna? <span class="faqchev">+</span></summary>
+<div class="faqans">Tak, absolutnie. Korzystamy z wiodącego, szyfrowanego dostawcy płatności. Nigdy nie widzimy ani nie przechowujemy danych Twojej karty.</div>
+</details>
+<details class="faqitem">
+<summary>💱 Jaka jest cena i w jakiej walucie? <span class="faqchev">+</span></summary>
+<div class="faqans">Cena wyświetla się automatycznie w Twojej lokalnej walucie dzięki przelicznikowi walut. Dostępne metody płatności są podane w kasie.</div>
+</details>
+<details class="faqitem">
+<summary>📬 Jak i kiedy otrzymam dostęp? <span class="faqchev">+</span></summary>
+<div class="faqans">Zaraz po zatwierdzeniu płatności otrzymasz e-mail z ekskluzywnym linkiem do pobrania wszystkich materiałów — w mniej niż 5 minut. Jeśli masz pytania lub nie znajdziesz materiałów, napisz do nas.</div>
+</details>
+</div>
+</div>
+</section>
+<!-- ══ FINAL CTA ══ -->
+<section class="fin-sec">
+<div class="wrap">
+<p class="finq">Lekcja muzyki może zacząć wydawać się <em>łatwa</em> — od dziś.</p>
+<p class="finsub">180+ stron. Zero doświadczenia muzycznego. Zero stresu.</p>
+<a class="btn btn-pulse" href="#pmpl-offer">🎶 CHCĘ ZABAWOWĄ METODĘ MUZYCZNĄ <span id="finalPrice">— {{price}}</span> <span class="arr">↓</span></a>
+<p class="finsub2">Natychmiastowy dostęp · 5 000+ rodzin już korzysta</p>
+</div>
+</section>
+<footer>© <span id="yr"></span> Little Notes Co. · Zabawowa Metoda Muzyczna · Wszelkie prawa zastrzeżone.<br/>
+Ta strona nie jest częścią Facebooka ani Meta i nie jest przez nich zatwierdzona. Wyniki mogą się różnić w zależności od osoby. Wszystkie prezentowane informacje odzwierciedlają nasze doświadczenie i metodologię, i nie gwarantują identycznych wyników dla każdego użytkownika.</footer>
+<!-- SOCIAL PROOF POPUP -->
+<div aria-live="polite" class="spp" id="spp" role="status">
+<button aria-label="Zamknij" class="spx" id="spx">✕</button>
+<div class="spav">🎵</div>
+<div class="spc">
+<div class="spn" id="spn">Joanna M.</div>
+<div class="spt">właśnie otrzymał/a <strong>Zabawowa Metoda Muzyczna</strong></div>
+<div class="sptm" id="sptm">3 min · Warszawa</div>
+</div>
+</div>
+<!-- STICKY MOBILE CTA -->
+<div class="sticky" id="sticky">
+<div class="inn">
+<div class="stprice">
+<span class="stwas" id="stickyWas">{{original_price}}</span>
+<span class="stnow" id="stickyNow">{{price}}</span>
+<span class="stpill" id="stickyPill">-{{discount_pct}}%</span>
+</div>
+<a class="stbtn" href="#pmpl-offer">🎶 Chcę Metodę + Bonusy ↓</a>
+</div>
+</div>
+<script>
+(function(){
+  /* Barra di urgenza — si resetta ogni 15 min */
+  var ut=15*60;
+  function uu(){try{var m=Math.floor(ut/60),s=ut%60,el=document.getElementById('urgencyTimer');if(el)el.textContent=(m<10?'0':'')+m+':'+(s<10?'0':'')+s;ut>0?ut--:ut=15*60;}catch(e){}}
+  uu();setInterval(uu,1000);
+
+  /* Anno */
+  try{document.getElementById('yr').textContent=new Date().getFullYear();}catch(e){}
+
+  /* Countdown offerta */
+  try{
+    var h=2,m=47,s=31,pad=function(n){return n<10?'0'+n:''+n;};
+    var H=document.getElementById('cd-h'),M=document.getElementById('cd-m'),S=document.getElementById('cd-s');
+    setInterval(function(){try{s--;if(s<0){s=59;m--;}if(m<0){m=59;h--;}if(h<0)h=23;if(H)H.textContent=pad(h);if(M)M.textContent=pad(m);if(S)S.textContent=pad(s);}catch(e){}},1000);
+  }catch(e){}
+
+  /* Barra sticky dopo la sezione offerta */
+  var offer=document.getElementById('pmpl-offer'),sticky=document.getElementById('sticky');
+  sticky.style.display='none';
+  var stTick=false;
+  window.addEventListener('scroll',function(){
+    if(!stTick){stTick=true;requestAnimationFrame(function(){
+      if(offer)sticky.style.display=offer.getBoundingClientRect().bottom<0?'block':'none';
+      stTick=false;
+    });}
+  },{passive:true});
+
+  /* Scroll reveal */
+  var reveals=document.querySelectorAll('[data-r]');
+  try{
+    if('IntersectionObserver' in window){
+      var io=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target);}});
+      },{threshold:0.06,rootMargin:'0px 0px -20px 0px'});
+      reveals.forEach(function(el){io.observe(el);});
+    }else{reveals.forEach(function(el){el.classList.add('vis');});}
+  }catch(err){reveals.forEach(function(el){el.classList.add('vis');});}
+  setTimeout(function(){reveals.forEach(function(el){el.classList.add('vis');});},2500);
+
+  /* FAQ — una aperta alla volta */
+  document.querySelectorAll('.faqitem').forEach(function(d){
+    d.addEventListener('toggle',function(){
+      if(d.open){document.querySelectorAll('.faqitem[open]').forEach(function(o){if(o!==d)o.removeAttribute('open');});}
+    });
+  });
+
+})();
+
+/* Popup social proof — polskie miasta */
+(function(){
+  var pp=[
+    {n:'Joanna M.',p:'🇵🇱 Warszawa'},{n:'Katarzyna W.',p:'🇵🇱 Kraków'},
+    {n:'Marta K.',p:'🇵🇱 Wrocław'},{n:'Anna S.',p:'🇵🇱 Gdańsk'},
+    {n:'Agnieszka F.',p:'🇵🇱 Poznań'},{n:'Ewa M.',p:'🇵🇱 Łódź'},
+    {n:'Zofia B.',p:'🇵🇱 Lublin'},{n:'Magdalena L.',p:'🇵🇱 Katowice'},
+    {n:'Aleksandra P.',p:'🇵🇱 Szczecin'},{n:'Natalia T.',p:'🇵🇱 Bydgoszcz'},
+    {n:'Paulina C.',p:'🇵🇱 Białystok'},{n:'Monika D.',p:'🇵🇱 Rzeszów'},
+    {n:'Izabela V.',p:'🇵🇱 Opole'},{n:'Dominika N.',p:'🇵🇱 Toruń'}
+  ];
+  var pop=document.getElementById('spp'),nEl=document.getElementById('spn'),tEl=document.getElementById('sptm'),xBtn=document.getElementById('spx');
+  if(!pop)return;
+  var queue=pp.slice();
+  for(var i=queue.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var tmp=queue[i];queue[i]=queue[j];queue[j]=tmp;}
+  var idx=0;
+  var mins=[2,3,4,5,6,7,8,9,10,11,12,14,15,17,19,22,25,28,31];
+  function show(){
+    if(idx>=queue.length){for(var i=queue.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var tmp=queue[i];queue[i]=queue[j];queue[j]=tmp;}idx=0;}
+    var p=queue[idx++];
+    nEl.textContent=p.n;
+    var m=mins[Math.floor(Math.random()*mins.length)];
+    tEl.textContent=(m<60?m+' min':Math.floor(m/60)+'h')+' · '+p.p;
+    pop.classList.add('vis');
+    setTimeout(function(){pop.classList.remove('vis');},5000);
+    setTimeout(show,13000+Math.random()*12000);
+  }
+  setTimeout(show,7000+Math.random()*4000);
+  xBtn.addEventListener('click',function(){pop.classList.remove('vis');});
+})();
+</script>

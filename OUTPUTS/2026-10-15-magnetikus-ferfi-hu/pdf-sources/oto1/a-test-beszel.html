@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A Test Beszél™ — Kinyomtatható Cheatsheet</title>
+<style>
+@page { size: A4; margin: 15mm 18mm; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: #FBF9F5; color: #17130E; font-family: Georgia, 'Times New Roman', serif; font-size: 12px; line-height: 1.6; }
+.page-header { text-align: center; padding: 24px 0 20px; border-bottom: 2px solid #17130E; margin-bottom: 20px; }
+.brand { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: #6B5E54; margin-bottom: 8px; }
+.main-title { font-size: 26px; font-weight: bold; color: #17130E; margin-bottom: 6px; }
+.main-sub { font-size: 13px; color: #A63A2A; font-style: italic; }
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.col-on { }
+.col-off { }
+.col-header { padding: 12px 16px; text-align: center; margin-bottom: 12px; }
+.col-header-on { background: #17130E; color: #FBF9F5; }
+.col-header-off { background: #A63A2A; color: #FBF9F5; }
+.col-header .icon { font-size: 22px; margin-bottom: 4px; display: block; }
+.col-header .col-title { font-size: 16px; font-weight: bold; letter-spacing: 1px; }
+.col-header .col-sub { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.8; margin-top: 2px; }
+.item { border: 1px solid #E2D9CE; margin-bottom: 8px; display: flex; gap: 0; }
+.item-icon { width: 36px; min-width: 36px; display: flex; align-items: center; justify-content: center; font-size: 16px; }
+.item-icon-on { background: #17130E; color: #FBF9F5; }
+.item-icon-off { background: #A63A2A; color: #FBF9F5; }
+.item-body { padding: 9px 12px; flex: 1; }
+.item-title { font-size: 12px; font-weight: bold; color: #17130E; margin-bottom: 3px; }
+.item-desc { font-size: 11px; color: #6B5E54; line-height: 1.5; }
+.item-tip { font-size: 10px; color: #A63A2A; font-style: italic; margin-top: 4px; }
+.divider { width: 100%; height: 1px; background: #E2D9CE; margin: 18px 0; }
+.nota { background: #F3EDE5; border-left: 4px solid #A63A2A; padding: 12px 16px; margin-top: 18px; font-size: 11px; color: #6B5E54; }
+.nota strong { color: #17130E; }
+.nota-title { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #A63A2A; margin-bottom: 6px; }
+.seccion-header { text-align: center; margin: 28px 0 18px; }
+.seccion-title { font-size: 15px; font-weight: bold; color: #17130E; border-bottom: 1px solid #E2D9CE; padding-bottom: 8px; }
+footer { margin-top: 30px; padding-top: 14px; border-top: 1px solid #E2D9CE; text-align: center; font-size: 10px; color: #6B5E54; letter-spacing: 1px; }
+.cut-guide { text-align: center; margin: 16px 0; font-size: 9px; color: #6B5E54; letter-spacing: 2px; text-transform: uppercase; }
+.cut-line { border-top: 1px dashed #E2D9CE; }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <div class="brand">Mágneses Férfi™ · Szituációs Arzenál™</div>
+  <div class="main-title">A Test Beszél™</div>
+  <div class="main-sub">Kinyomtatható Cheatsheet — Vágd ki, tedd a zsebedbe</div>
+</div>
+
+<div class="grid">
+  <div class="col-on">
+    <div class="col-header col-header-on">
+      <span class="icon">▲</span>
+      <div class="col-title">BEKAPCSOL</div>
+      <div class="col-sub">Vonzalmat aktivál</div>
+    </div>
+
+    <div class="item">
+      <div class="item-icon item-icon-on">✓</div>
+      <div class="item-body">
+        <div class="item-title">Nyitott testtartás</div>
+        <div class="item-desc">Karod oldalt, vállad hátrahúzva, mellkasod nyitott. Állj úgy, mint aki nem fél a tértől.</div>
+        <div class="item-tip">Gyakorlat: emeld meg a szegycsontod 2 cm-rel — az egész testtartásod megváltozik.</div>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="item-icon item-icon-on">✓</div>
+      <div class="item-body">
+        <div class="item-title">Lassított mozgás</div>
+        <div class="item-desc">Minden mozdulatod szándékos és lassabb a kelleténél. Forgás, kézfogás, ivás — mind lassabban.</div>
+        <div class="item-tip">Ideg: a gyors mozgás stresszt jelez. A lassú mozgás kontrollt.</div>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="item-icon item-icon-on">✓</div>
+      <div class="item-body">
+        <div class="item-title">Aszimmetrikus állás</div>
+        <div class="item-desc">Súlyod egyenlőtlenül — egyik lábadon több, test enyhén döntve. Nem egyenesen mereven.</div>
+        <div class="item-tip">Merev szimmetria = katonai, nem vonzó. Az aszimmetria lazaságot jelez.</div>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="item-icon item-icon-on">✓</div>
+      <div class="item-body">
+        <div class="item-title">Tartós szemkontakt</div>
+        <div class="item-desc">Nézz a szemébe 2-3 másodperccel tovább a "normálisnál". Mielőtt elhúzod, mosolyogj egy mást.</div>
+        <div class="item-tip">Az elkövetett szemkontakt = érdeklődés. A megtört szemkontakt = bizonytalanság.</div>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="item-icon item-icon-on">✓</div>
+      <div class="item-body">
+        <div class="item-title">Szándékos közelítés</div>
+        <div class="item-desc">Lépj közelebb, mint a "barátság-távolság" (90 cm), ha az interakció engedi. Ott maradj.</div>
+        <div class="item-tip">Fizikai közelség feszültséget teremt — ez jó feszültség.</div>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="item-icon item-icon-on">✓</div>
+      <div class="item-body">
+        <div class="item-title">Mély, lassú hang</div>
+        <div class="item-desc">Mellkasból, nem fejből. Szünetek a mondatok között. Ne töltsd ki az üres időt hanggal.</div>
+        <div class="item-tip">Ha ideges vagy, a hang magasabbra megy — vegyél mély lélegzetet, mielőtt megszólalsz.</div>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="item-icon item-icon-on">✓</div>
+      <div class="item-body">
+        <div class="item-title">Célirányos érintés</div>
+        <div class="item-desc">Váll, könyök, csukló — rövid, természetes érintések, amelyek nem kérnek engedélyt.</div>
+        <div class="item-tip">Soha ne tartsd ott a kezed — érintés és elvesz. Ez a ritmus.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="col-off">
+    <div class="col-header col-header-off">
+      <span class="icon">▼</span>
+      <div class="col-title">KIKAPCSOL</div>
+      <div class="col-sub">Vonzalmat megszüntet</div>
+    </div>
+
+    <div class="item">
+      <div class="item-icon item-icon-off">✗</div>
+      <div class="item-body">
+        <div class="item-title">Keresztbe tett kar</div>
+        <div class="item-desc">Bezárja a tested és a kommunikációd. Védekezést jelez, még ha nem is érzed annak.</div>
+        <div class="item-tip">Alternatíva: egyik kezed zsebben, másik laza — nyílt és lazán.</div>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="item-icon item-icon-off">✗</div>
+      <div class="item-body">
+        <div class="item-title">Folyamatos fejbólintás</div>
+        <div class="item-desc">Igénylés-alapú visszajelzés — minden mondatnál bólintani a jóváhagyásért könyörög.</div>
+        <div class="item-tip">Bólints ritkán, ha valóban értesz egyet. Csend és szemkontakt erősebb.</div>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="item-icon item-icon-off">✗</div>
+      <div class="item-body">
+        <div class="item-title">Hátrahúzódás közeledéskor</div>
+        <div class="item-desc">Ha ő közelebb lép és te ösztönösen visszalépsz — jelzed, hogy a közelség kényelmetlenné tesz.</div>
+        <div class="item-tip">Maradj ott, ahol vagy. A tér megtartása önbizalmat mutat.</div>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="item-icon item-icon-off">✗</div>
+      <div class="item-body">
+        <div class="item-title">Elkerülő szemkontakt</div>
+        <div class="item-desc">Nézz jobbra-balra, le, a pohárba, mindenhova — csak ne a szemébe. Idegesség, nem titokzatosság.</div>
+        <div class="item-tip">Ha nehéz megtartani a szemkontaktot, nézz az orrnyerge és a szemek közé — ugyanolyan hatás.</div>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="item-icon item-icon-off">✗</div>
+      <div class="item-body">
+        <div class="item-title">Előrehajolva könyörögve</div>
+        <div class="item-desc">Túlságosan előre döntött test, mintha a válaszáért kölögnél — fizikailag is kiderezi az igényt.</div>
+        <div class="item-tip">Dőlj hátra és hallgasd — a lazaság önt erőt a helyzetbe.</div>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="item-icon item-icon-off">✗</div>
+      <div class="item-body">
+        <div class="item-title">Telefon állandó nézegetése</div>
+        <div class="item-desc">Minden másodperces ellenőrzés jelzi: valami fontosabb vagy érdekesebb van máshol.</div>
+        <div class="item-tip">Tedd a zsebedbe. Ha valóban nézned kell, mondd el előre és aztán tedd vissza.</div>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="item-icon item-icon-off">✗</div>
+      <div class="item-body">
+        <div class="item-title">Kapkodó, gyors megszólalás</div>
+        <div class="item-desc">Betöltöd a csendeket azonnal — ez pánikot és az elutasítástól való félelmet mutat.</div>
+        <div class="item-tip">Csend után várj 2 másodperccel tovább, mint természetesnek érzel. Akkor szólalj meg.</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<div class="nota">
+  <div class="nota-title">Hogyan használd ezt a cheatsheet-et?</div>
+  <strong>Nem kell mindent egyszerre.</strong> Válaszd ki a két "KIKAPCSOL" dolgot, amelyiket leginkább csinálod — és a következő héten csak azon dolgozz, hogy ezeket elkerüld. Aztán adj hozzá egyet a "BEKAPCSOL" listából. Fokozatosan.
+  Az összes egyszerre való erőltetése mesterkéltté tesz. A természetes változás fokozatos.
+</div>
+
+<div class="cut-line"></div>
+<div class="cut-guide">▸ Vágd ki ide — zsebcheatsheet ◂</div>
+<div class="cut-line"></div>
+
+<footer>
+  Mágneses Férfi™ · Szituációs Arzenál™ · Csak vásárlóknak
+</footer>
+
+</body>
+</html>

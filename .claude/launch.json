@@ -1,0 +1,29 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "cuoio-landing",
+      "runtimeExecutable": "bash",
+      "runtimeArgs": ["-c", "cd OUTPUTS/2026-10-10-cuir-et-atelier-it && python3 -m http.server 8765 --bind 127.0.0.1"],
+      "port": 8765
+    },
+    {
+      "name": "leder-mockups",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "8903", "--bind", "127.0.0.1", "--directory", "OUTPUTS/2026-10-10-cuir-et-atelier-de/mockups"],
+      "port": 8903
+    },
+    {
+      "name": "barkery-de",
+      "runtimeExecutable": "bash",
+      "runtimeArgs": ["-c", "cd OUTPUTS/2026-10-12-barkery-from-home-de && python3 -m http.server 8910 --bind 127.0.0.1"],
+      "port": 8910
+    },
+    {
+      "name": "clay-mx",
+      "runtimeExecutable": "bash",
+      "runtimeArgs": ["-c", "cd ADS/CLAY-BLUEPRINTS-MX/2026-10-13 && python3 -m http.server 8920 --bind 127.0.0.1"],
+      "port": 8920
+    }
+  ]
+}

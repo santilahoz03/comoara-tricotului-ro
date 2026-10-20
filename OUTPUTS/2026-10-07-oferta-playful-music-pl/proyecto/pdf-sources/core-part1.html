@@ -1,0 +1,2167 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zabawowa Metoda Muzyczna — Część 1</title>
+  <link rel="stylesheet" href="_shared.css">
+  <style>
+    /* Part-specific styles */
+    .toc-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 16px;
+      background: var(--cream-card);
+      border: 1.5px solid var(--border);
+      border-radius: 14px;
+      margin-bottom: 10px;
+      transition: background .2s;
+    }
+    .toc-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      color: #fff;
+      flex-shrink: 0;
+    }
+    .toc-title {
+      font-family: var(--df);
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--ink);
+    }
+    .toc-desc {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+    .toc-pages {
+      margin-left: auto;
+      font-family: var(--df);
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--teal);
+      white-space: nowrap;
+    }
+
+    .note-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 12px 14px;
+      background: var(--cream-card);
+      border: 1.5px solid var(--border);
+      border-radius: 14px;
+      margin-bottom: 10px;
+    }
+    .note-row .note-info {
+      flex: 1;
+    }
+    .note-row .note-name {
+      font-family: var(--df);
+      font-size: 16px;
+      font-weight: 800;
+    }
+    .note-row .note-assoc {
+      font-size: 13px;
+      color: var(--ink-mid);
+      margin-top: 2px;
+    }
+    .note-row .note-emoji {
+      font-size: 32px;
+      flex-shrink: 0;
+    }
+
+    .week-schedule td {
+      vertical-align: top;
+    }
+    .week-schedule td .ws-emoji {
+      font-size: 20px;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .week-schedule td .ws-label {
+      font-family: var(--df);
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--teal);
+    }
+    .week-schedule td .ws-desc {
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    .benefit-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 14px 0;
+    }
+    .benefit-item {
+      background: var(--cream-card);
+      border: 1.5px solid var(--border);
+      border-radius: 14px;
+      padding: 14px;
+      text-align: center;
+    }
+    .benefit-item .bi-emoji {
+      font-size: 30px;
+      margin-bottom: 6px;
+    }
+    .benefit-item .bi-title {
+      font-family: var(--df);
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--ink);
+    }
+    .benefit-item .bi-desc {
+      font-size: 11.5px;
+      color: var(--muted);
+      margin-top: 4px;
+      line-height: 1.45;
+    }
+
+    .warmup-box {
+      background: var(--cream-card);
+      border: 2px solid var(--border);
+      border-radius: 16px;
+      padding: 16px;
+      margin-bottom: 14px;
+    }
+    .warmup-box .wb-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .warmup-box .wb-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      color: #fff;
+    }
+    .warmup-box .wb-title {
+      font-family: var(--df);
+      font-size: 14px;
+      font-weight: 800;
+    }
+    .warmup-box p {
+      font-size: 13.5px;
+      color: var(--ink-mid);
+      line-height: 1.55;
+    }
+
+    .section-label {
+      display: inline-block;
+      font-family: var(--df);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 99px;
+      margin-bottom: 12px;
+    }
+
+    .ac-section {
+      margin-bottom: 10px;
+    }
+    .ac-section-title {
+      font-family: var(--df);
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--teal-dark);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .ac-section p, .ac-section ul {
+      font-size: 13.5px;
+      color: var(--ink-mid);
+      line-height: 1.55;
+    }
+    .ac-section ul {
+      list-style: none;
+      padding: 0;
+    }
+    .ac-section ul li {
+      padding-left: 16px;
+      position: relative;
+      margin-bottom: 4px;
+    }
+    .ac-section ul li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: var(--teal);
+      font-weight: 700;
+    }
+    .ac-steps {
+      counter-reset: acstep;
+      list-style: none;
+      padding: 0;
+    }
+    .ac-steps li {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      margin-bottom: 8px;
+      font-size: 13.5px;
+      line-height: 1.5;
+      color: var(--ink-mid);
+    }
+    .ac-steps li::before {
+      counter-increment: acstep;
+      content: counter(acstep);
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--teal);
+      color: #fff;
+      font-family: var(--df);
+      font-size: 11px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ============================================================
+     COVER PAGE (no page number)
+     ============================================================ -->
+<div class="page cover">
+  <div class="cover-badge">Zabawowa Metoda Muzyczna</div>
+  <img src="https://files.catbox.moe/uhu2d6.png" alt="Zabawowa Metoda Muzyczna" style="width:220px;border-radius:16px;box-shadow:0 10px 30px rgba(36,29,22,.15);margin-bottom:20px">
+  <h1>🎵 Zabawowa Metoda Muzyczna</h1>
+  <p class="subtitle">Kompletny program edukacji muzycznej dla dzieci 3–7 lat · 180+ stron · 5 modułów</p>
+  <div class="rainbow-bar">
+    <span style="background:var(--n1)"></span>
+    <span style="background:var(--n2)"></span>
+    <span style="background:var(--n3)"></span>
+    <span style="background:var(--n4)"></span>
+    <span style="background:var(--n5)"></span>
+    <span style="background:var(--n6)"></span>
+  </div>
+</div>
+
+<!-- ============================================================
+     TABLE OF CONTENTS — page 1
+     ============================================================ -->
+<div class="page">
+  <h2 style="text-align:center;margin-bottom:6px;">📖 Spis Treści</h2>
+  <p style="text-align:center;color:var(--muted);font-size:13px;margin-bottom:20px;">Twoja mapa po muzycznym świecie — pięć modułów, setki zabaw</p>
+
+  <div class="toc-item">
+    <div class="toc-icon" style="background:var(--teal)">📚</div>
+    <div>
+      <div class="toc-title">Moduł 1: Powitanie i Przewodnik</div>
+      <div class="toc-desc">Poznaj system kolorowych nut i przygotuj się do przygody</div>
+    </div>
+    <div class="toc-pages">str. 3–12</div>
+  </div>
+
+  <div class="toc-item">
+    <div class="toc-icon" style="background:var(--n2)">🎯</div>
+    <div>
+      <div class="toc-title">Moduł 2: Ćwiczenia Praktyczne</div>
+      <div class="toc-desc">32 karty aktywności muzycznych — od rytmu po tworzenie</div>
+    </div>
+    <div class="toc-pages">str. 14–45</div>
+  </div>
+
+  <div class="toc-item">
+    <div class="toc-icon" style="background:var(--n4)">🃏</div>
+    <div>
+      <div class="toc-title">Moduł 3: Karty Muzyczne</div>
+      <div class="toc-desc">30 kart do wydrukowania i wycinania — nuty, rytmy, instrumenty</div>
+    </div>
+    <div class="toc-pages">str. 47–76</div>
+  </div>
+
+  <div class="toc-item">
+    <div class="toc-icon" style="background:var(--n5)">🎲</div>
+    <div>
+      <div class="toc-title">Moduł 4: Gry do Druku</div>
+      <div class="toc-desc">30 gier i zabaw muzycznych — memory, bingo, planszówki</div>
+    </div>
+    <div class="toc-pages">str. 78–104</div>
+  </div>
+
+  <div class="toc-item">
+    <div class="toc-icon" style="background:var(--coral)">🎼</div>
+    <div>
+      <div class="toc-title">Moduł 5: Ilustrowane Partytury</div>
+      <div class="toc-desc">35 piosenek zapisanych kolorowymi nutami — gotowe do grania</div>
+    </div>
+    <div class="toc-pages">str. 106–142</div>
+  </div>
+
+  <div class="toc-item">
+    <div class="toc-icon" style="background:var(--gold)">🏆</div>
+    <div>
+      <div class="toc-title">Dyplom Ukończenia</div>
+      <div class="toc-desc">Nagroda dla małego muzyka za ukończenie programu</div>
+    </div>
+    <div class="toc-pages">str. 143</div>
+  </div>
+
+  <div class="callout ok" style="margin-top:18px;">
+    <strong>💡 Wskazówka:</strong> Nie musisz realizować modułów po kolei. Zacznij od Modułu 1, a potem wybieraj aktywności, karty i piosenki, które najbardziej interesują Twoje dziecko.
+  </div>
+
+  <div class="page-num">1</div>
+</div>
+
+<!-- ============================================================
+     MODULE 1 SEPARATOR — page 2 (no page number)
+     ============================================================ -->
+<div class="page separator">
+  <div class="sep-num" style="background:var(--teal)">1</div>
+  <h2>Powitanie i Przewodnik</h2>
+  <p class="sep-desc">Poznaj system kolorowych nut i przygotuj się do muzycznej przygody ze swoim dzieckiem.</p>
+</div>
+
+<!-- ============================================================
+     PAGE 3 — Witaj w Zabawowej Metodzie Muzycznej!
+     ============================================================ -->
+<div class="page">
+  <span class="section-label" style="background:var(--teal-lt);color:var(--teal-dark);">Moduł 1 · Powitanie</span>
+  <h2>🎵 Witaj w Zabawowej Metodzie Muzycznej!</h2>
+
+  <div class="card">
+    <p style="font-size:15px;line-height:1.7;color:var(--ink-mid);">
+      Drogi Rodzicu, droga Rodzicielko!<br><br>
+      Trzymasz w rękach coś wyjątkowego — kompletny program edukacji muzycznej, który zamieni Twój dom w prawdziwą salę koncertową pełną śmiechu, zabawy i odkrywania dźwięków. <strong>Zabawowa Metoda Muzyczna</strong> została stworzona specjalnie dla dzieci w wieku 3–7 lat i nie wymaga od Ciebie żadnego muzycznego wykształcenia.
+    </p>
+  </div>
+
+  <h3 style="margin-top:16px;">Czym jest Zabawowa Metoda?</h3>
+  <p style="font-size:14px;color:var(--ink-mid);line-height:1.65;margin-bottom:14px;">
+    To system nauki muzyki oparty na <strong>sześciu kolorach</strong> — każda nuta ma swój kolor, co pozwala dziecku „widzieć" muzykę jeszcze zanim nauczy się czytać nuty tradycyjne. Zamiast nudnych ćwiczeń przy pulpicie, Twoje dziecko będzie klaskać, skakać, śpiewać, tworzyć własne instrumenty i grać piosenki za pomocą kolorowych kółek.
+  </p>
+
+  <h3>Dlaczego muzyka jest tak ważna w wieku 3–7 lat?</h3>
+  <div class="benefit-grid">
+    <div class="benefit-item">
+      <div class="bi-emoji">🧠</div>
+      <div class="bi-title">Rozwój mózgu</div>
+      <div class="bi-desc">Muzyka aktywuje oba półkule jednocześnie, wzmacniając połączenia neuronalne.</div>
+    </div>
+    <div class="benefit-item">
+      <div class="bi-emoji">🗣️</div>
+      <div class="bi-title">Rozwój mowy</div>
+      <div class="bi-desc">Śpiewanie rozwija słownictwo, wymowę i poczucie rytmu mowy.</div>
+    </div>
+    <div class="benefit-item">
+      <div class="bi-emoji">🤝</div>
+      <div class="bi-title">Umiejętności społeczne</div>
+      <div class="bi-desc">Wspólne muzykowanie uczy współpracy, cierpliwości i słuchania.</div>
+    </div>
+    <div class="benefit-item">
+      <div class="bi-emoji">❤️</div>
+      <div class="bi-title">Rozwój emocjonalny</div>
+      <div class="bi-desc">Muzyka pomaga wyrażać uczucia i buduje pewność siebie.</div>
+    </div>
+  </div>
+
+  <div class="callout ok">
+    <strong>🌟 Najważniejsza zasada:</strong> W Zabawowej Metodzie nie ma błędów. Każdy dźwięk, który tworzy Twoje dziecko, jest wartościowy. Chodzi o radość z odkrywania, nie o perfekcję.
+  </div>
+
+  <div class="page-num">3</div>
+</div>
+
+<!-- ============================================================
+     PAGE 4 — Jak Korzystać z Tego Programu
+     ============================================================ -->
+<div class="page">
+  <span class="section-label" style="background:var(--teal-lt);color:var(--teal-dark);">Moduł 1 · Instrukcja</span>
+  <h2>📋 Jak Korzystać z Tego Programu</h2>
+  <p style="font-size:14px;color:var(--ink-mid);margin-bottom:16px;line-height:1.6;">
+    Poniżej znajdziesz proste kroki, które pomogą Ci zacząć muzyczną przygodę z Twoim dzieckiem. Pamiętaj — nie ma jednego „właściwego" sposobu korzystania z tego programu. Podążaj za zainteresowaniami swojego dziecka.
+  </p>
+
+  <ol class="steps">
+    <li><strong>Wydrukuj materiały.</strong> Zacznij od Modułu 1 (ten, który czytasz). Karty aktywności, karty muzyczne i gry drukuj stopniowo — tyle, ile potrzebujecie na daną sesję. Druk kolorowy daje najlepsze efekty, ale wersja czarno-biała też działa, jeśli dziecko pokoloruje nuty samodzielnie.</li>
+    <li><strong>Poznajcie kolorowe nuty.</strong> Przejdź z dzieckiem przez strony 5–6, gdzie przedstawiamy system sześciu kolorów. Daj dziecku czas na zapamiętanie — to fundament całej metody.</li>
+    <li><strong>Planuj krótkie sesje.</strong> Idealna sesja trwa <strong>15–20 minut</strong>. Dla młodszych dzieci (3–4 lata) nawet 10 minut wystarczy. Lepiej skończyć za wcześnie, gdy dziecko chce jeszcze, niż za późno, gdy się znudzi.</li>
+    <li><strong>Graj 3–4 razy w tygodniu.</strong> Regularność jest ważniejsza niż długość sesji. Trzy krótkie sesje dadzą lepsze efekty niż jedna długa w weekend.</li>
+    <li><strong>Mieszaj aktywności.</strong> Każda sesja może łączyć elementy z różnych modułów: jedno ćwiczenie praktyczne, jedna gra, jedna piosenka. Nie ma sztywnych reguł.</li>
+    <li><strong>Podążaj za dzieckiem.</strong> Jeśli Twoje dziecko chce powtarzać tę samą piosenkę dwadzieścia razy — świetnie! Powtarzanie jest kluczem do nauki w tym wieku.</li>
+  </ol>
+
+  <div class="callout tip" style="margin-top:14px;">
+    <strong>💡 Wskazówka:</strong> Stwórz „muzyczny kącik" w domu — pudełko z wydrukowanymi materiałami, kredkami w sześciu kolorach nut i prostymi instrumentami (łyżki, garnki, butelki z ryżem). Dziecko będzie mogło sięgać po niego samo, kiedy poczuje muzyczną ochotę.
+  </div>
+
+  <div class="callout warn" style="margin-top:8px;">
+    <strong>⚠️ Ważne:</strong> Nigdy nie zmuszaj dziecka do ćwiczeń muzycznych. Jeśli danego dnia nie ma ochoty, odłóżcie materiały i wróćcie do nich innym razem. Muzyka powinna kojarzyć się z przyjemnością, nie z obowiązkiem.
+  </div>
+
+  <div class="page-num">4</div>
+</div>
+
+<!-- ============================================================
+     PAGE 5 — Nasz System Kolorowych Nut (1/2)
+     ============================================================ -->
+<div class="page">
+  <span class="section-label" style="background:var(--gold-lt);color:#5A4310;">Moduł 1 · Kolorowe Nuty</span>
+  <h2>🎨 Nasz System Kolorowych Nut</h2>
+  <p style="font-size:14px;color:var(--ink-mid);margin-bottom:16px;line-height:1.6;">
+    Sercem Zabawowej Metody jest system sześciu kolorów — każda nuta muzyczna ma swój kolor i swojego „przyjaciela", który pomaga ją zapamiętać. Przejdź przez każdą nutę razem z dzieckiem i pokolorujcie kółka razem!
+  </p>
+
+  <div class="note-row">
+    <div class="note-circle do">Do</div>
+    <div class="note-info">
+      <div class="note-name" style="color:var(--n1);">Do — Czerwony</div>
+      <div class="note-assoc">🍎 Jak czerwone jabłko. „Do" to pierwszy dźwięk — początek każdej piosenki, tak jak jabłko jest początkiem alfabetu (A jak Apple!). Zaśpiewaj „Dooo" niskim, ciepłym głosem.</div>
+    </div>
+    <div class="note-emoji">🍎</div>
+  </div>
+
+  <div class="note-row">
+    <div class="note-circle re">Re</div>
+    <div class="note-info">
+      <div class="note-name" style="color:var(--n2);">Re — Pomarańczowy</div>
+      <div class="note-assoc">🥕 Jak pomarańczowa marchewka. „Re" idzie trochę wyżej — tak jak królik podskakuje, żeby dosięgnąć marchewki. Zaśpiewaj „Reee" odrobinę wyżej niż „Do".</div>
+    </div>
+    <div class="note-emoji">🥕</div>
+  </div>
+
+  <div class="note-row">
+    <div class="note-circle mi">Mi</div>
+    <div class="note-info">
+      <div class="note-name" style="color:#4A3200;">Mi — Żółty</div>
+      <div class="note-assoc">☀️ Jak żółte słoneczko. „Mi" jest jasne i wesołe — tak jak słońce, które budzi nas rano. Zaśpiewaj „Miiii" z uśmiechem na twarzy!</div>
+    </div>
+    <div class="note-emoji">☀️</div>
+  </div>
+
+  <div class="note-row">
+    <div class="note-circle fa">Fa</div>
+    <div class="note-info">
+      <div class="note-name" style="color:var(--n4);">Fa — Zielony</div>
+      <div class="note-assoc">🐸 Jak zielona żabka. „Fa" jest taki skoczny — jak żabka, która robi „kumka!". Zaśpiewaj „Faaa" i podskocz jak żabka!</div>
+    </div>
+    <div class="note-emoji">🐸</div>
+  </div>
+
+  <div class="page-num">5</div>
+</div>
+
+<!-- ============================================================
+     PAGE 6 — Nasz System Kolorowych Nut (2/2)
+     ============================================================ -->
+<div class="page">
+  <span class="section-label" style="background:var(--gold-lt);color:#5A4310;">Moduł 1 · Kolorowe Nuty</span>
+  <h2>🎨 Nasz System Kolorowych Nut (ciąg dalszy)</h2>
+
+  <div class="note-row">
+    <div class="note-circle sol">Sol</div>
+    <div class="note-info">
+      <div class="note-name" style="color:var(--n5);">Sol — Niebieski</div>
+      <div class="note-assoc">🌊 Jak niebieskie niebo i morze. „Sol" jest wysoki i szeroki — jak bezkresne niebo nad głową. Zaśpiewaj „Soool" patrząc w górę i rozłóż ręce szeroko!</div>
+    </div>
+    <div class="note-emoji">🌊</div>
+  </div>
+
+  <div class="note-row">
+    <div class="note-circle la">La</div>
+    <div class="note-info">
+      <div class="note-name" style="color:var(--n6);">La — Łososiowy</div>
+      <div class="note-assoc">🐱 Jak łososiowy kotek. „La" jest delikatne i miłe — jak mruczenie kotka na kolanach. Zaśpiewaj „Laaa" cicho i łagodnie, głaszcząc niewidzialnego kotka.</div>
+    </div>
+    <div class="note-emoji">🐱</div>
+  </div>
+
+  <div style="text-align:center;margin:24px 0 16px;">
+    <p style="font-family:var(--df);font-size:14px;font-weight:700;color:var(--ink);margin-bottom:14px;">Wszystkie nuty razem:</p>
+    <div style="display:flex;justify-content:center;gap:8px;margin-bottom:8px;">
+      <div class="note-circle do">Do</div>
+      <div class="note-circle re">Re</div>
+      <div class="note-circle mi">Mi</div>
+      <div class="note-circle fa">Fa</div>
+      <div class="note-circle sol">Sol</div>
+      <div class="note-circle la">La</div>
+    </div>
+    <p style="font-size:12px;color:var(--muted);">🍎🥕☀️🐸🌊🐱</p>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-bottom:8px;">🎮 Zabawa na start: „Pokaż nutę!"</h3>
+    <p style="font-size:13.5px;color:var(--ink-mid);line-height:1.6;">
+      Wymień nazwę nuty, a dziecko ma wskazać odpowiedni kolor (na tej stronie, na wydrukowanych kartach lub na pokolorowanych kółkach). Potem zamieńcie się rolami — dziecko wskazuje kolor, a Ty śpiewasz nutę. Ta prosta zabawa świetnie utrwala system kolorów.
+    </p>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-bottom:8px;">🖍️ Zadanie: Pokoloruj swoje nuty</h3>
+    <p style="font-size:13.5px;color:var(--ink-mid);line-height:1.6;">
+      Daj dziecku sześć kółek narysowanych na kartce i odpowiednie kredki. Niech pokoloruje każde kółko w kolor nuty i napisze (lub narysuje) obok to, co kojarzy mu się z tym kolorem. Może to być jabłko, marchewka, słoneczko — albo coś zupełnie innego! Ważne, żeby skojarzenie było <em>jego</em>.
+    </p>
+  </div>
+
+  <div class="callout ok" style="margin-top:12px;">
+    <strong>🌟 Pamiętaj:</strong> Dziecko nie musi zapamiętać wszystkich sześciu nut od razu. Zacznijcie od dwóch (Do i Mi), a kolejne dodawajcie stopniowo, kiedy dziecko poczuje się pewnie.
+  </div>
+
+  <div class="page-num">6</div>
+</div>
+
+<!-- ============================================================
+     PAGE 7 — Materiały Potrzebne
+     ============================================================ -->
+<div class="page">
+  <span class="section-label" style="background:var(--teal-lt);color:var(--teal-dark);">Moduł 1 · Przygotowanie</span>
+  <h2>🧰 Materiały Potrzebne</h2>
+  <p style="font-size:14px;color:var(--ink-mid);margin-bottom:16px;line-height:1.6;">
+    Zabawowa Metoda została zaprojektowana tak, żebyś nie musiał/a kupować drogich instrumentów. Wszystko, czego potrzebujesz, prawdopodobnie masz już w domu. Oto lista materiałów:
+  </p>
+
+  <h3 style="color:var(--teal);margin-bottom:10px;">Do drukowania i rysowania</h3>
+  <ul class="checklist">
+    <li>Drukarka (kolorowa lub czarno-biała)</li>
+    <li>Papier A4 (zwykły lub nieco grubszy — 120g)</li>
+    <li>Kredki lub flamastry w 6 kolorach: <span style="color:var(--n1);">■</span> czerwony, <span style="color:var(--n2);">■</span> pomarańczowy, <span style="color:var(--n3);">■</span> żółty, <span style="color:var(--n4);">■</span> zielony, <span style="color:var(--n5);">■</span> niebieski, <span style="color:var(--n6);">■</span> łososiowy/różowy</li>
+    <li>Nożyczki (bezpieczne, dziecięce)</li>
+    <li>Klej w sztyfcie</li>
+    <li>Taśma klejąca lub laminacja (opcjonalnie, dla trwalszych kart)</li>
+  </ul>
+
+  <h3 style="color:var(--teal);margin-top:18px;margin-bottom:10px;">Do zabaw muzycznych</h3>
+  <ul class="checklist">
+    <li>Garnki i pokrywki (perkusja domowa!)</li>
+    <li>Łyżki drewniane lub metalowe (pałeczki perkusyjne)</li>
+    <li>Puste butelki plastikowe (do napełnienia ryżem = marakasy)</li>
+    <li>Ryż, fasola lub makaron (wypełnienie marakasów)</li>
+    <li>Gumki recepturki + pudełko po butach (gitara z pudełka)</li>
+    <li>Papier, folia aluminiowa, bąbelkowa (efekty dźwiękowe)</li>
+  </ul>
+
+  <h3 style="color:var(--teal);margin-top:18px;margin-bottom:10px;">Do ruszania się</h3>
+  <ul class="checklist">
+    <li>Trochę wolnej przestrzeni (pokój lub salon)</li>
+    <li>Muzyka do tańca (telefon z głośnikiem wystarczy)</li>
+    <li>Chustki, szaliki lub wstążki (do tanecznych zabaw)</li>
+    <li>Dobry humor 😊</li>
+  </ul>
+
+  <div class="callout tip" style="margin-top:14px;">
+    <strong>💡 Wskazówka:</strong> Przygotuj „muzyczne pudełko" — włóż wszystkie materiały do jednego pudełka lub koszyka. Kiedy nadejdzie czas na sesję muzyczną, dziecko samo wyciągnie pudełko i poczuje się gotowe do zabawy.
+  </div>
+
+  <div class="page-num">7</div>
+</div>
+
+<!-- ============================================================
+     PAGE 8 — Przewodnik dla Rodziców (1/2)
+     ============================================================ -->
+<div class="page">
+  <span class="section-label" style="background:var(--coral-lt);color:#7A2A10;">Moduł 1 · Dla Rodziców</span>
+  <h2>👨‍👩‍👧 Przewodnik dla Rodziców</h2>
+  <p style="font-size:14px;color:var(--ink-mid);margin-bottom:16px;line-height:1.6;">
+    Nie musisz być muzykiem, żeby uczyć dziecko muzyki. Musisz być jedynie obecny/a, cierpliwy/a i gotowy/a do wspólnej zabawy. Oto, jak muzyka wspiera rozwój Twojego dziecka:
+  </p>
+
+  <h3 style="margin-bottom:12px;">Jak muzyka wspiera rozwój dziecka</h3>
+  <div class="benefit-grid">
+    <div class="benefit-item">
+      <div class="bi-emoji">🧩</div>
+      <div class="bi-title">Rozwój poznawczy</div>
+      <div class="bi-desc">Nauka muzyki wzmacnia pamięć roboczą, koncentrację i zdolność rozwiązywania problemów. Dzieci muzykujące lepiej radzą sobie z matematyką i czytaniem.</div>
+    </div>
+    <div class="benefit-item">
+      <div class="bi-emoji">🤸</div>
+      <div class="bi-title">Motoryka</div>
+      <div class="bi-desc">Klaskanie, granie na instrumentach i taniec rozwijają koordynację ruchową, motorykę drobną i świadomość ciała.</div>
+    </div>
+    <div class="benefit-item">
+      <div class="bi-emoji">💬</div>
+      <div class="bi-title">Rozwój językowy</div>
+      <div class="bi-desc">Śpiewanie piosenek poszerza słownictwo, poprawia wymowę i buduje poczucie struktury języka — rytm, rym, intonacja.</div>
+    </div>
+    <div class="benefit-item">
+      <div class="bi-emoji">🎭</div>
+      <div class="bi-title">Inteligencja emocjonalna</div>
+      <div class="bi-desc">Muzyka daje dziecku bezpieczny sposób na wyrażanie emocji — radości, smutku, ekscytacji — bez słów.</div>
+    </div>
+    <div class="benefit-item">
+      <div class="bi-emoji">👫</div>
+      <div class="bi-title">Umiejętności społeczne</div>
+      <div class="bi-desc">Wspólne muzykowanie uczy czekania na swoją kolej, słuchania innych i współtworzenia — bezcenne umiejętności społeczne.</div>
+    </div>
+    <div class="benefit-item">
+      <div class="bi-emoji">💪</div>
+      <div class="bi-title">Pewność siebie</div>
+      <div class="bi-desc">Każdy nowy dźwięk, każda zaśpiewana piosenka to mały sukces. Te małe sukcesy budują wiarę dziecka we własne możliwości.</div>
+    </div>
+  </div>
+
+  <div class="page-num">8</div>
+</div>
+
+<!-- ============================================================
+     PAGE 9 — Przewodnik dla Rodziców (2/2)
+     ============================================================ -->
+<div class="page">
+  <span class="section-label" style="background:var(--coral-lt);color:#7A2A10;">Moduł 1 · Dla Rodziców</span>
+  <h2>🎯 Złote Zasady Muzycznych Sesji</h2>
+
+  <div class="card" style="margin-bottom:12px;">
+    <h3 style="color:var(--teal);">✅ Rób tak</h3>
+    <ul style="font-size:13.5px;color:var(--ink-mid);line-height:1.65;list-style:none;padding:0;">
+      <li style="margin-bottom:6px;padding-left:20px;position:relative;"><span style="position:absolute;left:0;">🟢</span> <strong>Baw się razem.</strong> Dziecko uczy się najszybciej, kiedy widzi, że rodzic też się dobrze bawi. Śpiewaj, klaskaj, tańcz — nawet jeśli czujesz się głupio.</li>
+      <li style="margin-bottom:6px;padding-left:20px;position:relative;"><span style="position:absolute;left:0;">🟢</span> <strong>Chwal wysiłek, nie efekt.</strong> „Widzę, że bardzo się starasz!" zamiast „To było piękne!". Chwali to, co dziecko kontroluje.</li>
+      <li style="margin-bottom:6px;padding-left:20px;position:relative;"><span style="position:absolute;left:0;">🟢</span> <strong>Powtarzaj.</strong> Jeśli dziecko chce tę samą zabawę piąty raz — świetnie. Powtarzanie buduje pewność i głębokie zrozumienie.</li>
+      <li style="margin-bottom:6px;padding-left:20px;position:relative;"><span style="position:absolute;left:0;">🟢</span> <strong>Kończ, gdy jest dobrze.</strong> Lepiej skończyć w szczycie zabawy niż czekać, aż dziecko straci zainteresowanie.</li>
+      <li style="margin-bottom:6px;padding-left:20px;position:relative;"><span style="position:absolute;left:0;">🟢</span> <strong>Dostosuj trudność.</strong> Jeśli ćwiczenie jest za trudne, uprość je. Jeśli za łatwe, dodaj wyzwanie. Ty najlepiej znasz swoje dziecko.</li>
+    </ul>
+  </div>
+
+  <div class="card" style="margin-bottom:12px;">
+    <h3 style="color:var(--coral);">❌ Unikaj tego</h3>
+    <ul style="font-size:13.5px;color:var(--ink-mid);line-height:1.65;list-style:none;padding:0;">
+      <li style="margin-bottom:6px;padding-left:20px;position:relative;"><span style="position:absolute;left:0;">🔴</span> <strong>Nie poprawiaj co chwilę.</strong> Jeśli dziecko śpiewa trochę fałszywie, to normalne. Stałe poprawianie zabija radość.</li>
+      <li style="margin-bottom:6px;padding-left:20px;position:relative;"><span style="position:absolute;left:0;">🔴</span> <strong>Nie porównuj.</strong> Każde dziecko rozwija się we własnym tempie. Twoje dziecko nie musi być „lepsze" od innych.</li>
+      <li style="margin-bottom:6px;padding-left:20px;position:relative;"><span style="position:absolute;left:0;">🔴</span> <strong>Nie zmuszaj.</strong> „Nie chcę dzisiaj" to pełnoprawna odpowiedź. Szanuj ją.</li>
+      <li style="margin-bottom:6px;padding-left:20px;position:relative;"><span style="position:absolute;left:0;">🔴</span> <strong>Nie przeładowuj sesji.</strong> Jedna-dwie aktywności na sesję w zupełności wystarczą. Jakość ponad ilość.</li>
+    </ul>
+  </div>
+
+  <div class="callout ok">
+    <strong>💚 Co zrobić, gdy dziecko mówi „nie chcę"?</strong><br>
+    Spróbuj inaczej: „A gdybyśmy zagrali na garnkach?" albo „Chcesz wybrać sam/a, w co dzisiaj gramy?". Jeśli nadal nie chce — odłóż materiały. Może jutro. Może za godzinę. Muzyka poczeka.
+  </div>
+
+  <div class="page-num">9</div>
+</div>
+
+<!-- ============================================================
+     PAGE 10 — Terminarz Muzyczny (1/2)
+     ============================================================ -->
+<div class="page">
+  <span class="section-label" style="background:var(--teal-lt);color:var(--teal-dark);">Moduł 1 · Planowanie</span>
+  <h2>📅 Terminarz Muzyczny</h2>
+  <p style="font-size:14px;color:var(--ink-mid);margin-bottom:16px;line-height:1.6;">
+    Poniżej znajdziesz sugerowany plan tygodnia. Każdy dzień skupia się na innym rodzaju aktywności, żeby dziecko poznawało muzykę ze wszystkich stron. To tylko propozycja — dostosuj ją do swojego rytmu dnia!
+  </p>
+
+  <table class="data week-schedule">
+    <thead>
+      <tr>
+        <th>Dzień</th>
+        <th>Temat</th>
+        <th>Co robimy</th>
+        <th>Czas</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <span class="ws-emoji">🎵</span>
+          <span class="ws-label">Poniedziałek</span>
+        </td>
+        <td>
+          <span class="ws-label">Nowe nuty</span>
+          <span class="ws-desc">Wprowadzenie nowego materiału</span>
+        </td>
+        <td style="font-size:12px;color:var(--ink-mid);">Poznaj nową nutę lub piosenkę. Użyj kart z Modułu 3 do pokazania kolorów.</td>
+        <td style="font-size:12px;color:var(--muted);">15 min</td>
+      </tr>
+      <tr>
+        <td>
+          <span class="ws-emoji">🎯</span>
+          <span class="ws-label">Wtorek</span>
+        </td>
+        <td>
+          <span class="ws-label">Ćwiczenie</span>
+          <span class="ws-desc">Utrwalanie przez zabawę</span>
+        </td>
+        <td style="font-size:12px;color:var(--ink-mid);">Wybierz kartę aktywności z Modułu 2. Powtórzcie to, co poznaliście wczoraj.</td>
+        <td style="font-size:12px;color:var(--muted);">15 min</td>
+      </tr>
+      <tr>
+        <td>
+          <span class="ws-emoji">🎲</span>
+          <span class="ws-label">Środa</span>
+        </td>
+        <td>
+          <span class="ws-label">Gry</span>
+          <span class="ws-desc">Nauka przez grę</span>
+        </td>
+        <td style="font-size:12px;color:var(--ink-mid);">Zagrajcie w jedną z gier z Modułu 4: memory, bingo nutowe lub planszówkę.</td>
+        <td style="font-size:12px;color:var(--muted);">20 min</td>
+      </tr>
+      <tr>
+        <td>
+          <span class="ws-emoji">🎤</span>
+          <span class="ws-label">Czwartek</span>
+        </td>
+        <td>
+          <span class="ws-label">Piosenki</span>
+          <span class="ws-desc">Śpiewanie i granie</span>
+        </td>
+        <td style="font-size:12px;color:var(--ink-mid);">Otwórzcie partyturę z Modułu 5 i zagrajcie piosenkę kolorowymi nutami.</td>
+        <td style="font-size:12px;color:var(--muted);">15 min</td>
+      </tr>
+      <tr>
+        <td>
+          <span class="ws-emoji">🎨</span>
+          <span class="ws-label">Piątek</span>
+        </td>
+        <td>
+          <span class="ws-label">Tworzenie</span>
+          <span class="ws-desc">Dzień kreatywności</span>
+        </td>
+        <td style="font-size:12px;color:var(--ink-mid);">Dzień wolny — twórzcie instrumenty, wymyślajcie piosenki, eksperymentujcie z dźwiękiem.</td>
+        <td style="font-size:12px;color:var(--muted);">20 min</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout ok" style="margin-top:14px;">
+    <strong>💡 Pamiętaj:</strong> Weekend to czas na powtórki ulubionych zabaw albo na rodzinny koncert! Nie dodawaj nowego materiału w sobotę i niedzielę — pozwól mózgowi przetworzyć to, co nauczył się w tygodniu.
+  </div>
+
+  <div class="page-num">10</div>
+</div>
+
+<!-- ============================================================
+     PAGE 11 — Terminarz Muzyczny (2/2) — Mapa Postępów
+     ============================================================ -->
+<div class="page">
+  <span class="section-label" style="background:var(--teal-lt);color:var(--teal-dark);">Moduł 1 · Planowanie</span>
+  <h2>🗓️ Mapa Postępów — 8 Tygodni</h2>
+  <p style="font-size:14px;color:var(--ink-mid);margin-bottom:16px;line-height:1.6;">
+    Ten plan to Twoja mapa na pierwsze dwa miesiące. Dostosuj tempo do dziecka — jeśli potrzebuje więcej czasu na dany etap, to żaden problem.
+  </p>
+
+  <table class="data">
+    <thead>
+      <tr>
+        <th>Tydzień</th>
+        <th>Cel</th>
+        <th>Aktywności</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="font-weight:700;color:var(--teal);">1–2</td>
+        <td>Poznaj Do i Mi</td>
+        <td style="font-size:12px;">Kolorowe kółka, piosenka Do-Mi, klaskanie w rytm, gra memory z 2 nutami</td>
+      </tr>
+      <tr>
+        <td style="font-weight:700;color:var(--teal);">3–4</td>
+        <td>Dodaj Re i Sol</td>
+        <td style="font-size:12px;">Drabinka 4 nut, proste piosenki, bęben z garnka, taniec zwierząt</td>
+      </tr>
+      <tr>
+        <td style="font-weight:700;color:var(--teal);">5–6</td>
+        <td>Dodaj Fa i La</td>
+        <td style="font-size:12px;">Pełna paleta 6 nut, gry planszowe, piosenki ludowe, orkiestra domowa</td>
+      </tr>
+      <tr>
+        <td style="font-weight:700;color:var(--teal);">7–8</td>
+        <td>Łączenie i tworzenie</td>
+        <td style="font-size:12px;">Własne kompozycje, trudniejsze piosenki, dyplom ukończenia</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="card" style="margin-top:16px;">
+    <h3 style="margin-bottom:8px;">📝 Twój osobisty dziennik postępów</h3>
+    <p style="font-size:13.5px;color:var(--ink-mid);line-height:1.6;margin-bottom:10px;">
+      Zapisuj po każdej sesji, co robiliście i jak reagowało dziecko. Te notatki pomogą Ci zaplanować kolejne sesje. Oto prosty szablon:
+    </p>
+    <table class="data">
+      <thead>
+        <tr>
+          <th>Data</th>
+          <th>Co robiliśmy</th>
+          <th>Reakcja dziecka</th>
+          <th>Na następny raz</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="color:var(--muted);font-style:italic;">np. 15.10</td>
+          <td style="color:var(--muted);font-style:italic;">Karta nr 3, piosenka „Do-Mi"</td>
+          <td style="color:var(--muted);font-style:italic;">Bardzo się śmiał, chciał powtórkę</td>
+          <td style="color:var(--muted);font-style:italic;">Spróbować z bębnem</td>
+        </tr>
+        <tr><td>&nbsp;</td><td></td><td></td><td></td></tr>
+        <tr><td>&nbsp;</td><td></td><td></td><td></td></tr>
+        <tr><td>&nbsp;</td><td></td><td></td><td></td></tr>
+        <tr><td>&nbsp;</td><td></td><td></td><td></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="page-num">11</div>
+</div>
+
+<!-- ============================================================
+     PAGE 12 — Zanim Zaczniemy: Rozgrzewka
+     ============================================================ -->
+<div class="page">
+  <span class="section-label" style="background:var(--coral-lt);color:#7A2A10;">Moduł 1 · Rozgrzewka</span>
+  <h2>🔥 Zanim Zaczniemy — Rozgrzewka!</h2>
+  <p style="font-size:14px;color:var(--ink-mid);margin-bottom:16px;line-height:1.6;">
+    Każdą sesję muzyczną warto zacząć od krótkiej rozgrzewki. Trwa 2–3 minuty i pomaga dziecku przełączyć się w „tryb muzyczny". Oto trzy szybkie ćwiczenia:
+  </p>
+
+  <div class="warmup-box">
+    <div class="wb-header">
+      <div class="wb-icon" style="background:var(--n1);">👏</div>
+      <div class="wb-title">1. Klaskanie „Powtórz za mną"</div>
+    </div>
+    <p>Sklaszcz prosty rytm — np. dwa szybkie klaśnięcia i jedno wolne (klask-klask... KLASK). Dziecko powtarza. Zacznij od prostych wzorów i stopniowo je komplikuj. Po kilku powtórkach zamieńcie się rolami — dziecko wymyśla rytm, a Ty powtarzasz.</p>
+  </div>
+
+  <div class="warmup-box">
+    <div class="wb-header">
+      <div class="wb-icon" style="background:var(--n4);">🎶</div>
+      <div class="wb-title">2. Śpiewana drabinka</div>
+    </div>
+    <p>Zaśpiewajcie razem drabinkę nut: „Do-Re-Mi-Fa-Sol-La" w górę, a potem „La-Sol-Fa-Mi-Re-Do" w dół. Na każdą nutę wskaż odpowiedni kolor (możesz wydrukować kolorowe kółka i powiesić na ścianie). Robimy to powoli, z wyraźną artykulacją, żeby każda nuta brzmiała czysto.</p>
+  </div>
+
+  <div class="warmup-box">
+    <div class="wb-header">
+      <div class="wb-icon" style="background:var(--n5);">🥁</div>
+      <div class="wb-title">3. Perkusja ciała</div>
+    </div>
+    <p>Perkusja ciała to muzyka, którą nosimy ze sobą! Pokażcie dziecku cztery dźwięki: klaskanie (ręce), tupanie (stopy), klepanie ud (dłonie o uda), pstrykanie palcami (starsze dzieci). Wymyślcie razem krótką sekwencję — np. klask-klask-tup-tup-klep-klep-klask! Powtórzcie ją coraz szybciej.</p>
+  </div>
+
+  <div class="callout tip">
+    <strong>💡 Wskazówka na start:</strong> Po rozgrzewce powiedzcie razem zdanie: „Jesteśmy gotowi na muzykę!" — to tworzy rytuał, który pomaga dziecku wejść w nastrój. Z czasem będzie samo krzyczeć te słowa, gdy zobaczy muzyczne pudełko.
+  </div>
+
+  <div class="page-num">12</div>
+</div>
+
+<!-- ============================================================
+     MODULE 2 SEPARATOR — page 13 (no page number)
+     ============================================================ -->
+<div class="page separator">
+  <div class="sep-num" style="background:var(--n2)">2</div>
+  <h2>Ćwiczenia Praktyczne</h2>
+  <p class="sep-desc">32 karty aktywności muzycznych — od prostych zabaw rytmicznych po zaawansowane ćwiczenia twórcze.</p>
+</div>
+
+<!-- ============================================================
+     ACTIVITY CARD 1 — Klaskanie w Rytm (p14)
+     ============================================================ -->
+<div class="page">
+  <div class="activity-card">
+    <div class="ac-header">
+      <div class="ac-icon" style="background:var(--n1)">👏</div>
+      <div>
+        <div class="ac-title">Klaskanie w Rytm</div>
+        <div class="ac-subtitle">Wiek: 3–5 lat · 10 min · Poziom: ⭐ · Kategoria: Rytm</div>
+      </div>
+    </div>
+    <div class="ac-section">
+      <div class="ac-section-title">🎯 Cel</div>
+      <p>Dziecko uczy się wyczuwać i powtarzać prosty rytm, rozwija koordynację ruchową i koncentrację słuchową.</p>
+    </div>
+    <div class="ac-section">
+      <div class="ac-section-title">🧰 Materiały</div>
+      <ul>
+        <li>Tylko ręce! (opcjonalnie: muzyka z telefonu)</li>
+      </ul>
+    </div>
+    <div class="ac-section">
+      <div class="ac-section-title">📋 Kroki</div>
+      <ol class="ac-steps">
+        <li>Usiądźcie naprzeciwko siebie. Powiedz: „Będę klaskać rytm, a Ty powtórzysz. Słuchaj uważnie!"</li>
+        <li>Sklaszcz prosty wzór: dwa szybkie klaśnięcia (klask-klask). Poczekaj, aż dziecko powtórzy.</li>
+        <li>Dodaj trzecie klaśnięcie z przerwą: klask-klask... KLASK. Powtórzcie razem trzy razy.</li>
+        <li>Teraz zróbcie to samo, ale zamiast trzeciego klaśnięcia — tupnięcie nogą! klask-klask-TUP.</li>
+        <li>Zamieńcie się rolami: dziecko wymyśla rytm, a Ty powtarzasz. Nawet jeśli rytm jest „dziwny", powtórz go wiernie.</li>
+        <li>Na koniec stwórzcie wspólny rytm i klaskajcie go razem, coraz szybciej, aż się ze śmiechu rozsypiecie.</li>
+      </ol>
+    </div>
+    <div class="callout tip" style="margin-top:8px;">
+      <strong>💡 Wskazówka:</strong> Jeśli dziecko ma trudność z powtórzeniem, skróć wzór do jednego klaśnięcia. Ważna jest radość, nie dokładność. Nawet „pomylony" rytm to nauka!
+    </div>
+  </div>
+  <div class="page-num">14</div>
+</div>
+
+<!-- ============================================================
+     ACTIVITY CARD 2 — Marsz Muzyczny (p15)
+     ============================================================ -->
+<div class="page">
+  <div class="activity-card">
+    <div class="ac-header">
+      <div class="ac-icon" style="background:var(--n2)">🥁</div>
+      <div>
+        <div class="ac-title">Marsz Muzyczny</div>
+        <div class="ac-subtitle">Wiek: 3–5 lat · 10 min · Poziom: ⭐ · Kategoria: Rytm</div>
+      </div>
+    </div>
+    <div class="ac-section">
+      <div class="ac-section-title">🎯 Cel</div>
+      <p>Dziecko łączy ruch ciała z pulsem muzyki, uczy się chodzić „w rytm" — fundament muzycznej koordynacji.</p>
+    </div>
+    <div class="ac-section">
+      <div class="ac-section-title">🧰 Materiały</div>
+      <ul>
+        <li>Muzyka marszowa lub energiczna piosenka (telefon/głośnik)</li>
+        <li>Wolna przestrzeń do chodzenia</li>
+      </ul>
+    </div>
+    <div class="ac-section">
+      <div class="ac-section-title">📋 Kroki</div>
+      <ol class="ac-steps">
+        <li>Włącz energiczną muzykę. Powiedz: „Jesteśmy w orkiestrze marszowej! Maszerujemy do muzyki!"</li>
+        <li>Zacznijcie maszerować po pokoju, unosząc kolana wysoko — każdy krok pada na mocny beat muzyki.</li>
+        <li>Zmień prędkość: powiedz „Zwolnij!" i idźcie jak w zwolnionym tempie. Potem „Szybciej!" i przyspieszcie.</li>
+        <li>Dodaj ręce: „Teraz maszerujemy i wymachujemy rękami w górę na każdy krok!"</li>
+        <li>Zatrzymaj muzykę nagle — dziecko musi zamarznąć jak posąg. Włącz ponownie — ruszamy dalej!</li>
+      </ol>
+    </div>
+    <div class="callout tip" style="margin-top:8px;">
+      <strong>💡 Wskazówka:</strong> Baw się kontrastami: ciężki marsz „słonia" (głośne tupanie) i lekki marsz „motyla" (na palcach). Dziecko odkryje, że ruch może być głośny lub cichy, tak jak muzyka.
+    </div>
+  </div>
+  <div class="page-num">15</div>
+</div>
+
+<!-- ============================================================
+     ACTIVITY CARD 3 — Perkusja Ciała (p16)
+     ============================================================ -->
+<div class="page">
+  <div class="activity-card">
+    <div class="ac-header">
+      <div class="ac-icon" style="background:var(--n4)">🤸</div>
+      <div>
+        <div class="ac-title">Perkusja Ciała</div>
+        <div class="ac-subtitle">Wiek: 4–7 lat · 15 min · Poziom: ⭐⭐ · Kategoria: Rytm</div>
+      </div>
+    </div>
+    <div class="ac-section">
+      <div class="ac-section-title">🎯 Cel</div>
+      <p>Dziecko poznaje cztery dźwięki ciała i łączy je w sekwencje, rozwijając koordynację i pamięć ruchową.</p>
+    </div>
+    <div class="ac-section">
+      <div class="ac-section-title">🧰 Materiały</div>
+      <ul>
+        <li>Tylko ciało! Żadnych dodatkowych materiałów</li>
+      </ul>
+    </div>
+    <div class="ac-section">
+      <div class="ac-section-title">📋 Kroki</div>
+      <ol class="ac-steps">
+        <li>Pokażcie razem cztery „instrumenty ciała": <strong>KLASK</strong> (dłonie), <strong>TUP</strong> (stopy), <strong>KLEP</strong> (dłonie o uda), <strong>PSTRYK</strong> (palce — młodsze dzieci mogą klepać po kolanach).</li>
+        <li>Ćwiczcie każdy dźwięk po kolei. Powtórzcie każdy osiem razy: klask-klask-klask..., tup-tup-tup... itd.</li>
+        <li>Stwórzcie prostą sekwencję: KLASK-KLASK-TUP-TUP. Powtórzcie pięć razy.</li>
+        <li>Dodajcie kolejne elementy: KLASK-TUP-KLEP-PSTRYK. Powtórzcie trzy razy powoli, potem szybciej.</li>
+        <li>Dziecko tworzy swoją własną sekwencję z czterech dźwięków. Ty musisz ją powtórzyć!</li>
+        <li>Wielki finał: zróbcie najdłuższą sekwencję, jaką potraficie zapamiętać — kto pomyli się pierwszy?</li>
+      </ol>
+    </div>
+    <div class="callout tip" style="margin-top:8px;">
+      <strong>💡 Wskazówka:</strong> Przypisz każdemu dźwiękowi ciała kolor nuty: KLASK = <span style="color:var(--n1);font-weight:700;">Do (czerwony)</span>, TUP = <span style="color:var(--n2);font-weight:700;">Re (pomarańczowy)</span>, KLEP = <span style="color:var(--n3);font-weight:700;">Mi (żółty)</span>, PSTRYK = <span style="color:var(--n4);font-weight:700;">Fa (zielony)</span>. Dziecko zaczyna łączyć dźwięki z kolorami!
+    </div>
+  </div>
+  <div class="page-num">16</div>
+</div>
+
+<!-- ============================================================
+     ACTIVITY CARD 4 — Echo Rytmiczne (p17)
+     ============================================================ -->
+<div class="page">
+  <div class="activity-card">
+    <div class="ac-header">
+      <div class="ac-icon" style="background:var(--n5)">🔊</div>
+      <div>
+        <div class="ac-title">Echo Rytmiczne</div>
+        <div class="ac-subtitle">Wiek: 3–6 lat · 10 min · Poziom: ⭐ · Kategoria: Rytm</div>
+      </div>
+    </div>
+    <div class="ac-section">
+      <div class="ac-section-title">🎯 Cel</div>
+      <p>Dziecko doskonali umiejętność słuchania i precyzyjnego powtarzania wzorców rytmicznych — klucz do gry na instrumencie.</p>
+    </div>
+    <div class="ac-section">
+      <div class="ac-section-title">🧰 Materiały</div>
+      <ul>
+        <li>Drewniana łyżka lub pałeczka</li>
+        <li>Garnek, pudełko lub deska do krojenia (jako bęben)</li>
+      </ul>
+    </div>
+    <div class="ac-section">
+      <div class="ac-section-title">📋 Kroki</div>
+      <ol class="ac-steps">
+        <li>Powiedz: „Jestem górskie echo! Cokolwiek zagrasz, ja powtórzę. Ale najpierw ja zaczynam."</li>
+        <li>Uderzaj w garnek prostym rytmem: TUM-TUM (dwa uderzenia). Dziecko powtarza swój „TUM-TUM".</li>
+        <li>Komplikuj: TUM-tum-TUM (mocny-cichy-mocny). Słuchaj, czy dziecko odróżnia głośne od cichego.</li>
+        <li>Dodaj pauzy: TUM... (cisza)... TUM-TUM. Cisza jest częścią muzyki!</li>
+        <li>Zamiana ról: teraz dziecko gra rytm, a Ty jesteś echem. Specjalnie pomyl się raz — niech Cię poprawi!</li>
+      </ol>
+    </div>
+    <div class="callout tip" style="margin-top:8px;">
+      <strong>💡 Wskazówka:</strong> Powiedz dziecku, że prawdziwe echo powtarza coraz ciszej. Zagrajcie „grę echa": pierwszy raz głośno, drugi ciszej, trzeci szeptem. To ćwiczenie dynamiki (głośno/cicho)!
+    </div>
+  </div>
+  <div class="page-num">17</div>
+</div>
+
+<!-- ============================================================
+     ACTIVITY CARD 5 — Bęben z Garnka (p18)
+     ============================================================ -->
+<div class="page">
+  <div class="activity-card">
+    <div class="ac-header">
+      <div class="ac-icon" style="background:var(--n1)">🍳</div>
+      <div>
+        <div class="ac-title">Bęben z Garnka</div>
+        <div class="ac-subtitle">Wiek: 3–5 lat · 15 min · Poziom: ⭐ · Kategoria: Rytm</div>
+      </div>
+    </div>
+    <div class="ac-section">
+      <div class="ac-section-title">🎯 Cel</div>
+      <p>Dziecko eksperymentuje z dźwiękami różnych przedmiotów kuchennych, odkrywa różnice w brzmieniu i uczy się kontrolować siłę uderzenia.</p>
+    </div>
+    <div class="ac-section">
+      <div class="ac-section-title">🧰 Materiały</div>
+      <ul>
+        <li>2–3 garnki różnej wielkości</li>
+        <li>Pokrywki od garnków</li>
+        <li>Drewniana łyżka, metalowa łyżka, plastikowa łopatka</li>
+      </ul>
+    </div>
+    <div class="ac-section">
+      <div class="ac-section-title">📋 Kroki</div>
+      <ol class="ac-steps">
+        <li>Rozłóżcie garnki do góry dnem na podłodze. Dajcie dziecku drewnianą łyżkę. „Oto Twoja perkusja!"</li>
+        <li>Niech dziecko uderzy w każdy garnek — czy brzmi tak samo? Porozmawiajcie: duży garnek = niski dźwięk, mały = wysoki.</li>
+        <li>Spróbujcie różnych „pałeczek": drewniana łyżka, metalowa łyżka, plastikowa łopatka. Który dźwięk najbardziej się podoba?</li>
+        <li>Zagrajcie razem: Ty klaskasz rytm, dziecko powtarza go na garnkach. Zaczynajcie od prostych (TUM-TUM), komplikujcie stopniowo.</li>
+        <li>Koncert! Dziecko gra solo na swojej „perkusji kuchennej", a Ty bijesz brawo po każdym utworze.</li>
+      </ol>
+    </div>
+    <div class="callout tip" style="margin-top:8px;">
+      <strong>💡 Wskazówka:</strong> Połóż ręcznik kuchenny na jednym garnku — teraz brzmi inaczej! Dziecko odkrywa, że materiał zmienia dźwięk (tłumienie). To prawdziwa lekcja akustyki w wersji dla malucha.
+    </div>
+  </div>
+  <div class="page-num">18</div>
+</div>
+
+<!-- ============================================================
+     ACTIVITY CARD 6 — Rytm z Łyżkami (p19)
+     ============================================================ -->
+<div class="page">
+  <div class="activity-card">
+    <div class="ac-header">
+      <div class="ac-icon" style="background:var(--n3)">🥄</div>
+      <div>
+        <div class="ac-title">Rytm z Łyżkami</div>
+        <div class="ac-subtitle">Wiek: 4–6 lat · 10 min · Poziom: ⭐⭐ · Kategoria: Rytm</div>
+      </div>
+    </div>
+    <div class="ac-section">
+      <div class="ac-section-title">🎯 Cel</div>
+      <p>Dziecko ćwiczy precyzję rytmiczną, uderzając łyżkami o siebie i o różne powierzchnie w określonym wzorze.</p>
+    </div>
+    <div class="ac-section">
+      <div class="ac-section-title">🧰 Materiały</div>
+      <ul>
+        <li>Dwie drewniane łyżki na osobę (4 łyżki łącznie)</li>
+        <li>Stół, podłoga, kubek plastikowy (różne powierzchnie)</li>
+      </ul>
+    </div>
+    <div class="ac-section">
+      <div class="ac-section-title">📋 Kroki</div>
+      <ol class="ac-steps">
+        <li>Daj dziecku dwie łyżki. Pokażcie, jak uderzać jedną o drugą — to podstawowy dźwięk „STUK".</li>
+        <li>Ćwiczcie stały puls: STUK-STUK-STUK-STUK, jak tykanie zegara. Pilnujcie, żeby przerwy były równe.</li>
+        <li>Teraz uderzajcie łyżkami o stół — inny dźwięk! A o podłogę? A o kubek? Każda powierzchnia brzmi inaczej.</li>
+        <li>Stwórzcie „piosenkę łyżkową": łyżki o siebie (STUK), łyżki o stół (BUM), łyżki o kubek (DING). Powtórzcie wzór: STUK-BUM-DING-STUK-BUM-DING.</li>
+        <li>Włączcie ulubioną piosenkę dziecka i grajcie łyżkami do jej rytmu. Kto wytrzyma cały utwór bez pomyłki?</li>
+      </ol>
+    </div>
+    <div class="callout tip" style="margin-top:8px;">
+      <strong>💡 Wskazówka:</strong> Jeśli drewniane łyżki są za głośne, owiń jedną z nich gumką recepturką — zmieni to jej brzmienie i nauczy dziecko, że modyfikacja instrumentu zmienia dźwięk.
+    </div>
+  </div>
+  <div class="page-num">19</div>
+</div>
+
+<!-- ============================================================
+     ACTIVITY CARD 7 — Taniec Stop-Start (p20)
+     ============================================================ -->
+<div class="page">
+  <div class="activity-card">
+    <div class="ac-header">
+      <div class="ac-icon" style="background:var(--n6)">💃</div>
+      <div>
+        <div class="ac-title">Taniec Stop-Start</div>
+        <div class="ac-subtitle">Wiek: 3–5 lat · 10 min · Poziom: ⭐ · Kategoria: Rytm</div>
+      </div>
+    </div>
+    <div class="ac-section">
+      <div class="ac-section-title">🎯 Cel</div>
+      <p>Dziecko uczy się reagować na dźwięk ciałem — ruszać się, gdy muzyka gra, i zatrzymywać, gdy milknie. Rozwija samoregulację i kontrolę impulsów.</p>
+    </div>
+    <div class="ac-section">
+      <div class="ac-section-title">🧰 Materiały</div>
+      <ul>
+        <li>Wesoła muzyka (telefon/głośnik)</li>
+        <li>Wolna przestrzeń do tańca</li>
+      </ul>
+    </div>
+    <div class="ac-section">
+      <div class="ac-section-title">📋 Kroki</div>
+      <ol class="ac-steps">
+        <li>Wyjaśnij zasadę: „Kiedy muzyka gra — tańczymy! Kiedy muzyka milknie — zamieramy jak posągi!"</li>
+        <li>Włącz muzykę i tańczcie razem. Po 10–15 sekundach zatrzymaj — oboje zamieram. Kto się ruszył, odpada (ale oczywiście nikt nie odpada naprawdę!).</li>
+        <li>Powtarzajcie, stopniowo skracając odcinki muzyki — im krótsze, tym trudniej zamarznąć na czas.</li>
+        <li>Wariant: gdy muzyka jest głośna, tańczcie na dużą skalę (skoki, wymachi). Gdy cicha — na małą (palce, głowa, stopy).</li>
+        <li>Finał: kto potrafi tańczyć w zwolnionym tempie jak w „slow motion"? Włącz bardzo wolną muzykę i sprawdźcie!</li>
+      </ol>
+    </div>
+    <div class="callout tip" style="margin-top:8px;">
+      <strong>💡 Wskazówka:</strong> Dodaj zasadę „zamrożonych póz": kiedy muzyka się zatrzyma, dziecko musi zamarznąć w pozie zwierzęcia (żyrafa, flaming, miś). To ćwiczy równowagę i wyobraźnię jednocześnie.
+    </div>
+  </div>
+  <div class="page-num">20</div>
+</div>
+
+<!-- ============================================================
+     ACTIVITY CARD 8 — Rytm Imienia (p21)
+     ============================================================ -->
+<div class="page">
+  <div class="activity-card">
+    <div class="ac-header">
+      <div class="ac-icon" style="background:var(--n4)">🗣️</div>
+      <div>
+        <div class="ac-title">Rytm Imienia</div>
+        <div class="ac-subtitle">Wiek: 3–6 lat · 10 min · Poziom: ⭐ · Kategoria: Rytm</div>
+      </div>
+    </div>
+    <div class="ac-section">
+      <div class="ac-section-title">🎯 Cel</div>
+      <p>Dziecko odkrywa, że każde słowo ma swój rytm — liczbę sylab. To fundament rozumienia metryki muzycznej i pomaga w nauce czytania.</p>
+    </div>
+    <div class="ac-section">
+      <div class="ac-section-title">🧰 Materiały</div>
+      <ul>
+        <li>Tylko głos i ręce</li>
+        <li>Opcjonalnie: karteczki z imionami członków rodziny</li>
+      </ul>
+    </div>
+    <div class="ac-section">
+      <div class="ac-section-title">📋 Kroki</div>
+      <ol class="ac-steps">
+        <li>Powiedz imię dziecka, dzieląc je na sylaby i klaskając na każdą: „A-NIA" (klask-klask) albo „KA-TA-RZY-NA" (klask-klask-klask-klask).</li>
+        <li>Niech dziecko spróbuje ze swoim imieniem. Potem z Twoim. Potem z imieniem mamy/taty/brata/siostry/psa.</li>
+        <li>Porównajcie: które imię jest „krótkie" (1–2 klaśnięcia), a które „długie" (3–4 klaśnięcia)? Kto ma najdłuższe?</li>
+        <li>Zamieńcie klaskanie na tupanie, potem na klepanie ud. Każde imię brzmi inaczej z innym „instrumentem ciała".</li>
+        <li>Stwórzcie „piosenkę z imion": zaśpiewajcie imiona wszystkich w rodzinie jedno po drugim w jednym rytmie.</li>
+      </ol>
+    </div>
+    <div class="callout tip" style="margin-top:8px;">
+      <strong>💡 Wskazówka:</strong> Rozszerz zabawę na inne słowa: nazwy zwierząt (KOT = 1 klask, KO-TEK = 2, KO-TE-CZEK = 3), jedzenia, zabawek. Dziecko zaczyna słyszeć rytm w codziennym języku — to niesamowicie wspiera rozwój fonologiczny!
+    </div>
+  </div>
+  <div class="page-num">21</div>
+</div>
+
+<!-- ============================================================
+     ACTIVITY CARD 9 — Śpiewanie Nut Kolorami (p22)
+     ============================================================ -->
+<div class="page">
+  <div class="activity-card">
+    <div class="ac-header">
+      <div class="ac-icon" style="background:var(--n1)">🎨</div>
+      <div>
+        <div class="ac-title">Śpiewanie Nut Kolorami</div>
+        <div class="ac-subtitle">Wiek: 3–6 lat · 15 min · Poziom: ⭐ · Kategoria: Śpiew</div>
+      </div>
+    </div>
+    <div class="ac-section">
+      <div class="ac-section-title">🎯 Cel</div>
+      <p>Dziecko łączy nazwy nut z ich kolorami, śpiewając każdą nutę i jednocześnie wskazując odpowiedni kolor. Fundament systemu kolorowych nut.</p>
+    </div>
+    <div class="ac-section">
+      <div class="ac-section-title">🧰 Materiały</div>
+      <ul>
+        <li>Wydrukowane kolorowe kółka nut (z kart muzycznych, Moduł 3)</li>
+        <li>Opcjonalnie: 6 kartek w kolorach nut przyklejonych do ściany</li>
+      </ul>
+    </div>
+    <div class="ac-section">
+      <div class="ac-section-title">📋 Kroki</div>
+      <ol class="ac-steps">
+        <li>Rozłóżcie sześć kolorowych kółek nut na podłodze lub stole w kolejności: <span style="color:var(--n1);">Do</span>, <span style="color:var(--n2);">Re</span>, <span style="color:var(--n3);">Mi</span>, <span style="color:var(--n4);">Fa</span>, <span style="color:var(--n5);">Sol</span>, <span style="color:var(--n6);">La</span>.</li>
+        <li>Śpiewaj każdą nutę, wskazując odpowiednie kółko. Dziecko powtarza. Idźcie powoli w górę: Do-Re-Mi-Fa-Sol-La.</li>
+        <li>Teraz w dół: La-Sol-Fa-Mi-Re-Do. Powtórzcie trzy razy.</li>
+        <li>Zabawa „Wskaż i zaśpiewaj": wskazujesz losowy kolor, dziecko śpiewa odpowiednią nutę. Zacznij od dwóch nut, dodawaj kolejne.</li>
+        <li>Zamiana ról: dziecko wskazuje kółka, Ty śpiewasz. Specjalnie pomyl się raz — czy dziecko Cię poprawi?</li>
+        <li>Łączenie: wskaż dwie nuty po kolei (np. Do-Mi), dziecko śpiewa obie. Potem trzy. To już jest melodia!</li>
+      </ol>
+    </div>
+    <div class="callout tip" style="margin-top:8px;">
+      <strong>💡 Wskazówka:</strong> Przyklej kółka nut na ścianę na wysokości dziecka — jedno obok drugiego, jak klawiaturę. Dziecko będzie mogło „grać na ścianie" w dowolnej chwili.
+    </div>
+  </div>
+  <div class="page-num">22</div>
+</div>
+
+<!-- ============================================================
+     ACTIVITY CARD 10 — Piosenka Powitalna (p23)
+     ============================================================ -->
+<div class="page">
+  <div class="activity-card">
+    <div class="ac-header">
+      <div class="ac-icon" style="background:var(--n2)">🌞</div>
+      <div>
+        <div class="ac-title">Piosenka Powitalna</div>
+        <div class="ac-subtitle">Wiek: 3–5 lat · 10 min · Poziom: ⭐ · Kategoria: Śpiew</div>
+      </div>
+    </div>
+    <div class="ac-section">
+      <div class="ac-section-title">🎯 Cel</div>
+      <p>Dziecko uczy się prostej melodii, która stanie się rytuałem otwierającym każdą sesję muzyczną — buduje nawyk i poczucie bezpieczeństwa.</p>
+    </div>
+    <div class="ac-section">
+      <div class="ac-section-title">🧰 Materiały</div>
+      <ul>
+        <li>Głos i dobry humor</li>
+        <li>Opcjonalnie: kolorowe kółka nut jako podpowiedź</li>
+      </ul>
+    </div>
+    <div class="ac-section">
+      <div class="ac-section-title">📋 Kroki</div>
+      <ol class="ac-steps">
+        <li>Naucz dziecko prostej piosenki powitalnej na melodię „Panie Janie": „Gramy w nuty, gramy w nuty, raz-dwa-trzy, raz-dwa-trzy, muzyka jest piękna, muzyka jest piękna, graj ze mną, graj ze mną!"</li>
+        <li>Śpiewajcie razem, powoli, dwa razy. Za trzecim razem dodajcie klaskanie na „raz-dwa-trzy".</li>
+        <li>Zaśpiewajcie ją jeszcze raz, ale zamiast „gramy w nuty" — wstawcie imię dziecka: „[Imię] gra w nuty!"</li>
+        <li>Niech dziecko spróbuje zaśpiewać samo. Ty wtóruj cichutko, żeby czuło wsparcie, ale pozwól mu prowadzić.</li>
+        <li>Od teraz zaczynacie każdą sesję muzyczną tą piosenką. Po kilku tygodniach dziecko będzie śpiewać ją z pamięci!</li>
+      </ol>
+    </div>
+    <div class="callout tip" style="margin-top:8px;">
+      <strong>💡 Wskazówka:</strong> Rytuały są niezwykle ważne dla dzieci w tym wieku. Piosenka powitalna mówi: „Czas na muzykę!" — tak jak piżama mówi „Czas na sen". Po kilku tygodniach możecie stworzyć też piosenkę pożegnalną na koniec sesji.
+    </div>
+  </div>
+  <div class="page-num">23</div>
+</div>
+
+<!-- ============================================================
+     ACTIVITY CARD 11 — Śpiewanie Głośno i Cicho (p24)
+     ============================================================ -->
+<div class="page">
+  <div class="activity-card">
+    <div class="ac-header">
+      <div class="ac-icon" style="background:var(--n4)">🔈</div>
+      <div>
+        <div class="ac-title">Śpiewanie Głośno i Cicho</div>
+        <div class="ac-subtitle">Wiek: 3–6 lat · 10 min · Poziom: ⭐ · Kategoria: Śpiew</div>
+      </div>
+    </div>
+    <div class="ac-section">
+      <div class="ac-section-title">🎯 Cel</div>
+      <p>Dziecko uczy się kontrolować głośność głosu — od szeptu po okrzyk. To nauka dynamiki, jednego z fundamentów ekspresji muzycznej.</p>
+    </div>
+    <div class="ac-section">
+      <div class="ac-section-title">🧰 Materiały</div>
+      <ul>
+        <li>Znana piosenka (np. „Wlazł kotek na płotek")</li>
+        <li>Opcjonalnie: kartka z narysowanym „miernikiem głośności" (od 1 do 5)</li>
+      </ul>
+    </div>
+    <div class="ac-section">
+      <div class="ac-section-title">📋 Kroki</div>
+      <ol class="ac-steps">
+        <li>Zaśpiewajcie razem znaną piosenkę normalnym głosem. Potem: „A teraz śpiewamy jak myszka — ciuuuuutko!"</li>
+        <li>Zaśpiewajcie szeptem. Pochylcie się do siebie, żeby się usłyszeć. Śmiech gwarantowany!</li>
+        <li>„A teraz jak lew! GŁOŚNO!" — zaśpiewajcie tę samą piosenkę najgłośniej jak potraficie.</li>
+        <li>Narysujcie „miernik głośności" od 1 (szept) do 5 (krzyk). Wskazuj liczbę, a dziecko dostosowuje głośność w trakcie śpiewania.</li>
+        <li>Najtrudniejsze: zaczynajcie cicho, stopniowo coraz głośniej (crescendo), a potem coraz ciszej (decrescendo). To prawdziwa technika muzyczna!</li>
+      </ol>
+    </div>
+    <div class="callout tip" style="margin-top:8px;">
+      <strong>💡 Wskazówka:</strong> Użyj muzycznych terminów w zabawny sposób: „piano" to cicho (jak pianinko), „forte" to głośno (jak siłacz!). Dziecko pokocha te „tajemne muzyczne słowa" i poczuje się jak prawdziwy muzyk.
+    </div>
+  </div>
+  <div class="page-num">24</div>
+</div>
+
+<!-- ============================================================
+     ACTIVITY CARD 12 — Echo Melodyczne (p25)
+     ============================================================ -->
+<div class="page">
+  <div class="activity-card">
+    <div class="ac-header">
+      <div class="ac-icon" style="background:var(--n5)">🏔️</div>
+      <div>
+        <div class="ac-title">Echo Melodyczne</div>
+        <div class="ac-subtitle">Wiek: 4–7 lat · 10 min · Poziom: ⭐⭐ · Kategoria: Śpiew</div>
+      </div>
+    </div>
+    <div class="ac-section">
+      <div class="ac-section-title">🎯 Cel</div>
+      <p>Dziecko słucha krótkiej melodii (2–4 nuty) i powtarza ją głosem. Rozwija pamięć melodyczną i poczucie wysokości dźwięku.</p>
+    </div>
+    <div class="ac-section">
+      <div class="ac-section-title">🧰 Materiały</div>
+      <ul>
+        <li>Głos (Twój i dziecka)</li>
+        <li>Opcjonalnie: kolorowe kółka nut jako wsparcie wizualne</li>
+      </ul>
+    </div>
+    <div class="ac-section">
+      <div class="ac-section-title">📋 Kroki</div>
+      <ol class="ac-steps">
+        <li>Powiedz: „Jestem echo górskie. Zaśpiewam dwie nutki, a Ty powtórzysz dokładnie tak samo."</li>
+        <li>Zaśpiewaj dwie nuty: Do-Mi (nisko-wysoko). Poczekaj. Dziecko powtarza. Pochwał: „Świetne echo!"</li>
+        <li>Spróbuj innych par: Re-Sol, Mi-Do (wysoko-nisko — to trudniejsze!), Fa-La.</li>
+        <li>Dodaj trzecią nutę: Do-Mi-Sol. Zaśpiewaj powoli, z wyraźną przerwą między nutami. Dziecko powtarza.</li>
+        <li>Zamiana: dziecko śpiewa melodię, Ty powtarzasz. Jeśli nie umiesz odtworzyć — to świetne! Dziecko widzi, że dorosły też się uczy.</li>
+      </ol>
+    </div>
+    <div class="callout tip" style="margin-top:8px;">
+      <strong>💡 Wskazówka:</strong> Używaj kolorowych kółek jako wsparcia: wskaż kolejno <span style="color:var(--n1);">czerwone</span> i <span style="color:var(--n3);">żółte</span>, śpiewając Do-Mi. Dziecko widzi, co słyszy. To wielozmysłowe uczenie się — wzrok + słuch jednocześnie.
+    </div>
+  </div>
+  <div class="page-num">25</div>
+</div>
+
+<!-- ============================================================
+     ACTIVITY CARD 13 — Tworzenie Prostej Melodii (p26)
+     ============================================================ -->
+<div class="page">
+  <div class="activity-card">
+    <div class="ac-header">
+      <div class="ac-icon" style="background:var(--n3)">✨</div>
+      <div>
+        <div class="ac-title">Tworzenie Prostej Melodii</div>
+        <div class="ac-subtitle">Wiek: 5–7 lat · 15 min · Poziom: ⭐⭐⭐ · Kategoria: Śpiew</div>
+      </div>
+    </div>
+    <div class="ac-section">
+      <div class="ac-section-title">🎯 Cel</div>
+      <p>Dziecko tworzy własną krótką melodię z 3–4 nut, ucząc się, że muzyka to nie tylko powtarzanie, ale też wymyślanie. Rozwija kreatywność i pewność siebie.</p>
+    </div>
+    <div class="ac-section">
+      <div class="ac-section-title">🧰 Materiały</div>
+      <ul>
+        <li>Kolorowe kółka nut (wydrukowane lub narysowane)</li>
+        <li>Kartka i kredki w 6 kolorach</li>
+      </ul>
+    </div>
+    <div class="ac-section">
+      <div class="ac-section-title">📋 Kroki</div>
+      <ol class="ac-steps">
+        <li>Rozłóżcie kółka nut w rzędzie. Powiedz: „Dzisiaj TY jesteś kompozytorem! Skomponujesz swoją własną piosenkę."</li>
+        <li>Zacznij od przykładu: ułóż trzy kółka w kolejności (np. Do-Mi-Sol) i zaśpiewajcie tę melodię razem.</li>
+        <li>Teraz dziecko wybiera 3–4 kółka i układa je w dowolnej kolejności. To jest jego melodia!</li>
+        <li>Zaśpiewajcie melodię dziecka razem. Powtórzcie trzy razy, żeby ją zapamiętać.</li>
+        <li>Dziecko rysuje swoją melodię na kartce: kolorowe kółka jedno obok drugiego. To jego pierwsza partytura!</li>
+        <li>Nadajcie piosence tytuł: „Piosenka o kocie", „Melodia słoneczna" — cokolwiek dziecko wymyśli.</li>
+      </ol>
+    </div>
+    <div class="callout tip" style="margin-top:8px;">
+      <strong>💡 Wskazówka:</strong> Zachowaj wszystkie „kompozycje" dziecka w specjalnym zeszycie. Po kilku tygodniach będziecie mieć śpiewnik pełen własnych piosenek! Nic tak nie buduje dumy jak powrót do „mojej piosenki sprzed dwóch tygodni".
+    </div>
+  </div>
+  <div class="page-num">26</div>
+</div>
+
+<!-- ============================================================
+     ACTIVITY CARD 14 — Śpiewanie z Ruchem (p27)
+     ============================================================ -->
+<div class="page">
+  <div class="activity-card">
+    <div class="ac-header">
+      <div class="ac-icon" style="background:var(--n6)">🕺</div>
+      <div>
+        <div class="ac-title">Śpiewanie z Ruchem</div>
+        <div class="ac-subtitle">Wiek: 3–6 lat · 10 min · Poziom: ⭐ · Kategoria: Śpiew</div>
+      </div>
+    </div>
+    <div class="ac-section">
+      <div class="ac-section-title">🎯 Cel</div>
+      <p>Dziecko łączy śpiewanie z gestami ciała — każdej nucie odpowiada inny ruch. Wzmacnia to pamięć melodyczną i koordynację.</p>
+    </div>
+    <div class="ac-section">
+      <div class="ac-section-title">🧰 Materiały</div>
+      <ul>
+        <li>Wolna przestrzeń do ruchu</li>
+        <li>Znana piosenka z gestami (np. „Głowa, ramiona, kolana, palce")</li>
+      </ul>
+    </div>
+    <div class="ac-section">
+      <div class="ac-section-title">📋 Kroki</div>
+      <ol class="ac-steps">
+        <li>Zaśpiewajcie „Głowa, ramiona, kolana, palce" — dotykając odpowiednich części ciała przy każdym słowie.</li>
+        <li>Teraz przypieszajcie z każdą kolejną powtórką. Za trzecim razem będzie się to robiło naprawdę trudne!</li>
+        <li>Wariant: zaśpiewajcie drabinkę nut Do-Re-Mi-Fa-Sol-La z ruchami: Do = kucnij, Re = dotknij kolan, Mi = dotknij bioder, Fa = dotknij ramion, Sol = ręce do góry, La = podskocz!</li>
+        <li>Powtórzcie „drabinkę ruchową" w górę i w dół. Im szybciej, tym zabawniej.</li>
+        <li>Wymyślcie własne ruchy do każdej nuty. Jakie gesty wymyśli dziecko?</li>
+      </ol>
+    </div>
+    <div class="callout tip" style="margin-top:8px;">
+      <strong>💡 Wskazówka:</strong> Przypisanie ruchów do nut to metoda Dalcroze'a — jednej z najbardziej szanowanych metod muzycznych na świecie. Ciało pamięta dłużej niż głowa, więc ruch naprawdę pomaga zapamiętać melodię.
+    </div>
+  </div>
+  <div class="page-num">27</div>
+</div>
+
+<!-- ============================================================
+     ACTIVITY CARD 15 — Taniec Zwierząt (p28)
+     ============================================================ -->
+<div class="page">
+  <div class="activity-card">
+    <div class="ac-header">
+      <div class="ac-icon" style="background:var(--n4)">🐻</div>
+      <div>
+        <div class="ac-title">Taniec Zwierząt</div>
+        <div class="ac-subtitle">Wiek: 3–5 lat · 15 min · Poziom: ⭐ · Kategoria: Ruch</div>
+      </div>
+    </div>
+    <div class="ac-section">
+      <div class="ac-section-title">🎯 Cel</div>
+      <p>Dziecko łączy charakter muzyki z ruchem ciała, naśladując różne zwierzęta. Uczy się rozpoznawać tempo i nastrój muzyki.</p>
+    </div>
+    <div class="ac-section">
+      <div class="ac-section-title">🧰 Materiały</div>
+      <ul>
+        <li>Muzyka w różnych tempach (wolna, szybka, skoczna)</li>
+        <li>Wolna przestrzeń</li>
+      </ul>
+    </div>
+    <div class="ac-section">
+      <div class="ac-section-title">📋 Kroki</div>
+      <ol class="ac-steps">
+        <li>Powiedz: „Muzyka zamienia nas w zwierzęta! Gdy usłyszysz wolną muzykę, jesteś... ŻÓŁWIEM!" Włącz wolny utwór. Poruszajcie się powolutku.</li>
+        <li>„Szybka muzyka? Jesteś KRÓLIKIEM!" Przełącz na energiczny utwór. Skaczcie po pokoju!</li>
+        <li>Dodajcie więcej zwierząt: ciężka muzyka = niedźwiedź (tupiemy ciężko), lekka = motyl (na palcach, z „skrzydłami"), skoczna = kangur (skoki!), płynna = ryba (machamy „płetwami").</li>
+        <li>Przełączaj muzykę bez zapowiedzi — dziecko musi samo rozpoznać charakter muzyki i zmienić zwierzę.</li>
+        <li>Na koniec dziecko wymyśla SWOJE zwierzę do swojej ulubionej muzyki. Jak tańczy jednorożec? A dinozaur?</li>
+      </ol>
+    </div>
+    <div class="callout tip" style="margin-top:8px;">
+      <strong>💡 Wskazówka:</strong> To doskonała zabawa na deszczowe popołudnia i świetna okazja do spalenia energii. Jeśli bawicie się w grupie (rodzeństwo, plac zabaw), każde dziecko może być innym zwierzęciem!
+    </div>
+  </div>
+  <div class="page-num">28</div>
+</div>
+
+<!-- ============================================================
+     ACTIVITY CARD 16 — Muzyczny Posąg (p29)
+     ============================================================ -->
+<div class="page">
+  <div class="activity-card">
+    <div class="ac-header">
+      <div class="ac-icon" style="background:var(--n5)">🗿</div>
+      <div>
+        <div class="ac-title">Muzyczny Posąg</div>
+        <div class="ac-subtitle">Wiek: 3–6 lat · 10 min · Poziom: ⭐ · Kategoria: Ruch</div>
+      </div>
+    </div>
+    <div class="ac-section">
+      <div class="ac-section-title">🎯 Cel</div>
+      <p>Dziecko ćwiczy kontrolę ciała, równowagę i umiejętność zamierania w bezruchu. Rozwija samodyscyplinę w zabawowy sposób.</p>
+    </div>
+    <div class="ac-section">
+      <div class="ac-section-title">🧰 Materiały</div>
+      <ul>
+        <li>Muzyka (dowolna, im bardziej zróżnicowana, tym lepiej)</li>
+        <li>Wolna przestrzeń</li>
+      </ul>
+    </div>
+    <div class="ac-section">
+      <div class="ac-section-title">📋 Kroki</div>
+      <ol class="ac-steps">
+        <li>Wyjaśnij: „Gdy muzyka gra, tańczysz jak chcesz. Gdy zatrzymam muzykę — zamieniasz się w posąg i nie ruszasz się, dopóki nie włączę z powrotem!"</li>
+        <li>Włącz muzykę, tańczcie razem. Po 15 sekundach zatrzymaj. Kto ruszył się jako pierwszy?</li>
+        <li>Wariant: „Posąg emocji" — gdy muzyka milknie, krzycz emocję: „RADOŚĆ!" (poza radosna), „ZDZIWIENIE!" (poza zdziwiona), „SIŁA!" (poza siłacza).</li>
+        <li>„Posąg w parze" — zamieramy w pozach, dotykając się nawzajem (np. obie ręce złączone, plecy do siebie). To uczy współpracy.</li>
+        <li>Najtrudniejsze: „posąg w zwolnionym tempie" — po zatrzymaniu muzyki nie zamieramy natychmiast, ale zwalniamy ruch do zera w ciągu 5 sekund.</li>
+      </ol>
+    </div>
+    <div class="callout tip" style="margin-top:8px;">
+      <strong>💡 Wskazówka:</strong> Rób zdjęcia najzabawniejszych „póz posągów" — po kilku tygodniach będziecie mieć galerię pełną śmiesznych zdjęć z muzycznych sesji. To piękna pamiątka!
+    </div>
+  </div>
+  <div class="page-num">29</div>
+</div>
+
+<!-- ============================================================
+     ACTIVITY CARD 17 — Pływanie w Muzyce (p30)
+     ============================================================ -->
+<div class="page">
+  <div class="activity-card">
+    <div class="ac-header">
+      <div class="ac-icon" style="background:var(--n5)">🌊</div>
+      <div>
+        <div class="ac-title">Pływanie w Muzyce</div>
+        <div class="ac-subtitle">Wiek: 3–5 lat · 10 min · Poziom: ⭐ · Kategoria: Ruch</div>
+      </div>
+    </div>
+    <div class="ac-section">
+      <div class="ac-section-title">🎯 Cel</div>
+      <p>Dziecko uczy się płynnych, łagodnych ruchów do spokojnej muzyki. Rozwija świadomość ciała i uczy się odróżniać charakter muzyki (delikatna vs. energiczna).</p>
+    </div>
+    <div class="ac-section">
+      <div class="ac-section-title">🧰 Materiały</div>
+      <ul>
+        <li>Spokojna, płynna muzyka (klasyczna, np. Debussy — „Clair de Lune")</li>
+        <li>Chustka, szalik lub wstążka na osobę</li>
+      </ul>
+    </div>
+    <div class="ac-section">
+      <div class="ac-section-title">📋 Kroki</div>
+      <ol class="ac-steps">
+        <li>Powiedz: „Jesteśmy rybkami w morzu! Muzyka to nasze morze. Pływamy w niej łagodnie..."</li>
+        <li>Włącz spokojną muzykę. Poruszajcie się po pokoju powolnymi, płynnymi ruchami — jak ryby w wodzie.</li>
+        <li>Weźcie chustki i machajcie nimi jak fale. Chustka „płynie" razem z muzyką.</li>
+        <li>Zmień nastrój muzyki na bardziej „burzliwy" — „Nadchodzi sztorm! Fale są duże! Machajcie chustkami mocno!" Ruch staje się dynamiczny.</li>
+        <li>Wróćcie do spokojnej muzyki. „Sztorm minął. Morze jest spokojne. Pływamy łagodnie..." Wyciszenie na koniec.</li>
+      </ol>
+    </div>
+    <div class="callout tip" style="margin-top:8px;">
+      <strong>💡 Wskazówka:</strong> To piękne ćwiczenie wyciszające na koniec sesji. Jeśli dziecko jest nadpobudliwe, „pływanie" pomaga je uspokoić. Dodaj na koniec „odpoczynek na dnie morza" — leżymy na plecach, oddychamy spokojnie przez minutę.
+    </div>
+  </div>
+  <div class="page-num">30</div>
+</div>
+
+<!-- ============================================================
+     ACTIVITY CARD 18 — Skakanie po Nutach (p31)
+     ============================================================ -->
+<div class="page">
+  <div class="activity-card">
+    <div class="ac-header">
+      <div class="ac-icon" style="background:var(--n1)">🦘</div>
+      <div>
+        <div class="ac-title">Skakanie po Nutach</div>
+        <div class="ac-subtitle">Wiek: 4–6 lat · 15 min · Poziom: ⭐⭐ · Kategoria: Ruch</div>
+      </div>
+    </div>
+    <div class="ac-section">
+      <div class="ac-section-title">🎯 Cel</div>
+      <p>Dziecko utrwala system kolorowych nut całym ciałem — skacze na odpowiedni kolor, gdy słyszy nutę. Wielozmysłowe uczenie się w akcji!</p>
+    </div>
+    <div class="ac-section">
+      <div class="ac-section-title">🧰 Materiały</div>
+      <ul>
+        <li>6 kartek A4 w kolorach nut (lub białe kartki pokolorowane kredkami)</li>
+        <li>Taśma klejąca do przytwierdzenia kartek na podłodze</li>
+      </ul>
+    </div>
+    <div class="ac-section">
+      <div class="ac-section-title">📋 Kroki</div>
+      <ol class="ac-steps">
+        <li>Ułóżcie na podłodze sześć kolorowych kartek w rzędzie, w kolejności nut: <span style="color:var(--n1);">Do</span>, <span style="color:var(--n2);">Re</span>, <span style="color:var(--n3);">Mi</span>, <span style="color:var(--n4);">Fa</span>, <span style="color:var(--n5);">Sol</span>, <span style="color:var(--n6);">La</span>. Przyklej je taśmą, żeby się nie ślizgały.</li>
+        <li>Zaśpiewaj „Do!" — dziecko skacze na czerwoną kartkę. „Mi!" — skacze na żółtą. Zaczynajcie powoli.</li>
+        <li>Zaśpiewaj dwie nuty po kolei: „Do-Mi!" — dziecko skacze na czerwoną, potem na żółtą.</li>
+        <li>Przyśpieszajcie! „Do-Re-Mi-Fa-Sol-La!" — dziecko skacze po drabince w górę. Potem w dół!</li>
+        <li>Zamiana ról: dziecko skacze na wybrany kolor, a Ty śpiewasz odpowiednią nutę. Czy się zgadzacie?</li>
+      </ol>
+    </div>
+    <div class="callout tip" style="margin-top:8px;">
+      <strong>💡 Wskazówka:</strong> Ułóż kartki nie w rzędzie, a w kole lub losowo po pokoju — wtedy skakanie zamienia się w prawdziwy wyścig! Dla starszych dzieci: zaśpiewaj melodię z piosenki (np. Do-Mi-Sol-Mi-Do) i sprawdź, czy potrafią ją „wytańczyć".
+    </div>
+  </div>
+  <div class="page-num">31</div>
+</div>
+
+<!-- ============================================================
+     ACTIVITY CARD 19 — Balet Muzyczny (p32)
+     ============================================================ -->
+<div class="page">
+  <div class="activity-card">
+    <div class="ac-header">
+      <div class="ac-icon" style="background:var(--n6)">🩰</div>
+      <div>
+        <div class="ac-title">Balet Muzyczny</div>
+        <div class="ac-subtitle">Wiek: 4–7 lat · 15 min · Poziom: ⭐⭐ · Kategoria: Ruch</div>
+      </div>
+    </div>
+    <div class="ac-section">
+      <div class="ac-section-title">🎯 Cel</div>
+      <p>Dziecko uczy się wyrażać muzykę przez wdzięczne ruchy ciała, odkrywa, jak można „opowiedzieć historię" bez słów, samym tańcem.</p>
+    </div>
+    <div class="ac-section">
+      <div class="ac-section-title">🧰 Materiały</div>
+      <ul>
+        <li>Muzyka klasyczna lub filmowa (powolna, melodyczna)</li>
+        <li>Chustki lub szaliki (opcjonalnie)</li>
+        <li>Wolna przestrzeń</li>
+      </ul>
+    </div>
+    <div class="ac-section">
+      <div class="ac-section-title">📋 Kroki</div>
+      <ol class="ac-steps">
+        <li>Powiedz: „Dzisiaj jesteś tancerką/tancerzem baletowym! Twoje ciało opowie historię bez słów."</li>
+        <li>Zacznij od ćwiczenia: stańcie na palcach, ręce do góry. Powoli opuszczajcie się w dół. Powtórzcie pięć razy.</li>
+        <li>Włącz spokojną muzykę. „Jesteś kwiatkiem, który rośnie. Zaczynasz jako nasionko (kucnij), a potem powoli rosniesz (wstań) i otwierasz płatki (rozłóż ręce)."</li>
+        <li>Zmień historię: „Jesteś płatkiem śniegu! Opadasz z nieba powolnymi, kręcącymi się ruchami... aż wyląduj cicho na podłodze."</li>
+        <li>Niech dziecko wymyśli własną historię i zatańczy ją. Ty zgaduj: „Czy jesteś ptakiem? Motylem? Astronautą?"</li>
+      </ol>
+    </div>
+    <div class="callout tip" style="margin-top:8px;">
+      <strong>💡 Wskazówka:</strong> Nie sugeruj, że balet jest „dla dziewczynek". Najlepsi tancerze baletowi na świecie to mężczyźni i chłopcy. Ruch do muzyki rozwija u wszystkich dzieci: koordynację, równowagę i świadomość ciała.
+    </div>
+  </div>
+  <div class="page-num">32</div>
+</div>
+
+<!-- ============================================================
+     ACTIVITY CARD 20 — Wyścig Muzyczny (p33)
+     ============================================================ -->
+<div class="page">
+  <div class="activity-card">
+    <div class="ac-header">
+      <div class="ac-icon" style="background:var(--n2)">🏃</div>
+      <div>
+        <div class="ac-title">Wyścig Muzyczny</div>
+        <div class="ac-subtitle">Wiek: 4–6 lat · 15 min · Poziom: ⭐⭐ · Kategoria: Ruch</div>
+      </div>
+    </div>
+    <div class="ac-section">
+      <div class="ac-section-title">🎯 Cel</div>
+      <p>Dziecko uczy się reagować ciałem na zmiany tempa w muzyce — biegnąć, gdy muzyka jest szybka, i chodzić, gdy jest wolna. Rozwija zdolność słuchania i natychmiastowej reakcji.</p>
+    </div>
+    <div class="ac-section">
+      <div class="ac-section-title">🧰 Materiały</div>
+      <ul>
+        <li>Muzyka w zróżnicowanym tempie (lub bęben/garnek do stukania)</li>
+        <li>Wolna przestrzeń (korytarz, pokój, ogród)</li>
+      </ul>
+    </div>
+    <div class="ac-section">
+      <div class="ac-section-title">📋 Kroki</div>
+      <ol class="ac-steps">
+        <li>Wyjaśnij zasadę: „Poruszasz się tak szybko, jak muzyka! Szybka muzyka = biegniemy. Wolna = idziemy. Bardzo wolna = idziemy w zwolnionym tempie."</li>
+        <li>Zacznij stukać w garnek (lub puść muzykę) w umiarkowanym tempie. Chodźcie po pokoju w tym rytmie.</li>
+        <li>Przyspiesz! Dziecko zaczyna biegać (ostrożnie!). Zwolnij — chód. Przyspiesz — bieg. Stop — stoimy!</li>
+        <li>Dodaj niespodzianki: bardzo-bardzo wolno (jak w zwolnionym tempie z filmu) i bardzo-bardzo szybko (jak szalony chomik).</li>
+        <li>Na koniec wielki sprint: najszybsze stukanie, jakie potrafisz, a potem natychmiastowy stop. Kto zdążył zamarznąć?</li>
+      </ol>
+    </div>
+    <div class="callout tip" style="margin-top:8px;">
+      <strong>💡 Wskazówka:</strong> W wersji na zewnątrz (ogród, park) wyznacz trasę — np. od drzewa do ławki. Dziecko „jedzie" po trasie w tempie muzyki. To połączenie ruchu na świeżym powietrzu z nauką muzyki!
+    </div>
+  </div>
+  <div class="page-num">33</div>
+</div>
+
+<!-- ============================================================
+     ACTIVITY CARD 21 — Odgadnij Instrument (p34)
+     ============================================================ -->
+<div class="page">
+  <div class="activity-card">
+    <div class="ac-header">
+      <div class="ac-icon" style="background:var(--teal)">🎻</div>
+      <div>
+        <div class="ac-title">Odgadnij Instrument</div>
+        <div class="ac-subtitle">Wiek: 4–7 lat · 15 min · Poziom: ⭐⭐ · Kategoria: Słuchanie</div>
+      </div>
+    </div>
+    <div class="ac-section">
+      <div class="ac-section-title">🎯 Cel</div>
+      <p>Dziecko uczy się rozpoznawać brzmienie różnych instrumentów na słuch, poszerza wiedzę o muzyce i rozwija uwagę słuchową.</p>
+    </div>
+    <div class="ac-section">
+      <div class="ac-section-title">🧰 Materiały</div>
+      <ul>
+        <li>Telefon lub komputer z dostępem do nagrań instrumentów</li>
+        <li>Karty instrumentów z Modułu 3 (jeśli są wydrukowane)</li>
+      </ul>
+    </div>
+    <div class="ac-section">
+      <div class="ac-section-title">📋 Kroki</div>
+      <ol class="ac-steps">
+        <li>Przygotuj 5–6 nagrań różnych instrumentów: pianino, skrzypce, flet, bęben, gitara, trąbka. Wyszukaj krótkie fragmenty solisty.</li>
+        <li>Pokaż dziecku zdjęcia lub karty tych instrumentów. Omów każdy: „To pianino — ma klawisze. To skrzypce — gra się smyczkiem."</li>
+        <li>Puść nagranie pierwszego instrumentu (nie pokazując zdjęcia). „Co to za instrument?" Daj czas na odpowiedź.</li>
+        <li>Jeśli dziecko nie wie, puść ponownie i daj podpowiedź: „Ten instrument ma struny i gra się na nim smyczkiem..."</li>
+        <li>Przejdźcie przez wszystkie instrumenty. Na koniec „quiz": puść ponownie w losowej kolejności, dziecko wskazuje kartę instrumentu.</li>
+      </ol>
+    </div>
+    <div class="callout tip" style="margin-top:8px;">
+      <strong>💡 Wskazówka:</strong> Zacznij od łatwych kontrastów: bęben vs. skrzypce (perkusja vs. strunowe). Stopniowo dodawaj trudniejsze pary: flet vs. trąbka (oba dęte, ale bardzo różne!). Nie oczekuj, że dziecko zapamięta wszystko od razu.
+    </div>
+  </div>
+  <div class="page-num">34</div>
+</div>
+
+<!-- ============================================================
+     ACTIVITY CARD 22 — Wysoko czy Nisko (p35)
+     ============================================================ -->
+<div class="page">
+  <div class="activity-card">
+    <div class="ac-header">
+      <div class="ac-icon" style="background:var(--n3)">📏</div>
+      <div>
+        <div class="ac-title">Wysoko czy Nisko</div>
+        <div class="ac-subtitle">Wiek: 3–6 lat · 10 min · Poziom: ⭐ · Kategoria: Słuchanie</div>
+      </div>
+    </div>
+    <div class="ac-section">
+      <div class="ac-section-title">🎯 Cel</div>
+      <p>Dziecko uczy się odróżniać dźwięki wysokie od niskich — jeden z fundamentów muzycznego słuchu. Łączy dźwięk z ruchem ciała.</p>
+    </div>
+    <div class="ac-section">
+      <div class="ac-section-title">🧰 Materiały</div>
+      <ul>
+        <li>Głos (Twój — musisz umieć zaśpiewać wysoko i nisko)</li>
+        <li>Opcjonalnie: pianino, ksylofon lub aplikacja z klawiaturą</li>
+      </ul>
+    </div>
+    <div class="ac-section">
+      <div class="ac-section-title">📋 Kroki</div>
+      <ol class="ac-steps">
+        <li>Powiedz: „Będę śpiewać dźwięki. Gdy dźwięk jest WYSOKI — podskocz i wyciągnij ręce do góry! Gdy NISKI — kucnij!"</li>
+        <li>Zaśpiewaj wyraźnie wysoki dźwięk (La lub Sol). Dziecko skacze w górę. Zaśpiewaj niski (Do). Dziecko kuca.</li>
+        <li>Mieszaj: wysoko, nisko, nisko, wysoko, wysoko... Obserwuj, czy dziecko reaguje prawidłowo.</li>
+        <li>Dodaj „środek": dźwięk średni (Mi lub Re) = dziecko stoi normalnie, ręce na biodrach.</li>
+        <li>Wariant: dziecko zamyka oczy i próbuje rozpoznać wysokość dźwięku tylko słuchem, bez podpowiedzi wizualnych.</li>
+      </ol>
+    </div>
+    <div class="callout tip" style="margin-top:8px;">
+      <strong>💡 Wskazówka:</strong> Użyj porównań ze świata zwierząt: wysoki dźwięk = myszka (piiii!), niski = miś (mruuu!), średni = piesek (hau!). Dzieci zapamiętują te skojarzenia i używają ich potem samodzielnie.
+    </div>
+  </div>
+  <div class="page-num">35</div>
+</div>
+
+<!-- ============================================================
+     ACTIVITY CARD 23 — Szybko czy Wolno (p36)
+     ============================================================ -->
+<div class="page">
+  <div class="activity-card">
+    <div class="ac-header">
+      <div class="ac-icon" style="background:var(--n2)">⏱️</div>
+      <div>
+        <div class="ac-title">Szybko czy Wolno</div>
+        <div class="ac-subtitle">Wiek: 3–5 lat · 10 min · Poziom: ⭐ · Kategoria: Słuchanie</div>
+      </div>
+    </div>
+    <div class="ac-section">
+      <div class="ac-section-title">🎯 Cel</div>
+      <p>Dziecko uczy się rozpoznawać tempo muzyki — szybkie i wolne — i łączyć je z odpowiednim ruchem. Fundament poczucia rytmu.</p>
+    </div>
+    <div class="ac-section">
+      <div class="ac-section-title">🧰 Materiały</div>
+      <ul>
+        <li>Drewniana łyżka i garnek (lub bębenek)</li>
+        <li>Zabawka lub maskotka (jako „pasażer")</li>
+      </ul>
+    </div>
+    <div class="ac-section">
+      <div class="ac-section-title">📋 Kroki</div>
+      <ol class="ac-steps">
+        <li>Powiedz: „Twoja maskotka jedzie autem. Ja gram tempo — gdy szybko stukam, auto jedzie szybko! Gdy wolno — jedzie wolno!"</li>
+        <li>Stukaj wolno w garnek (tum... tum... tum...). Dziecko „prowadzi" maskotkę wolno po podłodze.</li>
+        <li>Przyspiesz! (tum-tum-tum-tum!) Maskotka pędzi!</li>
+        <li>Dodaj zatrzymanie: przestań stukać = STOP! Auto stoi. Czy dziecko zatrzymuje maskotkę na czas?</li>
+        <li>Zamiana ról: dziecko stuka w garnek, a Ty prowadzisz maskotkę. Czy „auto" jedzie w odpowiednim tempie?</li>
+      </ol>
+    </div>
+    <div class="callout tip" style="margin-top:8px;">
+      <strong>💡 Wskazówka:</strong> Nie musisz mieć bębenka — nawet klaskanie wystarczy. Ważne, żeby dziecko fizycznie poczuło różnicę: szybkie stukanie = szybki ruch, wolne = wolny. Ciało uczy się tempa szybciej niż głowa.
+    </div>
+  </div>
+  <div class="page-num">36</div>
+</div>
+
+<!-- ============================================================
+     ACTIVITY CARD 24 — Cicho czy Głośno (p37)
+     ============================================================ -->
+<div class="page">
+  <div class="activity-card">
+    <div class="ac-header">
+      <div class="ac-icon" style="background:var(--n6)">🔉</div>
+      <div>
+        <div class="ac-title">Cicho czy Głośno</div>
+        <div class="ac-subtitle">Wiek: 3–5 lat · 10 min · Poziom: ⭐ · Kategoria: Słuchanie</div>
+      </div>
+    </div>
+    <div class="ac-section">
+      <div class="ac-section-title">🎯 Cel</div>
+      <p>Dziecko uczy się rozpoznawać głośność dźwięku i reagować na nią ruchem ciała. Wprowadzenie do pojęcia dynamiki w muzyce.</p>
+    </div>
+    <div class="ac-section">
+      <div class="ac-section-title">🧰 Materiały</div>
+      <ul>
+        <li>Bębenek, garnek lub klaskanie</li>
+        <li>Wolna przestrzeń</li>
+      </ul>
+    </div>
+    <div class="ac-section">
+      <div class="ac-section-title">📋 Kroki</div>
+      <ol class="ac-steps">
+        <li>Wyjaśnij zasadę: „Gdy gram GŁOŚNO — ruszasz się na DUŻĄ skalę (duże kroki, wysokie skoki). Gdy gram CICHO — ruszasz się maluteńko (na palcach, mini-kroczki)."</li>
+        <li>Zacznij głośno: BAM-BAM-BAM! Dziecko robi wielkie ruchy — skacze, wymachuje rękami.</li>
+        <li>Przejdź na cicho: bam...bam...bam (delikatne stukanie). Dziecko zmniejsza się — na paluszkach, małe rączki.</li>
+        <li>Mieszaj: głośno-cicho-głośno-cicho bez zapowiedzi. Dziecko musi reagować natychmiast!</li>
+        <li>Wielki finał: stopniowe zwiększanie głośności (crescendo) — dziecko rośnie i rośnie, aż eksploduje w wielkim skoku!</li>
+      </ol>
+    </div>
+    <div class="callout tip" style="margin-top:8px;">
+      <strong>💡 Wskazówka:</strong> Wariant na deszczowy dzień: gdy grasz głośno, dziecko rysuje wielkie kolorowe linie na kartce. Gdy cicho — malutkie kropki. Na koniec macie abstrakcyjny obraz namalowany dźwiękami!
+    </div>
+  </div>
+  <div class="page-num">37</div>
+</div>
+
+<!-- ============================================================
+     ACTIVITY CARD 25 — Jakie to Zwierzę? (p38)
+     ============================================================ -->
+<div class="page">
+  <div class="activity-card">
+    <div class="ac-header">
+      <div class="ac-icon" style="background:var(--n4)">🐾</div>
+      <div>
+        <div class="ac-title">Jakie to Zwierzę?</div>
+        <div class="ac-subtitle">Wiek: 3–6 lat · 10 min · Poziom: ⭐ · Kategoria: Słuchanie</div>
+      </div>
+    </div>
+    <div class="ac-section">
+      <div class="ac-section-title">🎯 Cel</div>
+      <p>Dziecko łączy cechy dźwięku (wysokość, tempo, głośność) z konkretnymi obrazami — zwierzętami. Rozwija wyobraźnię muzyczną i zdolność interpretacji dźwięków.</p>
+    </div>
+    <div class="ac-section">
+      <div class="ac-section-title">🧰 Materiały</div>
+      <ul>
+        <li>Głos lub prosty instrument (flet, dzwoneczki, garnek)</li>
+        <li>Obrazki zwierząt (wydrukowane lub narysowane): słoń, myszka, koń, żółw, ptak</li>
+      </ul>
+    </div>
+    <div class="ac-section">
+      <div class="ac-section-title">📋 Kroki</div>
+      <ol class="ac-steps">
+        <li>Rozłóżcie obrazki zwierząt. Powiedz: „Każde zwierzę ma swoją muzykę. Będę grać — a Ty odgadnij, jakie to zwierzę!"</li>
+        <li>Zagraj „słonia": niskie, ciężkie, powolne dźwięki (BUM... BUM... BUM...). Dziecko wskazuje słonia.</li>
+        <li>Zagraj „myszkę": wysokie, szybkie, cichutkie dźwięki (pi-pi-pi-pi-pi). Dziecko wskazuje myszkę.</li>
+        <li>Kontynuuj: koń = szybkie, równe stukanie (klip-klop-klip-klop), żółw = bardzo wolne, ciche (tum...... tum......), ptak = wysokie, melodyjne trele.</li>
+        <li>Zamiana: dziecko „gra zwierzę" głosem lub na garnku, a Ty zgaduj. Zaakceptuj każdą interpretację — nie ma złych odpowiedzi!</li>
+      </ol>
+    </div>
+    <div class="callout tip" style="margin-top:8px;">
+      <strong>💡 Wskazówka:</strong> To świetny wstęp do „Karnawału zwierząt" Saint-Saënsa — jeśli masz chwilę, puść dziecku kilka fragmentów. „Słoń" (kontrabas), „Akwarium" (flet i struny), „Kangury" (fortepian) — każdy utwór maluje zwierzę dźwiękami!
+    </div>
+  </div>
+  <div class="page-num">38</div>
+</div>
+
+<!-- ============================================================
+     ACTIVITY CARD 26 — Muzyczna Historia (p39)
+     ============================================================ -->
+<div class="page">
+  <div class="activity-card">
+    <div class="ac-header">
+      <div class="ac-icon" style="background:var(--n1)">📖</div>
+      <div>
+        <div class="ac-title">Muzyczna Historia</div>
+        <div class="ac-subtitle">Wiek: 4–7 lat · 15 min · Poziom: ⭐⭐ · Kategoria: Słuchanie</div>
+      </div>
+    </div>
+    <div class="ac-section">
+      <div class="ac-section-title">🎯 Cel</div>
+      <p>Dziecko uczy się aktywnego słuchania muzyki — nie jako tła, ale jako opowieści. Rozwija wyobraźnię, słownictwo i zdolność interpretacji.</p>
+    </div>
+    <div class="ac-section">
+      <div class="ac-section-title">🧰 Materiały</div>
+      <ul>
+        <li>Muzyka programowa (np. „Piotruś i Wilk" Prokofiewa, „Cztery Pory Roku" Vivaldiego)</li>
+        <li>Kredki i kartka papieru</li>
+      </ul>
+    </div>
+    <div class="ac-section">
+      <div class="ac-section-title">📋 Kroki</div>
+      <ol class="ac-steps">
+        <li>Powiedz: „Posłuchamy muzyki, która opowiada historię. Zamknij oczy i wyobraź sobie, co się dzieje..."</li>
+        <li>Puść krótki fragment (1–2 minuty) muzyki z wyraźnym nastrojem — np. fragment „Wiosny" Vivaldiego. Potem zapytaj: „Co widziałeś/widziałaś w wyobraźni?"</li>
+        <li>Puść następny fragment z innym nastrojem — np. „Burza" z „Lata" Vivaldiego. „A teraz co się stało w historii?"</li>
+        <li>Razem stwórzcie opowieść: „Na początku był piękny dzień (fragment 1). Potem nadeszła burza (fragment 2). A potem..."</li>
+        <li>Na koniec dziecko rysuje scenę z muzycznej historii. Każdy rysunek opowiada o muzyce w inny sposób.</li>
+      </ol>
+    </div>
+    <div class="callout tip" style="margin-top:8px;">
+      <strong>💡 Wskazówka:</strong> Nie koryguj „błędnych" interpretacji! Jeśli dziecko usłyszy dinozaury w Vivaldim — fantastycznie. Chodzi o to, żeby muzyka pobudzała wyobraźnię, a nie o „prawidłową" odpowiedź. Każda wizja jest dobra.
+    </div>
+  </div>
+  <div class="page-num">39</div>
+</div>
+
+<!-- ============================================================
+     ACTIVITY CARD 27 — Instrument z Butelki (p40)
+     ============================================================ -->
+<div class="page">
+  <div class="activity-card">
+    <div class="ac-header">
+      <div class="ac-icon" style="background:var(--n5)">🍾</div>
+      <div>
+        <div class="ac-title">Instrument z Butelki</div>
+        <div class="ac-subtitle">Wiek: 4–7 lat · 20 min · Poziom: ⭐⭐ · Kategoria: Tworzenie</div>
+      </div>
+    </div>
+    <div class="ac-section">
+      <div class="ac-section-title">🎯 Cel</div>
+      <p>Dziecko tworzy instrument dęty z butelki i odkrywa, jak ilość wody zmienia wysokość dźwięku. Praktyczna lekcja akustyki!</p>
+    </div>
+    <div class="ac-section">
+      <div class="ac-section-title">🧰 Materiały</div>
+      <ul>
+        <li>5–6 pustych butelek (szklanych lub plastikowych)</li>
+        <li>Woda i lejek</li>
+        <li>Barwnik spożywczy w 6 kolorach nut (opcjonalnie, ale spektakularnie!)</li>
+      </ul>
+    </div>
+    <div class="ac-section">
+      <div class="ac-section-title">📋 Kroki</div>
+      <ol class="ac-steps">
+        <li>Ustaw 6 butelek w rzędzie. Napełnij każdą inną ilością wody: pierwsza prawie pusta, ostatnia prawie pełna.</li>
+        <li>Jeśli macie barwniki — zabarwcie wodę w kolory nut: <span style="color:var(--n1);">Do=czerwony</span>, <span style="color:var(--n2);">Re=pomarańczowy</span>, <span style="color:var(--n3);">Mi=żółty</span>, <span style="color:var(--n4);">Fa=zielony</span>, <span style="color:var(--n5);">Sol=niebieski</span>, <span style="color:var(--n6);">La=różowy</span>.</li>
+        <li>Dmuchnij w szyjkę pierwszej butelki — nisko. Dmuchnij w ostatnią — wysoko. „Dlaczego tak jest?" (Więcej wody = mniej powietrza = wyższy dźwięk.)</li>
+        <li>Pomóż dziecku dmuchać w butelki. Potrzeba trochę wprawy, żeby trafić w ton — bądź cierpliwy/a!</li>
+        <li>Spróbujcie zagrać prostą melodię: Do-Mi-Sol (butelki 1, 3, 5). Brawa dla Was!</li>
+      </ol>
+    </div>
+    <div class="callout tip" style="margin-top:8px;">
+      <strong>💡 Wskazówka:</strong> Alternatywa dla młodszych dzieci (dmuchanie jest trudne): uderzajcie w butelki drewnianą łyżką! Butelka z wodą brzmi inaczej niż pusta. To prostsza wersja tego samego eksperymentu.
+    </div>
+  </div>
+  <div class="page-num">40</div>
+</div>
+
+<!-- ============================================================
+     ACTIVITY CARD 28 — Marakasy z Ryżu (p41)
+     ============================================================ -->
+<div class="page">
+  <div class="activity-card">
+    <div class="ac-header">
+      <div class="ac-icon" style="background:var(--n2)">🎶</div>
+      <div>
+        <div class="ac-title">Marakasy z Ryżu</div>
+        <div class="ac-subtitle">Wiek: 3–5 lat · 20 min · Poziom: ⭐ · Kategoria: Tworzenie</div>
+      </div>
+    </div>
+    <div class="ac-section">
+      <div class="ac-section-title">🎯 Cel</div>
+      <p>Dziecko tworzy własny instrument perkusyjny i odkrywa, jak różne materiały wydają różne dźwięki. Rozwija motorykę drobną podczas majsterkowania.</p>
+    </div>
+    <div class="ac-section">
+      <div class="ac-section-title">🧰 Materiały</div>
+      <ul>
+        <li>2 puste butelki plastikowe (małe, 0,33l lub 0,5l)</li>
+        <li>Ryż, fasola, makaron, piasek (różne wypełnienia)</li>
+        <li>Taśma klejąca (do zabezpieczenia nakrętki)</li>
+        <li>Naklejki, kredki, kolorowy papier (do dekoracji)</li>
+      </ul>
+    </div>
+    <div class="ac-section">
+      <div class="ac-section-title">📋 Kroki</div>
+      <ol class="ac-steps">
+        <li>Wsyp do pierwszej butelki 2–3 łyżki ryżu. Do drugiej — 2–3 łyżki fasoli. Zakręć mocno i oklej taśmą.</li>
+        <li>Potrząśnij obiema. „Czy brzmią tak samo?" Nie! Ryż szeleszcze cicho, fasola stuka głośno. Omów różnicę.</li>
+        <li>Niech dziecko ozdobi swoje marakasy: oklej kolorowym papierem, naklej naklejki, narysuj wzorki. To JEGO instrument!</li>
+        <li>Włącz ulubioną piosenkę i grajcie na marakasach do muzyki. Potrząsajcie na mocne beaty!</li>
+        <li>Eksperyment: co się stanie, jeśli wsypiecie WIĘCEJ ryżu? A mniej? Jak zmienia się dźwięk? Niech dziecko samo sprawdzi.</li>
+      </ol>
+    </div>
+    <div class="callout tip" style="margin-top:8px;">
+      <strong>💡 Wskazówka:</strong> Zróbcie jedną marakasę z ryżem (cicha), drugą z fasolą (głośna). Dziecko może wybierać: „teraz gram cicho" (ryżowa), „teraz głośno" (fasolowa). To nauka dynamiki w praktyce!
+    </div>
+  </div>
+  <div class="page-num">41</div>
+</div>
+
+<!-- ============================================================
+     ACTIVITY CARD 29 — Gitara z Pudełka (p42)
+     ============================================================ -->
+<div class="page">
+  <div class="activity-card">
+    <div class="ac-header">
+      <div class="ac-icon" style="background:var(--n1)">🎸</div>
+      <div>
+        <div class="ac-title">Gitara z Pudełka</div>
+        <div class="ac-subtitle">Wiek: 4–7 lat · 25 min · Poziom: ⭐⭐ · Kategoria: Tworzenie</div>
+      </div>
+    </div>
+    <div class="ac-section">
+      <div class="ac-section-title">🎯 Cel</div>
+      <p>Dziecko buduje instrument strunowy z materiałów domowych i odkrywa, jak grubość i naprężenie „struny" wpływa na dźwięk. Nauka przez tworzenie!</p>
+    </div>
+    <div class="ac-section">
+      <div class="ac-section-title">🧰 Materiały</div>
+      <ul>
+        <li>Pudełko po butach (z pokrywką) lub pudełko po chusteczkach</li>
+        <li>4–6 gumek recepturek o różnej grubości</li>
+        <li>Ołówek lub patyczek (do „mostka")</li>
+        <li>Kredki i naklejki do dekoracji</li>
+      </ul>
+    </div>
+    <div class="ac-section">
+      <div class="ac-section-title">📋 Kroki</div>
+      <ol class="ac-steps">
+        <li>Jeśli pudełko ma pokrywkę, zrób w niej okrągły otwór (średnica ok. 8 cm) — to rezonator. Dorosły wycina, dziecko ogląda.</li>
+        <li>Naciągnij gumki recepturki wzdłuż pudełka, przechodząc nad otworem. Użyj 4–6 gumek o różnej grubości.</li>
+        <li>Wsadź ołówek pod gumki po jednej stronie otworu — to „mostek", który unosi struny. Teraz szarpnij — gra!</li>
+        <li>Porównaj: gruba gumka = niski dźwięk, cienka = wysoki. „Dlaczego?" Grubsza struny wolniej wibruje.</li>
+        <li>Niech dziecko udekoruje swoją gitarę i zagra na niej pierwszy „koncert".</li>
+      </ol>
+    </div>
+    <div class="callout tip" style="margin-top:8px;">
+      <strong>💡 Wskazówka:</strong> Spróbujcie zabarwić gumki w kolory nut (markerami lub pomalowaną taśmą). Gruba = Do (czerwona), cieńsza = Re (pomarańczowa) itd. Dziecko może „grać kolorami" na swojej gitarze!
+    </div>
+  </div>
+  <div class="page-num">42</div>
+</div>
+
+<!-- ============================================================
+     ACTIVITY CARD 30 — Deszcz z Papieru (p43)
+     ============================================================ -->
+<div class="page">
+  <div class="activity-card">
+    <div class="ac-header">
+      <div class="ac-icon" style="background:var(--n5)">🌧️</div>
+      <div>
+        <div class="ac-title">Deszcz z Papieru</div>
+        <div class="ac-subtitle">Wiek: 3–5 lat · 10 min · Poziom: ⭐ · Kategoria: Tworzenie</div>
+      </div>
+    </div>
+    <div class="ac-section">
+      <div class="ac-section-title">🎯 Cel</div>
+      <p>Dziecko odkrywa, jakie dźwięki wydaje papier, folia i inne materiały, i tworzy „deszczową orkiestrę". Uczy się, że muzykę można tworzyć ze wszystkiego!</p>
+    </div>
+    <div class="ac-section">
+      <div class="ac-section-title">🧰 Materiały</div>
+      <ul>
+        <li>Gazeta lub papier do pakowania</li>
+        <li>Folia aluminiowa</li>
+        <li>Folia bąbelkowa</li>
+        <li>Torebka foliowa</li>
+      </ul>
+    </div>
+    <div class="ac-section">
+      <div class="ac-section-title">📋 Kroki</div>
+      <ol class="ac-steps">
+        <li>Rozłóżcie wszystkie materiały na stole. Powiedz: „Każdy z tych materiałów wydaje inny dźwięk. Odkryjmy jakie!"</li>
+        <li>Szeleśćcie gazetą — „To brzmi jak lekki deszczyk." Zgniatajcie folię aluminiową — „A to jak grzmot!"</li>
+        <li>Pękajcie bąbelki folii bąbelkowej — „Krople deszczu na dachu!" Szeleśćcie torebką — „Wiatr!"</li>
+        <li>Stwórzcie „burzę": zacznijcie od cichego szelestenia (papier — lekki deszcz), potem coraz głośniej (folia — silny deszcz), potem bąbelki (grad!), potem folia aluminiowa (grzmot!), i wracamy do ciszy (deszcz mija).</li>
+        <li>Powtórzcie „burzę" — tym razem dziecko jest dyrygentem i mówi, co robi kto.</li>
+      </ol>
+    </div>
+    <div class="callout tip" style="margin-top:8px;">
+      <strong>💡 Wskazówka:</strong> Nagraj „burzę" na telefon i puść dziecku — będzie zachwycone, gdy usłyszy, jak brzmi ich orkiestra. To fantastyczny sposób na pokazanie, że muzyka jest wszędzie wokół nas.
+    </div>
+  </div>
+  <div class="page-num">43</div>
+</div>
+
+<!-- ============================================================
+     ACTIVITY CARD 31 — Orkiestra Domowa (p44)
+     ============================================================ -->
+<div class="page">
+  <div class="activity-card">
+    <div class="ac-header">
+      <div class="ac-icon" style="background:var(--coral)">🎵</div>
+      <div>
+        <div class="ac-title">Orkiestra Domowa</div>
+        <div class="ac-subtitle">Wiek: 3–7 lat · 20 min · Poziom: ⭐⭐ · Kategoria: Tworzenie</div>
+      </div>
+    </div>
+    <div class="ac-section">
+      <div class="ac-section-title">🎯 Cel</div>
+      <p>Dziecko (i cała rodzina!) tworzą orkiestrę z domowych przedmiotów, uczą się grać razem, słuchać siebie nawzajem i reagować na dyrygenta.</p>
+    </div>
+    <div class="ac-section">
+      <div class="ac-section-title">🧰 Materiały</div>
+      <ul>
+        <li>Wszystkie instrumenty stworzone wcześniej (marakasy, gitara z pudełka, butelki)</li>
+        <li>Garnki, łyżki, pokrywki</li>
+        <li>Długa łyżka drewniana (batuta dyrygenta)</li>
+      </ul>
+    </div>
+    <div class="ac-section">
+      <div class="ac-section-title">📋 Kroki</div>
+      <ol class="ac-steps">
+        <li>Zbierzcie WSZYSTKIE domowe instrumenty, jakie macie. Każdy członek rodziny wybiera swój instrument.</li>
+        <li>Dyrygent (najpierw Ty, potem dziecko) trzyma „batutę" — łyżkę drewnianą. Gdy podniesie — gramy. Gdy opuści — cisza.</li>
+        <li>Ćwiczcie: dyrygent podnosi batutę — wszyscy grają. Opuszcza — cisza. Powtórzcie kilka razy, żeby było w miarę zsynchronizowane.</li>
+        <li>Dyrygent pokazuje „głośno" (batuta wysoko) i „cicho" (batuta nisko). Orkiestra dopasowuje głośność.</li>
+        <li>Dyrygent wskazuje na konkretnego muzyka — ten gra solo, reszta cicho. To jak prawdziwy koncert!</li>
+        <li>Wielki finał: wszyscy grają razem najgłośniej, jak potrafią, a potem dyrygent powoli opuszcza batutę — coraz ciszej, ciszej... cisza. Brawa!</li>
+      </ol>
+    </div>
+    <div class="callout tip" style="margin-top:8px;">
+      <strong>💡 Wskazówka:</strong> Nagrajcie koncert na wideo! Dla dziecka bycie „na scenie" to wielka sprawa. Możecie odtwarzać to nagranie babci, dziadkowi, cioci — dziecko poczuje się jak prawdziwy muzyk.
+    </div>
+  </div>
+  <div class="page-num">44</div>
+</div>
+
+<!-- ============================================================
+     ACTIVITY CARD 32 — Kompozycja Kolorowa (p45)
+     ============================================================ -->
+<div class="page">
+  <div class="activity-card">
+    <div class="ac-header">
+      <div class="ac-icon" style="background:var(--n3)">🌈</div>
+      <div>
+        <div class="ac-title">Kompozycja Kolorowa</div>
+        <div class="ac-subtitle">Wiek: 5–7 lat · 20 min · Poziom: ⭐⭐⭐ · Kategoria: Tworzenie</div>
+      </div>
+    </div>
+    <div class="ac-section">
+      <div class="ac-section-title">🎯 Cel</div>
+      <p>Dziecko komponuje własną piosenkę, zapisując ją kolorowymi kółkami na kartce. Połączenie kreatywności muzycznej z wizualną — wieńczące ćwiczenie całego Modułu 2.</p>
+    </div>
+    <div class="ac-section">
+      <div class="ac-section-title">🧰 Materiały</div>
+      <ul>
+        <li>Kartka A4 (najlepiej biała)</li>
+        <li>Kredki w 6 kolorach nut</li>
+        <li>Linijka (do narysowania „pięciolinii")</li>
+        <li>Kolorowe kółka nut do inspiracji</li>
+      </ul>
+    </div>
+    <div class="ac-section">
+      <div class="ac-section-title">📋 Kroki</div>
+      <ol class="ac-steps">
+        <li>Narysuj na kartce dwie proste linie poziome — to uproszczona „pięciolinia". Między nimi dziecko narysuje swoje nuty.</li>
+        <li>Powiedz: „Dzisiaj skomponujesz piosenkę! Rysuj kolorowe kółka — każdy kolor to inna nuta. Ułóż je, jak chcesz."</li>
+        <li>Dziecko rysuje 8–12 kolorowych kółek w rzędzie. To jego partytura!</li>
+        <li>Razem „zagrajcie" partyturę: wskazuj kółka od lewej do prawej, śpiewając odpowiednie nuty. Powtórzcie trzy razy.</li>
+        <li>Nadajcie piosence tytuł i podpiszcie ją: „Piosenka [tytuł] — kompozycja: [imię dziecka]". Dziecko jest oficjalnym kompozytorem!</li>
+        <li>Powieście partyturę na lodówce lub tablicy korkowej. Wracajcie do niej co kilka dni i zagrajcie od nowa.</li>
+      </ol>
+    </div>
+    <div class="callout tip" style="margin-top:8px;">
+      <strong>💡 Wskazówka:</strong> Zachowaj KAŻDĄ kompozycję dziecka. Za kilka miesięcy będziecie mieć cały „śpiewnik" pełen własnych piosenek. Możecie stworzyć specjalny zeszyt lub teczkę: „Piosenki [Imię]". Nic tak nie buduje pewności siebie, jak powrót do „moich utworów" z dumą.
+    </div>
+  </div>
+  <div class="page-num">45</div>
+</div>
+
+</body>
+</html>

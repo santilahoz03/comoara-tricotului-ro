@@ -1,0 +1,3337 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="_shared.css">
+<style>
+  /* ── Board game path ── */
+  .game-path {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 4px;
+  }
+  .game-path.reverse { flex-direction: row-reverse; }
+  .game-sq {
+    flex: 1;
+    min-height: 28mm;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--df);
+    font-weight: 800;
+    font-size: 11px;
+    border: 2px solid var(--border);
+    background: var(--cream-card);
+    text-align: center;
+    gap: 2px;
+    padding: 4px 2px;
+    line-height: 1.2;
+  }
+  .game-sq .sq-num {
+    font-size: 10px;
+    color: var(--muted);
+    font-weight: 700;
+  }
+  .game-sq .sq-emoji { font-size: 22px; }
+  .game-sq .sq-text {
+    font-size: 8.5px;
+    font-weight: 700;
+    color: var(--ink-mid);
+  }
+  .game-sq.sq-start {
+    background: var(--teal);
+    color: #fff;
+    border-color: var(--teal-dark);
+  }
+  .game-sq.sq-start .sq-num { color: rgba(255,255,255,.7); }
+  .game-sq.sq-finish {
+    background: var(--gold);
+    color: var(--ink);
+    border-color: #C9961A;
+  }
+  .game-sq.sq-instrument { background: var(--coral-lt); border-color: var(--coral); }
+  .game-sq.sq-rhythm { background: var(--teal-lt); border-color: var(--teal); }
+  .game-sq.sq-bonus { background: var(--gold-lt); border-color: var(--gold); }
+  .game-sq.sq-back { background: #F5E6E6; border-color: #C9686B; }
+  .game-sq.sq-action { background: #EDE6F5; border-color: #8B6BAE; }
+  .game-turn {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 24px;
+    padding: 2px 8px;
+    color: var(--muted);
+  }
+  .game-turn.left { justify-content: flex-start; }
+
+  /* ── Domino tiles ── */
+  .domino {
+    display: flex;
+    border: 2.5px solid var(--ink-mid);
+    border-radius: 10px;
+    overflow: hidden;
+    background: var(--cream-card);
+  }
+  .domino-half {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 4px;
+    gap: 2px;
+  }
+  .domino-half + .domino-half {
+    border-left: 2.5px solid var(--ink-mid);
+  }
+  .domino-half .d-emoji { font-size: 26px; line-height: 1; }
+  .domino-half .d-name {
+    font-size: 8px;
+    font-family: var(--df);
+    font-weight: 700;
+    color: var(--ink-mid);
+  }
+
+  /* ── Quiz cards ── */
+  .quiz-card {
+    background: var(--cream-card);
+    border: 2px solid var(--border);
+    border-radius: 14px;
+    padding: 14px 16px;
+    margin-bottom: 10px;
+  }
+  .quiz-card .q-num {
+    display: inline-block;
+    background: var(--teal);
+    color: #fff;
+    font-family: var(--df);
+    font-size: 11px;
+    font-weight: 800;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 24px;
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+  .quiz-card .q-text {
+    font-family: var(--df);
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--ink);
+    display: inline;
+    vertical-align: middle;
+  }
+  .quiz-options {
+    display: flex;
+    gap: 10px;
+    margin-top: 8px;
+    padding-left: 32px;
+  }
+  .quiz-opt {
+    flex: 1;
+    background: var(--cream);
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    padding: 6px 10px;
+    font-size: 12px;
+    text-align: center;
+    font-weight: 600;
+  }
+
+  /* ── Bingo grid ── */
+  .bingo-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 2px;
+    background: var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+    margin: 10px 0;
+  }
+  .bingo-cell {
+    background: var(--cream-card);
+    padding: 10px 4px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 42px;
+    gap: 2px;
+  }
+  .bingo-cell .b-emoji { font-size: 24px; line-height: 1; }
+  .bingo-cell .b-label {
+    font-family: var(--df);
+    font-size: 8px;
+    font-weight: 700;
+    color: var(--ink-mid);
+    line-height: 1.1;
+  }
+  .bingo-cell.bingo-free {
+    background: var(--gold-lt);
+    font-family: var(--df);
+    font-weight: 800;
+    font-size: 11px;
+    color: var(--ink);
+  }
+  .bingo-header {
+    background: var(--teal);
+    color: #fff;
+    font-family: var(--df);
+    font-weight: 800;
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  /* ── Calling cards ── */
+  .calling-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 8px;
+  }
+  .calling-card {
+    background: var(--cream-card);
+    border: 2px dashed var(--muted);
+    border-radius: 10px;
+    padding: 10px 6px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+  }
+  .calling-card .cc-emoji { font-size: 28px; line-height: 1; }
+  .calling-card .cc-label {
+    font-family: var(--df);
+    font-size: 9px;
+    font-weight: 700;
+    color: var(--ink);
+  }
+
+  /* ── Spinner wheel ── */
+  .spinner-wheel {
+    width: 160mm;
+    height: 160mm;
+    border-radius: 50%;
+    margin: 8mm auto;
+    position: relative;
+    border: 3px solid var(--ink);
+    background: conic-gradient(
+      var(--n1) 0deg 45deg,
+      var(--n2) 45deg 90deg,
+      var(--n3) 90deg 135deg,
+      var(--n4) 135deg 180deg,
+      var(--n5) 180deg 225deg,
+      var(--n6) 225deg 270deg,
+      var(--teal) 270deg 315deg,
+      var(--coral) 315deg 360deg
+    );
+    overflow: hidden;
+  }
+  .spinner-label {
+    position: absolute;
+    width: 70mm;
+    text-align: center;
+    font-family: var(--df);
+    font-size: 10px;
+    font-weight: 800;
+    color: #fff;
+    text-shadow: 1px 1px 2px rgba(0,0,0,.4);
+    transform-origin: 0% 50%;
+    left: 50%;
+    top: 50%;
+    padding-left: 18mm;
+    line-height: 1.2;
+  }
+  .spinner-center {
+    position: absolute;
+    width: 24mm;
+    height: 24mm;
+    border-radius: 50%;
+    background: var(--cream-card);
+    border: 3px solid var(--ink);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    z-index: 2;
+  }
+
+  /* ── Pair cards (for Znajdź Parę) ── */
+  .pair-card {
+    background: var(--cream-card);
+    border: 2px dashed var(--muted);
+    border-radius: 12px;
+    padding: 12px 8px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    min-height: 70px;
+  }
+  .pair-card .pc-main { font-size: 32px; line-height: 1; }
+  .pair-card .pc-label {
+    font-family: var(--df);
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--ink);
+  }
+  .pair-card .pc-sub {
+    font-size: 9px;
+    color: var(--muted);
+  }
+
+  /* ── Player tokens ── */
+  .token-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+  }
+  .token {
+    aspect-ratio: 1;
+    border: 2.5px dashed var(--muted);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+    gap: 4px;
+  }
+  .token .t-label {
+    font-family: var(--df);
+    font-size: 10px;
+    font-weight: 800;
+  }
+
+  /* ── Sound card accent colors ── */
+  .vc-loud { border-color: var(--coral) !important; background: var(--coral-lt) !important; }
+  .vc-quiet { border-color: var(--teal) !important; background: var(--teal-lt) !important; }
+  .vc-fast { border-color: var(--n2) !important; }
+  .vc-slow { border-color: var(--n5) !important; }
+
+  /* ── Section intro ── */
+  .section-intro {
+    text-align: center;
+    padding: 8mm 0 4mm;
+  }
+  .section-intro h2 {
+    font-size: 24px;
+    color: var(--teal-dark);
+    margin-bottom: 8px;
+  }
+  .section-intro p {
+    font-size: 14px;
+    color: var(--muted);
+    max-width: 380px;
+    margin: 0 auto;
+  }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════════════════
+     MODUŁ 3 — KARTY MUZYCZNE (30 kart)
+     ══════════════════════════════════════════════════════════════ -->
+
+<!-- ====== SEPARATOR MODUŁ 3 ====== -->
+<div class="page separator">
+  <div class="sep-num" style="background:var(--n4);">3</div>
+  <h2>🎴 Karty Muzyczne</h2>
+  <p class="sep-desc">30 kart do wycinania i zabawy: instrumenty, dźwięki i ruchy rytmiczne</p>
+  <div style="display:flex;gap:8px;margin-top:20px;">
+    <span class="pill pill-teal">12 instrumentów</span>
+    <span class="pill pill-coral">10 dźwięków</span>
+    <span class="pill pill-gold">8 ruchów</span>
+  </div>
+  <div style="margin-top:28px;font-size:42px;">🎹 🎸 🥁 🎺 🎻 🪈</div>
+  <div style="margin-top:8px;font-size:42px;">🪘 🪇 🔺 🎤 🪕 🎵</div>
+  <span class="page-num">45</span>
+</div>
+
+<!-- ====== KARTY INSTRUMENTÓW 1–6 ====== -->
+<div class="page">
+  <h2 style="text-align:center;color:var(--teal-dark);margin-bottom:6px;">🎵 Karty Instrumentów</h2>
+  <p style="text-align:center;font-size:12px;color:var(--muted);margin-bottom:12px;">✂️ Wytnij karty wzdłuż przerywanej linii</p>
+
+  <div class="grid-3" style="margin-bottom:14px;">
+    <!-- 1. Pianino -->
+    <div class="visual-card" style="border-style:dashed;border-color:var(--muted);">
+      <div class="vc-emoji">🎹</div>
+      <div class="vc-label">Pianino</div>
+      <div class="vc-sub">🔊 plink-plink-plink</div>
+      <p style="font-size:10px;color:var(--teal-dark);margin-top:4px;line-height:1.3;">👆 Uderzaj palcami po stole jak po klawiszach</p>
+    </div>
+    <!-- 2. Gitara -->
+    <div class="visual-card" style="border-style:dashed;border-color:var(--muted);">
+      <div class="vc-emoji">🎸</div>
+      <div class="vc-label">Gitara</div>
+      <div class="vc-sub">🔊 brzdęk-brzdęk</div>
+      <p style="font-size:10px;color:var(--teal-dark);margin-top:4px;line-height:1.3;">🤟 Szarpnij wyimaginowane struny</p>
+    </div>
+    <!-- 3. Bęben -->
+    <div class="visual-card" style="border-style:dashed;border-color:var(--muted);">
+      <div class="vc-emoji">🥁</div>
+      <div class="vc-label">Bęben</div>
+      <div class="vc-sub">🔊 bum-bum-BUM!</div>
+      <p style="font-size:10px;color:var(--teal-dark);margin-top:4px;line-height:1.3;">🖐️ Bębnij dłońmi po kolanach</p>
+    </div>
+  </div>
+
+  <div class="grid-3">
+    <!-- 4. Trąbka -->
+    <div class="visual-card" style="border-style:dashed;border-color:var(--muted);">
+      <div class="vc-emoji">🎺</div>
+      <div class="vc-label">Trąbka</div>
+      <div class="vc-sub">🔊 tra-ta-ta-TA!</div>
+      <p style="font-size:10px;color:var(--teal-dark);margin-top:4px;line-height:1.3;">🫧 Dmuchaj w zaciśnięte dłonie</p>
+    </div>
+    <!-- 5. Skrzypce -->
+    <div class="visual-card" style="border-style:dashed;border-color:var(--muted);">
+      <div class="vc-emoji">🎻</div>
+      <div class="vc-label">Skrzypce</div>
+      <div class="vc-sub">🔊 wiii-wiii-wiii</div>
+      <p style="font-size:10px;color:var(--teal-dark);margin-top:4px;line-height:1.3;">🎻 Prowadź smyczek w powietrzu</p>
+    </div>
+    <!-- 6. Flet -->
+    <div class="visual-card" style="border-style:dashed;border-color:var(--muted);">
+      <div class="vc-emoji">🪈</div>
+      <div class="vc-label">Flet</div>
+      <div class="vc-sub">🔊 fiu-fiu-fiuuu</div>
+      <p style="font-size:10px;color:var(--teal-dark);margin-top:4px;line-height:1.3;">🌬️ Dmuchaj delikatnie w palce</p>
+    </div>
+  </div>
+
+  <span class="page-num">46</span>
+</div>
+
+<!-- ====== KARTY INSTRUMENTÓW 7–12 ====== -->
+<div class="page">
+  <h2 style="text-align:center;color:var(--teal-dark);margin-bottom:6px;">🎵 Karty Instrumentów</h2>
+  <p style="text-align:center;font-size:12px;color:var(--muted);margin-bottom:12px;">✂️ Wytnij karty wzdłuż przerywanej linii</p>
+
+  <div class="grid-3" style="margin-bottom:14px;">
+    <!-- 7. Ksylofon -->
+    <div class="visual-card" style="border-style:dashed;border-color:var(--muted);">
+      <div class="vc-emoji">🎵</div>
+      <div class="vc-label">Ksylofon</div>
+      <div class="vc-sub">🔊 ding-dong-ding!</div>
+      <p style="font-size:10px;color:var(--teal-dark);margin-top:4px;line-height:1.3;">🥢 Uderzaj pałeczkami w powietrzu</p>
+    </div>
+    <!-- 8. Tamburyn -->
+    <div class="visual-card" style="border-style:dashed;border-color:var(--muted);">
+      <div class="vc-emoji">🪘</div>
+      <div class="vc-label">Tamburyn</div>
+      <div class="vc-sub">🔊 czing-czing-czing</div>
+      <p style="font-size:10px;color:var(--teal-dark);margin-top:4px;line-height:1.3;">🤲 Potrząśnij ręką w powietrzu</p>
+    </div>
+    <!-- 9. Marakasy -->
+    <div class="visual-card" style="border-style:dashed;border-color:var(--muted);">
+      <div class="vc-emoji">🪇</div>
+      <div class="vc-label">Marakasy</div>
+      <div class="vc-sub">🔊 szu-szu-SZU!</div>
+      <p style="font-size:10px;color:var(--teal-dark);margin-top:4px;line-height:1.3;">🤝 Potrząsaj obiema rękami</p>
+    </div>
+  </div>
+
+  <div class="grid-3">
+    <!-- 10. Trójkąt -->
+    <div class="visual-card" style="border-style:dashed;border-color:var(--muted);">
+      <div class="vc-emoji">🔺</div>
+      <div class="vc-label">Trójkąt</div>
+      <div class="vc-sub">🔊 ting... ting...!</div>
+      <p style="font-size:10px;color:var(--teal-dark);margin-top:4px;line-height:1.3;">☝️ Stuknij palcem o palec</p>
+    </div>
+    <!-- 11. Flet prosty -->
+    <div class="visual-card" style="border-style:dashed;border-color:var(--muted);">
+      <div class="vc-emoji">🎶</div>
+      <div class="vc-label">Flet Prosty</div>
+      <div class="vc-sub">🔊 du-du-du-duuu</div>
+      <p style="font-size:10px;color:var(--teal-dark);margin-top:4px;line-height:1.3;">🫶 Ułóż palce jak na flecie i dmuchaj</p>
+    </div>
+    <!-- 12. Ukulele -->
+    <div class="visual-card" style="border-style:dashed;border-color:var(--muted);">
+      <div class="vc-emoji">🪕</div>
+      <div class="vc-label">Ukulele</div>
+      <div class="vc-sub">🔊 plim-plim-plim</div>
+      <p style="font-size:10px;color:var(--teal-dark);margin-top:4px;line-height:1.3;">🤏 Brzdąkaj małymi ruchami</p>
+    </div>
+  </div>
+
+  <span class="page-num">47</span>
+</div>
+
+<!-- ====== KARTY DŹWIĘKÓW 1–6 ====== -->
+<div class="page">
+  <h2 style="text-align:center;color:var(--coral);margin-bottom:6px;">🔊 Karty Dźwięków — pary</h2>
+  <p style="text-align:center;font-size:12px;color:var(--muted);margin-bottom:12px;">✂️ Wytnij karty i dopasuj przeciwieństwa</p>
+
+  <div class="grid-2" style="margin-bottom:16px;">
+    <!-- Para 1: Głośno / Cicho -->
+    <div class="visual-card" style="border-style:dashed;border-color:var(--coral);background:var(--coral-lt);">
+      <div class="vc-emoji">📢</div>
+      <div class="vc-label" style="font-size:16px;">GŁOŚNO</div>
+      <div class="vc-sub" style="font-size:12px;">Graj mocno i wyraźnie!</div>
+      <p style="font-size:10px;color:var(--ink-mid);margin-top:4px;">🦁 Jak ryk lwa!</p>
+    </div>
+    <div class="visual-card" style="border-style:dashed;border-color:var(--teal);background:var(--teal-lt);">
+      <div class="vc-emoji">🤫</div>
+      <div class="vc-label" style="font-size:16px;">CICHO</div>
+      <div class="vc-sub" style="font-size:12px;">Graj delikatnie i łagodnie</div>
+      <p style="font-size:10px;color:var(--ink-mid);margin-top:4px;">🐱 Jak mruczenie kotka</p>
+    </div>
+  </div>
+
+  <div class="grid-2" style="margin-bottom:16px;">
+    <!-- Para 2: Szybko / Wolno -->
+    <div class="visual-card" style="border-style:dashed;border-color:var(--n2);">
+      <div class="vc-emoji">🐇</div>
+      <div class="vc-label" style="font-size:16px;">SZYBKO</div>
+      <div class="vc-sub" style="font-size:12px;">Graj prędko jak króliczek!</div>
+      <p style="font-size:10px;color:var(--ink-mid);margin-top:4px;">ta-ta-ta-ta-ta-ta!</p>
+    </div>
+    <div class="visual-card" style="border-style:dashed;border-color:var(--n5);">
+      <div class="vc-emoji">🐢</div>
+      <div class="vc-label" style="font-size:16px;">WOLNO</div>
+      <div class="vc-sub" style="font-size:12px;">Graj powoli jak żółwik</div>
+      <p style="font-size:10px;color:var(--ink-mid);margin-top:4px;">taaaa... taaaa... taaaa...</p>
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <!-- Para 3: Wysoko / Nisko -->
+    <div class="visual-card" style="border-style:dashed;border-color:var(--n3);">
+      <div class="vc-emoji">☁️</div>
+      <div class="vc-label" style="font-size:16px;">WYSOKO</div>
+      <div class="vc-sub" style="font-size:12px;">Dźwięk leci do chmur!</div>
+      <p style="font-size:10px;color:var(--ink-mid);margin-top:4px;">🐦 Jak śpiew ptaszka</p>
+    </div>
+    <div class="visual-card" style="border-style:dashed;border-color:var(--n4);">
+      <div class="vc-emoji">🌊</div>
+      <div class="vc-label" style="font-size:16px;">NISKO</div>
+      <div class="vc-sub" style="font-size:12px;">Dźwięk jest głęboki</div>
+      <p style="font-size:10px;color:var(--ink-mid);margin-top:4px;">🐻 Jak pomruk niedźwiedzia</p>
+    </div>
+  </div>
+
+  <span class="page-num">48</span>
+</div>
+
+<!-- ====== KARTY DŹWIĘKÓW 7–10 ====== -->
+<div class="page">
+  <h2 style="text-align:center;color:var(--coral);margin-bottom:6px;">🔊 Karty Dźwięków — pary</h2>
+  <p style="text-align:center;font-size:12px;color:var(--muted);margin-bottom:12px;">✂️ Wytnij karty i dopasuj przeciwieństwa</p>
+
+  <div class="grid-2" style="margin-bottom:16px;">
+    <!-- Para 4: Długo / Krótko -->
+    <div class="visual-card" style="border-style:dashed;border-color:var(--n6);">
+      <div class="vc-emoji">➡️➡️➡️</div>
+      <div class="vc-label" style="font-size:16px;">DŁUGO</div>
+      <div class="vc-sub" style="font-size:12px;">Trzymaj dźwięk dłuuuugo</div>
+      <p style="font-size:10px;color:var(--ink-mid);margin-top:4px;">🎷 duuuuuuuuuuuuuu...</p>
+    </div>
+    <div class="visual-card" style="border-style:dashed;border-color:var(--n1);">
+      <div class="vc-emoji">•</div>
+      <div class="vc-label" style="font-size:16px;">KRÓTKO</div>
+      <div class="vc-sub" style="font-size:12px;">Krótki, szybki dźwięk!</div>
+      <p style="font-size:10px;color:var(--ink-mid);margin-top:4px;">🥁 bam! bam! bam!</p>
+    </div>
+  </div>
+
+  <div class="grid-2" style="margin-bottom:20px;">
+    <!-- Para 5: Gładko / Ostro -->
+    <div class="visual-card" style="border-style:dashed;border-color:var(--n5);">
+      <div class="vc-emoji">〰️</div>
+      <div class="vc-label" style="font-size:16px;">GŁADKO</div>
+      <div class="vc-sub" style="font-size:12px;">Dźwięki płyną jak rzeka</div>
+      <p style="font-size:10px;color:var(--ink-mid);margin-top:4px;">🎻 laaaa-laaaa-laaaa</p>
+    </div>
+    <div class="visual-card" style="border-style:dashed;border-color:var(--coral);">
+      <div class="vc-emoji">⚡</div>
+      <div class="vc-label" style="font-size:16px;">OSTRO</div>
+      <div class="vc-sub" style="font-size:12px;">Dźwięki skaczą jak iskry!</div>
+      <p style="font-size:10px;color:var(--ink-mid);margin-top:4px;">🪘 tak! tak! tak!</p>
+    </div>
+  </div>
+
+  <div class="callout ok">
+    <strong>💡 Jak grać z kartami dźwięków:</strong> Rozłóż karty parami na stole. Dziecko losuje jedną
+    kartę i próbuje wydać odpowiedni dźwięk — głośno lub cicho, szybko lub wolno. Następnie szuka
+    karty z przeciwieństwem i porównuje oba dźwięki!
+  </div>
+
+  <span class="page-num">49</span>
+</div>
+
+<!-- ====== KARTY RUCHU 1–4 ====== -->
+<div class="page">
+  <h2 style="text-align:center;color:var(--teal-dark);margin-bottom:6px;">💃 Karty Ruchu</h2>
+  <p style="text-align:center;font-size:12px;color:var(--muted);margin-bottom:12px;">✂️ Wytnij karty — każda karta to inna aktywność rytmiczna!</p>
+
+  <div class="grid-2" style="margin-bottom:14px;">
+    <!-- 1. Klaskanie -->
+    <div class="visual-card" style="border-style:dashed;border-color:var(--teal);min-height:140px;">
+      <div class="vc-emoji" style="font-size:48px;">👏</div>
+      <div class="vc-label" style="font-size:17px;">Klaskanie</div>
+      <div style="font-family:var(--af);font-size:14px;color:var(--coral);margin-top:4px;font-weight:700;">
+        klask-klask-PAUZA-klask
+      </div>
+      <p style="font-size:10px;color:var(--muted);margin-top:4px;">Klaszcz w dłonie w rytm!</p>
+    </div>
+    <!-- 2. Tupanie -->
+    <div class="visual-card" style="border-style:dashed;border-color:var(--teal);min-height:140px;">
+      <div class="vc-emoji" style="font-size:48px;">🦶</div>
+      <div class="vc-label" style="font-size:17px;">Tupanie</div>
+      <div style="font-family:var(--af);font-size:14px;color:var(--coral);margin-top:4px;font-weight:700;">
+        tup-tup-TUP-tup
+      </div>
+      <p style="font-size:10px;color:var(--muted);margin-top:4px;">Tupnij nogą mocno!</p>
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <!-- 3. Kręcenie -->
+    <div class="visual-card" style="border-style:dashed;border-color:var(--teal);min-height:140px;">
+      <div class="vc-emoji" style="font-size:48px;">🌀</div>
+      <div class="vc-label" style="font-size:17px;">Kręcenie</div>
+      <div style="font-family:var(--af);font-size:14px;color:var(--coral);margin-top:4px;font-weight:700;">
+        kręć-kręć-STOP-kręć
+      </div>
+      <p style="font-size:10px;color:var(--muted);margin-top:4px;">Obróć się w kółko!</p>
+    </div>
+    <!-- 4. Skakanie -->
+    <div class="visual-card" style="border-style:dashed;border-color:var(--teal);min-height:140px;">
+      <div class="vc-emoji" style="font-size:48px;">🦘</div>
+      <div class="vc-label" style="font-size:17px;">Skakanie</div>
+      <div style="font-family:var(--af);font-size:14px;color:var(--coral);margin-top:4px;font-weight:700;">
+        hop-hop-PAUZA-hop-hop
+      </div>
+      <p style="font-size:10px;color:var(--muted);margin-top:4px;">Skacz jak kangur!</p>
+    </div>
+  </div>
+
+  <span class="page-num">50</span>
+</div>
+
+<!-- ====== KARTY RUCHU 5–8 ====== -->
+<div class="page">
+  <h2 style="text-align:center;color:var(--teal-dark);margin-bottom:6px;">💃 Karty Ruchu</h2>
+  <p style="text-align:center;font-size:12px;color:var(--muted);margin-bottom:12px;">✂️ Wytnij karty — każda karta to inna aktywność rytmiczna!</p>
+
+  <div class="grid-2" style="margin-bottom:14px;">
+    <!-- 5. Machanie -->
+    <div class="visual-card" style="border-style:dashed;border-color:var(--teal);min-height:140px;">
+      <div class="vc-emoji" style="font-size:48px;">👋</div>
+      <div class="vc-label" style="font-size:17px;">Machanie</div>
+      <div style="font-family:var(--af);font-size:14px;color:var(--coral);margin-top:4px;font-weight:700;">
+        mach-mach-mach-PAUZA
+      </div>
+      <p style="font-size:10px;color:var(--muted);margin-top:4px;">Machaj rękami jak ptak!</p>
+    </div>
+    <!-- 6. Kołysanie -->
+    <div class="visual-card" style="border-style:dashed;border-color:var(--teal);min-height:140px;">
+      <div class="vc-emoji" style="font-size:48px;">🌿</div>
+      <div class="vc-label" style="font-size:17px;">Kołysanie</div>
+      <div style="font-family:var(--af);font-size:14px;color:var(--coral);margin-top:4px;font-weight:700;">
+        huś-huś-huś-huś
+      </div>
+      <p style="font-size:10px;color:var(--muted);margin-top:4px;">Kołysz się jak drzewo na wietrze!</p>
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <!-- 7. Marsz -->
+    <div class="visual-card" style="border-style:dashed;border-color:var(--teal);min-height:140px;">
+      <div class="vc-emoji" style="font-size:48px;">🥁</div>
+      <div class="vc-label" style="font-size:17px;">Marsz</div>
+      <div style="font-family:var(--af);font-size:14px;color:var(--coral);margin-top:4px;font-weight:700;">
+        raz-dwa-raz-dwa
+      </div>
+      <p style="font-size:10px;color:var(--muted);margin-top:4px;">Maszeruj w miejscu jak żołnierz!</p>
+    </div>
+    <!-- 8. Taniec -->
+    <div class="visual-card" style="border-style:dashed;border-color:var(--teal);min-height:140px;">
+      <div class="vc-emoji" style="font-size:48px;">💃</div>
+      <div class="vc-label" style="font-size:17px;">Taniec</div>
+      <div style="font-family:var(--af);font-size:14px;color:var(--coral);margin-top:4px;font-weight:700;">
+        la-la-LA-la-la-LA
+      </div>
+      <p style="font-size:10px;color:var(--muted);margin-top:4px;">Tańcz w rytm muzyki!</p>
+    </div>
+  </div>
+
+  <span class="page-num">51</span>
+</div>
+
+<!-- ====== JAK GRAĆ Z KARTAMI ====== -->
+<div class="page">
+  <h2 style="color:var(--teal-dark);margin-bottom:14px;">🎲 Jak Grać z Kartami Muzycznymi?</h2>
+
+  <div class="activity-card" style="margin-bottom:12px;">
+    <div class="ac-header">
+      <div class="ac-icon" style="background:var(--teal);">🎯</div>
+      <div>
+        <div class="ac-title">Gra 1: Zgadnij Instrument</div>
+        <div class="ac-subtitle">2+ graczy · od 3 lat</div>
+      </div>
+    </div>
+    <ol class="steps" style="font-size:12px;">
+      <li>Rozłóż karty instrumentów obrazkiem do dołu.</li>
+      <li>Jeden gracz losuje kartę i <strong>naśladuje dźwięk</strong> instrumentu.</li>
+      <li>Pozostali gracze zgadują, jaki to instrument!</li>
+      <li>Kto zgadnie — dostaje punkt. Zbierz 5 punktów, żeby wygrać! 🏆</li>
+    </ol>
+  </div>
+
+  <div class="activity-card" style="margin-bottom:12px;">
+    <div class="ac-header">
+      <div class="ac-icon" style="background:var(--coral);">🔊</div>
+      <div>
+        <div class="ac-title">Gra 2: Przeciwieństwa Dźwiękowe</div>
+        <div class="ac-subtitle">1+ graczy · od 3 lat</div>
+      </div>
+    </div>
+    <ol class="steps" style="font-size:12px;">
+      <li>Rozłóż karty dźwięków parami (np. GŁOŚNO obok CICHO).</li>
+      <li>Rodzic mówi dźwięk — dziecko szuka odpowiedniej karty.</li>
+      <li>Następnie szuka karty z <strong>przeciwieństwem</strong>!</li>
+      <li>Pokaż różnicę głosem: najpierw głośno, potem cicho. 🎶</li>
+    </ol>
+  </div>
+
+  <div class="activity-card" style="margin-bottom:12px;">
+    <div class="ac-header">
+      <div class="ac-icon" style="background:var(--gold);">💃</div>
+      <div>
+        <div class="ac-title">Gra 3: Rytmiczny Wyścig</div>
+        <div class="ac-subtitle">2+ graczy · od 4 lat</div>
+      </div>
+    </div>
+    <ol class="steps" style="font-size:12px;">
+      <li>Wymieszaj karty ruchu i instrumentów razem.</li>
+      <li>Wyciągnij 2 karty: jedną z ruchem, jedną z instrumentem.</li>
+      <li>Wykonaj ruch, jednocześnie <strong>naśladując dźwięk</strong> instrumentu!</li>
+      <li>Np. skakanie + trąbka = skacz i krzycz „tra-ta-ta!" 😄</li>
+    </ol>
+  </div>
+
+  <div class="callout tip" style="margin-top:8px;">
+    <strong>🌟 Wskazówka:</strong> Zalaminuj karty lub przyklej na sztywny karton, żeby służyły dłużej!
+  </div>
+
+  <span class="page-num">52</span>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════════════
+     MODUŁ 4 — GRY DO DRUKU (30 stron)
+     ══════════════════════════════════════════════════════════════ -->
+
+<!-- ====== SEPARATOR MODUŁ 4 ====== -->
+<div class="page separator">
+  <div class="sep-num" style="background:var(--n5);">4</div>
+  <h2>🎲 Gry do Druku</h2>
+  <p class="sep-desc">30 stron gier gotowych do wydrukowania, wycięcia i grania w rodzinnym gronie</p>
+  <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;justify-content:center;">
+    <span class="pill pill-teal">Gra planszowa</span>
+    <span class="pill pill-coral">Memory</span>
+    <span class="pill pill-gold">Loteria dźwiękowa</span>
+  </div>
+  <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:8px;justify-content:center;">
+    <span class="pill pill-teal">Koło fortuny</span>
+    <span class="pill pill-coral">Domino</span>
+    <span class="pill pill-gold">Znajdź parę</span>
+    <span class="pill pill-teal">Quiz muzyczny</span>
+  </div>
+  <div style="margin-top:28px;font-size:48px;">🎲 🃏 🎯 🎪 🏆</div>
+  <span class="page-num">53</span>
+</div>
+
+<!-- ====== PRZEGLĄD GIER ====== -->
+<div class="page">
+  <h2 style="color:var(--teal-dark);margin-bottom:14px;text-align:center;">🗂️ Przegląd Gier</h2>
+  <p style="text-align:center;font-size:13px;color:var(--muted);margin-bottom:18px;">
+    7 gier gotowych do wydruku — wybierz dowolną i bawcie się muzyką!
+  </p>
+
+  <div class="card" style="margin-bottom:10px;border-left:4px solid var(--n1);">
+    <h3 style="font-size:14px;margin-bottom:4px;">🎲 1. Muzyczna Przygoda — gra planszowa</h3>
+    <p style="font-size:12px;color:var(--ink-mid);margin:0;">Plansza do gry z kostką, wyzwaniami muzycznymi i przygodami! 2-4 graczy.</p>
+    <div style="display:flex;gap:6px;margin-top:6px;">
+      <span class="pill pill-teal">str. 55-58</span>
+      <span class="pill pill-gold">od 4 lat</span>
+    </div>
+  </div>
+
+  <div class="card" style="margin-bottom:10px;border-left:4px solid var(--n2);">
+    <h3 style="font-size:14px;margin-bottom:4px;">🧠 2. Memory Muzyczne — gra pamięciowa</h3>
+    <p style="font-size:12px;color:var(--ink-mid);margin:0;">16 par instrumentów do dopasowania. Ćwicz pamięć i naucz się instrumentów!</p>
+    <div style="display:flex;gap:6px;margin-top:6px;">
+      <span class="pill pill-teal">str. 59-62</span>
+      <span class="pill pill-gold">od 3 lat</span>
+    </div>
+  </div>
+
+  <div class="card" style="margin-bottom:10px;border-left:4px solid var(--n3);">
+    <h3 style="font-size:14px;margin-bottom:4px;">🎯 3. Loteria Dźwiękowa — bingo muzyczne</h3>
+    <p style="font-size:12px;color:var(--ink-mid);margin:0;">6 plansz bingo + karty losowania. Do 6 graczy jednocześnie!</p>
+    <div style="display:flex;gap:6px;margin-top:6px;">
+      <span class="pill pill-teal">str. 63-70</span>
+      <span class="pill pill-gold">od 3 lat</span>
+    </div>
+  </div>
+
+  <div class="card" style="margin-bottom:10px;border-left:4px solid var(--n4);">
+    <h3 style="font-size:14px;margin-bottom:4px;">🎡 4. Koło Fortuny Muzyczne</h3>
+    <p style="font-size:12px;color:var(--ink-mid);margin:0;">Kręć kołem i wykonuj muzyczne wyzwania! Spinner + karty.</p>
+    <div style="display:flex;gap:6px;margin-top:6px;">
+      <span class="pill pill-teal">str. 71-73</span>
+      <span class="pill pill-gold">od 4 lat</span>
+    </div>
+  </div>
+
+  <div class="card" style="margin-bottom:10px;border-left:4px solid var(--n5);">
+    <h3 style="font-size:14px;margin-bottom:4px;">🀄 5. Domino Muzyczne</h3>
+    <p style="font-size:12px;color:var(--ink-mid);margin:0;">Dopasowuj instrumenty i buduj łańcuch domino!</p>
+    <div style="display:flex;gap:6px;margin-top:6px;">
+      <span class="pill pill-teal">str. 74-76</span>
+      <span class="pill pill-gold">od 3 lat</span>
+    </div>
+  </div>
+
+  <div class="card" style="margin-bottom:10px;border-left:4px solid var(--n6);">
+    <h3 style="font-size:14px;margin-bottom:4px;">🔗 6. Znajdź Parę — nuty i kolory</h3>
+    <p style="font-size:12px;color:var(--ink-mid);margin:0;">Dopasuj nuty do ich kolorów i nazw.</p>
+    <div style="display:flex;gap:6px;margin-top:6px;">
+      <span class="pill pill-teal">str. 77-79</span>
+      <span class="pill pill-gold">od 3 lat</span>
+    </div>
+  </div>
+
+  <div class="card" style="margin-bottom:10px;border-left:4px solid var(--coral);">
+    <h3 style="font-size:14px;margin-bottom:4px;">❓ 7. Quiz Muzyczny</h3>
+    <p style="font-size:12px;color:var(--ink-mid);margin:0;">24 pytania o muzyce, instrumentach i dźwiękach. Kto wie więcej?</p>
+    <div style="display:flex;gap:6px;margin-top:6px;">
+      <span class="pill pill-teal">str. 80-83</span>
+      <span class="pill pill-gold">od 5 lat</span>
+    </div>
+  </div>
+
+  <span class="page-num">54</span>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     GRA 1: MUZYCZNA PRZYGODA — PLANSZA cz. 1
+     ═══════════════════════════════════════════ -->
+<div class="page">
+  <h2 style="text-align:center;color:var(--teal-dark);font-size:20px;margin-bottom:4px;">🎲 Muzyczna Przygoda</h2>
+  <p style="text-align:center;font-size:11px;color:var(--muted);margin-bottom:10px;">Plansza — część 1 (pola 1–15) · Użyj kostki i pionków!</p>
+
+  <!-- Row 1: L→R -->
+  <div class="game-path">
+    <div class="game-sq sq-start">
+      <div class="sq-emoji">🎵</div>
+      <div class="sq-text" style="color:#fff;">START</div>
+    </div>
+    <div class="game-sq">
+      <div class="sq-num">1</div>
+      <div class="sq-emoji">🎶</div>
+    </div>
+    <div class="game-sq sq-instrument">
+      <div class="sq-num">2</div>
+      <div class="sq-emoji">🎹</div>
+      <div class="sq-text">Zagraj na pianinie!</div>
+    </div>
+    <div class="game-sq">
+      <div class="sq-num">3</div>
+      <div class="sq-emoji">🎵</div>
+    </div>
+    <div class="game-sq sq-rhythm">
+      <div class="sq-num">4</div>
+      <div class="sq-emoji">👏</div>
+      <div class="sq-text">Klaszcz 5 razy!</div>
+    </div>
+    <div class="game-sq">
+      <div class="sq-num">5</div>
+      <div class="sq-emoji">🎶</div>
+    </div>
+  </div>
+
+  <div class="game-turn">⬇️</div>
+
+  <!-- Row 2: R→L -->
+  <div class="game-path reverse">
+    <div class="game-sq sq-bonus">
+      <div class="sq-num">6</div>
+      <div class="sq-emoji">⭐</div>
+      <div class="sq-text">Bonus! Rzuć jeszcze raz!</div>
+    </div>
+    <div class="game-sq">
+      <div class="sq-num">7</div>
+      <div class="sq-emoji">🎵</div>
+    </div>
+    <div class="game-sq sq-instrument">
+      <div class="sq-num">8</div>
+      <div class="sq-emoji">🎸</div>
+      <div class="sq-text">Zagraj na gitarze!</div>
+    </div>
+    <div class="game-sq sq-back">
+      <div class="sq-num">9</div>
+      <div class="sq-emoji">⬅️</div>
+      <div class="sq-text">Cofnij się o 2!</div>
+    </div>
+    <div class="game-sq">
+      <div class="sq-num">10</div>
+      <div class="sq-emoji">🎶</div>
+    </div>
+    <div class="game-sq sq-action">
+      <div class="sq-num">11</div>
+      <div class="sq-emoji">💃</div>
+      <div class="sq-text">Zatańcz 10 sekund!</div>
+    </div>
+  </div>
+
+  <div class="game-turn left">⬇️</div>
+
+  <!-- Row 3: L→R -->
+  <div class="game-path">
+    <div class="game-sq sq-instrument">
+      <div class="sq-num">12</div>
+      <div class="sq-emoji">🥁</div>
+      <div class="sq-text">Zagraj na bębnie!</div>
+    </div>
+    <div class="game-sq">
+      <div class="sq-num">13</div>
+      <div class="sq-emoji">🎵</div>
+    </div>
+    <div class="game-sq sq-rhythm">
+      <div class="sq-num">14</div>
+      <div class="sq-emoji">🦶</div>
+      <div class="sq-text">Tupnij 3 razy!</div>
+    </div>
+    <div class="game-sq sq-bonus">
+      <div class="sq-num">15</div>
+      <div class="sq-emoji">⭐</div>
+      <div class="sq-text">Bonus +2 pola!</div>
+    </div>
+    <div class="game-sq">
+      <div class="sq-num">→</div>
+      <div class="sq-emoji">➡️</div>
+      <div class="sq-text">Dalej na str. 56!</div>
+    </div>
+    <div class="game-sq" style="visibility:hidden;"></div>
+  </div>
+
+  <!-- Legend -->
+  <div style="margin-top:14px;padding:12px;background:var(--cream-card);border-radius:12px;border:1.5px solid var(--border);">
+    <p style="font-family:var(--df);font-size:11px;font-weight:800;margin-bottom:6px;">🗺️ Legenda:</p>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;font-size:10px;">
+      <span style="display:flex;align-items:center;gap:4px;"><span style="width:14px;height:14px;border-radius:4px;background:var(--coral-lt);border:1.5px solid var(--coral);display:inline-block;"></span> Instrument</span>
+      <span style="display:flex;align-items:center;gap:4px;"><span style="width:14px;height:14px;border-radius:4px;background:var(--teal-lt);border:1.5px solid var(--teal);display:inline-block;"></span> Rytm</span>
+      <span style="display:flex;align-items:center;gap:4px;"><span style="width:14px;height:14px;border-radius:4px;background:var(--gold-lt);border:1.5px solid var(--gold);display:inline-block;"></span> Bonus</span>
+      <span style="display:flex;align-items:center;gap:4px;"><span style="width:14px;height:14px;border-radius:4px;background:#F5E6E6;border:1.5px solid #C9686B;display:inline-block;"></span> Cofnij się</span>
+      <span style="display:flex;align-items:center;gap:4px;"><span style="width:14px;height:14px;border-radius:4px;background:#EDE6F5;border:1.5px solid #8B6BAE;display:inline-block;"></span> Akcja</span>
+    </div>
+  </div>
+
+  <span class="page-num">55</span>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     GRA 1: MUZYCZNA PRZYGODA — PLANSZA cz. 2
+     ═══════════════════════════════════════════ -->
+<div class="page">
+  <h2 style="text-align:center;color:var(--teal-dark);font-size:20px;margin-bottom:4px;">🎲 Muzyczna Przygoda</h2>
+  <p style="text-align:center;font-size:11px;color:var(--muted);margin-bottom:10px;">Plansza — część 2 (pola 16–30) · Kto pierwszy dotrze do METY? 🏆</p>
+
+  <!-- Row 1: L→R -->
+  <div class="game-path">
+    <div class="game-sq">
+      <div class="sq-num">←</div>
+      <div class="sq-emoji">➡️</div>
+      <div class="sq-text">Ze str. 55</div>
+    </div>
+    <div class="game-sq sq-instrument">
+      <div class="sq-num">16</div>
+      <div class="sq-emoji">🎺</div>
+      <div class="sq-text">Zagraj na trąbce!</div>
+    </div>
+    <div class="game-sq">
+      <div class="sq-num">17</div>
+      <div class="sq-emoji">🎵</div>
+    </div>
+    <div class="game-sq sq-action">
+      <div class="sq-num">18</div>
+      <div class="sq-emoji">🌀</div>
+      <div class="sq-text">Obróć się 3 razy!</div>
+    </div>
+    <div class="game-sq">
+      <div class="sq-num">19</div>
+      <div class="sq-emoji">🎶</div>
+    </div>
+    <div class="game-sq sq-rhythm">
+      <div class="sq-num">20</div>
+      <div class="sq-emoji">👏</div>
+      <div class="sq-text">Wyklaskaj rytm: ta-ta-TA!</div>
+    </div>
+  </div>
+
+  <div class="game-turn">⬇️</div>
+
+  <!-- Row 2: R→L -->
+  <div class="game-path reverse">
+    <div class="game-sq sq-back">
+      <div class="sq-num">21</div>
+      <div class="sq-emoji">⬅️</div>
+      <div class="sq-text">Cofnij się o 3!</div>
+    </div>
+    <div class="game-sq sq-instrument">
+      <div class="sq-num">22</div>
+      <div class="sq-emoji">🎻</div>
+      <div class="sq-text">Zagraj na skrzypcach!</div>
+    </div>
+    <div class="game-sq">
+      <div class="sq-num">23</div>
+      <div class="sq-emoji">🎵</div>
+    </div>
+    <div class="game-sq sq-bonus">
+      <div class="sq-num">24</div>
+      <div class="sq-emoji">⭐</div>
+      <div class="sq-text">Bonus! Rzuć jeszcze raz!</div>
+    </div>
+    <div class="game-sq">
+      <div class="sq-num">25</div>
+      <div class="sq-emoji">🎶</div>
+    </div>
+    <div class="game-sq sq-instrument">
+      <div class="sq-num">26</div>
+      <div class="sq-emoji">🪈</div>
+      <div class="sq-text">Zagraj na flecie!</div>
+    </div>
+  </div>
+
+  <div class="game-turn left">⬇️</div>
+
+  <!-- Row 3: L→R -->
+  <div class="game-path">
+    <div class="game-sq sq-action">
+      <div class="sq-num">27</div>
+      <div class="sq-emoji">🦘</div>
+      <div class="sq-text">Skacz 5 razy!</div>
+    </div>
+    <div class="game-sq">
+      <div class="sq-num">28</div>
+      <div class="sq-emoji">🎵</div>
+    </div>
+    <div class="game-sq sq-rhythm">
+      <div class="sq-num">29</div>
+      <div class="sq-emoji">🎵</div>
+      <div class="sq-text">Zaśpiewaj nutę!</div>
+    </div>
+    <div class="game-sq sq-back">
+      <div class="sq-num">30</div>
+      <div class="sq-emoji">⬅️</div>
+      <div class="sq-text">Cofnij się o 1!</div>
+    </div>
+    <div class="game-sq sq-finish">
+      <div class="sq-emoji">🏆</div>
+      <div class="sq-text">META!</div>
+    </div>
+    <div class="game-sq" style="visibility:hidden;"></div>
+  </div>
+
+  <div class="callout ok" style="margin-top:14px;">
+    <strong>🎉 Gratulacje!</strong> Kto pierwszy stanie na polu META — wygrywa i zostaje
+    <strong>Mistrzem Muzyki</strong>! Wszyscy gracze biją brawo! 👏
+  </div>
+
+  <span class="page-num">56</span>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     GRA 1: ZASADY GRY PLANSZOWEJ
+     ═══════════════════════════════════════════ -->
+<div class="page">
+  <h2 style="color:var(--teal-dark);margin-bottom:14px;">📜 Zasady Gry — Muzyczna Przygoda</h2>
+
+  <div class="card" style="margin-bottom:14px;">
+    <div style="display:flex;gap:14px;flex-wrap:wrap;">
+      <div style="flex:1;min-width:120px;">
+        <p style="font-family:var(--df);font-size:12px;font-weight:800;color:var(--teal-dark);margin-bottom:4px;">👥 Gracze</p>
+        <p style="font-size:13px;">2–4 graczy</p>
+      </div>
+      <div style="flex:1;min-width:120px;">
+        <p style="font-family:var(--df);font-size:12px;font-weight:800;color:var(--teal-dark);margin-bottom:4px;">🎂 Wiek</p>
+        <p style="font-size:13px;">od 4 lat</p>
+      </div>
+      <div style="flex:1;min-width:120px;">
+        <p style="font-family:var(--df);font-size:12px;font-weight:800;color:var(--teal-dark);margin-bottom:4px;">⏱️ Czas gry</p>
+        <p style="font-size:13px;">15–25 minut</p>
+      </div>
+      <div style="flex:1;min-width:120px;">
+        <p style="font-family:var(--df);font-size:12px;font-weight:800;color:var(--teal-dark);margin-bottom:4px;">🎲 Potrzebne</p>
+        <p style="font-size:13px;">kostka do gry + pionki</p>
+      </div>
+    </div>
+  </div>
+
+  <h3 style="color:var(--ink);margin-bottom:8px;">🎯 Cel gry</h3>
+  <p style="font-size:13px;margin-bottom:14px;">
+    Przejdź całą planszę od pola START do pola META jako pierwszy! Po drodze czekają na Ciebie
+    muzyczne wyzwania, bonusy i pułapki.
+  </p>
+
+  <h3 style="color:var(--ink);margin-bottom:8px;">📋 Jak grać</h3>
+  <ol class="steps" style="margin-bottom:14px;">
+    <li>Każdy gracz wybiera pionek i stawia go na polu <strong>START</strong>.</li>
+    <li>Najmłodszy gracz zaczyna. Rzuć kostką i przesuń pionek o wyrzuconą liczbę pól.</li>
+    <li>Wykonaj zadanie z pola, na którym stanąłeś (patrz rodzaje pól poniżej).</li>
+    <li>Jeśli nie wykonasz zadania — cofasz się o 1 pole.</li>
+    <li>Gra przechodzi na następnego gracza (zgodnie z ruchem wskazówek zegara).</li>
+    <li>Wygrywa ten, kto pierwszy stanie na polu <strong>META</strong> (lub je minie)! 🏆</li>
+  </ol>
+
+  <h3 style="color:var(--ink);margin-bottom:8px;">🗺️ Rodzaje pól</h3>
+  <div class="grid-2" style="gap:10px;">
+    <div class="card" style="border-left:4px solid var(--coral);padding:10px 12px;">
+      <p style="font-size:12px;font-weight:700;margin-bottom:2px;">🎹 Pole instrumentu</p>
+      <p style="font-size:11px;color:var(--ink-mid);">Naśladuj dźwięk instrumentu pokazanego na polu. Inni gracze oceniają!</p>
+    </div>
+    <div class="card" style="border-left:4px solid var(--teal);padding:10px 12px;">
+      <p style="font-size:12px;font-weight:700;margin-bottom:2px;">👏 Pole rytmu</p>
+      <p style="font-size:11px;color:var(--ink-mid);">Wykonaj polecenie rytmiczne (klaskanie, tupanie, śpiew).</p>
+    </div>
+    <div class="card" style="border-left:4px solid var(--gold);padding:10px 12px;">
+      <p style="font-size:12px;font-weight:700;margin-bottom:2px;">⭐ Pole bonusu</p>
+      <p style="font-size:11px;color:var(--ink-mid);">Rzuć kostką jeszcze raz lub przesuń się o dodatkowe pola!</p>
+    </div>
+    <div class="card" style="border-left:4px solid #C9686B;padding:10px 12px;">
+      <p style="font-size:12px;font-weight:700;margin-bottom:2px;">⬅️ Pole cofania</p>
+      <p style="font-size:11px;color:var(--ink-mid);">Cofnij się o podaną liczbę pól. Nic się nie stało!</p>
+    </div>
+    <div class="card" style="border-left:4px solid #8B6BAE;padding:10px 12px;">
+      <p style="font-size:12px;font-weight:700;margin-bottom:2px;">💃 Pole akcji</p>
+      <p style="font-size:11px;color:var(--ink-mid);">Wykonaj ruch ciałem: tańcz, skacz lub kręć się!</p>
+    </div>
+    <div class="card" style="border-left:4px solid var(--border);padding:10px 12px;">
+      <p style="font-size:12px;font-weight:700;margin-bottom:2px;">🎵 Pole zwykłe</p>
+      <p style="font-size:11px;color:var(--ink-mid);">Nic specjalnego — odpoczywasz i czekasz na swoją kolej.</p>
+    </div>
+  </div>
+
+  <span class="page-num">57</span>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     GRA 1: ŻETONY I PIONKI (DO WYCIĘCIA)
+     ═══════════════════════════════════════════ -->
+<div class="page">
+  <h2 style="text-align:center;color:var(--teal-dark);margin-bottom:6px;">✂️ Żetony i Pionki do Wycięcia</h2>
+  <p style="text-align:center;font-size:12px;color:var(--muted);margin-bottom:16px;">Wytnij pionki, złóż na pół i postaw — gotowe do gry!</p>
+
+  <div class="cut-border" style="padding:20px;margin-bottom:16px;">
+    <p style="font-family:var(--df);font-size:13px;font-weight:800;text-align:center;margin-bottom:14px;">🎭 Pionki graczy (wytnij i złóż na pół)</p>
+    <div class="token-grid">
+      <div class="token" style="background:var(--coral-lt);border-color:var(--coral);">
+        <span style="font-size:40px;">🎤</span>
+        <span class="t-label" style="color:var(--coral);">Gracz 1</span>
+      </div>
+      <div class="token" style="background:var(--teal-lt);border-color:var(--teal);">
+        <span style="font-size:40px;">🎸</span>
+        <span class="t-label" style="color:var(--teal);">Gracz 2</span>
+      </div>
+      <div class="token" style="background:var(--gold-lt);border-color:var(--gold);">
+        <span style="font-size:40px;">🎹</span>
+        <span class="t-label" style="color:#8A6B10;">Gracz 3</span>
+      </div>
+      <div class="token" style="background:#EDE6F5;border-color:#8B6BAE;">
+        <span style="font-size:40px;">🥁</span>
+        <span class="t-label" style="color:#8B6BAE;">Gracz 4</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="cut-border" style="padding:20px;margin-bottom:16px;">
+    <p style="font-family:var(--df);font-size:13px;font-weight:800;text-align:center;margin-bottom:14px;">🎲 Kostka muzyczna (opcjonalna — zamiast zwykłej kostki)</p>
+    <p style="text-align:center;font-size:11px;color:var(--muted);margin-bottom:12px;">Wytnij, złóż i sklej w sześcian</p>
+    <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:6px;">
+      <div style="aspect-ratio:1;background:var(--coral-lt);border:2px dashed var(--muted);border-radius:8px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;">
+        <span style="font-size:24px;">🎹</span>
+        <span style="font-size:8px;font-weight:700;">Pianino</span>
+      </div>
+      <div style="aspect-ratio:1;background:var(--teal-lt);border:2px dashed var(--muted);border-radius:8px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;">
+        <span style="font-size:24px;">🎸</span>
+        <span style="font-size:8px;font-weight:700;">Gitara</span>
+      </div>
+      <div style="aspect-ratio:1;background:var(--gold-lt);border:2px dashed var(--muted);border-radius:8px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;">
+        <span style="font-size:24px;">🥁</span>
+        <span style="font-size:8px;font-weight:700;">Bęben</span>
+      </div>
+      <div style="aspect-ratio:1;background:var(--coral-lt);border:2px dashed var(--muted);border-radius:8px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;">
+        <span style="font-size:24px;">🎺</span>
+        <span style="font-size:8px;font-weight:700;">Trąbka</span>
+      </div>
+      <div style="aspect-ratio:1;background:var(--teal-lt);border:2px dashed var(--muted);border-radius:8px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;">
+        <span style="font-size:24px;">🎻</span>
+        <span style="font-size:8px;font-weight:700;">Skrzypce</span>
+      </div>
+      <div style="aspect-ratio:1;background:var(--gold-lt);border:2px dashed var(--muted);border-radius:8px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;">
+        <span style="font-size:24px;">⭐</span>
+        <span style="font-size:8px;font-weight:700;">Bonus!</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="cut-border" style="padding:16px;">
+    <p style="font-family:var(--df);font-size:13px;font-weight:800;text-align:center;margin-bottom:10px;">🏅 Medale za ukończenie gry</p>
+    <div style="display:flex;gap:12px;justify-content:center;">
+      <div style="width:60px;height:60px;border-radius:50%;background:var(--gold);border:3px dashed var(--muted);display:flex;align-items:center;justify-content:center;font-size:28px;">🥇</div>
+      <div style="width:60px;height:60px;border-radius:50%;background:#D4D4D4;border:3px dashed var(--muted);display:flex;align-items:center;justify-content:center;font-size:28px;">🥈</div>
+      <div style="width:60px;height:60px;border-radius:50%;background:#CD9B5A;border:3px dashed var(--muted);display:flex;align-items:center;justify-content:center;font-size:28px;">🥉</div>
+      <div style="width:60px;height:60px;border-radius:50%;background:var(--teal-lt);border:3px dashed var(--muted);display:flex;align-items:center;justify-content:center;font-size:28px;">⭐</div>
+    </div>
+  </div>
+
+  <span class="page-num">58</span>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     GRA 2: MEMORY — strona 1 (karty 1–8)
+     ═══════════════════════════════════════════ -->
+<div class="page">
+  <h2 style="text-align:center;color:var(--teal-dark);margin-bottom:4px;">🧠 Memory Muzyczne</h2>
+  <p style="text-align:center;font-size:11px;color:var(--muted);margin-bottom:10px;">✂️ Wytnij karty — strona 1 z 4 · Znajdź pary instrumentów!</p>
+
+  <div class="memory-grid">
+    <div class="memory-card" style="border-style:dashed;">
+      <span style="font-size:36px;">🎹</span>
+      <span class="mc-label">Pianino</span>
+    </div>
+    <div class="memory-card" style="border-style:dashed;">
+      <span style="font-size:36px;">🎹</span>
+      <span class="mc-label">Pianino</span>
+    </div>
+    <div class="memory-card" style="border-style:dashed;">
+      <span style="font-size:36px;">🎸</span>
+      <span class="mc-label">Gitara</span>
+    </div>
+    <div class="memory-card" style="border-style:dashed;">
+      <span style="font-size:36px;">🎸</span>
+      <span class="mc-label">Gitara</span>
+    </div>
+    <div class="memory-card" style="border-style:dashed;">
+      <span style="font-size:36px;">🥁</span>
+      <span class="mc-label">Bęben</span>
+    </div>
+    <div class="memory-card" style="border-style:dashed;">
+      <span style="font-size:36px;">🥁</span>
+      <span class="mc-label">Bęben</span>
+    </div>
+    <div class="memory-card" style="border-style:dashed;">
+      <span style="font-size:36px;">🎺</span>
+      <span class="mc-label">Trąbka</span>
+    </div>
+    <div class="memory-card" style="border-style:dashed;">
+      <span style="font-size:36px;">🎺</span>
+      <span class="mc-label">Trąbka</span>
+    </div>
+  </div>
+
+  <div class="callout ok" style="margin-top:10px;font-size:11px;">
+    <strong>💡 Wskazówka:</strong> Wytnij wszystkie karty (strony 59–62), wymieszaj i ułóż obrazkiem do dołu. Odkrywaj po 2 karty — szukaj par!
+  </div>
+
+  <span class="page-num">59</span>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     GRA 2: MEMORY — strona 2 (karty 9–16)
+     ═══════════════════════════════════════════ -->
+<div class="page">
+  <h2 style="text-align:center;color:var(--teal-dark);margin-bottom:4px;">🧠 Memory Muzyczne</h2>
+  <p style="text-align:center;font-size:11px;color:var(--muted);margin-bottom:10px;">✂️ Wytnij karty — strona 2 z 4</p>
+
+  <div class="memory-grid">
+    <div class="memory-card" style="border-style:dashed;">
+      <span style="font-size:36px;">🎻</span>
+      <span class="mc-label">Skrzypce</span>
+    </div>
+    <div class="memory-card" style="border-style:dashed;">
+      <span style="font-size:36px;">🎻</span>
+      <span class="mc-label">Skrzypce</span>
+    </div>
+    <div class="memory-card" style="border-style:dashed;">
+      <span style="font-size:36px;">🪈</span>
+      <span class="mc-label">Flet</span>
+    </div>
+    <div class="memory-card" style="border-style:dashed;">
+      <span style="font-size:36px;">🪈</span>
+      <span class="mc-label">Flet</span>
+    </div>
+    <div class="memory-card" style="border-style:dashed;">
+      <span style="font-size:36px;">🪘</span>
+      <span class="mc-label">Tamburyn</span>
+    </div>
+    <div class="memory-card" style="border-style:dashed;">
+      <span style="font-size:36px;">🪘</span>
+      <span class="mc-label">Tamburyn</span>
+    </div>
+    <div class="memory-card" style="border-style:dashed;">
+      <span style="font-size:36px;">🪇</span>
+      <span class="mc-label">Marakasy</span>
+    </div>
+    <div class="memory-card" style="border-style:dashed;">
+      <span style="font-size:36px;">🪇</span>
+      <span class="mc-label">Marakasy</span>
+    </div>
+  </div>
+
+  <span class="page-num">60</span>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     GRA 2: MEMORY — strona 3 (karty 17–24)
+     ═══════════════════════════════════════════ -->
+<div class="page">
+  <h2 style="text-align:center;color:var(--teal-dark);margin-bottom:4px;">🧠 Memory Muzyczne</h2>
+  <p style="text-align:center;font-size:11px;color:var(--muted);margin-bottom:10px;">✂️ Wytnij karty — strona 3 z 4</p>
+
+  <div class="memory-grid">
+    <div class="memory-card" style="border-style:dashed;">
+      <span style="font-size:36px;">🔺</span>
+      <span class="mc-label">Trójkąt</span>
+    </div>
+    <div class="memory-card" style="border-style:dashed;">
+      <span style="font-size:36px;">🔺</span>
+      <span class="mc-label">Trójkąt</span>
+    </div>
+    <div class="memory-card" style="border-style:dashed;">
+      <span style="font-size:36px;">🔔</span>
+      <span class="mc-label">Dzwoneczek</span>
+    </div>
+    <div class="memory-card" style="border-style:dashed;">
+      <span style="font-size:36px;">🔔</span>
+      <span class="mc-label">Dzwoneczek</span>
+    </div>
+    <div class="memory-card" style="border-style:dashed;">
+      <span style="font-size:36px;">🎤</span>
+      <span class="mc-label">Mikrofon</span>
+    </div>
+    <div class="memory-card" style="border-style:dashed;">
+      <span style="font-size:36px;">🎤</span>
+      <span class="mc-label">Mikrofon</span>
+    </div>
+    <div class="memory-card" style="border-style:dashed;">
+      <span style="font-size:36px;">🎷</span>
+      <span class="mc-label">Saksofon</span>
+    </div>
+    <div class="memory-card" style="border-style:dashed;">
+      <span style="font-size:36px;">🎷</span>
+      <span class="mc-label">Saksofon</span>
+    </div>
+  </div>
+
+  <span class="page-num">61</span>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     GRA 2: MEMORY — strona 4 (karty 25–32)
+     ═══════════════════════════════════════════ -->
+<div class="page">
+  <h2 style="text-align:center;color:var(--teal-dark);margin-bottom:4px;">🧠 Memory Muzyczne</h2>
+  <p style="text-align:center;font-size:11px;color:var(--muted);margin-bottom:10px;">✂️ Wytnij karty — strona 4 z 4</p>
+
+  <div class="memory-grid">
+    <div class="memory-card" style="border-style:dashed;">
+      <span style="font-size:36px;">🪗</span>
+      <span class="mc-label">Akordeon</span>
+    </div>
+    <div class="memory-card" style="border-style:dashed;">
+      <span style="font-size:36px;">🪗</span>
+      <span class="mc-label">Akordeon</span>
+    </div>
+    <div class="memory-card" style="border-style:dashed;">
+      <span style="font-size:36px;">🪕</span>
+      <span class="mc-label">Ukulele</span>
+    </div>
+    <div class="memory-card" style="border-style:dashed;">
+      <span style="font-size:36px;">🪕</span>
+      <span class="mc-label">Ukulele</span>
+    </div>
+    <div class="memory-card" style="border-style:dashed;">
+      <span style="font-size:36px;">👏</span>
+      <span class="mc-label">Klaskanie</span>
+    </div>
+    <div class="memory-card" style="border-style:dashed;">
+      <span style="font-size:36px;">👏</span>
+      <span class="mc-label">Klaskanie</span>
+    </div>
+    <div class="memory-card" style="border-style:dashed;">
+      <span style="font-size:36px;">🎶</span>
+      <span class="mc-label">Flet prosty</span>
+    </div>
+    <div class="memory-card" style="border-style:dashed;">
+      <span style="font-size:36px;">🎶</span>
+      <span class="mc-label">Flet prosty</span>
+    </div>
+  </div>
+
+  <div class="callout tip" style="margin-top:10px;font-size:11px;">
+    <strong>🎯 Zasady Memory:</strong> 2–4 graczy. Ułóż wszystkie 32 karty obrazkiem do dołu. Odkrywaj po 2 karty —
+    jeśli są takie same, zabiasz parę i grasz dalej. Jeśli nie — odkładasz i kolej następnego gracza. Kto zbierze więcej par, wygrywa! 🏆
+  </div>
+
+  <span class="page-num">62</span>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     GRA 3: LOTERIA DŹWIĘKOWA — Plansza 1
+     ═══════════════════════════════════════════ -->
+<div class="page">
+  <h2 style="text-align:center;color:var(--teal-dark);margin-bottom:4px;">🎯 Loteria Dźwiękowa</h2>
+  <p style="text-align:center;font-size:11px;color:var(--muted);margin-bottom:8px;">Plansza gracza 1 · Zakryj 5 w rzędzie, żeby wygrać!</p>
+
+  <div style="text-align:center;margin-bottom:6px;">
+    <span class="pill pill-coral" style="font-size:12px;padding:4px 14px;">PLANSZA 1</span>
+  </div>
+
+  <div class="bingo-grid">
+    <div class="bingo-cell bingo-header">L</div>
+    <div class="bingo-cell bingo-header">O</div>
+    <div class="bingo-cell bingo-header">T</div>
+    <div class="bingo-cell bingo-header">E</div>
+    <div class="bingo-cell bingo-header">R</div>
+
+    <div class="bingo-cell"><span class="b-emoji">🎹</span><span class="b-label">Pianino</span></div>
+    <div class="bingo-cell"><span class="b-emoji">🎸</span><span class="b-label">Gitara</span></div>
+    <div class="bingo-cell"><span class="b-emoji">🥁</span><span class="b-label">Bęben</span></div>
+    <div class="bingo-cell"><span class="b-emoji">🎺</span><span class="b-label">Trąbka</span></div>
+    <div class="bingo-cell"><span class="b-emoji">🎻</span><span class="b-label">Skrzypce</span></div>
+
+    <div class="bingo-cell"><span class="b-emoji">📢</span><span class="b-label">Głośno</span></div>
+    <div class="bingo-cell"><span class="b-emoji">🐇</span><span class="b-label">Szybko</span></div>
+    <div class="bingo-cell bingo-free">⭐<br>GRATIS</div>
+    <div class="bingo-cell"><span class="b-emoji">🐢</span><span class="b-label">Wolno</span></div>
+    <div class="bingo-cell"><span class="b-emoji">🤫</span><span class="b-label">Cicho</span></div>
+
+    <div class="bingo-cell"><span class="b-emoji">🪈</span><span class="b-label">Flet</span></div>
+    <div class="bingo-cell"><span class="b-emoji">👏</span><span class="b-label">Klaskanie</span></div>
+    <div class="bingo-cell"><span class="b-emoji">💃</span><span class="b-label">Taniec</span></div>
+    <div class="bingo-cell"><span class="b-emoji">🎵</span><span class="b-label">Nuta</span></div>
+    <div class="bingo-cell"><span class="b-emoji">🪘</span><span class="b-label">Tamburyn</span></div>
+
+    <div class="bingo-cell"><span class="b-emoji">🎤</span><span class="b-label">Mikrofon</span></div>
+    <div class="bingo-cell"><span class="b-emoji">☁️</span><span class="b-label">Wysoko</span></div>
+    <div class="bingo-cell"><span class="b-emoji">🌊</span><span class="b-label">Nisko</span></div>
+    <div class="bingo-cell"><span class="b-emoji">🎷</span><span class="b-label">Saksofon</span></div>
+    <div class="bingo-cell"><span class="b-emoji">🔔</span><span class="b-label">Dzwoneczek</span></div>
+  </div>
+
+  <span class="page-num">63</span>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     GRA 3: LOTERIA DŹWIĘKOWA — Plansza 2
+     ═══════════════════════════════════════════ -->
+<div class="page">
+  <h2 style="text-align:center;color:var(--teal-dark);margin-bottom:4px;">🎯 Loteria Dźwiękowa</h2>
+  <p style="text-align:center;font-size:11px;color:var(--muted);margin-bottom:8px;">Plansza gracza 2</p>
+  <div style="text-align:center;margin-bottom:6px;">
+    <span class="pill pill-teal" style="font-size:12px;padding:4px 14px;">PLANSZA 2</span>
+  </div>
+
+  <div class="bingo-grid">
+    <div class="bingo-cell bingo-header">L</div>
+    <div class="bingo-cell bingo-header">O</div>
+    <div class="bingo-cell bingo-header">T</div>
+    <div class="bingo-cell bingo-header">E</div>
+    <div class="bingo-cell bingo-header">R</div>
+
+    <div class="bingo-cell"><span class="b-emoji">🎷</span><span class="b-label">Saksofon</span></div>
+    <div class="bingo-cell"><span class="b-emoji">🪇</span><span class="b-label">Marakasy</span></div>
+    <div class="bingo-cell"><span class="b-emoji">🎹</span><span class="b-label">Pianino</span></div>
+    <div class="bingo-cell"><span class="b-emoji">🦶</span><span class="b-label">Tupanie</span></div>
+    <div class="bingo-cell"><span class="b-emoji">🎶</span><span class="b-label">Melodia</span></div>
+
+    <div class="bingo-cell"><span class="b-emoji">🐢</span><span class="b-label">Wolno</span></div>
+    <div class="bingo-cell"><span class="b-emoji">🎸</span><span class="b-label">Gitara</span></div>
+    <div class="bingo-cell bingo-free">⭐<br>GRATIS</div>
+    <div class="bingo-cell"><span class="b-emoji">🔺</span><span class="b-label">Trójkąt</span></div>
+    <div class="bingo-cell"><span class="b-emoji">📢</span><span class="b-label">Głośno</span></div>
+
+    <div class="bingo-cell"><span class="b-emoji">🎻</span><span class="b-label">Skrzypce</span></div>
+    <div class="bingo-cell"><span class="b-emoji">🎼</span><span class="b-label">Partytura</span></div>
+    <div class="bingo-cell"><span class="b-emoji">🪗</span><span class="b-label">Akordeon</span></div>
+    <div class="bingo-cell"><span class="b-emoji">🎤</span><span class="b-label">Mikrofon</span></div>
+    <div class="bingo-cell"><span class="b-emoji">⚡</span><span class="b-label">Ostro</span></div>
+
+    <div class="bingo-cell"><span class="b-emoji">💃</span><span class="b-label">Taniec</span></div>
+    <div class="bingo-cell"><span class="b-emoji">🥁</span><span class="b-label">Bęben</span></div>
+    <div class="bingo-cell"><span class="b-emoji">🎺</span><span class="b-label">Trąbka</span></div>
+    <div class="bingo-cell"><span class="b-emoji">🌊</span><span class="b-label">Nisko</span></div>
+    <div class="bingo-cell"><span class="b-emoji">🎵</span><span class="b-label">Nuta</span></div>
+  </div>
+
+  <span class="page-num">64</span>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     GRA 3: LOTERIA DŹWIĘKOWA — Plansza 3
+     ═══════════════════════════════════════════ -->
+<div class="page">
+  <h2 style="text-align:center;color:var(--teal-dark);margin-bottom:4px;">🎯 Loteria Dźwiękowa</h2>
+  <p style="text-align:center;font-size:11px;color:var(--muted);margin-bottom:8px;">Plansza gracza 3</p>
+  <div style="text-align:center;margin-bottom:6px;">
+    <span class="pill pill-gold" style="font-size:12px;padding:4px 14px;">PLANSZA 3</span>
+  </div>
+
+  <div class="bingo-grid">
+    <div class="bingo-cell bingo-header">L</div>
+    <div class="bingo-cell bingo-header">O</div>
+    <div class="bingo-cell bingo-header">T</div>
+    <div class="bingo-cell bingo-header">E</div>
+    <div class="bingo-cell bingo-header">R</div>
+
+    <div class="bingo-cell"><span class="b-emoji">🪘</span><span class="b-label">Tamburyn</span></div>
+    <div class="bingo-cell"><span class="b-emoji">🎺</span><span class="b-label">Trąbka</span></div>
+    <div class="bingo-cell"><span class="b-emoji">🤫</span><span class="b-label">Cicho</span></div>
+    <div class="bingo-cell"><span class="b-emoji">🎸</span><span class="b-label">Gitara</span></div>
+    <div class="bingo-cell"><span class="b-emoji">🎧</span><span class="b-label">Słuchawki</span></div>
+
+    <div class="bingo-cell"><span class="b-emoji">🔔</span><span class="b-label">Dzwoneczek</span></div>
+    <div class="bingo-cell"><span class="b-emoji">🎵</span><span class="b-label">Nuta</span></div>
+    <div class="bingo-cell bingo-free">⭐<br>GRATIS</div>
+    <div class="bingo-cell"><span class="b-emoji">🎹</span><span class="b-label">Pianino</span></div>
+    <div class="bingo-cell"><span class="b-emoji">🐇</span><span class="b-label">Szybko</span></div>
+
+    <div class="bingo-cell"><span class="b-emoji">👏</span><span class="b-label">Klaskanie</span></div>
+    <div class="bingo-cell"><span class="b-emoji">☁️</span><span class="b-label">Wysoko</span></div>
+    <div class="bingo-cell"><span class="b-emoji">🪈</span><span class="b-label">Flet</span></div>
+    <div class="bingo-cell"><span class="b-emoji">🎷</span><span class="b-label">Saksofon</span></div>
+    <div class="bingo-cell"><span class="b-emoji">🥁</span><span class="b-label">Bęben</span></div>
+
+    <div class="bingo-cell"><span class="b-emoji">〰️</span><span class="b-label">Gładko</span></div>
+    <div class="bingo-cell"><span class="b-emoji">🎻</span><span class="b-label">Skrzypce</span></div>
+    <div class="bingo-cell"><span class="b-emoji">🪇</span><span class="b-label">Marakasy</span></div>
+    <div class="bingo-cell"><span class="b-emoji">💃</span><span class="b-label">Taniec</span></div>
+    <div class="bingo-cell"><span class="b-emoji">🎶</span><span class="b-label">Melodia</span></div>
+  </div>
+
+  <span class="page-num">65</span>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     GRA 3: LOTERIA DŹWIĘKOWA — Plansza 4
+     ═══════════════════════════════════════════ -->
+<div class="page">
+  <h2 style="text-align:center;color:var(--teal-dark);margin-bottom:4px;">🎯 Loteria Dźwiękowa</h2>
+  <p style="text-align:center;font-size:11px;color:var(--muted);margin-bottom:8px;">Plansza gracza 4</p>
+  <div style="text-align:center;margin-bottom:6px;">
+    <span class="pill pill-coral" style="font-size:12px;padding:4px 14px;">PLANSZA 4</span>
+  </div>
+
+  <div class="bingo-grid">
+    <div class="bingo-cell bingo-header">L</div>
+    <div class="bingo-cell bingo-header">O</div>
+    <div class="bingo-cell bingo-header">T</div>
+    <div class="bingo-cell bingo-header">E</div>
+    <div class="bingo-cell bingo-header">R</div>
+
+    <div class="bingo-cell"><span class="b-emoji">🎻</span><span class="b-label">Skrzypce</span></div>
+    <div class="bingo-cell"><span class="b-emoji">🔺</span><span class="b-label">Trójkąt</span></div>
+    <div class="bingo-cell"><span class="b-emoji">🎹</span><span class="b-label">Pianino</span></div>
+    <div class="bingo-cell"><span class="b-emoji">🪗</span><span class="b-label">Akordeon</span></div>
+    <div class="bingo-cell"><span class="b-emoji">🦶</span><span class="b-label">Tupanie</span></div>
+
+    <div class="bingo-cell"><span class="b-emoji">🎶</span><span class="b-label">Melodia</span></div>
+    <div class="bingo-cell"><span class="b-emoji">📢</span><span class="b-label">Głośno</span></div>
+    <div class="bingo-cell bingo-free">⭐<br>GRATIS</div>
+    <div class="bingo-cell"><span class="b-emoji">🎸</span><span class="b-label">Gitara</span></div>
+    <div class="bingo-cell"><span class="b-emoji">🪈</span><span class="b-label">Flet</span></div>
+
+    <div class="bingo-cell"><span class="b-emoji">🐢</span><span class="b-label">Wolno</span></div>
+    <div class="bingo-cell"><span class="b-emoji">🎤</span><span class="b-label">Mikrofon</span></div>
+    <div class="bingo-cell"><span class="b-emoji">🪘</span><span class="b-label">Tamburyn</span></div>
+    <div class="bingo-cell"><span class="b-emoji">🎼</span><span class="b-label">Partytura</span></div>
+    <div class="bingo-cell"><span class="b-emoji">🎵</span><span class="b-label">Nuta</span></div>
+
+    <div class="bingo-cell"><span class="b-emoji">🌊</span><span class="b-label">Nisko</span></div>
+    <div class="bingo-cell"><span class="b-emoji">🎺</span><span class="b-label">Trąbka</span></div>
+    <div class="bingo-cell"><span class="b-emoji">🥁</span><span class="b-label">Bęben</span></div>
+    <div class="bingo-cell"><span class="b-emoji">🎷</span><span class="b-label">Saksofon</span></div>
+    <div class="bingo-cell"><span class="b-emoji">👏</span><span class="b-label">Klaskanie</span></div>
+  </div>
+
+  <span class="page-num">66</span>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     GRA 3: LOTERIA DŹWIĘKOWA — Plansza 5
+     ═══════════════════════════════════════════ -->
+<div class="page">
+  <h2 style="text-align:center;color:var(--teal-dark);margin-bottom:4px;">🎯 Loteria Dźwiękowa</h2>
+  <p style="text-align:center;font-size:11px;color:var(--muted);margin-bottom:8px;">Plansza gracza 5</p>
+  <div style="text-align:center;margin-bottom:6px;">
+    <span class="pill pill-teal" style="font-size:12px;padding:4px 14px;">PLANSZA 5</span>
+  </div>
+
+  <div class="bingo-grid">
+    <div class="bingo-cell bingo-header">L</div>
+    <div class="bingo-cell bingo-header">O</div>
+    <div class="bingo-cell bingo-header">T</div>
+    <div class="bingo-cell bingo-header">E</div>
+    <div class="bingo-cell bingo-header">R</div>
+
+    <div class="bingo-cell"><span class="b-emoji">🥁</span><span class="b-label">Bęben</span></div>
+    <div class="bingo-cell"><span class="b-emoji">🎤</span><span class="b-label">Mikrofon</span></div>
+    <div class="bingo-cell"><span class="b-emoji">🪇</span><span class="b-label">Marakasy</span></div>
+    <div class="bingo-cell"><span class="b-emoji">🎸</span><span class="b-label">Gitara</span></div>
+    <div class="bingo-cell"><span class="b-emoji">⚡</span><span class="b-label">Ostro</span></div>
+
+    <div class="bingo-cell"><span class="b-emoji">🎵</span><span class="b-label">Nuta</span></div>
+    <div class="bingo-cell"><span class="b-emoji">🎺</span><span class="b-label">Trąbka</span></div>
+    <div class="bingo-cell bingo-free">⭐<br>GRATIS</div>
+    <div class="bingo-cell"><span class="b-emoji">🔔</span><span class="b-label">Dzwoneczek</span></div>
+    <div class="bingo-cell"><span class="b-emoji">🎧</span><span class="b-label">Słuchawki</span></div>
+
+    <div class="bingo-cell"><span class="b-emoji">🎹</span><span class="b-label">Pianino</span></div>
+    <div class="bingo-cell"><span class="b-emoji">💃</span><span class="b-label">Taniec</span></div>
+    <div class="bingo-cell"><span class="b-emoji">🪘</span><span class="b-label">Tamburyn</span></div>
+    <div class="bingo-cell"><span class="b-emoji">☁️</span><span class="b-label">Wysoko</span></div>
+    <div class="bingo-cell"><span class="b-emoji">🎻</span><span class="b-label">Skrzypce</span></div>
+
+    <div class="bingo-cell"><span class="b-emoji">🪗</span><span class="b-label">Akordeon</span></div>
+    <div class="bingo-cell"><span class="b-emoji">🐇</span><span class="b-label">Szybko</span></div>
+    <div class="bingo-cell"><span class="b-emoji">🎷</span><span class="b-label">Saksofon</span></div>
+    <div class="bingo-cell"><span class="b-emoji">🎶</span><span class="b-label">Melodia</span></div>
+    <div class="bingo-cell"><span class="b-emoji">🪈</span><span class="b-label">Flet</span></div>
+  </div>
+
+  <span class="page-num">67</span>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     GRA 3: LOTERIA DŹWIĘKOWA — Plansza 6
+     ═══════════════════════════════════════════ -->
+<div class="page">
+  <h2 style="text-align:center;color:var(--teal-dark);margin-bottom:4px;">🎯 Loteria Dźwiękowa</h2>
+  <p style="text-align:center;font-size:11px;color:var(--muted);margin-bottom:8px;">Plansza gracza 6</p>
+  <div style="text-align:center;margin-bottom:6px;">
+    <span class="pill pill-gold" style="font-size:12px;padding:4px 14px;">PLANSZA 6</span>
+  </div>
+
+  <div class="bingo-grid">
+    <div class="bingo-cell bingo-header">L</div>
+    <div class="bingo-cell bingo-header">O</div>
+    <div class="bingo-cell bingo-header">T</div>
+    <div class="bingo-cell bingo-header">E</div>
+    <div class="bingo-cell bingo-header">R</div>
+
+    <div class="bingo-cell"><span class="b-emoji">🎸</span><span class="b-label">Gitara</span></div>
+    <div class="bingo-cell"><span class="b-emoji">🪈</span><span class="b-label">Flet</span></div>
+    <div class="bingo-cell"><span class="b-emoji">🎤</span><span class="b-label">Mikrofon</span></div>
+    <div class="bingo-cell"><span class="b-emoji">🐢</span><span class="b-label">Wolno</span></div>
+    <div class="bingo-cell"><span class="b-emoji">🎹</span><span class="b-label">Pianino</span></div>
+
+    <div class="bingo-cell"><span class="b-emoji">🎼</span><span class="b-label">Partytura</span></div>
+    <div class="bingo-cell"><span class="b-emoji">🥁</span><span class="b-label">Bęben</span></div>
+    <div class="bingo-cell bingo-free">⭐<br>GRATIS</div>
+    <div class="bingo-cell"><span class="b-emoji">🪇</span><span class="b-label">Marakasy</span></div>
+    <div class="bingo-cell"><span class="b-emoji">🎻</span><span class="b-label">Skrzypce</span></div>
+
+    <div class="bingo-cell"><span class="b-emoji">🔺</span><span class="b-label">Trójkąt</span></div>
+    <div class="bingo-cell"><span class="b-emoji">🎺</span><span class="b-label">Trąbka</span></div>
+    <div class="bingo-cell"><span class="b-emoji">🤫</span><span class="b-label">Cicho</span></div>
+    <div class="bingo-cell"><span class="b-emoji">🦶</span><span class="b-label">Tupanie</span></div>
+    <div class="bingo-cell"><span class="b-emoji">🎷</span><span class="b-label">Saksofon</span></div>
+
+    <div class="bingo-cell"><span class="b-emoji">👏</span><span class="b-label">Klaskanie</span></div>
+    <div class="bingo-cell"><span class="b-emoji">🌊</span><span class="b-label">Nisko</span></div>
+    <div class="bingo-cell"><span class="b-emoji">🪘</span><span class="b-label">Tamburyn</span></div>
+    <div class="bingo-cell"><span class="b-emoji">🎵</span><span class="b-label">Nuta</span></div>
+    <div class="bingo-cell"><span class="b-emoji">💃</span><span class="b-label">Taniec</span></div>
+  </div>
+
+  <span class="page-num">68</span>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     GRA 3: KARTY LOSOWANIA — strona 1
+     ═══════════════════════════════════════════ -->
+<div class="page">
+  <h2 style="text-align:center;color:var(--teal-dark);margin-bottom:4px;">🎯 Karty Losowania</h2>
+  <p style="text-align:center;font-size:11px;color:var(--muted);margin-bottom:10px;">✂️ Wytnij karty, wymieszaj i losuj po jednej. Strona 1 z 2.</p>
+
+  <div class="calling-grid">
+    <div class="calling-card"><span class="cc-emoji">🎹</span><span class="cc-label">Pianino</span></div>
+    <div class="calling-card"><span class="cc-emoji">🎸</span><span class="cc-label">Gitara</span></div>
+    <div class="calling-card"><span class="cc-emoji">🥁</span><span class="cc-label">Bęben</span></div>
+    <div class="calling-card"><span class="cc-emoji">🎺</span><span class="cc-label">Trąbka</span></div>
+    <div class="calling-card"><span class="cc-emoji">🎻</span><span class="cc-label">Skrzypce</span></div>
+
+    <div class="calling-card"><span class="cc-emoji">🪈</span><span class="cc-label">Flet</span></div>
+    <div class="calling-card"><span class="cc-emoji">🪘</span><span class="cc-label">Tamburyn</span></div>
+    <div class="calling-card"><span class="cc-emoji">🪇</span><span class="cc-label">Marakasy</span></div>
+    <div class="calling-card"><span class="cc-emoji">🔺</span><span class="cc-label">Trójkąt</span></div>
+    <div class="calling-card"><span class="cc-emoji">🎤</span><span class="cc-label">Mikrofon</span></div>
+
+    <div class="calling-card"><span class="cc-emoji">🎷</span><span class="cc-label">Saksofon</span></div>
+    <div class="calling-card"><span class="cc-emoji">🪗</span><span class="cc-label">Akordeon</span></div>
+    <div class="calling-card"><span class="cc-emoji">🔔</span><span class="cc-label">Dzwoneczek</span></div>
+    <div class="calling-card"><span class="cc-emoji">👏</span><span class="cc-label">Klaskanie</span></div>
+    <div class="calling-card"><span class="cc-emoji">🦶</span><span class="cc-label">Tupanie</span></div>
+  </div>
+
+  <span class="page-num">69</span>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     GRA 3: KARTY LOSOWANIA — strona 2
+     ═══════════════════════════════════════════ -->
+<div class="page">
+  <h2 style="text-align:center;color:var(--teal-dark);margin-bottom:4px;">🎯 Karty Losowania</h2>
+  <p style="text-align:center;font-size:11px;color:var(--muted);margin-bottom:10px;">✂️ Wytnij karty, wymieszaj i losuj po jednej. Strona 2 z 2.</p>
+
+  <div class="calling-grid">
+    <div class="calling-card"><span class="cc-emoji">🎵</span><span class="cc-label">Nuta</span></div>
+    <div class="calling-card"><span class="cc-emoji">🎶</span><span class="cc-label">Melodia</span></div>
+    <div class="calling-card"><span class="cc-emoji">🎼</span><span class="cc-label">Partytura</span></div>
+    <div class="calling-card"><span class="cc-emoji">💃</span><span class="cc-label">Taniec</span></div>
+    <div class="calling-card"><span class="cc-emoji">📢</span><span class="cc-label">Głośno</span></div>
+
+    <div class="calling-card"><span class="cc-emoji">🤫</span><span class="cc-label">Cicho</span></div>
+    <div class="calling-card"><span class="cc-emoji">🐇</span><span class="cc-label">Szybko</span></div>
+    <div class="calling-card"><span class="cc-emoji">🐢</span><span class="cc-label">Wolno</span></div>
+    <div class="calling-card"><span class="cc-emoji">☁️</span><span class="cc-label">Wysoko</span></div>
+    <div class="calling-card"><span class="cc-emoji">🌊</span><span class="cc-label">Nisko</span></div>
+
+    <div class="calling-card"><span class="cc-emoji">⚡</span><span class="cc-label">Ostro</span></div>
+    <div class="calling-card"><span class="cc-emoji">〰️</span><span class="cc-label">Gładko</span></div>
+    <div class="calling-card"><span class="cc-emoji">🎧</span><span class="cc-label">Słuchawki</span></div>
+    <div class="calling-card"><span class="cc-emoji">🪕</span><span class="cc-label">Ukulele</span></div>
+    <div class="calling-card"><span class="cc-emoji">🥇</span><span class="cc-label">Brawa!</span></div>
+  </div>
+
+  <div class="callout ok" style="margin-top:12px;font-size:11px;">
+    <strong>📋 Zasady Loterii Dźwiękowej:</strong> Każdy gracz dostaje planszę. Prowadzący losuje kartę
+    i pokazuje lub naśladuje dźwięk. Gracze zakrywają odpowiednie pole na swojej planszy (np. guziczkiem).
+    Kto zakryje 5 pól w jednym rzędzie (poziomo, pionowo lub po skosie) — krzyczy <strong>„LOTERIA!"</strong> i wygrywa! 🎉
+  </div>
+
+  <span class="page-num">70</span>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     GRA 4: KOŁO FORTUNY MUZYCZNE — Spinner
+     ═══════════════════════════════════════════ -->
+<div class="page">
+  <h2 style="text-align:center;color:var(--teal-dark);margin-bottom:4px;">🎡 Koło Fortuny Muzyczne</h2>
+  <p style="text-align:center;font-size:11px;color:var(--muted);margin-bottom:6px;">✂️ Wytnij koło, przebij środek ołówkiem i zakręć!</p>
+
+  <div class="spinner-wheel">
+    <!-- Labels positioned at each segment -->
+    <div class="spinner-label" style="transform:rotate(22.5deg) translateY(-50%);">🎹<br>Zagraj na pianinie!</div>
+    <div class="spinner-label" style="transform:rotate(67.5deg) translateY(-50%);">👏<br>Klaszcz 10 razy!</div>
+    <div class="spinner-label" style="transform:rotate(112.5deg) translateY(-50%);">🎸<br>Zagraj na gitarze!</div>
+    <div class="spinner-label" style="transform:rotate(157.5deg) translateY(-50%);">💃<br>Zatańcz!</div>
+    <div class="spinner-label" style="transform:rotate(202.5deg) translateY(-50%);">🥁<br>Bębnij po stole!</div>
+    <div class="spinner-label" style="transform:rotate(247.5deg) translateY(-50%);">🦘<br>Skacz 5 razy!</div>
+    <div class="spinner-label" style="transform:rotate(292.5deg) translateY(-50%);">🎺<br>Zagraj na trąbce!</div>
+    <div class="spinner-label" style="transform:rotate(337.5deg) translateY(-50%);">⭐<br>Losuj kartę!</div>
+    <div class="spinner-center">🎵</div>
+  </div>
+
+  <!-- Arrow to cut out -->
+  <div class="cut-border" style="text-align:center;padding:12px;margin-top:8px;">
+    <p style="font-family:var(--df);font-size:11px;font-weight:800;margin-bottom:8px;">✂️ Strzałka do wycięcia</p>
+    <div style="display:inline-block;width:100px;height:30px;position:relative;">
+      <div style="width:0;height:0;border-left:50px solid transparent;border-right:50px solid transparent;border-bottom:30px solid var(--coral);margin:0 auto;"></div>
+    </div>
+    <p style="font-size:10px;color:var(--muted);margin-top:6px;">Przebij środek koła ołówkiem. Nałóż strzałkę i zakręć!</p>
+  </div>
+
+  <span class="page-num">71</span>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     GRA 4: KARTY WYZWAŃ — strona 1
+     ═══════════════════════════════════════════ -->
+<div class="page">
+  <h2 style="text-align:center;color:var(--teal-dark);margin-bottom:4px;">🎡 Karty Wyzwań do Koła Fortuny</h2>
+  <p style="text-align:center;font-size:11px;color:var(--muted);margin-bottom:10px;">✂️ Wytnij karty — losuj, gdy strzałka wskaże ⭐ Strona 1 z 2</p>
+
+  <div class="grid-3">
+    <div class="visual-card" style="border-style:dashed;border-color:var(--coral);">
+      <div class="vc-emoji">🎵</div>
+      <div class="vc-label" style="font-size:12px;">Zaśpiewaj piosenkę</div>
+      <div class="vc-sub">Dowolną, którą znasz!</div>
+    </div>
+    <div class="visual-card" style="border-style:dashed;border-color:var(--teal);">
+      <div class="vc-emoji">🐱</div>
+      <div class="vc-label" style="font-size:12px;">Naśladuj zwierzę</div>
+      <div class="vc-sub">Wydaj dźwięk kota, psa lub ptaka</div>
+    </div>
+    <div class="visual-card" style="border-style:dashed;border-color:var(--gold);">
+      <div class="vc-emoji">🌀</div>
+      <div class="vc-label" style="font-size:12px;">Obróć się 5 razy</div>
+      <div class="vc-sub">I postaraj się nie upaść!</div>
+    </div>
+
+    <div class="visual-card" style="border-style:dashed;border-color:var(--n4);">
+      <div class="vc-emoji">📢</div>
+      <div class="vc-label" style="font-size:12px;">Krzycz i szepcz</div>
+      <div class="vc-sub">Powiedz imię najpierw głośno, potem cicho</div>
+    </div>
+    <div class="visual-card" style="border-style:dashed;border-color:var(--n5);">
+      <div class="vc-emoji">🤖</div>
+      <div class="vc-label" style="font-size:12px;">Tańcz jak robot</div>
+      <div class="vc-sub">Ruszaj się sztywnymi ruchami!</div>
+    </div>
+    <div class="visual-card" style="border-style:dashed;border-color:var(--n6);">
+      <div class="vc-emoji">🦁</div>
+      <div class="vc-label" style="font-size:12px;">Ryk lwa</div>
+      <div class="vc-sub">Zaryczaj jak lew — głośno!</div>
+    </div>
+
+    <div class="visual-card" style="border-style:dashed;border-color:var(--n1);">
+      <div class="vc-emoji">🐢</div>
+      <div class="vc-label" style="font-size:12px;">Ruszaj się wolno</div>
+      <div class="vc-sub">Idź w zwolnionym tempie 10 sekund</div>
+    </div>
+    <div class="visual-card" style="border-style:dashed;border-color:var(--n2);">
+      <div class="vc-emoji">🎤</div>
+      <div class="vc-label" style="font-size:12px;">Wymyśl piosenkę</div>
+      <div class="vc-sub">O czymkolwiek — 4 linijki!</div>
+    </div>
+    <div class="visual-card" style="border-style:dashed;border-color:var(--n3);">
+      <div class="vc-emoji">👐</div>
+      <div class="vc-label" style="font-size:12px;">Wyklaskaj rytm</div>
+      <div class="vc-sub">ta-ta-TA-ta-ta-TA!</div>
+    </div>
+  </div>
+
+  <span class="page-num">72</span>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     GRA 4: KARTY WYZWAŃ — strona 2
+     ═══════════════════════════════════════════ -->
+<div class="page">
+  <h2 style="text-align:center;color:var(--teal-dark);margin-bottom:4px;">🎡 Karty Wyzwań do Koła Fortuny</h2>
+  <p style="text-align:center;font-size:11px;color:var(--muted);margin-bottom:10px;">✂️ Wytnij karty — strona 2 z 2</p>
+
+  <div class="grid-3">
+    <div class="visual-card" style="border-style:dashed;border-color:var(--coral);">
+      <div class="vc-emoji">🧊</div>
+      <div class="vc-label" style="font-size:12px;">Zamróź się!</div>
+      <div class="vc-sub">Stój nieruchomo 15 sekund</div>
+    </div>
+    <div class="visual-card" style="border-style:dashed;border-color:var(--teal);">
+      <div class="vc-emoji">🎻</div>
+      <div class="vc-label" style="font-size:12px;">Zagraj na skrzypcach</div>
+      <div class="vc-sub">Udawaj smyczek w powietrzu!</div>
+    </div>
+    <div class="visual-card" style="border-style:dashed;border-color:var(--gold);">
+      <div class="vc-emoji">🐸</div>
+      <div class="vc-label" style="font-size:12px;">Skacz jak żaba</div>
+      <div class="vc-sub">I kumkaj: kum-kum-kum!</div>
+    </div>
+
+    <div class="visual-card" style="border-style:dashed;border-color:var(--n4);">
+      <div class="vc-emoji">🌬️</div>
+      <div class="vc-label" style="font-size:12px;">Gwiżdż melodię</div>
+      <div class="vc-sub">Dowolną piosenkę!</div>
+    </div>
+    <div class="visual-card" style="border-style:dashed;border-color:var(--n5);">
+      <div class="vc-emoji">🥁</div>
+      <div class="vc-label" style="font-size:12px;">Bębnij po stole</div>
+      <div class="vc-sub">bum-bum-BUM-bum-bum-BUM!</div>
+    </div>
+    <div class="visual-card" style="border-style:dashed;border-color:var(--n6);">
+      <div class="vc-emoji">🎪</div>
+      <div class="vc-label" style="font-size:12px;">Pokaz cyrkowy</div>
+      <div class="vc-sub">Pokaż swój najlepszy trik!</div>
+    </div>
+
+    <div class="visual-card" style="border-style:dashed;border-color:var(--n1);">
+      <div class="vc-emoji">🐇</div>
+      <div class="vc-label" style="font-size:12px;">Szybki marsz</div>
+      <div class="vc-sub">Maszeruj szybko 10 sekund!</div>
+    </div>
+    <div class="visual-card" style="border-style:dashed;border-color:var(--n2);">
+      <div class="vc-emoji">🤫</div>
+      <div class="vc-label" style="font-size:12px;">Ciche śpiewanie</div>
+      <div class="vc-sub">Zaśpiewaj szeptem!</div>
+    </div>
+    <div class="visual-card" style="border-style:dashed;border-color:var(--n3);">
+      <div class="vc-emoji">🎊</div>
+      <div class="vc-label" style="font-size:12px;">Bonus!</div>
+      <div class="vc-sub">Wybierz dowolne wyzwanie!</div>
+    </div>
+  </div>
+
+  <div class="callout ok" style="margin-top:10px;font-size:11px;">
+    <strong>🎡 Zasady Koła Fortuny:</strong> Zakręć spinnerem! Wykonaj zadanie wskazane przez strzałkę.
+    Jeśli strzałka wskaże ⭐, wylosuj kartę wyzwania. Baw się z rodziną lub przyjaciółmi!
+  </div>
+
+  <span class="page-num">73</span>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     GRA 5: DOMINO MUZYCZNE — strona 1
+     ═══════════════════════════════════════════ -->
+<div class="page">
+  <h2 style="text-align:center;color:var(--teal-dark);margin-bottom:4px;">🀄 Domino Muzyczne</h2>
+  <p style="text-align:center;font-size:11px;color:var(--muted);margin-bottom:10px;">✂️ Wytnij kostki domina. Dopasuj instrumenty! Strona 1 z 3</p>
+
+  <div class="grid-3" style="gap:10px;">
+    <div class="domino cut-border" style="padding:0;">
+      <div class="domino-half"><span class="d-emoji">🎹</span><span class="d-name">Pianino</span></div>
+      <div class="domino-half"><span class="d-emoji">🎸</span><span class="d-name">Gitara</span></div>
+    </div>
+    <div class="domino cut-border" style="padding:0;">
+      <div class="domino-half"><span class="d-emoji">🎸</span><span class="d-name">Gitara</span></div>
+      <div class="domino-half"><span class="d-emoji">🥁</span><span class="d-name">Bęben</span></div>
+    </div>
+    <div class="domino cut-border" style="padding:0;">
+      <div class="domino-half"><span class="d-emoji">🥁</span><span class="d-name">Bęben</span></div>
+      <div class="domino-half"><span class="d-emoji">🎺</span><span class="d-name">Trąbka</span></div>
+    </div>
+
+    <div class="domino cut-border" style="padding:0;">
+      <div class="domino-half"><span class="d-emoji">🎺</span><span class="d-name">Trąbka</span></div>
+      <div class="domino-half"><span class="d-emoji">🎻</span><span class="d-name">Skrzypce</span></div>
+    </div>
+    <div class="domino cut-border" style="padding:0;">
+      <div class="domino-half"><span class="d-emoji">🎻</span><span class="d-name">Skrzypce</span></div>
+      <div class="domino-half"><span class="d-emoji">🪈</span><span class="d-name">Flet</span></div>
+    </div>
+    <div class="domino cut-border" style="padding:0;">
+      <div class="domino-half"><span class="d-emoji">🪈</span><span class="d-name">Flet</span></div>
+      <div class="domino-half"><span class="d-emoji">🪘</span><span class="d-name">Tamburyn</span></div>
+    </div>
+
+    <div class="domino cut-border" style="padding:0;">
+      <div class="domino-half"><span class="d-emoji">🪘</span><span class="d-name">Tamburyn</span></div>
+      <div class="domino-half"><span class="d-emoji">🪇</span><span class="d-name">Marakasy</span></div>
+    </div>
+    <div class="domino cut-border" style="padding:0;">
+      <div class="domino-half"><span class="d-emoji">🪇</span><span class="d-name">Marakasy</span></div>
+      <div class="domino-half"><span class="d-emoji">🎹</span><span class="d-name">Pianino</span></div>
+    </div>
+    <div class="domino cut-border" style="padding:0;">
+      <div class="domino-half"><span class="d-emoji">🎹</span><span class="d-name">Pianino</span></div>
+      <div class="domino-half"><span class="d-emoji">🎹</span><span class="d-name">Pianino</span></div>
+    </div>
+
+    <div class="domino cut-border" style="padding:0;">
+      <div class="domino-half"><span class="d-emoji">🎸</span><span class="d-name">Gitara</span></div>
+      <div class="domino-half"><span class="d-emoji">🎸</span><span class="d-name">Gitara</span></div>
+    </div>
+  </div>
+
+  <span class="page-num">74</span>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     GRA 5: DOMINO MUZYCZNE — strona 2
+     ═══════════════════════════════════════════ -->
+<div class="page">
+  <h2 style="text-align:center;color:var(--teal-dark);margin-bottom:4px;">🀄 Domino Muzyczne</h2>
+  <p style="text-align:center;font-size:11px;color:var(--muted);margin-bottom:10px;">✂️ Strona 2 z 3</p>
+
+  <div class="grid-3" style="gap:10px;">
+    <div class="domino cut-border" style="padding:0;">
+      <div class="domino-half"><span class="d-emoji">🥁</span><span class="d-name">Bęben</span></div>
+      <div class="domino-half"><span class="d-emoji">🥁</span><span class="d-name">Bęben</span></div>
+    </div>
+    <div class="domino cut-border" style="padding:0;">
+      <div class="domino-half"><span class="d-emoji">🎺</span><span class="d-name">Trąbka</span></div>
+      <div class="domino-half"><span class="d-emoji">🎺</span><span class="d-name">Trąbka</span></div>
+    </div>
+    <div class="domino cut-border" style="padding:0;">
+      <div class="domino-half"><span class="d-emoji">🎻</span><span class="d-name">Skrzypce</span></div>
+      <div class="domino-half"><span class="d-emoji">🎻</span><span class="d-name">Skrzypce</span></div>
+    </div>
+
+    <div class="domino cut-border" style="padding:0;">
+      <div class="domino-half"><span class="d-emoji">🎹</span><span class="d-name">Pianino</span></div>
+      <div class="domino-half"><span class="d-emoji">🎺</span><span class="d-name">Trąbka</span></div>
+    </div>
+    <div class="domino cut-border" style="padding:0;">
+      <div class="domino-half"><span class="d-emoji">🎸</span><span class="d-name">Gitara</span></div>
+      <div class="domino-half"><span class="d-emoji">🎻</span><span class="d-name">Skrzypce</span></div>
+    </div>
+    <div class="domino cut-border" style="padding:0;">
+      <div class="domino-half"><span class="d-emoji">🥁</span><span class="d-name">Bęben</span></div>
+      <div class="domino-half"><span class="d-emoji">🪈</span><span class="d-name">Flet</span></div>
+    </div>
+
+    <div class="domino cut-border" style="padding:0;">
+      <div class="domino-half"><span class="d-emoji">🎹</span><span class="d-name">Pianino</span></div>
+      <div class="domino-half"><span class="d-emoji">🪇</span><span class="d-name">Marakasy</span></div>
+    </div>
+    <div class="domino cut-border" style="padding:0;">
+      <div class="domino-half"><span class="d-emoji">🎸</span><span class="d-name">Gitara</span></div>
+      <div class="domino-half"><span class="d-emoji">🪘</span><span class="d-name">Tamburyn</span></div>
+    </div>
+    <div class="domino cut-border" style="padding:0;">
+      <div class="domino-half"><span class="d-emoji">🎺</span><span class="d-name">Trąbka</span></div>
+      <div class="domino-half"><span class="d-emoji">🪇</span><span class="d-name">Marakasy</span></div>
+    </div>
+
+    <div class="domino cut-border" style="padding:0;">
+      <div class="domino-half"><span class="d-emoji">🎻</span><span class="d-name">Skrzypce</span></div>
+      <div class="domino-half"><span class="d-emoji">🪘</span><span class="d-name">Tamburyn</span></div>
+    </div>
+  </div>
+
+  <span class="page-num">75</span>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     GRA 5: DOMINO MUZYCZNE — strona 3
+     ═══════════════════════════════════════════ -->
+<div class="page">
+  <h2 style="text-align:center;color:var(--teal-dark);margin-bottom:4px;">🀄 Domino Muzyczne</h2>
+  <p style="text-align:center;font-size:11px;color:var(--muted);margin-bottom:10px;">✂️ Strona 3 z 3</p>
+
+  <div class="grid-3" style="gap:10px;">
+    <div class="domino cut-border" style="padding:0;">
+      <div class="domino-half"><span class="d-emoji">🪈</span><span class="d-name">Flet</span></div>
+      <div class="domino-half"><span class="d-emoji">🪈</span><span class="d-name">Flet</span></div>
+    </div>
+    <div class="domino cut-border" style="padding:0;">
+      <div class="domino-half"><span class="d-emoji">🪘</span><span class="d-name">Tamburyn</span></div>
+      <div class="domino-half"><span class="d-emoji">🪘</span><span class="d-name">Tamburyn</span></div>
+    </div>
+    <div class="domino cut-border" style="padding:0;">
+      <div class="domino-half"><span class="d-emoji">🪇</span><span class="d-name">Marakasy</span></div>
+      <div class="domino-half"><span class="d-emoji">🪇</span><span class="d-name">Marakasy</span></div>
+    </div>
+
+    <div class="domino cut-border" style="padding:0;">
+      <div class="domino-half"><span class="d-emoji">🎹</span><span class="d-name">Pianino</span></div>
+      <div class="domino-half"><span class="d-emoji">🪈</span><span class="d-name">Flet</span></div>
+    </div>
+    <div class="domino cut-border" style="padding:0;">
+      <div class="domino-half"><span class="d-emoji">🥁</span><span class="d-name">Bęben</span></div>
+      <div class="domino-half"><span class="d-emoji">🪇</span><span class="d-name">Marakasy</span></div>
+    </div>
+    <div class="domino cut-border" style="padding:0;">
+      <div class="domino-half"><span class="d-emoji">🎸</span><span class="d-name">Gitara</span></div>
+      <div class="domino-half"><span class="d-emoji">🪈</span><span class="d-name">Flet</span></div>
+    </div>
+
+    <div class="domino cut-border" style="padding:0;">
+      <div class="domino-half"><span class="d-emoji">🎺</span><span class="d-name">Trąbka</span></div>
+      <div class="domino-half"><span class="d-emoji">🪘</span><span class="d-name">Tamburyn</span></div>
+    </div>
+    <div class="domino cut-border" style="padding:0;">
+      <div class="domino-half"><span class="d-emoji">🎻</span><span class="d-name">Skrzypce</span></div>
+      <div class="domino-half"><span class="d-emoji">🪇</span><span class="d-name">Marakasy</span></div>
+    </div>
+  </div>
+
+  <div class="callout ok" style="margin-top:14px;font-size:11px;">
+    <strong>🀄 Zasady Domina Muzycznego:</strong> 2–4 graczy. Rozdaj po 7 kostek. Pierwszy gracz kładzie
+    dowolną kostkę. Następny dokłada kostkę, dopasowując instrument do już leżącego. Nie masz pasującej?
+    Dobierasz z kupki. Kto pierwszy pozbędzie się kostek — wygrywa! 🏆
+  </div>
+
+  <span class="page-num">76</span>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     GRA 6: ZNAJDŹ PARĘ — strona 1
+     ═══════════════════════════════════════════ -->
+<div class="page">
+  <h2 style="text-align:center;color:var(--teal-dark);margin-bottom:4px;">🔗 Znajdź Parę — Nuty i Kolory</h2>
+  <p style="text-align:center;font-size:11px;color:var(--muted);margin-bottom:10px;">✂️ Wytnij karty i dopasuj nutę do jej koloru. Strona 1 z 3</p>
+
+  <div class="grid-3" style="gap:10px;">
+    <!-- Karty nut (do dopasowania z kolorami) -->
+    <div class="pair-card">
+      <div class="note-circle do">Do</div>
+      <div class="pc-label">Nuta DO</div>
+      <div class="pc-sub">Czerwona jak truskawka</div>
+    </div>
+    <div class="pair-card" style="background:var(--n1);border-color:var(--n1);">
+      <div class="pc-main">🔴</div>
+      <div class="pc-label" style="color:#fff;">CZERWONY</div>
+      <div class="pc-sub" style="color:rgba(255,255,255,.8);">Kolor nuty Do</div>
+    </div>
+    <div class="pair-card">
+      <div class="note-circle re">Re</div>
+      <div class="pc-label">Nuta RE</div>
+      <div class="pc-sub">Pomarańczowa jak dynia</div>
+    </div>
+
+    <div class="pair-card" style="background:var(--n2);border-color:var(--n2);">
+      <div class="pc-main">🟠</div>
+      <div class="pc-label" style="color:#fff;">POMARAŃCZOWY</div>
+      <div class="pc-sub" style="color:rgba(255,255,255,.8);">Kolor nuty Re</div>
+    </div>
+    <div class="pair-card">
+      <div class="note-circle mi">Mi</div>
+      <div class="pc-label">Nuta MI</div>
+      <div class="pc-sub">Żółta jak słoneczko</div>
+    </div>
+    <div class="pair-card" style="background:var(--n3);border-color:var(--n3);">
+      <div class="pc-main">🟡</div>
+      <div class="pc-label" style="color:#4A3200;">ŻÓŁTY</div>
+      <div class="pc-sub" style="color:rgba(74,50,0,.7);">Kolor nuty Mi</div>
+    </div>
+
+    <div class="pair-card">
+      <div class="note-circle fa">Fa</div>
+      <div class="pc-label">Nuta FA</div>
+      <div class="pc-sub">Zielona jak trawa</div>
+    </div>
+    <div class="pair-card" style="background:var(--n4);border-color:var(--n4);">
+      <div class="pc-main">🟢</div>
+      <div class="pc-label" style="color:#fff;">ZIELONY</div>
+      <div class="pc-sub" style="color:rgba(255,255,255,.8);">Kolor nuty Fa</div>
+    </div>
+    <div class="pair-card">
+      <div class="note-circle sol">Sol</div>
+      <div class="pc-label">Nuta SOL</div>
+      <div class="pc-sub">Niebieska jak niebo</div>
+    </div>
+  </div>
+
+  <span class="page-num">77</span>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     GRA 6: ZNAJDŹ PARĘ — strona 2
+     ═══════════════════════════════════════════ -->
+<div class="page">
+  <h2 style="text-align:center;color:var(--teal-dark);margin-bottom:4px;">🔗 Znajdź Parę — Nuty i Kolory</h2>
+  <p style="text-align:center;font-size:11px;color:var(--muted);margin-bottom:10px;">✂️ Wytnij karty — strona 2 z 3</p>
+
+  <div class="grid-3" style="gap:10px;">
+    <div class="pair-card" style="background:var(--n5);border-color:var(--n5);">
+      <div class="pc-main">🔵</div>
+      <div class="pc-label" style="color:#fff;">NIEBIESKI</div>
+      <div class="pc-sub" style="color:rgba(255,255,255,.8);">Kolor nuty Sol</div>
+    </div>
+    <div class="pair-card">
+      <div class="note-circle la">La</div>
+      <div class="pc-label">Nuta LA</div>
+      <div class="pc-sub">Różowa jak flamingo</div>
+    </div>
+    <div class="pair-card" style="background:var(--n6);border-color:var(--n6);">
+      <div class="pc-main">🩷</div>
+      <div class="pc-label" style="color:#fff;">RÓŻOWY</div>
+      <div class="pc-sub" style="color:rgba(255,255,255,.8);">Kolor nuty La</div>
+    </div>
+  </div>
+
+  <div style="margin-top:18px;">
+    <h3 style="text-align:center;color:var(--teal-dark);margin-bottom:10px;">🎵 Karty z dźwiękami (dopasuj do instrumentu)</h3>
+    <div class="grid-3" style="gap:10px;">
+      <div class="pair-card">
+        <div class="pc-main">🎹</div>
+        <div class="pc-label">Pianino</div>
+      </div>
+      <div class="pair-card" style="background:var(--cream-deep);">
+        <div class="pc-label" style="font-size:14px;">plink-plink</div>
+        <div class="pc-sub">Jaki to instrument?</div>
+      </div>
+      <div class="pair-card">
+        <div class="pc-main">🎸</div>
+        <div class="pc-label">Gitara</div>
+      </div>
+
+      <div class="pair-card" style="background:var(--cream-deep);">
+        <div class="pc-label" style="font-size:14px;">brzdęk-brzdęk</div>
+        <div class="pc-sub">Jaki to instrument?</div>
+      </div>
+      <div class="pair-card">
+        <div class="pc-main">🥁</div>
+        <div class="pc-label">Bęben</div>
+      </div>
+      <div class="pair-card" style="background:var(--cream-deep);">
+        <div class="pc-label" style="font-size:14px;">bum-bum-BUM!</div>
+        <div class="pc-sub">Jaki to instrument?</div>
+      </div>
+    </div>
+  </div>
+
+  <span class="page-num">78</span>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     GRA 6: ZNAJDŹ PARĘ — strona 3
+     ═══════════════════════════════════════════ -->
+<div class="page">
+  <h2 style="text-align:center;color:var(--teal-dark);margin-bottom:4px;">🔗 Znajdź Parę — Dźwięki</h2>
+  <p style="text-align:center;font-size:11px;color:var(--muted);margin-bottom:10px;">✂️ Wytnij karty — strona 3 z 3</p>
+
+  <div class="grid-3" style="gap:10px;">
+    <div class="pair-card">
+      <div class="pc-main">🎺</div>
+      <div class="pc-label">Trąbka</div>
+    </div>
+    <div class="pair-card" style="background:var(--cream-deep);">
+      <div class="pc-label" style="font-size:14px;">tra-ta-ta!</div>
+      <div class="pc-sub">Jaki to instrument?</div>
+    </div>
+    <div class="pair-card">
+      <div class="pc-main">🎻</div>
+      <div class="pc-label">Skrzypce</div>
+    </div>
+
+    <div class="pair-card" style="background:var(--cream-deep);">
+      <div class="pc-label" style="font-size:14px;">wiii-wiii</div>
+      <div class="pc-sub">Jaki to instrument?</div>
+    </div>
+    <div class="pair-card">
+      <div class="pc-main">🪈</div>
+      <div class="pc-label">Flet</div>
+    </div>
+    <div class="pair-card" style="background:var(--cream-deep);">
+      <div class="pc-label" style="font-size:14px;">fiu-fiu-fiuuu</div>
+      <div class="pc-sub">Jaki to instrument?</div>
+    </div>
+
+    <div class="pair-card">
+      <div class="pc-main">🪘</div>
+      <div class="pc-label">Tamburyn</div>
+    </div>
+    <div class="pair-card" style="background:var(--cream-deep);">
+      <div class="pc-label" style="font-size:14px;">czing-czing</div>
+      <div class="pc-sub">Jaki to instrument?</div>
+    </div>
+    <div class="pair-card">
+      <div class="pc-main">🪇</div>
+      <div class="pc-label">Marakasy</div>
+    </div>
+
+    <div class="pair-card" style="background:var(--cream-deep);">
+      <div class="pc-label" style="font-size:14px;">szu-szu-SZU!</div>
+      <div class="pc-sub">Jaki to instrument?</div>
+    </div>
+    <div class="pair-card">
+      <div class="pc-main">🔺</div>
+      <div class="pc-label">Trójkąt</div>
+    </div>
+    <div class="pair-card" style="background:var(--cream-deep);">
+      <div class="pc-label" style="font-size:14px;">ting... ting!</div>
+      <div class="pc-sub">Jaki to instrument?</div>
+    </div>
+  </div>
+
+  <div class="callout ok" style="margin-top:10px;font-size:11px;">
+    <strong>🔗 Jak grać:</strong> Wytnij wszystkie karty. Rozłóż je obrazkiem do dołu. Odkrywaj po 2 —
+    szukaj par: nuta + kolor lub instrument + dźwięk. Znalazłeś parę? Zabiasz ją! 🏆
+  </div>
+
+  <span class="page-num">79</span>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     GRA 7: QUIZ MUZYCZNY — strona 1
+     ═══════════════════════════════════════════ -->
+<div class="page">
+  <h2 style="text-align:center;color:var(--teal-dark);margin-bottom:4px;">❓ Quiz Muzyczny</h2>
+  <p style="text-align:center;font-size:11px;color:var(--muted);margin-bottom:12px;">Pytania 1–6 · Odpowiedzi na dole strony (zakryj przed grą!)</p>
+
+  <div class="quiz-card">
+    <span class="q-num">1</span>
+    <span class="q-text">Ile strun ma gitara klasyczna?</span>
+    <div class="quiz-options">
+      <div class="quiz-opt">🅰️ 4 struny</div>
+      <div class="quiz-opt">🅱️ 6 strun</div>
+      <div class="quiz-opt">🅲 8 strun</div>
+    </div>
+  </div>
+
+  <div class="quiz-card">
+    <span class="q-num">2</span>
+    <span class="q-text">Który instrument ma czarno-białe klawisze?</span>
+    <div class="quiz-options">
+      <div class="quiz-opt">🅰️ Bęben</div>
+      <div class="quiz-opt">🅱️ Trąbka</div>
+      <div class="quiz-opt">🅲 Pianino</div>
+    </div>
+  </div>
+
+  <div class="quiz-card">
+    <span class="q-num">3</span>
+    <span class="q-text">Czym gramy na skrzypcach?</span>
+    <div class="quiz-options">
+      <div class="quiz-opt">🅰️ Smyczkiem</div>
+      <div class="quiz-opt">🅱️ Pałeczką</div>
+      <div class="quiz-opt">🅲 Ustami</div>
+    </div>
+  </div>
+
+  <div class="quiz-card">
+    <span class="q-num">4</span>
+    <span class="q-text">Który instrument potrząsamy, żeby grać?</span>
+    <div class="quiz-options">
+      <div class="quiz-opt">🅰️ Flet</div>
+      <div class="quiz-opt">🅱️ Marakasy</div>
+      <div class="quiz-opt">🅲 Pianino</div>
+    </div>
+  </div>
+
+  <div class="quiz-card">
+    <span class="q-num">5</span>
+    <span class="q-text">Co robimy, żeby zagrać na trąbce?</span>
+    <div class="quiz-options">
+      <div class="quiz-opt">🅰️ Szarpiemy struny</div>
+      <div class="quiz-opt">🅱️ Uderzamy pałeczką</div>
+      <div class="quiz-opt">🅲 Dmuchamy</div>
+    </div>
+  </div>
+
+  <div class="quiz-card">
+    <span class="q-num">6</span>
+    <span class="q-text">Jaki kształt ma trójkąt muzyczny?</span>
+    <div class="quiz-options">
+      <div class="quiz-opt">🅰️ Koło</div>
+      <div class="quiz-opt">🅱️ Kwadrat</div>
+      <div class="quiz-opt">🅲 Trójkąt</div>
+    </div>
+  </div>
+
+  <div style="margin-top:10px;padding:8px 12px;background:var(--cream-deep);border-radius:8px;">
+    <p style="font-size:10px;color:var(--ink-mid);text-align:center;">
+      🔑 <strong>Odpowiedzi:</strong> 1-🅱️ · 2-🅲 · 3-🅰️ · 4-🅱️ · 5-🅲 · 6-🅲
+    </p>
+  </div>
+
+  <span class="page-num">80</span>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     GRA 7: QUIZ MUZYCZNY — strona 2
+     ═══════════════════════════════════════════ -->
+<div class="page">
+  <h2 style="text-align:center;color:var(--teal-dark);margin-bottom:4px;">❓ Quiz Muzyczny</h2>
+  <p style="text-align:center;font-size:11px;color:var(--muted);margin-bottom:12px;">Pytania 7–12</p>
+
+  <div class="quiz-card">
+    <span class="q-num">7</span>
+    <span class="q-text">Który instrument jest największy?</span>
+    <div class="quiz-options">
+      <div class="quiz-opt">🅰️ Trójkąt</div>
+      <div class="quiz-opt">🅱️ Tamburyn</div>
+      <div class="quiz-opt">🅲 Fortepian</div>
+    </div>
+  </div>
+
+  <div class="quiz-card">
+    <span class="q-num">8</span>
+    <span class="q-text">Ile nut jest w podstawowej gamie muzycznej?</span>
+    <div class="quiz-options">
+      <div class="quiz-opt">🅰️ 5 nut</div>
+      <div class="quiz-opt">🅱️ 7 nut</div>
+      <div class="quiz-opt">🅲 10 nut</div>
+    </div>
+  </div>
+
+  <div class="quiz-card">
+    <span class="q-num">9</span>
+    <span class="q-text">Jak nazywa się pierwsza nuta w gamie?</span>
+    <div class="quiz-options">
+      <div class="quiz-opt">🅰️ Re</div>
+      <div class="quiz-opt">🅱️ Do</div>
+      <div class="quiz-opt">🅲 Mi</div>
+    </div>
+  </div>
+
+  <div class="quiz-card">
+    <span class="q-num">10</span>
+    <span class="q-text">Co robi dyrygent?</span>
+    <div class="quiz-options">
+      <div class="quiz-opt">🅰️ Gra na bębnie</div>
+      <div class="quiz-opt">🅱️ Kieruje orkiestrą</div>
+      <div class="quiz-opt">🅲 Śpiewa solo</div>
+    </div>
+  </div>
+
+  <div class="quiz-card">
+    <span class="q-num">11</span>
+    <span class="q-text">Który instrument dmuchany jest zrobiony z drewna?</span>
+    <div class="quiz-options">
+      <div class="quiz-opt">🅰️ Flet prosty</div>
+      <div class="quiz-opt">🅱️ Trąbka</div>
+      <div class="quiz-opt">🅲 Tuba</div>
+    </div>
+  </div>
+
+  <div class="quiz-card">
+    <span class="q-num">12</span>
+    <span class="q-text">Co to jest rytm?</span>
+    <div class="quiz-options">
+      <div class="quiz-opt">🅰️ Kolor dźwięku</div>
+      <div class="quiz-opt">🅱️ Wzór uderzeń</div>
+      <div class="quiz-opt">🅲 Nazwa instrumentu</div>
+    </div>
+  </div>
+
+  <div style="margin-top:10px;padding:8px 12px;background:var(--cream-deep);border-radius:8px;">
+    <p style="font-size:10px;color:var(--ink-mid);text-align:center;">
+      🔑 <strong>Odpowiedzi:</strong> 7-🅲 · 8-🅱️ · 9-🅱️ · 10-🅱️ · 11-🅰️ · 12-🅱️
+    </p>
+  </div>
+
+  <span class="page-num">81</span>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     GRA 7: QUIZ MUZYCZNY — strona 3
+     ═══════════════════════════════════════════ -->
+<div class="page">
+  <h2 style="text-align:center;color:var(--teal-dark);margin-bottom:4px;">❓ Quiz Muzyczny</h2>
+  <p style="text-align:center;font-size:11px;color:var(--muted);margin-bottom:12px;">Pytania 13–18</p>
+
+  <div class="quiz-card">
+    <span class="q-num">13</span>
+    <span class="q-text">Który instrument ma pedały?</span>
+    <div class="quiz-options">
+      <div class="quiz-opt">🅰️ Gitara</div>
+      <div class="quiz-opt">🅱️ Pianino</div>
+      <div class="quiz-opt">🅲 Tamburyn</div>
+    </div>
+  </div>
+
+  <div class="quiz-card">
+    <span class="q-num">14</span>
+    <span class="q-text">Jak nazywa się grupa muzyków grających razem?</span>
+    <div class="quiz-options">
+      <div class="quiz-opt">🅰️ Drużyna</div>
+      <div class="quiz-opt">🅱️ Orkiestra</div>
+      <div class="quiz-opt">🅲 Klasa</div>
+    </div>
+  </div>
+
+  <div class="quiz-card">
+    <span class="q-num">15</span>
+    <span class="q-text">Co oznacza „forte" w muzyce?</span>
+    <div class="quiz-options">
+      <div class="quiz-opt">🅰️ Cicho</div>
+      <div class="quiz-opt">🅱️ Głośno</div>
+      <div class="quiz-opt">🅲 Szybko</div>
+    </div>
+  </div>
+
+  <div class="quiz-card">
+    <span class="q-num">16</span>
+    <span class="q-text">Które zwierzę kojarzymy z wolnym tempem?</span>
+    <div class="quiz-options">
+      <div class="quiz-opt">🅰️ Zając</div>
+      <div class="quiz-opt">🅱️ Koń</div>
+      <div class="quiz-opt">🅲 Żółw</div>
+    </div>
+  </div>
+
+  <div class="quiz-card">
+    <span class="q-num">17</span>
+    <span class="q-text">Czym uderzamy w bęben?</span>
+    <div class="quiz-options">
+      <div class="quiz-opt">🅰️ Smyczkiem</div>
+      <div class="quiz-opt">🅱️ Pałeczkami</div>
+      <div class="quiz-opt">🅲 Piórkiem</div>
+    </div>
+  </div>
+
+  <div class="quiz-card">
+    <span class="q-num">18</span>
+    <span class="q-text">Który instrument wygląda jak mała gitara?</span>
+    <div class="quiz-options">
+      <div class="quiz-opt">🅰️ Skrzypce</div>
+      <div class="quiz-opt">🅱️ Flet</div>
+      <div class="quiz-opt">🅲 Ukulele</div>
+    </div>
+  </div>
+
+  <div style="margin-top:10px;padding:8px 12px;background:var(--cream-deep);border-radius:8px;">
+    <p style="font-size:10px;color:var(--ink-mid);text-align:center;">
+      🔑 <strong>Odpowiedzi:</strong> 13-🅱️ · 14-🅱️ · 15-🅱️ · 16-🅲 · 17-🅱️ · 18-🅲
+    </p>
+  </div>
+
+  <span class="page-num">82</span>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     GRA 7: QUIZ MUZYCZNY — strona 4
+     ═══════════════════════════════════════════ -->
+<div class="page">
+  <h2 style="text-align:center;color:var(--teal-dark);margin-bottom:4px;">❓ Quiz Muzyczny</h2>
+  <p style="text-align:center;font-size:11px;color:var(--muted);margin-bottom:12px;">Pytania 19–24</p>
+
+  <div class="quiz-card">
+    <span class="q-num">19</span>
+    <span class="q-text">Co to jest pauza w muzyce?</span>
+    <div class="quiz-options">
+      <div class="quiz-opt">🅰️ Cisza</div>
+      <div class="quiz-opt">🅱️ Głośny dźwięk</div>
+      <div class="quiz-opt">🅲 Szybkie granie</div>
+    </div>
+  </div>
+
+  <div class="quiz-card">
+    <span class="q-num">20</span>
+    <span class="q-text">Który instrument ma struny i jest mały?</span>
+    <div class="quiz-options">
+      <div class="quiz-opt">🅰️ Kontrabas</div>
+      <div class="quiz-opt">🅱️ Fortepian</div>
+      <div class="quiz-opt">🅲 Ukulele</div>
+    </div>
+  </div>
+
+  <div class="quiz-card">
+    <span class="q-num">21</span>
+    <span class="q-text">Ile białych i czarnych klawiszy ma pianino?</span>
+    <div class="quiz-options">
+      <div class="quiz-opt">🅰️ 52 białe i 36 czarnych</div>
+      <div class="quiz-opt">🅱️ 44 białe i 22 czarne</div>
+      <div class="quiz-opt">🅲 60 białych i 40 czarnych</div>
+    </div>
+  </div>
+
+  <div class="quiz-card">
+    <span class="q-num">22</span>
+    <span class="q-text">Co to jest melodia?</span>
+    <div class="quiz-options">
+      <div class="quiz-opt">🅰️ Ciąg dźwięków</div>
+      <div class="quiz-opt">🅱️ Jeden dźwięk</div>
+      <div class="quiz-opt">🅲 Cisza</div>
+    </div>
+  </div>
+
+  <div class="quiz-card">
+    <span class="q-num">23</span>
+    <span class="q-text">Z czego zrobione są marakasy?</span>
+    <div class="quiz-options">
+      <div class="quiz-opt">🅰️ Z metalu</div>
+      <div class="quiz-opt">🅱️ Z kuleczkami w środku</div>
+      <div class="quiz-opt">🅲 Ze sznurka</div>
+    </div>
+  </div>
+
+  <div class="quiz-card">
+    <span class="q-num">24</span>
+    <span class="q-text">Jak się nazywa szybkie tempo w muzyce?</span>
+    <div class="quiz-options">
+      <div class="quiz-opt">🅰️ Adagio</div>
+      <div class="quiz-opt">🅱️ Allegro</div>
+      <div class="quiz-opt">🅲 Piano</div>
+    </div>
+  </div>
+
+  <div style="margin-top:10px;padding:8px 12px;background:var(--cream-deep);border-radius:8px;">
+    <p style="font-size:10px;color:var(--ink-mid);text-align:center;">
+      🔑 <strong>Odpowiedzi:</strong> 19-🅰️ · 20-🅲 · 21-🅰️ · 22-🅰️ · 23-🅱️ · 24-🅱️
+    </p>
+  </div>
+
+  <div class="callout tip" style="margin-top:8px;font-size:11px;">
+    <strong>🏆 Punktacja Quizu:</strong> Za każdą poprawną odpowiedź — 1 punkt.
+    0–8 pkt = Muzyczny Początkujący 🌱 · 9–16 pkt = Muzyczny Odkrywca 🎵 ·
+    17–24 pkt = Mistrz Muzyki! 🏆🎶
+  </div>
+
+  <span class="page-num">83</span>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     EXTRA GAMES — KOLOROWANKI MUZYCZNE (Musical Coloring)
+     ══════════════════════════════════════════════════════════ -->
+
+<div class="page">
+  <h2 style="text-align:center;margin-bottom:6px;">🎨 Pokoloruj Nutki</h2>
+  <p style="font-size:13px;color:var(--muted);text-align:center;margin-bottom:16px;">Pokoloruj każdą nutę odpowiednim kolorem. Użyj legendy kolorów.</p>
+
+  <div class="note-legend" style="justify-content:center;margin-bottom:18px;">
+    <div class="note-legend-item"><span class="note-legend-dot" style="background:var(--n1)">Do</span> czerwony</div>
+    <div class="note-legend-item"><span class="note-legend-dot" style="background:var(--n2)">Re</span> pomarańczowy</div>
+    <div class="note-legend-item"><span class="note-legend-dot" style="background:var(--n3);color:#4A3200">Mi</span> żółty</div>
+    <div class="note-legend-item"><span class="note-legend-dot" style="background:var(--n4)">Fa</span> zielony</div>
+    <div class="note-legend-item"><span class="note-legend-dot" style="background:var(--n5)">Sol</span> niebieski</div>
+    <div class="note-legend-item"><span class="note-legend-dot" style="background:var(--n6)">La</span> łososiowy</div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-bottom:20px;">
+    <div style="text-align:center;"><div style="width:56px;height:56px;border-radius:50%;border:3px solid var(--n1);margin:0 auto 4px;display:flex;align-items:center;justify-content:center;font-family:var(--af);font-size:18px;font-weight:800;color:var(--n1)">Do</div></div>
+    <div style="text-align:center;"><div style="width:56px;height:56px;border-radius:50%;border:3px solid var(--n4);margin:0 auto 4px;display:flex;align-items:center;justify-content:center;font-family:var(--af);font-size:18px;font-weight:800;color:var(--n4)">Fa</div></div>
+    <div style="text-align:center;"><div style="width:56px;height:56px;border-radius:50%;border:3px solid var(--n2);margin:0 auto 4px;display:flex;align-items:center;justify-content:center;font-family:var(--af);font-size:18px;font-weight:800;color:var(--n2)">Re</div></div>
+    <div style="text-align:center;"><div style="width:56px;height:56px;border-radius:50%;border:3px solid var(--n5);margin:0 auto 4px;display:flex;align-items:center;justify-content:center;font-family:var(--af);font-size:18px;font-weight:800;color:var(--n5)">Sol</div></div>
+    <div style="text-align:center;"><div style="width:56px;height:56px;border-radius:50%;border:3px solid var(--n3);margin:0 auto 4px;display:flex;align-items:center;justify-content:center;font-family:var(--af);font-size:16px;font-weight:800;color:#4A3200">Mi</div></div>
+    <div style="text-align:center;"><div style="width:56px;height:56px;border-radius:50%;border:3px solid var(--n6);margin:0 auto 4px;display:flex;align-items:center;justify-content:center;font-family:var(--af);font-size:18px;font-weight:800;color:var(--n6)">La</div></div>
+  </div>
+
+  <p style="font-size:14px;text-align:center;margin-bottom:14px;font-weight:600;">Pokoloruj te duże nuty odpowiednimi kolorami:</p>
+
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;">
+    <div style="text-align:center;"><div style="width:80px;height:80px;border-radius:50%;border:3px dashed var(--border);margin:0 auto 6px;display:flex;align-items:center;justify-content:center;font-family:var(--af);font-size:26px;font-weight:800;color:var(--muted)">Mi</div><p style="font-size:11px;color:var(--muted);">= ?</p></div>
+    <div style="text-align:center;"><div style="width:80px;height:80px;border-radius:50%;border:3px dashed var(--border);margin:0 auto 6px;display:flex;align-items:center;justify-content:center;font-family:var(--af);font-size:26px;font-weight:800;color:var(--muted)">Do</div><p style="font-size:11px;color:var(--muted);">= ?</p></div>
+    <div style="text-align:center;"><div style="width:80px;height:80px;border-radius:50%;border:3px dashed var(--border);margin:0 auto 6px;display:flex;align-items:center;justify-content:center;font-family:var(--af);font-size:26px;font-weight:800;color:var(--muted)">Sol</div><p style="font-size:11px;color:var(--muted);">= ?</p></div>
+    <div style="text-align:center;"><div style="width:80px;height:80px;border-radius:50%;border:3px dashed var(--border);margin:0 auto 6px;display:flex;align-items:center;justify-content:center;font-family:var(--af);font-size:26px;font-weight:800;color:var(--muted)">La</div><p style="font-size:11px;color:var(--muted);">= ?</p></div>
+    <div style="text-align:center;"><div style="width:80px;height:80px;border-radius:50%;border:3px dashed var(--border);margin:0 auto 6px;display:flex;align-items:center;justify-content:center;font-family:var(--af);font-size:26px;font-weight:800;color:var(--muted)">Fa</div><p style="font-size:11px;color:var(--muted);">= ?</p></div>
+    <div style="text-align:center;"><div style="width:80px;height:80px;border-radius:50%;border:3px dashed var(--border);margin:0 auto 6px;display:flex;align-items:center;justify-content:center;font-family:var(--af);font-size:26px;font-weight:800;color:var(--muted)">Re</div><p style="font-size:11px;color:var(--muted);">= ?</p></div>
+    <div style="text-align:center;"><div style="width:80px;height:80px;border-radius:50%;border:3px dashed var(--border);margin:0 auto 6px;display:flex;align-items:center;justify-content:center;font-family:var(--af);font-size:26px;font-weight:800;color:var(--muted)">Do</div><p style="font-size:11px;color:var(--muted);">= ?</p></div>
+    <div style="text-align:center;"><div style="width:80px;height:80px;border-radius:50%;border:3px dashed var(--border);margin:0 auto 6px;display:flex;align-items:center;justify-content:center;font-family:var(--af);font-size:26px;font-weight:800;color:var(--muted)">Mi</div><p style="font-size:11px;color:var(--muted);">= ?</p></div>
+  </div>
+
+  <div class="callout ok" style="margin-top:16px;font-size:12px;">
+    <strong>💡 Wskazówka:</strong> Wymów nazwę nuty na głos za każdym razem, gdy ją kolorujesz!
+  </div>
+  <span class="page-num">84</span>
+</div>
+
+
+<div class="page">
+  <h2 style="text-align:center;margin-bottom:6px;">🎨 Pokoloruj Melodię</h2>
+  <p style="font-size:13px;color:var(--muted);text-align:center;margin-bottom:16px;">Każda nuta ma swoją nazwę. Pokoloruj kółka odpowiednimi kolorami i zagraj melodię!</p>
+
+  <div class="card" style="margin-bottom:14px;">
+    <h3 style="font-size:15px;margin-bottom:10px;">Melodia 1: Wchodzenie po Schodach</h3>
+    <div class="staff" style="justify-content:center;gap:12px;">
+      <div style="text-align:center;"><div style="width:52px;height:52px;border-radius:50%;border:3px dashed var(--border);display:flex;align-items:center;justify-content:center;font-family:var(--af);font-size:16px;font-weight:800;color:var(--muted)">Do</div></div>
+      <div style="text-align:center;"><div style="width:52px;height:52px;border-radius:50%;border:3px dashed var(--border);display:flex;align-items:center;justify-content:center;font-family:var(--af);font-size:16px;font-weight:800;color:var(--muted)">Re</div></div>
+      <div style="text-align:center;"><div style="width:52px;height:52px;border-radius:50%;border:3px dashed var(--border);display:flex;align-items:center;justify-content:center;font-family:var(--af);font-size:16px;font-weight:800;color:var(--muted)">Mi</div></div>
+      <div style="text-align:center;"><div style="width:52px;height:52px;border-radius:50%;border:3px dashed var(--border);display:flex;align-items:center;justify-content:center;font-family:var(--af);font-size:16px;font-weight:800;color:var(--muted)">Fa</div></div>
+      <div style="text-align:center;"><div style="width:52px;height:52px;border-radius:50%;border:3px dashed var(--border);display:flex;align-items:center;justify-content:center;font-family:var(--af);font-size:16px;font-weight:800;color:var(--muted)">Sol</div></div>
+      <div style="text-align:center;"><div style="width:52px;height:52px;border-radius:50%;border:3px dashed var(--border);display:flex;align-items:center;justify-content:center;font-family:var(--af);font-size:16px;font-weight:800;color:var(--muted)">La</div></div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-bottom:14px;">
+    <h3 style="font-size:15px;margin-bottom:10px;">Melodia 2: Góra i Dół</h3>
+    <div class="staff" style="justify-content:center;gap:12px;">
+      <div style="text-align:center;"><div style="width:52px;height:52px;border-radius:50%;border:3px dashed var(--border);display:flex;align-items:center;justify-content:center;font-family:var(--af);font-size:16px;font-weight:800;color:var(--muted)">Do</div></div>
+      <div style="text-align:center;"><div style="width:52px;height:52px;border-radius:50%;border:3px dashed var(--border);display:flex;align-items:center;justify-content:center;font-family:var(--af);font-size:16px;font-weight:800;color:var(--muted)">Mi</div></div>
+      <div style="text-align:center;"><div style="width:52px;height:52px;border-radius:50%;border:3px dashed var(--border);display:flex;align-items:center;justify-content:center;font-family:var(--af);font-size:16px;font-weight:800;color:var(--muted)">Sol</div></div>
+      <div style="text-align:center;"><div style="width:52px;height:52px;border-radius:50%;border:3px dashed var(--border);display:flex;align-items:center;justify-content:center;font-family:var(--af);font-size:16px;font-weight:800;color:var(--muted)">Mi</div></div>
+      <div style="text-align:center;"><div style="width:52px;height:52px;border-radius:50%;border:3px dashed var(--border);display:flex;align-items:center;justify-content:center;font-family:var(--af);font-size:16px;font-weight:800;color:var(--muted)">Do</div></div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-bottom:14px;">
+    <h3 style="font-size:15px;margin-bottom:10px;">Melodia 3: Skoki</h3>
+    <div class="staff" style="justify-content:center;gap:12px;">
+      <div style="text-align:center;"><div style="width:52px;height:52px;border-radius:50%;border:3px dashed var(--border);display:flex;align-items:center;justify-content:center;font-family:var(--af);font-size:16px;font-weight:800;color:var(--muted)">Re</div></div>
+      <div style="text-align:center;"><div style="width:52px;height:52px;border-radius:50%;border:3px dashed var(--border);display:flex;align-items:center;justify-content:center;font-family:var(--af);font-size:16px;font-weight:800;color:var(--muted)">Fa</div></div>
+      <div style="text-align:center;"><div style="width:52px;height:52px;border-radius:50%;border:3px dashed var(--border);display:flex;align-items:center;justify-content:center;font-family:var(--af);font-size:16px;font-weight:800;color:var(--muted)">La</div></div>
+      <div style="text-align:center;"><div style="width:52px;height:52px;border-radius:50%;border:3px dashed var(--border);display:flex;align-items:center;justify-content:center;font-family:var(--af);font-size:16px;font-weight:800;color:var(--muted)">Fa</div></div>
+      <div style="text-align:center;"><div style="width:52px;height:52px;border-radius:50%;border:3px dashed var(--border);display:flex;align-items:center;justify-content:center;font-family:var(--af);font-size:16px;font-weight:800;color:var(--muted)">Re</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3 style="font-size:15px;margin-bottom:10px;">Melodia 4: Moja Kompozycja</h3>
+    <p style="font-size:12px;color:var(--muted);margin-bottom:10px;">Narysuj swoje własne nuty w kółkach i pokoloruj je!</p>
+    <div class="staff" style="justify-content:center;gap:12px;">
+      <div style="width:52px;height:52px;border-radius:50%;border:3px dashed var(--border);"></div>
+      <div style="width:52px;height:52px;border-radius:50%;border:3px dashed var(--border);"></div>
+      <div style="width:52px;height:52px;border-radius:50%;border:3px dashed var(--border);"></div>
+      <div style="width:52px;height:52px;border-radius:50%;border:3px dashed var(--border);"></div>
+      <div style="width:52px;height:52px;border-radius:50%;border:3px dashed var(--border);"></div>
+      <div style="width:52px;height:52px;border-radius:50%;border:3px dashed var(--border);"></div>
+    </div>
+  </div>
+  <span class="page-num">85</span>
+</div>
+
+
+<!-- Uzupełnij Wzór -->
+<div class="page">
+  <h2 style="text-align:center;margin-bottom:6px;">🔍 Uzupełnij Wzór Muzyczny</h2>
+  <p style="font-size:13px;color:var(--muted);text-align:center;margin-bottom:16px;">Jaka nuta powinna być następna? Narysuj ją w pustym kółku.</p>
+
+  <div class="card" style="margin-bottom:12px;">
+    <p style="font-family:var(--df);font-size:13px;font-weight:700;margin-bottom:8px;">Wzór 1 <span class="pill pill-teal">Łatwy</span></p>
+    <div class="staff" style="gap:10px;">
+      <div class="beat" style="background:var(--n1)">Do</div>
+      <div class="beat" style="background:var(--n2)">Re</div>
+      <div class="beat" style="background:var(--n1)">Do</div>
+      <div class="beat" style="background:var(--n2)">Re</div>
+      <div class="beat" style="background:var(--n1)">Do</div>
+      <div style="width:44px;height:44px;border-radius:50%;border:3px dashed var(--border);display:flex;align-items:center;justify-content:center;font-size:20px;color:var(--muted)">?</div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-bottom:12px;">
+    <p style="font-family:var(--df);font-size:13px;font-weight:700;margin-bottom:8px;">Wzór 2 <span class="pill pill-teal">Łatwy</span></p>
+    <div class="staff" style="gap:10px;">
+      <div class="beat" style="background:var(--n1)">Do</div>
+      <div class="beat" style="background:var(--n2)">Re</div>
+      <div class="beat" style="background:var(--n3);color:#4A3200">Mi</div>
+      <div class="beat" style="background:var(--n1)">Do</div>
+      <div class="beat" style="background:var(--n2)">Re</div>
+      <div style="width:44px;height:44px;border-radius:50%;border:3px dashed var(--border);display:flex;align-items:center;justify-content:center;font-size:20px;color:var(--muted)">?</div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-bottom:12px;">
+    <p style="font-family:var(--df);font-size:13px;font-weight:700;margin-bottom:8px;">Wzór 3 <span class="pill pill-gold">Średni</span></p>
+    <div class="staff" style="gap:10px;">
+      <div class="beat" style="background:var(--n4)">Fa</div>
+      <div class="beat" style="background:var(--n5)">Sol</div>
+      <div class="beat" style="background:var(--n4)">Fa</div>
+      <div class="beat" style="background:var(--n5)">Sol</div>
+      <div class="beat" style="background:var(--n4)">Fa</div>
+      <div style="width:44px;height:44px;border-radius:50%;border:3px dashed var(--border);display:flex;align-items:center;justify-content:center;font-size:20px;color:var(--muted)">?</div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-bottom:12px;">
+    <p style="font-family:var(--df);font-size:13px;font-weight:700;margin-bottom:8px;">Wzór 4 <span class="pill pill-gold">Średni</span></p>
+    <div class="staff" style="gap:10px;">
+      <div class="beat" style="background:var(--n1)">Do</div>
+      <div class="beat" style="background:var(--n3);color:#4A3200">Mi</div>
+      <div class="beat" style="background:var(--n5)">Sol</div>
+      <div class="beat" style="background:var(--n1)">Do</div>
+      <div class="beat" style="background:var(--n3);color:#4A3200">Mi</div>
+      <div style="width:44px;height:44px;border-radius:50%;border:3px dashed var(--border);display:flex;align-items:center;justify-content:center;font-size:20px;color:var(--muted)">?</div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-bottom:12px;">
+    <p style="font-family:var(--df);font-size:13px;font-weight:700;margin-bottom:8px;">Wzór 5 <span class="pill pill-coral">Trudny</span></p>
+    <div class="staff" style="gap:10px;">
+      <div class="beat" style="background:var(--n1)">Do</div>
+      <div class="beat" style="background:var(--n2)">Re</div>
+      <div class="beat" style="background:var(--n3);color:#4A3200">Mi</div>
+      <div class="beat" style="background:var(--n4)">Fa</div>
+      <div class="beat" style="background:var(--n5)">Sol</div>
+      <div style="width:44px;height:44px;border-radius:50%;border:3px dashed var(--border);display:flex;align-items:center;justify-content:center;font-size:20px;color:var(--muted)">?</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <p style="font-family:var(--df);font-size:13px;font-weight:700;margin-bottom:8px;">Wzór 6 <span class="pill pill-coral">Trudny</span></p>
+    <div class="staff" style="gap:10px;">
+      <div class="beat" style="background:var(--n6)">La</div>
+      <div class="beat" style="background:var(--n5)">Sol</div>
+      <div class="beat" style="background:var(--n4)">Fa</div>
+      <div class="beat" style="background:var(--n3);color:#4A3200">Mi</div>
+      <div class="beat" style="background:var(--n2)">Re</div>
+      <div style="width:44px;height:44px;border-radius:50%;border:3px dashed var(--border);display:flex;align-items:center;justify-content:center;font-size:20px;color:var(--muted)">?</div>
+    </div>
+  </div>
+
+  <div style="margin-top:10px;padding:8px 12px;background:var(--cream-deep);border-radius:8px;">
+    <p style="font-size:10px;color:var(--ink-mid);text-align:center;">🔑 <strong>Odpowiedzi:</strong> 1 — Re · 2 — Mi · 3 — Sol · 4 — Sol · 5 — La · 6 — Do</p>
+  </div>
+  <span class="page-num">86</span>
+</div>
+
+
+<div class="page">
+  <h2 style="text-align:center;margin-bottom:6px;">🔍 Uzupełnij Wzór — Poziom 2</h2>
+  <p style="font-size:13px;color:var(--muted);text-align:center;margin-bottom:16px;">Teraz dwie nuty do uzupełnienia! Znajdź prawidłowy wzór.</p>
+
+  <div class="card" style="margin-bottom:12px;">
+    <p style="font-family:var(--df);font-size:13px;font-weight:700;margin-bottom:8px;">Wzór 7 <span class="pill pill-gold">Średni</span></p>
+    <div class="staff" style="gap:10px;">
+      <div class="beat" style="background:var(--n1)">Do</div>
+      <div class="beat" style="background:var(--n1)">Do</div>
+      <div class="beat" style="background:var(--n2)">Re</div>
+      <div class="beat" style="background:var(--n2)">Re</div>
+      <div style="width:44px;height:44px;border-radius:50%;border:3px dashed var(--border);display:flex;align-items:center;justify-content:center;font-size:20px;color:var(--muted)">?</div>
+      <div style="width:44px;height:44px;border-radius:50%;border:3px dashed var(--border);display:flex;align-items:center;justify-content:center;font-size:20px;color:var(--muted)">?</div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-bottom:12px;">
+    <p style="font-family:var(--df);font-size:13px;font-weight:700;margin-bottom:8px;">Wzór 8 <span class="pill pill-gold">Średni</span></p>
+    <div class="staff" style="gap:10px;">
+      <div class="beat" style="background:var(--n5)">Sol</div>
+      <div class="beat" style="background:var(--n4)">Fa</div>
+      <div class="beat" style="background:var(--n3);color:#4A3200">Mi</div>
+      <div class="beat" style="background:var(--n5)">Sol</div>
+      <div style="width:44px;height:44px;border-radius:50%;border:3px dashed var(--border);display:flex;align-items:center;justify-content:center;font-size:20px;color:var(--muted)">?</div>
+      <div style="width:44px;height:44px;border-radius:50%;border:3px dashed var(--border);display:flex;align-items:center;justify-content:center;font-size:20px;color:var(--muted)">?</div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-bottom:12px;">
+    <p style="font-family:var(--df);font-size:13px;font-weight:700;margin-bottom:8px;">Wzór 9 <span class="pill pill-coral">Trudny</span></p>
+    <div class="staff" style="gap:10px;">
+      <div class="beat" style="background:var(--n1)">Do</div>
+      <div class="beat" style="background:var(--n3);color:#4A3200">Mi</div>
+      <div class="beat" style="background:var(--n2)">Re</div>
+      <div class="beat" style="background:var(--n4)">Fa</div>
+      <div style="width:44px;height:44px;border-radius:50%;border:3px dashed var(--border);display:flex;align-items:center;justify-content:center;font-size:20px;color:var(--muted)">?</div>
+      <div style="width:44px;height:44px;border-radius:50%;border:3px dashed var(--border);display:flex;align-items:center;justify-content:center;font-size:20px;color:var(--muted)">?</div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-bottom:12px;">
+    <p style="font-family:var(--df);font-size:13px;font-weight:700;margin-bottom:8px;">Wzór 10 <span class="pill pill-coral">Trudny</span></p>
+    <div class="staff" style="gap:10px;">
+      <div class="beat" style="background:var(--n6)">La</div>
+      <div class="beat" style="background:var(--n4)">Fa</div>
+      <div class="beat" style="background:var(--n2)">Re</div>
+      <div class="beat" style="background:var(--n6)">La</div>
+      <div style="width:44px;height:44px;border-radius:50%;border:3px dashed var(--border);display:flex;align-items:center;justify-content:center;font-size:20px;color:var(--muted)">?</div>
+      <div style="width:44px;height:44px;border-radius:50%;border:3px dashed var(--border);display:flex;align-items:center;justify-content:center;font-size:20px;color:var(--muted)">?</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <p style="font-family:var(--df);font-size:13px;font-weight:700;margin-bottom:8px;">Wzór 11 <span class="pill pill-coral">Ekspert</span></p>
+    <div class="staff" style="gap:10px;">
+      <div class="beat" style="background:var(--n1)">Do</div>
+      <div class="beat" style="background:var(--n4)">Fa</div>
+      <div class="beat" style="background:var(--n2)">Re</div>
+      <div class="beat" style="background:var(--n5)">Sol</div>
+      <div style="width:44px;height:44px;border-radius:50%;border:3px dashed var(--border);display:flex;align-items:center;justify-content:center;font-size:20px;color:var(--muted)">?</div>
+      <div style="width:44px;height:44px;border-radius:50%;border:3px dashed var(--border);display:flex;align-items:center;justify-content:center;font-size:20px;color:var(--muted)">?</div>
+    </div>
+  </div>
+
+  <div style="margin-top:10px;padding:8px 12px;background:var(--cream-deep);border-radius:8px;">
+    <p style="font-size:10px;color:var(--ink-mid);text-align:center;">🔑 <strong>Odpowiedzi:</strong> 7 — Mi Mi · 8 — Fa Mi · 9 — Mi Sol · 10 — Fa Re · 11 — Mi La</p>
+  </div>
+  <span class="page-num">87</span>
+</div>
+
+
+<!-- Łączenie -->
+<div class="page">
+  <h2 style="text-align:center;margin-bottom:6px;">🔗 Połącz w Pary</h2>
+  <p style="font-size:13px;color:var(--muted);text-align:center;margin-bottom:16px;">Narysuj linię łączącą każdy instrument z dźwiękiem, który wydaje.</p>
+
+  <div style="display:grid;grid-template-columns:1fr 80px 1fr;gap:8px;align-items:center;">
+    <div class="card" style="text-align:center;margin:0;padding:14px;"><span style="font-size:28px;">🥁</span><p style="font-family:var(--df);font-size:14px;font-weight:700;margin-top:4px;">Bęben</p></div>
+    <div></div>
+    <div class="card" style="text-align:center;margin:0;padding:14px;"><span style="font-size:14px;font-weight:700;color:var(--teal);">tiu-tiu-tiu</span></div>
+
+    <div class="card" style="text-align:center;margin:0;padding:14px;"><span style="font-size:28px;">🎹</span><p style="font-family:var(--df);font-size:14px;font-weight:700;margin-top:4px;">Pianino</p></div>
+    <div></div>
+    <div class="card" style="text-align:center;margin:0;padding:14px;"><span style="font-size:14px;font-weight:700;color:var(--teal);">bum-bum-bum</span></div>
+
+    <div class="card" style="text-align:center;margin:0;padding:14px;"><span style="font-size:28px;">🎸</span><p style="font-family:var(--df);font-size:14px;font-weight:700;margin-top:4px;">Gitara</p></div>
+    <div></div>
+    <div class="card" style="text-align:center;margin:0;padding:14px;"><span style="font-size:14px;font-weight:700;color:var(--teal);">ding-ding-ding</span></div>
+
+    <div class="card" style="text-align:center;margin:0;padding:14px;"><span style="font-size:28px;">🪈</span><p style="font-family:var(--df);font-size:14px;font-weight:700;margin-top:4px;">Flet</p></div>
+    <div></div>
+    <div class="card" style="text-align:center;margin:0;padding:14px;"><span style="font-size:14px;font-weight:700;color:var(--teal);">trąą-trąą</span></div>
+
+    <div class="card" style="text-align:center;margin:0;padding:14px;"><span style="font-size:28px;">🎺</span><p style="font-family:var(--df);font-size:14px;font-weight:700;margin-top:4px;">Trąbka</p></div>
+    <div></div>
+    <div class="card" style="text-align:center;margin:0;padding:14px;"><span style="font-size:14px;font-weight:700;color:var(--teal);">brzdęk-brzdęk</span></div>
+
+    <div class="card" style="text-align:center;margin:0;padding:14px;"><span style="font-size:28px;">🎻</span><p style="font-family:var(--df);font-size:14px;font-weight:700;margin-top:4px;">Skrzypce</p></div>
+    <div></div>
+    <div class="card" style="text-align:center;margin:0;padding:14px;"><span style="font-size:14px;font-weight:700;color:var(--teal);">trrr-trrr</span></div>
+  </div>
+
+  <div style="margin-top:12px;padding:8px 12px;background:var(--cream-deep);border-radius:8px;">
+    <p style="font-size:10px;color:var(--ink-mid);text-align:center;">🔑 Bęben → bum-bum · Pianino → ding-ding · Gitara → brzdęk-brzdęk · Flet → tiu-tiu · Trąbka → trąą-trąą · Skrzypce → trrr-trrr</p>
+  </div>
+  <span class="page-num">88</span>
+</div>
+
+
+<div class="page">
+  <h2 style="text-align:center;margin-bottom:6px;">🔗 Połącz Nutę z Kolorem</h2>
+  <p style="font-size:13px;color:var(--muted);text-align:center;margin-bottom:16px;">Narysuj linię łączącą każdą nutę z jej kolorem. Potem pokoloruj kółko obok!</p>
+
+  <div style="display:grid;grid-template-columns:1fr 60px 1fr;gap:10px;align-items:center;">
+    <div class="card" style="text-align:center;margin:0;padding:14px;">
+      <div class="note-circle do" style="width:52px;height:52px;font-size:20px;margin:0 auto;">Do</div>
+    </div>
+    <div></div>
+    <div class="card" style="text-align:center;margin:0;padding:14px;display:flex;align-items:center;justify-content:center;gap:8px;">
+      <div style="width:32px;height:32px;border-radius:50%;background:var(--n3);"></div>
+      <span style="font-family:var(--df);font-size:14px;font-weight:700;">Żółty</span>
+    </div>
+
+    <div class="card" style="text-align:center;margin:0;padding:14px;">
+      <div class="note-circle re" style="width:52px;height:52px;font-size:20px;margin:0 auto;">Re</div>
+    </div>
+    <div></div>
+    <div class="card" style="text-align:center;margin:0;padding:14px;display:flex;align-items:center;justify-content:center;gap:8px;">
+      <div style="width:32px;height:32px;border-radius:50%;background:var(--n5);"></div>
+      <span style="font-family:var(--df);font-size:14px;font-weight:700;">Niebieski</span>
+    </div>
+
+    <div class="card" style="text-align:center;margin:0;padding:14px;">
+      <div class="note-circle mi" style="width:52px;height:52px;font-size:20px;margin:0 auto;">Mi</div>
+    </div>
+    <div></div>
+    <div class="card" style="text-align:center;margin:0;padding:14px;display:flex;align-items:center;justify-content:center;gap:8px;">
+      <div style="width:32px;height:32px;border-radius:50%;background:var(--n6);"></div>
+      <span style="font-family:var(--df);font-size:14px;font-weight:700;">Łososiowy</span>
+    </div>
+
+    <div class="card" style="text-align:center;margin:0;padding:14px;">
+      <div class="note-circle fa" style="width:52px;height:52px;font-size:20px;margin:0 auto;">Fa</div>
+    </div>
+    <div></div>
+    <div class="card" style="text-align:center;margin:0;padding:14px;display:flex;align-items:center;justify-content:center;gap:8px;">
+      <div style="width:32px;height:32px;border-radius:50%;background:var(--n1);"></div>
+      <span style="font-family:var(--df);font-size:14px;font-weight:700;">Czerwony</span>
+    </div>
+
+    <div class="card" style="text-align:center;margin:0;padding:14px;">
+      <div class="note-circle sol" style="width:52px;height:52px;font-size:20px;margin:0 auto;">Sol</div>
+    </div>
+    <div></div>
+    <div class="card" style="text-align:center;margin:0;padding:14px;display:flex;align-items:center;justify-content:center;gap:8px;">
+      <div style="width:32px;height:32px;border-radius:50%;background:var(--n2);"></div>
+      <span style="font-family:var(--df);font-size:14px;font-weight:700;">Pomarańczowy</span>
+    </div>
+
+    <div class="card" style="text-align:center;margin:0;padding:14px;">
+      <div class="note-circle la" style="width:52px;height:52px;font-size:20px;margin:0 auto;">La</div>
+    </div>
+    <div></div>
+    <div class="card" style="text-align:center;margin:0;padding:14px;display:flex;align-items:center;justify-content:center;gap:8px;">
+      <div style="width:32px;height:32px;border-radius:50%;background:var(--n4);"></div>
+      <span style="font-family:var(--df);font-size:14px;font-weight:700;">Zielony</span>
+    </div>
+  </div>
+  <span class="page-num">89</span>
+</div>
+
+
+<!-- Muzyczny Sudoku -->
+<div class="page">
+  <h2 style="text-align:center;margin-bottom:6px;">🧩 Muzyczne Sudoku</h2>
+  <p style="font-size:13px;color:var(--muted);text-align:center;margin-bottom:16px;">Wpisz brakujące nuty — w każdym wierszu i każdej kolumnie każda nuta może pojawić się tylko raz!</p>
+
+  <div class="card" style="margin-bottom:16px;">
+    <p style="font-family:var(--df);font-size:14px;font-weight:700;margin-bottom:10px;">Sudoku 1 <span class="pill pill-teal">Łatwy — 4 nuty</span></p>
+    <div class="game-board" style="grid-template-columns:repeat(4,1fr);max-width:320px;margin:0 auto;">
+      <div class="cell"><div class="note-circle do" style="width:40px;height:40px;font-size:14px;">Do</div></div>
+      <div class="cell" style="background:var(--cream);"></div>
+      <div class="cell"><div class="note-circle mi" style="width:40px;height:40px;font-size:14px;">Mi</div></div>
+      <div class="cell"><div class="note-circle fa" style="width:40px;height:40px;font-size:14px;">Fa</div></div>
+
+      <div class="cell"><div class="note-circle mi" style="width:40px;height:40px;font-size:14px;">Mi</div></div>
+      <div class="cell"><div class="note-circle fa" style="width:40px;height:40px;font-size:14px;">Fa</div></div>
+      <div class="cell" style="background:var(--cream);"></div>
+      <div class="cell"><div class="note-circle do" style="width:40px;height:40px;font-size:14px;">Do</div></div>
+
+      <div class="cell" style="background:var(--cream);"></div>
+      <div class="cell"><div class="note-circle do" style="width:40px;height:40px;font-size:14px;">Do</div></div>
+      <div class="cell"><div class="note-circle fa" style="width:40px;height:40px;font-size:14px;">Fa</div></div>
+      <div class="cell"><div class="note-circle mi" style="width:40px;height:40px;font-size:14px;">Mi</div></div>
+
+      <div class="cell"><div class="note-circle fa" style="width:40px;height:40px;font-size:14px;">Fa</div></div>
+      <div class="cell"><div class="note-circle mi" style="width:40px;height:40px;font-size:14px;">Mi</div></div>
+      <div class="cell"><div class="note-circle do" style="width:40px;height:40px;font-size:14px;">Do</div></div>
+      <div class="cell" style="background:var(--cream);"></div>
+    </div>
+    <p style="font-size:10px;color:var(--muted);text-align:center;margin-top:8px;">Nuty: Do, Re, Mi, Fa — brakują: Re, Re, Re, Re</p>
+  </div>
+
+  <div class="card">
+    <p style="font-family:var(--df);font-size:14px;font-weight:700;margin-bottom:10px;">Sudoku 2 <span class="pill pill-gold">Średni — 4 nuty</span></p>
+    <div class="game-board" style="grid-template-columns:repeat(4,1fr);max-width:320px;margin:0 auto;">
+      <div class="cell" style="background:var(--cream);"></div>
+      <div class="cell"><div class="note-circle sol" style="width:40px;height:40px;font-size:14px;">Sol</div></div>
+      <div class="cell"><div class="note-circle fa" style="width:40px;height:40px;font-size:14px;">Fa</div></div>
+      <div class="cell" style="background:var(--cream);"></div>
+
+      <div class="cell"><div class="note-circle fa" style="width:40px;height:40px;font-size:14px;">Fa</div></div>
+      <div class="cell" style="background:var(--cream);"></div>
+      <div class="cell"><div class="note-circle mi" style="width:40px;height:40px;font-size:14px;">Mi</div></div>
+      <div class="cell"><div class="note-circle sol" style="width:40px;height:40px;font-size:14px;">Sol</div></div>
+
+      <div class="cell"><div class="note-circle sol" style="width:40px;height:40px;font-size:14px;">Sol</div></div>
+      <div class="cell"><div class="note-circle fa" style="width:40px;height:40px;font-size:14px;">Fa</div></div>
+      <div class="cell" style="background:var(--cream);"></div>
+      <div class="cell"><div class="note-circle mi" style="width:40px;height:40px;font-size:14px;">Mi</div></div>
+
+      <div class="cell"><div class="note-circle mi" style="width:40px;height:40px;font-size:14px;">Mi</div></div>
+      <div class="cell" style="background:var(--cream);"></div>
+      <div class="cell"><div class="note-circle sol" style="width:40px;height:40px;font-size:14px;">Sol</div></div>
+      <div class="cell"><div class="note-circle fa" style="width:40px;height:40px;font-size:14px;">Fa</div></div>
+    </div>
+    <p style="font-size:10px;color:var(--muted);text-align:center;margin-top:8px;">Nuty: Mi, Fa, Sol, La — brakują: La, Mi, La, Re, La, La</p>
+  </div>
+  <span class="page-num">90</span>
+</div>
+
+
+<!-- Rysowanie -->
+<div class="page">
+  <h2 style="text-align:center;margin-bottom:6px;">🎨 Narysuj Swój Instrument</h2>
+  <p style="font-size:13px;color:var(--muted);text-align:center;margin-bottom:16px;">Gdybyś mógł/mogła wynaleźć zupełnie nowy instrument muzyczny, jak by wyglądał?</p>
+
+  <div style="border:3px dashed var(--border);border-radius:20px;min-height:380px;padding:20px;display:flex;align-items:center;justify-content:center;">
+    <p style="font-size:48px;opacity:.15;">🎵</p>
+  </div>
+
+  <div class="card" style="margin-top:16px;">
+    <h3 style="font-size:15px;margin-bottom:8px;">Opowiedz o Swoim Instrumencie</h3>
+    <p style="font-size:13px;color:var(--ink-mid);margin-bottom:8px;">Jak się nazywa? <span style="border-bottom:1.5px solid var(--border);display:inline-block;width:200px;">&nbsp;</span></p>
+    <p style="font-size:13px;color:var(--ink-mid);margin-bottom:8px;">Jaki dźwięk wydaje? <span style="border-bottom:1.5px solid var(--border);display:inline-block;width:180px;">&nbsp;</span></p>
+    <p style="font-size:13px;color:var(--ink-mid);margin-bottom:8px;">Z czego jest zrobiony? <span style="border-bottom:1.5px solid var(--border);display:inline-block;width:170px;">&nbsp;</span></p>
+    <p style="font-size:13px;color:var(--ink-mid);">Jak na nim grasz? <span style="border-bottom:1.5px solid var(--border);display:inline-block;width:190px;">&nbsp;</span></p>
+  </div>
+  <span class="page-num">91</span>
+</div>
+
+
+<div class="page">
+  <h2 style="text-align:center;margin-bottom:6px;">🎨 Muzyczny Autoportret</h2>
+  <p style="font-size:13px;color:var(--muted);text-align:center;margin-bottom:16px;">Narysuj siebie jako muzyka! Jaki instrument trzymasz? Co masz na sobie?</p>
+
+  <div style="border:3px dashed var(--border);border-radius:20px;min-height:380px;padding:20px;display:flex;align-items:center;justify-content:center;">
+    <p style="font-size:48px;opacity:.15;">🎤</p>
+  </div>
+
+  <div class="card" style="margin-top:16px;">
+    <h3 style="font-size:15px;margin-bottom:8px;">Moje Muzyczne Marzenie</h3>
+    <p style="font-size:13px;color:var(--ink-mid);margin-bottom:8px;">Na jakim instrumencie gram? <span style="border-bottom:1.5px solid var(--border);display:inline-block;width:170px;">&nbsp;</span></p>
+    <p style="font-size:13px;color:var(--ink-mid);margin-bottom:8px;">Jaki rodzaj muzyki gram? <span style="border-bottom:1.5px solid var(--border);display:inline-block;width:180px;">&nbsp;</span></p>
+    <p style="font-size:13px;color:var(--ink-mid);">Gdzie koncertuję? <span style="border-bottom:1.5px solid var(--border);display:inline-block;width:200px;">&nbsp;</span></p>
+  </div>
+  <span class="page-num">92</span>
+</div>
+
+
+<!-- Kompozycja -->
+<div class="page">
+  <h2 style="text-align:center;margin-bottom:6px;">🎼 Skomponuj Swoją Piosenkę</h2>
+  <p style="font-size:13px;color:var(--muted);text-align:center;margin-bottom:14px;">Wybierz nuty i umieść je na liniach poniżej. Potem zagraj swoją kompozycję!</p>
+
+  <div class="note-legend" style="justify-content:center;margin-bottom:16px;">
+    <div class="note-legend-item"><span class="note-legend-dot" style="background:var(--n1)">Do</span></div>
+    <div class="note-legend-item"><span class="note-legend-dot" style="background:var(--n2)">Re</span></div>
+    <div class="note-legend-item"><span class="note-legend-dot" style="background:var(--n3);color:#4A3200">Mi</span></div>
+    <div class="note-legend-item"><span class="note-legend-dot" style="background:var(--n4)">Fa</span></div>
+    <div class="note-legend-item"><span class="note-legend-dot" style="background:var(--n5)">Sol</span></div>
+    <div class="note-legend-item"><span class="note-legend-dot" style="background:var(--n6)">La</span></div>
+  </div>
+
+  <div class="card" style="margin-bottom:12px;">
+    <p style="font-family:var(--df);font-size:13px;font-weight:700;margin-bottom:8px;">Zwrotka 1</p>
+    <div style="display:flex;gap:10px;justify-content:center;">
+      <div style="width:48px;height:48px;border-radius:50%;border:2.5px dashed var(--border);"></div>
+      <div style="width:48px;height:48px;border-radius:50%;border:2.5px dashed var(--border);"></div>
+      <div style="width:48px;height:48px;border-radius:50%;border:2.5px dashed var(--border);"></div>
+      <div style="width:48px;height:48px;border-radius:50%;border:2.5px dashed var(--border);"></div>
+      <div style="width:48px;height:48px;border-radius:50%;border:2.5px dashed var(--border);"></div>
+      <div style="width:48px;height:48px;border-radius:50%;border:2.5px dashed var(--border);"></div>
+      <div style="width:48px;height:48px;border-radius:50%;border:2.5px dashed var(--border);"></div>
+      <div style="width:48px;height:48px;border-radius:50%;border:2.5px dashed var(--border);"></div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-bottom:12px;">
+    <p style="font-family:var(--df);font-size:13px;font-weight:700;margin-bottom:8px;">Zwrotka 2</p>
+    <div style="display:flex;gap:10px;justify-content:center;">
+      <div style="width:48px;height:48px;border-radius:50%;border:2.5px dashed var(--border);"></div>
+      <div style="width:48px;height:48px;border-radius:50%;border:2.5px dashed var(--border);"></div>
+      <div style="width:48px;height:48px;border-radius:50%;border:2.5px dashed var(--border);"></div>
+      <div style="width:48px;height:48px;border-radius:50%;border:2.5px dashed var(--border);"></div>
+      <div style="width:48px;height:48px;border-radius:50%;border:2.5px dashed var(--border);"></div>
+      <div style="width:48px;height:48px;border-radius:50%;border:2.5px dashed var(--border);"></div>
+      <div style="width:48px;height:48px;border-radius:50%;border:2.5px dashed var(--border);"></div>
+      <div style="width:48px;height:48px;border-radius:50%;border:2.5px dashed var(--border);"></div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-bottom:12px;">
+    <p style="font-family:var(--df);font-size:13px;font-weight:700;margin-bottom:8px;">Refren</p>
+    <div style="display:flex;gap:10px;justify-content:center;">
+      <div style="width:48px;height:48px;border-radius:50%;border:2.5px dashed var(--border);"></div>
+      <div style="width:48px;height:48px;border-radius:50%;border:2.5px dashed var(--border);"></div>
+      <div style="width:48px;height:48px;border-radius:50%;border:2.5px dashed var(--border);"></div>
+      <div style="width:48px;height:48px;border-radius:50%;border:2.5px dashed var(--border);"></div>
+      <div style="width:48px;height:48px;border-radius:50%;border:2.5px dashed var(--border);"></div>
+      <div style="width:48px;height:48px;border-radius:50%;border:2.5px dashed var(--border);"></div>
+      <div style="width:48px;height:48px;border-radius:50%;border:2.5px dashed var(--border);"></div>
+      <div style="width:48px;height:48px;border-radius:50%;border:2.5px dashed var(--border);"></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3 style="font-size:14px;margin-bottom:6px;">O Mojej Piosence</h3>
+    <p style="font-size:13px;color:var(--ink-mid);margin-bottom:6px;">Tytuł: <span style="border-bottom:1.5px solid var(--border);display:inline-block;width:220px;">&nbsp;</span></p>
+    <p style="font-size:13px;color:var(--ink-mid);margin-bottom:6px;">Tempo: ☐ Wolno  ☐ Średnio  ☐ Szybko</p>
+    <p style="font-size:13px;color:var(--ink-mid);">Nastrój: ☐ Wesoły  ☐ Spokojny  ☐ Energiczny  ☐ Smutny</p>
+  </div>
+  <span class="page-num">93</span>
+</div>
+
+
+<!-- Znajdź Różnice -->
+<div class="page">
+  <h2 style="text-align:center;margin-bottom:6px;">🔍 Znajdź 7 Różnic</h2>
+  <p style="font-size:13px;color:var(--muted);text-align:center;margin-bottom:14px;">Te dwie orkiestry wyglądają tak samo, ale mają 7 różnic. Znajdź je i zakreśl!</p>
+
+  <div class="grid-2" style="gap:16px;">
+    <div class="card" style="text-align:center;padding:16px;min-height:280px;">
+      <p style="font-family:var(--df);font-size:13px;font-weight:700;margin-bottom:10px;color:var(--teal);">Orkiestra A</p>
+      <div style="font-size:36px;line-height:1.6;">
+        🎹 🎸 🥁<br>
+        🎺 🎻 🪈<br>
+        🎤 🪘 🎵<br>
+        🎶 🪇 🎷
+      </div>
+    </div>
+    <div class="card" style="text-align:center;padding:16px;min-height:280px;">
+      <p style="font-family:var(--df);font-size:13px;font-weight:700;margin-bottom:10px;color:var(--coral);">Orkiestra B</p>
+      <div style="font-size:36px;line-height:1.6;">
+        🎹 🎸 🪘<br>
+        🎺 🎻 🎤<br>
+        🪈 🥁 🎵<br>
+        🎷 🪇 🎶
+      </div>
+    </div>
+  </div>
+
+  <div class="callout tip" style="margin-top:14px;font-size:12px;">
+    <strong>💡 Wskazówka:</strong> Porównuj rząd po rzędzie — szukaj zamienionych, brakujących lub przesuniętych instrumentów.
+  </div>
+
+  <div style="margin-top:10px;padding:8px 12px;background:var(--cream-deep);border-radius:8px;">
+    <p style="font-size:10px;color:var(--ink-mid);text-align:center;">🔑 Różnice: rząd 1 — bęben/bongo zamienione · rząd 2 — flet/mikrofon zamienione · rząd 3 — mikrofon↔flet, bęben↔bongo · rząd 4 — nuty i sax zamienione kolejnością</p>
+  </div>
+  <span class="page-num">94</span>
+</div>
+
+
+<!-- Krzyżówka -->
+<div class="page">
+  <h2 style="text-align:center;margin-bottom:6px;">📝 Krzyżówka Muzyczna</h2>
+  <p style="font-size:13px;color:var(--muted);text-align:center;margin-bottom:14px;">Rozwiąż krzyżówkę używając podpowiedzi poniżej!</p>
+
+  <div style="display:grid;grid-template-columns:repeat(8,32px);gap:0;justify-content:center;margin-bottom:16px;">
+    <div style="width:32px;height:32px;"></div>
+    <div style="width:32px;height:32px;"></div>
+    <div style="width:32px;height:32px;border:1.5px solid var(--teal);display:flex;align-items:center;justify-content:center;font-size:10px;color:var(--muted);background:var(--cream-card);">1↓</div>
+    <div style="width:32px;height:32px;"></div>
+    <div style="width:32px;height:32px;"></div>
+    <div style="width:32px;height:32px;border:1.5px solid var(--teal);display:flex;align-items:center;justify-content:center;font-size:10px;color:var(--muted);background:var(--cream-card);">2↓</div>
+    <div style="width:32px;height:32px;"></div>
+    <div style="width:32px;height:32px;"></div>
+
+    <div style="width:32px;height:32px;"></div>
+    <div style="width:32px;height:32px;"></div>
+    <div style="width:32px;height:32px;border:1.5px solid var(--teal);background:var(--cream-card);"></div>
+    <div style="width:32px;height:32px;"></div>
+    <div style="width:32px;height:32px;"></div>
+    <div style="width:32px;height:32px;border:1.5px solid var(--teal);background:var(--cream-card);"></div>
+    <div style="width:32px;height:32px;"></div>
+    <div style="width:32px;height:32px;"></div>
+
+    <div style="width:32px;height:32px;border:1.5px solid var(--teal);display:flex;align-items:center;justify-content:center;font-size:10px;color:var(--muted);background:var(--cream-card);">3→</div>
+    <div style="width:32px;height:32px;border:1.5px solid var(--teal);background:var(--cream-card);"></div>
+    <div style="width:32px;height:32px;border:1.5px solid var(--teal);background:var(--cream-card);"></div>
+    <div style="width:32px;height:32px;border:1.5px solid var(--teal);background:var(--cream-card);"></div>
+    <div style="width:32px;height:32px;border:1.5px solid var(--teal);background:var(--cream-card);"></div>
+    <div style="width:32px;height:32px;border:1.5px solid var(--teal);background:var(--cream-card);"></div>
+    <div style="width:32px;height:32px;"></div>
+    <div style="width:32px;height:32px;"></div>
+
+    <div style="width:32px;height:32px;"></div>
+    <div style="width:32px;height:32px;"></div>
+    <div style="width:32px;height:32px;border:1.5px solid var(--teal);background:var(--cream-card);"></div>
+    <div style="width:32px;height:32px;"></div>
+    <div style="width:32px;height:32px;"></div>
+    <div style="width:32px;height:32px;border:1.5px solid var(--teal);background:var(--cream-card);"></div>
+    <div style="width:32px;height:32px;"></div>
+    <div style="width:32px;height:32px;"></div>
+
+    <div style="width:32px;height:32px;border:1.5px solid var(--teal);display:flex;align-items:center;justify-content:center;font-size:10px;color:var(--muted);background:var(--cream-card);">4→</div>
+    <div style="width:32px;height:32px;border:1.5px solid var(--teal);background:var(--cream-card);"></div>
+    <div style="width:32px;height:32px;border:1.5px solid var(--teal);background:var(--cream-card);"></div>
+    <div style="width:32px;height:32px;border:1.5px solid var(--teal);background:var(--cream-card);"></div>
+    <div style="width:32px;height:32px;border:1.5px solid var(--teal);background:var(--cream-card);"></div>
+    <div style="width:32px;height:32px;border:1.5px solid var(--teal);background:var(--cream-card);"></div>
+    <div style="width:32px;height:32px;border:1.5px solid var(--teal);background:var(--cream-card);"></div>
+    <div style="width:32px;height:32px;"></div>
+  </div>
+
+  <div class="grid-2" style="gap:12px;">
+    <div class="card" style="margin:0;padding:14px;">
+      <p style="font-family:var(--df);font-size:13px;font-weight:700;color:var(--teal);margin-bottom:6px;">Poziomo →</p>
+      <p style="font-size:12px;line-height:1.6;color:var(--ink-mid);">
+        <strong>3.</strong> Instrument strunowy z sześcioma strunami (6 liter)<br>
+        <strong>4.</strong> Przerwa w muzyce, cisza (5 liter)
+      </p>
+    </div>
+    <div class="card" style="margin:0;padding:14px;">
+      <p style="font-family:var(--df);font-size:13px;font-weight:700;color:var(--teal);margin-bottom:6px;">Pionowo ↓</p>
+      <p style="font-size:12px;line-height:1.6;color:var(--ink-mid);">
+        <strong>1.</strong> Szybkość muzyki (5 liter)<br>
+        <strong>2.</strong> Instrument perkusyjny, uderzasz w niego pałeczkami (5 liter)
+      </p>
+    </div>
+  </div>
+
+  <div style="margin-top:12px;padding:8px 12px;background:var(--cream-deep);border-radius:8px;">
+    <p style="font-size:10px;color:var(--ink-mid);text-align:center;">🔑 3→ GITARA · 4→ PAUZA · 1↓ TEMPO · 2↓ BĘBEN</p>
+  </div>
+  <span class="page-num">95</span>
+</div>
+
+
+<!-- Notatki muzyczne -->
+<div class="page">
+  <h2 style="text-align:center;margin-bottom:6px;">📓 Mój Muzyczny Dziennik</h2>
+  <p style="font-size:13px;color:var(--muted);text-align:center;margin-bottom:16px;">Zapisuj swoje muzyczne przygody po każdej lekcji!</p>
+
+  <div class="card" style="margin-bottom:12px;">
+    <p style="font-family:var(--df);font-size:14px;font-weight:700;margin-bottom:10px;">📅 Data: <span style="border-bottom:1.5px solid var(--border);display:inline-block;width:120px;">&nbsp;</span></p>
+    <p style="font-size:13px;margin-bottom:6px;">Co dziś ćwiczyłem/am? <span style="border-bottom:1.5px solid var(--border);display:inline-block;width:200px;">&nbsp;</span></p>
+    <p style="font-size:13px;margin-bottom:6px;">Jakie nuty poznałem/am? <span style="border-bottom:1.5px solid var(--border);display:inline-block;width:180px;">&nbsp;</span></p>
+    <p style="font-size:13px;margin-bottom:6px;">Co mi się najbardziej podobało? <span style="border-bottom:1.5px solid var(--border);display:inline-block;width:150px;">&nbsp;</span></p>
+    <p style="font-size:13px;">Moja ocena dzisiejszej lekcji: ☐ 😊 ☐ 😐 ☐ 😕</p>
+  </div>
+
+  <div class="card" style="margin-bottom:12px;">
+    <p style="font-family:var(--df);font-size:14px;font-weight:700;margin-bottom:10px;">📅 Data: <span style="border-bottom:1.5px solid var(--border);display:inline-block;width:120px;">&nbsp;</span></p>
+    <p style="font-size:13px;margin-bottom:6px;">Co dziś ćwiczyłem/am? <span style="border-bottom:1.5px solid var(--border);display:inline-block;width:200px;">&nbsp;</span></p>
+    <p style="font-size:13px;margin-bottom:6px;">Jakie nuty poznałem/am? <span style="border-bottom:1.5px solid var(--border);display:inline-block;width:180px;">&nbsp;</span></p>
+    <p style="font-size:13px;margin-bottom:6px;">Co mi się najbardziej podobało? <span style="border-bottom:1.5px solid var(--border);display:inline-block;width:150px;">&nbsp;</span></p>
+    <p style="font-size:13px;">Moja ocena dzisiejszej lekcji: ☐ 😊 ☐ 😐 ☐ 😕</p>
+  </div>
+
+  <div class="card">
+    <p style="font-family:var(--df);font-size:14px;font-weight:700;margin-bottom:10px;">📅 Data: <span style="border-bottom:1.5px solid var(--border);display:inline-block;width:120px;">&nbsp;</span></p>
+    <p style="font-size:13px;margin-bottom:6px;">Co dziś ćwiczyłem/am? <span style="border-bottom:1.5px solid var(--border);display:inline-block;width:200px;">&nbsp;</span></p>
+    <p style="font-size:13px;margin-bottom:6px;">Jakie nuty poznałem/am? <span style="border-bottom:1.5px solid var(--border);display:inline-block;width:180px;">&nbsp;</span></p>
+    <p style="font-size:13px;margin-bottom:6px;">Co mi się najbardziej podobało? <span style="border-bottom:1.5px solid var(--border);display:inline-block;width:150px;">&nbsp;</span></p>
+    <p style="font-size:13px;">Moja ocena dzisiejszej lekcji: ☐ 😊 ☐ 😐 ☐ 😕</p>
+  </div>
+  <span class="page-num">96</span>
+</div>
+
+
+<div class="page">
+  <h2 style="text-align:center;margin-bottom:6px;">📓 Mój Muzyczny Dziennik (ciąg dalszy)</h2>
+  <p style="font-size:13px;color:var(--muted);text-align:center;margin-bottom:16px;">Więcej stron na Twoje notatki muzyczne!</p>
+
+  <div class="card" style="margin-bottom:12px;">
+    <p style="font-family:var(--df);font-size:14px;font-weight:700;margin-bottom:10px;">📅 Data: <span style="border-bottom:1.5px solid var(--border);display:inline-block;width:120px;">&nbsp;</span></p>
+    <p style="font-size:13px;margin-bottom:6px;">Co dziś ćwiczyłem/am? <span style="border-bottom:1.5px solid var(--border);display:inline-block;width:200px;">&nbsp;</span></p>
+    <p style="font-size:13px;margin-bottom:6px;">Jakie nuty poznałem/am? <span style="border-bottom:1.5px solid var(--border);display:inline-block;width:180px;">&nbsp;</span></p>
+    <p style="font-size:13px;margin-bottom:6px;">Co mi się najbardziej podobało? <span style="border-bottom:1.5px solid var(--border);display:inline-block;width:150px;">&nbsp;</span></p>
+    <p style="font-size:13px;">Moja ocena dzisiejszej lekcji: ☐ 😊 ☐ 😐 ☐ 😕</p>
+  </div>
+
+  <div class="card" style="margin-bottom:12px;">
+    <p style="font-family:var(--df);font-size:14px;font-weight:700;margin-bottom:10px;">📅 Data: <span style="border-bottom:1.5px solid var(--border);display:inline-block;width:120px;">&nbsp;</span></p>
+    <p style="font-size:13px;margin-bottom:6px;">Co dziś ćwiczyłem/am? <span style="border-bottom:1.5px solid var(--border);display:inline-block;width:200px;">&nbsp;</span></p>
+    <p style="font-size:13px;margin-bottom:6px;">Jakie nuty poznałem/am? <span style="border-bottom:1.5px solid var(--border);display:inline-block;width:180px;">&nbsp;</span></p>
+    <p style="font-size:13px;margin-bottom:6px;">Co mi się najbardziej podobało? <span style="border-bottom:1.5px solid var(--border);display:inline-block;width:150px;">&nbsp;</span></p>
+    <p style="font-size:13px;">Moja ocena dzisiejszej lekcji: ☐ 😊 ☐ 😐 ☐ 😕</p>
+  </div>
+
+  <div class="card">
+    <p style="font-family:var(--df);font-size:14px;font-weight:700;margin-bottom:10px;">📅 Data: <span style="border-bottom:1.5px solid var(--border);display:inline-block;width:120px;">&nbsp;</span></p>
+    <p style="font-size:13px;margin-bottom:6px;">Co dziś ćwiczyłem/am? <span style="border-bottom:1.5px solid var(--border);display:inline-block;width:200px;">&nbsp;</span></p>
+    <p style="font-size:13px;margin-bottom:6px;">Jakie nuty poznałem/am? <span style="border-bottom:1.5px solid var(--border);display:inline-block;width:180px;">&nbsp;</span></p>
+    <p style="font-size:13px;margin-bottom:6px;">Co mi się najbardziej podobało? <span style="border-bottom:1.5px solid var(--border);display:inline-block;width:150px;">&nbsp;</span></p>
+    <p style="font-size:13px;">Moja ocena dzisiejszej lekcji: ☐ 😊 ☐ 😐 ☐ 😕</p>
+  </div>
+  <span class="page-num">97</span>
+</div>
+
+
+<!-- Certyfikat tygodniowy -->
+<div class="page">
+  <h2 style="text-align:center;margin-bottom:6px;">🏅 Certyfikat Tygodniowy</h2>
+  <p style="font-size:13px;color:var(--muted);text-align:center;margin-bottom:14px;">Wytnij i wręcz dziecku po każdym ukończonym tygodniu nauki!</p>
+
+  <div class="cut-border" style="padding:20px;text-align:center;margin-bottom:14px;background:linear-gradient(145deg,var(--cream) 0%,var(--gold-lt) 100%);">
+    <p style="font-size:10px;color:var(--gold);font-weight:700;letter-spacing:.08em;text-transform:uppercase;">✂️ Certyfikat Tygodnia 1</p>
+    <p style="font-family:var(--df);font-size:18px;font-weight:800;color:var(--teal-dk);margin:8px 0 4px;">Odkrywca Dźwięków</p>
+    <div style="display:flex;gap:4px;justify-content:center;margin:8px 0;">
+      <div class="note-circle do" style="width:28px;height:28px;font-size:10px;">Do</div>
+      <div class="note-circle re" style="width:28px;height:28px;font-size:10px;">Re</div>
+      <div class="note-circle mi" style="width:28px;height:28px;font-size:10px;">Mi</div>
+    </div>
+    <p style="font-size:11px;color:var(--ink-mid);">Imię: _________________ Data: _______</p>
+  </div>
+
+  <div class="cut-border" style="padding:20px;text-align:center;margin-bottom:14px;background:linear-gradient(145deg,var(--cream) 0%,var(--gold-lt) 100%);">
+    <p style="font-size:10px;color:var(--gold);font-weight:700;letter-spacing:.08em;text-transform:uppercase;">✂️ Certyfikat Tygodnia 2</p>
+    <p style="font-family:var(--df);font-size:18px;font-weight:800;color:var(--teal-dk);margin:8px 0 4px;">Mistrz Rytmu</p>
+    <div style="display:flex;gap:4px;justify-content:center;margin:8px 0;">
+      <div class="beat" style="background:var(--n1);width:28px;height:28px;font-size:10px;">ta</div>
+      <div class="beat" style="background:var(--n2);width:28px;height:28px;font-size:10px;">ta</div>
+      <div class="rest" style="width:28px;height:28px;font-size:12px;">🤫</div>
+      <div class="beat" style="background:var(--n4);width:28px;height:28px;font-size:10px;">ta</div>
+    </div>
+    <p style="font-size:11px;color:var(--ink-mid);">Imię: _________________ Data: _______</p>
+  </div>
+
+  <div class="cut-border" style="padding:20px;text-align:center;margin-bottom:14px;background:linear-gradient(145deg,var(--cream) 0%,var(--gold-lt) 100%);">
+    <p style="font-size:10px;color:var(--gold);font-weight:700;letter-spacing:.08em;text-transform:uppercase;">✂️ Certyfikat Tygodnia 3</p>
+    <p style="font-family:var(--df);font-size:18px;font-weight:800;color:var(--teal-dk);margin:8px 0 4px;">Muzyczny Gracz</p>
+    <div style="display:flex;gap:4px;justify-content:center;margin:8px 0;">
+      <span style="font-size:22px;">🎲</span>
+      <span style="font-size:22px;">🃏</span>
+      <span style="font-size:22px;">🧩</span>
+    </div>
+    <p style="font-size:11px;color:var(--ink-mid);">Imię: _________________ Data: _______</p>
+  </div>
+
+  <div class="cut-border" style="padding:20px;text-align:center;background:linear-gradient(145deg,var(--cream) 0%,var(--gold-lt) 100%);">
+    <p style="font-size:10px;color:var(--gold);font-weight:700;letter-spacing:.08em;text-transform:uppercase;">✂️ Certyfikat Tygodnia 4</p>
+    <p style="font-family:var(--df);font-size:18px;font-weight:800;color:var(--teal-dk);margin:8px 0 4px;">Mały Kompozytor</p>
+    <div style="display:flex;gap:4px;justify-content:center;margin:8px 0;">
+      <div class="note-circle do" style="width:28px;height:28px;font-size:10px;">Do</div>
+      <div class="note-circle re" style="width:28px;height:28px;font-size:10px;">Re</div>
+      <div class="note-circle mi" style="width:28px;height:28px;font-size:10px;">Mi</div>
+      <div class="note-circle fa" style="width:28px;height:28px;font-size:10px;">Fa</div>
+      <div class="note-circle sol" style="width:28px;height:28px;font-size:10px;">Sol</div>
+      <div class="note-circle la" style="width:28px;height:28px;font-size:10px;">La</div>
+    </div>
+    <p style="font-size:11px;color:var(--ink-mid);">Imię: _________________ Data: _______</p>
+  </div>
+  <span class="page-num">98</span>
+</div>
+
+
+<!-- Naklejki motywacyjne -->
+<div class="page">
+  <h2 style="text-align:center;margin-bottom:6px;">⭐ Naklejki Motywacyjne</h2>
+  <p style="font-size:13px;color:var(--muted);text-align:center;margin-bottom:16px;">Wytnij naklejki i wklej je do dziennika lub na lodówkę po każdym ćwiczeniu!</p>
+
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;">
+    <div class="cut-border" style="text-align:center;padding:12px;"><span style="font-size:30px;">⭐</span><p style="font-family:var(--df);font-size:10px;font-weight:800;color:var(--teal-dk);margin-top:4px;">Świetna Praca!</p></div>
+    <div class="cut-border" style="text-align:center;padding:12px;"><span style="font-size:30px;">🎵</span><p style="font-family:var(--df);font-size:10px;font-weight:800;color:var(--teal-dk);margin-top:4px;">Muzyczny Geniusz</p></div>
+    <div class="cut-border" style="text-align:center;padding:12px;"><span style="font-size:30px;">🏆</span><p style="font-family:var(--df);font-size:10px;font-weight:800;color:var(--teal-dk);margin-top:4px;">Mistrz Nut!</p></div>
+    <div class="cut-border" style="text-align:center;padding:12px;"><span style="font-size:30px;">🌟</span><p style="font-family:var(--df);font-size:10px;font-weight:800;color:var(--teal-dk);margin-top:4px;">Super Muzyk</p></div>
+
+    <div class="cut-border" style="text-align:center;padding:12px;"><span style="font-size:30px;">👏</span><p style="font-family:var(--df);font-size:10px;font-weight:800;color:var(--teal-dk);margin-top:4px;">Brawo!</p></div>
+    <div class="cut-border" style="text-align:center;padding:12px;"><span style="font-size:30px;">🎶</span><p style="font-family:var(--df);font-size:10px;font-weight:800;color:var(--teal-dk);margin-top:4px;">Melodia Dnia</p></div>
+    <div class="cut-border" style="text-align:center;padding:12px;"><span style="font-size:30px;">💪</span><p style="font-family:var(--df);font-size:10px;font-weight:800;color:var(--teal-dk);margin-top:4px;">Nie Poddajesz Się!</p></div>
+    <div class="cut-border" style="text-align:center;padding:12px;"><span style="font-size:30px;">🎤</span><p style="font-family:var(--df);font-size:10px;font-weight:800;color:var(--teal-dk);margin-top:4px;">Gwiazdka Sceny</p></div>
+
+    <div class="cut-border" style="text-align:center;padding:12px;"><span style="font-size:30px;">🥇</span><p style="font-family:var(--df);font-size:10px;font-weight:800;color:var(--teal-dk);margin-top:4px;">Pierwsze Miejsce</p></div>
+    <div class="cut-border" style="text-align:center;padding:12px;"><span style="font-size:30px;">🎯</span><p style="font-family:var(--df);font-size:10px;font-weight:800;color:var(--teal-dk);margin-top:4px;">Cel Osiągnięty</p></div>
+    <div class="cut-border" style="text-align:center;padding:12px;"><span style="font-size:30px;">🎸</span><p style="font-family:var(--df);font-size:10px;font-weight:800;color:var(--teal-dk);margin-top:4px;">Rockowa Gwiazda</p></div>
+    <div class="cut-border" style="text-align:center;padding:12px;"><span style="font-size:30px;">🦸</span><p style="font-family:var(--df);font-size:10px;font-weight:800;color:var(--teal-dk);margin-top:4px;">Superbohater Muzyki</p></div>
+
+    <div class="cut-border" style="text-align:center;padding:12px;"><span style="font-size:30px;">🎹</span><p style="font-family:var(--df);font-size:10px;font-weight:800;color:var(--teal-dk);margin-top:4px;">Wirtuoz</p></div>
+    <div class="cut-border" style="text-align:center;padding:12px;"><span style="font-size:30px;">🌈</span><p style="font-family:var(--df);font-size:10px;font-weight:800;color:var(--teal-dk);margin-top:4px;">Kolorowe Nuty</p></div>
+    <div class="cut-border" style="text-align:center;padding:12px;"><span style="font-size:30px;">🎷</span><p style="font-family:var(--df);font-size:10px;font-weight:800;color:var(--teal-dk);margin-top:4px;">Jazzy!</p></div>
+    <div class="cut-border" style="text-align:center;padding:12px;"><span style="font-size:30px;">❤️</span><p style="font-family:var(--df);font-size:10px;font-weight:800;color:var(--teal-dk);margin-top:4px;">Kocham Muzykę</p></div>
+  </div>
+  <span class="page-num">99</span>
+</div>
+
+
+</body>
+</html>

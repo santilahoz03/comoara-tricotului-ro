@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Panel — Mágneses Férfi HU</title>
+<style>
+  :root {
+    --bg: #FBF9F5; --ink: #17130E; --accent: #A63A2A; --success: #37CA37;
+    --bg-alt: #F2EDE5; --muted: #6B5E54; --line: #E2D9CE; --page: #FFFFFF;
+    --warn: #D97706;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: system-ui, sans-serif; background: var(--bg); color: var(--ink); padding: 24px 16px; max-width: 900px; margin: 0 auto; }
+  h1 { font-size: 1.4rem; margin-bottom: 4px; }
+  .sub { color: var(--muted); font-size: 0.85rem; margin-bottom: 24px; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media(max-width:600px){ .grid { grid-template-columns: 1fr; } }
+  .card { background: var(--page); border: 1px solid var(--line); border-radius: 10px; padding: 16px; }
+  .card h2 { font-size: 1rem; margin-bottom: 8px; border-bottom: 1px solid var(--line); padding-bottom: 8px; }
+  .row { display: flex; justify-content: space-between; align-items: flex-start; padding: 6px 0; border-bottom: 1px solid var(--line); font-size: 0.9rem; gap: 8px; }
+  .row:last-child { border-bottom: none; }
+  .label { color: var(--muted); flex-shrink: 0; }
+  .val { font-weight: 600; text-align: right; word-break: break-word; }
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; }
+  .badge.pending { background: #FEF3C7; color: #92400E; }
+  .badge.ok { background: #D1FAE5; color: #065F46; }
+  .badge.warn { background: #FEE2E2; color: #991B1B; }
+  .section { margin-top: 24px; }
+  .section-title { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin-bottom: 10px; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.85rem; background: var(--page); border-radius: 8px; overflow: hidden; border: 1px solid var(--line); }
+  th { background: var(--bg-alt); padding: 8px 12px; text-align: left; font-size: 0.75rem; color: var(--muted); }
+  td { padding: 8px 12px; border-top: 1px solid var(--line); vertical-align: top; }
+  .checklist { list-style: none; font-size: 0.9rem; }
+  .checklist li { padding: 5px 0; border-bottom: 1px solid var(--line); display: flex; gap: 8px; }
+  .checklist li:last-child { border-bottom: none; }
+  .tick { font-size: 1rem; flex-shrink: 0; }
+  a { color: var(--accent); word-break: break-all; }
+</style>
+</head>
+<body>
+
+<h1>Panel · Mágneses Férfi</h1>
+<p class="sub">Mercado: 🇭🇺 Hungría · Moneda: HUF · Modo: A (Clonado fiel CZ) · Fecha: 2026-10-15</p>
+
+<div class="grid">
+
+  <div class="card">
+    <h2>💰 Oferta</h2>
+    <div class="row"><span class="label">Precio</span><span class="val">4 999 Ft</span></div>
+    <div class="row"><span class="label">Ancla</span><span class="val">24 990 Ft</span></div>
+    <div class="row"><span class="label">Ahorro</span><span class="val">19 991 Ft (80%)</span></div>
+    <div class="row"><span class="label">Garantía</span><span class="val">90 días</span></div>
+    <div class="row"><span class="label">Botón</span><span class="val">IGEN, HOZZÁFÉRÉST KÉREK</span></div>
+    <div class="row"><span class="label">Entrega</span><span class="val">Inmediata (e-könyv)</span></div>
+  </div>
+
+  <div class="card">
+    <h2>🏗️ Estado</h2>
+    <div class="row"><span class="label">Landing HU</span><span class="val"><span class="badge ok">✓ lista</span></span></div>
+    <div class="row"><span class="label">OTOs (4)</span><span class="val"><span class="badge ok">✓ listos</span></span></div>
+    <div class="row"><span class="label">Mockup hero</span><span class="val"><span class="badge ok">✓ listo</span></span></div>
+    <div class="row"><span class="label">Mockup caja</span><span class="val"><span class="badge ok">✓ listo</span></span></div>
+    <div class="row"><span class="label">Hub entrega</span><span class="val"><span class="badge pending">en preparación</span></span></div>
+    <div class="row"><span class="label">Tienda IT</span><span class="val"><span class="badge ok">✓ lista (sin pago)</span></span></div>
+    <div class="row"><span class="label">Pago (Whop)</span><span class="val"><span class="badge warn">usuario conecta</span></span></div>
+    <div class="row"><span class="label">Ads (6)</span><span class="val"><span class="badge pending">pendiente</span></span></div>
+    <div class="row"><span class="label">PDFs HU</span><span class="val"><span class="badge pending">pendiente</span></span></div>
+  </div>
+
+</div>
+
+<div class="section">
+  <div class="section-title">🎁 Stack de la oferta</div>
+  <table>
+    <thead><tr><th>Componente</th><th>Nombre HU</th><th>Valor declarado</th></tr></thead>
+    <tbody>
+      <tr><td>Producto principal</td><td>Mágneses Férfi e-könyv, 6 rész — Mind a 7 Kapcsoló™</td><td>—</td></tr>
+      <tr><td>Bónusz (incluido)</td><td>Az Első 90 Másodperc — Hat helyzet, mondatról mondatra</td><td>4 999 Ft</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="section">
+  <div class="section-title">📈 Funnel post-compra</div>
+  <table>
+    <thead><tr><th>#</th><th>Nombre HU</th><th>Precio</th><th>Downsell</th><th>Archivo</th></tr></thead>
+    <tbody>
+      <tr><td>OTO1</td><td>Szituációs Arzenál™</td><td>9 990 Ft</td><td>4 990 Ft</td><td>01-oto1-szituacios-arzental.md</td></tr>
+      <tr><td>OTO2</td><td>Élő Tereptérkép™</td><td>16 990 Ft</td><td>8 490 Ft</td><td>02-oto2-elo-terepterkep.md</td></tr>
+      <tr><td>OTO3</td><td>Feszültség Kód™</td><td>7 990 Ft</td><td>3 990 Ft</td><td>03-oto3-feszultseg-kod.md</td></tr>
+      <tr><td>OTO4</td><td>Lehetőségek Folyása™</td><td>4 990 Ft</td><td>2 490 Ft</td><td>04-oto4-lehetosegek-folyasa.md</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="section">
+  <div class="section-title">🎨 Paleta (idéntica a CZ)</div>
+  <div class="grid">
+    <div class="card" style="padding:12px;">
+      <div class="row"><span class="label">--bg</span><span class="val"><span style="display:inline-block;width:14px;height:14px;background:#FBF9F5;border:1px solid #ccc;vertical-align:middle;margin-right:4px;border-radius:2px;"></span>#FBF9F5</span></div>
+      <div class="row"><span class="label">--ink</span><span class="val"><span style="display:inline-block;width:14px;height:14px;background:#17130E;border:1px solid #ccc;vertical-align:middle;margin-right:4px;border-radius:2px;"></span>#17130E</span></div>
+      <div class="row"><span class="label">--accent</span><span class="val"><span style="display:inline-block;width:14px;height:14px;background:#A63A2A;border:1px solid #ccc;vertical-align:middle;margin-right:4px;border-radius:2px;"></span>#A63A2A</span></div>
+      <div class="row"><span class="label">--success</span><span class="val"><span style="display:inline-block;width:14px;height:14px;background:#37CA37;border:1px solid #ccc;vertical-align:middle;margin-right:4px;border-radius:2px;"></span>#37CA37</span></div>
+    </div>
+    <div class="card" style="padding:12px;">
+      <div class="row"><span class="label">--bg-alt</span><span class="val">#F2EDE5</span></div>
+      <div class="row"><span class="label">--muted</span><span class="val">#6B5E54</span></div>
+      <div class="row"><span class="label">--line</span><span class="val">#E2D9CE</span></div>
+      <div class="row"><span class="label">--page</span><span class="val">#FFFFFF</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">📁 Archivos</div>
+  <ul class="checklist">
+    <li><span class="tick">✅</span>landing-magnetikus-ferfi-hu.html</li>
+    <li><span class="tick">✅</span>traducciones.json (250 textos CS→HU)</li>
+    <li><span class="tick">✅</span>oferta-magnetikus-ferfi-hu.md</li>
+    <li><span class="tick">✅</span>01-oto1-szituacios-arzental.md</li>
+    <li><span class="tick">✅</span>02-oto2-elo-terepterkep.md</li>
+    <li><span class="tick">✅</span>03-oto3-feszultseg-kod.md</li>
+    <li><span class="tick">✅</span>04-oto4-lehetosegek-folyasa.md</li>
+    <li><span class="tick">✅</span>PALETTE.md</li>
+    <li><span class="tick">✅</span>mockups/0-tapa-magnetikus-ferfi-hu.png → <a href="https://files.catbox.moe/9ybyct.png">catbox</a></li>
+    <li><span class="tick">✅</span>mockups/1-hero-magnetikus-ferfi-hu.png → <a href="https://files.catbox.moe/g0o55b.png">catbox</a></li>
+    <li><span class="tick">✅</span>mockups/2-caja-magnetikus-ferfi-hu.png → <a href="https://files.catbox.moe/zhu65b.png">catbox</a></li>
+  </ul>
+</div>
+
+<div class="section">
+  <div class="section-title">⏭️ Próximos pasos</div>
+  <ul class="checklist">
+    <li><span class="tick">✅</span><strong>Mockups</strong> — tapa, hero 3:2 y caja 1:1 generados y subidos a catbox</li>
+    <li><span class="tick">✅</span><strong>ImpulTienda</strong> — tienda lista: landing HU + checkout configurado (botón, countdown, cupos, imagen, resumen oculto, garantía 90d, solo email)</li>
+    <li><span class="tick">🔑</span><strong>Whop</strong> — conectar desde panel: <a href="https://impultienda.ar/dashboard/magneseferfi/configuracion?tab=pagos">Configuración → Pagos</a></li>
+    <li><span class="tick">3️⃣</span><strong>Ads</strong> — traducir los 6 creativos CZ al húngaro (voiceover HU)</li>
+    <li><span class="tick">4️⃣</span><strong>Entregables</strong> — traducir PDFs del hub al húngaro</li>
+    <li><span class="tick">5️⃣</span><strong>Lanzar</strong> — con cuenta + píxel elegidos (conectar píxel: <a href="https://impultienda.ar/dashboard/magneseferfi/configuracion?tab=tracking">Tracking</a>)</li>
+  </ul>
+</div>
+
+</body>
+</html>

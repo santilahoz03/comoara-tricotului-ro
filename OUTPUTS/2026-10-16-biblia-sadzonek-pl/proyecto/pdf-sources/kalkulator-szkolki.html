@@ -1,0 +1,446 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Kalkulator Szkółki · Biblia Sadzonek</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f3eee2;
+    --paper: #ffffff;
+    --ink: #2b241c;
+    --ink-soft: #6b5b50;
+    --accent: #a33b26;
+    --accent-dark: #24402a;
+    --line: #d4c8b0;
+    --verde: #24402a;
+    --gratis: #2e6b45;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: var(--bg); color: var(--ink); font-family: 'Inter', sans-serif; min-height: 100vh; }
+
+  header {
+    background: var(--accent-dark);
+    color: #fff;
+    padding: 20px 24px 16px;
+    text-align: center;
+  }
+  header h1 { font-family: 'Playfair Display', serif; font-size: 1.6rem; margin-bottom: 4px; }
+  header p { font-size: 0.9rem; opacity: 0.85; }
+
+  .container { max-width: 680px; margin: 0 auto; padding: 24px 16px 48px; }
+
+  .card {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 16px;
+  }
+  .card h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--accent-dark);
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .field { margin-bottom: 14px; }
+  .field label { display: block; font-size: 0.85rem; font-weight: 600; color: var(--ink-soft); margin-bottom: 5px; }
+  .field input, .field select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+  }
+  .field input:focus, .field select:focus {
+    outline: 2px solid var(--accent-dark);
+    border-color: var(--accent-dark);
+  }
+
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  @media (max-width: 480px) { .grid-2 { grid-template-columns: 1fr; } }
+
+  .btn-calc {
+    display: block;
+    width: 100%;
+    background: var(--accent-dark);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 14px;
+    font-size: 1rem;
+    font-weight: 700;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+    margin: 4px 0 16px;
+    transition: opacity 0.15s;
+  }
+  .btn-calc:hover { opacity: 0.9; }
+
+  .result-card {
+    background: var(--accent-dark);
+    color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 16px;
+    display: none;
+  }
+  .result-card.show { display: block; }
+  .result-card h2 { font-family: 'Playfair Display', serif; font-size: 1.2rem; margin-bottom: 16px; }
+
+  .result-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    font-size: 0.95rem;
+  }
+  .result-row:last-child { border-bottom: none; }
+  .result-row.big { font-size: 1.4rem; font-weight: 700; padding: 12px 0; }
+  .result-row .label { opacity: 0.85; }
+  .result-row .value { font-weight: 600; }
+
+  .badge-ok {
+    background: #2e7d32;
+    color: #fff;
+    border-radius: 20px;
+    padding: 3px 10px;
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+  .badge-warn {
+    background: #f57c00;
+    color: #fff;
+    border-radius: 20px;
+    padding: 3px 10px;
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+  .badge-bad {
+    background: #c62828;
+    color: #fff;
+    border-radius: 20px;
+    padding: 3px 10px;
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+
+  .tip {
+    background: #e8f5e9;
+    border-left: 4px solid var(--gratis);
+    padding: 12px 14px;
+    border-radius: 0 6px 6px 0;
+    font-size: 0.9rem;
+    color: var(--ink);
+    margin-top: 8px;
+  }
+
+  .history-card { background: var(--paper); border: 1px solid var(--line); border-radius: 10px; padding: 20px; }
+  .history-card h2 { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--accent-dark); margin-bottom: 12px; }
+  table.hist { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+  table.hist th { text-align: left; padding: 6px 8px; background: var(--bg); color: var(--ink-soft); font-weight: 600; }
+  table.hist td { padding: 6px 8px; border-top: 1px solid var(--line); }
+  .btn-clear { background: none; border: 1px solid var(--line); border-radius: 6px; padding: 6px 12px; font-size: 0.8rem; cursor: pointer; color: var(--ink-soft); margin-top: 10px; }
+  .btn-copy { background: var(--bg); border: 1px solid var(--line); border-radius: 6px; padding: 8px 14px; font-size: 0.85rem; cursor: pointer; font-family: 'Inter', sans-serif; margin-top: 8px; }
+  .btn-copy:hover { background: var(--line); }
+
+  footer { text-align: center; padding: 20px; font-size: 0.8rem; color: var(--ink-soft); }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>🌱 Kalkulator Szkółki</h1>
+  <p>Oblicz właściwą cenę i zysk ze sprzedaży sadzonek</p>
+</header>
+
+<div class="container">
+
+  <div class="card">
+    <h2>Dane sadzonki</h2>
+    <div class="field">
+      <label>Gatunek (do historii)</label>
+      <input type="text" id="gatunek" placeholder="np. Pothos złoty, Echeveria">
+    </div>
+    <div class="grid-2">
+      <div class="field">
+        <label>Rozmiar doniczki</label>
+        <select id="doniczka">
+          <option value="7">7 cm (mini)</option>
+          <option value="9" selected>9 cm (standard)</option>
+          <option value="11">11 cm (duża)</option>
+          <option value="13">13 cm (XL)</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Czas ukorzeniania (dni)</label>
+        <input type="number" id="dni" value="14" min="1" max="90">
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Koszty bezpośrednie</h2>
+    <div class="grid-2">
+      <div class="field">
+        <label>Koszt podłoża (zł / szt.)</label>
+        <input type="number" id="kPodloze" value="0.30" step="0.05" min="0">
+      </div>
+      <div class="field">
+        <label>Koszt doniczki (zł)</label>
+        <input type="number" id="kDoniczka" value="0.40" step="0.05" min="0">
+      </div>
+    </div>
+    <div class="grid-2">
+      <div class="field">
+        <label>Inne koszty / szt. (etykieta, ukorzeniacz…)</label>
+        <input type="number" id="kInne" value="0.10" step="0.05" min="0">
+      </div>
+      <div class="field">
+        <label>Stawka za godzinę (zł)</label>
+        <input type="number" id="stawka" value="30" step="5" min="0">
+      </div>
+    </div>
+    <div class="field">
+      <label>Minut pracy na sadzonkę (cięcie + sadzenie + etykieta)</label>
+      <input type="number" id="minuty" value="5" min="1" max="60">
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Kanał sprzedaży</h2>
+    <div class="grid-2">
+      <div class="field">
+        <label>Kanał</label>
+        <select id="kanal">
+          <option value="0">Osobisty / znajomi (0%)</option>
+          <option value="0" selected>OLX / Allegro Lokalnie (0%)</option>
+          <option value="8">Facebook Marketplace (0–5%)</option>
+          <option value="15">Allegro (ok. 15%)</option>
+          <option value="40">Szkółka / hurt (40–60%)</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Prowizja kanału (%)</label>
+        <input type="number" id="prowizja" value="0" min="0" max="70" step="1">
+      </div>
+    </div>
+    <div class="field">
+      <label>Cena rynkowa podobnej sadzonki (zł) — sprawdź OLX</label>
+      <input type="number" id="cenRynek" value="12" step="1" min="0">
+    </div>
+  </div>
+
+  <button class="btn-calc" onclick="oblicz()">Oblicz cenę i zysk</button>
+
+  <div class="result-card" id="wynik">
+    <h2>Wynik kalkulacji</h2>
+    <div class="result-row"><span class="label">Koszty materiałowe</span><span class="value" id="rKoszty">—</span></div>
+    <div class="result-row"><span class="label">Koszt czasu pracy</span><span class="value" id="rCzas">—</span></div>
+    <div class="result-row"><span class="label">Koszt całkowity / szt.</span><span class="value" id="rCalkowity">—</span></div>
+    <div class="result-row"><span class="label">Cena minimalna (pokrycie kosztów)</span><span class="value" id="rMin">—</span></div>
+    <div class="result-row big"><span class="label">Sugerowana cena sprzedaży</span><span class="value" id="rSugest">—</span></div>
+    <div class="result-row"><span class="label">Zysk netto / szt.</span><span class="value" id="rZysk">—</span></div>
+    <div class="result-row"><span class="label">Marża</span><span class="value" id="rMarza">—</span></div>
+    <div class="result-row"><span class="label">Ocena ceny rynkowej</span><span class="value" id="rOcena">—</span></div>
+    <div class="tip" id="rTip"></div>
+    <button class="btn-copy" onclick="kopiujWynik()">Kopiuj wynik do schowka</button>
+  </div>
+
+  <div class="card">
+    <h2>Kalkulator partii (ile zarobisz)</h2>
+    <div class="grid-2">
+      <div class="field">
+        <label>Liczba sadzonek w partii</label>
+        <input type="number" id="partia" value="20" min="1">
+      </div>
+      <div class="field">
+        <label>Szacowany % sprzedanych</label>
+        <input type="number" id="procSprzed" value="80" min="0" max="100">
+      </div>
+    </div>
+    <button class="btn-calc" onclick="obliczPartia()">Oblicz partię</button>
+    <div id="wynikPartia" style="display:none; margin-top:12px;">
+      <div class="result-row" style="color:var(--ink);"><span class="label">Sadzonek sprzedanych</span><span class="value" id="pSprzed">—</span></div>
+      <div class="result-row" style="color:var(--ink);"><span class="label">Przychód brutto</span><span class="value" id="pPrzychod">—</span></div>
+      <div class="result-row" style="color:var(--ink);"><span class="label">Koszty partii</span><span class="value" id="pKoszty">—</span></div>
+      <div class="result-row" style="color:var(--ink); font-weight:700; font-size:1.1rem;"><span class="label">Zysk netto partii</span><span class="value" id="pZysk">—</span></div>
+    </div>
+  </div>
+
+  <div class="history-card" id="histCard" style="display:none;">
+    <h2>Historia kalkulacji</h2>
+    <table class="hist" id="histTable">
+      <thead><tr><th>Gatunek</th><th>Cena</th><th>Zysk</th><th>Marża</th></tr></thead>
+      <tbody id="histBody"></tbody>
+    </table>
+    <button class="btn-clear" onclick="clearHist()">Wyczyść historię</button>
+  </div>
+
+</div>
+
+<footer>Kalkulator Szkółki · Biblia Sadzonek</footer>
+
+<script>
+  let lastResult = null;
+  let history = [];
+
+  try { history = JSON.parse(localStorage.getItem('kalkHist') || '[]'); } catch(e) { history = []; }
+
+  function fmt(n) { return n.toFixed(2).replace('.', ',') + ' zł'; }
+
+  function oblicz() {
+    const kPodloze = parseFloat(document.getElementById('kPodloze').value) || 0;
+    const kDoniczka = parseFloat(document.getElementById('kDoniczka').value) || 0;
+    const kInne = parseFloat(document.getElementById('kInne').value) || 0;
+    const stawka = parseFloat(document.getElementById('stawka').value) || 0;
+    const minuty = parseFloat(document.getElementById('minuty').value) || 0;
+    const prowizja = parseFloat(document.getElementById('prowizja').value) || 0;
+    const cenRynek = parseFloat(document.getElementById('cenRynek').value) || 0;
+    const gatunek = document.getElementById('gatunek').value || 'Sadzonka';
+
+    const kosztyMat = kPodloze + kDoniczka + kInne;
+    const kosztCzasu = (stawka / 60) * minuty;
+    const kosztCalkowity = kosztyMat + kosztCzasu;
+
+    const cenMin = kosztCalkowity / (1 - prowizja / 100);
+
+    let cenSugest;
+    if (cenRynek > 0) {
+      const srodek = cenRynek * 0.95;
+      cenSugest = Math.max(srodek, cenMin * 1.3);
+      if (cenSugest > cenRynek * 1.2) cenSugest = cenRynek * 1.1;
+      cenSugest = Math.round(cenSugest);
+    } else {
+      cenSugest = Math.ceil(cenMin * 2);
+    }
+
+    const zysk = cenSugest * (1 - prowizja / 100) - kosztCalkowity;
+    const marza = (zysk / cenSugest) * 100;
+
+    document.getElementById('rKoszty').textContent = fmt(kosztyMat);
+    document.getElementById('rCzas').textContent = fmt(kosztCzasu);
+    document.getElementById('rCalkowity').textContent = fmt(kosztCalkowity);
+    document.getElementById('rMin').textContent = fmt(cenMin);
+    document.getElementById('rSugest').textContent = cenSugest + ' zł';
+    document.getElementById('rZysk').textContent = fmt(zysk);
+    document.getElementById('rMarza').textContent = marza.toFixed(0) + '%';
+
+    let ocena, klasa, tip;
+    if (cenRynek > 0) {
+      const diff = ((cenSugest - cenRynek) / cenRynek) * 100;
+      if (Math.abs(diff) <= 15) {
+        ocena = 'W normie rynkowej ✓';
+        klasa = 'badge-ok';
+        tip = 'Twoja cena jest konkurencyjna. Możesz spróbować podnieść o 10-15% jeśli Twoja jakość wyróżnia ofertę.';
+      } else if (diff > 15) {
+        ocena = 'Powyżej rynku — uzasadnij jakością';
+        klasa = 'badge-warn';
+        tip = 'Twoja cena jest wyższa od średniej rynkowej. To ok jeśli sadzonki są wyraźnie lepszej jakości lub mają unikalne cechy.';
+      } else {
+        ocena = 'Poniżej rynku — sprawdź koszty';
+        klasa = 'badge-bad';
+        tip = 'Twoja cena jest poniżej rynku. Możesz sprzedawać drożej! Podnieś cenę o ' + Math.abs(diff).toFixed(0) + '%.';
+      }
+    } else {
+      ocena = 'Brak danych rynkowych';
+      klasa = 'badge-warn';
+      tip = 'Wpisz cenę rynkową (sprawdź OLX) żeby porównać swoją wycenę z rynkiem.';
+    }
+
+    const ocenaEl = document.getElementById('rOcena');
+    ocenaEl.innerHTML = '<span class="' + klasa + '">' + ocena + '</span>';
+    document.getElementById('rTip').textContent = tip;
+
+    const wynikDiv = document.getElementById('wynik');
+    wynikDiv.classList.add('show');
+
+    lastResult = { gatunek, cenSugest, zysk, marza };
+    saveToHistory(gatunek, cenSugest, zysk, marza);
+    renderHistory();
+  }
+
+  function obliczPartia() {
+    if (!lastResult) { oblicz(); }
+    const partia = parseInt(document.getElementById('partia').value) || 0;
+    const proc = parseInt(document.getElementById('procSprzed').value) || 80;
+    const sprzedanych = Math.round(partia * proc / 100);
+
+    const kPodloze = parseFloat(document.getElementById('kPodloze').value) || 0;
+    const kDoniczka = parseFloat(document.getElementById('kDoniczka').value) || 0;
+    const kInne = parseFloat(document.getElementById('kInne').value) || 0;
+    const stawka = parseFloat(document.getElementById('stawka').value) || 0;
+    const minuty = parseFloat(document.getElementById('minuty').value) || 0;
+    const prowizja = parseFloat(document.getElementById('prowizja').value) || 0;
+
+    const kosztMat = kPodloze + kDoniczka + kInne;
+    const kosztCzas = (stawka / 60) * minuty;
+    const kosztSzt = kosztMat + kosztCzas;
+
+    const cenSugest = lastResult ? lastResult.cenSugest : 12;
+    const przychod = sprzedanych * cenSugest * (1 - prowizja / 100);
+    const kosztyPartii = partia * kosztSzt;
+    const zyskPartii = przychod - kosztyPartii;
+
+    document.getElementById('pSprzed').textContent = sprzedanych + ' szt.';
+    document.getElementById('pPrzychod').textContent = fmt(przychod);
+    document.getElementById('pKoszty').textContent = fmt(kosztyPartii);
+    document.getElementById('pZysk').textContent = fmt(zyskPartii);
+    document.getElementById('wynikPartia').style.display = 'block';
+  }
+
+  function saveToHistory(gatunek, cena, zysk, marza) {
+    history.unshift({ gatunek, cena, zysk: zysk.toFixed(2), marza: marza.toFixed(0) });
+    if (history.length > 20) history = history.slice(0, 20);
+    try { localStorage.setItem('kalkHist', JSON.stringify(history)); } catch(e) {}
+  }
+
+  function renderHistory() {
+    if (history.length === 0) return;
+    const card = document.getElementById('histCard');
+    card.style.display = 'block';
+    const tbody = document.getElementById('histBody');
+    tbody.innerHTML = history.slice(0, 8).map(h =>
+      '<tr><td>' + h.gatunek + '</td><td>' + h.cena + ' zł</td><td>' + parseFloat(h.zysk).toFixed(2).replace('.',',') + ' zł</td><td>' + h.marza + '%</td></tr>'
+    ).join('');
+  }
+
+  function clearHist() {
+    history = [];
+    try { localStorage.removeItem('kalkHist'); } catch(e) {}
+    document.getElementById('histCard').style.display = 'none';
+  }
+
+  function kopiujWynik() {
+    if (!lastResult) return;
+    const txt = 'Kalkulator Szkółki\nGatunek: ' + lastResult.gatunek +
+      '\nCena sugerowana: ' + lastResult.cenSugest + ' zł' +
+      '\nZysk netto: ' + lastResult.zysk.toFixed(2) + ' zł' +
+      '\nMarża: ' + lastResult.marza.toFixed(0) + '%';
+    try {
+      navigator.clipboard.writeText(txt).then(() => alert('Skopiowano!'));
+    } catch(e) {
+      prompt('Skopiuj:', txt);
+    }
+  }
+
+  // sync prowizja select
+  document.getElementById('kanal').addEventListener('change', function() {
+    const vals = { '0': 0, '8': 5, '15': 15, '40': 50 };
+    document.getElementById('prowizja').value = vals[this.value] || 0;
+  });
+
+  renderHistory();
+</script>
+</body>
+</html>

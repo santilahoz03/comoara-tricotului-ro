@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kit ImpulTienda · Magnetický Muž</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,Helvetica,sans-serif;background:#17130E;color:#F5F0E8;min-height:100vh}
+header{background:#A63A2A;padding:16px 20px;text-align:center}
+header h1{font-size:20px;font-weight:800}
+header p{font-size:13px;margin-top:4px;opacity:.85}
+.tabs{display:flex;flex-wrap:wrap;gap:6px;padding:16px 16px 0;border-bottom:1px solid #333}
+.tab{padding:8px 14px;border-radius:8px 8px 0 0;cursor:pointer;font-size:13px;font-weight:700;background:#2a2420;color:#ccc;border:none;transition:background .15s}
+.tab.active{background:#A63A2A;color:#fff}
+.panel{display:none;padding:16px}
+.panel.active{display:block}
+.instructions{background:#2a2420;border-radius:8px;padding:12px 16px;margin-bottom:16px;font-size:13px;line-height:1.65;color:#ccc}
+.instructions strong{color:#F5F0E8}
+.instructions ol{margin:8px 0 0 16px}
+.instructions li{margin:4px 0}
+.copy-btn{display:block;width:100%;padding:12px;margin-bottom:12px;border:0;border-radius:8px;background:#A63A2A;color:#fff;font-size:15px;font-weight:800;cursor:pointer;transition:background .15s}
+.copy-btn:hover{background:#8a2e20}
+.copy-btn.ok{background:#166534}
+.preview{background:#F5F0E8;border-radius:8px;overflow:hidden;max-height:500px;overflow-y:auto}
+.images-note{background:#1a3a2a;border:1px solid #2a5a3a;border-radius:8px;padding:10px 14px;margin-bottom:12px;font-size:13px;line-height:1.55;color:#a8d5b8}
+.swap-note{background:#3a2a10;border:1px solid #5a4a20;border-radius:8px;padding:10px 14px;margin-bottom:12px;font-size:13px;line-height:1.55;color:#e0c878}
+textarea{width:100%;height:0;opacity:0;position:absolute}
+</style>
+</head>
+<body>
+<header>
+  <h1>📋 Kit ImpulTienda · Magnetický Muž</h1>
+  <p>4 UpSells + 4 DownSells · CZK · Checo · TSL sin video</p>
+</header>
+
+<div class="tabs">
+  <button class="tab active" onclick="show('oto1',this)">UpSell 1</button>
+  <button class="tab" onclick="show('ds1',this)">DownSell 1</button>
+  <button class="tab" onclick="show('oto2',this)">UpSell 2</button>
+  <button class="tab" onclick="show('ds2',this)">DownSell 2</button>
+  <button class="tab" onclick="show('oto3',this)">UpSell 3</button>
+  <button class="tab" onclick="show('ds3',this)">DownSell 3</button>
+  <button class="tab" onclick="show('oto4',this)">UpSell 4</button>
+  <button class="tab" onclick="show('ds4',this)">DownSell 4</button>
+</div>
+
+<!-- UpSell 1 -->
+<div id="oto1" class="panel active">
+  <div class="instructions">
+    <strong>UpSell 1 · Situační Arsenal™ · 597 Kč</strong><br>
+    <ol>
+      <li>ImpulTienda → Upsells → UpSell 1 → Editar → Modo de página → <strong>HTML propio</strong></li>
+      <li>Copiar el HTML de abajo → pegar en el textarea → Guardar → Recargar y verificar</li>
+      <li>Verificar descuento: <strong>0%</strong> (en modo widgets)</li>
+    </ol>
+  </div>
+  <div class="swap-note">⚠️ <strong>Atributos invertidos (bug de ImpulTienda en UpSells):</strong> el botón SÍ lleva <code>data-pp-decline</code> y el NO lleva <code>data-pp-accept</code>. Confirmarlo con la compra de prueba. Si SÍ no cobra, intercambiar los atributos.</div>
+  <button class="copy-btn" id="copy-oto1" onclick="copyFile('oto1.html','copy-oto1')">📋 Copiar HTML · UpSell 1</button>
+  <div class="preview" id="prev-oto1"></div>
+</div>
+
+<!-- DownSell 1 -->
+<div id="ds1" class="panel">
+  <div class="instructions">
+    <strong>DownSell 1 · Situační Arsenal™ · 297 Kč (50%)</strong><br>
+    <ol>
+      <li>Verificar descuento: <strong>50%</strong> en modo widgets</li>
+      <li>Subir las 2 imágenes a <strong>Recursos</strong> de ImpulTienda</li>
+      <li>Reemplazar <code>IMG1_URL_DS1</code> e <code>IMG2_URL_DS1</code> con las URLs obtenidas</li>
+      <li>Copiar HTML → pegar → Guardar → Verificar</li>
+    </ol>
+  </div>
+  <div class="images-note">🖼️ <strong>Imagen 1 (reveal):</strong> "POČKEJ. JEŠTĚ JEDNA VĚC." · "Vezmi Arsenal za polovinu ceny." · precio tachado → nuevo · sello "50% SLEVA" · checklist: Arsenal + Záchranář + Tělo Mluví + Zpráva · botón "ANO, CHCI ZA POLOVIČNÍ CENU"<br><br>🖼️ <strong>Imagen 2 (urgencia):</strong> "⚠ JEDINÁ NABÍDKA — POSLEDNÍ ŠANCE ⚠" · "Je to jedinkrát, kdy uvidíš tuto cenu." · "Bez Arsenálu budeš improvizovat — zase." · "STISKNI TLAČÍTKO NÍŽE"</div>
+  <button class="copy-btn" id="copy-ds1" onclick="copyFile('ds1.html','copy-ds1')">📋 Copiar HTML · DownSell 1</button>
+  <div class="preview" id="prev-ds1"></div>
+</div>
+
+<!-- UpSell 2 -->
+<div id="oto2" class="panel">
+  <div class="instructions">
+    <strong>UpSell 2 · Živá Mapa Terénu™ · 997 Kč</strong><br>
+    <ol>
+      <li>UpSell 2 → HTML propio → copiar → pegar → Guardar → Verificar</li>
+      <li>Descuento: <strong>0%</strong></li>
+    </ol>
+  </div>
+  <div class="swap-note">⚠️ Atributos invertidos igual que UpSell 1. Confirmar con compra de prueba.</div>
+  <button class="copy-btn" id="copy-oto2" onclick="copyFile('oto2.html','copy-oto2')">📋 Copiar HTML · UpSell 2</button>
+  <div class="preview" id="prev-oto2"></div>
+</div>
+
+<!-- DownSell 2 -->
+<div id="ds2" class="panel">
+  <div class="instructions">
+    <strong>DownSell 2 · Živá Mapa Terénu™ (sin Telegram) · 497 Kč (50%)</strong><br>
+    <ol>
+      <li>Descuento: <strong>50%</strong></li>
+      <li>Subir 2 imágenes → reemplazar URLs en el HTML</li>
+    </ol>
+  </div>
+  <div class="images-note">🖼️ <strong>Imagen 1:</strong> "Vezmi Mapu za polovinu — bez Telegramu, zbytek kompletní." · 50% SLEVA · checklist: Živá Mapa + SOS Průvodce + Audit + Tajný bonus<br><br>🖼️ <strong>Imagen 2:</strong> "Bez mapy budeš hádat tam, kde mohl mít odpověď."</div>
+  <button class="copy-btn" id="copy-ds2" onclick="copyFile('ds2.html','copy-ds2')">📋 Copiar HTML · DownSell 2</button>
+  <div class="preview" id="prev-ds2"></div>
+</div>
+
+<!-- UpSell 3 -->
+<div id="oto3" class="panel">
+  <div class="instructions">
+    <strong>UpSell 3 · Kód Napětí™ · 497 Kč</strong><br>
+    <ol>
+      <li>UpSell 3 → HTML propio → copiar → pegar → Guardar → Verificar</li>
+      <li>Descuento: <strong>0%</strong></li>
+    </ol>
+  </div>
+  <div class="swap-note">⚠️ Atributos invertidos. Confirmar con compra de prueba.</div>
+  <button class="copy-btn" id="copy-oto3" onclick="copyFile('oto3.html','copy-oto3')">📋 Copiar HTML · UpSell 3</button>
+  <div class="preview" id="prev-oto3"></div>
+</div>
+
+<!-- DownSell 3 -->
+<div id="ds3" class="panel">
+  <div class="instructions">
+    <strong>DownSell 3 · Kód Napětí™ · 247 Kč (50%)</strong><br>
+    <ol>
+      <li>Descuento: <strong>50%</strong></li>
+      <li>Subir 2 imágenes → reemplazar URLs</li>
+    </ol>
+  </div>
+  <div class="images-note">🖼️ <strong>Imagen 1:</strong> "Vezmi Kód Napětí za polovinu." · checklist: Kód Napětí + Digitální Napětí + 9 Červených Vlajek + Plán rande<br><br>🖼️ <strong>Imagen 2:</strong> "Bez Kódu napětí ztratíš zájem, který jsi zapnul."</div>
+  <button class="copy-btn" id="copy-ds3" onclick="copyFile('ds3.html','copy-ds3')">📋 Copiar HTML · DownSell 3</button>
+  <div class="preview" id="prev-ds3"></div>
+</div>
+
+<!-- UpSell 4 -->
+<div id="oto4" class="panel">
+  <div class="instructions">
+    <strong>UpSell 4 · Tok Možností™ · 297 Kč</strong><br>
+    <ol>
+      <li>UpSell 4 → HTML propio → copiar → pegar → Guardar → Verificar</li>
+      <li>Descuento: <strong>0%</strong></li>
+    </ol>
+  </div>
+  <div class="swap-note">⚠️ Atributos invertidos. Confirmar con compra de prueba.</div>
+  <button class="copy-btn" id="copy-oto4" onclick="copyFile('oto4.html','copy-oto4')">📋 Copiar HTML · UpSell 4</button>
+  <div class="preview" id="prev-oto4"></div>
+</div>
+
+<!-- DownSell 4 -->
+<div id="ds4" class="panel">
+  <div class="instructions">
+    <strong>DownSell 4 · Tok Možností™ · 147 Kč (50%)</strong><br>
+    <ol>
+      <li>Descuento: <strong>50%</strong></li>
+      <li>Subir 2 imágenes → reemplazar URLs</li>
+    </ol>
+  </div>
+  <div class="images-note">🖼️ <strong>Imagen 1:</strong> "Vezmi Tok Možností za polovinu." · checklist: Tok Možností + Profil + Rutina + Kruh Vlivu<br><br>🖼️ <strong>Imagen 2:</strong> "Bez Toku budeš přepínače používat pod tlakem, který je ruší."</div>
+  <button class="copy-btn" id="copy-ds4" onclick="copyFile('ds4.html','copy-ds4')">📋 Copiar HTML · DownSell 4</button>
+  <div class="preview" id="prev-ds4"></div>
+</div>
+
+<script>
+var pages = {
+  oto1:'oto1.html', ds1:'ds1.html',
+  oto2:'oto2.html', ds2:'ds2.html',
+  oto3:'oto3.html', ds3:'ds3.html',
+  oto4:'oto4.html', ds4:'ds4.html'
+};
+var cache = {};
+
+function show(id, btn) {
+  document.querySelectorAll('.panel').forEach(function(p){p.classList.remove('active')});
+  document.querySelectorAll('.tab').forEach(function(t){t.classList.remove('active')});
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+  loadPreview(id);
+}
+
+function loadPreview(id) {
+  var prev = document.getElementById('prev-'+id);
+  if (!prev || prev.innerHTML) return;
+  fetch(pages[id]).then(function(r){return r.text()}).then(function(html){
+    cache[id] = html;
+    prev.innerHTML = html;
+  }).catch(function(){prev.innerHTML='<p style="padding:16px;color:#999;font-size:13px;">Vista previa no disponible — abrir el kit desde el mismo directorio que los archivos HTML.</p>'});
+}
+
+function copyFile(file, btnId) {
+  var id = file.replace('.html','');
+  var btn = document.getElementById(btnId);
+  function doCopy(txt) {
+    navigator.clipboard.writeText(txt).then(function(){
+      btn.textContent = '✅ Copiado!';
+      btn.classList.add('ok');
+      setTimeout(function(){btn.textContent='📋 Copiar HTML · '+file.replace('.html','').replace('oto','UpSell ').replace('ds','DownSell ').toUpperCase();btn.classList.remove('ok')},2500);
+    });
+  }
+  if (cache[id]) { doCopy(cache[id]); return; }
+  fetch(file).then(function(r){return r.text()}).then(function(txt){cache[id]=txt;doCopy(txt);});
+}
+
+// preload active panel
+loadPreview('oto1');
+</script>
+</body>
+</html>

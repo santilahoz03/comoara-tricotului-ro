@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<title>Akvarellbokmärken · Kreativa Akvarellakademien</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700;800&family=Lato:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="_shared.css">
+<style>
+.bm-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 1.4rem;
+  margin: 1.6rem 0;
+}
+.bm {
+  background: var(--paper);
+  border: 1.5px solid var(--line);
+  border-radius: 8px;
+  padding: 0.8rem 0.7rem 0.6rem;
+  text-align: center;
+  font-family: 'Lato', sans-serif;
+}
+.bm .bm-preview {
+  width: 100%;
+  aspect-ratio: 1/2.6;
+  border-radius: 5px;
+  margin-bottom: 0.5rem;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+.bm .bm-label {
+  font-size: 0.7rem;
+  color: var(--ink);
+  opacity: 0.7;
+  line-height: 1.3;
+}
+
+/* Bokmärke-motiv med CSS */
+.bm-botanisk-ros .bm-preview { background: linear-gradient(160deg,#fffaf8 40%,#f7d6c8 70%,#e8a593 100%); }
+.bm-vilda-blommor .bm-preview { background: linear-gradient(170deg,#f0fce8 30%,#c9e8b4 65%,#8bc474 100%); }
+.bm-horisont .bm-preview { background: linear-gradient(180deg,#e8f4fa 0%,#afd6e8 50%,#c2a67a 70%,#d4b88a 100%); }
+.bm-nattens-luna .bm-preview { background: linear-gradient(180deg,#1a1a2e 0%,#16213e 50%,#0f3460 80%,#e3e8f0 100%); }
+.bm-hoststem .bm-preview { background: linear-gradient(160deg,#fff8f0 20%,#f4c67a 55%,#e8863c 80%,#c2705a 100%); }
+.bm-lavendelfalt .bm-preview { background: linear-gradient(170deg,#f7f0ff 20%,#d5b0ee 55%,#9b59b6 85%,#6c3483 100%); }
+.bm-morgonaggon .bm-preview { background: linear-gradient(180deg,#fff3e0 0%,#ffcdd2 35%,#f48fb1 70%,#e91e63 100%); }
+.bm-skogsdjup .bm-preview { background: linear-gradient(170deg,#e8f5e9 15%,#a5d6a7 45%,#388e3c 75%,#1b5e20 100%); }
+.bm-abstrakta-farg .bm-preview { background: conic-gradient(at 50% 90%,#e8a593 0deg,#9b59b6 90deg,#afd6e8 180deg,#8bc474 270deg,#f4c67a 360deg); }
+.bm-tropisk .bm-preview { background: linear-gradient(160deg,#e0f7fa 10%,#80deea 45%,#26c6da 75%,#006064 100%); }
+.bm-nordisk-vinter .bm-preview { background: linear-gradient(180deg,#e8f4fa 0%,#b3d9ea 30%,#fff 60%,#e3e8f0 100%); }
+.bm-cerisblossom .bm-preview { background: linear-gradient(170deg,#fff5fb 10%,#f8bbd0 50%,#e91e63 80%,#880e4f 100%); }
+.bm-havsdjup .bm-preview { background: linear-gradient(180deg,#e0f7fa 0%,#4dd0e1 35%,#006064 70%,#001f2d 100%); }
+.bm-geometrisk .bm-preview { background: repeating-linear-gradient(45deg,#f0fce8,#f0fce8 8px,#c9e8b4 8px,#c9e8b4 16px); }
+.bm-solnedgang .bm-preview { background: linear-gradient(180deg,#1a1a2e 0%,#4a0080 20%,#e53935 45%,#ff9800 70%,#fff9c4 100%); }
+.bm-fjarilsar .bm-preview { background: linear-gradient(170deg,#fffde7 10%,#fff9c4 40%,#f9a825 70%,#e65100 100%); }
+.bm-vintersaga .bm-preview { background: linear-gradient(180deg,#e3f2fd 0%,#bbdefb 35%,#1565c0 70%,#0d47a1 100%); }
+.bm-koralrev .bm-preview { background: linear-gradient(160deg,#e8f5e9 10%,#80cbc4 40%,#ff7043 70%,#bf360c 100%); }
+.bm-kaktusrad .bm-preview { background: linear-gradient(170deg,#fff8f0 10%,#d7ccc8 35%,#8bc474 65%,#388e3c 100%); }
+.bm-neonregn .bm-preview { background: linear-gradient(130deg,#1a1a2e 0%,#4a0080 30%,#e040fb 60%,#00e5ff 100%); }
+.bm-morgonsol .bm-preview { background: linear-gradient(180deg,#fff8e1 0%,#ffe082 25%,#ffb300 55%,#e65100 85%,#bf360c 100%); }
+.bm-barnens .bm-preview { background: radial-gradient(circle at 30% 40%,#f8bbd0 0%,#f8bbd0 20%,transparent 21%),radial-gradient(circle at 65% 30%,#afd6e8 0%,#afd6e8 15%,transparent 16%),linear-gradient(180deg,#fffaf8 0%,#f0fce8 100%); }
+.bm-botanisk-minimal .bm-preview { background: linear-gradient(170deg,#fffaf8 20%,#eaddd6 55%,#c2705a 80%,#8c4a35 100%); }
+.bm-textil .bm-preview { background: repeating-conic-gradient(#fffaf8 0%, #eaddd6 10%, #fffaf8 20%); }
+.bm-kalligrafisk .bm-preview { background: linear-gradient(170deg,#1a1a2e 0%,#2d2d4a 40%,#c2705a 75%,#e8a593 100%); }
+</style>
+</head>
+<body>
+
+<section class="cover">
+  <div>
+    <span class="kicker">Guide 7 av 8 · Kreativa Akvarellakademien</span>
+    <h1>Akvarellbokmärken</h1>
+    <p class="sub">25 designerade bokmärken att måla, skriva ut och använda — för dig, som present eller som ett enkelt sätt att praktisera tekniker.</p>
+  </div>
+  <div class="brand">Kreativa Akvarellakademien</div>
+</section>
+
+<section class="toc-page">
+  <h2>Innehåll</h2>
+  <ul class="toc">
+    <li><span>1 · Hur du använder den här guiden</span><span>3</span></li>
+    <li><span>2 · 25 bokmärkesmotiv med instruktioner</span><span>4</span></li>
+    <li><span>3 · Tekniker för bokmärken: det du behöver veta</span><span>8</span></li>
+    <li><span>4 · Skriva ut och färdigställa bokmärken</span><span>9</span></li>
+    <li><span>5 · Bokmärken som presenter och kort</span><span>10</span></li>
+    <li><span>Nästa steg</span><span>11</span></li>
+  </ul>
+</section>
+
+<section>
+  <div class="section-heading">
+    <span class="num">Avsnitt 1</span>
+    <h2>Hur du använder den här guiden</h2>
+    <p>Varje bokmärke är ett miniaturprojekt — perfekt för 15-minuterssessioner.</p>
+  </div>
+  <p class="lead">Bokmärken är det ideala formatet för nybörjare och erfarna akvarellister av tre skäl: de är snabba (15–30 minuter), billiga (en bråkdel av ett ark), och tolererar experiment utan att det känns som ett misslyckat storverk.</p>
+
+  <div class="grid-2">
+    <div class="card">
+      <h3>Format</h3>
+      <p>Standardmått: <b>5 × 18 cm</b> (högt och smalt). Passar i ett A4-ark (tre bokmärken per ark) eller klipps från akvarellblock-ark.</p>
+    </div>
+    <div class="card">
+      <h3>Papper</h3>
+      <p>Akvarellpapper 300 g/m², cold press. Klipp <i>efter</i> målning — de raka kanterna är lättare att hålla. En papperssnickare eller en linjal + kniv ger renare kanter än sax.</p>
+    </div>
+    <div class="card">
+      <h3>Skala</h3>
+      <p>Alla motiv kan skalas. Hälften av instruktionerna som beskriver "blomman på mitten" fungerar lika bra på ett 5 × 18 som på ett A5. Det är formatet som ger begränsningen — utnyttja det.</p>
+    </div>
+    <div class="card">
+      <h3>Hål för snöre</h3>
+      <p>Stansa ett litet hål 1 cm från toppen <i>innan</i> målning. Det är lättare att placera korrekt. Trä sedan ett snöre, satinband eller ett metalringar när det är klart och torrt.</p>
+    </div>
+  </div>
+
+  <div class="callout ok">
+    <span class="t">Träningsmetod</span>
+    Varje gång du övar en ny teknik — wet-on-wet, glazing, dry brush — gör den på ett bokmärke-format <i>innan</i> du applicerar den på ett stort projekt. Liten yta = liten risk = snabbare lärande.
+  </div>
+</section>
+
+<section>
+  <div class="section-heading">
+    <span class="num">Avsnitt 2</span>
+    <h2>25 bokmärkesmotiv med instruktioner</h2>
+    <p>Varje motiv har en svårighetsnivå, tidsuppskattning och steg-för-steg.</p>
+  </div>
+
+  <div class="bm-grid">
+    <div class="bm bm-botanisk-ros"><div class="bm-preview"></div><div class="bm-label">1. Botanisk ros</div></div>
+    <div class="bm bm-vilda-blommor"><div class="bm-preview"></div><div class="bm-label">2. Vilda blommor</div></div>
+    <div class="bm bm-horisont"><div class="bm-preview"></div><div class="bm-label">3. Miniatyrhorisont</div></div>
+    <div class="bm bm-nattens-luna"><div class="bm-preview"></div><div class="bm-label">4. Nattens luna</div></div>
+    <div class="bm bm-hoststem"><div class="bm-preview"></div><div class="bm-label">5. Höststämning</div></div>
+    <div class="bm bm-lavendelfalt"><div class="bm-preview"></div><div class="bm-label">6. Lavendelfält</div></div>
+    <div class="bm bm-morgonaggon"><div class="bm-preview"></div><div class="bm-label">7. Morgondagg</div></div>
+    <div class="bm bm-skogsdjup"><div class="bm-preview"></div><div class="bm-label">8. Skogsdjup</div></div>
+    <div class="bm bm-abstrakta-farg"><div class="bm-preview"></div><div class="bm-label">9. Abstrakta färgar</div></div>
+    <div class="bm bm-tropisk"><div class="bm-preview"></div><div class="bm-label">10. Tropisk akvarell</div></div>
+    <div class="bm bm-nordisk-vinter"><div class="bm-preview"></div><div class="bm-label">11. Nordisk vinter</div></div>
+    <div class="bm bm-cerisblossom"><div class="bm-preview"></div><div class="bm-label">12. Körsbärsblom</div></div>
+    <div class="bm bm-havsdjup"><div class="bm-preview"></div><div class="bm-label">13. Havsdjup</div></div>
+    <div class="bm bm-geometrisk"><div class="bm-preview"></div><div class="bm-label">14. Geometrisk</div></div>
+    <div class="bm bm-solnedgang"><div class="bm-preview"></div><div class="bm-label">15. Solnedgång</div></div>
+    <div class="bm bm-fjarilsar"><div class="bm-preview"></div><div class="bm-label">16. Fjärilsår</div></div>
+    <div class="bm bm-vintersaga"><div class="bm-preview"></div><div class="bm-label">17. Vintersaga</div></div>
+    <div class="bm bm-koralrev"><div class="bm-preview"></div><div class="bm-label">18. Korallrev</div></div>
+    <div class="bm bm-kaktusrad"><div class="bm-preview"></div><div class="bm-label">19. Kaktusrad</div></div>
+    <div class="bm bm-neonregn"><div class="bm-preview"></div><div class="bm-label">20. Neonregn</div></div>
+    <div class="bm bm-morgonsol"><div class="bm-preview"></div><div class="bm-label">21. Morgonsol</div></div>
+    <div class="bm bm-barnens"><div class="bm-preview"></div><div class="bm-label">22. Barnens bok</div></div>
+    <div class="bm bm-botanisk-minimal"><div class="bm-preview"></div><div class="bm-label">23. Botanisk minimal</div></div>
+    <div class="bm bm-textil"><div class="bm-preview"></div><div class="bm-label">24. Textilmönster</div></div>
+    <div class="bm bm-kalligrafisk"><div class="bm-preview"></div><div class="bm-label">25. Kalligrafisk natt</div></div>
+  </div>
+</section>
+
+<section>
+  <div class="section-heading">
+    <span class="num">Avsnitt 2 · Instruktioner</span>
+    <h2>Steg-för-steg per motiv</h2>
+    <p>Välj ett motiv, följ instruktionen, ta 20 minuter.</p>
+  </div>
+
+  <table class="data">
+    <thead><tr><th>Nr</th><th>Motiv</th><th>Nivå</th><th>Tid</th><th>Nyckelsteg</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Botanisk ros</td><td>Medel</td><td>25 min</td><td>Spiralform inifrån ut med rund pensel nr 6, ljusast i centrum, mörkast i yttre kronblad. Wet-on-wet för skarpa övergångar.</td></tr>
+      <tr><td>2</td><td>Vilda blommor</td><td>Nybörjare</td><td>20 min</td><td>Tre-fyra enkla blommor (5 rundade penseldrag = en blomma) fördelade längs bokmärkets höjd. Lägg grön wash sist, under blommorna, för löv.</td></tr>
+      <tr><td>3</td><td>Miniatyrhorisont</td><td>Nybörjare</td><td>15 min</td><td>Blöt hela arket. Lägg en gradientstrip: himmel i topp (blå), jord i botten (brun/olivgrön). Bred flat pensel eller stor rund. Torka och lägg trädsilhuetter torrt.</td></tr>
+      <tr><td>4</td><td>Nattens luna</td><td>Medel</td><td>20 min</td><td>Mörk bakgrund (Prussian Blue + Black). Maskeringsfluid (eller vit gouache) för månens skiva. Stjärnor = torr pensel med vita prickar.</td></tr>
+      <tr><td>5</td><td>Höststämning</td><td>Nybörjare</td><td>20 min</td><td>Lönnlöv-siluetter med maskeringstejp eller ett riktigt löv som mall. Fyll bakgrunden med orange, rött, gult — wet-on-wet. Ta bort mallen när torrt.</td></tr>
+      <tr><td>6</td><td>Lavendelfält</td><td>Nybörjare</td><td>15 min</td><td>Horisontell wash i lila-grå. När halvtorrt, tryck borstspetsen upprepade gånger uppåt för lavendelspikar. Lägg grön stam med fin pensel.</td></tr>
+      <tr><td>7</td><td>Morgondagg</td><td>Nybörjare</td><td>20 min</td><td>Mjuk rosa-persika wash. Runda vattendroppar: måla en vit cirkel och lägg en mörkare halvmåne i kanten (skugga). Ger glas-känsla.</td></tr>
+      <tr><td>8</td><td>Skogsdjup</td><td>Medel</td><td>25 min</td><td>Fuktig mörkgrön bakgrund (flera lager ultramarin + grön). Ljusa tallsilhuetter wet-on-dry med ljus grön. Mörk mark längs kanten.</td></tr>
+      <tr><td>9</td><td>Abstrakta färgar</td><td>Nybörjare</td><td>15 min</td><td>Blöt hela bokmärket. Droppa 4-5 intensiva färger längs hela ytan. Luta bokmärket och låt dem flöda ihop. Resultatet är alltid unikt.</td></tr>
+      <tr><td>10</td><td>Tropisk akvarell</td><td>Medel</td><td>25 min</td><td>Turkos/cyan bakgrund. Palmblad med bred pensel uppifrån och ner, delat borsthår. Skugga med mörkblå under bladen.</td></tr>
+      <tr><td>11</td><td>Nordisk vinter</td><td>Nybörjare</td><td>20 min</td><td>Ljusblå wash. Vita snöflingor med en fin pensel (symmetriska kors + diagonaler). Trädsiluett i ultramarinblå längs nederkanten.</td></tr>
+      <tr><td>12</td><td>Körsbärsblom</td><td>Medel</td><td>25 min</td><td>Fin svart gren (torr pensel eller tunn pensel). Rosa blommor = 5 ovala penseldrag per blomma, placerade längs grenens topp. Lägg rosa wash bakom för djup.</td></tr>
+      <tr><td>13</td><td>Havsdjup</td><td>Medel</td><td>25 min</td><td>Gradientbakgrund från ljusblå (topp) till mörkblå/turkos (botten). Koraller med fin pensel: ger/ta-rörelse uppåt. Vågrörelser med blöta penseldrag.</td></tr>
+      <tr><td>14</td><td>Geometrisk</td><td>Nybörjare</td><td>20 min</td><td>Maskeringstejp i mönster (trianglar, horisontellt). Fyll varje fält med en valfri färg. Ta bort tejpen när TORRT — annars river den papperet.</td></tr>
+      <tr><td>15</td><td>Solnedgång</td><td>Nybörjare</td><td>15 min</td><td>Fem horisontella ränder uppifrån: djupt blå → lila → röd → orange → gul. Wet-on-wet, penseln längs hela bredden. Lägg mörk trädsiluett torrt.</td></tr>
+      <tr><td>16</td><td>Fjärilsår</td><td>Medel</td><td>25 min</td><td>Gulvarm bakgrund. Fjäril: två stora vingar (oval penseldrag utåt), symmetriska. Mönster i mörkare nyanser tömt på vatten. Antenn med tunn pensel.</td></tr>
+      <tr><td>17</td><td>Vintersaga</td><td>Nybörjare</td><td>15 min</td><td>Vit-blå gradientwash. Stjärnor och snöflingor med vit gouache eller vit penna. En enkel siluett av ett hus eller en björk.</td></tr>
+      <tr><td>18</td><td>Korallrev</td><td>Medel</td><td>25 min</td><td>Grön-brun botten med tång. Orange-röda koralltoppar med knivskarpa penseldrag uppåt. Fisk: oval + triangel baksida + punkt öga.</td></tr>
+      <tr><td>19</td><td>Kaktusrad</td><td>Nybörjare</td><td>20 min</td><td>Kaktus: grov oval + sidoskott. Lägg ljusare grön på "solsidan". Ökensand-wash i botten. En blomma på toppen i terrakotta.</td></tr>
+      <tr><td>20</td><td>Neonregn</td><td>Medel</td><td>20 min</td><td>Svart bakgrund (tätt lager Payne's Grey). Neonlila, cyanblå och körsbärsrosa i parallella penseldrag uppifrån. Droppar: tryckt med toppen av en uddstyft pensel.</td></tr>
+      <tr><td>21</td><td>Morgonsol</td><td>Nybörjare</td><td>15 min</td><td>Gradientwash inifrån ut: vit mittpunkt → gul → orange → röd. Penseln runt ett kretsformsformat område i mitten ger ett radiärt ljus.</td></tr>
+      <tr><td>22</td><td>Barnens bok</td><td>Nybörjare</td><td>20 min</td><td>Pastellfärger (rosa, blå, gul) i bubbliga cirkelformer. Lägg ett enkelt djur (kanin, björn) i mitten med två-tre penseldrag. Perfekt att ge ett barn.</td></tr>
+      <tr><td>23</td><td>Botanisk minimal</td><td>Nybörjare</td><td>15 min</td><td>Enkelt kviststem (rak linje med tunn pensel). Fem-sju blad på sidorna: ovala penseldrag i en sidled. Terrakotta eller oliv, minimal vatten.</td></tr>
+      <tr><td>24</td><td>Textilmönster</td><td>Nybörjare</td><td>20 min</td><td>Tejpa ett rutnätsmönster. Alternera fält med två färger. Ta bort tejp. Resultatet liknar ett vävt tyg. Prova med diagonalremsorna för ett twill-mönster.</td></tr>
+      <tr><td>25</td><td>Kalligrafisk natt</td><td>Avancerad</td><td>30 min</td><td>Mörk bakgrund (Prussian Blue/Payne's Grey). Skriv ett ord eller mening med vit gouache och en fin kalligrafisk pensel. Blommiga detaljer runtom.</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section>
+  <div class="section-heading">
+    <span class="num">Avsnitt 3</span>
+    <h2>Tekniker för bokmärken</h2>
+    <p>Det lilla formatet bjuder in specifika tekniker som är svårare på stora ark.</p>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <h3>Maskeringstejp-kant</h3>
+      <p>Tejpa längs alla fyra sidor för att ge ett rent, vitt ramlat resultat. Lätta att ta bort efter torkning och ger professionellt snygga kanter.</p>
+    </div>
+    <div class="card">
+      <h3>Salt-effekt</h3>
+      <p>Strö grovt salt (havssalt eller kosher-salt) på blöt akvarell. Kornen absorberar pigment och lämnar stjärnformiga ljusa mönster. Skaka av när torrt.</p>
+    </div>
+    <div class="card">
+      <h3>Plastfolie-effekt</h3>
+      <p>Tryck plastfolie mot blöt akvarell och låt torka (15-20 min). Veckorna i folien skapar organiska, texturerade mönster. Idealiskt för "vattenytor" och abstrakta motiv.</p>
+    </div>
+    <div class="card">
+      <h3>Vit gouache</h3>
+      <p>Tunn vit gouache (eller vit akryl) på torr akvarell ger ogenomskinliga vita detaljer som är omöjliga med ren akvarell. Stjärnor, pärlor, textildetaljer, nätmönster.</p>
+    </div>
+    <div class="card">
+      <h3>Dry brush</h3>
+      <p>Penseln med lite färg (torkad av) dragen snabbt över papper. Ger texturerade, "hoppande" linjer. Perfekt för hår, gräs, trädbark på det lilla bokmärkesformatet.</td>
+    </div>
+    <div class="card">
+      <h3>Botanisk stämpel</h3>
+      <p>Dipp ett riktigt löv, blomma eller ört i akvarell och tryck mot papperet. Naturtrogna former utan teknisk skicklighet. Hög effekt, noll risk.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="section-heading">
+    <span class="num">Avsnitt 4</span>
+    <h2>Skriva ut och färdigställa bokmärken</h2>
+    <p>Från papper till färdigt bokmärke — tre alternativ.</p>
+  </div>
+
+  <h3>Alternativ 1 · Måla direkt på akvarellpapper (rekommenderat)</h3>
+  <ol class="steps">
+    <li>Klipp ut tre 5×18 cm-strips från ett A4-ark akvarellpapper (300 g/m²).</li>
+    <li>Stansa ett hål 1 cm från toppen med en hålslagare (enkel, billig).</li>
+    <li>Tejpa kanterna med låg-lim-tejp och måla.</li>
+    <li>Ta bort tejp, klipp bort ojämna kanter, trä snöre eller band genom hålet.</li>
+    <li>Valfritt: spreja med aquarellfiksativ för hållbarhet.</li>
+  </ol>
+
+  <h3>Alternativ 2 · Tryck en skandinavisk bas + akvarellfärd</h3>
+  <ol class="steps">
+    <li>Skriv ut ett lätt mönster (ramlinjer, ett enkelt motiv som skelett) på vanligt papper.</li>
+    <li>Lägg akvarellpapper ovanpå (om det är tunt nog, syns linjen igenom) eller använd ett ljusbord.</li>
+    <li>Spåra och måla på akvarellpapperet med din färg.</li>
+    <li>Laminera med kall metod om du vill använda det ofta.</li>
+  </ol>
+
+  <h3>Alternativ 3 · Laminerat för hård daglig användning</h3>
+  <ol class="steps">
+    <li>Måla klart och låt torka 24 timmar.</li>
+    <li>Laminera hos en kopieringscentral (kall laminering skadar inte akvarellen).</li>
+    <li>Klipp med en linjal + bosskniv längs kanterna. Lämna 3 mm laminat runt om.</li>
+    <li>Stansa hålet <i>efter</i> lamineringen för att undvika att det sliter sig.</li>
+  </ol>
+
+  <div class="callout ok">
+    <span class="t">Presentförpackning</span>
+    Tre bokmärken i en transparent OPP-påse, stängd med ett satinband i en av bokmärkenas färger = en handgjord present som tar 10 minuter att förpacka och ser lyxig ut.
+  </div>
+</section>
+
+<section>
+  <div class="section-heading">
+    <span class="num">Avsnitt 5</span>
+    <h2>Bokmärken som presenter och kort</h2>
+    <p>Det mest uppskattade är det mest personliga.</p>
+  </div>
+
+  <table class="data">
+    <thead><tr><th>Tillfälle</th><th>Motiv</th><th>Extra touch</th></tr></thead>
+    <tbody>
+      <tr><td>Födelsedag</td><td>Morgondagg (7), Körsbärsblom (12)</td><td>Skriv födelsedag-datum med tunn penna</td></tr>
+      <tr><td>Nytt år</td><td>Vintersaga (17), Nordisk vinter (11)</td><td>Skriv ett önskemål med vit gouache</td></tr>
+      <tr><td>Jul</td><td>Nattens luna (4), Vintersaga (17)</td><td>Lägg i ett litet klippt granris</td></tr>
+      <tr><td>Sommar</td><td>Tropisk (10), Solnedgång (15)</td><td>Sätt fast ett pressat löv eller blomma</td></tr>
+      <tr><td>Barnboksälskare</td><td>Barnens bok (22), Vilda blommor (2)</td><td>Skriv en favoritcitat från en bok</td></tr>
+      <tr><td>Till en lärarinnan/lärare</td><td>Botanisk minimal (23), Lavendelfält (6)</td><td>Skriv ett tack med fin handstil</td></tr>
+      <tr><td>Naturälskare</td><td>Skogsdjup (8), Havsdjup (13)</td><td>Stämpla med ett riktigt löv från din trädgård</td></tr>
+      <tr><td>Kreativ person</td><td>Abstrakta färgar (9), Neonregn (20)</td><td>Skriv "Gör det vackra" i hörnet</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout ok">
+    <span class="t">Serietillverkning</span>
+    Gör tio bokmärken av ett motiv på en gång (assembly line-metodik): lägg alla washar på alla bokmärken, vänta, lägg sedan alla detaljer. Det är snabbare och mer konsekvent än ett i taget, och du kan ge bort serierna som paket.
+  </div>
+</section>
+
+<section class="endcover">
+  <h2>Nästa steg</h2>
+  <div class="box">
+    <p>Välj ett motiv bland de tio enklaste (1-nybörjarnivå i listan) och klipp ut tre 5×18 cm strips från ett ark akvarellpapper. Gör samma motiv i tre varianter med olika färgpaletter — du ser direkt hur paletten förändrar känslan. Öppna sedan din Kreativa Akvarellakademien och välj ett projekt som använder en liknande teknik på ett större format.</p>
+  </div>
+</section>
+</body>
+</html>

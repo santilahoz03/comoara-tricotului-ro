@@ -1,0 +1,485 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Arkusz produkcji · Biblia Sadzonek</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f3eee2;
+    --paper: #ffffff;
+    --ink: #2b241c;
+    --ink-soft: #6b5b50;
+    --accent: #a33b26;
+    --accent-dark: #24402a;
+    --line: #d4c8b0;
+    --verde: #24402a;
+    --gratis: #2e6b45;
+    --warn: #f57c00;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: var(--bg); color: var(--ink); font-family: 'Inter', sans-serif; min-height: 100vh; }
+
+  header { background: var(--accent-dark); color: #fff; padding: 20px 24px 16px; text-align: center; }
+  header h1 { font-family: 'Playfair Display', serif; font-size: 1.6rem; margin-bottom: 4px; }
+  header p { font-size: 0.9rem; opacity: 0.85; }
+
+  .tabs { display: flex; background: var(--paper); border-bottom: 2px solid var(--line); overflow-x: auto; }
+  .tab { padding: 12px 20px; cursor: pointer; font-size: 0.9rem; font-weight: 600; color: var(--ink-soft); white-space: nowrap; border-bottom: 3px solid transparent; margin-bottom: -2px; }
+  .tab.active { color: var(--accent-dark); border-bottom-color: var(--accent-dark); }
+
+  .panel { display: none; padding: 20px 16px 40px; max-width: 900px; margin: 0 auto; }
+  .panel.active { display: block; }
+
+  .card { background: var(--paper); border: 1px solid var(--line); border-radius: 10px; padding: 20px; margin-bottom: 16px; }
+  .card h2 { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--accent-dark); margin-bottom: 14px; }
+
+  .field { margin-bottom: 12px; }
+  .field label { display: block; font-size: 0.82rem; font-weight: 600; color: var(--ink-soft); margin-bottom: 4px; }
+  .field input, .field select, .field textarea {
+    width: 100%;
+    padding: 9px 11px;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+  }
+  .field input:focus, .field select:focus, .field textarea:focus {
+    outline: 2px solid var(--accent-dark);
+    border-color: var(--accent-dark);
+  }
+
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+  @media (max-width: 520px) { .grid-2, .grid-3 { grid-template-columns: 1fr; } }
+
+  .btn { display: inline-block; padding: 10px 20px; border-radius: 7px; border: none; font-family: 'Inter', sans-serif; font-size: 0.9rem; font-weight: 600; cursor: pointer; transition: opacity 0.15s; }
+  .btn-primary { background: var(--accent-dark); color: #fff; }
+  .btn-secondary { background: var(--bg); border: 1px solid var(--line); color: var(--ink); }
+  .btn-danger { background: #c62828; color: #fff; font-size: 0.8rem; padding: 6px 12px; }
+  .btn:hover { opacity: 0.88; }
+
+  table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+  th { text-align: left; padding: 9px 8px; background: var(--bg); color: var(--ink-soft); font-weight: 600; border-bottom: 1px solid var(--line); }
+  td { padding: 9px 8px; border-bottom: 1px solid var(--line); vertical-align: middle; }
+  tr:hover td { background: #faf7f0; }
+
+  .badge { display: inline-block; border-radius: 20px; padding: 2px 9px; font-size: 0.78rem; font-weight: 600; }
+  .badge-ukorzenianie { background: #e3f2fd; color: #1565c0; }
+  .badge-gotowa { background: #e8f5e9; color: #2e7d32; }
+  .badge-sprzedana { background: #f3e5f5; color: #6a1b9a; }
+  .badge-strata { background: #ffebee; color: #c62828; }
+
+  .stat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 16px; }
+  @media (max-width: 600px) { .stat-grid { grid-template-columns: repeat(2, 1fr); } }
+  .stat-box { background: var(--paper); border: 1px solid var(--line); border-radius: 8px; padding: 14px; text-align: center; }
+  .stat-box .num { font-size: 1.8rem; font-weight: 700; color: var(--accent-dark); font-family: 'Playfair Display', serif; }
+  .stat-box .lbl { font-size: 0.78rem; color: var(--ink-soft); margin-top: 2px; }
+
+  .empty-state { text-align: center; padding: 40px 20px; color: var(--ink-soft); }
+  .empty-state .icon { font-size: 2.5rem; margin-bottom: 10px; }
+
+  .actions-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; align-items: center; }
+  .search-box { flex: 1; min-width: 160px; padding: 8px 12px; border: 1px solid var(--line); border-radius: 6px; font-size: 0.9rem; font-family: 'Inter', sans-serif; background: var(--paper); }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>📋 Arkusz produkcji</h1>
+  <p>Śledź swoje sadzonki od cięcia do sprzedaży</p>
+</header>
+
+<div class="tabs">
+  <div class="tab active" onclick="switchTab('produkcja')">Produkcja</div>
+  <div class="tab" onclick="switchTab('dodaj')">+ Dodaj sadzonkę</div>
+  <div class="tab" onclick="switchTab('statystyki')">Statystyki</div>
+  <div class="tab" onclick="switchTab('mateczniki')">Mateczniki</div>
+</div>
+
+<!-- PANEL: PRODUKCJA -->
+<div class="panel active" id="panel-produkcja">
+  <div class="stat-grid" id="statsTop"></div>
+
+  <div class="actions-row">
+    <input type="text" class="search-box" id="searchBox" placeholder="Szukaj gatunku..." oninput="renderLista()">
+    <select class="search-box" style="max-width:180px;" id="filterStatus" onchange="renderLista()">
+      <option value="">Wszystkie statusy</option>
+      <option value="ukorzenianie">Ukorzenianie</option>
+      <option value="gotowa">Gotowa</option>
+      <option value="sprzedana">Sprzedana</option>
+      <option value="strata">Strata</option>
+    </select>
+  </div>
+
+  <div class="card" style="padding:0; overflow:auto;">
+    <table id="tabelaSadzonek">
+      <thead><tr>
+        <th>#</th><th>Gatunek</th><th>Data pobrania</th><th>Status</th>
+        <th>Korzenie (cm)</th><th>Cena (zł)</th><th>Akcje</th>
+      </tr></thead>
+      <tbody id="bodyLista"></tbody>
+    </table>
+    <div class="empty-state" id="emptyState">
+      <div class="icon">🌱</div>
+      <p>Brak sadzonek. Dodaj pierwszą w zakładce "+ Dodaj sadzonkę".</p>
+    </div>
+  </div>
+</div>
+
+<!-- PANEL: DODAJ -->
+<div class="panel" id="panel-dodaj">
+  <div class="card">
+    <h2>Dodaj nową sadzonkę</h2>
+    <div class="grid-2">
+      <div class="field">
+        <label>Gatunek *</label>
+        <input type="text" id="fGatunek" placeholder="np. Pothos złoty">
+      </div>
+      <div class="field">
+        <label>Metoda rozmnażania</label>
+        <select id="fMetoda">
+          <option>Woda</option>
+          <option>Perlit/Wermikulit</option>
+          <option>Podłoże kaktusowe</option>
+          <option>Podział korzeni</option>
+          <option>Metoda liścia</option>
+          <option>Odrostek</option>
+          <option>Inna</option>
+        </select>
+      </div>
+    </div>
+    <div class="grid-3">
+      <div class="field">
+        <label>Data pobrania</label>
+        <input type="date" id="fData">
+      </div>
+      <div class="field">
+        <label>Doniczka (cm)</label>
+        <input type="number" id="fDoniczka" value="9" min="5" max="30">
+      </div>
+      <div class="field">
+        <label>Planowana cena (zł)</label>
+        <input type="number" id="fCena" value="12" min="0" step="1">
+      </div>
+    </div>
+    <div class="field">
+      <label>Notatki (opcjonalne)</label>
+      <textarea id="fNotatki" rows="2" placeholder="Skąd pobrana, ukorzeniacz, obserwacje..."></textarea>
+    </div>
+    <div class="field">
+      <label>Liczba sztuk</label>
+      <input type="number" id="fIlosc" value="1" min="1" max="100">
+    </div>
+    <button class="btn btn-primary" onclick="dodajSadzonke()">Dodaj do arkusza</button>
+  </div>
+
+  <div class="card" id="szybkaDodaj">
+    <h2>Szybkie dodawanie (batch)</h2>
+    <p style="font-size:0.88rem; color:var(--ink-soft); margin-bottom:12px;">Dodaj kilka różnych gatunków jednocześnie.</p>
+    <div id="batchRows">
+      <div class="grid-3 batch-row" style="margin-bottom:8px;">
+        <input type="text" placeholder="Gatunek" class="batch-gat" style="padding:8px; border:1px solid var(--line); border-radius:6px; font-family:Inter,sans-serif;">
+        <input type="number" placeholder="Ile szt." value="1" min="1" class="batch-ile" style="padding:8px; border:1px solid var(--line); border-radius:6px; font-family:Inter,sans-serif;">
+        <input type="number" placeholder="Cena zł" value="12" min="0" class="batch-cena" style="padding:8px; border:1px solid var(--line); border-radius:6px; font-family:Inter,sans-serif;">
+      </div>
+    </div>
+    <div style="display:flex; gap:8px; margin-top:8px;">
+      <button class="btn btn-secondary" onclick="addBatchRow()">+ Rząd</button>
+      <button class="btn btn-primary" onclick="saveBatch()">Zapisz wszystkie</button>
+    </div>
+  </div>
+</div>
+
+<!-- PANEL: STATYSTYKI -->
+<div class="panel" id="panel-statystyki">
+  <div class="card">
+    <h2>Podsumowanie produkcji</h2>
+    <div id="statsDetail"></div>
+  </div>
+  <div class="card">
+    <h2>Najlepsze gatunki</h2>
+    <div id="topGatunki"></div>
+  </div>
+</div>
+
+<!-- PANEL: MATECZNIKI -->
+<div class="panel" id="panel-mateczniki">
+  <div class="card">
+    <h2>Dodaj matecznik</h2>
+    <div class="grid-2">
+      <div class="field">
+        <label>Gatunek</label>
+        <input type="text" id="mGatunek" placeholder="np. Echeveria Lola">
+      </div>
+      <div class="field">
+        <label>Data nabycia</label>
+        <input type="date" id="mData">
+      </div>
+    </div>
+    <div class="grid-2">
+      <div class="field">
+        <label>Źródło</label>
+        <select id="mZrodlo">
+          <option>Własna</option>
+          <option>Wymiana</option>
+          <option>Zakup</option>
+          <option>Sklep spożywczy</option>
+          <option>Inne</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Kondycja</label>
+        <select id="mKondycja">
+          <option>Doskonała</option>
+          <option>Dobra</option>
+          <option>Wymaga uwagi</option>
+        </select>
+      </div>
+    </div>
+    <div class="field">
+      <label>Notatki</label>
+      <input type="text" id="mNotatki" placeholder="Lokalizacja, charakterystyka...">
+    </div>
+    <button class="btn btn-primary" onclick="dodajMatecznik()">Dodaj matecznik</button>
+  </div>
+
+  <div class="card" style="padding:0; overflow:auto;">
+    <table>
+      <thead><tr><th>Gatunek</th><th>Źródło</th><th>Data</th><th>Kondycja</th><th>Notatki</th><th></th></tr></thead>
+      <tbody id="bodyMateczniki"></tbody>
+    </table>
+    <div class="empty-state" id="emptyMat">
+      <div class="icon">🪴</div>
+      <p>Brak mateczników. Dodaj pierwsze rośliny mateczne.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  let sadzonki = [];
+  let mateczniki = [];
+
+  try { sadzonki = JSON.parse(localStorage.getItem('arkuszSadzonki') || '[]'); } catch(e) { sadzonki = []; }
+  try { mateczniki = JSON.parse(localStorage.getItem('arkuszMateczniki') || '[]'); } catch(e) { mateczniki = []; }
+
+  // Default date
+  document.getElementById('fData').value = new Date().toISOString().slice(0, 10);
+  document.getElementById('mData').value = new Date().toISOString().slice(0, 10);
+
+  function save() {
+    try {
+      localStorage.setItem('arkuszSadzonki', JSON.stringify(sadzonki));
+      localStorage.setItem('arkuszMateczniki', JSON.stringify(mateczniki));
+    } catch(e) {}
+  }
+
+  function switchTab(id) {
+    document.querySelectorAll('.tab').forEach((t, i) => {
+      const ids = ['produkcja', 'dodaj', 'statystyki', 'mateczniki'];
+      t.classList.toggle('active', ids[i] === id);
+    });
+    document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+    document.getElementById('panel-' + id).classList.add('active');
+    if (id === 'produkcja') { renderStats(); renderLista(); }
+    if (id === 'statystyki') renderStatystyki();
+    if (id === 'mateczniki') renderMateczniki();
+  }
+
+  const statusLabel = { ukorzenianie: 'Ukorzenianie', gotowa: 'Gotowa', sprzedana: 'Sprzedana', strata: 'Strata' };
+  const statusBadge = { ukorzenianie: 'badge-ukorzenianie', gotowa: 'badge-gotowa', sprzedana: 'badge-sprzedana', strata: 'badge-strata' };
+
+  function renderStats() {
+    const total = sadzonki.length;
+    const ukorzenianie = sadzonki.filter(s => s.status === 'ukorzenianie').length;
+    const gotowe = sadzonki.filter(s => s.status === 'gotowa').length;
+    const sprzedane = sadzonki.filter(s => s.status === 'sprzedana').length;
+    document.getElementById('statsTop').innerHTML = [
+      { num: total, lbl: 'Wszystkich' },
+      { num: ukorzenianie, lbl: 'Ukorzenianie' },
+      { num: gotowe, lbl: 'Gotowe' },
+      { num: sprzedane, lbl: 'Sprzedane' },
+    ].map(s => '<div class="stat-box"><div class="num">' + s.num + '</div><div class="lbl">' + s.lbl + '</div></div>').join('');
+  }
+
+  function renderLista() {
+    const q = (document.getElementById('searchBox').value || '').toLowerCase();
+    const f = document.getElementById('filterStatus').value;
+    const filtered = sadzonki.filter(s =>
+      (!q || s.gatunek.toLowerCase().includes(q)) &&
+      (!f || s.status === f)
+    );
+    const tbody = document.getElementById('bodyLista');
+    const empty = document.getElementById('emptyState');
+    if (filtered.length === 0) {
+      tbody.innerHTML = '';
+      empty.style.display = 'block';
+      return;
+    }
+    empty.style.display = 'none';
+    tbody.innerHTML = filtered.map((s, i) => {
+      const idx = sadzonki.indexOf(s);
+      const daysAgo = s.data ? Math.floor((Date.now() - new Date(s.data)) / 86400000) : '?';
+      return '<tr>' +
+        '<td>' + (idx + 1) + '</td>' +
+        '<td><strong>' + s.gatunek + '</strong></td>' +
+        '<td>' + (s.data || '—') + ' <span style="font-size:0.78rem;color:var(--ink-soft);">(' + daysAgo + ' dni)</span></td>' +
+        '<td><select onchange="changeStatus(' + idx + ',this.value)" style="font-size:0.82rem;padding:4px 6px;border:1px solid var(--line);border-radius:4px;background:var(--bg);">' +
+        ['ukorzenianie','gotowa','sprzedana','strata'].map(st =>
+          '<option value="' + st + '"' + (s.status === st ? ' selected' : '') + '>' + statusLabel[st] + '</option>'
+        ).join('') + '</select></td>' +
+        '<td><input type="number" value="' + (s.korzenie || '') + '" placeholder="0" min="0" style="width:60px;padding:4px;border:1px solid var(--line);border-radius:4px;font-size:0.88rem;" onchange="updateKorzenie(' + idx + ',this.value)"></td>' +
+        '<td>' + (s.cena || '—') + ' zł</td>' +
+        '<td><button class="btn btn-danger" onclick="usunSadzonke(' + idx + ')">✕</button></td>' +
+        '</tr>';
+    }).join('');
+  }
+
+  function changeStatus(idx, val) {
+    sadzonki[idx].status = val;
+    save();
+    renderStats();
+  }
+
+  function updateKorzenie(idx, val) {
+    sadzonki[idx].korzenie = parseFloat(val) || 0;
+    save();
+  }
+
+  function usunSadzonke(idx) {
+    if (!confirm('Usunąć "' + sadzonki[idx].gatunek + '"?')) return;
+    sadzonki.splice(idx, 1);
+    save();
+    renderStats();
+    renderLista();
+  }
+
+  function dodajSadzonke() {
+    const g = document.getElementById('fGatunek').value.trim();
+    if (!g) { alert('Wpisz gatunek!'); return; }
+    const ile = parseInt(document.getElementById('fIlosc').value) || 1;
+    for (let i = 0; i < ile; i++) {
+      sadzonki.unshift({
+        gatunek: g,
+        metoda: document.getElementById('fMetoda').value,
+        data: document.getElementById('fData').value,
+        doniczka: document.getElementById('fDoniczka').value,
+        cena: document.getElementById('fCena').value,
+        notatki: document.getElementById('fNotatki').value,
+        status: 'ukorzenianie',
+        korzenie: 0
+      });
+    }
+    save();
+    document.getElementById('fGatunek').value = '';
+    document.getElementById('fNotatki').value = '';
+    document.getElementById('fIlosc').value = '1';
+    alert('Dodano ' + ile + ' sadzonk' + (ile === 1 ? 'ę' : 'i') + '!');
+    switchTab('produkcja');
+  }
+
+  function addBatchRow() {
+    const row = document.createElement('div');
+    row.className = 'grid-3 batch-row';
+    row.style.marginBottom = '8px';
+    row.innerHTML = '<input type="text" placeholder="Gatunek" class="batch-gat" style="padding:8px;border:1px solid var(--line);border-radius:6px;font-family:Inter,sans-serif;">' +
+      '<input type="number" placeholder="Ile szt." value="1" min="1" class="batch-ile" style="padding:8px;border:1px solid var(--line);border-radius:6px;font-family:Inter,sans-serif;">' +
+      '<input type="number" placeholder="Cena zł" value="12" min="0" class="batch-cena" style="padding:8px;border:1px solid var(--line);border-radius:6px;font-family:Inter,sans-serif;">';
+    document.getElementById('batchRows').appendChild(row);
+  }
+
+  function saveBatch() {
+    const rows = document.querySelectorAll('.batch-row');
+    let added = 0;
+    rows.forEach(row => {
+      const g = row.querySelector('.batch-gat').value.trim();
+      if (!g) return;
+      const ile = parseInt(row.querySelector('.batch-ile').value) || 1;
+      const cena = row.querySelector('.batch-cena').value;
+      for (let i = 0; i < ile; i++) {
+        sadzonki.unshift({ gatunek: g, data: new Date().toISOString().slice(0,10), cena, status: 'ukorzenianie', korzenie: 0 });
+        added++;
+      }
+    });
+    save();
+    if (added > 0) { alert('Dodano ' + added + ' sadzonek!'); switchTab('produkcja'); }
+  }
+
+  function renderStatystyki() {
+    const sprzedane = sadzonki.filter(s => s.status === 'sprzedana');
+    const przychod = sprzedane.reduce((a, s) => a + (parseFloat(s.cena) || 0), 0);
+    const straty = sadzonki.filter(s => s.status === 'strata').length;
+    const skutecznosc = sadzonki.length > 0 ? ((sprzedane.length / sadzonki.length) * 100).toFixed(0) : 0;
+
+    document.getElementById('statsDetail').innerHTML =
+      '<div class="stat-grid" style="grid-template-columns:repeat(4,1fr);">' +
+      [
+        { num: sprzedane.length, lbl: 'Sprzedano' },
+        { num: przychod.toFixed(0) + ' zł', lbl: 'Przychód' },
+        { num: straty, lbl: 'Straty' },
+        { num: skutecznosc + '%', lbl: 'Skuteczność' },
+      ].map(s => '<div class="stat-box"><div class="num" style="font-size:1.4rem;">' + s.num + '</div><div class="lbl">' + s.lbl + '</div></div>').join('') +
+      '</div>';
+
+    // top gatunki
+    const counts = {};
+    sadzonki.forEach(s => { counts[s.gatunek] = (counts[s.gatunek] || 0) + 1; });
+    const sorted = Object.entries(counts).sort((a, b) => b[1] - a[1]).slice(0, 8);
+    document.getElementById('topGatunki').innerHTML = sorted.length === 0
+      ? '<p style="color:var(--ink-soft);font-size:0.9rem;">Brak danych</p>'
+      : '<table><thead><tr><th>Gatunek</th><th>Liczba sadzonek</th></tr></thead><tbody>' +
+        sorted.map(([g, n]) => '<tr><td>' + g + '</td><td>' + n + '</td></tr>').join('') +
+        '</tbody></table>';
+  }
+
+  function dodajMatecznik() {
+    const g = document.getElementById('mGatunek').value.trim();
+    if (!g) { alert('Wpisz gatunek!'); return; }
+    mateczniki.push({
+      gatunek: g,
+      data: document.getElementById('mData').value,
+      zrodlo: document.getElementById('mZrodlo').value,
+      kondycja: document.getElementById('mKondycja').value,
+      notatki: document.getElementById('mNotatki').value,
+    });
+    save();
+    document.getElementById('mGatunek').value = '';
+    document.getElementById('mNotatki').value = '';
+    renderMateczniki();
+  }
+
+  function renderMateczniki() {
+    const tbody = document.getElementById('bodyMateczniki');
+    const empty = document.getElementById('emptyMat');
+    if (mateczniki.length === 0) {
+      tbody.innerHTML = '';
+      empty.style.display = 'block';
+      return;
+    }
+    empty.style.display = 'none';
+    tbody.innerHTML = mateczniki.map((m, i) =>
+      '<tr><td><strong>' + m.gatunek + '</strong></td><td>' + m.zrodlo + '</td><td>' + (m.data || '—') + '</td>' +
+      '<td>' + m.kondycja + '</td><td style="font-size:0.82rem;color:var(--ink-soft);">' + (m.notatki || '—') + '</td>' +
+      '<td><button class="btn btn-danger" onclick="usunMatecznik(' + i + ')">✕</button></td></tr>'
+    ).join('');
+  }
+
+  function usunMatecznik(idx) {
+    if (!confirm('Usunąć "' + mateczniki[idx].gatunek + '"?')) return;
+    mateczniki.splice(idx, 1);
+    save();
+    renderMateczniki();
+  }
+
+  // Initial render
+  renderStats();
+  renderLista();
+</script>
+
+</body>
+</html>
