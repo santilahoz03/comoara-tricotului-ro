@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>הגישה שלך · מדריך לטיפול באמצעות אמנות</title>
+<style>
+:root {
+  --bg: #FFF8F4; --bg2: #F6ECFF; --a1: #D9C9F7; --a1d: #B89FE0;
+  --a2: #F3B8D2; --a2d: #E98B7A; --title: #4E4036; --body: #6F6258;
+  --body2: #8A7A70; --card: #FFFFFF; --green: #5BAA7A;
+  --grad: linear-gradient(135deg, #D9C9F7, #F3B8D2);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { background: var(--bg); color: var(--body); font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; direction: rtl; }
+.wrap { max-width: 640px; margin: 0 auto; padding: 48px 20px 80px; }
+
+/* Hero */
+.hero { text-align: center; margin-bottom: 40px; }
+.badge-top { display: inline-block; background: var(--grad); color: var(--title); font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: 6px 16px; border-radius: 99px; margin-bottom: 20px; }
+.hero h1 { font-size: 26px; line-height: 1.25; color: var(--title); margin-bottom: 10px; font-weight: 700; }
+.hero p { font-size: 16px; color: var(--body2); line-height: 1.55; }
+
+/* Stats */
+.stats { display: flex; gap: 12px; justify-content: center; margin: 24px 0 32px; flex-wrap: wrap; }
+.stat { background: var(--card); border: 1.5px solid var(--a1); border-radius: 12px; padding: 14px 20px; text-align: center; min-width: 120px; }
+.stat .num { font-size: 24px; font-weight: 700; color: var(--title); }
+.stat .lbl { font-size: 11px; color: var(--body2); text-transform: uppercase; letter-spacing: .05em; margin-top: 2px; }
+
+/* Section header */
+.sec-header { display: flex; align-items: center; gap: 8px; margin: 32px 0 16px; }
+.sec-header h2 { font-size: 17px; color: var(--title); font-weight: 700; }
+.sec-line { flex: 1; height: 1.5px; background: var(--a1); }
+
+/* Core card */
+.core-card {
+  background: var(--card); border: 2px solid var(--a1d); border-radius: 16px;
+  padding: 24px 20px; margin-bottom: 24px; position: relative; overflow: hidden;
+}
+.core-card::before { content: ''; position: absolute; top: 0; right: 0; left: 0; height: 4px; background: var(--grad); }
+.core-card .label { font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--a1d); margin-bottom: 8px; }
+.core-card h3 { font-size: 19px; color: var(--title); font-weight: 700; margin-bottom: 6px; }
+.core-card .desc { font-size: 14px; color: var(--body2); line-height: 1.55; margin-bottom: 16px; }
+.core-card .meta { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 16px; }
+.core-card .pill { font-size: 11px; background: var(--bg2); border: 1px solid var(--a1); border-radius: 99px; padding: 4px 12px; color: var(--body); }
+
+/* Bonus list */
+.bonus-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 32px; }
+.bonus-card {
+  background: var(--card); border: 1.5px solid var(--a1); border-radius: 12px;
+  padding: 16px 18px; display: flex; align-items: center; gap: 14px;
+  flex-direction: row-reverse;
+}
+.bonus-card .icon { font-size: 24px; flex-shrink: 0; }
+.bonus-card .info { flex: 1; text-align: right; }
+.bonus-card .info .label { font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--a1d); margin-bottom: 2px; }
+.bonus-card .info h4 { font-size: 14px; color: var(--title); font-weight: 600; margin-bottom: 2px; }
+.bonus-card .info p { font-size: 12px; color: var(--body2); }
+
+/* Download button */
+.btn-dl {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--grad); color: var(--title);
+  font-size: 13px; font-weight: 700; padding: 10px 18px;
+  border-radius: 10px; text-decoration: none; border: none; cursor: pointer;
+  flex-shrink: 0; white-space: nowrap;
+  transition: opacity .15s;
+}
+.btn-dl:hover { opacity: .85; }
+.btn-dl svg { width: 15px; height: 15px; flex-shrink: 0; }
+.btn-dl-lg {
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  width: 100%; background: var(--grad); color: var(--title);
+  font-size: 15px; font-weight: 700; padding: 14px 20px;
+  border-radius: 12px; text-decoration: none; border: none; cursor: pointer;
+  transition: opacity .15s;
+}
+.btn-dl-lg:hover { opacity: .85; }
+.btn-dl-lg svg { width: 18px; height: 18px; }
+
+/* Steps */
+.steps { background: var(--bg2); border-radius: 12px; padding: 20px; margin-bottom: 32px; }
+.steps h3 { font-size: 15px; color: var(--title); margin-bottom: 14px; font-weight: 700; text-align: right; }
+.step-row { display: flex; gap: 12px; margin-bottom: 10px; align-items: flex-start; flex-direction: row-reverse; }
+.step-row:last-child { margin-bottom: 0; }
+.step-num { flex-shrink: 0; width: 26px; height: 26px; background: var(--a1d); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; color: #fff; margin-top: 2px; }
+.step-row p { font-size: 13px; color: var(--body); line-height: 1.55; text-align: right; }
+
+/* Footer */
+.footer-note { text-align: center; font-size: 13px; color: var(--body2); line-height: 1.6; padding: 20px 0; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="badge-top">✅ הרכישה אושרה</div>
+    <h1>מדריך לטיפול באמצעות אמנות<br>100+ תרגילים + 6 בונוסים מיוחדים</h1>
+    <p>תודה! כל החומרים שלך מוכנים להורדה למטה.</p>
+  </div>
+
+  <!-- Stats -->
+  <div class="stats">
+    <div class="stat"><div class="num">100+</div><div class="lbl">תרגילים</div></div>
+    <div class="stat"><div class="num">6</div><div class="lbl">בונוסים חינמיים</div></div>
+    <div class="stat"><div class="num">∞</div><div class="lbl">גישה לצמיתות</div></div>
+  </div>
+
+  <!-- Core product -->
+  <div class="sec-header"><div class="sec-line"></div><h2>🎨 המוצר העיקרי</h2><div class="sec-line"></div></div>
+
+  <div class="core-card">
+    <div class="label">המדריך המרכזי</div>
+    <h3>מדריך לטיפול באמצעות אמנות</h3>
+    <p class="desc">100 תרגילים מנחים להכרה עצמית, ריפוי וצמיחה פנימית, מאורגנים ב-10 נושאים. PDF, הדפס והשתמש שוב ושוב.</p>
+    <div class="meta">
+      <span class="pill">📖 100 תרגילים</span>
+      <span class="pill">🎨 10 נושאים</span>
+      <span class="pill">🖨️ PDF · הדפס</span>
+      <span class="pill">📐 פורמט A4</span>
+    </div>
+    <a class="btn-dl-lg" href="../../archivos/core.pdf" download>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      הורד את המדריך (PDF)
+    </a>
+  </div>
+
+  <!-- Bonuses -->
+  <div class="sec-header"><div class="sec-line"></div><h2>🎁 הבונוסים החינמיים שלך</h2><div class="sec-line"></div></div>
+
+  <div class="bonus-list">
+    <div class="bonus-card">
+      <div class="icon">🖌️</div>
+      <div class="info">
+        <div class="label">בונוס 1</div>
+        <h4>17 תרגילים נוספים לטיפול באמצעות אמנות</h4>
+        <p>טכניקות חדשות: הדפס, מונוטיפיה, ציור בנשיפה ועוד</p>
+      </div>
+      <a class="btn-dl" href="../../archivos/17-tigulim-nosafim.pdf" download>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        PDF
+      </a>
+    </div>
+
+    <div class="bonus-card">
+      <div class="icon">⭐</div>
+      <div class="info">
+        <div class="label">בונוס 2</div>
+        <h4>20 תרגילים לחיזוק הערכה עצמית</h4>
+        <p>אמנות בשירות אהבה עצמית וביטחון</p>
+      </div>
+      <a class="btn-dl" href="../../archivos/20-tigulim-erka-atzmit.pdf" download>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        PDF
+      </a>
+    </div>
+
+    <div class="bonus-card">
+      <div class="icon">💭</div>
+      <div class="info">
+        <div class="label">בונוס 3</div>
+        <h4>50 שאלות להתמודדות עם חרדה</h4>
+        <p>כרטיסי הנחיה להתמודדות מודעת יותר עם חרדה</p>
+      </div>
+      <a class="btn-dl" href="../../archivos/50-shaelot-harada.pdf" download>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        PDF
+      </a>
+    </div>
+
+    <div class="bonus-card">
+      <div class="icon">🧘</div>
+      <div class="info">
+        <div class="label">בונוס 4</div>
+        <h4>הנחיות לשחרור חסמים רגשיים</h4>
+        <p>5 טכניקות לשחרור אנרגיה תקועה</p>
+      </div>
+      <a class="btn-dl" href="../../archivos/chasmaim-rgshaim.pdf" download>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        PDF
+      </a>
+    </div>
+
+    <div class="bonus-card">
+      <div class="icon">📚</div>
+      <div class="info">
+        <div class="label">בונוס 5</div>
+        <h4>מדריך יישום וליווי</h4>
+        <p>למטפלים ומקצוענים המיישמים טיפול באמנות בפועל</p>
+      </div>
+      <a class="btn-dl" href="../../archivos/madrich-yisum.pdf" download>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        PDF
+      </a>
+    </div>
+
+    <div class="bonus-card">
+      <div class="icon">💪</div>
+      <div class="info">
+        <div class="label">בונוס 6</div>
+        <h4>חזק את הביטחון העצמי שלך — כרטיסי הנחיה</h4>
+        <p>40 מסרים מחזקים לביטחון עצמי גדול יותר</p>
+      </div>
+      <a class="btn-dl" href="../../archivos/bitachon-atzmi.pdf" download>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        PDF
+      </a>
+    </div>
+  </div>
+
+  <!-- Edition 2 -->
+  <div class="sec-header"><div class="sec-line"></div><h2>✨ מתנה מיוחדת</h2><div class="sec-line"></div></div>
+
+  <div class="core-card" style="border-color: var(--a2);">
+    <div class="label" style="color: var(--a2d);">מהדורה 2 — חדש לחלוטין</div>
+    <h3>מהדורה 2: 100 פעילויות טיפוליות חדשות</h3>
+    <p class="desc">תוספת חדשה לחלוטין למדריך עם 100 פעילויות נוספות ב-10 נושאים חדשים: יסודות טבע, נופי עיר, כוח של בעלי חיים, חלומות לילה ועוד.</p>
+    <div class="meta">
+      <span class="pill">📖 100 פעילויות חדשות</span>
+      <span class="pill">🌟 10 נושאים חדשים</span>
+      <span class="pill">🎁 בונוס חינמי</span>
+    </div>
+    <a class="btn-dl-lg" href="../../archivos/mahadura-2.pdf" download style="background: linear-gradient(135deg, #F3B8D2, #D9C9F7);">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      הורד מהדורה 2 (PDF)
+    </a>
+  </div>
+
+  <!-- How to start -->
+  <div class="sec-header"><div class="sec-line"></div><h2>🚀 איך מתחילים</h2><div class="sec-line"></div></div>
+
+  <div class="steps">
+    <h3>3 צעדים פשוטים</h3>
+    <div class="step-row">
+      <div class="step-num">1</div>
+      <p><strong>הורד את המדריך</strong> — לחץ על כפתור ההורדה למעלה. ה-PDF יישמר במכשיר שלך.</p>
+    </div>
+    <div class="step-row">
+      <div class="step-num">2</div>
+      <p><strong>פתח והדפס</strong> — או עבוד ישירות על הטאבלט. אנחנו ממליצים על הדפסה לחוויה טובה יותר.</p>
+    </div>
+    <div class="step-row">
+      <div class="step-num">3</div>
+      <p><strong>בחר תרגיל אחד</strong> — מצא את הנושא שמדבר אליך והתחל. אין צורך בכישרון אמנותי.</p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer-note">
+    <p>שמור דף זה בסימניות — זוהי הגישה שלך לצמיתות.</p>
+    <p style="margin-top:8px;">הצעד הבא: בחר תרגיל אחד ועשה אותו היום. 🎨</p>
+  </div>
+
+</div>
+</body>
+</html>
